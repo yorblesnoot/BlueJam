@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f5aeb1988ece3549a5a360d921e9235, type: 3}
+  m_Name: PlayerRunData
+  m_EditorClassIdentifier: 
+  playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
+  playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
+  worldX: 1
+  worldY: 1
+  items: []
+  essenceInventory: []
+  runDifficulty: 0
+  baseEnemies: 7
+  currentHealth: 87
+  battleParameters: {fileID: 11400000, guid: f7d924609b964d74a94eeb2c86c11dae, type: 2}
+  spawnPool: {fileID: 11400000, guid: 6a4c4ef27b52d364086a3673619d5033, type: 2}
+  enemyBudget: 7

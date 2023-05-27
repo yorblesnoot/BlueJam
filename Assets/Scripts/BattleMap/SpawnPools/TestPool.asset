@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095a6fe426d45484c859eb273f007cc8, type: 3}
+  m_Name: TestPool
+  m_EditorClassIdentifier: 
+  spawnWeight: 020000000200000002000000010000000300000003000000
+  spawnUnits:
+  - {fileID: 7566552127858462820, guid: 6a8ba7e5c56784d46beed0129c7aa960, type: 3}
+  - {fileID: 7143469114425514057, guid: 2da3941d4f46e774d8de606a5a195bfe, type: 3}
+  - {fileID: 8924668989500822478, guid: 896d1b0ee53923f478923947b43069f3, type: 3}
+  - {fileID: 1248187907569993784, guid: 8e33d67d04e8ea543803e55066e7f41a, type: 3}
+  - {fileID: 803027305507735190, guid: d653113a69b79cc44a93fc1c8b9adb6d, type: 3}
+  - {fileID: 8660871373512753979, guid: 8a367e4fabeb017439ca523912929127, type: 3}

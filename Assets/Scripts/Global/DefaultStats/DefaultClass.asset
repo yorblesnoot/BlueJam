@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b729bdf26ad04b34999e29c01d5a33bc, type: 3}
+  m_Name: DefaultClass
+  m_EditorClassIdentifier: 
+  <basemaxHealth>k__BackingField: 100
+  <basehandSize>k__BackingField: 4
+  <baseDamage>k__BackingField: 10
+  <baseBarrier>k__BackingField: 15
+  <baseHealing>k__BackingField: 3
+  <basedeckContents>k__BackingField:
+  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
+  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
+  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
+  <baseEnemies>k__BackingField: 7

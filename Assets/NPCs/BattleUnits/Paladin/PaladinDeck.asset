@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
+  m_Name: PaladinDeck
+  m_EditorClassIdentifier: 
+  deckContents:
+  - {fileID: 11400000, guid: 5d300892ab23b89459e7ec5ce4a75327, type: 2}
+  - {fileID: 11400000, guid: f21dd54ab1c96fe4b91e21bdc0f4bea9, type: 2}
+  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
+  - {fileID: 11400000, guid: 3f6b117e2be98fb44935008663180977, type: 2}
+  - {fileID: 11400000, guid: 8356ab5dddb7d4d4d97d27bbb0bb99dc, type: 2}
+  preDescription: Essence of a paladin.
+  symbol: P
+  essenceDescription: 
