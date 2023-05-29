@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -11,11 +12,12 @@ public class EffectWalk : CardEffectPlus
         description = "Walk to the target cell";
         return description;
     }
-    public override void Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
     {
         base.Execute(actor, targetCell, aoe);
         MonoBehaviour unitStats = actor.GetComponent<UnitActions>();
         unitStats.StartCoroutine(Walk(actor, targetCell, stepSize));
+        return null;
     }
     IEnumerator Walk(GameObject actor, GameObject destinationCell, float stepsize)
     {

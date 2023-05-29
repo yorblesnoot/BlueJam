@@ -139,6 +139,7 @@ GameObject:
   - component: {fileID: 25601}
   - component: {fileID: 25603}
   - component: {fileID: 25602}
+  - component: {fileID: 25604}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -299,6 +300,19 @@ MonoBehaviour:
   unitActions: {fileID: 25600}
   deflectInstances: 
   deflectDurations: 
+--- !u!114 &25604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b99a70320977d9d4abc45d1b3bbc3a37, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  forceTrigger: {fileID: 11400000, guid: e61f1b73341c205448036c453b006d84, type: 2}
 --- !u!850595691 &120944860
 LightingSettings:
   m_ObjectHideFlags: 0

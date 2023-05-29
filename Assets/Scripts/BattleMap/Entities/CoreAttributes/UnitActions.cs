@@ -26,6 +26,8 @@ public class UnitActions : MonoBehaviour, IPlayerData
 
     public bool isDead;
 
+    public RunData runData;
+
     [HideInInspector]public EntityUI myUI { get; set; }
 
     void Awake()
@@ -90,8 +92,7 @@ public class UnitActions : MonoBehaviour, IPlayerData
         if (gameObject.tag == "Enemy" && isSummoned != true)
         {
             //when an enemy dies, add its deck to the player's inventory for later use
-            BattleEnder battleEnder = GameObject.FindGameObjectWithTag("GameController").GetComponent<BattleEnder>();
-            battleEnder.runData.essenceInventory.Add(GetComponent<Hand>().deckRecord);
+            runData.essenceInventory.Add(GetComponent<Hand>().deckRecord);
         }
         TurnManager.UnreportTurn(gameObject);
         isDead = true;
@@ -102,6 +103,8 @@ public class UnitActions : MonoBehaviour, IPlayerData
     {
         yield return new WaitForSeconds(.3f);
         VFXMachine.PlayAtLocation("Explosion", transform.position);
+        gameObject.transform.position = new Vector3(-100, -100, -100);
+        yield return new WaitForSeconds(3f);
         gameObject.SetActive(false);
     }
 }

@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1774f8ed5b20f8548969925b4b9203b6, type: 3}
+  m_Script: {fileID: 11500000, guid: fe4d7e4cd232b3843afe9d9f6eba80fb, type: 3}
   m_Name: Damage.5x
   m_EditorClassIdentifier: 
   delayAfter: 0
@@ -17,7 +17,7 @@ MonoBehaviour:
   effectClass: 0
   vfxStyle: 1
   vfxName: ImpactSmall
-  description: 
-  userOriginalTile: {fileID: 0}
-  damageType: 0
   scalingMultiplier: 0.5
+  description: Deal [damage] damage
+  userOriginalTile: {fileID: 0}
+  blockTrigger: 0

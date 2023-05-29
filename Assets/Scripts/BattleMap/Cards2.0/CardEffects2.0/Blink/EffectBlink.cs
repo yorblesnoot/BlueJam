@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -10,11 +11,12 @@ public class EffectBlink : CardEffectPlus
         description = $"Blink to the target cell";
         return description;
     }
-    public override void Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
     {
         base.Execute(actor, targetCell, aoe);
         GridTools.ReportPositionChange(actor, targetCell);
         Vector3 destination = targetCell.GetComponent<BattleTileController>().unitPosition;
         actor.transform.position = destination;
+        return null;
     }
 }

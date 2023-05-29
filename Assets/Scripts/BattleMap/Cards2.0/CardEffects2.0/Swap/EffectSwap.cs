@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -10,7 +11,7 @@ public class EffectMove : CardEffectPlus
         description = $"Swap places with the unit at the target cell";
         return description;
     }
-    public override void Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
     {
         base.Execute(actor, targetCell, aoe);
         GameObject target = targetCell.GetComponent<BattleTileController>().unitContents;
@@ -18,5 +19,6 @@ public class EffectMove : CardEffectPlus
         actor.transform.position = targetCell.GetComponent<BattleTileController>().unitPosition;
         target.transform.position = myCell.GetComponent<BattleTileController>().unitPosition;
         GridTools.ReportPositionSwap(actor, targetCell, target);
+        return null;
     }
 }

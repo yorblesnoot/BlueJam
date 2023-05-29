@@ -8,7 +8,7 @@ public static class ZoneTargeter
 {
     //public CellQuery cellQuery;
 
-    public static List<GameObject> CheckLegal(string[,] targetData, Vector3 targetSource)
+    public static List<GameObject> ConvertMapRuleToTiles(string[,] targetData, Vector3 targetSource)
     {
         string terrainBlocked = "x";
         //find size of target data array
@@ -58,7 +58,7 @@ public static class ZoneTargeter
     {
         if (cardClass.Contains(CardClass.MOVE) || cardClass.Contains(CardClass.SUMMON))
         {
-            if (ValidContents(tile, tSource, CardClass.MOVE) == true) return true;
+            if (TileIsValidTarget(tile, tSource, CardClass.MOVE) == true) return true;
             else return false;
         }
         else if(cardClass.Contains(CardClass.ATTACK) && AreaTargets(tile, tSource, CardClass.ATTACK, aoeRule).Count > 0)
@@ -75,16 +75,17 @@ public static class ZoneTargeter
     //return all valid targets in an aoe target based on the class, aoe size, and owner
     public static List<GameObject> AreaTargets(GameObject tile, string tSource, CardClass cardClass, string[,] aoeRule)
     {
-        List<GameObject> checkCells = CheckLegal(aoeRule, tile.transform.position);
-        List<GameObject> outCells = new List<GameObject>();
+
+        List<GameObject> checkCells = ConvertMapRuleToTiles(aoeRule, tile.transform.position);
+        List<GameObject> outCells = new();
         if (checkCells.Count > 0)
         {
             for (int i = 0; i < checkCells.Count; i++)
             {
-                if (ValidContents(checkCells[i], tSource, cardClass))
+                if (TileIsValidTarget(checkCells[i], tSource, cardClass))
                 {
-                    BattleTileController tileControl = checkCells[i].GetComponent<BattleTileController>();
-                    outCells.Add(tileControl.unitContents);
+                    GameObject cellContents = checkCells[i].GetComponent<BattleTileController>().unitContents;
+                    if(cellContents != null) outCells.Add(cellContents);
                 }
             }
             return outCells;
@@ -92,51 +93,51 @@ public static class ZoneTargeter
         else return null;
     }
 
-    public static bool ValidContents(GameObject tile, string tSource, CardClass cardClass)
+    public static bool TileIsValidTarget(GameObject tile, string tagOfSource, CardClass cardClass)
     {
         //logic to determine whether unit occupation makes the cell invalid
         #nullable enable
         GameObject? objTarget = tile.GetComponent<BattleTileController>().unitContents;
         #nullable disable
 
-        string tTarget;
-        if (objTarget != null) tTarget = objTarget.tag;
-        else tTarget = "Empty";
+        string tagOfTarget;
+        if (objTarget != null) tagOfTarget = objTarget.tag;
+        else tagOfTarget = "Empty";
         
         if(cardClass == CardClass.ATTACK)
         {
             //if theyre both allies or enemies, invalid
-            if(tSource == tTarget) return false;
+            if(tagOfSource == tagOfTarget) return false;
             //ally cant target player
-            else if(tSource == "Ally" && tTarget == "Player") return false;
+            else if(tagOfSource == "Ally" && tagOfTarget == "Player") return false;
             //player cant target ally
-            else if(tSource == "Player" && tTarget == "Ally") return false;
+            else if(tagOfSource == "Player" && tagOfTarget == "Ally") return false;
             //attack can't target empty
-            else if(tTarget == "Empty") return false;
+            else if(tagOfTarget == "Empty") return false;
             else return true;
         }
         else if(cardClass == CardClass.MOVE)
         {
             //move can only target empty
-            if(tTarget == "Empty") return true;
+            if(tagOfTarget == "Empty") return true;
             else return false;
         }
 
         else if(cardClass == CardClass.SUMMON)
         {
             //summon can only target empty
-            if(tTarget == "Empty") return true;
+            if(tagOfTarget == "Empty") return true;
             else return false;
         }
 
         else if(cardClass == CardClass.BUFF)
         {
             //buff can only target similar
-            if(tSource == tTarget) return true;
+            if(tagOfSource == tagOfTarget) return true;
             //empty is no good
-            else if(tTarget == "Empty") return false;
-            else if(tSource == "Ally" && tTarget == "Player") return true;
-            else if(tSource == "Player" && tTarget == "Ally") return true;
+            else if(tagOfTarget == "Empty") return false;
+            else if(tagOfSource == "Ally" && tagOfTarget == "Player") return true;
+            else if(tagOfSource == "Player" && tagOfTarget == "Ally") return true;
             else return false;
         }
         else return false;        

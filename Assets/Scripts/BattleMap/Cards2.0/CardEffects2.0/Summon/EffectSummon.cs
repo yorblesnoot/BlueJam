@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
-using static EffectDamageHeal;
+using static EffectDamage;
+using static UnityEngine.EventSystems.EventTrigger;
 
 [CreateAssetMenu(fileName = "EffectSummon", menuName = "ScriptableObjects/CardEffects/Summon")]
 public class EffectSummon : CardEffectPlus
@@ -11,16 +13,13 @@ public class EffectSummon : CardEffectPlus
         description = $"Summons a {entityToSummon.name}";
         return description;
     }
-    public override void Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
     {
-        Spawn(actor, entityToSummon, targetCell);
-    }
-    void Spawn(GameObject owner, GameObject entity, GameObject tile)
-    {
-        Vector3 location = tile.GetComponent<BattleTileController>().unitPosition;
-        GameObject summoned = GameObject.Instantiate(entity, location, Quaternion.identity);
-        ModifyStats(owner, summoned);
+        Vector3 location = targetCell.GetComponent<BattleTileController>().unitPosition;
+        GameObject summoned = GameObject.Instantiate(entityToSummon, location, Quaternion.identity);
+        ModifyStats(actor, summoned);
         VFXMachine.PlayAtLocation("SummonCircles", location);
+        return null;
     }
 
     void ModifyStats(GameObject owner, GameObject toModify)

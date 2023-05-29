@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static EffectDamageHeal;
+using static EffectDamage;
 
 [CreateAssetMenu(fileName = "EffectBuff", menuName = "ScriptableObjects/CardEffects/Buff")]
 public class EffectBuff : CardEffectPlus
@@ -29,14 +29,11 @@ public class EffectBuff : CardEffectPlus
             description = $"Applies a buff that {lapseDescription} each turn for {duration} turns [target]";
         return description;
     }
-    public override void Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
     {
-        base.Execute(actor, targetCell, aoe);
+        List <GameObject> targets = base.Execute(actor, targetCell, aoe);
         string[,] aoeRulesRecurring = MapRulesGenerator.Convert(aoeShapeRecurring, aoeSizeRecurring, aoeGapRecurring);
-        List<GameObject> toBuff = ZoneTargeter.AreaTargets(targetCell, actor.tag, effectClass, aoe);
-        for (int i = 0; i < toBuff.Count; i++)
-        {
-            toBuff[i].GetComponent<BuffTracker>().RegisterBuff(actor, this, aoeRulesRecurring);
-        }
+        foreach(GameObject target in targets) target.GetComponent<BuffTracker>().RegisterBuff(actor, this, aoeRulesRecurring);
+        return targets;
     }
 }

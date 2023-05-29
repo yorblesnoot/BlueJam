@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -12,20 +13,22 @@ public class EffectPush : CardEffectPlus
         description = $"Push the target {pushDistance}";
         return description;
     }
-    public override void Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
     {
-        base.Execute(actor, targetCell, aoe);
+        List<GameObject> targets = base.Execute(actor, targetCell, aoe);
         MonoBehaviour unitStats = actor.GetComponent<UnitActions>();
-        unitStats.StartCoroutine(Push(actor, targetCell, pushDistance, stepSize));
+        foreach (GameObject target in targets)
+            unitStats.StartCoroutine(Push(actor, target, pushDistance, stepSize));
+        return targets;
     }
 
-    IEnumerator Push(GameObject actor, GameObject targetCell, int distance, float stepsize)
+    IEnumerator Push(GameObject actor, GameObject target, int distance, float stepsize)
     {
         Vector3 direction = new Vector3();
-        direction = targetCell.transform.position - actor.transform.position;
+        direction = target.transform.position - actor.transform.position;
         direction = new Vector3(direction.x, 0f, direction.z);
         direction.Normalize();
-        Vector3 destination = targetCell.GetComponent<BattleTileController>().unitContents.transform.position;
+        Vector3 destination = target.transform.position;
         int collisionDamage = 0;
         for (int i = 1; i < distance; i++)
         {
@@ -47,7 +50,6 @@ public class EffectPush : CardEffectPlus
                 break;
             }
         }
-        GameObject target = targetCell.GetComponent<BattleTileController>().unitContents;
         GridTools.ReportPositionChange(target, GridTools.VectorToTile(destination));
         while (target.transform.position != destination)
         {
@@ -63,18 +65,17 @@ public class EffectPush : CardEffectPlus
                 GameObject contents = impactPlace.GetComponent<BattleTileController>().unitContents;
                 if (contents != null)
                 {
-                    Collide(impactPlace, collisionDamage);
+                    Collide(contents, collisionDamage);
                 }
-                Collide(targetCell, collisionDamage);
+                Collide(target, collisionDamage);
             }
         }
     }
 
-    void Collide(GameObject cellTarget, int factor)
+    void Collide(GameObject target, int factor)
     {
         float collisionDamage = .05f;
-        GameObject collided = cellTarget.GetComponent<BattleTileController>().unitContents;
-        cellTarget.GetComponent<UnitActions>().ReceiveDamage(factor * Calcs.PercentMaxHealth(cellTarget, collisionDamage));
+        target.GetComponent<UnitActions>().ReceiveDamage(factor * Calcs.PercentMaxHealth(target, collisionDamage));
     }
 }
 

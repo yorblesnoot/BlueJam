@@ -3,8 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerActions : UnitActions
 {
-    public RunData runData;
-
     public override void Initialize()
     {
         unitStats = runData.playerStats;

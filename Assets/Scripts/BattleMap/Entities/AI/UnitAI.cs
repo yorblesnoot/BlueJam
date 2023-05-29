@@ -38,7 +38,7 @@ public class UnitAI : MonoBehaviour
             for(int rule = 0; rule < cardReferences.Count; rule++)
             {
                 //use battlemap to find legal cells for every card in hand
-                List<GameObject> legalTiles = ZoneTargeter.CheckLegal(cardReferences[rule].targetRules, transform.position);
+                List<GameObject> legalTiles = ZoneTargeter.ConvertMapRuleToTiles(cardReferences[rule].targetRules, transform.position);
                 int ruleLength = legalTiles.Count;
                 for(int x = 0; x < ruleLength; x++)
                 {
@@ -72,7 +72,7 @@ public class UnitAI : MonoBehaviour
     IEnumerator AIPlayCard(CardPlus cardReference, GameObject targetTile)
     {
         //highlight the range for an AI card briefly
-        List<GameObject> displayCells = ZoneTargeter.CheckLegal(cardReference.targetRules, transform.position);
+        List<GameObject> displayCells = ZoneTargeter.ConvertMapRuleToTiles(cardReference.targetRules, transform.position);
         for (int i = 0; i < displayCells.Count; i++)
         {
             BattleTileController cellController = displayCells[i].GetComponent<BattleTileController>();

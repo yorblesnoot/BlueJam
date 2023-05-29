@@ -6,6 +6,9 @@ public class TriggerTracker : MonoBehaviour
 {
     public List<TrackedTrigger> activeTriggers = new();
 
+    //debugging for triggers
+    public EffectTrigger forceTrigger;
+
     public class TrackedTrigger
     {
         public EffectTrigger trigger;
@@ -16,12 +19,15 @@ public class TriggerTracker : MonoBehaviour
     private void Awake()
     {
         EventManager.allowTriggers.AddListener(BeginTriggerRound);
+        EventManager.checkForTriggers.AddListener(ExecutedEffect);
+        //debugging for triggers
+        if(forceTrigger != null) activeTriggers.Add(new TrackedTrigger { trigger = forceTrigger, remainingActivations = forceTrigger.triggersRequiredForActivation });
     }
     public void RegisterTrigger(EffectTrigger incomingTrigger)
     {
         activeTriggers.Add(new TrackedTrigger {trigger = incomingTrigger, remainingActivations = incomingTrigger.triggersRequiredForActivation});
     }
-    public void ExecutedEffect(CardEffectPlus effect, GameObject origin, GameObject targetCell)
+    public void ExecutedEffect(CardEffectPlus effect, GameObject origin, GameObject target)
     {
         if (effect.blockTrigger != true && activeTriggers.Count > 0)
         {
@@ -32,7 +38,7 @@ public class TriggerTracker : MonoBehaviour
                 {
                     //confirm receipt or use of triggering effect
                     if ((tracked.trigger.triggerIdentityCondition == EffectTrigger.TriggerIdentity.USER && origin == gameObject) ||
-                       (tracked.trigger.triggerIdentityCondition == EffectTrigger.TriggerIdentity.RECEIVER && targetCell.GetComponent<BattleTileController>().unitContents == gameObject))
+                       (tracked.trigger.triggerIdentityCondition == EffectTrigger.TriggerIdentity.RECEIVER && target == gameObject))
                     {
                         //count down activations; if we've activated enough times, execute the effect
                         tracked.remainingActivations--;
@@ -45,7 +51,7 @@ public class TriggerTracker : MonoBehaviour
                             }
                             else if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.RECEIVER)
                             {
-                                tracked.trigger.triggeredEffect.Execute(gameObject, targetCell, new string[,] { { "n" } });
+                                tracked.trigger.triggeredEffect.Execute(gameObject, GridTools.VectorToTile(target.transform.position), new string[,] { { "n" } });
                             }
                             tracked.remainingActivations = tracked.trigger.triggersRequiredForActivation;
                         }

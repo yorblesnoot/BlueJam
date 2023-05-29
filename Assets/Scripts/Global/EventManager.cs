@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class TargetConfirmed : UnityEvent<GameObject> {}
 public class ToggleAOE : UnityEvent<string[,]> { }
+public class CheckForTriggers : UnityEvent<CardEffectPlus, GameObject, GameObject> { }
 
 public class GetWorldDestination : UnityEvent<int, int> {}
 public class RegisterSlot : UnityEvent<EssenceCrafting> { }
@@ -18,6 +19,7 @@ public static class EventManager
     public static ToggleAOE showAOE = new();
     public static UnityEvent clearAOE = new();
     public static UnityEvent allowTriggers = new();
+    public static CheckForTriggers checkForTriggers = new();
 
     //worldmap events
     public static UnityEvent worldMove = new();

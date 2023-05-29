@@ -4,9 +4,8 @@ using UnityEngine;
 
 public static class Calcs
 {
-    public static int PercentMaxHealth(GameObject targetCell, float percent)
+    public static int PercentMaxHealth(GameObject target, float percent)
     {
-        GameObject target = targetCell.GetComponent<BattleTileController>().unitContents;
         return Mathf.RoundToInt(target.GetComponent<UnitActions>().maxHealth * percent);
     }
 }

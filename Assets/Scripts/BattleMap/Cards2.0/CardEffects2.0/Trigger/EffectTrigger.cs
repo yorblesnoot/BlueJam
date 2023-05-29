@@ -26,13 +26,14 @@ public class EffectTrigger : CardEffectPlus
         return "";
     }
 
-    public override void Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
     {
-        base.Execute(actor, targetCell, aoe);
-        List<GameObject> toBuff = ZoneTargeter.AreaTargets(targetCell, actor.tag, effectClass, aoe);
+        
+        List<GameObject> toBuff = base.Execute(actor, targetCell, aoe);
         for (int i = 0; i < toBuff.Count; i++)
         {
             toBuff[i].GetComponent<TriggerTracker>().RegisterTrigger(this);
         }
+        return null;
     }
 }
