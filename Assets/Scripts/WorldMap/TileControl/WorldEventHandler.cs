@@ -12,11 +12,16 @@ public class WorldEventHandler : MonoBehaviour
 
     //[HideInInspector] public List<EventEncounterModifier> modifierEvents;
 
-    //[HideInInspector] public List <EventItem> itemEvents;
+    [HideInInspector] public WorldEvent itemEvent;
     public IEnumerator TriggerWorldEvents()
     {
         yield return new WaitForSeconds(1f);
         //give the player whatever items
+        if(itemEvent != null )
+        {
+            itemEvent.Activate();
+            itemEvent = null;
+        }
 
         if (enemyEvents.Count > 0)
         {
@@ -26,6 +31,7 @@ public class WorldEventHandler : MonoBehaviour
             foreach (WorldEnemy enemy in enemyEvents)
             {
                 pools.Add(enemy.spawnPool);
+                //remove activated enemies from the enemy map in rundata
                 runData.worldEnemies.Remove(GridTools.VectorToMap(enemy.gameObject.transform.position));
             }
             builder.ConsolidateSpawnPools(pools);
@@ -43,9 +49,14 @@ public class WorldEventHandler : MonoBehaviour
         }
     }
 
-    public void ActivateAggroZone(WorldEnemy enemy)
+    public void RegisterAggroZone(WorldEnemy enemy)
     {
         enemyEvents.Add(enemy);
+    }
+
+    public void RegisterEvent(WorldEvent item)
+    {
+        itemEvent = item;
     }
 }
 

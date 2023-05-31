@@ -34,6 +34,12 @@ public class BattleLauncher : MonoBehaviour
         encounterBuilder.PlaceUnit(player);
         encounterBuilder.PlaceEnemies(runData.enemyBudget);
 
+        //activate item effects
+        foreach(BattleItem item in runData.itemInventory)
+        {
+            item.effect.Execute(player, GridTools.VectorToTile(player.transform.position), new string [,]{ { "n"} });
+        }
+
         //initialize combat
         EventManager.initalizeBattlemap?.Invoke();
     }

@@ -25,11 +25,13 @@ public class RunStarter : MonoBehaviour
         runData.currentHealth = playerClass.basemaxHealth;
 
         //build a world map for the run and set the player's position on it
-        ProceduralMapGenerator proceduralGenerator = new ProceduralMapGenerator();
+        ProceduralMapGenerator proceduralGenerator = new();
         runData.worldMap = proceduralGenerator.Generate(generationParameters);
+        
 
         ProceduralEventPlacer eventPlacer = new(runData);
         runData.worldEnemies = eventPlacer.PlaceEnemies();
+        runData.eventMap = eventPlacer.PlaceWorldEvents();
 
         runData.worldX = startX;
         runData.worldY = startY;
@@ -39,8 +41,9 @@ public class RunStarter : MonoBehaviour
         runData.runDifficulty = 0;
 
         //initalize gameplay lists
-        runData.items = new List<string>();
-        runData.essenceInventory = new List<Deck>();
+        runData.itemInventory = new();
+        runData.essenceInventory = new();
+        runData.keyStock = 0;
 
         //send the player to the world map
         SceneManager.LoadScene(1);

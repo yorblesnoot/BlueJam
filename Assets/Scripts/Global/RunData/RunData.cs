@@ -9,11 +9,13 @@ public class RunData : ScriptableObject
     public Deck playerDeck;
     [HideInInspector]public string[,] worldMap;
     [HideInInspector]public List<int[]> worldEnemies;
+    [HideInInspector] public string[,] eventMap;
 
     public int worldX;
     public int worldY;
-    public List<string> items;
+    public List<BattleItem> itemInventory;
     public List<Deck> essenceInventory;
+    public int keyStock;
 
     public int runDifficulty;
     public int baseEnemies;
@@ -23,7 +25,7 @@ public class RunData : ScriptableObject
     //battle map data; should be overwritten when an encounter starts
     public GenerationParameters battleParameters;
 
-        //enemy spawn info
+    //enemy spawn info to convey from world to battle
     public List<GameObject> spawnUnits;
     public List<int> spawnWeights;
 

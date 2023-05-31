@@ -8,9 +8,13 @@ public class ProceduralEventPlacer
 
     string[,] map;
     List<int[]> enemyLocations;
+    string[,] worldEvents;
 
     List<int[]> validSpots;
-    int eventCap;
+    int enemyCap;
+    int keyCap;
+    int removeCap;
+    int itemCap;
 
     RunData runData;
     public ProceduralEventPlacer(RunData data)
@@ -18,7 +22,11 @@ public class ProceduralEventPlacer
         runData = data;
         //number of events to place
         map = data.worldMap;
-        eventCap = 2 * map.GetLength(0);
+        worldEvents = new string[map.Length,map.Length];
+        enemyCap = map.GetLength(0);
+        keyCap = 3;
+        removeCap = 4;
+        itemCap = 5;
         enemyLocations = new();
         //loop through every battle map spot and add it to a list of valid cell placements
         GetValidSpots();
@@ -40,7 +48,7 @@ public class ProceduralEventPlacer
     public List<int[]> PlaceEnemies()
     {
         //switch this to putting enemies on the event map ~~~~~~~~~~~~~~~~~~~~~~
-        for(int i = 0; i < eventCap; i++)
+        for(int i = 0; i < enemyCap; i++)
         {
             int placementIndex = Random.Range(0, validSpots.Count - 1);
             int[] coords = validSpots[placementIndex];
@@ -50,10 +58,22 @@ public class ProceduralEventPlacer
         return enemyLocations;
     }
 
-    public string RandomizeEvent()
+    public string[,] PlaceWorldEvents()
     {
-        //make it so we pick randomly from items and enemies~~~~~~~~~
-        string eventType = "e";
-        return eventType;
+        PlaceToCap("k", keyCap);
+        PlaceToCap("r", removeCap);
+        PlaceToCap("i", itemCap);
+        return worldEvents;
+    }
+
+    public void PlaceToCap(string thing, int cap)
+    {
+        for (int i = 0; i < cap; i++)
+        {
+            int placementIndex = Random.Range(0, validSpots.Count - 1);
+            int[] coords = validSpots[placementIndex];
+            worldEvents[coords[0], coords[1]] = thing;
+            validSpots.RemoveAt(placementIndex);
+        }
     }
 }
