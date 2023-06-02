@@ -19,14 +19,15 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
     public GameObject owner { get; set; }
     public CardPlus thisCard { get; set; }
 
-    private int sceneIndex;
+    public enum CardMode { PLAY, VIEW, ADD, REMOVE };
+    public CardMode mode;
 
     bool activated = false;
 
     void Awake()
     {
+        if(SceneManager.GetActiveScene().buildIndex == 2) mode = CardMode.PLAY;
         EventManager.clearActivation.AddListener(ClearActive);
-        sceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     //fill the details of a blank card
@@ -63,20 +64,19 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
     //become clickable
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (sceneIndex == 2)
+        if (mode == CardMode.PLAY)
         {
-            //we are in battle mode: tell the loaded card to activate targeting
+            // activate targeting
             ActivateCard();
         }
-        else if(sceneIndex == 1)
+        else if(mode == CardMode.ADD)
         {
-            Debug.Log("adding card");
-            //we are in world mode: award the card
+            // award the card
             EventManager.addCard.Invoke(thisCard);
         }
-        else if(sceneIndex == 0)
+        else if(mode == CardMode.REMOVE)
         {
-            //we are in codex mode: do other stuff
+            // remove the card
         }
     }
 

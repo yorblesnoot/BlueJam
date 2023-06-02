@@ -29,6 +29,7 @@ public class TriggerTracker : MonoBehaviour
     }
     public void ExecutedEffect(CardEffectPlus effect, GameObject origin, GameObject target)
     {
+        //check this: triggers going the wrong way~~~~~~~~~~~~~~~~~~~~~~~~
         if (effect.blockTrigger != true && activeTriggers.Count > 0)
         {
             foreach (TrackedTrigger tracked in activeTriggers)

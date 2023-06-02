@@ -20,8 +20,9 @@ public class CardAwardUI : MonoBehaviour
         {
             if (i < drops.Count)
             {
-                drops[i].Initialize(GameObject.FindGameObjectWithTag("Player"));
+                drops[i].Initialize();
                 CardDisplay cardDisplay = awardCards[i].GetComponent<CardDisplay>();
+                cardDisplay.mode = CardDisplay.CardMode.ADD;
                 cardDisplay.PopulateCard(drops[i]);
                 cardDisplay.thisCard = drops[i];
                 EmphasizeCard emphasis = awardCards[i].GetComponent<EmphasizeCard>();

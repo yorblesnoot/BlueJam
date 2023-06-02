@@ -28,7 +28,7 @@ public class CardPlus : ScriptableObject
 
     public List<CardEffectPlus> effects;
 
-    public void Initialize(GameObject caller)
+    public void Initialize()
     {
         targetRules = MapRulesGenerator.Convert(targetShape, targetSize, targetGap);
         aoeRules = MapRulesGenerator.Convert(aoeShape, aoeSize, aoeGap);

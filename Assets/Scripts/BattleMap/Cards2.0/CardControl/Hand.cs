@@ -66,7 +66,7 @@ public class Hand : MonoBehaviour
 
         //draw a card into a UI based on hand owner
         //rendered cards send play instructions
-        cardToDraw.Initialize(gameObject);
+        cardToDraw.Initialize();
         GameObject newCard = myUI.RenderBlank(cardToDraw);
         handObjects.Add(newCard);
         handReferences.Add(cardToDraw);

@@ -27,14 +27,14 @@ public class RunStarter : MonoBehaviour
         //build a world map for the run and set the player's position on it
         ProceduralMapGenerator proceduralGenerator = new();
         runData.worldMap = proceduralGenerator.Generate(generationParameters);
-        
+
+        runData.worldX = startX;
+        runData.worldY = startY;
 
         ProceduralEventPlacer eventPlacer = new(runData);
         runData.worldEnemies = eventPlacer.PlaceEnemies();
         runData.eventMap = eventPlacer.PlaceWorldEvents();
 
-        runData.worldX = startX;
-        runData.worldY = startY;
 
         //set difficulty parameters
         runData.baseEnemies = playerClass.baseEnemies;
