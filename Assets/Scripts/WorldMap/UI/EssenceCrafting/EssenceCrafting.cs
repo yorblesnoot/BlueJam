@@ -44,9 +44,6 @@ public class EssenceCrafting : MonoBehaviour
                 dragItems[i].SetActive(false);
             }
         }
-
-        //after all the prepping is done, deactivate the menu (until the button is pressed)
-        gameObject.SetActive(false);
     }
 
     public void MergeButton()

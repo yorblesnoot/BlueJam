@@ -13,7 +13,14 @@ public class CameraController : MonoBehaviour
     void Awake()
     {
         panLowerLimit = -17f;
-        panUpperLimit = panLowerLimit + runData.worldMap.GetLength(0)/2;
+        try
+        {
+            panUpperLimit = panLowerLimit + runData.worldMap.GetLength(0) / 2;
+        }
+        catch
+        {
+            panUpperLimit = panLowerLimit + 10;
+        }
     }
     void Update()
     {

@@ -43,7 +43,8 @@ public class RunStarter : MonoBehaviour
         //initalize gameplay lists
         runData.itemInventory = new();
         runData.essenceInventory = new();
-        runData.keyStock = 0;
+        runData.KeyStock = 0;
+        runData.RemoveStock = 0;
 
         //send the player to the world map
         SceneManager.LoadScene(1);

@@ -7,7 +7,7 @@ public class CheckForTriggers : UnityEvent<CardEffectPlus, GameObject, GameObjec
 
 public class GetWorldDestination : UnityEvent<int, int> {}
 public class RegisterSlot : UnityEvent<EssenceCrafting> { }
-public class AddCard : UnityEvent<CardPlus> { }
+public class ClickedCard : UnityEvent<CardPlus, GameObject> { }
 
 public static class EventManager
 {
@@ -25,9 +25,11 @@ public static class EventManager
     public static UnityEvent worldMove = new();
 
     public static RegisterSlot registerSlot = new();
-    public static AddCard addCard = new();
+    public static ClickedCard clickedCard = new();
 
     public static GetWorldDestination getWorldDestination = new();
     public static UnityEvent clearWorldDestination = new();
+
+    public static UnityEvent updateWorldCounters = new();
 
 }

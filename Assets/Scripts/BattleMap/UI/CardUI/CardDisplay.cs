@@ -19,14 +19,14 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
     public GameObject owner { get; set; }
     public CardPlus thisCard { get; set; }
 
-    public enum CardMode { PLAY, VIEW, ADD, REMOVE };
-    public CardMode mode;
+    public int sceneIndex;
 
+    [SerializeField] EmphasizeCard emphasize;
     bool activated = false;
 
     void Awake()
     {
-        if(SceneManager.GetActiveScene().buildIndex == 2) mode = CardMode.PLAY;
+        sceneIndex = SceneManager.GetActiveScene().buildIndex;
         EventManager.clearActivation.AddListener(ClearActive);
     }
 
@@ -59,24 +59,21 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
         }
 
         keywordPane.text = card.keywords;
+        emphasize.PrepareForEmphasis();
     }
 
     //become clickable
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (mode == CardMode.PLAY)
+        if (sceneIndex == 2)
         {
             // activate targeting
             ActivateCard();
         }
-        else if(mode == CardMode.ADD)
+        else
         {
             // award the card
-            EventManager.addCard.Invoke(thisCard);
-        }
-        else if(mode == CardMode.REMOVE)
-        {
-            // remove the card
+            EventManager.clickedCard.Invoke(thisCard, gameObject);
         }
     }
 

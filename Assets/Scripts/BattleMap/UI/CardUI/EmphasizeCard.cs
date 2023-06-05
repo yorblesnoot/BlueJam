@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
@@ -11,37 +12,53 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     [HideInInspector]
     public Vector3 originalScale;
 
-    public Canvas mainCanvas;
-
-
     bool emphasis = false;
 
-    [HideInInspector]
     public bool readyEmphasis = false;
-    public float scaleFactor;
-    public float positionFactor;
 
-    EmphasizeCard()
+    float scaleFactor = 1.5f;
+    float positionFactor = 1.3f;
+
+    void Awake()
     {
-        scaleFactor = 1.5f;
-        positionFactor = 1.3f;
+        if(SceneManager.GetActiveScene().buildIndex == 2)
+        {
+            scaleFactor = 1.5f;
+            positionFactor = 1.3f;
+        }
+        else
+        {
+            scaleFactor = 1.05f;
+            positionFactor = 0f;
+        }
     }
-    
+
+    public void PrepareForEmphasis()
+    {
+        readyEmphasis = true;
+        originalPosition = transform.localPosition;
+        originalScale = transform.localScale;
+    }
     public void OnPointerEnter(PointerEventData data)
     {
         if(emphasis == false && readyEmphasis == true)
         {
-            originalPosition = transform.localPosition;
-            originalScale = transform.localScale;
+            //save original position and scale
             emphasis = true;
 
+            //emphasize scale
             Vector3 scale = transform.localScale;
             transform.localScale = new Vector3(scale.x*scaleFactor,scale.y*scaleFactor,scale.z*scaleFactor);
 
-            Vector3 position = transform.localPosition;
-            RectTransform cardRect = gameObject.GetComponent<RectTransform>();
-            positionFactor = cardRect.rect.height / positionFactor;
-            transform.localPosition = new Vector3(position.x,position.y+positionFactor,position.z);
+            //pop up
+            if (positionFactor > 0f)
+            {
+                Vector3 position = transform.localPosition;
+                RectTransform cardRect = gameObject.GetComponent<RectTransform>();
+                positionFactor = cardRect.rect.height / positionFactor;
+                transform.localPosition = new Vector3(position.x, position.y + positionFactor, position.z);
+            }
+            //StartCoroutine(BlockEmphasis());
         }
     }
 
@@ -49,7 +66,7 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (emphasis == true)
         {
-            transform.localPosition = originalPosition;
+            if(positionFactor > 0f) transform.localPosition = originalPosition;
             transform.localScale = originalScale;
             emphasis = false;
         }

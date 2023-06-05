@@ -6,21 +6,46 @@ using UnityEngine.UI;
 public class WorldMenuControl : MonoBehaviour
 {
     public GameObject essenceCrafting;
+    public GameObject deckView;
+
+    GameObject lastOpened;
+
     public Button openCrafting;
+    public Button openMenu;
+    public Button openDeck;
+
     public Button close;
+
+    [SerializeField] CameraController cameraController;
     public void OpenCrafting()
     {
         //toggle relevant buttons
-        essenceCrafting.SetActive(true);
-        openCrafting.gameObject.SetActive(false);
-        close.gameObject.SetActive(true);
+        ToggleWindow(essenceCrafting, true);
+        lastOpened = essenceCrafting;
     }
-    public void CloseCrafting()
+    public void OpenDeckView()
     {
         //toggle relevant buttons
-        essenceCrafting.SetActive(false);
-        openCrafting.gameObject.SetActive(true);
-        close.gameObject.SetActive(false);
+        ToggleWindow(deckView, true);
+        lastOpened = deckView;
+    }
+    public void CloseLast()
+    {
+        //toggle relevant buttons
+        ToggleWindow(lastOpened, false);
+    }
+
+
+    public void ToggleWindow(GameObject window, bool value)
+    {
+        window.SetActive(value);
+        cameraController.enabled = !value;
+
+        openCrafting.gameObject.SetActive(!value);
+        openMenu.gameObject.SetActive(!value);
+        openDeck.gameObject.SetActive(!value);
+
+        close.gameObject.SetActive(value);
     }
 
 }

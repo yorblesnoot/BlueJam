@@ -34,30 +34,26 @@ public class PlayerUI : EntityUI
 
             cardSlots[count] = new Vector3(cardX, cardHeight, 0);
         }
-        this.StartCoroutine(ArrangeCards());
+        for (int i = 0; i < myHand.handObjects.Count; i++)
+        {
+            GameObject cardObj = myHand.handObjects[i];
+            StartCoroutine(ArrangeCards(cardObj, cardSlots[i]));
+        }
     }
 
-    public IEnumerator ArrangeCards()
+    public IEnumerator ArrangeCards(GameObject card, Vector3 position)
     {
-        
+        EmphasizeCard emphasize = card.GetComponent<EmphasizeCard>();
+        emphasize.readyEmphasis = false;
         int stepCount = 50;
         float relocateDelta = 20f;
         
         for(int step = 0; step < stepCount; step++)
         {
-            for(int card = 0; card < myHand.handObjects.Count; card++)
-            {
-                GameObject cardObj = myHand.handObjects[card];
-                cardObj.transform.localPosition = Vector3.MoveTowards(cardObj.transform.localPosition, cardSlots[card], relocateDelta);
-            }
+            card.transform.localPosition = Vector3.MoveTowards(card.transform.localPosition, position, relocateDelta);
             yield return new WaitForSeconds(.01f);
         }
-        for(int card = 0; card < myHand.handObjects.Count; card++)
-        {
-            GameObject cardObj = myHand.handObjects[card];
-            EmphasizeCard emphCard = cardObj.GetComponent<EmphasizeCard>();
-            emphCard.readyEmphasis = true;
-        }
+        emphasize.PrepareForEmphasis();
     }
 
     public void MullPress()

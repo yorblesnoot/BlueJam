@@ -11,6 +11,11 @@ public class EventRenderer : MonoBehaviour
 
     public void RenderEnemies(List<int[]> locations)
     {
+        if (locations == null)
+        {
+            locations = new();
+            locations.Add(new int[] { 2, 2 });
+        }
         foreach (int[] location in locations)
         {
             GameObject spawnedEnemy = Instantiate(enemy, GridTools.MapToVector(location[0], location[1], 1), Quaternion.identity);
@@ -25,6 +30,10 @@ public class EventRenderer : MonoBehaviour
             {{ "k", key },
             { "r", remove },
             { "i", item }};
+        if(eventMap == null)
+        {
+            eventMap = new string[1,1];
+        }
         for (int x = 0; x < eventMap.GetLength(0); x++)
         {
             for(int y = 0;  y < eventMap.GetLength(1); y++)

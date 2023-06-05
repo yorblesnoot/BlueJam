@@ -112,6 +112,8 @@ MonoBehaviour:
   targetType: {fileID: 8519150486815760486}
   effectText: {fileID: 8519150487366099922}
   keywordPane: {fileID: 8519150487843660602}
+  mode: 0
+  emphasize: {fileID: 1065164714262176951}
 --- !u!114 &1065164714262176951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -126,7 +128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   originalPosition: {x: 0, y: 0, z: 0}
   originalScale: {x: 0, y: 0, z: 0}
-  mainCanvas: {fileID: 0}
   readyEmphasis: 0
 --- !u!223 &7185567049170960089
 Canvas:
@@ -145,7 +146,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0

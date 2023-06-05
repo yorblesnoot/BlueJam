@@ -12,7 +12,7 @@ public class CardAwardUI : MonoBehaviour
     public EssenceCrafting essenceCrafting;
     private void Awake()
     {
-        EventManager.addCard.AddListener(FinalizeAward);
+        EventManager.clickedCard.AddListener(FinalizeAward);
     }
     public void AwardCards(List<CardPlus> drops)
     {
@@ -22,12 +22,8 @@ public class CardAwardUI : MonoBehaviour
             {
                 drops[i].Initialize();
                 CardDisplay cardDisplay = awardCards[i].GetComponent<CardDisplay>();
-                cardDisplay.mode = CardDisplay.CardMode.ADD;
                 cardDisplay.PopulateCard(drops[i]);
                 cardDisplay.thisCard = drops[i];
-                EmphasizeCard emphasis = awardCards[i].GetComponent<EmphasizeCard>();
-                emphasis.readyEmphasis = true;
-                emphasis.positionFactor = 1;
             }
             else
             {
@@ -36,9 +32,9 @@ public class CardAwardUI : MonoBehaviour
         }   
     }
 
-    public void FinalizeAward(CardPlus cardObject)
+    public void FinalizeAward(CardPlus card, GameObject cardObject)
     {
-        runData.playerDeck.deckContents.Add(cardObject);
+        runData.playerDeck.deckContents.Add(card);
         for (int i = 0; i < awardCards.Count; i++)
         {
             awardCards[i].SetActive(false);

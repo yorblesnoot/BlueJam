@@ -15,7 +15,27 @@ public class RunData : ScriptableObject
     public int worldY;
     public List<BattleItem> itemInventory;
     public List<Deck> essenceInventory;
-    public int keyStock;
+
+    private int keyStock;
+    public int KeyStock
+    {
+        get { return keyStock; }
+        set
+        {
+            keyStock = value;
+            EventManager.updateWorldCounters.Invoke();
+        }
+    }
+    private int removeStock;
+    public int RemoveStock
+    {
+        get { return removeStock; }
+        set
+        {
+            removeStock = value;
+            EventManager.updateWorldCounters.Invoke();
+        }
+    }
 
     public int runDifficulty;
     public int baseEnemies;

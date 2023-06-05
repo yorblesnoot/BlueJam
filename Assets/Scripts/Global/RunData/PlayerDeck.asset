@@ -14,13 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deckContents:
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
-  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
-  - {fileID: 11400000, guid: 46a4f46e590e8c642a233271119ce5f5, type: 2}
-  - {fileID: 11400000, guid: 88535221f70034846b63e0356b93f064, type: 2}
+  - {fileID: 0}
   preDescription: 
   symbol: 
   essenceDescription: '.. Contains: *LongWalk *SmallBurst *SmallBurst *PushHit'

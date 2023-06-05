@@ -6,7 +6,7 @@ public class KeyEvent : WorldEvent
 {
     public override void Activate()
     {
-        runData.keyStock++;
+        runData.KeyStock++;
         base.Activate();
     }
 }
