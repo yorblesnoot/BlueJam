@@ -29,6 +29,7 @@ public class WorldLauncher : MonoBehaviour
             }
         }
         mapRenderer.RenderWorld(worldMap);
+        eventRenderer.RenderBoss(runData.bossWorldX, runData.bossWorldY);
         eventRenderer.RenderEnemies(runData.worldEnemies);
         eventRenderer.RenderEvents(runData.eventMap);
 

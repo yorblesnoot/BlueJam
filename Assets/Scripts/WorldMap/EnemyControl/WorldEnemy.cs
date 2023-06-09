@@ -6,14 +6,14 @@ public class WorldEnemy : MonoBehaviour
 {
     [HideInInspector]public SpawnPool spawnPool;
     string[,] aggroZone;
-    public void PullSpawnPool()
+    public virtual void PullSpawnPool()
     {
         //get spawn pool from tile we were spawned on
         GameObject tile = GridTools.VectorToTile(transform.position);
         spawnPool = tile.GetComponent<WorldEventHandler>().tileEnemyPreset;       
     }
 
-    public void RegisterAggroZone()
+    public virtual void RegisterAggroZone()
     {
         aggroZone = MapRulesGenerator.Convert(TileMapShape.CROSS, 1, 0);
         List<GameObject> zone = ZoneTargeter.ConvertMapRuleToTiles(aggroZone, gameObject.transform.position);

@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EncounterBuilder
+public class BattleUnitSpawner
 {
+    public List<GameObject> staticSpawns;
     public List<GameObject> spawnUnits;
     public List<int> spawnWeights;
 
     string[,] battleMap;
     List<int[]> validSpots;
-    public EncounterBuilder(List<GameObject> units, List<int> weights, string[,] map)
+    public BattleUnitSpawner(List<GameObject> statics, List<GameObject> units, List<int> weights, string[,] map)
     {
+        staticSpawns = statics;
         spawnUnits = units;
         spawnWeights = weights;
         battleMap = map;
@@ -40,6 +42,10 @@ public class EncounterBuilder
                 budget -= enemyWeight;
                 PlaceUnit(spawnUnits[enemyIndex]);
             }
+        }
+        foreach (GameObject spawn in staticSpawns)
+        {
+            PlaceUnit(spawn);
         }
     }
 

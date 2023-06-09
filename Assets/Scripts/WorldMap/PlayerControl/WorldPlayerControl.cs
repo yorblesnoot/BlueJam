@@ -11,14 +11,14 @@ public class WorldPlayerControl : MonoBehaviour
     {
         heightAdjust = 1f;
         EventManager.worldMove.AddListener(RequestValidMoves);
-        Vector3 myPosition = GridTools.MapToVector(runData.worldX, runData.worldY, heightAdjust);
+        Vector3 myPosition = GridTools.MapToVector(runData.playerWorldX, runData.playerWorldY, heightAdjust);
         gameObject.transform.position = myPosition;
     }
 
     public void RequestValidMoves()
     {
         //tell adjacent tiles to light up for a move
-        EventManager.getWorldDestination?.Invoke(runData.worldX, runData.worldY);
+        EventManager.getWorldDestination?.Invoke(runData.playerWorldX, runData.playerWorldY);
     }
 
     public IEnumerator MoveToWorldCell(GameObject cell)
@@ -34,8 +34,8 @@ public class WorldPlayerControl : MonoBehaviour
 
         //modify player's world position in run data
         int[] newCoords = GridTools.VectorToMap(cell.transform.position);
-        runData.worldX = newCoords[0];
-        runData.worldY = newCoords[1];
+        runData.playerWorldX = newCoords[0];
+        runData.playerWorldY = newCoords[1];
 
         StartCoroutine(cell.GetComponent<WorldEventHandler>().TriggerWorldEvents());
     }

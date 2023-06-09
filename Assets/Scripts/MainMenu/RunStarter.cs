@@ -28,15 +28,19 @@ public class RunStarter : MonoBehaviour
         ProceduralMapGenerator proceduralGenerator = new();
         runData.worldMap = proceduralGenerator.Generate(generationParameters);
 
-        runData.worldX = startX;
-        runData.worldY = startY;
+        runData.playerWorldX = startX;
+        runData.playerWorldY = startY;
 
+        runData.bossWorldX = runData.worldMap.GetLength(0) - 2;
+        runData.bossWorldY = runData.worldMap.GetLength(1) - 2;
+
+        //place enemies and world items
         ProceduralEventPlacer eventPlacer = new(runData);
         runData.worldEnemies = eventPlacer.PlaceEnemies();
         runData.eventMap = eventPlacer.PlaceWorldEvents();
 
 
-        //set difficulty parameters
+        //set difficulty parameters; currently not really used lol ~~~~~~~~~~~~~~~~~~~~~~~
         runData.baseEnemies = playerClass.baseEnemies;
         runData.runDifficulty = 0;
 

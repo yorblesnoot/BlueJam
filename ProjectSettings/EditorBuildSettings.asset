@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/BattleMap.unity
     guid: c727ef23833a90e49881a201a8846c40
+  - enabled: 1
+    path: Assets/Scenes/Credits.unity
+    guid: 44d866e249a6c90439df567f1ffc6b48
   m_configObjects: {}

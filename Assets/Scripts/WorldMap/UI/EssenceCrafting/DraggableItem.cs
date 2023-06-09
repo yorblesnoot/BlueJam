@@ -15,17 +15,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     [HideInInspector] public Deck essence;
     [HideInInspector] public Canvas mainCanvas;
-
-    void Awake()
-    {
-        EventManager.registerSlot.AddListener(ReportDraggable);
-    }
     
-    public void ReportDraggable(EssenceCrafting crafter)
-    {
-        crafter.dragItems.Add(gameObject);
-        essenceCrafting = crafter;
-    }
+    //NEED TO GET CRAFTER REF
 
     public void OnBeginDrag(PointerEventData eventData)
     {

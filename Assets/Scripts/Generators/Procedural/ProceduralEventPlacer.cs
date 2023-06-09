@@ -39,13 +39,12 @@ public class ProceduralEventPlacer
         {
             for (int y = 0; y < map.GetLength(1); y++)
             {
-                if (x != runData.worldX && y != runData.worldY)
-                {
-                    //add any extra placement logic here
-                    validSpots.Add(new int[] { x, y });
-                }
+                //add any extra placement logic here
+                validSpots.Add(new int[] { x, y });
             }
         }
+        validSpots.RemoveCoordinates(new int[] { runData.playerWorldX, runData.playerWorldY });
+        validSpots.RemoveCoordinates(new int[] { runData.bossWorldX, runData.bossWorldY });
     }
     public List<int[]> PlaceEnemies()
     {

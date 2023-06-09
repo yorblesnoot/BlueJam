@@ -15,6 +15,11 @@ public class BattleEnder : MonoBehaviour
     private IEnumerator WaitToEnd()
     {
         yield return new WaitForSeconds(2f);
-        SceneManager.LoadScene(1);
+        if (runData.bossEncounter == true)
+        {
+            //send the player to credits if they beat the boss
+            SceneManager.LoadScene(3);
+        }
+        else SceneManager.LoadScene(1);
     }
 }

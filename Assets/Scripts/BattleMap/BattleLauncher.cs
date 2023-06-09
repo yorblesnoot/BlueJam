@@ -30,7 +30,7 @@ public class BattleLauncher : MonoBehaviour
         GetComponent<MapRenderer>().RenderWorld(battleMap);
 
         //place units onto the map
-        EncounterBuilder encounterBuilder = new EncounterBuilder(runData.spawnUnits, runData.spawnWeights, battleMap);
+        BattleUnitSpawner encounterBuilder = new BattleUnitSpawner(runData.staticSpawns, runData.spawnUnits, runData.spawnWeights, battleMap);
         encounterBuilder.PlaceUnit(player);
         encounterBuilder.PlaceEnemies(runData.enemyBudget);
 

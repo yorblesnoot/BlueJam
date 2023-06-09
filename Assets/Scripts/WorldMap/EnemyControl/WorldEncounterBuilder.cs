@@ -15,11 +15,13 @@ public class WorldEncounterBuilder
     public void ConsolidateSpawnPools(List<SpawnPool> pools)
     {
         runData.spawnUnits = new();
-        runData.spawnUnits = new();
+        runData.spawnWeights = new();
+        runData.staticSpawns = new();
         foreach (SpawnPool pool in pools)
         {
             runData.spawnUnits.AddRange(pool.spawnUnits);
             runData.spawnWeights.AddRange(pool.spawnWeight);
+            runData.staticSpawns.AddRange(pool.staticSpawns);
         }
     }
 

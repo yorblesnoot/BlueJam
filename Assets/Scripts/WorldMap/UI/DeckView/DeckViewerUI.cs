@@ -10,6 +10,7 @@ public class DeckViewerUI : MonoBehaviour
     [SerializeField] Toggle removal;
     private void Awake()
     {
+        //activate card displays for each card in the players deck
         for(int c = 0; c < runData.playerDeck.deckContents.Count; c++)
         {
             cardDisplays[c].gameObject.SetActive(true);
@@ -21,6 +22,7 @@ public class DeckViewerUI : MonoBehaviour
 
     public void RemoveCard(CardPlus card, GameObject cardObject)
     {
+        //check if the player has enough removes, the switch is toggled, and deck size is high enough--then remove a card
         if(removal.isOn && runData.playerDeck.deckContents.Count > 5 && runData.RemoveStock > 0)
         {
             runData.RemoveStock--;

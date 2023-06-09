@@ -15,21 +15,24 @@ public class WorldEventHandler : MonoBehaviour
     [HideInInspector] public WorldEvent itemEvent;
     public IEnumerator TriggerWorldEvents()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         //give the player whatever items
-        if(itemEvent != null )
+        if(itemEvent != null)
         {
             itemEvent.Activate();
             itemEvent = null;
+            yield return new WaitForSeconds(.5f);
         }
 
         if (enemyEvents.Count > 0)
         {
+            runData.bossEncounter = false;
             WorldEncounterBuilder builder = new(runData);
             //consolidate enemy combats
             List<SpawnPool> pools = new();
             foreach (WorldEnemy enemy in enemyEvents)
             {
+                if(enemy.GetType() == typeof(WorldBoss)) runData.bossEncounter = true;
                 pools.Add(enemy.spawnPool);
                 //remove activated enemies from the enemy map in rundata
                 if(runData.worldEnemies != null) runData.worldEnemies.Remove(GridTools.VectorToMap(enemy.gameObject.transform.position));
@@ -45,7 +48,7 @@ public class WorldEventHandler : MonoBehaviour
         else
         {
             //if combat didnt happen, allow a new player movement
-            EventManager.getWorldDestination?.Invoke(runData.worldX, runData.worldY);
+            EventManager.getWorldDestination?.Invoke(runData.playerWorldX, runData.playerWorldY);
         }
     }
 

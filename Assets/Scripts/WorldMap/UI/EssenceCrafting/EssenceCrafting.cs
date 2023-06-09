@@ -5,7 +5,7 @@ public class EssenceCrafting : MonoBehaviour
 {
     public RunData runData;
     private List<Deck> essences;
-    [HideInInspector]public List<GameObject> dragItems;
+    public List<DraggableItem> dragItems = new();
     
 
     public TMP_Text description;
@@ -18,30 +18,26 @@ public class EssenceCrafting : MonoBehaviour
 
     private void Awake()
     {
-        dragItems = new List<GameObject>();
         essences = new List<Deck>(runData.essenceInventory);
     }
 
     private void Start()
     {
-        //tell the draggable items to put themselves on the items list
-        EventManager.registerSlot?.Invoke(this);
-        DraggableItem dragItem;
         for( int i = 0; i < dragItems.Count; i++ )
         {
             if(i < essences.Count)
             {
-                dragItem = dragItems[i].GetComponent<DraggableItem>();
-                dragItem.mainCanvas = mainCanvas;
+                dragItems[i].essenceCrafting = this;
+                dragItems[i].mainCanvas = mainCanvas;
 
                 //associate a draggable with a specific deck
-                dragItem.essence = essences[i];
-                dragItem.description = description;
-                dragItem.mySymbol.text = essences[i].symbol;
+                dragItems[i].essence = essences[i];
+                dragItems[i].description = description;
+                dragItems[i].mySymbol.text = essences[i].symbol;
             }
             else
             {
-                dragItems[i].SetActive(false);
+                dragItems[i].gameObject.SetActive(false);
             }
         }
     }

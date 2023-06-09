@@ -6,7 +6,6 @@ public class ToggleAOE : UnityEvent<string[,]> { }
 public class CheckForTriggers : UnityEvent<CardEffectPlus, GameObject, GameObject> { }
 
 public class GetWorldDestination : UnityEvent<int, int> {}
-public class RegisterSlot : UnityEvent<EssenceCrafting> { }
 public class ClickedCard : UnityEvent<CardPlus, GameObject> { }
 
 public static class EventManager
@@ -24,7 +23,6 @@ public static class EventManager
     //worldmap events
     public static UnityEvent worldMove = new();
 
-    public static RegisterSlot registerSlot = new();
     public static ClickedCard clickedCard = new();
 
     public static GetWorldDestination getWorldDestination = new();

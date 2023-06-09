@@ -4,17 +4,25 @@ using UnityEngine;
 
 public class EventRenderer : MonoBehaviour
 {
+    [SerializeField] GameObject bossEnemy;
     [SerializeField] GameObject enemy;
     [SerializeField] GameObject key;
     [SerializeField] GameObject remove;
     [SerializeField] GameObject item;
 
+    public void RenderBoss(int x, int y)
+    {
+        if(x == 0)
+        {
+            x = 5; y = 5;
+        }
+        Instantiate(bossEnemy, GridTools.MapToVector(x, y, 1), Quaternion.identity);
+    }
     public void RenderEnemies(List<int[]> locations)
     {
         if (locations == null)
         {
-            locations = new();
-            locations.Add(new int[] { 2, 2 });
+            locations = new(){new int[] { 2, 2 }};
         }
         foreach (int[] location in locations)
         {
@@ -24,6 +32,7 @@ public class EventRenderer : MonoBehaviour
             worldEnemy.RegisterAggroZone();
         }
     }
+
     public void RenderEvents(string[,] eventMap)
     {
         Hashtable eventTable = new()

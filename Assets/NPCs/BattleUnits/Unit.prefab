@@ -54,6 +54,7 @@ MonoBehaviour:
   barrierTracker: {fileID: 1117014247259313703}
   isSummoned: 0
   isDead: 0
+  runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
 --- !u!114 &7599744135600204344
 MonoBehaviour:
   m_ObjectHideFlags: 0

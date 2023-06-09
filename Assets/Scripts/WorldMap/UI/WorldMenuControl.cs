@@ -19,25 +19,19 @@ public class WorldMenuControl : MonoBehaviour
     [SerializeField] CameraController cameraController;
     public void OpenCrafting()
     {
-        //toggle relevant buttons
         ToggleWindow(essenceCrafting, true);
-        lastOpened = essenceCrafting;
     }
     public void OpenDeckView()
     {
-        //toggle relevant buttons
         ToggleWindow(deckView, true);
-        lastOpened = deckView;
     }
     public void CloseLast()
     {
-        //toggle relevant buttons
         ToggleWindow(lastOpened, false);
     }
-
-
     public void ToggleWindow(GameObject window, bool value)
     {
+        lastOpened = window;
         window.SetActive(value);
         cameraController.enabled = !value;
 

@@ -11,8 +11,12 @@ public class RunData : ScriptableObject
     [HideInInspector]public List<int[]> worldEnemies;
     [HideInInspector] public string[,] eventMap;
 
-    public int worldX;
-    public int worldY;
+    public int playerWorldX;
+    public int playerWorldY;
+
+    public int bossWorldX;
+    public int bossWorldY;
+
     public List<BattleItem> itemInventory;
     public List<Deck> essenceInventory;
 
@@ -46,9 +50,10 @@ public class RunData : ScriptableObject
     public GenerationParameters battleParameters;
 
     //enemy spawn info to convey from world to battle
+    public List<GameObject> staticSpawns;
     public List<GameObject> spawnUnits;
     public List<int> spawnWeights;
-
     public int enemyBudget;
+    public bool bossEncounter;
 
 }
