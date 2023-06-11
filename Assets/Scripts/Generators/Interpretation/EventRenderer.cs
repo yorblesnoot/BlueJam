@@ -27,9 +27,6 @@ public class EventRenderer : MonoBehaviour
         foreach (int[] location in locations)
         {
             GameObject spawnedEnemy = Instantiate(enemy, GridTools.MapToVector(location[0], location[1], 1), Quaternion.identity);
-            WorldEnemy worldEnemy = spawnedEnemy.GetComponent<WorldEnemy>();
-            worldEnemy.PullSpawnPool();
-            worldEnemy.RegisterAggroZone();
         }
     }
 

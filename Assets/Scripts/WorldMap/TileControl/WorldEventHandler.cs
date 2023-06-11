@@ -12,16 +12,25 @@ public class WorldEventHandler : MonoBehaviour
 
     //[HideInInspector] public List<EventEncounterModifier> modifierEvents;
 
-    [HideInInspector] public WorldEvent itemEvent;
+    [HideInInspector] public WorldEvent cellEvent;
+
+    bool pickedItem = false;
+
     public IEnumerator TriggerWorldEvents()
     {
         yield return new WaitForSeconds(.5f);
         //give the player whatever items
-        if(itemEvent != null)
+        if(cellEvent != null)
         {
-            itemEvent.Activate();
-            itemEvent = null;
+            cellEvent.Activate();
+            //if the event is an item, hold battle until an item is selected
+            if(cellEvent.GetType() == typeof(ItemEvent))
+            {
+                EventManager.updateItemUI.AddListener(ConfirmItemPicked);
+                yield return new WaitUntil(() => pickedItem == true);
+            }
             yield return new WaitForSeconds(.5f);
+            cellEvent = null;
         }
 
         if (enemyEvents.Count > 0)
@@ -35,7 +44,7 @@ public class WorldEventHandler : MonoBehaviour
                 if(enemy.GetType() == typeof(WorldBoss)) runData.bossEncounter = true;
                 pools.Add(enemy.spawnPool);
                 //remove activated enemies from the enemy map in rundata
-                if(runData.worldEnemies != null) runData.worldEnemies.Remove(GridTools.VectorToMap(enemy.gameObject.transform.position));
+                if(runData.worldEnemies != null) runData.worldEnemies.RemoveCoordinates(GridTools.VectorToMap(enemy.gameObject.transform.position));
             }
             builder.ConsolidateSpawnPools(pools);
 
@@ -52,6 +61,11 @@ public class WorldEventHandler : MonoBehaviour
         }
     }
 
+    public void ConfirmItemPicked()
+    {
+        pickedItem = true;
+    }
+
     public void RegisterAggroZone(WorldEnemy enemy)
     {
         enemyEvents.Add(enemy);
@@ -59,7 +73,7 @@ public class WorldEventHandler : MonoBehaviour
 
     public void RegisterEvent(WorldEvent item)
     {
-        itemEvent = item;
+        cellEvent = item;
     }
 }
 

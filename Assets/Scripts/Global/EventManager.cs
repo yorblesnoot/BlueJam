@@ -30,4 +30,7 @@ public static class EventManager
 
     public static UnityEvent updateWorldCounters = new();
 
+    public static UnityEvent updateItemUI = new();
+    public static UnityEvent awardItem = new();
+
 }

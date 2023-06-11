@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -14,6 +15,8 @@ public class WorldMovementController : MonoBehaviour
     [SerializeField] GameObject mySelector;
 
     [SerializeField] WorldEventHandler eventHandler;
+
+    [SerializeField] RunData runData;
 
     GameObject player;
 
@@ -36,7 +39,7 @@ public class WorldMovementController : MonoBehaviour
             RaycastHit hitPoint;
             if (Physics.Raycast(camray, out hitPoint))
             {
-                if (hitPoint.collider.gameObject == this.gameObject)
+                if (hitPoint.collider.gameObject == gameObject)
                 {
                     //move the player to the cell
                     StartCoroutine(player.GetComponent<WorldPlayerControl>().MoveToWorldCell(gameObject));
@@ -62,8 +65,29 @@ public class WorldMovementController : MonoBehaviour
         int yOffset = playerY - coords[1];
         if ((xOffset == 0 && Mathf.Abs(yOffset) == 1) || (yOffset == 0 && Mathf.Abs(xOffset) == 1))
         {
-            mySelector.SetActive(true);
-            availableMove = true;
+            if(CellIsValidMove()) AllowMove();
         }
+    }
+
+    bool CellIsValidMove()
+    {
+        if(eventHandler.enemyEvents.OfType<WorldBoss>().Any())
+        {
+            Debug.Log("tested boss tile");
+            if(runData.KeyStock >= 3)
+            {
+                return true;
+            }
+        }
+        else
+        {
+            return true;
+        }
+        return false;
+    }
+    void AllowMove()
+    {
+        mySelector.SetActive(true);
+        availableMove = true;
     }
 }

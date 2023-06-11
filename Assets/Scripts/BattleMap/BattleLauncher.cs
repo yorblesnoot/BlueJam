@@ -37,7 +37,8 @@ public class BattleLauncher : MonoBehaviour
         //activate item effects
         foreach(BattleItem item in runData.itemInventory)
         {
-            item.effect.Execute(player, GridTools.VectorToTile(player.transform.position), new string [,]{ { "n"} });
+            foreach(var effect  in item.effects)
+                effect.Execute(player, GridTools.VectorToTile(player.transform.position), new string [,]{ { "n"} });
         }
 
         //initialize combat

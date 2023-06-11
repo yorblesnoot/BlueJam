@@ -6,6 +6,11 @@ public class WorldEnemy : MonoBehaviour
 {
     [HideInInspector]public SpawnPool spawnPool;
     string[,] aggroZone;
+    private void Awake()
+    {
+        PullSpawnPool();
+        RegisterAggroZone();
+    }
     public virtual void PullSpawnPool()
     {
         //get spawn pool from tile we were spawned on

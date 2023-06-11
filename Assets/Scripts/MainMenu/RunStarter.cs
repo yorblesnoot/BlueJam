@@ -9,6 +9,7 @@ public class RunStarter : MonoBehaviour
     public PlayerClass playerClass;
     public UnitStats playerStats;
     public Deck playerDeck;
+    public ItemPool itemPool;
 
     public GenerationParameters generationParameters;
     public void InitializeRun()
@@ -45,6 +46,8 @@ public class RunStarter : MonoBehaviour
         runData.runDifficulty = 0;
 
         //initalize gameplay lists
+        itemPool.awardableItems = new();
+        itemPool.awardableItems.AddRange(itemPool.awardableItemPool);
         runData.itemInventory = new();
         runData.essenceInventory = new();
         runData.KeyStock = 0;

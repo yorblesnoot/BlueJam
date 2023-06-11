@@ -33,14 +33,17 @@ public class BattleUnitSpawner
 
     public void PlaceEnemies(int budget)
     {
-        while(budget > 0)
+        if (spawnUnits.Count > 0)
         {
-            int enemyIndex = Random.Range(0, spawnUnits.Count);
-            int enemyWeight = spawnWeights[enemyIndex];
-            if (enemyWeight <= budget)
+            while (budget > 0)
             {
-                budget -= enemyWeight;
-                PlaceUnit(spawnUnits[enemyIndex]);
+                int enemyIndex = Random.Range(0, spawnUnits.Count);
+                int enemyWeight = spawnWeights[enemyIndex];
+                if (enemyWeight <= budget)
+                {
+                    budget -= enemyWeight;
+                    PlaceUnit(spawnUnits[enemyIndex]);
+                }
             }
         }
         foreach (GameObject spawn in staticSpawns)

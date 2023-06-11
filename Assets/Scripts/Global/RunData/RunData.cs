@@ -20,7 +20,7 @@ public class RunData : ScriptableObject
     public List<BattleItem> itemInventory;
     public List<Deck> essenceInventory;
 
-    private int keyStock;
+    [SerializeField]private int keyStock;
     public int KeyStock
     {
         get { return keyStock; }
@@ -30,7 +30,7 @@ public class RunData : ScriptableObject
             EventManager.updateWorldCounters.Invoke();
         }
     }
-    private int removeStock;
+    [SerializeField] private int removeStock;
     public int RemoveStock
     {
         get { return removeStock; }

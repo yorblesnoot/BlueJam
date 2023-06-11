@@ -50,6 +50,7 @@ MonoBehaviour:
   unitPosition: {x: 0, y: 0, z: 0}
   mySelector: {fileID: 5821226793538870840}
   eventHandler: {fileID: 1284691866914449898}
+  runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
 --- !u!65 &8538304405607322379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -79,6 +80,7 @@ MonoBehaviour:
   generationParameters: {fileID: 0}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   enemyEvents: []
+  itemEvent: {fileID: 0}
 --- !u!1001 &2207960037877059920
 PrefabInstance:
   m_ObjectHideFlags: 0
