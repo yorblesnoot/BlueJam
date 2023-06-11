@@ -15,7 +15,7 @@ public class EffectWalk : CardEffectPlus
     public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
     {
         base.Execute(actor, targetCell, aoe);
-        MonoBehaviour unitStats = actor.GetComponent<UnitActions>();
+        MonoBehaviour unitStats = actor.GetComponent<BattleUnit>();
         unitStats.StartCoroutine(Walk(actor, targetCell, stepSize));
         return null;
     }

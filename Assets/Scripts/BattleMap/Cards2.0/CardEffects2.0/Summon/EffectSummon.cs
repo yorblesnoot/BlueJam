@@ -32,7 +32,7 @@ public class EffectSummon : CardEffectPlus
         else toModify.tag = owner.tag;
         toModify.transform.localScale -= new Vector3(.3f, .3f, .3f);
 
-        UnitActions stats = toModify.GetComponent<UnitActions>();
+        BattleUnit stats = toModify.GetComponent<BattleUnit>();
         stats.isSummoned = true;
         stats.maxHealth /= summonModifier;
         stats.currentHealth /= summonModifier;

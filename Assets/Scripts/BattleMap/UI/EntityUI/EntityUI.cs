@@ -13,7 +13,7 @@ public class EntityUI : MonoBehaviour
     public GameObject blankCard;
     public Hand myHand;
     public GameObject unitCanvas;
-    public UnitActions unitActions;
+    public BattleUnit unitActions;
 
     [field: SerializeField]public BuffUI buffUI { get; set; }
 

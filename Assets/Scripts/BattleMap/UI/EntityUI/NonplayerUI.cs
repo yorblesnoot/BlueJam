@@ -12,7 +12,7 @@ public class NonplayerUI : EntityUI
     void Awake()
     {
         cardSize = 1;
-        unitActions = GetComponentInParent<UnitActions>();
+        unitActions = GetComponentInParent<BattleUnit>();
         TurnManager.startUpdate.AddListener(UpdateBeats);
     } 
     

@@ -79,7 +79,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
 
     public void ActivateCard()
     {
-        if(owner.GetComponent<UnitActions>().myTurn == true && activated == false)
+        if(owner.GetComponent<BattleUnit>().myTurn == true && activated == false)
         {
             //tell every active card to become inactive
             EventManager.clearActivation?.Invoke();
@@ -93,6 +93,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
                 cellController.HighlightCell();
             }
             EventManager.showAOE.Invoke(thisCard.aoeRules);
+            TurnManager.ShowPossibleTurnTakers(thisCard.cost);
             EventManager.targetConfirmed.AddListener(ProxyPlayCard);
             activated = true;
         }

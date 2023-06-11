@@ -16,7 +16,7 @@ public class EffectPush : CardEffectPlus
     public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
     {
         List<GameObject> targets = base.Execute(actor, targetCell, aoe);
-        MonoBehaviour unitStats = actor.GetComponent<UnitActions>();
+        MonoBehaviour unitStats = actor.GetComponent<BattleUnit>();
         foreach (GameObject target in targets)
             unitStats.StartCoroutine(Push(actor, target, pushDistance, stepSize));
         return targets;
@@ -75,7 +75,7 @@ public class EffectPush : CardEffectPlus
     void Collide(GameObject target, int factor)
     {
         float collisionDamage = .05f;
-        target.GetComponent<UnitActions>().ReceiveDamage(factor * Calcs.PercentMaxHealth(target, collisionDamage));
+        target.GetComponent<BattleUnit>().ReceiveDamage(factor * Calcs.PercentMaxHealth(target, collisionDamage));
     }
 }
 

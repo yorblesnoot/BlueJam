@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 9095739572586876917}
   - component: {fileID: 424571663371909286}
   - component: {fileID: 8658214734720246568}
-  - component: {fileID: 5257828579455532062}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5257828579455532062
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2566383773985913013}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2571560921558104999
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +96,6 @@ GameObject:
   - component: {fileID: 788089600873068033}
   - component: {fileID: 869015783617283035}
   - component: {fileID: 3477900684196466395}
-  - component: {fileID: 5852484085082474033}
   m_Layer: 0
   m_Name: Torus
   m_TagString: Untagged
@@ -30012,20 +29997,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2571560921558104999}
   m_Mesh: {fileID: 0}
---- !u!64 &5852484085082474033
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2571560921558104999}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &3075183834290159082
 GameObject:
   m_ObjectHideFlags: 0
@@ -30037,7 +30008,6 @@ GameObject:
   - component: {fileID: 1458463547435609242}
   - component: {fileID: 5179680616901843002}
   - component: {fileID: 8547712421382150607}
-  - component: {fileID: 7264702349772839222}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -30110,19 +30080,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7264702349772839222
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3075183834290159082}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5408932005964469317
 GameObject:
   m_ObjectHideFlags: 0
@@ -30134,7 +30091,6 @@ GameObject:
   - component: {fileID: 9123025911462611080}
   - component: {fileID: 4295445544995072047}
   - component: {fileID: 6521554948491662574}
-  - component: {fileID: 7682926480136313555}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -30211,19 +30167,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7682926480136313555
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5408932005964469317}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &9015875879290749703
 GameObject:
   m_ObjectHideFlags: 0
@@ -30235,7 +30178,6 @@ GameObject:
   - component: {fileID: 137928197086207622}
   - component: {fileID: 1616522912950944933}
   - component: {fileID: 7390735061707891785}
-  - component: {fileID: 7670608207689390291}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -30308,19 +30250,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7670608207689390291
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9015875879290749703}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &1881214091621287572
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30398,7 +30327,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7073732932440425903, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: m_Name
-      value: Unit
+      value: Paladin
       objectReference: {fileID: 0}
     - target: {fileID: 7599744135600204344, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: personality

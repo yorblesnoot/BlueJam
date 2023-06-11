@@ -9,33 +9,28 @@ public class Hand : MonoBehaviour
     public int maxSize;
 
     [HideInInspector]
-    public List<GameObject> handObjects;
-    public List<CardPlus> handReferences;
+    public List<GameObject> handObjects = new();
+    public List<CardPlus> handReferences = new();
 
     [HideInInspector]
     public string ownerType;
 
     public Deck deckRecord;
 
-    [HideInInspector] public List<CardPlus> deckDrawable;
-    [HideInInspector] public List<CardPlus> deckDiscarded;
-
+    [HideInInspector] public List<CardPlus> deckDrawable = new();
+    [HideInInspector] public List<CardPlus> deckDiscarded = new();
     public EntityUI myUI;
 
     void Awake()
     {
-        ownerType = this.gameObject.tag;
-        deckDrawable = new List<CardPlus>();
-        deckDiscarded = new List<CardPlus>();
+        ownerType = gameObject.tag;
         deckDiscarded.AddRange(deckRecord.deckContents);
-        handObjects = new List<GameObject>();
-        handReferences = new List<CardPlus>();
-        TurnManager.turnDraw.AddListener(DrawPhase);
+        TurnManager.drawPhase.AddListener(DrawPhase);
     }
 
     public void DrawPhase()
     {
-        maxSize = GetComponent<UnitActions>().handSize;
+        maxSize = GetComponent<BattleUnit>().handSize;
         while(handObjects.Count < maxSize)
         {
             if(deckDrawable.Count == 0)
@@ -106,7 +101,7 @@ public class Hand : MonoBehaviour
         {
             Discard(handObjects[0], false);
         }
-        TurnManager.SpendBeats(gameObject, mulliganCost);
+        TurnManager.SpendBeats(gameObject.GetComponent<BattleUnit>(), mulliganCost);
     }
 
     public static List<CardPlus> Shuffle(List<CardPlus> list)  

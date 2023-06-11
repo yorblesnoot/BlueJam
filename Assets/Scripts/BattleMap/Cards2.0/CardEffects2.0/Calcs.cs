@@ -6,6 +6,6 @@ public static class Calcs
 {
     public static int PercentMaxHealth(GameObject target, float percent)
     {
-        return Mathf.RoundToInt(target.GetComponent<UnitActions>().maxHealth * percent);
+        return Mathf.RoundToInt(target.GetComponent<BattleUnit>().maxHealth * percent);
     }
 }

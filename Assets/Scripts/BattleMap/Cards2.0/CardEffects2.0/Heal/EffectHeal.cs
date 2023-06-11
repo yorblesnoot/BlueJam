@@ -22,7 +22,7 @@ public class EffectHeal : CardEffectPlus
 
     void Heal(GameObject owner, float healMult, GameObject target)
     {
-        int heal = -Mathf.RoundToInt(owner.GetComponent<UnitActions>().healScaling * healMult);
-        target.GetComponent<UnitActions>().ReceiveDamage(heal);
+        int heal = -Mathf.RoundToInt(owner.GetComponent<BattleUnit>().healScaling * healMult);
+        target.GetComponent<BattleUnit>().ReceiveDamage(heal);
     }
 }

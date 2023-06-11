@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerActions : UnitActions
+public class PlayerActions : BattleUnit
 {
     public override void Initialize()
     {

@@ -21,7 +21,7 @@ public class EffectBarrier : CardEffectPlus
         foreach (GameObject targetUnit in targets)
         {
             BarrierTracker barrierTracker = targetUnit.GetComponent<BarrierTracker>();
-            UnitActions stats = targetUnit.GetComponent<UnitActions>();
+            BattleUnit stats = targetUnit.GetComponent<BattleUnit>();
             int barrier = Mathf.RoundToInt(stats.barrierScaling * scalingMultiplier);
             if (barrierType == BarrierType.DEFLECT) barrierTracker.AddDeflect(barrier);
             else if (barrierType == BarrierType.SHIELD) barrierTracker.AddShield(barrier);

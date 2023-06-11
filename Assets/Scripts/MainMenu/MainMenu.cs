@@ -10,4 +10,9 @@ public class MainMenu : MonoBehaviour
     {
         GetComponent<RunStarter>().InitializeRun();
     }
+    
+    public void ClickExitButton()
+    {
+        Application.Quit();
+    }
 }

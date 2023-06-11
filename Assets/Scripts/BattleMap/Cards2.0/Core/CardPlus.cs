@@ -45,7 +45,7 @@ public class CardPlus : ScriptableObject
             effects[i].Execute(actor, targetCell, aoeRules);
             yield return new WaitForSeconds(effects[i].delayAfter);
         }
-        TurnManager.SpendBeats(actor, cost);
+        TurnManager.SpendBeats(actor.GetComponent<BattleUnit>(), cost);
     }
     public void AssembleDescription()
     {

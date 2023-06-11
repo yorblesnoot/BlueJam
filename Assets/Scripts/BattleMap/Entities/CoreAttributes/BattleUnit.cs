@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitActions : MonoBehaviour, IPlayerData
+public class BattleUnit : MonoBehaviour, IPlayerData
 {
     [field: SerializeField] public UnitStats unitStats { get; set; }
     public BarrierTracker barrierTracker;
@@ -32,7 +32,8 @@ public class UnitActions : MonoBehaviour, IPlayerData
 
     void Awake()
     {
-        Initialize(); 
+        Initialize();
+        TurnManager.deathPhase.AddListener(CheckForDeath);
     }
 
     public virtual void Initialize()
@@ -57,7 +58,7 @@ public class UnitActions : MonoBehaviour, IPlayerData
     public void RegisterTurn()
     {
         myUI.UpdateHealth();
-        TurnManager.ReportTurn(gameObject);
+        TurnManager.ReportTurn(this);
     }
 
     public void ReceiveDamage(int damage)
@@ -71,7 +72,10 @@ public class UnitActions : MonoBehaviour, IPlayerData
 
         //update healthbar in UI
         myUI.UpdateHealth();
+    }
 
+    public void CheckForDeath()
+    {
         if (currentHealth <= 0) Die();
     }
 
@@ -87,24 +91,26 @@ public class UnitActions : MonoBehaviour, IPlayerData
         myTile.GetComponent<BattleTileController>().unitContents = gameObject;
     }
 
+    public void UnreportCell()
+    {
+        //report leaving a cell
+        GameObject myTile = GridTools.VectorToTile(gameObject.transform.position);
+        myTile.GetComponent<BattleTileController>().unitContents = null;
+    }
+
     public virtual void Die()
     {
+        Debug.Log(gameObject + " has died");
         if (gameObject.tag == "Enemy" && isSummoned != true)
         {
             //when an enemy dies, add its deck to the player's inventory for later use
             runData.essenceInventory.Add(GetComponent<Hand>().deckRecord);
         }
-        TurnManager.UnreportTurn(gameObject);
+        TurnManager.UnreportTurn(this);
+        UnreportCell();
+        TurnManager.deathPhase.RemoveListener(CheckForDeath);
         isDead = true;
-        StartCoroutine(DieSlowly());
-    }
-
-    IEnumerator DieSlowly()
-    {
-        yield return new WaitForSeconds(.3f);
         VFXMachine.PlayAtLocation("Explosion", transform.position);
-        gameObject.transform.position = new Vector3(-100, -100, -100);
-        yield return new WaitForSeconds(3f);
-        gameObject.SetActive(false);
+        Destroy(gameObject);
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class BuffTracker : MonoBehaviour
 {
-    public UnitActions stats;
+    public BattleUnit stats;
     public BuffUI buffDisplay;
 
     GameObject myTile;
@@ -22,7 +22,7 @@ public class BuffTracker : MonoBehaviour
     }
     void Awake()
     {
-        TurnManager.turnDraw.AddListener(DurationProc);
+        TurnManager.drawPhase.AddListener(DurationProc);
     }
 
     public void RegisterBuff(GameObject ownerIn, EffectBuff buff, string[,] aoeIn)
@@ -40,7 +40,7 @@ public class BuffTracker : MonoBehaviour
 
     void DurationProc()
     {
-        if (gameObject.GetComponent<UnitActions>().myTurn)
+        if (gameObject.GetComponent<BattleUnit>().myTurn)
         {
             for (int i = 0; i < buffs.Count; i++)
             {

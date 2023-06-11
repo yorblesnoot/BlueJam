@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
+using static UnityEngine.UI.Image;
 
 public class TriggerTracker : MonoBehaviour
 {
@@ -37,27 +39,33 @@ public class TriggerTracker : MonoBehaviour
                 //check if the effect matches the trigger condition and that the trigger hasnt happened yet this round
                 if (tracked.availableForTrigger == true && effect.GetType() == tracked.trigger.triggeringEffect.GetType())
                 {
-                    //confirm receipt or use of triggering effect
-                    if ((tracked.trigger.triggerIdentityCondition == EffectTrigger.TriggerIdentity.USER && origin == gameObject) ||
-                       (tracked.trigger.triggerIdentityCondition == EffectTrigger.TriggerIdentity.RECEIVER && target == gameObject))
-                    {
-                        //count down activations; if we've activated enough times, execute the effect
-                        tracked.remainingActivations--;
-                        tracked.availableForTrigger = false;
-                        if (tracked.remainingActivations == 0)
-                        {
-                            if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.USER)
-                            {
-                                tracked.trigger.triggeredEffect.Execute(gameObject, GridTools.VectorToTile(origin.transform.position), new string[,] { { "n" } });
-                            }
-                            else if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.RECEIVER)
-                            {
-                                tracked.trigger.triggeredEffect.Execute(gameObject, GridTools.VectorToTile(target.transform.position), new string[,] { { "n" } });
-                            }
-                            tracked.remainingActivations = tracked.trigger.triggersRequiredForActivation;
-                        }
-                    }
+                    CheckForTrigger(tracked, origin, target);
                 }
+            }
+        }
+    }
+
+    void CheckForTrigger(TrackedTrigger tracked, GameObject origin, GameObject target)
+    {
+        //confirm receipt or use of triggering effect
+        if ((tracked.trigger.triggerIdentityCondition == EffectTrigger.TriggerIdentity.USER && origin == gameObject) ||
+            (tracked.trigger.triggerIdentityCondition == EffectTrigger.TriggerIdentity.RECEIVER && target == gameObject))
+        {
+            //count down activations; if we've activated enough times, execute the effect
+            tracked.remainingActivations--;
+            tracked.availableForTrigger = false;
+            if (tracked.remainingActivations == 0)
+            {
+                Debug.Log(gameObject + " triggered " + tracked.trigger.triggeredEffect);
+                if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.USER)
+                {
+                    tracked.trigger.triggeredEffect.Execute(gameObject, GridTools.VectorToTile(origin.transform.position), new string[,] { { "n" } });
+                }
+                else if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.RECEIVER)
+                {
+                    tracked.trigger.triggeredEffect.Execute(gameObject, GridTools.VectorToTile(target.transform.position), new string[,] { { "n" } });
+                }
+                tracked.remainingActivations = tracked.trigger.triggersRequiredForActivation;
             }
         }
     }

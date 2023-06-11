@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BarrierTracker : MonoBehaviour
 {
-    public UnitActions unitActions;
+    public BattleUnit unitActions;
 
     [HideInInspector] public List<int> deflectInstances;
     [HideInInspector] public List<int> deflectDurations;

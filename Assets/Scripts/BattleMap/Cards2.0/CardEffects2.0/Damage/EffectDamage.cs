@@ -22,7 +22,7 @@ public class EffectDamage : CardEffectPlus
 
     void Normal(GameObject owner, float damageMult, GameObject target)
     {
-        int damage = Mathf.RoundToInt(owner.GetComponent<UnitActions>().damageScaling * damageMult);
-        target.GetComponent<UnitActions>().ReceiveDamage(damage);
+        int damage = Mathf.RoundToInt(owner.GetComponent<BattleUnit>().damageScaling * damageMult);
+        target.GetComponent<BattleUnit>().ReceiveDamage(damage);
     }
 }

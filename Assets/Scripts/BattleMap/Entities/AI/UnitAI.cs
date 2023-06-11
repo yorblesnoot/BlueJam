@@ -11,7 +11,7 @@ public class UnitAI : MonoBehaviour
 
     public AIProfile personality;
 
-    private List<GameObject> entities;
+    private List<BattleUnit> entities;
 
     public Hand myHand;
 
@@ -159,7 +159,7 @@ public class UnitAI : MonoBehaviour
         float output = 0;
         for (int i = 0; i < entities.Count; i++)
         {
-            GameObject entity = entities[i];
+            GameObject entity = entities[i].gameObject;
             if (AreWeFriends(this.gameObject, entity) == false)
             {
                 float distance = Vector3.Distance(entity.transform.position, moveVect);
