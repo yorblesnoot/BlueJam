@@ -17,18 +17,19 @@ public class CardEffectPlus : ScriptableObject
 
     [HideInInspector] public string description;
 
-    [HideInInspector] public GameObject userOriginalTile;
+    [HideInInspector] public BattleTileController userOriginalTile;
 
     public bool blockTrigger;
-    public virtual List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public virtual List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
-        VFXMachine.PlayVFX(vfxName, vfxStyle, actor, targetCell);
+        if(vfxName != null && vfxName != "") VFXMachine.PlayVFX(vfxName, vfxStyle, actor, targetCell);
         if(targetSelf == true)
         {
             targetCell = userOriginalTile;
         }
-        List<GameObject> targets = ZoneTargeter.AreaTargets(targetCell, actor.tag, effectClass, aoe);
-        if(targets.Count > 0) foreach(GameObject target in targets) EventManager.checkForTriggers.Invoke(this, actor, target);
+        //issue here when no targets
+        List<BattleUnit> targets = ZoneTargeter.AreaTargets(targetCell.gameObject, actor.gameObject.tag, effectClass, aoe);
+        if(targets.Count > 0) foreach(BattleUnit target in targets) EventManager.checkForTriggers.Invoke(this, actor, target);
         else EventManager.checkForTriggers.Invoke(this, actor, null);
         return targets;
     }

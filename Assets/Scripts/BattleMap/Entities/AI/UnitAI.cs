@@ -15,6 +15,8 @@ public class UnitAI : MonoBehaviour
 
     public Hand myHand;
 
+    [SerializeField] BattleUnit thisUnit;
+
     // Start is called before the first frame update
     void Awake()
     {
@@ -32,7 +34,7 @@ public class UnitAI : MonoBehaviour
             //checklegal on every targetRules
             entities = TurnManager.turnTakers;
 
-            List<GameObject> optionTile = new List<GameObject>();
+            List<BattleTileController> optionTile = new();
             List<float> optionFavor = new List<float>();
             List<CardPlus> optionReference = new List<CardPlus>();
             for(int rule = 0; rule < cardReferences.Count; rule++)
@@ -42,9 +44,9 @@ public class UnitAI : MonoBehaviour
                 int ruleLength = legalTiles.Count;
                 for(int x = 0; x < ruleLength; x++)
                 {
-                    if (ZoneTargeter.ValidPlay(legalTiles[x], gameObject.tag, cardReferences[rule].cardClass, cardReferences[rule].aoeRules))
+                    BattleTileController addTile = legalTiles[x].GetComponent<BattleTileController>();
+                    if (ZoneTargeter.ValidPlay(addTile, gameObject.tag, cardReferences[rule].cardClass, cardReferences[rule].aoeRules))
                     { 
-                        GameObject addTile = legalTiles[x];
                         optionTile.Add(addTile);
                         float inFavor = CalculateFavor(addTile, cardReferences[rule].cardClass, cardReferences[rule].aoeRules);
                         optionFavor.Add(inFavor);
@@ -69,7 +71,7 @@ public class UnitAI : MonoBehaviour
         }
     }
 
-    IEnumerator AIPlayCard(CardPlus cardReference, GameObject targetTile)
+    IEnumerator AIPlayCard(CardPlus cardReference, BattleTileController targetTile)
     {
         //highlight the range for an AI card briefly
         List<GameObject> displayCells = ZoneTargeter.ConvertMapRuleToTiles(cardReference.targetRules, transform.position);
@@ -83,11 +85,11 @@ public class UnitAI : MonoBehaviour
 
         //clear the range display and take the action
         EventManager.clearActivation.Invoke();
-        StartCoroutine(cardReference.PlaySequence(gameObject,targetTile));
+        StartCoroutine(cardReference.PlaySequence(thisUnit,targetTile));
         myHand.Discard(cardReference, true);
     }
 
-    private float CalculateFavor(GameObject moveTile, List<CardClass> cardClass, string[,] cardAOE)
+    private float CalculateFavor(BattleTileController moveTile, List<CardClass> cardClass, string[,] cardAOE)
     {
         float favor = 0f;
         Vector3 moveVect = moveTile.transform.position;
@@ -102,12 +104,12 @@ public class UnitAI : MonoBehaviour
         }
         if(cardClass.Contains(CardClass.ATTACK))
         {
-            List <GameObject> attackables = ZoneTargeter.AreaTargets(moveTile, gameObject.tag, CardClass.ATTACK, cardAOE);
+            List <BattleUnit> attackables = ZoneTargeter.AreaTargets(moveTile.gameObject, gameObject.tag, CardClass.ATTACK, cardAOE);
             favor += attackables.Count * personality.interestAttack;
         }
         if (cardClass.Contains(CardClass.BUFF))
         {
-            List<GameObject> buffables = ZoneTargeter.AreaTargets(moveTile, gameObject.tag, CardClass.BUFF, cardAOE);
+            List<BattleUnit> buffables = ZoneTargeter.AreaTargets(moveTile.gameObject, gameObject.tag, CardClass.BUFF, cardAOE);
             favor += buffables.Count * personality.interestBuff;
         }
 

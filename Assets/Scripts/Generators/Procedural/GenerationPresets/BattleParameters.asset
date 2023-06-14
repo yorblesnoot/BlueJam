@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: BattleParameters
   m_EditorClassIdentifier: 
   mapSize: 6
-  noiseFrequency: 3.58
+  noiseFrequency: 5
   symbolThresholds:
   - x
-  - n
   - n
   - n

@@ -25,7 +25,7 @@ public class Hand : MonoBehaviour
     {
         ownerType = gameObject.tag;
         deckDiscarded.AddRange(deckRecord.deckContents);
-        TurnManager.drawPhase.AddListener(DrawPhase);
+        TurnManager.drawThenBuffPhase.AddListener(DrawPhase);
     }
 
     public void DrawPhase()

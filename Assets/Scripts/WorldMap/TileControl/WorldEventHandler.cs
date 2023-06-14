@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorldEventHandler : MonoBehaviour
 {
     public SpawnPool tileEnemyPreset;
-    public GenerationParameters generationParameters;
+    public BiomePool biomeMaps;
     public RunData runData;
 
     [HideInInspector] public List<WorldEnemy> enemyEvents;
@@ -49,7 +49,7 @@ public class WorldEventHandler : MonoBehaviour
             builder.ConsolidateSpawnPools(pools);
 
             //modify encounters-- extra map generation parameters
-            builder.ModifyMapGeneration(generationParameters);
+            builder.ModifyMapGeneration(biomeMaps);
 
             //start combat
             builder.LaunchEncounter();

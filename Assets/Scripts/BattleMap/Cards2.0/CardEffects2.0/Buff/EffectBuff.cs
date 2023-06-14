@@ -29,11 +29,11 @@ public class EffectBuff : CardEffectPlus
             description = $"Applies a buff that {lapseDescription} each turn for {duration} turns [target]";
         return description;
     }
-    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
-        List <GameObject> targets = base.Execute(actor, targetCell, aoe);
+        List <BattleUnit> targets = base.Execute(actor, targetCell, aoe);
         string[,] aoeRulesRecurring = MapRulesGenerator.Convert(aoeShapeRecurring, aoeSizeRecurring, aoeGapRecurring);
-        foreach(GameObject target in targets) target.GetComponent<BuffTracker>().RegisterBuff(actor, this, aoeRulesRecurring);
+        foreach(BattleUnit target in targets) target.gameObject.GetComponent<BuffTracker>().RegisterBuff(actor, this, aoeRulesRecurring);
         return targets;
     }
 }

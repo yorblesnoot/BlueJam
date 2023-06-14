@@ -4,8 +4,8 @@ using UnityEngine;
 
 public static class Calcs
 {
-    public static int PercentMaxHealth(GameObject target, float percent)
+    public static int PercentMaxHealth(BattleUnit target, float percent)
     {
-        return Mathf.RoundToInt(target.GetComponent<BattleUnit>().maxHealth * percent);
+        return Mathf.RoundToInt(target.maxHealth * percent);
     }
 }

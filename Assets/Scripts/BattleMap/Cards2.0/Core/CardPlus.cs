@@ -35,9 +35,9 @@ public class CardPlus : ScriptableObject
         AssembleDescription();
     }
 
-    public IEnumerator PlaySequence(GameObject actor, GameObject targetCell)
+    public IEnumerator PlaySequence(BattleUnit actor, BattleTileController targetCell)
     {
-        GameObject userOriginalTile = GridTools.VectorToTile(actor.transform.position);
+        BattleTileController userOriginalTile = GridTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>();
         EventManager.allowTriggers.Invoke();
         for (int i = 0; i < effects.Count; i++)
         {

@@ -1,7 +1,7 @@
 public enum VFXStyle
 {
-    CELL,
     UNIT,
+    CELL,
     DIRECTION,
     TRAIL,
     AURA

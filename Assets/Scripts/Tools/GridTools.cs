@@ -4,6 +4,11 @@ using UnityEngine;
 
 public static class GridTools
 {
+    static GameObject[,] gameMap;
+    public static void SubmitTileMap(GameObject[,] map)
+    {
+        gameMap = map;
+    }
     public static int[] VectorToMap (Vector3 toConvert)
     {
         int[] output = new int[2];
@@ -23,41 +28,24 @@ public static class GridTools
 
     public static GameObject VectorToTile(Vector3 toConvert)
     {
-        Vector3 cleanedTarget = new Vector3(toConvert.x, 0f, toConvert.z);
-        Collider[] colliders = Physics.OverlapSphere(cleanedTarget, .1f);
-        if(colliders.Length > 0)
-        {
-            GameObject unit = colliders[0].gameObject;
-            return unit;
-        }
-        else
-        {
-            return null;
-        }
-        
+        int[] coords = VectorToMap(toConvert);
+        try { return gameMap[coords[0], coords[1]];}
+        catch { return null; }
     }
 
-    public static int GetMapDistance(Vector3 position1, Vector3 position2)
-    {
-        int[] coords1 = VectorToMap(position1);
-        int[] coords2 = VectorToMap(position2);
-        int distance = Mathf.Abs(coords1[0] - coords2[0]) + Mathf.Abs(coords1[1] - coords2[1]);
-        return distance;
-    }
-
-    public static void ReportPositionChange(GameObject actor, GameObject newTile)
+    public static void ReportPositionChange(BattleUnit actor, BattleTileController newTile)
     {
         //report our location to the cell we're in
-        newTile.GetComponent<BattleTileController>().unitContents = actor;
+        newTile.unitContents = actor;
         GameObject oldTile = GridTools.VectorToTile(actor.transform.position);
         oldTile.GetComponent<BattleTileController>().unitContents = null;
     }
 
-    public static void ReportPositionSwap(GameObject actor, GameObject newTile, GameObject secondActor)
+    public static void ReportPositionSwap(BattleUnit actor, BattleTileController newTile, BattleUnit secondActor)
     {
         //report locations when actors are switching places
-        newTile.GetComponent<BattleTileController>().unitContents = actor;
-        GameObject oldTile = GridTools.VectorToTile(actor.transform.position);
-        oldTile.GetComponent<BattleTileController>().unitContents = secondActor;
+        newTile.unitContents = actor;
+        BattleTileController oldTile = GridTools.VectorToTile(actor.gameObject.transform.position).GetComponent<BattleTileController>();
+        oldTile.unitContents = secondActor;
     }
 }

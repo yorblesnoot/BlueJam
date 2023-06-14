@@ -13,16 +13,16 @@ public class EffectSummon : CardEffectPlus
         description = $"Summons a {entityToSummon.name}";
         return description;
     }
-    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
         Vector3 location = targetCell.GetComponent<BattleTileController>().unitPosition;
-        GameObject summoned = GameObject.Instantiate(entityToSummon, location, Quaternion.identity);
-        ModifyStats(actor, summoned);
+        GameObject summoned = Instantiate(entityToSummon, location, Quaternion.identity);
+        ModifyStats(actor, summoned.GetComponent<BattleUnit>());
         VFXMachine.PlayAtLocation("SummonCircles", location);
         return null;
     }
 
-    void ModifyStats(GameObject owner, GameObject toModify)
+    void ModifyStats(BattleUnit owner, BattleUnit toModify)
     {
         int summonModifier = 2;
         if(owner.tag == "Player")
@@ -32,16 +32,15 @@ public class EffectSummon : CardEffectPlus
         else toModify.tag = owner.tag;
         toModify.transform.localScale -= new Vector3(.3f, .3f, .3f);
 
-        BattleUnit stats = toModify.GetComponent<BattleUnit>();
-        stats.isSummoned = true;
-        stats.maxHealth /= summonModifier;
-        stats.currentHealth /= summonModifier;
+        toModify.isSummoned = true;
+        toModify.maxHealth /= summonModifier;
+        toModify.currentHealth /= summonModifier;
 
-        stats.damageScaling /= summonModifier;
-        stats.healScaling /= summonModifier;
-        stats.barrierScaling /= summonModifier;
+        toModify.damageScaling /= summonModifier;
+        toModify.healScaling /= summonModifier;
+        toModify.barrierScaling /= summonModifier;
 
-        stats.RegisterTurn();
-        stats.ReportCell();
+        toModify.RegisterTurn();
+        toModify.ReportCell();
     }
 }

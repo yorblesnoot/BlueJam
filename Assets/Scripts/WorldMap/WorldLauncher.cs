@@ -1,13 +1,13 @@
 using UnityEngine;
 
-public class WorldLauncher : MonoBehaviour
+public class WorldLauncher : MapLauncher
 {
     #nullable enable
     public static string[,]? worldMap;
     #nullable disable
     // Start is called before the first frame update
     [SerializeField] RunData runData;
-    [SerializeField] MapRenderer mapRenderer;
+    [SerializeField] WorldMapRenderer mapRenderer;
     [SerializeField] EventRenderer eventRenderer;
 
     public int amountOfWorldEnemies;
@@ -29,6 +29,8 @@ public class WorldLauncher : MonoBehaviour
             }
         }
         mapRenderer.RenderWorld(worldMap);
+        RequestMapReferences();
+
         eventRenderer.RenderBoss(runData.bossWorldX, runData.bossWorldY);
         eventRenderer.RenderEnemies(runData.worldEnemies);
         eventRenderer.RenderEvents(runData.eventMap);

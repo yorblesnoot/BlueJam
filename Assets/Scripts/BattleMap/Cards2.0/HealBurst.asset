@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: HealBurst
   m_EditorClassIdentifier: 
-  trueName: 
   displayName: Healing Burst
   cost: 3
-  description: 
+  description: 'Heal for <color=#1EFA61>1.5</color>.
+
+'
   keywords: 
   targetShape: 0
   targetSize: 0
@@ -23,9 +24,7 @@ MonoBehaviour:
   aoeShape: 0
   aoeSize: 2
   aoeGap: 0
-  owner: {fileID: 0}
   cardClass: 02000000
   consumed: 0
-  isActive: 0
   effects:
-  - {fileID: 11400000, guid: a8be9aa4cb37fa34f9ecaa2a6530b956, type: 2}
+  - {fileID: 11400000, guid: a910e708236ea3c4186b1bfa44fe98ab, type: 2}

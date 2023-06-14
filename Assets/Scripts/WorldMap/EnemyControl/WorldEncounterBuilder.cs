@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class WorldEncounterBuilder
 {
     public RunData runData;
-    public GenerationParameters generationParameters;
     public WorldEncounterBuilder(RunData run)
     {
         runData = run;
@@ -25,15 +24,14 @@ public class WorldEncounterBuilder
         }
     }
 
-    public void ModifyMapGeneration(GenerationParameters parameters)
+    public void ModifyMapGeneration(BiomePool maps)
     {
-        generationParameters = parameters;
+        runData.availableMaps = maps;
     }
 
     public void LaunchEncounter()
     {
         //save the biome generation data to runData, then send us into the battlemap
-        runData.battleParameters = generationParameters;
         runData.enemyBudget = runData.baseEnemies + runData.runDifficulty;
         SceneManager.LoadScene(2);
     }

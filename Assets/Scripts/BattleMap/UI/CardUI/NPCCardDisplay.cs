@@ -8,7 +8,7 @@ using UnityEngine.EventSystems;
 
 public class NPCCardDisplay : MonoBehaviour, ICardDisplay
 {
-    public GameObject owner { get; set; }
+    public BattleUnit owner { get; set; }
     public CardPlus thisCard { get; set; }
 
     public Image image;

@@ -11,6 +11,8 @@ public class TriggerTracker : MonoBehaviour
     //debugging for triggers
     public EffectTrigger forceTrigger;
 
+    [SerializeField] BattleUnit battleUnit;
+
     public class TrackedTrigger
     {
         public EffectTrigger trigger;
@@ -29,7 +31,7 @@ public class TriggerTracker : MonoBehaviour
     {
         activeTriggers.Add(new TrackedTrigger {trigger = incomingTrigger, remainingActivations = incomingTrigger.triggersRequiredForActivation});
     }
-    public void ExecutedEffect(CardEffectPlus effect, GameObject origin, GameObject target)
+    public void ExecutedEffect(CardEffectPlus effect, BattleUnit origin, BattleUnit target)
     {
         //check this: triggers going the wrong way~~~~~~~~~~~~~~~~~~~~~~~~
         if (effect.blockTrigger != true && activeTriggers.Count > 0)
@@ -45,11 +47,11 @@ public class TriggerTracker : MonoBehaviour
         }
     }
 
-    void CheckForTrigger(TrackedTrigger tracked, GameObject origin, GameObject target)
+    void CheckForTrigger(TrackedTrigger tracked, BattleUnit origin, BattleUnit target)
     {
         //confirm receipt or use of triggering effect
-        if ((tracked.trigger.triggerIdentityCondition == EffectTrigger.TriggerIdentity.USER && origin == gameObject) ||
-            (tracked.trigger.triggerIdentityCondition == EffectTrigger.TriggerIdentity.RECEIVER && target == gameObject))
+        if ((tracked.trigger.triggerIdentityCondition == EffectTrigger.TriggerIdentity.USER && origin == battleUnit) ||
+            (tracked.trigger.triggerIdentityCondition == EffectTrigger.TriggerIdentity.RECEIVER && target == battleUnit))
         {
             //count down activations; if we've activated enough times, execute the effect
             tracked.remainingActivations--;
@@ -59,11 +61,11 @@ public class TriggerTracker : MonoBehaviour
                 Debug.Log(gameObject + " triggered " + tracked.trigger.triggeredEffect);
                 if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.USER)
                 {
-                    tracked.trigger.triggeredEffect.Execute(gameObject, GridTools.VectorToTile(origin.transform.position), new string[,] { { "n" } });
+                    tracked.trigger.triggeredEffect.Execute(battleUnit, GridTools.VectorToTile(origin.transform.position).GetComponent<BattleTileController>(), new string[,] { { "n" } });
                 }
                 else if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.RECEIVER)
                 {
-                    tracked.trigger.triggeredEffect.Execute(gameObject, GridTools.VectorToTile(target.transform.position), new string[,] { { "n" } });
+                    tracked.trigger.triggeredEffect.Execute(battleUnit, GridTools.VectorToTile(target.transform.position).GetComponent<BattleTileController>(), new string[,] { { "n" } });
                 }
                 tracked.remainingActivations = tracked.trigger.triggersRequiredForActivation;
             }

@@ -26,13 +26,13 @@ public class EffectTrigger : CardEffectPlus
         return "";
     }
 
-    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
         
-        List<GameObject> toBuff = base.Execute(actor, targetCell, aoe);
+        List<BattleUnit> toBuff = base.Execute(actor, targetCell, aoe);
         for (int i = 0; i < toBuff.Count; i++)
         {
-            toBuff[i].GetComponent<TriggerTracker>().RegisterTrigger(this);
+            toBuff[i].gameObject.GetComponent<TriggerTracker>().RegisterTrigger(this);
         }
         return null;
     }

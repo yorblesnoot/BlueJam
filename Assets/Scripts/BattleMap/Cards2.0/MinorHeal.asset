@@ -12,10 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: MinorHeal
   m_EditorClassIdentifier: 
-  trueName: CardPlus
   displayName: Minor Heal
   cost: 3
-  description: 
+  description: 'Heal for <color=#1EFA61>3</color>.
+
+'
   keywords: 
   targetShape: 0
   targetSize: 2
@@ -23,9 +24,7 @@ MonoBehaviour:
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
-  owner: {fileID: 0}
   cardClass: 02000000
   consumed: 0
-  isActive: 0
   effects:
-  - {fileID: 11400000, guid: 7e68387126482484d8ae5fac5c437dd0, type: 2}
+  - {fileID: 11400000, guid: b964cccee85a4e6409be016a19e2ebe8, type: 2}

@@ -48,7 +48,7 @@ public class BattleUnit : MonoBehaviour, IPlayerData
         currentBeats = unitStats.startBeats;
 
         myTurn = false;
-        TurnManager.finishUpdate.AddListener(ReportCell);
+        TurnManager.initialPositionReport.AddListener(ReportCell);
         TurnManager.unitsReport.AddListener(RegisterTurn);
 
         myUI = GetComponentInChildren<EntityUI>();
@@ -88,7 +88,7 @@ public class BattleUnit : MonoBehaviour, IPlayerData
     {
         //report our location to the cell we're in
         GameObject myTile = GridTools.VectorToTile(gameObject.transform.position);
-        myTile.GetComponent<BattleTileController>().unitContents = gameObject;
+        myTile.GetComponent<BattleTileController>().unitContents = this;
     }
 
     public void UnreportCell()

@@ -6,14 +6,14 @@ using static UnityEngine.UI.Image;
 
 public static class VFXMachine 
 {
-    public static void PlayVFX(string vfxName, VFXStyle vfxStyle, GameObject actor, GameObject targetCell)
+    public static void PlayVFX(string vfxName, VFXStyle vfxStyle, BattleUnit actor, BattleTileController targetCell)
     {
-        BattleTileController cellControl = targetCell.GetComponent<BattleTileController>();
         switch (vfxStyle)
         {
-            case (VFXStyle.UNIT): PlayAtLocation(vfxName, cellControl.unitPosition); break;
-            case (VFXStyle.DIRECTION): PlayToLocation(vfxName, actor.transform.position, cellControl.unitPosition); break;
-            case (VFXStyle.TRAIL): AttachTrail(vfxName, actor); break;
+            case (VFXStyle.UNIT): PlayAtLocation(vfxName, targetCell.unitPosition); break;
+            case (VFXStyle.CELL): PlayAtLocation(vfxName, targetCell.unitPosition); break;
+            case (VFXStyle.DIRECTION): PlayToLocation(vfxName, actor.gameObject.transform.position, targetCell.unitPosition); break;
+            case (VFXStyle.TRAIL): AttachTrail(vfxName, actor.gameObject); break;
 
         }
     }

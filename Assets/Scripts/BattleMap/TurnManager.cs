@@ -11,9 +11,9 @@ public class TurnManager : MonoBehaviour
 {
     public static TurnManager Main { get; private set; }
 
-    public static List<BattleUnit> turnTakers = new();
-    public static List<float> turnRatios = new();
-    public static List<float> beatStock = new();
+    public static List<BattleUnit> turnTakers;
+    public static List<float> turnRatios;
+    public static List<float> beatStock;
 
     public static BattleUnit activeTurn;
     public static BattleUnit playerUnit;
@@ -21,12 +21,12 @@ public class TurnManager : MonoBehaviour
     public static UnityEvent unitsReport = new();
 
     public static UnityEvent deathPhase = new();
-    public static UnityEvent drawPhase = new();
+    public static UnityEvent drawThenBuffPhase = new();
 
     public static TurnChange turnChange = new();
 
-    public static UnityEvent startUpdate = new();
-    public static UnityEvent finishUpdate = new();
+    public static UnityEvent updateBeatCounts = new();
+    public static UnityEvent initialPositionReport = new();
 
     public static int beatThreshold = 2;
 
@@ -41,6 +41,9 @@ public class TurnManager : MonoBehaviour
         { 
             Main = this; 
         }
+        turnTakers = new();
+        turnRatios = new();
+        beatStock = new();
         EventManager.initalizeBattlemap.AddListener(InitalizeTurns);
         playerUnit = GameObject.FindGameObjectWithTag("Player").GetComponent<BattleUnit>();
     }
@@ -50,9 +53,11 @@ public class TurnManager : MonoBehaviour
         //tell every unit on the map to report their turn
         unitsReport?.Invoke();
         activeTurn = playerUnit;
-        activeTurn.GetComponent<BattleUnit>().myTurn = true;
-        startUpdate?.Invoke();
-        finishUpdate?.Invoke();
+        activeTurn.myTurn = true;
+
+        updateBeatCounts?.Invoke();
+        initialPositionReport?.Invoke();
+
         StartCoroutine(WaitForTurn());
     }
 
@@ -95,7 +100,10 @@ public class TurnManager : MonoBehaviour
     {
         foreach(NPCBattleUnit turnTaker in turnTakers.OfType<NPCBattleUnit>())
         {
-            if(turnTaker.currentBeats + beatCost*turnTaker.turnSpeed >= beatThreshold) turnTaker.ShowTurnPossibility();
+            if (turnTaker.currentBeats + beatCost * turnTaker.turnSpeed >= beatThreshold)
+            {
+                turnTaker.ShowTurnPossibility();
+            }
         }
     }
 
@@ -108,7 +116,7 @@ public class TurnManager : MonoBehaviour
             {
                 if (turnTakers[entry].gameObject.tag != "Player")
                 {
-                    float beatChange = turnRatios[entry] * (float)beats;
+                    float beatChange = turnRatios[entry] * beats;
                     turnTakers[entry].currentBeats += beatChange;
                     beatStock[entry] += beatChange;
                 }
@@ -118,20 +126,13 @@ public class TurnManager : MonoBehaviour
         {
             //if the spender is an NPC, deduct from their beat count
             int spenderIndex = turnTakers.IndexOf(owner);
-            beatStock[spenderIndex] -= (float)beats;
-            owner.GetComponent<BattleUnit>().currentBeats -= beats;
+            beatStock[spenderIndex] -= beats;
+            owner.currentBeats -= beats;
         }
-        startUpdate?.Invoke();
+        updateBeatCounts?.Invoke();
         EndTurn();
+        deathPhase?.Invoke();
         Main.StartCoroutine(WaitForTurn());
-    }
-
-    private static void EndTurn()
-    {
-        for(int num = 0; num < turnTakers.Count; num++)
-        {
-            turnTakers[num].GetComponent<BattleUnit>().myTurn = false;
-        }
     }
 
     private static IEnumerator WaitForTurn()
@@ -143,22 +144,35 @@ public class TurnManager : MonoBehaviour
 
     private static void AssignTurn()
     {
+        activeTurn = NextTurn();
+        activeTurn.myTurn = true;
+        drawThenBuffPhase?.Invoke();
         deathPhase?.Invoke();
-        drawPhase?.Invoke();
+        if (activeTurn.gameObject == null) AssignTurn();
+        else turnChange?.Invoke(activeTurn.gameObject);
+    }
+    
+    private static BattleUnit NextTurn()
+    {
         float highestBeats = beatStock.Max();
-        if(highestBeats >= beatThreshold)
+        if (highestBeats >= beatThreshold)
         {
             //enemy turn
             int activeIndex = beatStock.IndexOf(highestBeats);
-            activeTurn = turnTakers[activeIndex];
-
+            return turnTakers[activeIndex];
             //Debug.Log($"assigning {activeTurn.name} with {highestBeats}");
         }
         else
         {
-            activeTurn = playerUnit;
+            return playerUnit;
         }
-        activeTurn.GetComponent<BattleUnit>().myTurn = true;
-        turnChange?.Invoke(activeTurn.gameObject);
+    }
+
+    private static void EndTurn()
+    {
+        foreach (BattleUnit v in turnTakers)
+        {
+            v.myTurn = false;
+        }
     }
 }

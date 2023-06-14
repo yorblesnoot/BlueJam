@@ -60,7 +60,7 @@ public class EntityUI : MonoBehaviour
         newCard.transform.SetParent(unitCanvas.transform, false);
         newCard.transform.localScale = new Vector3(cardSize, cardSize, cardSize);
         ICardDisplay cardDisplay = newCard.GetComponent<ICardDisplay>();
-        cardDisplay.owner = gameObject;
+        cardDisplay.owner = gameObject.GetComponent<BattleUnit>();
         cardDisplay.PopulateCard(card);
 
         return newCard;

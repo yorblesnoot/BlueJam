@@ -15,7 +15,7 @@ MonoBehaviour:
   delayAfter: 0.5
   targetSelf: 0
   effectClass: 0
-  vfxStyle: 0
+  vfxStyle: 1
   vfxName: ImpactSmall
   scalingMultiplier: 1
   description: Deal [damage] damage

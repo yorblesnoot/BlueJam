@@ -13,7 +13,7 @@ public class NonplayerUI : EntityUI
     {
         cardSize = 1;
         unitActions = GetComponentInParent<BattleUnit>();
-        TurnManager.startUpdate.AddListener(UpdateBeats);
+        TurnManager.updateBeatCounts.AddListener(UpdateBeats);
     } 
     
     void LateUpdate()

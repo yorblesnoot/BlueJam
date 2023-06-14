@@ -16,7 +16,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
     public TMP_Text effectText;
     public TMP_Text keywordPane;
 
-    public GameObject owner { get; set; }
+    public BattleUnit owner { get; set; }
     public CardPlus thisCard { get; set; }
 
     public int sceneIndex;
@@ -107,7 +107,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
         EventManager.targetConfirmed.RemoveListener(ProxyPlayCard);
     }
 
-    public void ProxyPlayCard(GameObject tile)
+    public void ProxyPlayCard(BattleTileController tile)
     {
         if(activated == true)
         {
@@ -118,6 +118,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
                 owner.GetComponent<Hand>().Discard(gameObject, true);
             }
         }
-        EventManager.targetConfirmed.RemoveListener(ProxyPlayCard);
+        EventManager.clearActivation?.Invoke();
     }
 }

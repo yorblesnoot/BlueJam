@@ -9,7 +9,7 @@ public class BuffTracker : MonoBehaviour
     public BattleUnit stats;
     public BuffUI buffDisplay;
 
-    GameObject myTile;
+    BattleTileController myTile;
     List<TrackedBuff> buffs = new();
 
     class TrackedBuff
@@ -17,17 +17,17 @@ public class BuffTracker : MonoBehaviour
         public CardEffectPlus lapseEffect;
         public CardEffectPlus endEffect;
         public int remainingDuration;
-        public GameObject owner;
+        public BattleUnit owner;
         public string[,] aoe;
     }
     void Awake()
     {
-        TurnManager.drawPhase.AddListener(DurationProc);
+        TurnManager.drawThenBuffPhase.AddListener(DurationProc);
     }
 
-    public void RegisterBuff(GameObject ownerIn, EffectBuff buff, string[,] aoeIn)
+    public void RegisterBuff(BattleUnit ownerIn, EffectBuff buff, string[,] aoeIn)
     {
-        myTile = GridTools.VectorToTile(gameObject.transform.position);
+        myTile = GridTools.VectorToTile(gameObject.transform.position).GetComponent<BattleTileController>();
         TrackedBuff incomingBuff = new TrackedBuff {
             lapseEffect = buff.turnLapseEffect,
             endEffect = buff.removalEffect,
@@ -52,7 +52,8 @@ public class BuffTracker : MonoBehaviour
                 if (buffs[i].remainingDuration <= 0)
                 {
                     //remove the buff in question
-                    buffs[i].endEffect.Execute(buffs[i].owner, myTile, buffs[i].aoe);
+                    try { buffs[i].endEffect.Execute(buffs[i].owner, myTile, buffs[i].aoe); }
+                    catch { }
                     buffs.RemoveAt(i);
                 }
             }

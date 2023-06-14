@@ -11,13 +11,13 @@ public class EffectMove : CardEffectPlus
         description = $"Swap places with the unit at the target cell";
         return description;
     }
-    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
         base.Execute(actor, targetCell, aoe);
-        GameObject target = targetCell.GetComponent<BattleTileController>().unitContents;
-        GameObject myCell = GridTools.VectorToTile(actor.transform.position);
-        actor.transform.position = targetCell.GetComponent<BattleTileController>().unitPosition;
-        target.transform.position = myCell.GetComponent<BattleTileController>().unitPosition;
+        BattleUnit target = targetCell.unitContents;
+        BattleTileController myCell = GridTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>();
+        actor.gameObject.transform.position = targetCell.unitPosition;
+        target.gameObject.transform.position = myCell.unitPosition;
         GridTools.ReportPositionSwap(actor, targetCell, target);
         return null;
     }

@@ -17,15 +17,17 @@ MonoBehaviour:
   effectClass: 2
   vfxStyle: 0
   vfxName: 
-  description: 
+  scalingMultiplier: 0
+  description: Applies a buff that Heal for [heal] each turn for 5 turns [target]
   userOriginalTile: {fileID: 0}
+  blockTrigger: 0
   purgeable: 0
   duration: 5
   iconColor:
     serializedVersion: 2
     rgba: 4292575489
   applicationEffect: {fileID: 0}
-  turnLapseEffect: {fileID: 11400000, guid: f76fecee6c639bb48b3c0d48a95257bd, type: 2}
+  turnLapseEffect: {fileID: 11400000, guid: 96c32cc241a8c0642a7b95d256cfccc3, type: 2}
   removalEffect: {fileID: 0}
   aoeShapeRecurring: 0
   aoeSizeRecurring: 0

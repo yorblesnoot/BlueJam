@@ -15,14 +15,13 @@ public class EffectBarrier : CardEffectPlus
             description = "Shield for [barrier]";
         return description;
     }
-    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
-        List < GameObject > targets = base.Execute(actor, targetCell, aoe);
-        foreach (GameObject targetUnit in targets)
+        List < BattleUnit > targets = base.Execute(actor, targetCell, aoe);
+        foreach (BattleUnit targetUnit in targets)
         {
-            BarrierTracker barrierTracker = targetUnit.GetComponent<BarrierTracker>();
-            BattleUnit stats = targetUnit.GetComponent<BattleUnit>();
-            int barrier = Mathf.RoundToInt(stats.barrierScaling * scalingMultiplier);
+            BarrierTracker barrierTracker = targetUnit.gameObject.GetComponent<BarrierTracker>();
+            int barrier = Mathf.RoundToInt(targetUnit.barrierScaling * scalingMultiplier);
             if (barrierType == BarrierType.DEFLECT) barrierTracker.AddDeflect(barrier);
             else if (barrierType == BarrierType.SHIELD) barrierTracker.AddShield(barrier);
         }

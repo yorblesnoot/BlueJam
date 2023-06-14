@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "EffectDamage", menuName = "ScriptableObjects/CardEffects/Damage")]
+[CreateAssetMenu(fileName = "EffectHeal", menuName = "ScriptableObjects/CardEffects/Heal")]
 public class EffectHeal : CardEffectPlus
 {
 
@@ -12,17 +12,17 @@ public class EffectHeal : CardEffectPlus
         description = "Heal for [heal]";
         return description;
     }
-    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
-        List<GameObject> targets = base.Execute(actor, targetCell, aoe);
-        foreach (GameObject target in targets) Heal(actor, scalingMultiplier, target);
+        List<BattleUnit> targets = base.Execute(actor, targetCell, aoe);
+        foreach (BattleUnit target in targets) Heal(actor, scalingMultiplier, target);
         return targets;
     }
     //VFXMachine.PlayToLocation(effect, TurnManager.activeTurn.transform.position, targetCell.GetComponent<BattleTileController>().unitPosition);
 
-    void Heal(GameObject owner, float healMult, GameObject target)
+    void Heal(BattleUnit owner, float healMult, BattleUnit target)
     {
-        int heal = -Mathf.RoundToInt(owner.GetComponent<BattleUnit>().healScaling * healMult);
-        target.GetComponent<BattleUnit>().ReceiveDamage(heal);
+        int heal = -Mathf.RoundToInt(owner.healScaling * healMult);
+        target.ReceiveDamage(heal);
     }
 }

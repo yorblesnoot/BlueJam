@@ -12,18 +12,17 @@ public class EffectWalk : CardEffectPlus
         description = "Walk to the target cell";
         return description;
     }
-    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
         base.Execute(actor, targetCell, aoe);
-        MonoBehaviour unitStats = actor.GetComponent<BattleUnit>();
-        unitStats.StartCoroutine(Walk(actor, targetCell, stepSize));
+        actor.StartCoroutine(Walk(actor, targetCell, stepSize));
         return null;
     }
-    IEnumerator Walk(GameObject actor, GameObject destinationCell, float stepsize)
+    IEnumerator Walk(BattleUnit actor, BattleTileController destinationCell, float stepsize)
     {
-        VFXMachine.AttachTrail("MoveTrail", actor);
+        VFXMachine.AttachTrail("MoveTrail", actor.gameObject);
         GridTools.ReportPositionChange(actor, destinationCell);
-        Vector3 destination = destinationCell.GetComponent<BattleTileController>().unitPosition;
+        Vector3 destination = destinationCell.unitPosition;
         while (actor.transform.position != destination)
         {
             actor.transform.position = Vector3.MoveTowards(actor.transform.position, destination, stepSize);

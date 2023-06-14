@@ -1,12 +1,14 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TargetConfirmed : UnityEvent<GameObject> {}
+public class TargetConfirmed : UnityEvent<BattleTileController> {}
 public class ToggleAOE : UnityEvent<string[,]> { }
-public class CheckForTriggers : UnityEvent<CardEffectPlus, GameObject, GameObject> { }
+public class CheckForTriggers : UnityEvent<CardEffectPlus, BattleUnit, BattleUnit> { }
 
 public class GetWorldDestination : UnityEvent<int, int> {}
 public class ClickedCard : UnityEvent<CardPlus, GameObject> { }
+
+public class RequestMapReferences : UnityEvent<MapLauncher> { }
 
 public static class EventManager
 {
@@ -33,4 +35,7 @@ public static class EventManager
     public static UnityEvent updateItemUI = new();
     public static UnityEvent awardItem = new();
 
+    //global events
+
+    public static RequestMapReferences requestMapReferences = new();
 }

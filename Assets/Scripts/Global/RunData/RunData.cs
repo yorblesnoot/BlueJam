@@ -9,7 +9,7 @@ public class RunData : ScriptableObject
     public Deck playerDeck;
     [HideInInspector]public string[,] worldMap;
     [HideInInspector]public List<int[]> worldEnemies;
-    [HideInInspector] public string[,] eventMap;
+    [HideInInspector]public string[,] eventMap;
 
     public int playerWorldX;
     public int playerWorldY;
@@ -46,9 +46,7 @@ public class RunData : ScriptableObject
 
     public int currentHealth;
 
-    //battle map data; should be overwritten when an encounter starts
-    public GenerationParameters battleParameters;
-
+    public BiomePool availableMaps;
     //enemy spawn info to convey from world to battle
     public List<GameObject> staticSpawns;
     public List<GameObject> spawnUnits;

@@ -13,16 +13,16 @@ public class EffectPush : CardEffectPlus
         description = $"Push the target {pushDistance}";
         return description;
     }
-    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
-        List<GameObject> targets = base.Execute(actor, targetCell, aoe);
+        List<BattleUnit> targets = base.Execute(actor, targetCell, aoe);
         MonoBehaviour unitStats = actor.GetComponent<BattleUnit>();
-        foreach (GameObject target in targets)
+        foreach (BattleUnit target in targets)
             unitStats.StartCoroutine(Push(actor, target, pushDistance, stepSize));
         return targets;
     }
 
-    IEnumerator Push(GameObject actor, GameObject target, int distance, float stepsize)
+    IEnumerator Push(BattleUnit actor, BattleUnit target, int distance, float stepsize)
     {
         Vector3 direction = new Vector3();
         direction = target.transform.position - actor.transform.position;
@@ -34,10 +34,10 @@ public class EffectPush : CardEffectPlus
         {
             //evaluate each cell in turn as a push destination
             Vector3 possibleDestination = destination + direction;
-            GameObject cell = GridTools.VectorToTile(possibleDestination);
+            BattleTileController cell = GridTools.VectorToTile(possibleDestination).GetComponent<BattleTileController>();
             if (cell != null)
             {
-                GameObject contents = cell.GetComponent<BattleTileController>().unitContents;
+                BattleUnit contents = cell.unitContents;
                 if (contents == null)
                 {
                     destination += direction;
@@ -50,7 +50,7 @@ public class EffectPush : CardEffectPlus
                 break;
             }
         }
-        GridTools.ReportPositionChange(target, GridTools.VectorToTile(destination));
+        GridTools.ReportPositionChange(target, GridTools.VectorToTile(destination).GetComponent<BattleTileController>());
         while (target.transform.position != destination)
         {
             target.transform.position = Vector3.MoveTowards(target.transform.position, destination, stepsize);
@@ -62,7 +62,7 @@ public class EffectPush : CardEffectPlus
             GameObject impactPlace = GridTools.VectorToTile(destination + direction);
             if (impactPlace != null)
             {
-                GameObject contents = impactPlace.GetComponent<BattleTileController>().unitContents;
+                BattleUnit contents = impactPlace.GetComponent<BattleTileController>().unitContents;
                 if (contents != null)
                 {
                     Collide(contents, collisionDamage);
@@ -72,10 +72,10 @@ public class EffectPush : CardEffectPlus
         }
     }
 
-    void Collide(GameObject target, int factor)
+    void Collide(BattleUnit target, int factor)
     {
         float collisionDamage = .05f;
-        target.GetComponent<BattleUnit>().ReceiveDamage(factor * Calcs.PercentMaxHealth(target, collisionDamage));
+        target.ReceiveDamage(factor * Calcs.PercentMaxHealth(target, collisionDamage));
     }
 }
 

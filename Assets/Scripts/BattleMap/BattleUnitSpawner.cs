@@ -8,25 +8,41 @@ public class BattleUnitSpawner
     public List<GameObject> spawnUnits;
     public List<int> spawnWeights;
 
-    string[,] battleMap;
-    List<int[]> validSpots;
-    public BattleUnitSpawner(List<GameObject> statics, List<GameObject> units, List<int> weights, string[,] map)
+    GameObject[,] battleMap;
+    List<BattleTileController> playerSpots;
+    List<BattleTileController> enemySpots;
+    public BattleUnitSpawner(List<GameObject> statics, List<GameObject> units, List<int> weights, GameObject[,] map)
     {
         staticSpawns = statics;
         spawnUnits = units;
         spawnWeights = weights;
         battleMap = map;
 
-        validSpots = new List<int[]>();
-        //loop through ever battle map spot and add it to a list of valid cell placements
-        for(int x = 0; x < battleMap.GetLength(0); x++)
+        playerSpots = new();
+        enemySpots = new();
+        //loop through every battle map spot and add it to a list of valid cell placements
+        for (int x = 0; x < battleMap.GetLength(0); x++)
         {
             for(int y = 0;  y < battleMap.GetLength(1); y++) 
             {
-                if (battleMap[x,y] != "x")
-                {
-                    validSpots.Add(new int[] {x,y});
-                }
+                CheckValidSpot(x,y);
+            }
+        }
+    }
+
+    void CheckValidSpot(int x, int y)
+    {
+        GameObject tile = battleMap[x,y];
+        if(tile != null)
+        {
+            BattleTileController battleTileController = tile.GetComponent<BattleTileController>();
+            if(battleTileController.spawns == BattleTileController.SpawnPermission.ENEMY)
+            {
+                enemySpots.Add(battleTileController);
+            }
+            else if(battleTileController.spawns == BattleTileController.SpawnPermission.PLAYER)
+            {
+                playerSpots.Add(battleTileController);  
             }
         }
     }
@@ -42,30 +58,28 @@ public class BattleUnitSpawner
                 if (enemyWeight <= budget)
                 {
                     budget -= enemyWeight;
-                    PlaceUnit(spawnUnits[enemyIndex]);
+                    PlaceEnemy(spawnUnits[enemyIndex]);
                 }
             }
         }
         foreach (GameObject spawn in staticSpawns)
         {
-            PlaceUnit(spawn);
+            PlaceEnemy(spawn);
         }
     }
 
-    public void PlaceUnit(GameObject unit)
+    public void PlacePlayer(GameObject player)
     {
-        int placementIndex = Random.Range(0, validSpots.Count - 1);
-        int[] coords = validSpots[placementIndex];
-        GameObject tile = GridTools.VectorToTile(GridTools.MapToVector(coords[0], coords[1], 0));
-        Vector3 tilePosition = tile.GetComponent<BattleTileController>().unitPosition;
-        if (unit.tag == "Player")
-        {
-            unit.transform.position = tilePosition;
-        }
-        else
-        {
-            GameObject.Instantiate(unit, tilePosition, Quaternion.identity);
-        }
-        validSpots.RemoveAt(placementIndex);
+        int placementIndex = Random.Range(0, playerSpots.Count - 1);
+        Vector3 tilePosition = playerSpots[placementIndex].unitPosition;
+        player.transform.position = tilePosition;
+    }
+
+    public void PlaceEnemy(GameObject unit)
+    {
+        int placementIndex = Random.Range(0, enemySpots.Count - 1);
+        Vector3 tilePosition = enemySpots[placementIndex].unitPosition;
+        GameObject.Instantiate(unit, tilePosition, Quaternion.identity);
+        enemySpots.RemoveAt(placementIndex);
     }
 }

@@ -6,13 +6,11 @@ using UnityEngine;
 
 public static class ZoneTargeter 
 {
-    //public CellQuery cellQuery;
-
     public static List<GameObject> ConvertMapRuleToTiles(string[,] targetData, Vector3 targetSource)
     {
         string terrainBlocked = "x";
         //find size of target data array
-        List<GameObject> output = new List<GameObject>();
+        List<GameObject> output = new();
 
         //size of target data
         int xLength = targetData.GetLength(0);
@@ -30,8 +28,6 @@ public static class ZoneTargeter
             //y axis search
             for(int y = 0; y < yLength; y++)
             {
-                
-                //cellQuery?.Invoke(x, y, targetData[x,y], owner);
                 if(targetData[x,y] != terrainBlocked)
                 {
                     //difference between local centerpoint and local target cell
@@ -54,18 +50,18 @@ public static class ZoneTargeter
     }
 
     //return true if areatargets found valid plays
-    public static bool ValidPlay(GameObject tile, string tSource, List<CardClass> cardClass, string[,] aoeRule)
+    public static bool ValidPlay(BattleTileController tile, string tSource, List<CardClass> cardClass, string[,] aoeRule)
     {
         if (cardClass.Contains(CardClass.MOVE) || cardClass.Contains(CardClass.SUMMON))
         {
             if (TileIsValidTarget(tile, tSource, CardClass.MOVE) == true) return true;
             else return false;
         }
-        else if(cardClass.Contains(CardClass.ATTACK) && AreaTargets(tile, tSource, CardClass.ATTACK, aoeRule).Count > 0)
+        else if(cardClass.Contains(CardClass.ATTACK) && AreaTargets(tile.gameObject, tSource, CardClass.ATTACK, aoeRule).Count > 0)
         {
             return true;
         }
-        else if (cardClass.Contains(CardClass.BUFF) && AreaTargets(tile, tSource, CardClass.BUFF, aoeRule).Count > 0)
+        else if (cardClass.Contains(CardClass.BUFF) && AreaTargets(tile.gameObject, tSource, CardClass.BUFF, aoeRule).Count > 0)
         {
             return true;
         }
@@ -73,35 +69,35 @@ public static class ZoneTargeter
     }
 
     //return all valid targets in an aoe target based on the class, aoe size, and owner
-    public static List<GameObject> AreaTargets(GameObject tile, string tSource, CardClass cardClass, string[,] aoeRule)
+    public static List<BattleUnit> AreaTargets(GameObject tile, string tSource, CardClass cardClass, string[,] aoeRule)
     {
 
         List<GameObject> checkCells = ConvertMapRuleToTiles(aoeRule, tile.transform.position);
-        List<GameObject> outCells = new();
+        List<BattleUnit> aoeTargets = new();
         if (checkCells.Count > 0)
         {
             for (int i = 0; i < checkCells.Count; i++)
             {
-                if (TileIsValidTarget(checkCells[i], tSource, cardClass))
+                if (TileIsValidTarget(checkCells[i].GetComponent<BattleTileController>(), tSource, cardClass))
                 {
-                    GameObject cellContents = checkCells[i].GetComponent<BattleTileController>().unitContents;
-                    if(cellContents != null) outCells.Add(cellContents);
+                    BattleUnit cellContents = checkCells[i].GetComponent<BattleTileController>().unitContents;
+                    if(cellContents != null) aoeTargets.Add(cellContents);
                 }
             }
-            return outCells;
+            return aoeTargets;
         }
         else return null;
     }
 
-    public static bool TileIsValidTarget(GameObject tile, string tagOfSource, CardClass cardClass)
+    public static bool TileIsValidTarget(BattleTileController tile, string tagOfSource, CardClass cardClass)
     {
         //logic to determine whether unit occupation makes the cell invalid
         #nullable enable
-        GameObject? objTarget = tile.GetComponent<BattleTileController>().unitContents;
+        BattleUnit? objTarget = tile.unitContents;
         #nullable disable
 
         string tagOfTarget;
-        if (objTarget != null) tagOfTarget = objTarget.tag;
+        if (objTarget != null) tagOfTarget = objTarget.gameObject.tag;
         else tagOfTarget = "Empty";
         
         if(cardClass == CardClass.ATTACK)

@@ -11,11 +11,11 @@ public class EffectBlink : CardEffectPlus
         description = $"Blink to the target cell";
         return description;
     }
-    public override List<GameObject> Execute(GameObject actor, GameObject targetCell, string[,] aoe)
+    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
         base.Execute(actor, targetCell, aoe);
         GridTools.ReportPositionChange(actor, targetCell);
-        Vector3 destination = targetCell.GetComponent<BattleTileController>().unitPosition;
+        Vector3 destination = targetCell.unitPosition;
         actor.transform.position = destination;
         return null;
     }

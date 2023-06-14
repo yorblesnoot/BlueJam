@@ -28,6 +28,7 @@ public class WorldMovementController : MonoBehaviour
         unitPosition = new Vector3(myPosition.x, myPosition.y + heightAdjust, myPosition.z);
         EventManager.getWorldDestination.AddListener(HighlightCell);
         EventManager.clearWorldDestination.AddListener(ClearHighlight);
+        EventManager.requestMapReferences.AddListener(launcher => { launcher.SubmitMapReference(gameObject); });
     }
 
 

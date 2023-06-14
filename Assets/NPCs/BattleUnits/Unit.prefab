@@ -71,6 +71,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   personality: {fileID: 0}
   myHand: {fileID: 141478417373896780}
+  thisUnit: {fileID: 8320433818775275716}
 --- !u!114 &141478417373896780
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,6 +134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forceTrigger: {fileID: 0}
+  battleUnit: {fileID: 8320433818775275716}
 --- !u!1001 &3117187234317749416
 PrefabInstance:
   m_ObjectHideFlags: 0
