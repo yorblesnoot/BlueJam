@@ -6,13 +6,12 @@ public class CameraController : MonoBehaviour
 {
     [SerializeField] float panSpeed;
     [SerializeField] float panBorderThickness;
-    float panLowerLimit;
+    [SerializeField] float panLowerLimit;
     float panUpperLimit;
     [SerializeField] RunData runData;
 
     void Awake()
     {
-        panLowerLimit = -17f;
         try
         {
             panUpperLimit = panLowerLimit + runData.worldMap.GetLength(0) / 2;

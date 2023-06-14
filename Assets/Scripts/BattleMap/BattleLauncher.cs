@@ -18,7 +18,7 @@ public class BattleLauncher : MapLauncher
     private void Start() 
     {
         //instantiate a prefab map
-        //Instantiate(runData.availableMaps.DispenseMap(), new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(runData.availableMaps.DispenseMap(), new Vector3(0, 0, 0), Quaternion.identity);
 
         RequestMapReferences();
 

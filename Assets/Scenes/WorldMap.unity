@@ -7780,6 +7780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panSpeed: 5
   panBorderThickness: 20
+  panLowerLimit: -17
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
 --- !u!1001 &911924405
 PrefabInstance:
@@ -16888,7 +16889,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3406134658459511774, guid: 4db3ef8958354bf4ba352ee997ccfdd9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -114.1
+      value: -114
       objectReference: {fileID: 0}
     - target: {fileID: 3406134658459511774, guid: 4db3ef8958354bf4ba352ee997ccfdd9, type: 3}
       propertyPath: m_AnchoredPosition.y
