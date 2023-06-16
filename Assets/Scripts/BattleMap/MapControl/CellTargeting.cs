@@ -2,9 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-//public class CellQuery : UnityEvent<int, int, string, GameObject> { }
-
-public static class ZoneTargeter 
+public static class CellTargeting
 {
     public static List<GameObject> ConvertMapRuleToTiles(string[,] targetData, Vector3 targetSource)
     {

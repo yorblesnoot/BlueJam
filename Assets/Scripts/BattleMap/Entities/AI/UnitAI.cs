@@ -40,12 +40,12 @@ public class UnitAI : MonoBehaviour
             for(int rule = 0; rule < cardReferences.Count; rule++)
             {
                 //use battlemap to find legal cells for every card in hand
-                List<GameObject> legalTiles = ZoneTargeter.ConvertMapRuleToTiles(cardReferences[rule].targetRules, transform.position);
+                List<GameObject> legalTiles = CellTargeting.ConvertMapRuleToTiles(cardReferences[rule].targetRules, transform.position);
                 int ruleLength = legalTiles.Count;
                 for(int x = 0; x < ruleLength; x++)
                 {
                     BattleTileController addTile = legalTiles[x].GetComponent<BattleTileController>();
-                    if (ZoneTargeter.ValidPlay(addTile, gameObject.tag, cardReferences[rule].cardClass, cardReferences[rule].aoeRules))
+                    if (CellTargeting.ValidPlay(addTile, gameObject.tag, cardReferences[rule].cardClass, cardReferences[rule].aoeRules))
                     { 
                         optionTile.Add(addTile);
                         float inFavor = CalculateFavor(addTile, cardReferences[rule].cardClass, cardReferences[rule].aoeRules);
@@ -74,7 +74,7 @@ public class UnitAI : MonoBehaviour
     IEnumerator AIPlayCard(CardPlus cardReference, BattleTileController targetTile)
     {
         //highlight the range for an AI card briefly
-        List<GameObject> displayCells = ZoneTargeter.ConvertMapRuleToTiles(cardReference.targetRules, transform.position);
+        List<GameObject> displayCells = CellTargeting.ConvertMapRuleToTiles(cardReference.targetRules, transform.position);
         for (int i = 0; i < displayCells.Count; i++)
         {
             BattleTileController cellController = displayCells[i].GetComponent<BattleTileController>();
@@ -104,12 +104,12 @@ public class UnitAI : MonoBehaviour
         }
         if(cardClass.Contains(CardClass.ATTACK))
         {
-            List <BattleUnit> attackables = ZoneTargeter.AreaTargets(moveTile.gameObject, gameObject.tag, CardClass.ATTACK, cardAOE);
+            List <BattleUnit> attackables = CellTargeting.AreaTargets(moveTile.gameObject, gameObject.tag, CardClass.ATTACK, cardAOE);
             favor += attackables.Count * personality.interestAttack;
         }
         if (cardClass.Contains(CardClass.BUFF))
         {
-            List<BattleUnit> buffables = ZoneTargeter.AreaTargets(moveTile.gameObject, gameObject.tag, CardClass.BUFF, cardAOE);
+            List<BattleUnit> buffables = CellTargeting.AreaTargets(moveTile.gameObject, gameObject.tag, CardClass.BUFF, cardAOE);
             favor += buffables.Count * personality.interestBuff;
         }
 

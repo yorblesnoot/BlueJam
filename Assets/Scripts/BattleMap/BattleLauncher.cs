@@ -15,11 +15,15 @@ public class BattleLauncher : MapLauncher
     public GameObject player;
     public RunData runData;
 
+    [SerializeField] CameraLock camLock;
+
     private void Start() 
     {
         //instantiate a prefab map
         Instantiate(runData.availableMaps.DispenseMap(), new Vector3(0, 0, 0), Quaternion.identity);
 
+        //tell the camera to find the lockpoint on the battle map and lock onto it
+        camLock.CameraLockOn();
         RequestMapReferences();
 
         //place units onto the map

@@ -25,6 +25,8 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             scaleFactor = 1.5f;
             positionFactor = 1.3f;
+            RectTransform cardRect = gameObject.GetComponent<RectTransform>();
+            positionFactor = cardRect.rect.height / positionFactor;
         }
         else
         {
@@ -54,8 +56,6 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             if (positionFactor > 0f)
             {
                 Vector3 position = transform.localPosition;
-                RectTransform cardRect = gameObject.GetComponent<RectTransform>();
-                positionFactor = cardRect.rect.height / positionFactor;
                 transform.localPosition = new Vector3(position.x, position.y + positionFactor, position.z);
             }
             //StartCoroutine(BlockEmphasis());

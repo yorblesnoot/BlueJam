@@ -84,7 +84,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
             //tell every active card to become inactive
             EventManager.clearActivation?.Invoke();
             //find list of legal cell targets
-            List<GameObject> legalCells = ZoneTargeter.ConvertMapRuleToTiles(thisCard.targetRules, owner.transform.position);
+            List<GameObject> legalCells = CellTargeting.ConvertMapRuleToTiles(thisCard.targetRules, owner.transform.position);
             //highlight on each legal cell
             for(int i = 0; i < legalCells.Count; i++)
             {
@@ -111,7 +111,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
     {
         if(activated == true)
         {
-            if (ZoneTargeter.ValidPlay(tile, owner.tag, thisCard.cardClass, thisCard.aoeRules))
+            if (CellTargeting.ValidPlay(tile, owner.tag, thisCard.cardClass, thisCard.aoeRules))
             {
                 EventManager.clearActivation?.Invoke();
                 StartCoroutine(thisCard.PlaySequence(owner, tile));

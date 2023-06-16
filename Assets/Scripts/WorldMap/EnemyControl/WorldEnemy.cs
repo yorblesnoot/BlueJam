@@ -21,7 +21,7 @@ public class WorldEnemy : MonoBehaviour
     public virtual void RegisterAggroZone()
     {
         aggroZone = MapRulesGenerator.Convert(TileMapShape.CROSS, 1, 0);
-        List<GameObject> zone = ZoneTargeter.ConvertMapRuleToTiles(aggroZone, gameObject.transform.position);
+        List<GameObject> zone = CellTargeting.ConvertMapRuleToTiles(aggroZone, gameObject.transform.position);
         foreach (GameObject tile in zone)
         {
             tile.GetComponent<WorldEventHandler>().RegisterAggroZone(this);

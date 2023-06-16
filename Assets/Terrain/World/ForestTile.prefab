@@ -746,8 +746,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: ForestTile
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 8538304405607322379, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
 --- !u!4 &8677133036002585296 stripped
 Transform:

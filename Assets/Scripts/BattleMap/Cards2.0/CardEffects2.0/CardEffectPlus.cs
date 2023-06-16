@@ -28,7 +28,7 @@ public class CardEffectPlus : ScriptableObject
             targetCell = userOriginalTile;
         }
         //issue here when no targets
-        List<BattleUnit> targets = ZoneTargeter.AreaTargets(targetCell.gameObject, actor.gameObject.tag, effectClass, aoe);
+        List<BattleUnit> targets = CellTargeting.AreaTargets(targetCell.gameObject, actor.gameObject.tag, effectClass, aoe);
         if(targets.Count > 0) foreach(BattleUnit target in targets) EventManager.checkForTriggers.Invoke(this, actor, target);
         else EventManager.checkForTriggers.Invoke(this, actor, null);
         return targets;

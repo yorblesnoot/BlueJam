@@ -49,7 +49,7 @@ public class BattleTileController : MonoBehaviour
         if(aoeRules != null && availableMove == true)
         {
             //find list of legal cell aoe targets
-            List<GameObject> legalCells = ZoneTargeter.ConvertMapRuleToTiles(aoeRules, transform.position);
+            List<GameObject> legalCells = CellTargeting.ConvertMapRuleToTiles(aoeRules, transform.position);
             //highlight on each legal cell
             for (int i = 0; i < legalCells.Count; i++)
             {
