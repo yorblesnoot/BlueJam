@@ -29,7 +29,12 @@ public static class GridTools
     public static GameObject VectorToTile(Vector3 toConvert)
     {
         int[] coords = VectorToMap(toConvert);
-        try { return gameMap[coords[0], coords[1]];}
+        return MapToTile(coords);
+    }
+
+    public static GameObject MapToTile(int[] coords)
+    {
+        try { return gameMap[coords[0], coords[1]]; }
         catch { return null; }
     }
 

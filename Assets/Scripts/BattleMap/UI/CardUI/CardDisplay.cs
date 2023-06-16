@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using System.Data;
 
 public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
 {
@@ -85,8 +86,12 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
             EventManager.clearActivation?.Invoke();
             //find list of legal cell targets
             List<GameObject> legalCells = CellTargeting.ConvertMapRuleToTiles(thisCard.targetRules, owner.transform.position);
+
+            //LOS logic for move cards
+            if (thisCard.pathCheckForTargets == true) legalCells = legalCells.EliminateUnpathable(owner.gameObject.transform.position);
+
             //highlight on each legal cell
-            for(int i = 0; i < legalCells.Count; i++)
+            for (int i = 0; i < legalCells.Count; i++)
             {
                 BattleTileController cellController = legalCells[i].GetComponent<BattleTileController>();
                 cellController.availableMove = true;

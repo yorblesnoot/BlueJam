@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -45,6 +46,56 @@ public static class CellTargeting
             }
         }
         return output;
+    }
+
+    public static List<GameObject> EliminateUnpathable(this List<GameObject> legalCells, Vector3 targetSource)
+    {
+        int rangeSize = 20;
+        List<int[]> reducedLegals = legalCells.Select(a => GridTools.VectorToMap(a.transform.position)).ToList();
+        bool[,] legalGrid = new bool[rangeSize,rangeSize];
+        Debug.Log(rangeSize);
+        foreach (int[] legalCell in reducedLegals)
+        {
+            legalGrid[legalCell[0], legalCell[1]] = true;
+        }
+        int[] sourcePosition = GridTools.VectorToMap(targetSource);
+
+        reducedLegals = reducedLegals.Where(x => DoesPathExist(legalGrid, sourcePosition, x, true) == true).ToList();
+
+        legalCells = reducedLegals.Select(a => GridTools.MapToTile(a)).ToList();
+        return legalCells;
+    }
+
+    static bool DoesPathExist(bool[,] grid, int[] current, int[] destination, bool firstRun)
+    {
+        //if we are at the destination, return path
+        if (current[0] == destination[0] && current[1] == destination[1])
+        {
+            //Debug.Log($"Destination found{destination[0]}, {destination[1]}");
+            return true;
+        }
+        //if we've hit a blocked cell, return no path
+        else if (firstRun == false && grid.Safe2DFind(current[0], current[1]) != true) return false;
+        //if we are on an available cell, check for path on adjacents
+        else
+        {
+            int directionX = Mathf.Clamp(destination[0] - current[0], -1, 1);
+            if (directionX != 0)
+            {
+                //Debug.Log($"branch 1 to {destination[0]}, {destination[1]}");
+                bool first = DoesPathExist(grid, new int[] { current[0] + directionX, current[1] }, destination, false);
+                if (first == true) return true;
+            }
+            int directionY = Mathf.Clamp(destination[1] - current[1], -1, 1);
+            if (directionY != 0)
+            {
+                //Debug.Log($"branch 2 to {destination[0]}, {destination[1]}");
+                bool second = DoesPathExist(grid, new int[] { current[0], current[1] + directionY }, destination, false);
+                if (second == true) return true;
+            }
+            //Debug.Log($"Child paths blocked {destination[0]}, {destination[1]}");
+            return false;
+        }
     }
 
     //return true if areatargets found valid plays

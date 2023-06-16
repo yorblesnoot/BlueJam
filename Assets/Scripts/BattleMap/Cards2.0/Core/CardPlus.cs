@@ -17,6 +17,7 @@ public class CardPlus : ScriptableObject
     [SerializeField] int targetSize;
     [SerializeField] int targetGap;
     [HideInInspector] public string[,] targetRules;
+    public bool pathCheckForTargets;
 
     [SerializeField] TileMapShape aoeShape;
     [SerializeField] int aoeSize;

@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: LongWalk
   m_EditorClassIdentifier: 
-  trueName: CardPlus
   displayName: Stride
   cost: 2
-  description: 
+  description: 'Walk to the target cell.
+
+'
   keywords: 
   targetShape: 2
   targetSize: 2
   targetGap: 1
+  pathCheckForTargets: 1
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
-  owner: {fileID: 0}
   cardClass: 01000000
   consumed: 0
-  isActive: 0
   effects:
   - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
