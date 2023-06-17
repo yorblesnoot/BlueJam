@@ -12,4 +12,17 @@ public static class GridHelper
         }
         else return default;
     }
+
+    public static List<T> Flatten<T>(this T[,] toFlatten)
+    {
+        List<T> result = new();
+        for (int y = 0; y < toFlatten.GetLength(1); y++)
+        {
+            for (int x = 0; x < toFlatten.GetLength(0); x++)
+            {
+                result.Add(toFlatten[x,y]);
+            }
+        }
+        return result;
+    }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -7,9 +8,9 @@ public class RunData : ScriptableObject
     //world map data
     public UnitStats playerStats;
     public Deck playerDeck;
-    [HideInInspector]public string[,] worldMap;
-    [HideInInspector]public List<int[]> worldEnemies;
-    [HideInInspector]public string[,] eventMap;
+    [HideInInspector] public string[,] worldMap;
+    [HideInInspector] public List<int[]> worldEnemies;
+    [HideInInspector] public string[,] eventMap;
 
     public int playerWorldX;
     public int playerWorldY;
@@ -20,7 +21,7 @@ public class RunData : ScriptableObject
     public List<BattleItem> itemInventory;
     public List<Deck> essenceInventory;
 
-    [SerializeField]private int keyStock;
+    [SerializeField] private int keyStock;
     public int KeyStock
     {
         get { return keyStock; }
@@ -40,7 +41,7 @@ public class RunData : ScriptableObject
             EventManager.updateWorldCounters.Invoke();
         }
     }
-
+    public int worldSteps;
     public int runDifficulty;
     public int baseEnemies;
 
@@ -53,5 +54,4 @@ public class RunData : ScriptableObject
     public List<int> spawnWeights;
     public int enemyBudget;
     public bool bossEncounter;
-
 }

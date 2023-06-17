@@ -53,7 +53,6 @@ public static class CellTargeting
         int rangeSize = 20;
         List<int[]> reducedLegals = legalCells.Select(a => GridTools.VectorToMap(a.transform.position)).ToList();
         bool[,] legalGrid = new bool[rangeSize,rangeSize];
-        Debug.Log(rangeSize);
         foreach (int[] legalCell in reducedLegals)
         {
             legalGrid[legalCell[0], legalCell[1]] = true;

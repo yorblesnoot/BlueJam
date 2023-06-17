@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Card", menuName = "ScriptableObjects/Cards/Core")]
-public class CardPlus : ScriptableObject
+public class CardPlus : SOWithGUID
 {
     //core card parameters
 

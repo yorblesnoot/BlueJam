@@ -22,7 +22,7 @@ public class ProceduralEventPlacer
         runData = data;
         //number of events to place
         map = data.worldMap;
-        worldEvents = new string[map.Length,map.Length];
+        worldEvents = new string[map.GetLength(0),map.GetLength(1)];
         enemyCap = map.GetLength(0);
         keyCap = 3;
         removeCap = 4;

@@ -58,7 +58,7 @@ public class TriggerTracker : MonoBehaviour
             tracked.availableForTrigger = false;
             if (tracked.remainingActivations == 0)
             {
-                Debug.Log(gameObject + " triggered " + tracked.trigger.triggeredEffect);
+                //Debug.Log(gameObject + " triggered " + tracked.trigger.triggeredEffect);
                 if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.USER)
                 {
                     tracked.trigger.triggeredEffect.Execute(battleUnit, GridTools.VectorToTile(origin.transform.position).GetComponent<BattleTileController>(), new string[,] { { "n" } });

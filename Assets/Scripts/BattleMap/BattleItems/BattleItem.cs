@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "BattleItem", menuName = "ScriptableObjects/Item/BattleItem")]
-public class BattleItem : ScriptableObject
+public class BattleItem : SOWithGUID
 {
     public Sprite thumbnail;
     public Color32 thumbnailColor;
