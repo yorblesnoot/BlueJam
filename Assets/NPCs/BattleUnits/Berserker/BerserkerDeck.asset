@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
   m_Name: BerserkerDeck
   m_EditorClassIdentifier: 
+  Id: 29d895ec-fe47-4b62-a356-01ccbababdc1
   deckContents:
   - {fileID: 11400000, guid: 46a4f46e590e8c642a233271119ce5f5, type: 2}
   - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}

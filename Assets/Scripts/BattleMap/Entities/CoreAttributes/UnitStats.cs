@@ -22,6 +22,4 @@ public class UnitStats : ScriptableObject
 
     public float turnSpeed;
 
-    public int percentDamage;
-    public float percentArmor;
 }

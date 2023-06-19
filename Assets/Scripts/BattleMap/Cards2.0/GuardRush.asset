@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: GuardRush
   m_EditorClassIdentifier: 
+  Id: 87717cd3-c060-4af8-ab93-079b3973f167
   displayName: Guarded Rush
   cost: 3
   description: 'Walk to the target cell.

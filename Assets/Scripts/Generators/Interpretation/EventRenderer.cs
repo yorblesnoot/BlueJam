@@ -44,7 +44,7 @@ public class EventRenderer : MonoBehaviour
         {
             for(int y = 0;  y < eventMap.GetLength(1); y++)
             {
-                if (eventMap[x, y] != null) Instantiate((GameObject)eventTable[eventMap[x,y]], GridTools.MapToVector(x, y, 1), Quaternion.identity);
+                if (!string.IsNullOrEmpty(eventMap[x, y])) Instantiate((GameObject)eventTable[eventMap[x,y]], GridTools.MapToVector(x, y, 1), Quaternion.identity);
             }
         }
     }

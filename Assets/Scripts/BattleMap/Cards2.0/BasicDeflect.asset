@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: BasicDeflect
   m_EditorClassIdentifier: 
+  Id: 07e0a795-bdb8-45f8-87f6-24be1604dff7
   displayName: Deflect
   cost: 2
   description: '*Deflect for <color=#1ED5FA>30</color>.
@@ -21,6 +22,7 @@ MonoBehaviour:
   targetShape: 0
   targetSize: 0
   targetGap: 0
+  pathCheckForTargets: 0
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0

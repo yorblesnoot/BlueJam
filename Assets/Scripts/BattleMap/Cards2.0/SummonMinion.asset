@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: SummonMinion
   m_EditorClassIdentifier: 
-  trueName: CardPlus
+  Id: 6aa415a0-a69d-4a14-aad8-a86c94f37cd0
   displayName: 
   cost: 3
   description: 
@@ -20,12 +20,11 @@ MonoBehaviour:
   targetShape: 0
   targetSize: 2
   targetGap: 1
+  pathCheckForTargets: 0
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
-  owner: {fileID: 0}
   cardClass: 03000000
   consumed: 0
-  isActive: 0
   effects:
   - {fileID: 11400000, guid: f47a4f5e72629704e8b90bfe4eb1584e, type: 2}

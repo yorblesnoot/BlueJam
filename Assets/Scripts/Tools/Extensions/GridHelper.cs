@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,11 +17,27 @@ public static class GridHelper
     public static List<T> Flatten<T>(this T[,] toFlatten)
     {
         List<T> result = new();
-        for (int y = 0; y < toFlatten.GetLength(1); y++)
+        for (int x = 0; x < toFlatten.GetLength(1); x++)
         {
-            for (int x = 0; x < toFlatten.GetLength(0); x++)
+            for (int y = 0; y < toFlatten.GetLength(0); y++)
             {
                 result.Add(toFlatten[x,y]);
+            }
+        }
+        return result;
+    }
+
+    public static T[,] Unflatten<T>(this List<T> toUnflatten)
+    {
+        int size = Convert.ToInt32(Mathf.Sqrt(toUnflatten.Count));
+        T[,] result = new T[size, size];
+        int index = 0;
+        for (int x = 0; x < size; x++)
+        {
+            for (int y = 0; y < size; y++)
+            {
+                result[x, y] = toUnflatten[index];
+                index++;
             }
         }
         return result;

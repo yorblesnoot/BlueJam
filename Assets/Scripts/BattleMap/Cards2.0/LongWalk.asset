@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: LongWalk
   m_EditorClassIdentifier: 
+  Id: f756cc2a-8910-4bf9-92a0-8aeb128c5c7d
   displayName: Stride
   cost: 2
   description: 'Walk to the target cell.

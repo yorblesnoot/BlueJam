@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RunData", menuName = "ScriptableObjects/RunData")]
+[CreateAssetMenu(fileName = "RunData", menuName = "ScriptableObjects/Singletons/RunData")]
 public class RunData : ScriptableObject
 {
     //world map data
@@ -20,6 +20,8 @@ public class RunData : ScriptableObject
 
     public List<BattleItem> itemInventory;
     public List<Deck> essenceInventory;
+
+    public ItemPool itemPool;
 
     [SerializeField] private int keyStock;
     public int KeyStock
@@ -47,8 +49,9 @@ public class RunData : ScriptableObject
 
     public int currentHealth;
 
-    public BiomePool availableMaps;
+
     //enemy spawn info to convey from world to battle
+    public BiomePool availableMaps;
     public List<GameObject> staticSpawns;
     public List<GameObject> spawnUnits;
     public List<int> spawnWeights;

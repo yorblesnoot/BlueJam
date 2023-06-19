@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: MinorHeal
   m_EditorClassIdentifier: 
+  Id: f4ca2e8e-0db6-4bf8-b751-77b48e7bc667
   displayName: Minor Heal
   cost: 3
   description: 'Heal for <color=#1EFA61>3</color>.
@@ -21,6 +22,7 @@ MonoBehaviour:
   targetShape: 0
   targetSize: 2
   targetGap: 0
+  pathCheckForTargets: 0
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0

@@ -20,6 +20,7 @@ public class PlayerUnit : BattleUnit
     public override void Die()
     {
         //gameover
+        System.IO.File.Delete(Application.persistentDataPath + "/runData.json");
         SceneManager.LoadScene(0);
     }
 }

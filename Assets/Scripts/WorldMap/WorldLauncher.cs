@@ -13,7 +13,8 @@ public class WorldLauncher : MapLauncher
     public int amountOfWorldEnemies;
 
     private void Start() 
-    { 
+    {
+        new SaveContainer(runData).SaveGame();
         //set variables
         worldMap = runData.worldMap;
         if (worldMap == null)

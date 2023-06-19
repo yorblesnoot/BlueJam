@@ -5,10 +5,30 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] RunStarter starter;
+    [SerializeField] RunData runData;
+    [SerializeField] LoadLibrary loadLibrary;
+
+    [SerializeField] GameObject continueButton;
+
+
+    private void Start()
+    {
+        //if there is no save file, disable the continue button~~~~~~~
+        if (!System.IO.File.Exists(Application.persistentDataPath + "/runData.json"))
+        {
+            continueButton.SetActive(false);
+        }
+    }
     public void ClickPlayButton()
     {
-        GetComponent<RunStarter>().InitializeRun();
+        starter.NewGame();
+    }
+
+    public void ClickContinueButton()
+    {
+        SaveContainer saver = new(runData, loadLibrary);
+        saver.LoadGame();
     }
     
     public void ClickExitButton()

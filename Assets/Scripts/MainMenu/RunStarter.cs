@@ -9,10 +9,9 @@ public class RunStarter : MonoBehaviour
     public PlayerClass playerClass;
     public UnitStats playerStats;
     public Deck playerDeck;
-    public ItemPool itemPool;
 
     public GenerationParameters generationParameters;
-    public void InitializeRun()
+    public void NewGame()
     {
         //starting position on world map; ~~~~~~~~~~add randomization and legality check
         int startX = 1;
@@ -46,8 +45,8 @@ public class RunStarter : MonoBehaviour
         runData.runDifficulty = 0;
 
         //initalize gameplay lists
-        itemPool.awardableItems = new();
-        itemPool.awardableItems.AddRange(itemPool.awardableItemPool);
+        runData.itemPool.awardableItems = new();
+        runData.itemPool.awardableItems.AddRange(runData.itemPool.awardableItemPool);
         runData.itemInventory = new();
         runData.essenceInventory = new();
         runData.KeyStock = 0;

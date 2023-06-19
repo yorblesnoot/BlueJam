@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
   m_Name: PaladinDeck
   m_EditorClassIdentifier: 
+  Id: 426baa03-14d7-4353-ab1d-c9d38606715d
   deckContents:
   - {fileID: 11400000, guid: 5d300892ab23b89459e7ec5ce4a75327, type: 2}
   - {fileID: 11400000, guid: f21dd54ab1c96fe4b91e21bdc0f4bea9, type: 2}

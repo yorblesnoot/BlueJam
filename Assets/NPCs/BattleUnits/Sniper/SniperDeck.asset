@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
   m_Name: SniperDeck
   m_EditorClassIdentifier: 
+  Id: 0829eb51-4ad7-457f-b85f-7d77690329a0
   deckContents:
   - {fileID: 11400000, guid: e11006d9fd756d24ba08d1bc9086a503, type: 2}
   - {fileID: 11400000, guid: 4e3636f5cfa02ca4d8de3fd5f8adc59f, type: 2}

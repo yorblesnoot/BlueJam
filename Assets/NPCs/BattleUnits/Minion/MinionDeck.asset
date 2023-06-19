@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
   m_Name: MinionDeck
   m_EditorClassIdentifier: 
+  Id: 434902a7-6581-4feb-981a-65e73fde96c7
   deckContents:
   - {fileID: 11400000, guid: 8356ab5dddb7d4d4d97d27bbb0bb99dc, type: 2}
   - {fileID: 11400000, guid: dcef72f8c4566b542acbfc7312a7ae52, type: 2}

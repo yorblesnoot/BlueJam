@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: MinorPoison
   m_EditorClassIdentifier: 
+  Id: ff00be6a-14aa-4fc2-804c-319fc73b6fe8
   displayName: Envenom
   cost: 3
   description: 
@@ -19,6 +20,7 @@ MonoBehaviour:
   targetShape: 0
   targetSize: 3
   targetGap: 0
+  pathCheckForTargets: 0
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0

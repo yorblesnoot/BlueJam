@@ -28,6 +28,7 @@ public class WorldEventHandler : MonoBehaviour
             {
                 EventManager.updateItemUI.AddListener(ConfirmItemPicked);
                 yield return new WaitUntil(() => pickedItem == true);
+                new SaveContainer(runData).SaveGame();
             }
             yield return new WaitForSeconds(.5f);
             cellEvent = null;

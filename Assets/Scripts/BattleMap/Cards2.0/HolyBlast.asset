@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: HolyBlast
   m_EditorClassIdentifier: 
-  trueName: CardPlus
+  Id: bd1b69d9-2691-405e-9b18-77a9ce1a8bd1
   displayName: Holy Blast
   cost: 3
   description: 
@@ -20,12 +20,11 @@ MonoBehaviour:
   targetShape: 1
   targetSize: 1
   targetGap: 0
+  pathCheckForTargets: 0
   aoeShape: 0
   aoeSize: 1
   aoeGap: 0
-  owner: {fileID: 0}
   cardClass: 00000000
   consumed: 0
-  isActive: 1
   effects:
   - {fileID: 11400000, guid: a928d340492cb284cb2a0a333e9ae2fb, type: 2}

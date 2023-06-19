@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: Snipe
   m_EditorClassIdentifier: 
-  trueName: CardPlus
+  Id: d2bfd311-9729-49c6-a056-10b563fc8bfd
   displayName: Snipe
   cost: 4
   description: 
@@ -20,12 +20,11 @@ MonoBehaviour:
   targetShape: 0
   targetSize: 6
   targetGap: 4
+  pathCheckForTargets: 0
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
-  owner: {fileID: 0}
   cardClass: 00000000
   consumed: 0
-  isActive: 0
   effects:
   - {fileID: 11400000, guid: 189dc193e4c7ed34c81a8fda54fb40cb, type: 2}

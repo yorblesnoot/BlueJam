@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
   m_Name: NecroDeck
   m_EditorClassIdentifier: 
+  Id: 6c1774a6-b1c9-4f73-b88d-df597fac97a1
   deckContents:
   - {fileID: 11400000, guid: b429b95cd75d9454884a653da9001ae1, type: 2}
   - {fileID: 11400000, guid: 5f9c754f59582c14aafb5f113d3b19d7, type: 2}

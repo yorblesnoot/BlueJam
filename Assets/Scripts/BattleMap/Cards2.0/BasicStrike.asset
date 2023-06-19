@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: BasicStrike
   m_EditorClassIdentifier: 
-  trueName: 
+  Id: a84c897f-84e1-477d-ab2e-281cb24b1af0
   displayName: Basic Strike
   cost: 2
   description: 
@@ -20,12 +20,11 @@ MonoBehaviour:
   targetShape: 1
   targetSize: 1
   targetGap: 1
+  pathCheckForTargets: 0
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
-  owner: {fileID: 0}
   cardClass: 00000000
   consumed: 0
-  isActive: 0
   effects:
   - {fileID: 11400000, guid: f111fd945c1e2314b8cc1b68ef11a2c6, type: 2}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: Shove
   m_EditorClassIdentifier: 
-  trueName: CardPlus
+  Id: 2178fcff-1198-42f3-b839-fbeb7a4a0d73
   displayName: Shove
   cost: 3
   description: 
@@ -20,12 +20,11 @@ MonoBehaviour:
   targetShape: 0
   targetSize: 1
   targetGap: 1
+  pathCheckForTargets: 0
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
-  owner: {fileID: 0}
   cardClass: 00000000
   consumed: 0
-  isActive: 0
   effects:
   - {fileID: 11400000, guid: 125e7e3f783cc6f41a2119ffca942fd8, type: 2}

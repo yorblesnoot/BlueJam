@@ -14,17 +14,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
-  playerWorldX: 3
-  playerWorldY: 2
+  playerWorldX: 1
+  playerWorldY: 1
   bossWorldX: 8
   bossWorldY: 8
   itemInventory: []
-  essenceInventory: []
-  keyStock: 1
+  essenceInventory:
+  - {fileID: 11400000, guid: eaeca6a9ebc64974d92fc3cfb6d838e4, type: 2}
+  - {fileID: 11400000, guid: eaeca6a9ebc64974d92fc3cfb6d838e4, type: 2}
+  itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
+  keyStock: 0
   removeStock: 0
+  worldSteps: 0
   runDifficulty: 0
   baseEnemies: 7
-  currentHealth: 100
+  currentHealth: 96
   availableMaps: {fileID: 11400000, guid: 9ab396d0bd3d69041b649fe9a0e66372, type: 2}
   staticSpawns: []
   spawnUnits:
