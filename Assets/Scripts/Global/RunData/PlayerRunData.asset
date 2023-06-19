@@ -19,17 +19,15 @@ MonoBehaviour:
   bossWorldX: 8
   bossWorldY: 8
   itemInventory: []
-  essenceInventory:
-  - {fileID: 11400000, guid: eaeca6a9ebc64974d92fc3cfb6d838e4, type: 2}
-  - {fileID: 11400000, guid: eaeca6a9ebc64974d92fc3cfb6d838e4, type: 2}
+  essenceInventory: []
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   keyStock: 0
   removeStock: 0
   worldSteps: 0
   runDifficulty: 0
   baseEnemies: 7
-  currentHealth: 96
-  availableMaps: {fileID: 11400000, guid: 9ab396d0bd3d69041b649fe9a0e66372, type: 2}
+  currentHealth: 100
+  availableMaps: {fileID: 11400000, guid: ba858f3e3ccb08d41bc8c490657cdbbb, type: 2}
   staticSpawns: []
   spawnUnits:
   - {fileID: 7566552127858462820, guid: 6a8ba7e5c56784d46beed0129c7aa960, type: 3}

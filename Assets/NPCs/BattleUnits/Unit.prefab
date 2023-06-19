@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1117014247259313703}
   - component: {fileID: 8464405472856945552}
   - component: {fileID: 5174895268556440282}
+  - component: {fileID: 7119020024479498164}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Enemy
@@ -135,6 +136,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceTrigger: {fileID: 0}
   battleUnit: {fileID: 8320433818775275716}
+--- !u!114 &7119020024479498164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073732932440425903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331d2488dd0020b44ae7c5843e8cfe77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
 --- !u!1001 &3117187234317749416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -370,6 +384,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2815430197908170542, guid: 4c61cb5fa11805a4c99f1ac037891f67, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c61cb5fa11805a4c99f1ac037891f67, type: 3}
 --- !u!4 &5629394624018249364 stripped

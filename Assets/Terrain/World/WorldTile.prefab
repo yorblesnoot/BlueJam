@@ -77,10 +77,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileEnemyPreset: {fileID: 0}
-  generationParameters: {fileID: 0}
+  biomeMaps: {fileID: 0}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   enemyEvents: []
-  itemEvent: {fileID: 0}
+  cellEvent: {fileID: 0}
 --- !u!1001 &2207960037877059920
 PrefabInstance:
   m_ObjectHideFlags: 0

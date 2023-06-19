@@ -208,6 +208,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4840998789839756132, guid: 6381d5eb9939e5b4396ed2aed2e1870e, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
     - target: {fileID: 7181176805387185589, guid: 6381d5eb9939e5b4396ed2aed2e1870e, type: 3}
       propertyPath: m_Name
       value: WorldItem

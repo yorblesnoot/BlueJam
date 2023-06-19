@@ -112,7 +112,7 @@ MonoBehaviour:
   targetType: {fileID: 8519150486815760486}
   effectText: {fileID: 8519150487366099922}
   keywordPane: {fileID: 8519150487843660602}
-  mode: 0
+  sceneIndex: 0
   emphasize: {fileID: 1065164714262176951}
 --- !u!114 &1065164714262176951
 MonoBehaviour:

@@ -679,7 +679,6 @@ MonoBehaviour:
   sliderShield: {fileID: 5822452377339639697}
   blankCard: {fileID: 8125039690481149630, guid: 0aa464d779125cc4f9307b253cd89fcf, type: 3}
   myHand: {fileID: 0}
-  thisUnit: {fileID: 0}
   unitCanvas: {fileID: 9024284370559484642}
   unitActions: {fileID: 0}
   <buffUI>k__BackingField: {fileID: 5034534223951127692}
