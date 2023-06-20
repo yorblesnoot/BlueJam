@@ -6,6 +6,7 @@ public class BattleUnit : MonoBehaviour, IPlayerData
 {
     [field: SerializeField] public UnitStats unitStats { get; set; }
     public BarrierTracker barrierTracker;
+    public UnitAnimator unitAnimator;
 
     public int maxHealth { get; set; }
     public int handSize { get; set; }
@@ -72,6 +73,7 @@ public class BattleUnit : MonoBehaviour, IPlayerData
 
         //update healthbar in UI
         myUI.UpdateHealth();
+        unitAnimator.Animate(AnimType.DAMAGED);
     }
 
     public void CheckForDeath()
@@ -100,7 +102,6 @@ public class BattleUnit : MonoBehaviour, IPlayerData
 
     public virtual void Die()
     {
-        Debug.Log(gameObject + " has died");
         if (gameObject.tag == "Enemy" && isSummoned != true)
         {
             //when an enemy dies, add its deck to the player's inventory for later use

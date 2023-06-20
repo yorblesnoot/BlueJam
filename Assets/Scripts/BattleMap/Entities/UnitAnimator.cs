@@ -26,6 +26,10 @@ public class UnitAnimator : MonoBehaviour
     };
     public void Animate(AnimType anim)
     {
-        animator.Play(animateFor[anim]);
+        try
+        {
+            animator.Play(animateFor[anim]);
+        }
+        catch { }
     }
 }

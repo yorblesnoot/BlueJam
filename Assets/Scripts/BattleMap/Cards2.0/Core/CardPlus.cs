@@ -27,6 +27,8 @@ public class CardPlus : SOWithGUID
     public List<CardClass> cardClass;
     public bool consumed;
 
+    public AnimType animType;
+
     public List<CardEffectPlus> effects;
 
     public void Initialize()
@@ -38,13 +40,15 @@ public class CardPlus : SOWithGUID
 
     public IEnumerator PlaySequence(BattleUnit actor, BattleTileController targetCell)
     {
+        actor.unitAnimator.Animate(animType);
         BattleTileController userOriginalTile = GridTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>();
         EventManager.allowTriggers.Invoke();
         for (int i = 0; i < effects.Count; i++)
         {
             effects[i].userOriginalTile = userOriginalTile;
             effects[i].Execute(actor, targetCell, aoeRules);
-            yield return new WaitForSeconds(effects[i].delayAfter);
+            yield return new WaitUntil(() => effects[i].doneExecuting == true);
+            //yield return new WaitForSeconds(effects[i].delayAfter);
         }
         TurnManager.SpendBeats(actor.GetComponent<BattleUnit>(), cost);
     }

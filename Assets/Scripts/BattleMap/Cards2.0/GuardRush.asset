@@ -30,6 +30,7 @@ MonoBehaviour:
   aoeGap: 0
   cardClass: 0100000002000000
   consumed: 0
+  animType: 2
   effects:
   - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
   - {fileID: 11400000, guid: 55319a3e1913e854bbe7a76f6314834a, type: 2}

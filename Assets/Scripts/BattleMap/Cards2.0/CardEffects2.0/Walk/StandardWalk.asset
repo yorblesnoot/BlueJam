@@ -12,10 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3d1643db261cb4d945ce4b8bd7c06f, type: 3}
   m_Name: StandardWalk
   m_EditorClassIdentifier: 
-  displayName: Walk
-  delayAfter: 0.5
   targetSelf: 0
   effectClass: 1
-  description: 
+  vfxStyle: 0
+  vfxName: 
+  scalingMultiplier: 0
+  description: Walk to the target cell
   userOriginalTile: {fileID: 0}
+  doneExecuting: 1
+  blockTrigger: 0
   stepSize: 0.066

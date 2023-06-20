@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CardEffectPlus : ScriptableObject
 {
-    public float delayAfter;
+    //public float delayAfter;
     public bool targetSelf;
 
     public CardClass effectClass;
@@ -18,6 +18,8 @@ public class CardEffectPlus : ScriptableObject
     [HideInInspector] public string description;
 
     [HideInInspector] public BattleTileController userOriginalTile;
+
+    [HideInInspector] public bool doneExecuting = true;
 
     public bool blockTrigger;
     public virtual List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
