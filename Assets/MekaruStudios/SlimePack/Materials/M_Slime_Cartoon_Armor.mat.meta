@@ -1,8 +1,10 @@
 fileFormatVersion: 2
-guid: 4dec6f4a796600b488836b78bf48d32c
+guid: 8d30d41a8e14e3e4388eba63777289d2
+labels:
+- SlimeMaterials
 NativeFormatImporter:
   externalObjects: {}
-  mainObjectFileID: 11400000
+  mainObjectFileID: 2100000
   userData: 
   assetBundleName: 
   assetBundleVariant: 

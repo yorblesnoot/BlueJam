@@ -23,13 +23,13 @@ public class WorldPlayerControl : MonoBehaviour
 
     public IEnumerator MoveToWorldCell(GameObject cell)
     {
-        Vector3 moveTarget = cell.transform.position;
-        moveTarget = new Vector3(moveTarget.x, moveTarget.y + heightAdjust, moveTarget.z);
+        WorldMovementController movementController = cell.GetComponent<WorldMovementController>();
+        transform.LookAt(movementController.unitPosition);
+        Vector3 moveTarget = movementController.unitPosition;
         while (gameObject.transform.position != moveTarget)
         {
-
             gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, moveTarget, .02f);
-            yield return new WaitForSeconds(.02f);
+            yield return new WaitForSeconds(.01f);
         }
 
         //modify player's world position in run data

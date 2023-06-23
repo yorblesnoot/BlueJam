@@ -26,7 +26,6 @@ public class EffectWalk : CardEffectPlus
         VFXMachine.AttachTrail("MoveTrail", actor.gameObject);
         GridTools.ReportPositionChange(actor, destinationCell);
         Vector3 destination = destinationCell.unitPosition;
-        actor.transform.LookAt(destination);
         while (actor.transform.position != destination)
         {
             actor.transform.position = Vector3.MoveTowards(actor.transform.position, destination, stepSize);

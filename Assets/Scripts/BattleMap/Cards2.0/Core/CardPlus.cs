@@ -40,6 +40,7 @@ public class CardPlus : SOWithGUID
 
     public IEnumerator PlaySequence(BattleUnit actor, BattleTileController targetCell)
     {
+        actor.transform.LookAt(targetCell.unitPosition);
         actor.unitAnimator.Animate(animType);
         BattleTileController userOriginalTile = GridTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>();
         EventManager.allowTriggers.Invoke();

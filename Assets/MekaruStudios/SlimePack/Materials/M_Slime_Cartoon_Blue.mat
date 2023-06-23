@@ -141,15 +141,15 @@ Material:
     - _innerFresnalBlend: 0.58
     - _innerFresnalSize: -0.03
     m_Colors:
-    - _BaseColor: {r: 0.63746, g: 0.68476886, b: 0.7075472, a: 1}
+    - _BaseColor: {r: 0.49123356, g: 0.7100726, b: 0.7830189, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FresnalColor: {r: 0.28555536, g: 0.8337336, b: 0.8773585, a: 0}
-    - _InnerFresnalColor: {r: 0.46293166, g: 0.85839456, b: 0.9528302, a: 0}
-    - _OuterFresnalColor: {r: 0.36133856, g: 0.4737968, b: 0.5283019, a: 0}
+    - _InnerFresnalColor: {r: 1, g: 1, b: 1, a: 0}
+    - _OuterFresnalColor: {r: 0.48393556, g: 0.7216902, b: 0.8207547, a: 0}
     - _ShadowColor: {r: 0.048605926, g: 0.041384827, b: 0.09433961, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SpecularColor: {r: 0.24150053, g: 0.7538086, b: 0.764151, a: 0}
+    - _SpecularColor: {r: 0.26032397, g: 0.835777, b: 0.8490566, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &126969672265003157
 MonoBehaviour:

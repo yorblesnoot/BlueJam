@@ -23,7 +23,7 @@ public class WorldMovementController : MonoBehaviour
     void Awake()
     {
         player = GameObject.FindWithTag("Player");
-        float heightAdjust = 1.3f;
+        float heightAdjust = 1f;
         Vector3 myPosition = gameObject.transform.position;
         unitPosition = new Vector3(myPosition.x, myPosition.y + heightAdjust, myPosition.z);
         EventManager.getWorldDestination.AddListener(HighlightCell);
