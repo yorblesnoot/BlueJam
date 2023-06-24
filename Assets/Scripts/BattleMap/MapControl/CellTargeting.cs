@@ -123,7 +123,6 @@ public static class CellTargeting
     //return all valid targets in an aoe target based on the class, aoe size, and owner
     public static List<BattleUnit> AreaTargets(GameObject tile, string tSource, CardClass cardClass, string[,] aoeRule)
     {
-
         List<GameObject> checkCells = ConvertMapRuleToTiles(aoeRule, tile.transform.position);
         List<BattleUnit> aoeTargets = new();
         if (checkCells.Count > 0)

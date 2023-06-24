@@ -32,6 +32,7 @@ public class EffectTrigger : CardEffectPlus
         List<BattleUnit> toBuff = base.Execute(actor, targetCell, aoe);
         for (int i = 0; i < toBuff.Count; i++)
         {
+
             toBuff[i].gameObject.GetComponent<TriggerTracker>().RegisterTrigger(this);
         }
         return null;

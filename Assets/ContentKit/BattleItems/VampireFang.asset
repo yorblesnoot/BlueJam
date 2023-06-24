@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf01b78a6872684ab53675f17ed6943, type: 3}
+  m_Name: VampireFang
+  m_EditorClassIdentifier: 
+  Id: 2e339b65-17b8-4865-94fd-6d906a2250ed
+  thumbnail: {fileID: 21300000, guid: 1a01eb51f081e2d4f80eb9d4db6f09f1, type: 3}
+  thumbnailColor:
+    serializedVersion: 2
+    rgba: 4279053244
+  effects:
+  - {fileID: 11400000, guid: 749baecc6fba76541bba165d4e906468, type: 2}
+  description: Heal for a small amount whenever you deal damage.

@@ -43,9 +43,9 @@ public static class VFXMachine
 
     static GameObject PrepareAsset(string effect)
     {
-        string assetFolder = "Assets/VFX/";
-        effect = assetFolder + effect + ".prefab";
-        GameObject prefab = (GameObject)AssetDatabase.LoadAssetAtPath(effect, typeof(GameObject));
+        string assetFolder = "VFX/";
+        effect = assetFolder + effect;
+        GameObject prefab = (GameObject)Resources.Load(effect, typeof(GameObject));
         return prefab;
     }
 }

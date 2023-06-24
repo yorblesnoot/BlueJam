@@ -31,14 +31,17 @@ public class BattleLauncher : MapLauncher
         encounterBuilder.PlacePlayer(player);
         encounterBuilder.PlaceEnemies(runData.enemyBudget);
 
-        //activate item effects
-        foreach(BattleItem item in runData.itemInventory)
-        {
-            foreach(var effect  in item.effects)
-                effect.Execute(player.GetComponent<BattleUnit>(), GridTools.VectorToTile(player.transform.position).GetComponent<BattleTileController>(), new string [,]{ { "n"} });
-        }
-
         //initialize combat
         EventManager.initalizeBattlemap?.Invoke();
+
+        //activate item effects
+        foreach (BattleItem item in runData.itemInventory)
+        {
+            foreach (var effect in item.effects)
+            {
+                effect.Execute(player.GetComponent<BattleUnit>(), GridTools.VectorToTile(player.transform.position).GetComponent<BattleTileController>(), new string[,] { { "n" } });
+                int[] coords = GridTools.VectorToMap(player.transform.position);
+            }
+        }
     }
 }

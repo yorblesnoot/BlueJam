@@ -72,7 +72,6 @@ public class TurnManager : MonoBehaviour
     {
         // remove the unit from the turn lists
         int removalIndex = turnTakers.IndexOf(actor);
-        Debug.Log(removalIndex);
         turnTakers.RemoveAt(removalIndex);
         turnRatios.RemoveAt(removalIndex);
         beatStock.RemoveAt(removalIndex);

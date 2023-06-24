@@ -263,7 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b99a70320977d9d4abc45d1b3bbc3a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forceTrigger: {fileID: 11400000, guid: e61f1b73341c205448036c453b006d84, type: 2}
+  forceTrigger: {fileID: 0}
   battleUnit: {fileID: 25600}
 --- !u!114 &25605
 MonoBehaviour:
