@@ -34,7 +34,9 @@ public class EffectPush : CardEffectPlus
         {
             //evaluate each cell in turn as a push destination
             Vector3 possibleDestination = destination + direction;
-            BattleTileController cell = GridTools.VectorToTile(possibleDestination).GetComponent<BattleTileController>();
+            BattleTileController cell;
+            try { cell = GridTools.VectorToTile(possibleDestination).GetComponent<BattleTileController>(); }
+            catch { cell = null; }
             if (cell != null)
             {
                 BattleUnit contents = cell.unitContents;

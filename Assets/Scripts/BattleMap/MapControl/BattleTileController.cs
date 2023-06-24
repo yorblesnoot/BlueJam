@@ -11,8 +11,9 @@ public class BattleTileController : MonoBehaviour
 
     [HideInInspector] public Vector3 unitPosition;
 
-    [SerializeField] GameObject cellHighlight;
-    [SerializeField] GameObject cellHighlightAOE;
+    [SerializeField] CellHighlight cellHighlighter;
+
+    HighlightMode baseHighlight = HighlightMode.OFF;
 
     public enum SpawnPermission { NONE, PLAYER, ENEMY, OBJECT}
     public SpawnPermission spawns;
@@ -26,7 +27,7 @@ public class BattleTileController : MonoBehaviour
         availableMove = false;
         EventManager.clearActivation.AddListener(ClearHighlight);
         EventManager.showAOE.AddListener(aoe => { aoeRules = aoe; });
-        EventManager.clearAOE.AddListener(() => { cellHighlightAOE.SetActive(false); });
+        EventManager.clearAOE.AddListener(() => { cellHighlighter.ChangeHighlightMode(baseHighlight); });
         EventManager.requestMapReferences.AddListener(launcher => { launcher.SubmitMapReference(gameObject); });
 
         Vector3 myPosition = gameObject.transform.position;
@@ -60,12 +61,17 @@ public class BattleTileController : MonoBehaviour
     }
     private void OnMouseExit() { EventManager.clearAOE?.Invoke(); }
 
-    public void HighlightCell() { cellHighlight.SetActive(true); }
+    public void HighlightCell() 
+    {
+        baseHighlight = HighlightMode.LEGAL;
+        cellHighlighter.ChangeHighlightMode(HighlightMode.LEGAL); 
+    }
     public void ClearHighlight()
     {
         availableMove = false;
-        cellHighlight.SetActive(false);
+        baseHighlight = HighlightMode.OFF;
+        cellHighlighter.ChangeHighlightMode(HighlightMode.OFF);
     }
 
-    public void HighlightCellAOE() { cellHighlightAOE.SetActive(true); }
+    public void HighlightCellAOE() { cellHighlighter.ChangeHighlightMode(HighlightMode.AOE); }
 }

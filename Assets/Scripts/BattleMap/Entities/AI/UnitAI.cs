@@ -42,7 +42,7 @@ public class UnitAI : MonoBehaviour
                 //use battlemap to find legal cells for every card in hand
                 List<GameObject> legalTiles = CellTargeting.ConvertMapRuleToTiles(cardReferences[rule].targetRules, transform.position);
 
-                if (cardReferences[rule].pathCheckForTargets == true) legalTiles = legalTiles.EliminateUnpathable(transform.position);
+                if (cardReferences[rule].pathCheckForTargets == true) legalTiles = legalTiles.EliminateUnpathable(gameObject);
 
                 int ruleLength = legalTiles.Count;
                 for(int x = 0; x < ruleLength; x++)

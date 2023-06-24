@@ -48,16 +48,19 @@ public static class CellTargeting
         return output;
     }
 
-    public static List<GameObject> EliminateUnpathable(this List<GameObject> legalCells, Vector3 targetSource)
+    public static List<GameObject> EliminateUnpathable(this List<GameObject> legalCells, GameObject targetSource)
     {
         int rangeSize = 20;
         List<int[]> reducedLegals = legalCells.Select(a => GridTools.VectorToMap(a.transform.position)).ToList();
         bool[,] legalGrid = new bool[rangeSize,rangeSize];
         foreach (int[] legalCell in reducedLegals)
         {
-            legalGrid[legalCell[0], legalCell[1]] = true;
+            if (TileIsValidTarget(GridTools.MapToTile(legalCell).GetComponent<BattleTileController>(), targetSource.tag, CardClass.MOVE))
+            {
+                legalGrid[legalCell[0], legalCell[1]] = true;
+            }
         }
-        int[] sourcePosition = GridTools.VectorToMap(targetSource);
+        int[] sourcePosition = GridTools.VectorToMap(targetSource.transform.position);
 
         reducedLegals = reducedLegals.Where(x => DoesPathExist(legalGrid, sourcePosition, x, true) == true).ToList();
 
@@ -70,8 +73,9 @@ public static class CellTargeting
         //if we are at the destination, return path
         if (current[0] == destination[0] && current[1] == destination[1])
         {
-            //Debug.Log($"Destination found{destination[0]}, {destination[1]}");
-            return true;
+            if (grid[destination[0], destination[1]] == true) return true;
+            else return false;
+
         }
         //if we've hit a blocked cell, return no path
         else if (firstRun == false && grid.Safe2DFind(current[0], current[1]) != true) return false;
@@ -102,7 +106,7 @@ public static class CellTargeting
     {
         if (cardClass.Contains(CardClass.MOVE) || cardClass.Contains(CardClass.SUMMON))
         {
-            if (TileIsValidTarget(tile, tSource, CardClass.MOVE) == true) return true;
+            if (TileIsValidTarget(tile, tSource, CardClass.MOVE)) return true;
             else return false;
         }
         else if(cardClass.Contains(CardClass.ATTACK) && AreaTargets(tile.gameObject, tSource, CardClass.ATTACK, aoeRule).Count > 0)

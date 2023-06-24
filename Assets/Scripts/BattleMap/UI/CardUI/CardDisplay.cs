@@ -88,7 +88,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
             List<GameObject> legalCells = CellTargeting.ConvertMapRuleToTiles(thisCard.targetRules, owner.transform.position);
 
             //LOS logic for move cards
-            if (thisCard.pathCheckForTargets == true) legalCells = legalCells.EliminateUnpathable(owner.gameObject.transform.position);
+            if (thisCard.pathCheckForTargets == true) legalCells = legalCells.EliminateUnpathable(owner.gameObject);
 
             //highlight on each legal cell
             for (int i = 0; i < legalCells.Count; i++)
