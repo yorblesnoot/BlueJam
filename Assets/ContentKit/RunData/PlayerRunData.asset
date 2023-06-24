@@ -14,20 +14,25 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
-  playerWorldX: 1
+  playerWorldX: 5
   playerWorldY: 2
   bossWorldX: 8
   bossWorldY: 8
-  itemInventory: []
-  essenceInventory: []
+  itemInventory:
+  - {fileID: 11400000, guid: 21f923c860f856341abb55236642c7be, type: 2}
+  - {fileID: 11400000, guid: 0f56768351732184a95fef67ab69cdd8, type: 2}
+  essenceInventory:
+  - {fileID: 11400000, guid: eaeca6a9ebc64974d92fc3cfb6d838e4, type: 2}
+  - {fileID: 11400000, guid: eaeca6a9ebc64974d92fc3cfb6d838e4, type: 2}
+  - {fileID: 11400000, guid: eaeca6a9ebc64974d92fc3cfb6d838e4, type: 2}
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   keyStock: 0
-  removeStock: 1
+  removeStock: 0
   worldSteps: 0
   runDifficulty: 0
   baseEnemies: 7
-  currentHealth: 100
-  availableMaps: {fileID: 11400000, guid: ba858f3e3ccb08d41bc8c490657cdbbb, type: 2}
+  currentHealth: 62
+  availableMaps: {fileID: 11400000, guid: fd322d6852fee34458468f564fff210a, type: 2}
   staticSpawns: []
   spawnUnits:
   - {fileID: 7566552127858462820, guid: 6a8ba7e5c56784d46beed0129c7aa960, type: 3}
@@ -36,6 +41,12 @@ MonoBehaviour:
   - {fileID: 1248187907569993784, guid: 8e33d67d04e8ea543803e55066e7f41a, type: 3}
   - {fileID: 803027305507735190, guid: d653113a69b79cc44a93fc1c8b9adb6d, type: 3}
   - {fileID: 8660871373512753979, guid: 8a367e4fabeb017439ca523912929127, type: 3}
-  spawnWeights: 020000000200000002000000010000000300000003000000
+  - {fileID: 7566552127858462820, guid: 6a8ba7e5c56784d46beed0129c7aa960, type: 3}
+  - {fileID: 7143469114425514057, guid: 2da3941d4f46e774d8de606a5a195bfe, type: 3}
+  - {fileID: 8924668989500822478, guid: 896d1b0ee53923f478923947b43069f3, type: 3}
+  - {fileID: 1248187907569993784, guid: 8e33d67d04e8ea543803e55066e7f41a, type: 3}
+  - {fileID: 803027305507735190, guid: d653113a69b79cc44a93fc1c8b9adb6d, type: 3}
+  - {fileID: 8660871373512753979, guid: 8a367e4fabeb017439ca523912929127, type: 3}
+  spawnWeights: 020000000200000002000000010000000300000003000000020000000200000002000000010000000300000003000000
   enemyBudget: 7
   bossEncounter: 0

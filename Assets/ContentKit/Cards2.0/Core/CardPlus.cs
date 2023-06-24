@@ -64,14 +64,9 @@ public class CardPlus : SOWithGUID
         int ownerHealing = stats.healScaling;
         int ownerBarrier = stats.barrierScaling;
 
-        List<ScalingType> scalingTypes = new List<ScalingType>();
         for (int i = 0; i < effects.Count; i++)
         {
-            effects[i].GenerateDescription();
-            description += $"{effects[i].description}.";
-            description = description.Replace("[damage]", "<color=#FF4E2B>" + (ownerDamage * effects[i].scalingMultiplier).ToString() + "</color>");
-            description = description.Replace("[barrier]", "<color=#1ED5FA>" + (ownerBarrier * effects[i].scalingMultiplier).ToString() + "</color>");
-            description = description.Replace("[heal]", "<color=#1EFA61>" + (ownerHealing * effects[i].scalingMultiplier).ToString() + "</color>");
+            description += $"{effects[i].GenerateDescription(stats)}.";
             description += Environment.NewLine;
         }
         if (consumed == true)

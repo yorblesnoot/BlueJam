@@ -8,10 +8,9 @@ public class EffectWalk : CardEffectPlus
 {
     bool walked;
     [Range(.1f, .01f)] public float stepSize;
-    public override string GenerateDescription()
+    public override string GenerateDescription(IPlayerData player)
     {
-        description = "Walk to the target cell";
-        return description;
+        return "move to target";
     }
     public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {

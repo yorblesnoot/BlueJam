@@ -129,9 +129,10 @@ public static class CellTargeting
         {
             for (int i = 0; i < checkCells.Count; i++)
             {
-                if (TileIsValidTarget(checkCells[i].GetComponent<BattleTileController>(), tSource, cardClass))
+                BattleTileController tileController = checkCells[i].GetComponent<BattleTileController>();
+                if (TileIsValidTarget(tileController, tSource, cardClass))
                 {
-                    BattleUnit cellContents = checkCells[i].GetComponent<BattleTileController>().unitContents;
+                    BattleUnit cellContents = tileController.unitContents;
                     if(cellContents != null) aoeTargets.Add(cellContents);
                 }
             }

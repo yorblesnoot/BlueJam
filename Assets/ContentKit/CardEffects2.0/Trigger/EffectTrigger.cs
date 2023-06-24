@@ -20,19 +20,20 @@ public class EffectTrigger : CardEffectPlus
     public TriggerIdentity effectRecipient;
     public CardEffectPlus triggeredEffect;
 
-    public override string GenerateDescription()
+    public override string GenerateDescription(IPlayerData player)
     {
+        string triggerName = triggeringEffect.GetType().Name;
+        triggerName.Replace("Effect", "");
+        string description = $"for {duration} actions, {triggeredEffect.GenerateDescription(player)} on {triggerName}";
         //generate a description somehow..?
-        return "";
+        return description;
     }
 
     public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
-        
         List<BattleUnit> toBuff = base.Execute(actor, targetCell, aoe);
         for (int i = 0; i < toBuff.Count; i++)
         {
-
             toBuff[i].gameObject.GetComponent<TriggerTracker>().RegisterTrigger(this);
         }
         return null;

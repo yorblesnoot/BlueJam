@@ -7,10 +7,9 @@ public class EffectDamage : CardEffectPlus
 
     //ImpactSmall, GroundBurst
 
-    public override string GenerateDescription()
+    public override string GenerateDescription(IPlayerData player)
     {
-        description = "Deal [damage] damage";
-        return description;
+        return $"deal <color=#FF4E2B>{player.damageScaling * scalingMultiplier}</color> damage";
     }
     public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {

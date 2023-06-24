@@ -8,10 +8,9 @@ public class EffectPush : CardEffectPlus
 {
     public int pushDistance;
     [Range(.1f, .01f)] public float stepSize;
-    public override string GenerateDescription()
+    public override string GenerateDescription(IPlayerData player)
     {
-        description = $"Push the target {pushDistance}";
-        return description;
+        return $"push target {pushDistance} cells";
     }
     public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {

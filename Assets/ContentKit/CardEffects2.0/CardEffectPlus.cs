@@ -15,8 +15,6 @@ public class CardEffectPlus : ScriptableObject
 
     public float scalingMultiplier;
 
-    [HideInInspector] public string description;
-
     [HideInInspector] public BattleTileController userOriginalTile;
 
     [HideInInspector] public bool doneExecuting = true;
@@ -37,8 +35,8 @@ public class CardEffectPlus : ScriptableObject
         return targets;
     }
 
-    public virtual string GenerateDescription()
+    public virtual string GenerateDescription(IPlayerData player)
     {
-        return description;
+        return "";
     }
 }

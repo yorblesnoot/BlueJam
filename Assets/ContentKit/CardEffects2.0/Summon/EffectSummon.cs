@@ -8,14 +8,30 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class EffectSummon : CardEffectPlus
 {
     public GameObject entityToSummon;
-    public override string GenerateDescription()
+    public override string GenerateDescription(IPlayerData player)
     {
-        description = $"Summons a {entityToSummon.name}";
-        return description;
+        return $"summon a {entityToSummon.name}";
     }
     public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
-        Vector3 location = targetCell.GetComponent<BattleTileController>().unitPosition;
+        Vector3 location = new();
+        if (aoe.GetLength(0) > 1)
+        {
+            List<GameObject> cells = CellTargeting.ConvertMapRuleToTiles(aoe, targetCell.transform.position);
+            while (cells.Count > 0)
+            {
+                int cellIndex = Random.Range(0, cells.Count);
+                BattleTileController cell = cells[cellIndex].GetComponent<BattleTileController>();
+                if (CellTargeting.TileIsValidTarget(cell, actor.gameObject.tag, CardClass.SUMMON))
+                {
+                    location = cell.transform.position;
+                    break;
+                }
+                cells.RemoveAt(cellIndex);
+            }
+            if (cells.Count == 0) return null;
+        }
+        else location = targetCell.unitPosition;
         GameObject summoned = Instantiate(entityToSummon, location, Quaternion.identity);
         ModifyStats(actor, summoned.GetComponent<BattleUnit>());
         VFXMachine.PlayAtLocation("SummonCircles", location);

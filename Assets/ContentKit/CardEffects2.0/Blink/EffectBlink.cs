@@ -6,10 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectBlink", menuName = "ScriptableObjects/CardEffects/Blink")]
 public class EffectBlink : CardEffectPlus
 {
-    public override string GenerateDescription()
+    public override string GenerateDescription(IPlayerData player)
     {
-        description = $"Blink to the target cell";
-        return description;
+        return $"blink to target";
     }
     public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {

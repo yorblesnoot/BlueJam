@@ -6,10 +6,9 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectSwap", menuName = "ScriptableObjects/CardEffects/Swap")]
 public class EffectMove : CardEffectPlus
 {
-    public override string GenerateDescription()
+    public override string GenerateDescription(IPlayerData player)
     {
-        description = $"Swap places with the unit at the target cell";
-        return description;
+        return $"swap places with target";
     }
     public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {

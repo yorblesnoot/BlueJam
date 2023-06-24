@@ -20,13 +20,14 @@ public class EffectBuff : CardEffectPlus
     [SerializeField] int aoeSizeRecurring;
     [SerializeField] int aoeGapRecurring;
 
-    public override string GenerateDescription()
+    public override string GenerateDescription(IPlayerData player)
     {
-        string lapseDescription = turnLapseEffect.GenerateDescription();
+        string description = "";
+        string lapseDescription = turnLapseEffect.GenerateDescription(player);
         if (effectClass == CardClass.ATTACK)
-            description = $"Applies a debuff that {lapseDescription} each turn for {duration} turns [target]";
+            description = $"debuff target: {lapseDescription} for {duration} actions";
         else if (effectClass == CardClass.BUFF)
-            description = $"Applies a buff that {lapseDescription} each turn for {duration} turns [target]";
+            description = $"buff target: {lapseDescription} for {duration} actions";
         return description;
     }
     public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)

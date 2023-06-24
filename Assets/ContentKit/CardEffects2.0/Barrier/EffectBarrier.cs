@@ -7,12 +7,14 @@ public class EffectBarrier : CardEffectPlus
     enum BarrierType { DEFLECT, SHIELD }
     [SerializeField] BarrierType barrierType;
 
-    public override string GenerateDescription()
+    public override string GenerateDescription(IPlayerData player)
     {
+        string description = "";
+        string subDescription = $"<color=#1ED5FA>{player.barrierScaling * scalingMultiplier}</color>";
         if (barrierType == BarrierType.DEFLECT)
-            description = "Deflect for [barrier]";
+            description = "deflect for [barrier]";
         else if (barrierType == BarrierType.SHIELD)
-            description = "Shield for [barrier]";
+            description = "shield for [barrier]";
         return description;
     }
     public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)

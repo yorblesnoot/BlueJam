@@ -7,10 +7,9 @@ public class EffectHeal : CardEffectPlus
 
     //GreenHeal, HealBurst
 
-    public override string GenerateDescription()
+    public override string GenerateDescription(IPlayerData player)
     {
-        description = "Heal for [heal]";
-        return description;
+        return $"heal for <color=#1EFA61>{player.healScaling * scalingMultiplier}</color>";
     }
     public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
     {
