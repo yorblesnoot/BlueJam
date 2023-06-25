@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
   m_Name: PlayerDeck
   m_EditorClassIdentifier: 
+  Id: 0693ae95-75b7-40b1-9447-577095d1a2f7
   deckContents:
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: 3f6b117e2be98fb44935008663180977, type: 2}
-  - {fileID: 11400000, guid: f21dd54ab1c96fe4b91e21bdc0f4bea9, type: 2}
-  - {fileID: 11400000, guid: 5d300892ab23b89459e7ec5ce4a75327, type: 2}
+  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
+  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
+  - {fileID: 11400000, guid: 88535221f70034846b63e0356b93f064, type: 2}
+  - {fileID: 11400000, guid: 5f9c754f59582c14aafb5f113d3b19d7, type: 2}
   - {fileID: 11400000, guid: 46a4f46e590e8c642a233271119ce5f5, type: 2}
-  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
-  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
+  - {fileID: 11400000, guid: b429b95cd75d9454884a653da9001ae1, type: 2}
   preDescription: 
   symbol: 
   essenceDescription: '.. Contains: *LongWalk *SmallBurst *SmallBurst *PushHit'

@@ -13,7 +13,16 @@ MonoBehaviour:
   m_Name: AwardableItems
   m_EditorClassIdentifier: 
   <awardableItemPool>k__BackingField:
+  - {fileID: 11400000, guid: 1f6204a9a5dd893428d091f1566ce5a7, type: 2}
+  - {fileID: 11400000, guid: 0f56768351732184a95fef67ab69cdd8, type: 2}
   - {fileID: 11400000, guid: 437becdc0fafd7a4fa6f79a3a91ad66c, type: 2}
   - {fileID: 11400000, guid: 21f923c860f856341abb55236642c7be, type: 2}
+  - {fileID: 11400000, guid: 0da3a3258aa6a9f489e45c3c55511568, type: 2}
+  - {fileID: 11400000, guid: 45ec6cc202f11e4439e9b0df257d67f9, type: 2}
   awardableItems:
+  - {fileID: 11400000, guid: 1f6204a9a5dd893428d091f1566ce5a7, type: 2}
+  - {fileID: 11400000, guid: 0f56768351732184a95fef67ab69cdd8, type: 2}
   - {fileID: 11400000, guid: 437becdc0fafd7a4fa6f79a3a91ad66c, type: 2}
+  - {fileID: 11400000, guid: 21f923c860f856341abb55236642c7be, type: 2}
+  - {fileID: 11400000, guid: 0da3a3258aa6a9f489e45c3c55511568, type: 2}
+  - {fileID: 11400000, guid: 45ec6cc202f11e4439e9b0df257d67f9, type: 2}
