@@ -10,24 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: LongWalk
+  m_Name: ChargeStrike
   m_EditorClassIdentifier: 
-  Id: f756cc2a-8910-4bf9-92a0-8aeb128c5c7d
-  displayName: Dash
-  cost: 2
+  Id: 15df824d-4320-41f4-ae91-648fdd98e0e6
+  displayName: Bullrush
+  cost: 3
   description: 'move to target.
+
+    deal <color=#FF4E2B>10</color> damage.
 
 '
   keywords: 
   targetShape: 2
-  targetSize: 2
+  targetSize: 3
   targetGap: 1
   pathCheckForTargets: 1
-  aoeShape: 0
-  aoeSize: 0
+  aoeShape: 2
+  aoeSize: 1
   aoeGap: 0
-  cardClass: 01000000
+  cardClass: 0100000000000000
   consumed: 0
   animType: 2
   effects:
   - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: a928d340492cb284cb2a0a333e9ae2fb, type: 2}

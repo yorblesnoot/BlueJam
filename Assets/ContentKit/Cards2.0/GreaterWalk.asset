@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: LongWalk
+  m_Name: GreaterWalk
   m_EditorClassIdentifier: 
-  Id: f756cc2a-8910-4bf9-92a0-8aeb128c5c7d
-  displayName: Dash
+  Id: a45c1a6a-326f-4781-a289-c8e5dc876b41
+  displayName: Stride
   cost: 2
   description: 'move to target.
 
 '
   keywords: 
-  targetShape: 2
+  targetShape: 0
   targetSize: 2
   targetGap: 1
   pathCheckForTargets: 1

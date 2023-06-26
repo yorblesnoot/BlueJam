@@ -27,4 +27,5 @@ MonoBehaviour:
   cardClass: 00000000
   consumed: 0
   animType: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: b489f2d07fb4d744fb80157c071d3277, type: 2}

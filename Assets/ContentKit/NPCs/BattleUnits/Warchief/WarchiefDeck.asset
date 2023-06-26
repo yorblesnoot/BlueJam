@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
-  m_Name: PlayerDeck
+  m_Name: WarchiefDeck
   m_EditorClassIdentifier: 
-  Id: 0693ae95-75b7-40b1-9447-577095d1a2f7
+  Id: 61ad7428-661e-4541-9e8c-20340e051dee
   deckContents:
-  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: 12195c26184ffe140b90078f4408bf10, type: 2}
   - {fileID: 11400000, guid: 7e10f0352ed17d14faf23d3639e6895b, type: 2}
   - {fileID: 11400000, guid: f2deac8630e60f0438230dc82f46ee85, type: 2}
   - {fileID: 11400000, guid: 02f08416ce98d184dbeab2d426c2c968, type: 2}
+  - {fileID: 11400000, guid: 12195c26184ffe140b90078f4408bf10, type: 2}
   - {fileID: 11400000, guid: dfa60b26cbb6564429727f51ef3d6fce, type: 2}
-  preDescription: 
-  symbol: 
-  essenceDescription: '.. Contains: *LongWalk *SmallBurst *SmallBurst *PushHit'
+  - {fileID: 11400000, guid: dfa60b26cbb6564429727f51ef3d6fce, type: 2}
+  preDescription: Essence of the Warchief.
+  symbol: W!
+  essenceDescription: 

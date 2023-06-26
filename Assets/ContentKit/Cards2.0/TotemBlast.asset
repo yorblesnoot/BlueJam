@@ -10,24 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: LongWalk
+  m_Name: TotemBlast
   m_EditorClassIdentifier: 
-  Id: f756cc2a-8910-4bf9-92a0-8aeb128c5c7d
-  displayName: Dash
-  cost: 2
-  description: 'move to target.
-
-'
+  Id: b76610f9-50c8-414f-a591-cc20adcfeef8
+  displayName: Totemic Power
+  cost: 5
+  description: 
   keywords: 
-  targetShape: 2
-  targetSize: 2
-  targetGap: 1
-  pathCheckForTargets: 1
+  targetShape: 0
+  targetSize: 1
+  targetGap: 0
+  pathCheckForTargets: 0
   aoeShape: 0
-  aoeSize: 0
+  aoeSize: 4
   aoeGap: 0
-  cardClass: 01000000
-  consumed: 0
-  animType: 2
+  cardClass: 03000000
+  consumed: 1
+  animType: 0
   effects:
-  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: 764335b1f4d3a3449ac89717b0038fb3, type: 2}
+  - {fileID: 11400000, guid: 764335b1f4d3a3449ac89717b0038fb3, type: 2}

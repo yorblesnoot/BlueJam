@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d63e6e4550640c647bd6b18ddc08f297, type: 3}
-  m_Name: Minion
+  m_Name: SummonMinion
   m_EditorClassIdentifier: 
   delayAfter: 0
   targetSelf: 0
