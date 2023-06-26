@@ -11,11 +11,9 @@ public class EffectHeal : CardEffectPlus
     {
         return $"heal for <color=#1EFA61>{player.healScaling * scalingMultiplier}</color>";
     }
-    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
+    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        List<BattleUnit> targets = base.Execute(actor, targetCell, aoe);
         foreach (BattleUnit target in targets) Heal(actor, scalingMultiplier, target);
-        return targets;
     }
     //VFXMachine.PlayToLocation(effect, TurnManager.activeTurn.transform.position, targetCell.GetComponent<BattleTileController>().unitPosition);
 

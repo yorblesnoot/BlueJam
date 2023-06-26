@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorldEnemy : MonoBehaviour
 {
     [HideInInspector]public SpawnPool spawnPool;
-    string[,] aggroZone;
+    bool[,] aggroZone;
     private void Awake()
     {
         PullSpawnPool();

@@ -16,13 +16,13 @@ public class CardPlus : SOWithGUID
     [SerializeField]TileMapShape targetShape;
     [SerializeField] int targetSize;
     [SerializeField] int targetGap;
-    [HideInInspector] public string[,] targetRules;
+    [HideInInspector] public bool[,] targetRules;
     public bool pathCheckForTargets;
 
     [SerializeField] TileMapShape aoeShape;
     [SerializeField] int aoeSize;
     [SerializeField] int aoeGap;  
-    [HideInInspector]public string[,] aoeRules;
+    [HideInInspector]public bool[,] aoeRules;
 
     public List<CardClass> cardClass;
     public bool consumed;
@@ -31,10 +31,13 @@ public class CardPlus : SOWithGUID
 
     public List<CardEffectPlus> effects;
 
+    GameObject player;
+
     public void Initialize()
     {
         targetRules = MapRulesGenerator.Convert(targetShape, targetSize, targetGap);
         aoeRules = MapRulesGenerator.Convert(aoeShape, aoeSize, aoeGap);
+        player = GameObject.FindGameObjectWithTag("Player");
         AssembleDescription();
     }
 
@@ -57,7 +60,6 @@ public class CardPlus : SOWithGUID
     {
         description = "";
         //for the purposes of generating a description, the owner should always be the player
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
         keywords = "";
         IPlayerData stats = player.GetComponent<IPlayerData>();
         int ownerDamage = stats.damageScaling;

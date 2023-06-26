@@ -57,8 +57,6 @@ public class Hand : MonoBehaviour
 
     public void DrawCard(CardPlus cardToDraw)
     {
-        //the SO design of cards is causing an issue bc a single instance of each card is shared among all users
-
         //draw a card into a UI based on hand owner
         //rendered cards send play instructions
         cardToDraw.Initialize();
@@ -102,6 +100,15 @@ public class Hand : MonoBehaviour
             Discard(handObjects[0], false);
         }
         TurnManager.SpendBeats(gameObject.GetComponent<BattleUnit>(), mulliganCost);
+    }
+
+    public void UpdateHand()
+    {
+        for (int i = 0; i < handReferences.Count; i++)
+        {
+            handReferences[i].AssembleDescription();
+            handObjects[i].GetComponent<CardDisplay>().PopulateCard(handReferences[i]);
+        }
     }
 
     public static List<CardPlus> Shuffle(List<CardPlus> list)  

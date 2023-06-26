@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MapKey", menuName = "ScriptableObjects/MapKey")]
+[CreateAssetMenu(fileName = "MapKey", menuName = "ScriptableObjects/MapKit/MapKey")]
 public class MapKey : ScriptableObject
 {
     // Start is called before the first frame update

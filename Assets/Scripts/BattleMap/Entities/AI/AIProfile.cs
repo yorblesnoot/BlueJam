@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "AIProfile", menuName = "ScriptableObjects/AIProfile")]
+[CreateAssetMenu(fileName = "AIProfile", menuName = "ScriptableObjects/UnitKit/AIProfile")]
 public class AIProfile : ScriptableObject
 {
     [Range(5f, 20f)] public float interestAttack;

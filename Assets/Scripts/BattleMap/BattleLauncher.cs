@@ -39,7 +39,7 @@ public class BattleLauncher : MapLauncher
         {
             foreach (var effect in item.effects)
             {
-                effect.Execute(player.GetComponent<BattleUnit>(), GridTools.VectorToTile(player.transform.position).GetComponent<BattleTileController>(), new string[,] { { "n" } });
+                effect.Execute(player.GetComponent<BattleUnit>(), GridTools.VectorToTile(player.transform.position).GetComponent<BattleTileController>(), new bool[,] { { true } });
                 int[] coords = GridTools.VectorToMap(player.transform.position);
             }
         }

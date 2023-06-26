@@ -13,9 +13,11 @@ MonoBehaviour:
   m_Name: SummonMinion
   m_EditorClassIdentifier: 
   Id: 6aa415a0-a69d-4a14-aad8-a86c94f37cd0
-  displayName: 
+  displayName: Summon Minion
   cost: 3
-  description: 
+  description: 'summon a Minion.
+
+'
   keywords: 
   targetShape: 0
   targetSize: 2
@@ -26,5 +28,6 @@ MonoBehaviour:
   aoeGap: 0
   cardClass: 03000000
   consumed: 0
+  animType: 0
   effects:
   - {fileID: 11400000, guid: f47a4f5e72629704e8b90bfe4eb1584e, type: 2}

@@ -10,10 +10,6 @@ public class UnitAnimator : MonoBehaviour
     void Awake()
     {
         animator = GetComponentInChildren<Animator>();
-        if(animator == null)
-        {
-            Debug.LogError($"No animator found in object hierarchy for {gameObject}.");
-        }
     }
 
     Dictionary<AnimType, string> animateFor = new()

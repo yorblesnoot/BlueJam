@@ -7,19 +7,18 @@ public class EffectBarrier : CardEffectPlus
     enum BarrierType { DEFLECT, SHIELD }
     [SerializeField] BarrierType barrierType;
 
+    Dictionary<BarrierType, string> barrierNames = new()
+    {
+        {BarrierType.DEFLECT, "deflect" },
+        {BarrierType.SHIELD, "shield" }
+    };
+
     public override string GenerateDescription(IPlayerData player)
     {
-        string description = "";
-        string subDescription = $"<color=#1ED5FA>{player.barrierScaling * scalingMultiplier}</color>";
-        if (barrierType == BarrierType.DEFLECT)
-            description = "deflect for [barrier]";
-        else if (barrierType == BarrierType.SHIELD)
-            description = "shield for [barrier]";
-        return description;
+        return $"{barrierNames[barrierType]} for <color=#1ED5FA>{player.barrierScaling * scalingMultiplier}</color>";
     }
-    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
+    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        List < BattleUnit > targets = base.Execute(actor, targetCell, aoe);
         foreach (BattleUnit targetUnit in targets)
         {
             BarrierTracker barrierTracker = targetUnit.gameObject.GetComponent<BarrierTracker>();
@@ -27,6 +26,5 @@ public class EffectBarrier : CardEffectPlus
             if (barrierType == BarrierType.DEFLECT) barrierTracker.AddDeflect(barrier);
             else if (barrierType == BarrierType.SHIELD) barrierTracker.AddShield(barrier);
         }
-        return null;
     }
 }

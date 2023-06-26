@@ -11,11 +11,9 @@ public class EffectDamage : CardEffectPlus
     {
         return $"deal <color=#FF4E2B>{player.damageScaling * scalingMultiplier}</color> damage";
     }
-    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
+    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        List<BattleUnit> targets = base.Execute(actor, targetCell, aoe);
         foreach (BattleUnit target in targets) Normal(actor, scalingMultiplier, target);
-        return targets;
     }
         //VFXMachine.PlayToLocation(effect, TurnManager.activeTurn.transform.position, targetCell.GetComponent<BattleTileController>().unitPosition);
 

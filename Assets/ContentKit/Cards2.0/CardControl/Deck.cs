@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Deck", menuName = "ScriptableObjects/UnitDeck")]
+[CreateAssetMenu(fileName = "Deck", menuName = "ScriptableObjects/UnitKit/UnitDeck")]
 public class Deck : SOWithGUID
 {
     public List<CardPlus> deckContents;

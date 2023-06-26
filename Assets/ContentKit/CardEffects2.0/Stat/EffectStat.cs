@@ -26,11 +26,9 @@ public class EffectStat : CardEffectPlus
         else changeDirection = "(SCALING SET TO 0)";
         return $"{changeDirection} {statNames[entityStat]} by {scalingMultiplier}";
     }
-    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
+    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        List<BattleUnit> targets = base.Execute(actor, targetCell, aoe);
         foreach (BattleUnit target in targets) Modify(scalingMultiplier, target);
-        return targets;
     }
 
     void Modify(float scale, BattleUnit target)
@@ -59,6 +57,10 @@ public class EffectStat : CardEffectPlus
             case StatType.BARRIER:
                 target.barrierScaling += modifier;
                 break;
+        }
+        if(target.gameObject.tag == "Player")
+        {
+            target.gameObject.GetComponent<Hand>().UpdateHand();
         }
     }
 }

@@ -20,6 +20,10 @@ public class EffectTrigger : CardEffectPlus
     public TriggerIdentity effectRecipient;
     public CardEffectPlus triggeredEffect;
 
+    public TileMapShape aoeShapeTrigger;
+    public int aoeSizeTrigger;
+    public int aoeGapTrigger;
+
     public override string GenerateDescription(IPlayerData player)
     {
         string triggerName = triggeringEffect.GetType().Name;
@@ -29,13 +33,11 @@ public class EffectTrigger : CardEffectPlus
         return description;
     }
 
-    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
+    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        List<BattleUnit> toBuff = base.Execute(actor, targetCell, aoe);
-        for (int i = 0; i < toBuff.Count; i++)
+        for (int i = 0; i < targets.Count; i++)
         {
-            toBuff[i].gameObject.GetComponent<TriggerTracker>().RegisterTrigger(this);
+            targets[i].gameObject.GetComponent<TriggerTracker>().RegisterTrigger(this);
         }
-        return null;
     }
 }

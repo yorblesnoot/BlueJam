@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: EnvenomedBlades
   m_EditorClassIdentifier: 
   Id: d786b208-ea45-4fd4-b074-72172a2c71cd
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 8066e15c4e3df6e4f9806f9d5f71e70a, type: 3}
   thumbnailColor:
     serializedVersion: 2
-    rgba: 2587920
+    rgba: 4280778000
   effects:
   - {fileID: 11400000, guid: f2a91fda217a8254d8851577e014be10, type: 2}
   description: Your hits apply a small poison.

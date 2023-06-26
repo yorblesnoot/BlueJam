@@ -10,7 +10,7 @@ public class EffectMove : CardEffectPlus
     {
         return $"swap places with target";
     }
-    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
+    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
         base.Execute(actor, targetCell, aoe);
         BattleUnit target = targetCell.unitContents;
@@ -18,6 +18,5 @@ public class EffectMove : CardEffectPlus
         actor.gameObject.transform.position = targetCell.unitPosition;
         target.gameObject.transform.position = myCell.unitPosition;
         GridTools.ReportPositionSwap(actor, targetCell, target);
-        return null;
     }
 }

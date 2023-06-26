@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "BiomePool", menuName = "ScriptableObjects/BiomePool")]
+[CreateAssetMenu(fileName = "BiomePool", menuName = "ScriptableObjects/MapKit/BiomePool")]
 public class BiomePool : ScriptableObject
 {
     public List<GameObject> maps;

@@ -9,7 +9,7 @@ public class TriggerTracker : MonoBehaviour
     public List<TrackedTrigger> activeTriggers = new();
 
     //debugging for triggers
-    public EffectTrigger forceTrigger;
+    //public EffectTrigger forceTrigger;
 
     [SerializeField] BattleUnit battleUnit;
 
@@ -18,6 +18,7 @@ public class TriggerTracker : MonoBehaviour
         public EffectTrigger trigger;
         public int remainingActivations;
         public bool availableForTrigger;
+        public bool[,] aoe;
     }
 
     private void Awake()
@@ -25,11 +26,13 @@ public class TriggerTracker : MonoBehaviour
         EventManager.allowTriggers.AddListener(BeginTriggerRound);
         EventManager.checkForTriggers.AddListener(ExecutedEffect);
         //debugging for triggers
-        if(forceTrigger != null) activeTriggers.Add(new TrackedTrigger { trigger = forceTrigger, remainingActivations = forceTrigger.triggersRequiredForActivation });
+        //if(forceTrigger != null) activeTriggers.Add(new TrackedTrigger { trigger = forceTrigger, remainingActivations = forceTrigger.triggersRequiredForActivation });
     }
     public void RegisterTrigger(EffectTrigger incomingTrigger)
     {
-        activeTriggers.Add(new TrackedTrigger {trigger = incomingTrigger, remainingActivations = incomingTrigger.triggersRequiredForActivation});
+        activeTriggers.Add(new TrackedTrigger {trigger = incomingTrigger,
+            remainingActivations = incomingTrigger.triggersRequiredForActivation,
+            aoe = MapRulesGenerator.Convert(incomingTrigger.aoeShapeTrigger, incomingTrigger.aoeSizeTrigger, incomingTrigger.aoeGapTrigger)});
     }
     public void ExecutedEffect(CardEffectPlus effect, BattleUnit origin, BattleUnit target)
     {
@@ -58,14 +61,16 @@ public class TriggerTracker : MonoBehaviour
             tracked.availableForTrigger = false;
             if (tracked.remainingActivations == 0)
             {
-                //Debug.Log(gameObject + " triggered " + tracked.trigger.triggeredEffect);
+                Debug.Log(gameObject + " triggered " + tracked.trigger.triggeredEffect);
                 if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.USER)
                 {
-                    tracked.trigger.triggeredEffect.Execute(battleUnit, GridTools.VectorToTile(origin.transform.position).GetComponent<BattleTileController>(), new string[,] { { "n" } });
+                    Debug.Log($"..on {origin}");
+                    tracked.trigger.triggeredEffect.Execute(battleUnit, GridTools.VectorToTile(origin.transform.position).GetComponent<BattleTileController>(), tracked.aoe);
                 }
                 else if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.RECEIVER)
                 {
-                    tracked.trigger.triggeredEffect.Execute(battleUnit, GridTools.VectorToTile(target.transform.position).GetComponent<BattleTileController>(), new string[,] { { "n" } });
+                    Debug.Log($"..on {target}");
+                    tracked.trigger.triggeredEffect.Execute(battleUnit, GridTools.VectorToTile(target.transform.position).GetComponent<BattleTileController>(), tracked.aoe);
                 }
                 tracked.remainingActivations = tracked.trigger.triggersRequiredForActivation;
             }

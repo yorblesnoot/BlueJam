@@ -5,9 +5,9 @@ using UnityEngine;
 
 public static class CellTargeting
 {
-    public static List<GameObject> ConvertMapRuleToTiles(string[,] targetData, Vector3 targetSource)
+    public static List<GameObject> ConvertMapRuleToTiles(bool[,] targetData, Vector3 targetSource)
     {
-        string terrainBlocked = "x";
+        bool terrainBlocked = false;
         //find size of target data array
         List<GameObject> output = new();
 
@@ -102,7 +102,7 @@ public static class CellTargeting
     }
 
     //return true if areatargets found valid plays
-    public static bool ValidPlay(BattleTileController tile, string tSource, List<CardClass> cardClass, string[,] aoeRule)
+    public static bool ValidPlay(BattleTileController tile, string tSource, List<CardClass> cardClass, bool[,] aoeRule)
     {
         if (cardClass.Contains(CardClass.MOVE) || cardClass.Contains(CardClass.SUMMON))
         {
@@ -121,7 +121,7 @@ public static class CellTargeting
     }
 
     //return all valid targets in an aoe target based on the class, aoe size, and owner
-    public static List<BattleUnit> AreaTargets(GameObject tile, string tSource, CardClass cardClass, string[,] aoeRule)
+    public static List<BattleUnit> AreaTargets(GameObject tile, string tSource, CardClass cardClass, bool[,] aoeRule)
     {
         List<GameObject> checkCells = ConvertMapRuleToTiles(aoeRule, tile.transform.position);
         List<BattleUnit> aoeTargets = new();

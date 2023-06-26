@@ -92,7 +92,7 @@ public class UnitAI : MonoBehaviour
         myHand.Discard(cardReference, true);
     }
 
-    private float CalculateFavor(BattleTileController moveTile, List<CardClass> cardClass, string[,] cardAOE)
+    private float CalculateFavor(BattleTileController moveTile, List<CardClass> cardClass, bool[,] cardAOE)
     {
         float favor = 0f;
         Vector3 moveVect = moveTile.transform.position;

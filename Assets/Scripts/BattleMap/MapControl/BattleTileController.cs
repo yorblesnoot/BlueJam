@@ -20,7 +20,7 @@ public class BattleTileController : MonoBehaviour
 
     float heightAdjust = .4f;
 
-    string[,] aoeRules;
+    bool[,] aoeRules;
 
     void Awake()
     {

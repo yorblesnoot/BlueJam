@@ -12,7 +12,7 @@ public class EffectSummon : CardEffectPlus
     {
         return $"summon a {entityToSummon.name}";
     }
-    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
+    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
         Vector3 location = new();
         if (aoe.GetLength(0) > 1)
@@ -24,18 +24,17 @@ public class EffectSummon : CardEffectPlus
                 BattleTileController cell = cells[cellIndex].GetComponent<BattleTileController>();
                 if (CellTargeting.TileIsValidTarget(cell, actor.gameObject.tag, CardClass.SUMMON))
                 {
-                    location = cell.transform.position;
+                    location = cell.GetComponent<BattleTileController>().unitPosition;
                     break;
                 }
                 cells.RemoveAt(cellIndex);
             }
-            if (cells.Count == 0) return null;
+            if (cells.Count == 0) return;
         }
         else location = targetCell.unitPosition;
         GameObject summoned = Instantiate(entityToSummon, location, Quaternion.identity);
         ModifyStats(actor, summoned.GetComponent<BattleUnit>());
         VFXMachine.PlayAtLocation("SummonCircles", location);
-        return null;
     }
 
     void ModifyStats(BattleUnit owner, BattleUnit toModify)

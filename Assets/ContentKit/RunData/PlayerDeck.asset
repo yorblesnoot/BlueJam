@@ -20,10 +20,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
   - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
-  - {fileID: 11400000, guid: 88535221f70034846b63e0356b93f064, type: 2}
-  - {fileID: 11400000, guid: 5f9c754f59582c14aafb5f113d3b19d7, type: 2}
-  - {fileID: 11400000, guid: 46a4f46e590e8c642a233271119ce5f5, type: 2}
-  - {fileID: 11400000, guid: b429b95cd75d9454884a653da9001ae1, type: 2}
+  - {fileID: 11400000, guid: 6e42d0dcfe48e2d4ba64b79d798113c1, type: 2}
   preDescription: 
   symbol: 
   essenceDescription: '.. Contains: *LongWalk *SmallBurst *SmallBurst *PushHit'

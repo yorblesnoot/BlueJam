@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PoisonOnHit
   m_EditorClassIdentifier: 
   targetSelf: 0
-  effectClass: 0
+  effectClass: 2
   vfxStyle: 0
   vfxName: 
   scalingMultiplier: 0
@@ -27,3 +27,6 @@ MonoBehaviour:
   triggersRequiredForActivation: 1
   effectRecipient: 1
   triggeredEffect: {fileID: 11400000, guid: f5f3b6dff8a5714479b4274722254b0e, type: 2}
+  aoeShapeTrigger: 0
+  aoeSizeTrigger: 0
+  aoeGapTrigger: 0

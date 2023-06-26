@@ -18,14 +18,14 @@ public class BuffTracker : MonoBehaviour
         public CardEffectPlus endEffect;
         public int remainingDuration;
         public BattleUnit owner;
-        public string[,] aoe;
+        public bool[,] aoe;
     }
     void Awake()
     {
         TurnManager.drawThenBuffPhase.AddListener(DurationProc);
     }
 
-    public void RegisterBuff(BattleUnit ownerIn, EffectBuff buff, string[,] aoeIn)
+    public void RegisterBuff(BattleUnit ownerIn, EffectBuff buff, bool[,] aoeIn)
     {
         myTile = GridTools.VectorToTile(gameObject.transform.position).GetComponent<BattleTileController>();
         TrackedBuff incomingBuff = new TrackedBuff {

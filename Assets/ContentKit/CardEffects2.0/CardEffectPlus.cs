@@ -5,7 +5,6 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CardEffectPlus : ScriptableObject
 {
-    //public float delayAfter;
     public bool targetSelf;
 
     public CardClass effectClass;
@@ -20,20 +19,25 @@ public class CardEffectPlus : ScriptableObject
     [HideInInspector] public bool doneExecuting = true;
 
     public bool blockTrigger;
-    public virtual List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
+    public void Execute(BattleUnit actor, BattleTileController targetCell, bool[,] aoe)
     {
         if(!string.IsNullOrEmpty(vfxName)) VFXMachine.PlayVFX(vfxName, vfxStyle, actor, targetCell);
-        if(targetSelf == true)
-        {
-            targetCell = userOriginalTile;
-        }
-        //issue here when no targets
-        
-        List<BattleUnit> targets = CellTargeting.AreaTargets(targetCell.gameObject, actor.gameObject.tag, effectClass, aoe);
+
+        List<BattleUnit> targets = AcquireTargets(actor, targetCell, aoe);
+
+        ActivateEffect(actor, targetCell, aoe, targets);
+
         if (targets.Count > 0) foreach(BattleUnit target in targets) EventManager.checkForTriggers.Invoke(this, actor, target);
         else EventManager.checkForTriggers.Invoke(this, actor, null);
-        return targets;
     }
+
+    public List<BattleUnit> AcquireTargets(BattleUnit actor, BattleTileController targetCell, bool[,] aoe)
+    {
+        if (targetSelf == true) targetCell = userOriginalTile;
+        return CellTargeting.AreaTargets(targetCell.gameObject, actor.gameObject.tag, effectClass, aoe);
+    }
+
+    public virtual void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null) { }
 
     public virtual string GenerateDescription(IPlayerData player)
     {

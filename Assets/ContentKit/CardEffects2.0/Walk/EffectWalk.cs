@@ -12,18 +12,16 @@ public class EffectWalk : CardEffectPlus
     {
         return "move to target";
     }
-    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
+    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        base.Execute(actor, targetCell, aoe);
         doneExecuting = false;
         actor.StartCoroutine(Walk(actor, targetCell, stepSize));
-        return null;
     }
     IEnumerator Walk(BattleUnit actor, BattleTileController destinationCell, float stepsize)
     {
+        GridTools.ReportPositionChange(actor, destinationCell);
         yield return new WaitForSeconds(.1f);
         VFXMachine.AttachTrail("MoveTrail", actor.gameObject);
-        GridTools.ReportPositionChange(actor, destinationCell);
         Vector3 destination = destinationCell.unitPosition;
         while (actor.transform.position != destination)
         {

@@ -12,18 +12,15 @@ public class EffectPush : CardEffectPlus
     {
         return $"push target {pushDistance} cells";
     }
-    public override List<BattleUnit> Execute(BattleUnit actor, BattleTileController targetCell, string[,] aoe)
+    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        List<BattleUnit> targets = base.Execute(actor, targetCell, aoe);
-        MonoBehaviour unitStats = actor.GetComponent<BattleUnit>();
         foreach (BattleUnit target in targets)
-            unitStats.StartCoroutine(Push(actor, target, pushDistance, stepSize));
-        return targets;
+            target.StartCoroutine(Push(actor, target, pushDistance, stepSize));
     }
 
     IEnumerator Push(BattleUnit actor, BattleUnit target, int distance, float stepsize)
     {
-        Vector3 direction = new Vector3();
+        Vector3 direction;
         direction = target.transform.position - actor.transform.position;
         direction = new Vector3(direction.x, 0f, direction.z);
         direction.Normalize();
