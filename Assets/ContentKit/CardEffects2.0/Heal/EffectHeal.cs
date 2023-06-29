@@ -20,6 +20,6 @@ public class EffectHeal : CardEffectPlus
     void Heal(BattleUnit owner, float healMult, BattleUnit target)
     {
         int heal = -Mathf.RoundToInt(owner.healScaling * healMult);
-        target.ReceiveDamage(heal);
+        target.ReduceHealth(heal);
     }
 }

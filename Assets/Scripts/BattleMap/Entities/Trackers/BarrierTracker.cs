@@ -71,7 +71,7 @@ public class BarrierTracker : MonoBehaviour
         unitActions.shieldHealth -= incomingDamage;
         if (unitActions.shieldHealth <= 0)
         {
-            incomingDamage = Mathf.Abs(deflectInstances[0]);
+            incomingDamage = Mathf.Abs(unitActions.shieldHealth);
             unitActions.shieldHealth = 0;
         }
         return incomingDamage;

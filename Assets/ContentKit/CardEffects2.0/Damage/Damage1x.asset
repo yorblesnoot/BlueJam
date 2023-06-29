@@ -12,12 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4d7e4cd232b3843afe9d9f6eba80fb, type: 3}
   m_Name: Damage1x
   m_EditorClassIdentifier: 
-  delayAfter: 0.5
   targetSelf: 0
   effectClass: 0
-  vfxStyle: 1
+  vfxStyle: 0
   vfxName: ImpactSmall
   scalingMultiplier: 1
-  description: Deal [damage] damage
   userOriginalTile: {fileID: 0}
+  doneExecuting: 1
   blockTrigger: 0

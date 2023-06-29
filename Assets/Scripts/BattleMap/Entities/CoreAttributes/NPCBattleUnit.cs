@@ -9,6 +9,7 @@ public class NPCBattleUnit : BattleUnit
     {
         base.Initialize();
         currentHealth = maxHealth;
+        myUI.InitializeHealth();
         EventManager.clearActivation.AddListener(HideTurnPossibility);
     }
 

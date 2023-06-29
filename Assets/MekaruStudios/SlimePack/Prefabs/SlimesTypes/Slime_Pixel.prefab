@@ -44,7 +44,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2101305755765339525}
   - component: {fileID: 5952195274008950730}
-  - component: {fileID: 7974718168771797981}
   m_Layer: 0
   m_Name: Slime_Pixel
   m_TagString: Untagged
@@ -71,7 +70,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &5952195274008950730
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -88,20 +87,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!135 &7974718168771797981
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1612999909866221375}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.57604504
-  m_Center: {x: 0, y: 0.60190773, z: 0}
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6191828929418486475
 GameObject:
   m_ObjectHideFlags: 0

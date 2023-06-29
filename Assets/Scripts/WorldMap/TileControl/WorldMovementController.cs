@@ -74,7 +74,6 @@ public class WorldMovementController : MonoBehaviour
     {
         if(eventHandler.enemyEvents.OfType<WorldBoss>().Any())
         {
-            Debug.Log("tested boss tile");
             if(runData.KeyStock >= 3)
             {
                 return true;

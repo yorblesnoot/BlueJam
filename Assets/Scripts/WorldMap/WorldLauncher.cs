@@ -36,6 +36,8 @@ public class WorldLauncher : MapLauncher
         eventRenderer.RenderEnemies(runData.worldEnemies);
         eventRenderer.RenderEvents(runData.eventMap);
 
+        EventManager.updateWorldCounters.Invoke();
+        EventManager.updateWorldHealth.Invoke();
 
         EventManager.worldMove?.Invoke();
     }

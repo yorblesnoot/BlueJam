@@ -16,7 +16,7 @@ MonoBehaviour:
   interestBuff: 11.36
   interestFriendly: 1
   interestHostile: 1
-  proximityFriendly: 0.19
-  proximityHostile: 0.13
-  summonProximityHostile: 0
-  summonProximityFriendly: 0
+  proximityFriendly: 0.9
+  proximityHostile: 0.9
+  summonProximityHostile: 1
+  summonProximityFriendly: 1

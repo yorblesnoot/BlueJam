@@ -12,9 +12,10 @@ public class ProceduralEventPlacer
 
     List<int[]> validSpots;
     int enemyCap;
-    int keyCap;
-    int removeCap;
-    int itemCap;
+    int keyCap = 3;
+    int removeCap = 4;
+    int itemCap = 3;
+    int healCap = 3;
 
     RunData runData;
     public ProceduralEventPlacer(RunData data)
@@ -24,9 +25,6 @@ public class ProceduralEventPlacer
         map = data.worldMap;
         worldEvents = new string[map.GetLength(0),map.GetLength(1)];
         enemyCap = map.GetLength(0);
-        keyCap = 3;
-        removeCap = 4;
-        itemCap = 5;
         enemyLocations = new();
         //loop through every battle map spot and add it to a list of valid cell placements
         GetValidSpots();
@@ -64,6 +62,7 @@ public class ProceduralEventPlacer
         PlaceToCap("k", keyCap);
         PlaceToCap("r", removeCap);
         PlaceToCap("i", itemCap);
+        PlaceToCap("h", healCap);
         return worldEvents;
     }
 

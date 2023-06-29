@@ -15,4 +15,4 @@ MonoBehaviour:
   spawnWeight: 
   spawnUnits: []
   staticSpawns:
-  - {fileID: 803027305507735190, guid: d653113a69b79cc44a93fc1c8b9adb6d, type: 3}
+  - {fileID: 308681686112875647, guid: 198614c91168c6648948ca2d6b1b72f9, type: 3}

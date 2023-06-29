@@ -76,6 +76,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 141478417373896780, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
+      propertyPath: deckRecord
+      value: 
+      objectReference: {fileID: 11400000, guid: 9e8b704ead6d47b4f851ee3827232b12, type: 2}
     - target: {fileID: 848731208453867994, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -148,6 +152,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Warchief
       objectReference: {fileID: 0}
+    - target: {fileID: 7599744135600204344, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
+      propertyPath: personality
+      value: 
+      objectReference: {fileID: 11400000, guid: 3470878226bd2b146bbef449b1c14b04, type: 2}
+    - target: {fileID: 8320433818775275716, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
+      propertyPath: <unitStats>k__BackingField
+      value: 
+      objectReference: {fileID: 11400000, guid: 1becb27fe7d0271439b5694207044320, type: 2}
     - target: {fileID: 8756678418362555511, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

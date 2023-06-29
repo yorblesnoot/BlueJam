@@ -20,6 +20,7 @@ public class CardAwardUI : MonoBehaviour
         {
             if (i < drops.Count)
             {
+                awardCards[i].SetActive(true);
                 drops[i].Initialize();
                 CardDisplay cardDisplay = awardCards[i].GetComponent<CardDisplay>();
                 cardDisplay.PopulateCard(drops[i]);

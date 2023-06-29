@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: QuickStrike
   m_EditorClassIdentifier: 
   Id: e4b1b341-4924-4d60-852e-ca7745841319
-  displayName: 
+  displayName: Quick Strike
   cost: 2
-  description: 
+  description: 'deal <color=#FF4E2B>20</color> damage.
+
+'
   keywords: 
-  targetShape: 2
+  targetShape: 1
   targetSize: 1
   targetGap: 1
   pathCheckForTargets: 0
@@ -26,5 +28,6 @@ MonoBehaviour:
   aoeGap: 0
   cardClass: 00000000
   consumed: 0
+  animType: 0
   effects:
-  - {fileID: 11400000, guid: f111fd945c1e2314b8cc1b68ef11a2c6, type: 2}
+  - {fileID: 11400000, guid: 8b93ce5323d9dd64cbf04ab2566c2cf8, type: 2}

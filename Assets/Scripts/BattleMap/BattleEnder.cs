@@ -18,6 +18,7 @@ public class BattleEnder : MonoBehaviour
         if (runData.bossEncounter == true)
         {
             //send the player to credits if they beat the boss
+            System.IO.File.Delete(Application.persistentDataPath + "/runData.json");
             SceneManager.LoadScene(3);
         }
         else SceneManager.LoadScene(1);

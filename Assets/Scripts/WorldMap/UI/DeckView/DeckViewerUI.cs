@@ -8,8 +8,12 @@ public class DeckViewerUI : MonoBehaviour
     [SerializeField] RunData runData;
     [SerializeField] List<CardDisplay> cardDisplays;
     [SerializeField] Toggle removal;
-    private void Awake()
+    private void OnEnable()
     {
+        foreach (var card in cardDisplays)
+        {
+            card.gameObject.SetActive(false);
+        }
         //activate card displays for each card in the players deck
         for(int c = 0; c < runData.playerDeck.deckContents.Count; c++)
         {

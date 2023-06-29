@@ -34,6 +34,7 @@ public static class EventManager
 
     public static UnityEvent updateItemUI = new();
     public static UnityEvent awardItem = new();
+    public static UnityEvent updateWorldHealth = new();
 
     //global events
 

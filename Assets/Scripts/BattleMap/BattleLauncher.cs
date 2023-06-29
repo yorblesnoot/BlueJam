@@ -34,13 +34,13 @@ public class BattleLauncher : MapLauncher
         //initialize combat
         EventManager.initalizeBattlemap?.Invoke();
 
+        BattleUnit playerUnit = player.GetComponent<BattleUnit>();
         //activate item effects
         foreach (BattleItem item in runData.itemInventory)
         {
             foreach (var effect in item.effects)
             {
-                effect.Execute(player.GetComponent<BattleUnit>(), GridTools.VectorToTile(player.transform.position).GetComponent<BattleTileController>(), new bool[,] { { true } });
-                int[] coords = GridTools.VectorToMap(player.transform.position);
+                effect.Execute(playerUnit, GridTools.VectorToTile(player.transform.position).GetComponent<BattleTileController>(), new bool[,] { { true } });
             }
         }
     }

@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler
 {
     [HideInInspector] public Transform parentAfterDrag;
     public Image image;
@@ -16,7 +16,11 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [HideInInspector] public Deck essence;
     [HideInInspector] public Canvas mainCanvas;
     
-    //NEED TO GET CRAFTER REF
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        essence.Initialize();
+        description.text = essence.essenceDescription;
+    }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
@@ -32,8 +36,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             essenceCrafting.essenceSlot = null;
         }
-        essence.Initialize();
-        description.text = essence.essenceDescription;
     }
 
     public void OnDrag(PointerEventData eventData)

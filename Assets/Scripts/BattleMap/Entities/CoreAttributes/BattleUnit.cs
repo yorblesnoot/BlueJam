@@ -58,7 +58,6 @@ public class BattleUnit : MonoBehaviour, IPlayerData
 
     public void RegisterTurn()
     {
-        myUI.UpdateHealth();
         TurnManager.ReportTurn(this);
     }
 
@@ -69,7 +68,6 @@ public class BattleUnit : MonoBehaviour, IPlayerData
 
         ReduceHealth(damage);
 
-        if (currentHealth > maxHealth) currentHealth = maxHealth;
 
         //update healthbar in UI
         myUI.UpdateHealth();
@@ -84,6 +82,7 @@ public class BattleUnit : MonoBehaviour, IPlayerData
     public virtual void ReduceHealth(int reduction)
     {
         currentHealth -= reduction;
+        if (currentHealth > maxHealth) currentHealth = maxHealth;
     }
 
     public void ReportCell()
@@ -112,6 +111,7 @@ public class BattleUnit : MonoBehaviour, IPlayerData
         TurnManager.deathPhase.RemoveListener(CheckForDeath);
         isDead = true;
         VFXMachine.PlayAtLocation("Explosion", transform.position);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
     }
 }

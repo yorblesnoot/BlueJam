@@ -9,6 +9,7 @@ public class EventRenderer : MonoBehaviour
     [SerializeField] GameObject key;
     [SerializeField] GameObject remove;
     [SerializeField] GameObject item;
+    [SerializeField] GameObject heal;
 
     public void RenderBoss(int x, int y)
     {
@@ -35,7 +36,8 @@ public class EventRenderer : MonoBehaviour
         Hashtable eventTable = new()
             {{ "k", key },
             { "r", remove },
-            { "i", item }};
+            { "i", item },
+            { "h", heal }};
         if(eventMap == null)
         {
             eventMap = new string[1,1];

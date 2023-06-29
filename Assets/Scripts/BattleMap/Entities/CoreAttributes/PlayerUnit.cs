@@ -9,11 +9,12 @@ public class PlayerUnit : BattleUnit
         //pull current health from rundata
         base.Initialize();
         currentHealth = runData.currentHealth;
+        myUI.InitializeHealth();
     }
 
     public override void ReduceHealth(int reduction)
     {
-        currentHealth -= reduction;
+        base.ReduceHealth(reduction);
         runData.currentHealth = currentHealth;
     }
 

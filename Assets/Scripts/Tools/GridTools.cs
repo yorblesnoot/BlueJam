@@ -41,9 +41,9 @@ public static class GridTools
     public static void ReportPositionChange(BattleUnit actor, BattleTileController newTile)
     {
         //report our location to the cell we're in
-        newTile.unitContents = actor;
         GameObject oldTile = GridTools.VectorToTile(actor.transform.position);
         oldTile.GetComponent<BattleTileController>().unitContents = null;
+        newTile.unitContents = actor;
     }
 
     public static void ReportPositionSwap(BattleUnit actor, BattleTileController newTile, BattleUnit secondActor)

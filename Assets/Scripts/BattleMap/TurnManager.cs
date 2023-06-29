@@ -44,11 +44,11 @@ public class TurnManager : MonoBehaviour
         turnTakers = new();
         turnRatios = new();
         beatStock = new();
-        EventManager.initalizeBattlemap.AddListener(InitalizeTurns);
+        EventManager.initalizeBattlemap.AddListener(InitializeTurns);
         playerUnit = GameObject.FindGameObjectWithTag("Player").GetComponent<BattleUnit>();
     }
 
-    private void InitalizeTurns()
+    private void InitializeTurns()
     {
         //tell every unit on the map to report their turn
         unitsReport?.Invoke();

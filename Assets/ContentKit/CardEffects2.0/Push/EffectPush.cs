@@ -14,6 +14,7 @@ public class EffectPush : CardEffectPlus
     }
     public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
+        doneExecuting = false;
         foreach (BattleUnit target in targets)
             target.StartCoroutine(Push(actor, target, pushDistance, stepSize));
     }
@@ -26,15 +27,14 @@ public class EffectPush : CardEffectPlus
         direction.Normalize();
         Vector3 destination = target.transform.position;
         int collisionDamage = 0;
-        for (int i = 1; i < distance; i++)
+        for (int i = 0; i < distance; i++)
         {
             //evaluate each cell in turn as a push destination
             Vector3 possibleDestination = destination + direction;
             BattleTileController cell;
-            try { cell = GridTools.VectorToTile(possibleDestination).GetComponent<BattleTileController>(); }
-            catch { cell = null; }
-            if (cell != null)
+            try
             {
+                cell = GridTools.VectorToTile(possibleDestination).GetComponent<BattleTileController>();
                 BattleUnit contents = cell.unitContents;
                 if (contents == null)
                 {
@@ -42,7 +42,8 @@ public class EffectPush : CardEffectPlus
                 }
                 else collisionDamage = distance - i;
             }
-            else collisionDamage = distance - i;
+            catch { collisionDamage = distance - i; }
+
             if (collisionDamage > 0)
             {
                 break;
@@ -65,9 +66,11 @@ public class EffectPush : CardEffectPlus
                 {
                     Collide(contents, collisionDamage);
                 }
-                Collide(target, collisionDamage);
             }
+            Collide(target, collisionDamage);
+            VFXMachine.PlayAtLocation("ImpactSmall", target.transform.position);
         }
+        doneExecuting = true;
     }
 
     void Collide(BattleUnit target, int factor)

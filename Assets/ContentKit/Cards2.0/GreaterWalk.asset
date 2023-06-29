@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: a45c1a6a-326f-4781-a289-c8e5dc876b41
   displayName: Stride
-  cost: 2
+  cost: 1
   description: 'move to target.
 
 '

@@ -19,7 +19,7 @@ MonoBehaviour:
 
 '
   keywords: 
-  targetShape: 2
+  targetShape: 0
   targetSize: 2
   targetGap: 1
   pathCheckForTargets: 1
