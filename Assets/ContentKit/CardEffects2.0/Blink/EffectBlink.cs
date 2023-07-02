@@ -12,8 +12,8 @@ public class EffectBlink : CardEffectPlus
     }
     public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        base.Execute(actor, targetCell, aoe);
-        GridTools.ReportPositionChange(actor, targetCell);
+        base.Execute(actor, targetCell);
+        MapTools.ReportPositionChange(actor, targetCell);
         Vector3 destination = targetCell.unitPosition;
         actor.transform.position = destination;
     }

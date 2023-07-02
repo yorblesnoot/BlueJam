@@ -60,7 +60,7 @@ public class WorldMovementController : MonoBehaviour
 
     public void HighlightCell(int playerX, int playerY)
     {
-        int[] coords = GridTools.VectorToMap(gameObject.transform.position);
+        Vector2Int coords = MapTools.VectorToMap(gameObject.transform.position);
         //check that we are exactly one cell away from the player
         int xOffset = playerX - coords[0];
         int yOffset = playerY - coords[1];

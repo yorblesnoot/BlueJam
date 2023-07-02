@@ -14,7 +14,7 @@ public class WorldEnemy : MonoBehaviour
     public virtual void PullSpawnPool()
     {
         //get spawn pool from tile we were spawned on
-        GameObject tile = GridTools.VectorToTile(transform.position);
+        GameObject tile = MapTools.VectorToTile(transform.position);
         spawnPool = tile.GetComponent<WorldEventHandler>().tileEnemyPreset;       
     }
 

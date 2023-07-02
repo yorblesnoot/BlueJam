@@ -45,16 +45,17 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
         {
             targetPane.color = new Color32(144, 144, 144, 255);
             targetType.text = "Target Empty";
+            return;
         }
         else if(card.cardClass.Contains(CardClass.ATTACK))
         {
-            if (card.aoeRules.GetLength(0) > 1) targetType.text = "AOE Enemy";
+            if (card.aoePoint.GetLength(0) > 1) targetType.text = "AOE Enemy";
             else targetType.text = "Target Enemy";
             targetPane.color = new Color32(241, 124, 124, 255);
         }
         else if (card.cardClass.Contains(CardClass.BUFF))
         {
-            if (card.aoeRules.GetLength(0) > 1) targetType.text = "AOE Ally";
+            if (card.aoePoint.GetLength(0) > 1) targetType.text = "AOE Ally";
             else targetType.text = "Target Ally";
             targetPane.color = new Color32(47, 231, 122, 255);
         }
@@ -97,7 +98,8 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
                 cellController.availableMove = true;
                 cellController.HighlightCell();
             }
-            EventManager.showAOE.Invoke(thisCard.aoeRules);
+            EventManager.showAOE.Invoke(thisCard);
+            //add self aoe effect
             TurnManager.ShowPossibleTurnTakers(thisCard.cost);
             EventManager.targetConfirmed.AddListener(ProxyPlayCard);
             activated = true;
@@ -116,7 +118,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
     {
         if(activated == true)
         {
-            if (CellTargeting.ValidPlay(tile, owner.tag, thisCard.cardClass, thisCard.aoeRules))
+            if (CellTargeting.ValidPlay(tile, owner.tag, thisCard))
             {
                 EventManager.clearActivation?.Invoke();
                 StartCoroutine(thisCard.PlaySequence(owner, tile));

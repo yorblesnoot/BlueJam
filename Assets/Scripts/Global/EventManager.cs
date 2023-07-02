@@ -2,7 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 public class TargetConfirmed : UnityEvent<BattleTileController> {}
-public class ToggleAOE : UnityEvent<bool[,]> { }
+public class ToggleAOE : UnityEvent<CardPlus> { }
 public class CheckForTriggers : UnityEvent<CardEffectPlus, BattleUnit, BattleUnit> { }
 
 public class GetWorldDestination : UnityEvent<int, int> {}

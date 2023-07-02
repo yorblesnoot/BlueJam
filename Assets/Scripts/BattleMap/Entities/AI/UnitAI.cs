@@ -35,8 +35,8 @@ public class UnitAI : MonoBehaviour
             entities = TurnManager.turnTakers;
 
             List<BattleTileController> optionTile = new();
-            List<float> optionFavor = new List<float>();
-            List<CardPlus> optionReference = new List<CardPlus>();
+            List<float> optionFavor = new();
+            List<CardPlus> optionReference = new();
             for(int rule = 0; rule < cardReferences.Count; rule++)
             {
                 //use battlemap to find legal cells for every card in hand
@@ -48,10 +48,10 @@ public class UnitAI : MonoBehaviour
                 for(int x = 0; x < ruleLength; x++)
                 {
                     BattleTileController addTile = legalTiles[x].GetComponent<BattleTileController>();
-                    if (CellTargeting.ValidPlay(addTile, gameObject.tag, cardReferences[rule].cardClass, cardReferences[rule].aoeRules))
+                    if (CellTargeting.ValidPlay(addTile, gameObject.tag, cardReferences[rule]))
                     { 
                         optionTile.Add(addTile);
-                        float inFavor = CalculateFavor(addTile, cardReferences[rule].cardClass, cardReferences[rule].aoeRules);
+                        float inFavor = CalculateFavor(addTile, cardReferences[rule]);
                         optionFavor.Add(inFavor);
                         optionReference.Add(cardReferences[rule]);
                     }
@@ -68,8 +68,8 @@ public class UnitAI : MonoBehaviour
             else if(numberofOptions == 0)
             {
                 //if there are no legal options, mulligan and reset the card registry
-                cardReferences = new List<CardPlus>();
-                gameObject.GetComponent<Hand>().DiscardAll();
+                cardReferences = new();
+                myHand.DiscardAll();
             }
         }
     }
@@ -92,39 +92,43 @@ public class UnitAI : MonoBehaviour
         myHand.Discard(cardReference, true);
     }
 
-    private float CalculateFavor(BattleTileController moveTile, List<CardClass> cardClass, bool[,] cardAOE)
+    private float CalculateFavor(BattleTileController moveTile, CardPlus card)
     {
         float favor = 0f;
-        Vector3 moveVect = moveTile.transform.position;
-
-        if (cardClass.Contains(CardClass.MOVE))
+        foreach (CardEffectPlus effect in card.effects)
         {
-            favor += EntityScan(moveVect, personality.interestHostile, personality.interestFriendly, personality.proximityHostile, personality.proximityFriendly);
+            
+            Vector3 moveVect = moveTile.transform.position;
+            if (effect.effectClass == CardClass.MOVE)
+            {
+                favor += EntityScan(moveVect, personality.interestHostile, personality.interestFriendly, personality.proximityHostile, personality.proximityFriendly);
+            }
+            else if (effect.effectClass == CardClass.SUMMON)
+            {
+                favor += EntityScan(moveVect, personality.interestHostile, personality.interestFriendly, personality.summonProximityHostile, personality.summonProximityFriendly);
+            }
+            else
+            {
+                List<BattleUnit> targetables = CellTargeting.AreaTargets(moveTile.gameObject, gameObject.tag, CardClass.ATTACK, effect.aoe);
+                if (effect.effectClass == CardClass.ATTACK)
+                {
+                    favor += targetables.Count * personality.interestAttack;
+                }
+                else if (effect.effectClass == CardClass.BUFF)
+                {
+                    favor += targetables.Count * personality.interestBuff;
+                }
+            }
         }
-        if(cardClass.Contains(CardClass.SUMMON))
-        {
-            favor += EntityScan(moveVect, personality.interestHostile, personality.interestFriendly, personality.summonProximityHostile, personality.summonProximityFriendly);
-        }
-        if(cardClass.Contains(CardClass.ATTACK))
-        {
-            List <BattleUnit> attackables = CellTargeting.AreaTargets(moveTile.gameObject, gameObject.tag, CardClass.ATTACK, cardAOE);
-            favor += attackables.Count * personality.interestAttack;
-        }
-        if (cardClass.Contains(CardClass.BUFF))
-        {
-            List<BattleUnit> buffables = CellTargeting.AreaTargets(moveTile.gameObject, gameObject.tag, CardClass.BUFF, cardAOE);
-            favor += buffables.Count * personality.interestBuff;
-        }
-
         //Debug.Log($"{gameObject.name}: Favor for targeting {moveVect} with card class {cardClass} is {favor}.");
         return favor;
     }
 
     private bool AreWeFriends(GameObject me, GameObject you)
     {
-        if(me.tag == "Ally")
+        if(me.CompareTag("Ally"))
         {
-            if(you.tag == "Ally" || you.tag == "Player")
+            if(you.CompareTag("Ally") || you.CompareTag("Player"))
             {
                 return true;
             }
@@ -133,9 +137,9 @@ public class UnitAI : MonoBehaviour
                 return false;
             }
         }
-        else if(me.tag == "Enemy")
+        else if(me.CompareTag("Enemy"))
         {
-            if(you.tag == "Ally" || you.tag == "Player")
+            if(you.CompareTag("Ally") || you.CompareTag("Player"))
             {
                 return false;
             }

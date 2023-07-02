@@ -45,7 +45,7 @@ public class WorldEventHandler : MonoBehaviour
                 if(enemy.GetType() == typeof(WorldBoss)) runData.bossEncounter = true;
                 pools.Add(enemy.spawnPool);
                 //remove activated enemies from the enemy map in rundata
-                if(runData.worldEnemies != null) runData.worldEnemies.RemoveCoordinates(GridTools.VectorToMap(enemy.gameObject.transform.position));
+                if(runData.worldEnemies != null) runData.worldEnemies.RemoveCoordinates(MapTools.VectorToMap(enemy.gameObject.transform.position));
             }
             builder.ConsolidateSpawnPools(pools);
 

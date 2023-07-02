@@ -14,12 +14,22 @@ public class CardEffectPlus : ScriptableObject
 
     public float scalingMultiplier;
 
-    [HideInInspector] public BattleTileController userOriginalTile;
+    [SerializeField] TileMapShape aoeShape;
+    [SerializeField] int aoeSize;
+    [SerializeField] int aoeGap;
+    [HideInInspector] public bool[,] aoe;
 
+    [HideInInspector] public BattleTileController userOriginalTile;
     [HideInInspector] public bool doneExecuting = true;
 
     public bool blockTrigger;
-    public void Execute(BattleUnit actor, BattleTileController targetCell, bool[,] aoe)
+
+    public void Initialize()
+    {
+        aoe = MapRulesGenerator.Convert(aoeShape, aoeSize, aoeGap);
+    }
+
+    public void Execute(BattleUnit actor, BattleTileController targetCell)
     {
         if(!string.IsNullOrEmpty(vfxName)) VFXMachine.PlayVFX(vfxName, vfxStyle, actor, targetCell);
 

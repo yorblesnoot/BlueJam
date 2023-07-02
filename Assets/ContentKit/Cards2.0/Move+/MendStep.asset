@@ -10,23 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: LeapSlam
+  m_Name: MendStep
   m_EditorClassIdentifier: 
-  Id: 184af214-1dd9-4c43-b7a5-dd582e7a2845
-  displayName: Leap Slam
+  Id: 87717cd3-c060-4af8-ab93-079b3973f167
+  displayName: Mendstep
   cost: 3
-  description: 
+  description: 'Walk to the target cell.
+
+    Deflect for <color=#1ED5FA>15</color>.
+
+'
   keywords: 
-  targetShape: 2
-  targetSize: 2
-  targetGap: 2
+  targetShape: 1
+  targetSize: 1
+  targetGap: 1
   pathCheckForTargets: 0
-  aoeShape: 1
+  aoeShape: 0
   aoeSize: 1
   aoeGap: 0
-  cardClass: 0000000001000000
+  cardClass: 01000000
   consumed: 0
-  animType: 3
+  animType: 2
   effects:
   - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
-  - {fileID: 11400000, guid: a928d340492cb284cb2a0a333e9ae2fb, type: 2}
+  - {fileID: 11400000, guid: 802cbfb7f9ed4574e99583e15a0f5718, type: 2}

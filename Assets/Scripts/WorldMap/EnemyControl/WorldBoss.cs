@@ -14,6 +14,6 @@ public class WorldBoss : WorldEnemy
     public override void RegisterAggroZone()
     {
         //register aggro on cell
-        GridTools.VectorToTile(transform.position).GetComponent<WorldEventHandler>().RegisterAggroZone(this);
+        MapTools.VectorToTile(transform.position).GetComponent<WorldEventHandler>().RegisterAggroZone(this);
     }
 }

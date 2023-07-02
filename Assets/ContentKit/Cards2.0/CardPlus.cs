@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Card", menuName = "ScriptableObjects/Card")]
@@ -19,12 +20,10 @@ public class CardPlus : SOWithGUID
     [HideInInspector] public bool[,] targetRules;
     public bool pathCheckForTargets;
 
-    [SerializeField] TileMapShape aoeShape;
-    [SerializeField] int aoeSize;
-    [SerializeField] int aoeGap;  
-    [HideInInspector]public bool[,] aoeRules;
+    [HideInInspector]public bool[,] aoePoint;
+    [HideInInspector]public bool[,] aoeSelf;
 
-    public List<CardClass> cardClass;
+    [HideInInspector] public List<CardClass> cardClass;
     public bool consumed;
 
     public AnimType animType;
@@ -36,8 +35,26 @@ public class CardPlus : SOWithGUID
     public void Initialize()
     {
         targetRules = MapRulesGenerator.Convert(targetShape, targetSize, targetGap);
-        aoeRules = MapRulesGenerator.Convert(aoeShape, aoeSize, aoeGap);
+
         player = GameObject.FindGameObjectWithTag("Player");
+        foreach (CardEffectPlus effect in effects)
+        {
+            CardClass cclass = effect.effectClass;
+            effect.Initialize();
+            if(!cardClass.Contains(cclass)) cardClass.Add(cclass);
+        }
+
+        List<bool[,]> selfs = new();
+        List<bool[,]> points = new();
+        //combine aoe rules from effects~~~~~~~~~~~~~~
+        foreach (var effect in effects)
+        {
+            if(effect.targetSelf == true) selfs.Add(effect.aoe);
+            else points.Add(effect.aoe);
+        }
+        if(selfs.Count > 0) aoeSelf = CellTargeting.CombineAOEIndicators(selfs);
+        aoePoint = CellTargeting.CombineAOEIndicators(points);
+
         AssembleDescription();
     }
 
@@ -45,12 +62,12 @@ public class CardPlus : SOWithGUID
     {
         actor.transform.LookAt(targetCell.unitPosition);
         actor.unitAnimator.Animate(animType);
-        BattleTileController userOriginalTile = GridTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>();
+        BattleTileController userOriginalTile = MapTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>();
         EventManager.allowTriggers.Invoke();
         for (int i = 0; i < effects.Count; i++)
         {
             effects[i].userOriginalTile = userOriginalTile;
-            effects[i].Execute(actor, targetCell, aoeRules);
+            effects[i].Execute(actor, targetCell);
             yield return new WaitUntil(() => effects[i].doneExecuting == true);
             //yield return new WaitForSeconds(effects[i].delayAfter);
         }

@@ -17,6 +17,9 @@ MonoBehaviour:
   vfxStyle: 0
   vfxName: PulseShield
   scalingMultiplier: 0.7
+  aoeShape: 0
+  aoeSize: 3
+  aoeGap: 1
   userOriginalTile: {fileID: 0}
   doneExecuting: 1
   blockTrigger: 0

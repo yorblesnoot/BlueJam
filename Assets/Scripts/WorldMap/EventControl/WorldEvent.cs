@@ -13,7 +13,7 @@ public class WorldEvent : MonoBehaviour
 
     void RegisterWithCell()
     {
-        tile = GridTools.VectorToTile(transform.position);
+        tile = MapTools.VectorToTile(transform.position);
         tile.GetComponent<WorldEventHandler>().RegisterEvent(this);
     }
 
@@ -25,7 +25,7 @@ public class WorldEvent : MonoBehaviour
 
     void RemoveEvent()
     {
-        int[] coords = GridTools.VectorToMap(transform.position);
+        Vector2Int coords = MapTools.VectorToMap(transform.position);
         runData.eventMap[coords[0], coords[1]] = null;
         gameObject.SetActive(false);
     }

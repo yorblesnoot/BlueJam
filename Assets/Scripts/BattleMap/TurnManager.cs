@@ -16,7 +16,7 @@ public class TurnManager : MonoBehaviour
     public static List<float> beatStock;
 
     public static BattleUnit activeTurn;
-    public static BattleUnit playerUnit;
+    public static PlayerUnit playerUnit;
 
     public static UnityEvent unitsReport = new();
 
@@ -45,7 +45,7 @@ public class TurnManager : MonoBehaviour
         turnRatios = new();
         beatStock = new();
         EventManager.initalizeBattlemap.AddListener(InitializeTurns);
-        playerUnit = GameObject.FindGameObjectWithTag("Player").GetComponent<BattleUnit>();
+        playerUnit = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerUnit>();
     }
 
     private void InitializeTurns()
@@ -167,8 +167,9 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    private static void EndTurn()
+    public static void EndTurn()
     {
+        activeTurn = null;
         foreach (BattleUnit v in turnTakers)
         {
             v.myTurn = false;

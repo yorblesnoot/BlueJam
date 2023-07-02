@@ -139,7 +139,7 @@ public class SaveContainer
         RunData.playerDeck.deckContents = playerDeck.Select(x => loadLibrary.cards[x]).ToList();
         RunData.itemInventory = battleItems.Select(x => loadLibrary.items[x]).ToList();
         RunData.essenceInventory = essenceInventory.Select(x => loadLibrary.decks[x]).ToList();
-        RunData.worldEnemies = worldEnemiesX.Zip(worldEnemiesY, (x,y) => new int[] {x,y}).ToList();
+        RunData.worldEnemies = worldEnemiesX.Zip(worldEnemiesY, (x,y) => new Vector2Int ( x,y)).ToList();
     }
 
     void LoadDerived()

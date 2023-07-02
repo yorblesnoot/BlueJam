@@ -10,24 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: GreaterWalk
+  m_Name: BasicStrike
   m_EditorClassIdentifier: 
-  Id: a45c1a6a-326f-4781-a289-c8e5dc876b41
-  displayName: Stride
-  cost: 1
-  description: 'move to target.
+  Id: a84c897f-84e1-477d-ab2e-281cb24b1af0
+  displayName: Basic Strike
+  cost: 3
+  description: 'deal <color=#FF4E2B>10</color> damage.
 
 '
   keywords: 
-  targetShape: 0
-  targetSize: 2
+  targetShape: 2
+  targetSize: 1
   targetGap: 1
-  pathCheckForTargets: 1
+  pathCheckForTargets: 0
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
-  cardClass: 01000000
+  cardClass: 00000000
   consumed: 0
-  animType: 2
+  animType: 0
   effects:
-  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: f111fd945c1e2314b8cc1b68ef11a2c6, type: 2}

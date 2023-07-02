@@ -19,7 +19,7 @@ public class EffectWalk : CardEffectPlus
     }
     IEnumerator Walk(BattleUnit actor, BattleTileController destinationCell, float stepsize)
     {
-        GridTools.ReportPositionChange(actor, destinationCell);
+        MapTools.ReportPositionChange(actor, destinationCell);
         yield return new WaitForSeconds(.1f);
         VFXMachine.AttachTrail("MoveTrail", actor.gameObject);
         Vector3 destination = destinationCell.unitPosition;

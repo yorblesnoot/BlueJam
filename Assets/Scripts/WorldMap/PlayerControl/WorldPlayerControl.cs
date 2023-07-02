@@ -11,7 +11,7 @@ public class WorldPlayerControl : MonoBehaviour
     {
         heightAdjust = 1f;
         EventManager.worldMove.AddListener(RequestValidMoves);
-        Vector3 myPosition = GridTools.MapToVector(runData.playerWorldX, runData.playerWorldY, heightAdjust);
+        Vector3 myPosition = MapTools.MapToVector(runData.playerWorldX, runData.playerWorldY, heightAdjust);
         gameObject.transform.position = myPosition;
     }
 
@@ -33,7 +33,7 @@ public class WorldPlayerControl : MonoBehaviour
         }
 
         //modify player's world position in run data
-        int[] newCoords = GridTools.VectorToMap(cell.transform.position);
+        Vector2Int newCoords = MapTools.VectorToMap(cell.transform.position);
         runData.playerWorldX = newCoords[0];
         runData.playerWorldY = newCoords[1];
 

@@ -5,11 +5,11 @@ using UnityEngine;
 
 public static class ListHelper
 {
-    public static bool RemoveCoordinates(this List<int[]> list, int[] toRemove)
+    public static bool RemoveCoordinates(this List<Vector2Int> list, Vector2Int toRemove)
     {
-        foreach (int[] entry in list)
+        foreach (Vector2Int entry in list)
         {
-            if(entry.SequenceEqual(toRemove))
+            if(entry == toRemove)
             {
                 list.Remove(entry);
                 return true;

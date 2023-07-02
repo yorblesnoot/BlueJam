@@ -23,7 +23,7 @@ public class WorldMapRenderer : MonoBehaviour
                 string tileKey = worldMap[x,y];
                 if(tileKey != "x")
                 {
-                    output[x,y] = Instantiate((GameObject)mapHash[tileKey], GridTools.MapToVector(x,y,0), Quaternion.identity);
+                    output[x,y] = Instantiate((GameObject)mapHash[tileKey], MapTools.MapToVector(x,y,0), Quaternion.identity);
                 }
             }
         }

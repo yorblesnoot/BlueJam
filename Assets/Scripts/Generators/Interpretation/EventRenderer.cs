@@ -17,17 +17,17 @@ public class EventRenderer : MonoBehaviour
         {
             x = 5; y = 5;
         }
-        Instantiate(bossEnemy, GridTools.MapToVector(x, y, 1), Quaternion.identity);
+        Instantiate(bossEnemy, MapTools.MapToVector(x, y, 1), Quaternion.identity);
     }
-    public void RenderEnemies(List<int[]> locations)
+    public void RenderEnemies(List<Vector2Int> locations)
     {
         if (locations == null)
         {
-            locations = new(){new int[] { 2, 2 }};
+            locations = new(){new Vector2Int ( 2, 2 )};
         }
-        foreach (int[] location in locations)
+        foreach (Vector2Int location in locations)
         {
-            GameObject spawnedEnemy = Instantiate(enemy, GridTools.MapToVector(location[0], location[1], 1), Quaternion.identity);
+            GameObject spawnedEnemy = Instantiate(enemy, MapTools.MapToVector(location[0], location[1], 1), Quaternion.identity);
         }
     }
 
@@ -46,7 +46,7 @@ public class EventRenderer : MonoBehaviour
         {
             for(int y = 0;  y < eventMap.GetLength(1); y++)
             {
-                if (!string.IsNullOrEmpty(eventMap[x, y])) Instantiate((GameObject)eventTable[eventMap[x,y]], GridTools.MapToVector(x, y, 1), Quaternion.identity);
+                if (!string.IsNullOrEmpty(eventMap[x, y])) Instantiate((GameObject)eventTable[eventMap[x,y]], MapTools.MapToVector(x, y, 1), Quaternion.identity);
             }
         }
     }

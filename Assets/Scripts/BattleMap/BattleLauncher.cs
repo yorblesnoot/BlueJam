@@ -29,18 +29,19 @@ public class BattleLauncher : MapLauncher
         //place units onto the map
         BattleUnitSpawner encounterBuilder = new BattleUnitSpawner(runData.staticSpawns, runData.spawnUnits, runData.spawnWeights, map);
         encounterBuilder.PlacePlayer(player);
+        PlayerUnit playerUnit = player.GetComponent<PlayerUnit>();
+        MapTools.ReportPlayer(playerUnit, playerUnit.transform.position);
         encounterBuilder.PlaceEnemies(runData.enemyBudget);
 
         //initialize combat
         EventManager.initalizeBattlemap?.Invoke();
 
-        BattleUnit playerUnit = player.GetComponent<BattleUnit>();
         //activate item effects
         foreach (BattleItem item in runData.itemInventory)
         {
             foreach (var effect in item.effects)
             {
-                effect.Execute(playerUnit, GridTools.VectorToTile(player.transform.position).GetComponent<BattleTileController>(), new bool[,] { { true } });
+                effect.Execute(playerUnit, MapTools.VectorToTile(player.transform.position).GetComponent<BattleTileController>());
             }
         }
     }

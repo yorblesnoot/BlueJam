@@ -20,7 +20,7 @@ public static class CellTargeting
         int yCenterpoint = yLength/2;
 
         //global coordinates of the ability source
-        int[] sourceMap = GridTools.VectorToMap(targetSource);
+        Vector2Int sourceMap = MapTools.VectorToMap(targetSource);
 
         for(int x = 0; x < xLength; x++)
         {
@@ -35,7 +35,7 @@ public static class CellTargeting
 
                     //get global coords for target cells
                     #nullable enable
-                    GameObject? tile = GridTools.VectorToTile(GridTools.MapToVector(sourceMap[0] + xOffset, sourceMap[1] + yOffset, 0f));
+                    GameObject? tile = MapTools.MapToTile(new Vector2Int(sourceMap[0] + xOffset, sourceMap[1] + yOffset));
                     #nullable disable
 
                     if(tile != null)
@@ -51,24 +51,24 @@ public static class CellTargeting
     public static List<GameObject> EliminateUnpathable(this List<GameObject> legalCells, GameObject targetSource)
     {
         int rangeSize = 20;
-        List<int[]> reducedLegals = legalCells.Select(a => GridTools.VectorToMap(a.transform.position)).ToList();
+        List<Vector2Int> reducedLegals = legalCells.Select(a => MapTools.VectorToMap(a.transform.position)).ToList();
         bool[,] legalGrid = new bool[rangeSize,rangeSize];
-        foreach (int[] legalCell in reducedLegals)
+        foreach (Vector2Int legalCell in reducedLegals)
         {
-            if (TileIsValidTarget(GridTools.MapToTile(legalCell).GetComponent<BattleTileController>(), targetSource.tag, CardClass.MOVE))
+            if (TileIsValidTarget(MapTools.MapToTile(legalCell).GetComponent<BattleTileController>(), targetSource.tag, CardClass.MOVE))
             {
-                legalGrid[legalCell[0], legalCell[1]] = true;
+                legalGrid[legalCell.x, legalCell.y] = true;
             }
         }
-        int[] sourcePosition = GridTools.VectorToMap(targetSource.transform.position);
+        Vector2Int sourcePosition = MapTools.VectorToMap(targetSource.transform.position);
 
         reducedLegals = reducedLegals.Where(x => DoesPathExist(legalGrid, sourcePosition, x, true) == true).ToList();
 
-        legalCells = reducedLegals.Select(a => GridTools.MapToTile(a)).ToList();
+        legalCells = reducedLegals.Select(a => MapTools.MapToTile(a)).ToList();
         return legalCells;
     }
 
-    static bool DoesPathExist(bool[,] grid, int[] current, int[] destination, bool firstRun)
+    static bool DoesPathExist(bool[,] grid, Vector2Int current, Vector2Int destination, bool firstRun)
     {
         //if we are at the destination, return path
         if (current[0] == destination[0] && current[1] == destination[1])
@@ -86,14 +86,14 @@ public static class CellTargeting
             if (directionX != 0)
             {
                 //Debug.Log($"branch 1 to {destination[0]}, {destination[1]}");
-                bool first = DoesPathExist(grid, new int[] { current[0] + directionX, current[1] }, destination, false);
+                bool first = DoesPathExist(grid, new Vector2Int(current[0] + directionX, current[1]), destination, false);
                 if (first == true) return true;
             }
             int directionY = Mathf.Clamp(destination[1] - current[1], -1, 1);
             if (directionY != 0)
             {
                 //Debug.Log($"branch 2 to {destination[0]}, {destination[1]}");
-                bool second = DoesPathExist(grid, new int[] { current[0], current[1] + directionY }, destination, false);
+                bool second = DoesPathExist(grid, new Vector2Int(current[0], current[1] + directionY), destination, false);
                 if (second == true) return true;
             }
             //Debug.Log($"Child paths blocked {destination[0]}, {destination[1]}");
@@ -102,22 +102,25 @@ public static class CellTargeting
     }
 
     //return true if areatargets found valid plays
-    public static bool ValidPlay(BattleTileController tile, string tSource, List<CardClass> cardClass, bool[,] aoeRule)
+    public static bool ValidPlay(BattleTileController tile, string tSource, CardPlus card)
     {
-        if (cardClass.Contains(CardClass.MOVE) || cardClass.Contains(CardClass.SUMMON))
+        foreach (var effect in card.effects)
         {
-            if (TileIsValidTarget(tile, tSource, CardClass.MOVE)) return true;
-            else return false;
+            if (effect.effectClass == CardClass.MOVE || effect.effectClass == CardClass.SUMMON)
+            {
+                if (TileIsValidTarget(tile, tSource, CardClass.MOVE)) return true;
+                else return false;
+            }
+            else if (effect.effectClass == CardClass.ATTACK && AreaTargets(tile.gameObject, tSource, CardClass.ATTACK, effect.aoe).Count > 0)
+            {
+                return true;
+            }
+            else if (effect.effectClass == CardClass.BUFF && AreaTargets(tile.gameObject, tSource, CardClass.BUFF, effect.aoe).Count > 0)
+            {
+                return true;
+            }
         }
-        else if(cardClass.Contains(CardClass.ATTACK) && AreaTargets(tile.gameObject, tSource, CardClass.ATTACK, aoeRule).Count > 0)
-        {
-            return true;
-        }
-        else if (cardClass.Contains(CardClass.BUFF) && AreaTargets(tile.gameObject, tSource, CardClass.BUFF, aoeRule).Count > 0)
-        {
-            return true;
-        }
-        else return false;
+        return false;
     }
 
     //return all valid targets in an aoe target based on the class, aoe size, and owner
@@ -139,6 +142,32 @@ public static class CellTargeting
             return aoeTargets;
         }
         else return null;
+    }
+
+    public static bool[,] CombineAOEIndicators(List<bool[,]> indicators)
+    {
+        List<int> sizes = indicators.Select(x => x.GetLength(0)).ToList();
+        int maxSize = sizes.Max();
+        List<int> offsets = sizes.Select(x => (maxSize - x) / 2).ToList();
+        bool[,] output = new bool[maxSize, maxSize];
+        for(int x = 0; x < maxSize; x++)
+        {
+            for(int y = 0; y < maxSize; y++)
+            {
+                bool cellValue = false;
+                for (int i = 0; i < indicators.Count; i++)
+                {
+                    bool[,] indicator = indicators[i];
+                    if (indicator.Safe2DFind(x - offsets[i],y - offsets[i]) ==true)
+                    {
+                        cellValue = true;
+                        break;
+                    }
+                }
+                output[x,y] = cellValue;
+            }
+        }
+        return output;
     }
 
     public static bool TileIsValidTarget(BattleTileController tile, string tagOfSource, CardClass cardClass)

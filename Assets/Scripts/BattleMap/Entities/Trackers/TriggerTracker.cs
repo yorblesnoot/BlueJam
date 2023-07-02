@@ -65,12 +65,12 @@ public class TriggerTracker : MonoBehaviour
                 if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.USER)
                 {
                     Debug.Log($"..on {origin}");
-                    tracked.trigger.triggeredEffect.Execute(battleUnit, GridTools.VectorToTile(origin.transform.position).GetComponent<BattleTileController>(), tracked.aoe);
+                    tracked.trigger.triggeredEffect.Execute(battleUnit, MapTools.VectorToTile(origin.transform.position).GetComponent<BattleTileController>());
                 }
                 else if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.RECEIVER)
                 {
                     Debug.Log($"..on {target}");
-                    tracked.trigger.triggeredEffect.Execute(battleUnit, GridTools.VectorToTile(target.transform.position).GetComponent<BattleTileController>(), tracked.aoe);
+                    tracked.trigger.triggeredEffect.Execute(battleUnit, MapTools.VectorToTile(target.transform.position).GetComponent<BattleTileController>());
                 }
                 tracked.remainingActivations = tracked.trigger.triggersRequiredForActivation;
             }

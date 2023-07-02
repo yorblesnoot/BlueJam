@@ -9,12 +9,12 @@ public class MapLauncher : MonoBehaviour
     {
         map = new GameObject[20, 20];
         EventManager.requestMapReferences.Invoke(this);
-        GridTools.SubmitTileMap(map);
+        MapTools.SubmitTileMap(map);
     }
 
     public void SubmitMapReference(GameObject reference)
     {
-        int[] coords = GridTools.VectorToMap(reference.transform.position);
+        Vector2Int coords = MapTools.VectorToMap(reference.transform.position);
         map[coords[0], coords[1]] = reference;
     }
 }

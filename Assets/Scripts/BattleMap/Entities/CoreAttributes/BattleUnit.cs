@@ -88,14 +88,14 @@ public class BattleUnit : MonoBehaviour, IPlayerData
     public void ReportCell()
     {
         //report our location to the cell we're in
-        GameObject myTile = GridTools.VectorToTile(gameObject.transform.position);
+        GameObject myTile = MapTools.VectorToTile(gameObject.transform.position);
         myTile.GetComponent<BattleTileController>().unitContents = this;
     }
 
     public void UnreportCell()
     {
         //report leaving a cell
-        GameObject myTile = GridTools.VectorToTile(gameObject.transform.position);
+        GameObject myTile = MapTools.VectorToTile(gameObject.transform.position);
         myTile.GetComponent<BattleTileController>().unitContents = null;
     }
 

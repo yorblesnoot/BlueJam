@@ -16,11 +16,14 @@ MonoBehaviour:
   deckContents:
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
-  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
-  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
-  - {fileID: 11400000, guid: 6d42d44e66fe5244eb04e85651cad20d, type: 2}
-  - {fileID: 11400000, guid: 6d42d44e66fe5244eb04e85651cad20d, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: f6353ae821c9be54785b85152195baa4, type: 2}
+  - {fileID: 11400000, guid: f6353ae821c9be54785b85152195baa4, type: 2}
+  - {fileID: 11400000, guid: 7cdb2bec78576414a9970c889c919a55, type: 2}
+  - {fileID: 11400000, guid: b39c6bf93e928d24991b0f841dad9dba, type: 2}
   preDescription: 
   symbol: 
   essenceDescription: '.. Contains: *LongWalk *SmallBurst *SmallBurst *PushHit'

@@ -9,15 +9,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8a4e2b936a4b343b05d5accc717910, type: 3}
-  m_Name: Damage+1
+  m_Script: {fileID: 11500000, guid: bcd7d8637bc1cbd4cad686ac9fbf943d, type: 3}
+  m_Name: SplashHeal.5x
   m_EditorClassIdentifier: 
   targetSelf: 0
   effectClass: 2
-  vfxStyle: 0
-  vfxName: 
-  scalingMultiplier: 1
+  vfxStyle: 1
+  vfxName: HealBurst
+  scalingMultiplier: 0.5
+  aoeShape: 1
+  aoeSize: 1
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
   doneExecuting: 1
-  blockTrigger: 0
-  entityStat: 4
+  blockTrigger: 1

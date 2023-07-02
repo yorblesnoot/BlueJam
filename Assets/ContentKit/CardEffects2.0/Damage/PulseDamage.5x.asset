@@ -17,6 +17,9 @@ MonoBehaviour:
   vfxStyle: 0
   vfxName: PulseDamage
   scalingMultiplier: 0.5
+  aoeShape: 0
+  aoeSize: 3
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
   doneExecuting: 1
   blockTrigger: 0

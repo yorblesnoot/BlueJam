@@ -34,7 +34,7 @@ public class EffectPush : CardEffectPlus
             BattleTileController cell;
             try
             {
-                cell = GridTools.VectorToTile(possibleDestination).GetComponent<BattleTileController>();
+                cell = MapTools.VectorToTile(possibleDestination).GetComponent<BattleTileController>();
                 BattleUnit contents = cell.unitContents;
                 if (contents == null)
                 {
@@ -49,7 +49,7 @@ public class EffectPush : CardEffectPlus
                 break;
             }
         }
-        GridTools.ReportPositionChange(target, GridTools.VectorToTile(destination).GetComponent<BattleTileController>());
+        MapTools.ReportPositionChange(target, MapTools.VectorToTile(destination).GetComponent<BattleTileController>());
         while (target.transform.position != destination)
         {
             target.transform.position = Vector3.MoveTowards(target.transform.position, destination, stepsize);
@@ -58,7 +58,7 @@ public class EffectPush : CardEffectPlus
 
         if (collisionDamage > 0)
         {
-            GameObject impactPlace = GridTools.VectorToTile(destination + direction);
+            GameObject impactPlace = MapTools.VectorToTile(destination + direction);
             if (impactPlace != null)
             {
                 BattleUnit contents = impactPlace.GetComponent<BattleTileController>().unitContents;
