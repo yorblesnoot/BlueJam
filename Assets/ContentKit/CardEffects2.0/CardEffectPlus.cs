@@ -5,12 +5,15 @@ using static UnityEngine.GraphicsBuffer;
 
 public class CardEffectPlus : ScriptableObject
 {
-    public bool targetSelf;
+    public bool forceTargetSelf;
 
     public CardClass effectClass;
 
-    public VFXStyle vfxStyle;
-    public string vfxName;
+    public VFXStyle vfxStyleSelf;
+    [StringInList(typeof(VFXHelper), "AllVFXNames")] public string vfxNameSelf;
+
+    public VFXStyle vfxStyleTarget;
+    [StringInList(typeof(VFXHelper), "AllVFXNames")] public string vfxNameTarget;
 
     public float scalingMultiplier;
 
@@ -31,8 +34,6 @@ public class CardEffectPlus : ScriptableObject
 
     public void Execute(BattleUnit actor, BattleTileController targetCell)
     {
-        if(!string.IsNullOrEmpty(vfxName)) VFXMachine.PlayVFX(vfxName, vfxStyle, actor, targetCell);
-
         List<BattleUnit> targets = AcquireTargets(actor, targetCell, aoe);
 
         ActivateEffect(actor, targetCell, aoe, targets);
@@ -43,7 +44,7 @@ public class CardEffectPlus : ScriptableObject
 
     public List<BattleUnit> AcquireTargets(BattleUnit actor, BattleTileController targetCell, bool[,] aoe)
     {
-        if (targetSelf == true) targetCell = userOriginalTile;
+        if (forceTargetSelf == true) targetCell = userOriginalTile;
         return CellTargeting.AreaTargets(targetCell.gameObject, actor.gameObject.tag, effectClass, aoe);
     }
 

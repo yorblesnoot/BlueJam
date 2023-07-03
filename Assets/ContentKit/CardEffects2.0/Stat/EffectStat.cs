@@ -6,7 +6,10 @@ public class EffectStat : CardEffectPlus
 {
     enum StatType { MAXHEALTH, HANDSIZE, SPEED, BEATS, DAMAGE, HEAL, BARRIER }
     [SerializeField] StatType entityStat;
-
+    private void Reset()
+    {
+        effectClass = CardClass.BUFF;
+    }
     Dictionary<StatType, string> statNames = new()
     {
         {StatType.MAXHEALTH, "max health" },

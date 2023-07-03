@@ -4,8 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectDamage", menuName = "ScriptableObjects/CardEffects/Damage")]
 public class EffectDamage : CardEffectPlus
 {
-
-    //ImpactSmall, GroundBurst
+    private void Reset()
+    {
+        effectClass = CardClass.ATTACK;
+    }
 
     public override string GenerateDescription(IPlayerStats player)
     {

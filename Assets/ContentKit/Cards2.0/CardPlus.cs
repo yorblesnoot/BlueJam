@@ -48,7 +48,7 @@ public class CardPlus : SOWithGUID
         List<bool[,]> points = new();
         foreach (var effect in effects)
         {
-            if(effect.targetSelf == true) selfs.Add(effect.aoe);
+            if(effect.forceTargetSelf == true) selfs.Add(effect.aoe);
             else points.Add(effect.aoe);
         }
         if(selfs.Count > 0) aoeSelf = CellTargeting.CombineAOEIndicators(selfs);
@@ -65,10 +65,12 @@ public class CardPlus : SOWithGUID
         EventManager.allowTriggers.Invoke();
         for (int i = 0; i < effects.Count; i++)
         {
+            VFXMachine.PlayVFX(effects[i].vfxNameSelf, effects[i].vfxStyleSelf, actor, MapTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>());
             effects[i].userOriginalTile = userOriginalTile;
             effects[i].Execute(actor, targetCell);
+
             yield return new WaitUntil(() => effects[i].doneExecuting == true);
-            //yield return new WaitForSeconds(effects[i].delayAfter);
+            VFXMachine.PlayVFX(effects[i].vfxNameTarget, effects[i].vfxStyleTarget, actor, targetCell);
         }
         TurnManager.SpendBeats(actor.GetComponent<BattleUnit>(), cost);
     }

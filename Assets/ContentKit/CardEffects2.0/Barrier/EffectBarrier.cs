@@ -7,7 +7,12 @@ public class EffectBarrier : CardEffectPlus
     enum BarrierType { DEFLECT, SHIELD }
     [SerializeField] BarrierType barrierType;
 
-    Dictionary<BarrierType, string> barrierNames = new()
+    private void Reset()
+    {
+        effectClass = CardClass.BUFF;
+    }
+
+    readonly Dictionary<BarrierType, string> barrierNames = new()
     {
         {BarrierType.DEFLECT, "deflect" },
         {BarrierType.SHIELD, "shield" }

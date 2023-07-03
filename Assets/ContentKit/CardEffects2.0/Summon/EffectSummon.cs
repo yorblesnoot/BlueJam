@@ -7,6 +7,10 @@ using static UnityEngine.EventSystems.EventTrigger;
 [CreateAssetMenu(fileName = "EffectSummon", menuName = "ScriptableObjects/CardEffects/Summon")]
 public class EffectSummon : CardEffectPlus
 {
+    private void Reset()
+    {
+        effectClass = CardClass.SUMMON;
+    }
     public GameObject entityToSummon;
     public override string GenerateDescription(IPlayerStats player)
     {
@@ -40,7 +44,7 @@ public class EffectSummon : CardEffectPlus
     void ModifyStats(BattleUnit owner, BattleUnit toModify)
     {
         int summonModifier = 2;
-        if(owner.tag == "Player")
+        if(owner.CompareTag("Player"))
         {
             toModify.tag = "Ally";
         }

@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4d7e4cd232b3843afe9d9f6eba80fb, type: 3}
   m_Name: Damage2x
   m_EditorClassIdentifier: 
-  targetSelf: 0
+  forceTargetSelf: 0
   effectClass: 0
-  vfxStyle: 0
-  vfxName: ImpactSmall
+  vfxStyleSelf: 0
+  vfxNameSelf: none
+  vfxStyleTarget: 0
+  vfxNameTarget: none
   scalingMultiplier: 2
+  aoeShape: 0
+  aoeSize: 0
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
   doneExecuting: 1
   blockTrigger: 0

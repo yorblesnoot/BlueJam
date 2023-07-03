@@ -12,12 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d63e6e4550640c647bd6b18ddc08f297, type: 3}
   m_Name: SummonMinion
   m_EditorClassIdentifier: 
-  delayAfter: 0
-  targetSelf: 0
+  forceTargetSelf: 0
   effectClass: 3
-  vfxStyle: 0
-  vfxName: 
+  vfxStyleSelf: 0
+  vfxNameSelf: none
+  vfxStyleTarget: 0
+  vfxNameTarget: none
   scalingMultiplier: 0
-  description: Summons a Minion
+  aoeShape: 0
+  aoeSize: 0
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
+  doneExecuting: 1
+  blockTrigger: 0
   entityToSummon: {fileID: 1248187907569993784, guid: 8e33d67d04e8ea543803e55066e7f41a, type: 3}

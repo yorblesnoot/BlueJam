@@ -15,8 +15,11 @@ MonoBehaviour:
   targetSelf: 0
   effectClass: 2
   vfxStyle: 0
-  vfxName: 
+  vfxName: BuffCharge
   scalingMultiplier: 2
+  aoeShape: 0
+  aoeSize: 0
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
   doneExecuting: 1
   blockTrigger: 0

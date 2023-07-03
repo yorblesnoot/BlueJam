@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4950ec87aecd9f4a9262d8b7be50fd1, type: 3}
   m_Name: PulseDeflect1x
   m_EditorClassIdentifier: 
-  targetSelf: 0
+  forceTargetSelf: 0
   effectClass: 2
-  vfxStyle: 0
-  vfxName: PulseShield
+  vfxStyleSelf: 0
+  vfxNameSelf: PulseShield
+  vfxStyleTarget: 0
+  vfxNameTarget: none
   scalingMultiplier: 0.7
   aoeShape: 0
   aoeSize: 3

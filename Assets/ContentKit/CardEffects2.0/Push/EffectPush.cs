@@ -6,6 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectPush", menuName = "ScriptableObjects/CardEffects/Push")]
 public class EffectPush : CardEffectPlus
 {
+    private void Reset()
+    {
+        effectClass = CardClass.ATTACK;
+    }
     public int pushDistance;
     [Range(.1f, .01f)] public float stepSize;
     public override string GenerateDescription(IPlayerStats player)

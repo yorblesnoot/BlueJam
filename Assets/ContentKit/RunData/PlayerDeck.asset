@@ -16,14 +16,16 @@ MonoBehaviour:
   deckContents:
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
+  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: f6353ae821c9be54785b85152195baa4, type: 2}
-  - {fileID: 11400000, guid: f6353ae821c9be54785b85152195baa4, type: 2}
-  - {fileID: 11400000, guid: 7cdb2bec78576414a9970c889c919a55, type: 2}
-  - {fileID: 11400000, guid: b39c6bf93e928d24991b0f841dad9dba, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: b7196759f8bc9b54d8a89af6f14c645a, type: 2}
   preDescription: 
   symbol: 
+  iconColor:
+    serializedVersion: 2
+    rgba: 0
   essenceDescription: '.. Contains: *LongWalk *SmallBurst *SmallBurst *PushHit'

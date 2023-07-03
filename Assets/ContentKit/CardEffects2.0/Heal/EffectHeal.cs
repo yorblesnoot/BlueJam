@@ -4,7 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectHeal", menuName = "ScriptableObjects/CardEffects/Heal")]
 public class EffectHeal : CardEffectPlus
 {
-
+    private void Reset()
+    {
+        effectClass = CardClass.BUFF;
+    }
     //GreenHeal, HealBurst
 
     public override string GenerateDescription(IPlayerStats player)

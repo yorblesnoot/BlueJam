@@ -8,6 +8,8 @@ public static class VFXMachine
 {
     public static void PlayVFX(string vfxName, VFXStyle vfxStyle, BattleUnit actor, BattleTileController targetCell)
     {
+        Debug.Log(vfxName);
+        if (vfxName == "none") return;
         switch (vfxStyle)
         {
             case (VFXStyle.UNIT): PlayAtLocation(vfxName, targetCell.unitPosition); break;

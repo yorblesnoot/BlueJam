@@ -6,6 +6,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectWalk", menuName = "ScriptableObjects/CardEffects/Walk")]
 public class EffectWalk : CardEffectPlus
 {
+    private void Reset()
+    {
+        effectClass = CardClass.MOVE;
+    }
     bool walked;
     [Range(.1f, .01f)] public float stepSize;
     public override string GenerateDescription(IPlayerStats player)

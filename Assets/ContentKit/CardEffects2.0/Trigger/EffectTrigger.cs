@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectTrigger", menuName = "ScriptableObjects/CardEffects/Trigger")]
 public class EffectTrigger : CardEffectPlus
 {
+    private void Reset()
+    {
+        effectClass = CardClass.BUFF;
+    }
     public enum TriggerIdentity
     {
         USER,

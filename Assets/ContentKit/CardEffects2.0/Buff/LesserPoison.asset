@@ -12,11 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d2e09cbe6c9746489b5a70c6a1e13ff, type: 3}
   m_Name: LesserPoison
   m_EditorClassIdentifier: 
-  targetSelf: 0
+  forceTargetSelf: 0
   effectClass: 0
-  vfxStyle: 0
-  vfxName: 
+  vfxStyleSelf: 0
+  vfxNameSelf: none
+  vfxStyleTarget: 0
+  vfxNameTarget: none
   scalingMultiplier: 0
+  aoeShape: 0
+  aoeSize: 0
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
   doneExecuting: 1
   blockTrigger: 0

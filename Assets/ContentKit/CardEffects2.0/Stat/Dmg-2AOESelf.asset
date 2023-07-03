@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd8a4e2b936a4b343b05d5accc717910, type: 3}
   m_Name: Dmg-2AOESelf
   m_EditorClassIdentifier: 
-  targetSelf: 1
+  forceTargetSelf: 0
   effectClass: 0
   vfxStyle: 0
-  vfxName: 
+  vfxName: none
   scalingMultiplier: -2
   aoeShape: 2
   aoeSize: 1
