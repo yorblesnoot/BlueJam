@@ -42,7 +42,6 @@ public class RunStarter : MonoBehaviour
 
         //set difficulty parameters; currently not really used lol ~~~~~~~~~~~~~~~~~~~~~~~
         runData.baseEnemies = playerClass.baseEnemies;
-        runData.runDifficulty = 0;
 
         //initalize gameplay lists
         runData.itemPool.awardableItems = new();
@@ -51,6 +50,7 @@ public class RunStarter : MonoBehaviour
         runData.essenceInventory = new();
         runData.KeyStock = 0;
         runData.RemoveStock = 0;
+        runData.worldSteps = 0;
 
         //send the player to the world map
         SceneManager.LoadScene(1);

@@ -35,6 +35,7 @@ public class Hand : MonoBehaviour
         {
             if(deckDrawable.Count == 0)
             {
+                if (deckDiscarded.Count == 0) return;
                 CycleDeck();
             }
             DrawCard(FromTopOfDeck());

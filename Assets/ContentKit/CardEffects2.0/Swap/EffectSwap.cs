@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectSwap", menuName = "ScriptableObjects/CardEffects/Swap")]
 public class EffectMove : CardEffectPlus
 {
-    public override string GenerateDescription(IPlayerData player)
+    public override string GenerateDescription(IPlayerStats player)
     {
         return $"swap places with target";
     }

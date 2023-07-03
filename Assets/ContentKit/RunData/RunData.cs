@@ -23,38 +23,12 @@ public class RunData : ScriptableObject
 
     public ItemPool itemPool;
 
-    [SerializeField] private int keyStock;
-    public int KeyStock
-    {
-        get { return keyStock; }
-        set
-        {
-            keyStock = value;
-            EventManager.updateWorldCounters.Invoke();
-        }
-    }
-    [SerializeField] private int removeStock;
-    public int RemoveStock
-    {
-        get { return removeStock; }
-        set
-        {
-            removeStock = value;
-            EventManager.updateWorldCounters.Invoke();
-        }
-    }
+    public int KeyStock;
+    public int RemoveStock;
+    
     public int worldSteps;
-    public int runDifficulty;
+    public int runDifficulty { get { return worldSteps / 5; } }
     public int baseEnemies;
 
     public int currentHealth;
-
-
-    //enemy spawn info to convey from world to battle
-    public BiomePool availableMaps;
-    public List<GameObject> staticSpawns;
-    public List<GameObject> spawnUnits;
-    public List<int> spawnWeights;
-    public int enemyBudget;
-    public bool bossEncounter;
 }

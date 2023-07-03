@@ -97,7 +97,7 @@ public class TurnManager : MonoBehaviour
 
     public static void ShowPossibleTurnTakers(int beatCost)
     {
-        foreach(NPCBattleUnit turnTaker in turnTakers.OfType<NPCBattleUnit>())
+        foreach(NonplayerUnit turnTaker in turnTakers.OfType<NonplayerUnit>())
         {
             if (turnTaker.currentBeats + beatCost * turnTaker.turnSpeed >= beatThreshold)
             {
@@ -163,6 +163,7 @@ public class TurnManager : MonoBehaviour
         }
         else
         {
+            playerUnit.StartCoroutine(playerUnit.turnIndicator.ShowTurn());
             return playerUnit;
         }
     }

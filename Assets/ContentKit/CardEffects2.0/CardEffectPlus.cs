@@ -49,7 +49,7 @@ public class CardEffectPlus : ScriptableObject
 
     public virtual void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null) { }
 
-    public virtual string GenerateDescription(IPlayerData player)
+    public virtual string GenerateDescription(IPlayerStats player)
     {
         return "";
     }

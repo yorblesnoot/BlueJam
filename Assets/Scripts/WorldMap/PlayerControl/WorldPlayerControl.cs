@@ -1,42 +1,54 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class WorldPlayerControl : MonoBehaviour
 {
     public RunData runData;
     public float heightAdjust;
 
+    public bool pathing = false;
+
     void Awake()
     {
         heightAdjust = 1f;
-        EventManager.worldMove.AddListener(RequestValidMoves);
         Vector3 myPosition = MapTools.MapToVector(runData.playerWorldX, runData.playerWorldY, heightAdjust);
         gameObject.transform.position = myPosition;
+        MapTools.playerLocation = MapTools.VectorToMap(myPosition);
     }
 
-    public void RequestValidMoves()
+    public IEnumerator ChainPath(List<GameObject> path)
     {
-        //tell adjacent tiles to light up for a move
-        EventManager.getWorldDestination?.Invoke(runData.playerWorldX, runData.playerWorldY);
-    }
-
-    public IEnumerator MoveToWorldCell(GameObject cell)
-    {
-        WorldMovementController movementController = cell.GetComponent<WorldMovementController>();
-        transform.LookAt(movementController.unitPosition);
-        Vector3 moveTarget = movementController.unitPosition;
-        while (gameObject.transform.position != moveTarget)
+        pathing = true;
+        foreach (GameObject tile in path)
         {
-            gameObject.transform.position = Vector3.MoveTowards(gameObject.transform.position, moveTarget, .02f);
-            yield return new WaitForSeconds(.01f);
+            WorldMovementController tileController = tile.GetComponent<WorldMovementController>();
+            if (tileController.eventHandler.enemyEvents.OfType<WorldBoss>().Any())
+            {
+                if (runData.KeyStock <= 3)
+                {
+                    break;
+                }
+            }
+                transform.LookAt(tileController.unitPosition);
+            while (gameObject.transform.position != tileController.unitPosition)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, tileController.unitPosition, .05f);
+                yield return new WaitForSeconds(.01f);
+            }
+            //modify player's world position in run data
+            Vector2Int newCoords = MapTools.VectorToMap(tile.transform.position);
+            runData.playerWorldX = newCoords[0];
+            runData.playerWorldY = newCoords[1];
+            MapTools.playerLocation = newCoords;
+            runData.worldSteps++;
+            EventManager.updateWorldCounters.Invoke();
+            StartCoroutine(tileController.eventHandler.TriggerWorldEvents());
+            yield return new WaitUntil(() => tileController.eventHandler.runningEvents == false);
         }
-
-        //modify player's world position in run data
-        Vector2Int newCoords = MapTools.VectorToMap(cell.transform.position);
-        runData.playerWorldX = newCoords[0];
-        runData.playerWorldY = newCoords[1];
-
-        StartCoroutine(cell.GetComponent<WorldEventHandler>().TriggerWorldEvents());
+        pathing = false;
     }
 }

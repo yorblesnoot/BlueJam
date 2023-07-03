@@ -18,4 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b39c6bf93e928d24991b0f841dad9dba, type: 2}
   preDescription: Essence of a minion.
   symbol: o
+  iconColor:
+    serializedVersion: 2
+    rgba: 4285822072
   essenceDescription: 

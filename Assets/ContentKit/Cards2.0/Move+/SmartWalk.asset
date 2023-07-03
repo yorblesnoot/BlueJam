@@ -10,19 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: Snipe
+  m_Name: SmartWalk
   m_EditorClassIdentifier: 
-  Id: d2bfd311-9729-49c6-a056-10b563fc8bfd
-  displayName: Snipe
-  cost: 5
-  description: 
+  Id: 87717cd3-c060-4af8-ab93-079b3973f167
+  displayName: Withdraw
+  cost: 4
+  description: 'Walk to the target cell.
+
+    Deflect for <color=#1ED5FA>15</color>.
+
+'
   keywords: 
-  targetShape: 0
-  targetSize: 6
-  targetGap: 4
+  targetShape: 2
+  targetSize: 1
+  targetGap: 1
   pathCheckForTargets: 0
-  cardClass: 00000000
+  cardClass: 0100000002000000
   consumed: 0
-  animType: 0
+  animType: 2
   effects:
-  - {fileID: 11400000, guid: 189dc193e4c7ed34c81a8fda54fb40cb, type: 2}
+  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: 2834426337460ae4c93df2bac8f2254b, type: 2}

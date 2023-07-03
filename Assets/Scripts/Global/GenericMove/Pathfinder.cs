@@ -13,11 +13,11 @@ public class Pathfinder
         {
             for(int y = 0; y <  MapTools.gameMap.GetLength(1); y++)
             {
-                Vector2Int position = new Vector2Int(x, y);
+                Vector2Int position = new(x, y);
                 GameObject tile = MapTools.MapToTile(position);
                 bool isBlocked = false;
                 //add impassable test here
-                if(tile == null || tile.GetComponent<BattleTileController>().unitContents != null)
+                if(tile == null || tile.GetComponent<BattleTileController>()?.unitContents != null)
                 {
                     isBlocked = true;
                 }

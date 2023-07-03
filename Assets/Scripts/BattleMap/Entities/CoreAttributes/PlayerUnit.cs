@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerUnit : BattleUnit
 {
+    public PlayerTurnIndicator turnIndicator;
     public override void Initialize()
     {
         unitStats = runData.playerStats;

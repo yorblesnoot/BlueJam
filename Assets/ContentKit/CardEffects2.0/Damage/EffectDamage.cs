@@ -7,7 +7,7 @@ public class EffectDamage : CardEffectPlus
 
     //ImpactSmall, GroundBurst
 
-    public override string GenerateDescription(IPlayerData player)
+    public override string GenerateDescription(IPlayerStats player)
     {
         return $"deal <color=#FF4E2B>{player.damageScaling * scalingMultiplier}</color> damage";
     }

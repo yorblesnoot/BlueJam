@@ -10,8 +10,15 @@ public class CameraController : MonoBehaviour
     float panUpperLimit;
     [SerializeField] RunData runData;
 
+    [SerializeField] SceneRelay sceneRelay;
+
     void Awake()
     {
+        EventManager.prepareForBattle.AddListener(() => sceneRelay.cameraPosition = transform.position);
+        if (sceneRelay.cameraPosition != new Vector3())
+        {
+            transform.position = sceneRelay.cameraPosition;
+        }
         try
         {
             panUpperLimit = panLowerLimit + runData.worldMap.GetLength(0) / 2;

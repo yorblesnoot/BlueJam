@@ -8,7 +8,7 @@ using static UnityEngine.EventSystems.EventTrigger;
 public class EffectSummon : CardEffectPlus
 {
     public GameObject entityToSummon;
-    public override string GenerateDescription(IPlayerData player)
+    public override string GenerateDescription(IPlayerStats player)
     {
         return $"summon a {entityToSummon.name}";
     }

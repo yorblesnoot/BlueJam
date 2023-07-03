@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BattleUnit : MonoBehaviour, IPlayerData
+public class BattleUnit : MonoBehaviour, IPlayerStats
 {
     [field: SerializeField] public UnitStats unitStats { get; set; }
     public BarrierTracker barrierTracker;

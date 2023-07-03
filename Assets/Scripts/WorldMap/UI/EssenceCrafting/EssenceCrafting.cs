@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 public class EssenceCrafting : MonoBehaviour
 {
     public RunData runData;
     private List<Deck> essences;
     public List<DraggableItem> dragItems = new();
-    
 
     public TMP_Text description;
     public Canvas mainCanvas;
@@ -34,6 +34,7 @@ public class EssenceCrafting : MonoBehaviour
                 dragItems[i].essence = essences[i];
                 dragItems[i].description = description;
                 dragItems[i].mySymbol.text = essences[i].symbol;
+                dragItems[i].image.color = essences[i].iconColor;
             }
             else
             {

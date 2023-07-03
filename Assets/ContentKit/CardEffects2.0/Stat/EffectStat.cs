@@ -18,7 +18,7 @@ public class EffectStat : CardEffectPlus
         {StatType.BARRIER, "constitution"}
     };
 
-    public override string GenerateDescription(IPlayerData player)
+    public override string GenerateDescription(IPlayerStats player)
     {
         string changeDirection;
         if (scalingMultiplier > 0) changeDirection = "increase";

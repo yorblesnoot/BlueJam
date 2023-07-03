@@ -16,7 +16,10 @@ MonoBehaviour:
   deckContents:
   - {fileID: 11400000, guid: b429b95cd75d9454884a653da9001ae1, type: 2}
   - {fileID: 11400000, guid: 5f9c754f59582c14aafb5f113d3b19d7, type: 2}
-  - {fileID: 11400000, guid: 406a66030c611bf4f95849e6c864404a, type: 2}
+  - {fileID: 11400000, guid: f6353ae821c9be54785b85152195baa4, type: 2}
   preDescription: Essence of a necromancer.
   symbol: N
+  iconColor:
+    serializedVersion: 2
+    rgba: 4284716341
   essenceDescription: 

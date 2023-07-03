@@ -21,4 +21,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3f6b117e2be98fb44935008663180977, type: 2}
   preDescription: Essence of a paladin.
   symbol: P
+  iconColor:
+    serializedVersion: 2
+    rgba: 4290110714
   essenceDescription: 

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class BattleEnder : MonoBehaviour
 {
-    public RunData runData;
+    public SceneRelay sceneRelay;
     public void EndCombat()
     {
         //send the player back to the world map
@@ -15,7 +15,7 @@ public class BattleEnder : MonoBehaviour
     private IEnumerator WaitToEnd()
     {
         yield return new WaitForSeconds(2f);
-        if (runData.bossEncounter == true)
+        if (sceneRelay.bossEncounter == true)
         {
             //send the player to credits if they beat the boss
             System.IO.File.Delete(Application.persistentDataPath + "/runData.json");

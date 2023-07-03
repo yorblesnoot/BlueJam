@@ -8,6 +8,7 @@ public class Deck : SOWithGUID
     public List<CardPlus> deckContents;
     public string preDescription;
     public string symbol;
+    public Color32 iconColor;
     [HideInInspector]public string essenceDescription;
 
     public void Initialize()

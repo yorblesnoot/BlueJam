@@ -8,7 +8,7 @@ public class EffectPush : CardEffectPlus
 {
     public int pushDistance;
     [Range(.1f, .01f)] public float stepSize;
-    public override string GenerateDescription(IPlayerData player)
+    public override string GenerateDescription(IPlayerStats player)
     {
         return $"push target {pushDistance} cells";
     }

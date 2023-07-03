@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IPlayerData
+public interface IPlayerStats
 {
     public int damageScaling { get; set; }
     public int healScaling { get; set; }

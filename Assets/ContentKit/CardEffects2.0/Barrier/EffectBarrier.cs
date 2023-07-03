@@ -13,7 +13,7 @@ public class EffectBarrier : CardEffectPlus
         {BarrierType.SHIELD, "shield" }
     };
 
-    public override string GenerateDescription(IPlayerData player)
+    public override string GenerateDescription(IPlayerStats player)
     {
         return $"{barrierNames[barrierType]} for <color=#1ED5FA>{player.barrierScaling * scalingMultiplier}</color>";
     }

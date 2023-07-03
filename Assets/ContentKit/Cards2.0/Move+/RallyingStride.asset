@@ -10,19 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: Snipe
+  m_Name: RallyingStride
   m_EditorClassIdentifier: 
-  Id: d2bfd311-9729-49c6-a056-10b563fc8bfd
-  displayName: Snipe
-  cost: 5
-  description: 
+  Id: d752e259-a57f-4a36-8ae9-bb88878ae668
+  displayName: Rallying Stride
+  cost: 4
+  description: 'decrease strength by -2.
+
+    move to target.
+
+'
   keywords: 
   targetShape: 0
-  targetSize: 6
-  targetGap: 4
-  pathCheckForTargets: 0
-  cardClass: 00000000
+  targetSize: 2
+  targetGap: 1
+  pathCheckForTargets: 1
+  cardClass: 0000000001000000
   consumed: 0
-  animType: 0
+  animType: 2
   effects:
-  - {fileID: 11400000, guid: 189dc193e4c7ed34c81a8fda54fb40cb, type: 2}
+  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: 1b436ceeb25ba774a93a6d6d994b6de0, type: 2}

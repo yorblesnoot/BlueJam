@@ -7,7 +7,7 @@ public class EffectHeal : CardEffectPlus
 
     //GreenHeal, HealBurst
 
-    public override string GenerateDescription(IPlayerData player)
+    public override string GenerateDescription(IPlayerStats player)
     {
         return $"heal for <color=#1EFA61>{player.healScaling * scalingMultiplier}</color>";
     }

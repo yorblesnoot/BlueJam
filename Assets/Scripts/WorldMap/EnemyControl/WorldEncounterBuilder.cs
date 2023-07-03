@@ -5,34 +5,37 @@ using UnityEngine.SceneManagement;
 
 public class WorldEncounterBuilder
 {
-    public RunData runData;
-    public WorldEncounterBuilder(RunData run)
+    public RunData RunData;
+    public SceneRelay sceneRelay;
+    public WorldEncounterBuilder(SceneRelay relay, RunData data)
     {
-        runData = run;
+        sceneRelay = relay;
+        RunData = data;
     }
 
     public void ConsolidateSpawnPools(List<SpawnPool> pools)
     {
-        runData.spawnUnits = new();
-        runData.spawnWeights = new();
-        runData.staticSpawns = new();
+        sceneRelay.spawnUnits = new();
+        sceneRelay.spawnWeights = new();
+        sceneRelay.staticSpawns = new();
         foreach (SpawnPool pool in pools)
         {
-            runData.spawnUnits.AddRange(pool.spawnUnits);
-            runData.spawnWeights.AddRange(pool.spawnWeight);
-            runData.staticSpawns.AddRange(pool.staticSpawns);
+            sceneRelay.spawnUnits.AddRange(pool.spawnUnits);
+            sceneRelay.spawnWeights.AddRange(pool.spawnWeight);
+            sceneRelay.staticSpawns.AddRange(pool.staticSpawns);
         }
     }
 
     public void ModifyMapGeneration(BiomePool maps)
     {
-        runData.availableMaps = maps;
+        sceneRelay.availableMaps = maps;
     }
 
     public void LaunchEncounter()
     {
         //save the biome generation data to runData, then send us into the battlemap
-        runData.enemyBudget = runData.baseEnemies + runData.runDifficulty;
+        sceneRelay.enemyBudget = 4 + RunData.runDifficulty/2;
+        EventManager.prepareForBattle.Invoke();
         SceneManager.LoadScene(2);
     }
 }

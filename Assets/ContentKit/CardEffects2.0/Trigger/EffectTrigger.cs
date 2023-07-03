@@ -24,7 +24,7 @@ public class EffectTrigger : CardEffectPlus
     public int aoeSizeTrigger;
     public int aoeGapTrigger;
 
-    public override string GenerateDescription(IPlayerData player)
+    public override string GenerateDescription(IPlayerStats player)
     {
         string triggerName = triggeringEffect.GetType().Name;
         triggerName.Replace("Effect", "");

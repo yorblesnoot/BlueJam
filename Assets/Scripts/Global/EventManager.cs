@@ -5,7 +5,6 @@ public class TargetConfirmed : UnityEvent<BattleTileController> {}
 public class ToggleAOE : UnityEvent<CardPlus> { }
 public class CheckForTriggers : UnityEvent<CardEffectPlus, BattleUnit, BattleUnit> { }
 
-public class GetWorldDestination : UnityEvent<int, int> {}
 public class ClickedCard : UnityEvent<CardPlus, GameObject> { }
 
 public class RequestMapReferences : UnityEvent<MapLauncher> { }
@@ -23,11 +22,9 @@ public static class EventManager
     public static CheckForTriggers checkForTriggers = new();
 
     //worldmap events
-    public static UnityEvent worldMove = new();
 
     public static ClickedCard clickedCard = new();
 
-    public static GetWorldDestination getWorldDestination = new();
     public static UnityEvent clearWorldDestination = new();
 
     public static UnityEvent updateWorldCounters = new();
@@ -35,6 +32,7 @@ public static class EventManager
     public static UnityEvent updateItemUI = new();
     public static UnityEvent awardItem = new();
     public static UnityEvent updateWorldHealth = new();
+    public static UnityEvent prepareForBattle = new();
 
     //global events
 

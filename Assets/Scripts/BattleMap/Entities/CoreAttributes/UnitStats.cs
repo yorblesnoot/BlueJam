@@ -22,4 +22,5 @@ public class UnitStats : ScriptableObject
 
     public float turnSpeed;
 
+
 }

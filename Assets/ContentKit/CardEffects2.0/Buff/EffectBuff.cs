@@ -20,7 +20,7 @@ public class EffectBuff : CardEffectPlus
     [SerializeField] int aoeSizeRecurring;
     [SerializeField] int aoeGapRecurring;
 
-    public override string GenerateDescription(IPlayerData player)
+    public override string GenerateDescription(IPlayerStats player)
     {
         string description = "";
         string lapseDescription = turnLapseEffect.GenerateDescription(player);

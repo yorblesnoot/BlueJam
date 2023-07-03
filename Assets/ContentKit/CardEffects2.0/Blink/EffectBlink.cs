@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectBlink", menuName = "ScriptableObjects/CardEffects/Blink")]
 public class EffectBlink : CardEffectPlus
 {
-    public override string GenerateDescription(IPlayerData player)
+    public override string GenerateDescription(IPlayerStats player)
     {
         return $"blink to target";
     }

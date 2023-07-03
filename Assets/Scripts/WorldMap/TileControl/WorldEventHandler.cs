@@ -7,6 +7,7 @@ public class WorldEventHandler : MonoBehaviour
     public SpawnPool tileEnemyPreset;
     public BiomePool biomeMaps;
     public RunData runData;
+    public SceneRelay sceneRelay;
 
     [HideInInspector] public List<WorldEnemy> enemyEvents;
 
@@ -15,10 +16,11 @@ public class WorldEventHandler : MonoBehaviour
     [HideInInspector] public WorldEvent cellEvent;
 
     bool pickedItem = false;
+    public bool runningEvents = false;
 
     public IEnumerator TriggerWorldEvents()
     {
-        yield return new WaitForSeconds(.5f);
+        runningEvents = true;
         //give the player whatever items
         if(cellEvent != null)
         {
@@ -30,22 +32,22 @@ public class WorldEventHandler : MonoBehaviour
                 yield return new WaitUntil(() => pickedItem == true);
                 new SaveContainer(runData).SaveGame();
             }
-            yield return new WaitForSeconds(.5f);
+            yield return new WaitForSeconds(.3f);
             cellEvent = null;
         }
 
         if (enemyEvents.Count > 0)
         {
-            runData.bossEncounter = false;
-            WorldEncounterBuilder builder = new(runData);
+            sceneRelay.bossEncounter = false;
+            WorldEncounterBuilder builder = new(sceneRelay, runData);
             //consolidate enemy combats
             List<SpawnPool> pools = new();
             foreach (WorldEnemy enemy in enemyEvents)
             {
-                if(enemy.GetType() == typeof(WorldBoss)) runData.bossEncounter = true;
+                if(enemy.GetType() == typeof(WorldBoss)) sceneRelay.bossEncounter = true;
                 pools.Add(enemy.spawnPool);
                 //remove activated enemies from the enemy map in rundata
-                if(runData.worldEnemies != null) runData.worldEnemies.RemoveCoordinates(MapTools.VectorToMap(enemy.gameObject.transform.position));
+                runData.worldEnemies?.RemoveCoordinates(MapTools.VectorToMap(enemy.gameObject.transform.position));
             }
             builder.ConsolidateSpawnPools(pools);
 
@@ -55,11 +57,7 @@ public class WorldEventHandler : MonoBehaviour
             //start combat
             builder.LaunchEncounter();
         }
-        else
-        {
-            //if combat didnt happen, allow a new player movement
-            EventManager.getWorldDestination?.Invoke(runData.playerWorldX, runData.playerWorldY);
-        }
+        runningEvents = false;
     }
 
     public void ConfirmItemPicked()

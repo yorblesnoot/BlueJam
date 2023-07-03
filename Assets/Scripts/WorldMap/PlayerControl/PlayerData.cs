@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerData : MonoBehaviour, IPlayerData
+public class PlayerData : MonoBehaviour, IPlayerStats
 {
     public int damageScaling { get; set; }
     public int healScaling { get; set; }

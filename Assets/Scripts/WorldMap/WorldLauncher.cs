@@ -14,7 +14,7 @@ public class WorldLauncher : MapLauncher
 
     private void Start() 
     {
-        new SaveContainer(runData).SaveGame();
+        
         //set variables
         worldMap = runData.worldMap;
         if (worldMap == null)
@@ -29,6 +29,10 @@ public class WorldLauncher : MapLauncher
                 }
             }
         }
+        else
+        {
+            new SaveContainer(runData).SaveGame();
+        }
         mapRenderer.RenderWorld(worldMap);
         RequestMapReferences();
 
@@ -39,6 +43,5 @@ public class WorldLauncher : MapLauncher
         EventManager.updateWorldCounters.Invoke();
         EventManager.updateWorldHealth.Invoke();
 
-        EventManager.worldMove?.Invoke();
     }
 }

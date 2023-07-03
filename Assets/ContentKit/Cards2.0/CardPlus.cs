@@ -46,7 +46,6 @@ public class CardPlus : SOWithGUID
 
         List<bool[,]> selfs = new();
         List<bool[,]> points = new();
-        //combine aoe rules from effects~~~~~~~~~~~~~~
         foreach (var effect in effects)
         {
             if(effect.targetSelf == true) selfs.Add(effect.aoe);
@@ -78,16 +77,14 @@ public class CardPlus : SOWithGUID
         description = "";
         //for the purposes of generating a description, the owner should always be the player
         keywords = "";
-        IPlayerData stats = player.GetComponent<IPlayerData>();
-        int ownerDamage = stats.damageScaling;
-        int ownerHealing = stats.healScaling;
-        int ownerBarrier = stats.barrierScaling;
-
+        IPlayerStats stats = player.GetComponent<IPlayerStats>();
         for (int i = 0; i < effects.Count; i++)
         {
             description += $"{effects[i].GenerateDescription(stats)}.";
             description += Environment.NewLine;
         }
+        keywords += $"Range: {targetGap}-{targetSize} ";
+        keywords += $"AOE: {aoePoint.GetLength(0)-1} ";
         if (consumed == true)
         {
             keywords += "~Consumed~";
