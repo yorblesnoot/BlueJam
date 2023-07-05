@@ -17,9 +17,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 67b4c31eec0a415468d0ce598fefe66a, type: 2}
   - {fileID: 11400000, guid: b4b499345c1341d4a9f46bc6baab5e46, type: 2}
   - {fileID: 11400000, guid: ce153f21a765da24e811f88d0b55bd91, type: 2}
-  preDescription: 
-  symbol: 
+  preDescription: Essence of a totem.
+  symbol: t
   iconColor:
     serializedVersion: 2
-    rgba: 0
+    rgba: 4278286562
   essenceDescription: 

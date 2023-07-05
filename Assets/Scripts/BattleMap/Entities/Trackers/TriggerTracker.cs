@@ -33,6 +33,7 @@ public class TriggerTracker : MonoBehaviour
         activeTriggers.Add(new TrackedTrigger {trigger = incomingTrigger,
             remainingActivations = incomingTrigger.triggersRequiredForActivation,
             aoe = MapRulesGenerator.Convert(incomingTrigger.aoeShapeTrigger, incomingTrigger.aoeSizeTrigger, incomingTrigger.aoeGapTrigger)});
+        incomingTrigger.triggeredEffect.Initialize();
     }
     public void ExecutedEffect(CardEffectPlus effect, BattleUnit origin, BattleUnit target)
     {

@@ -11,9 +11,9 @@ public class PlayerTurnIndicator : MonoBehaviour
         transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
     }
 
-    public IEnumerator ShowTurn()
+    public IEnumerator ShowTurnExclamation()
     {
-        Debug.Log("turn shown");
+        if (TurnManager.turnTakers.Count == 0) yield break;
         turnIndicator.SetActive(true);
         animator.Play("ExclaWiggle");
         yield return new WaitForSeconds(.5f);

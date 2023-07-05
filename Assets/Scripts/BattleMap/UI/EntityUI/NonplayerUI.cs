@@ -7,6 +7,7 @@ public class NonplayerUI : EntityUI
 {
     public Slider sliderBeats;
     public Slider sliderGhostBeats;
+    [SerializeField] NPCHealthPips pips;
     private Vector3[] cardSlots;
 
     //contents of hand
@@ -21,10 +22,16 @@ public class NonplayerUI : EntityUI
     
     void LateUpdate()
     {
-        transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward ,Camera.main.transform.rotation * Vector3.up);
+        transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
     }
 
-    public virtual void UpdateBeats()
+    public override void InitializeHealth()
+    {
+        base.InitializeHealth();
+        pips.SetPips(unitActions.maxHealth);
+    }
+
+    public void UpdateBeats()
     {
         if (!unitActions.isDead)
         {

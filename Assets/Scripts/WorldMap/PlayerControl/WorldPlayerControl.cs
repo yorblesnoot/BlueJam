@@ -27,7 +27,7 @@ public class WorldPlayerControl : MonoBehaviour
             WorldMovementController tileController = tile.GetComponent<WorldMovementController>();
             if (tileController.eventHandler.enemyEvents.OfType<WorldBoss>().Any())
             {
-                if (runData.KeyStock <= 3)
+                if (runData.KeyStock < 3)
                 {
                     break;
                 }

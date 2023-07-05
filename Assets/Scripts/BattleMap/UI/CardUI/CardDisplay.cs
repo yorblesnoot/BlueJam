@@ -45,7 +45,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
         {
             targetPane.color = new Color32(144, 144, 144, 255);
             targetType.text = "Target Empty";
-            return;
         }
         else if(card.cardClass.Contains(CardClass.ATTACK))
         {
@@ -59,7 +58,6 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
             else targetType.text = "Target Ally";
             targetPane.color = new Color32(47, 231, 122, 255);
         }
-
         keywordPane.text = card.keywords;
         emphasize.PrepareForEmphasis();
     }

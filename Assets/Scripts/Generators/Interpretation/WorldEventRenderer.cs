@@ -11,6 +11,7 @@ public class WorldEventRenderer : MonoBehaviour
     [SerializeField] GameObject item;
     [SerializeField] GameObject heal;
 
+    readonly float eventHeight = .7f;
     public void RenderBoss(int x, int y)
     {
         if(x == 0)
@@ -46,7 +47,7 @@ public class WorldEventRenderer : MonoBehaviour
         {
             for(int y = 0;  y < eventMap.GetLength(1); y++)
             {
-                if (!string.IsNullOrEmpty(eventMap[x, y])) Instantiate((GameObject)eventTable[eventMap[x,y]], MapTools.MapToVector(x, y, .6f), Quaternion.identity);
+                if (!string.IsNullOrEmpty(eventMap[x, y])) Instantiate((GameObject)eventTable[eventMap[x,y]], MapTools.MapToVector(x, y, eventHeight), Quaternion.identity);
             }
         }
     }

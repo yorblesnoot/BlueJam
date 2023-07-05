@@ -117,7 +117,7 @@ public class TurnManager : MonoBehaviour
             //distribute beats to all units based on their individual speeds when the player acts
             for(int entry = 0; entry < turnTakers.Count; entry++)
             {
-                if (turnTakers[entry].gameObject.tag != "Player")
+                if (!turnTakers[entry].gameObject.CompareTag("Player"))
                 {
                     float beatChange = turnRatios[entry] * beats;
                     turnTakers[entry].currentBeats += beatChange;
@@ -167,7 +167,7 @@ public class TurnManager : MonoBehaviour
         }
         else
         {
-            playerUnit.StartCoroutine(playerUnit.turnIndicator.ShowTurn());
+            playerUnit.StartCoroutine(playerUnit.turnIndicator.ShowTurnExclamation());
             PlayerUnit.playerState = PlayerBattleState.IDLE;
             return playerUnit;
         }

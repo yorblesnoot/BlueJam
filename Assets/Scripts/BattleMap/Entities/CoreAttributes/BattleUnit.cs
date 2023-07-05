@@ -70,7 +70,7 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
 
 
         //update healthbar in UI
-        myUI.UpdateHealth();
+        
         unitAnimator.Animate(AnimType.DAMAGED);
     }
 
@@ -83,6 +83,7 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
     {
         currentHealth -= reduction;
         if (currentHealth > maxHealth) currentHealth = maxHealth;
+        myUI.UpdateHealth();
     }
 
     public void ReportCell()

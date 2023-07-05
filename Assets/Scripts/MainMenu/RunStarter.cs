@@ -39,10 +39,6 @@ public class RunStarter : MonoBehaviour
         runData.worldEnemies = eventPlacer.PlaceEnemies();
         runData.eventMap = eventPlacer.PlaceWorldEvents();
 
-
-        //set difficulty parameters; currently not really used lol ~~~~~~~~~~~~~~~~~~~~~~~
-        runData.baseEnemies = playerClass.baseEnemies;
-
         //initalize gameplay lists
         runData.itemPool.awardableItems = new();
         runData.itemPool.awardableItems.AddRange(runData.itemPool.awardableItemPool);

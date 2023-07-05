@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0ee5c551a020e0498bfb407790d89e4, type: 3}
   m_Name: HealWhenHit
   m_EditorClassIdentifier: 
-  targetSelf: 0
+  forceTargetSelf: 0
   effectClass: 2
-  vfxStyle: 0
-  vfxName: 
+  vfxStyleSelf: 0
+  vfxNameSelf: none
+  vfxStyleTarget: 0
+  vfxNameTarget: none
   scalingMultiplier: 0
-  description: 
+  aoeShape: 0
+  aoeSize: 0
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
   doneExecuting: 1
   blockTrigger: 0
@@ -28,3 +32,6 @@ MonoBehaviour:
   triggersRequiredForActivation: 1
   effectRecipient: 1
   triggeredEffect: {fileID: 11400000, guid: 802cbfb7f9ed4574e99583e15a0f5718, type: 2}
+  aoeShapeTrigger: 0
+  aoeSizeTrigger: 0
+  aoeGapTrigger: 0

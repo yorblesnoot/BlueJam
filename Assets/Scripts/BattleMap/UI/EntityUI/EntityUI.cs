@@ -35,7 +35,7 @@ public class EntityUI : MonoBehaviour
         StartCoroutine(UpdateBar(unitActions.shieldHealth, unitActions.maxHealth, sliderShield));
     }
 
-    public void InitializeHealth()
+    public virtual void InitializeHealth()
     {
         SetBar(unitActions.currentHealth, unitActions.maxHealth, sliderHealth);
         SetBar(unitActions.deflectHealth, unitActions.maxHealth, sliderDeflect);

@@ -13,15 +13,17 @@ MonoBehaviour:
   m_Name: RandomTotem
   m_EditorClassIdentifier: 
   Id: 8bf81ee3-31a6-456d-bb75-aede941d983e
-  displayName: Unocver Totem
+  displayName: Unearth Totem
   cost: 4
-  description: 
-  keywords: 
+  description: 'summon a Totem.
+
+'
+  keywords: hello
   targetShape: 0
   targetSize: 1
   targetGap: 0
   pathCheckForTargets: 0
-  cardClass: 
+  cardClass: 03000000
   consumed: 0
   animType: 0
   effects:

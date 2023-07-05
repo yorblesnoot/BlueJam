@@ -86,7 +86,7 @@ public class CardPlus : SOWithGUID
             description += Environment.NewLine;
         }
         keywords += $"Range: {targetGap}-{targetSize} ";
-        keywords += $"AOE: {aoePoint.GetLength(0)-1} ";
+        keywords += $"AOE: {aoePoint.GetLength(0)/2} ";
         if (consumed == true)
         {
             keywords += "~Consumed~";

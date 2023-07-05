@@ -22,7 +22,6 @@ public class BattleEnder : MonoBehaviour
         winSign.SetActive(true);
         foreach (var word in words)
         {
-            Debug.Log(word);
             word.color = new Color32(255, 255, 255, 0);
         }
         foreach (var word in words)

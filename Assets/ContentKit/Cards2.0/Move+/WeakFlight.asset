@@ -20,7 +20,7 @@ MonoBehaviour:
     move to target.
 
 '
-  keywords: 
+  keywords: 'Range: 1-2 AOE: 0 '
   targetShape: 0
   targetSize: 2
   targetGap: 1

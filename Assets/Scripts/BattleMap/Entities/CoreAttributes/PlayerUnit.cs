@@ -35,6 +35,7 @@ public class PlayerUnit : BattleUnit
     public IEnumerator ChainPath(List<GameObject> path)
     {
         playerState = PlayerBattleState.PERFORMING_ACTION;
+        VFXMachine.AttachTrail("MoveTrail", gameObject);
         MapTools.ReportPositionChange(this, path.Last().GetComponent<BattleTileController>());
         foreach (GameObject tile in path)
         {

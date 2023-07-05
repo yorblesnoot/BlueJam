@@ -28,7 +28,6 @@ public class RunData : ScriptableObject
     
     public int worldSteps;
     public int runDifficulty { get { return worldSteps / 5; } }
-    public int baseEnemies;
 
     public int currentHealth;
 }
