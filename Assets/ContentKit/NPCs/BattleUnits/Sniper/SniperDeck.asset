@@ -15,8 +15,8 @@ MonoBehaviour:
   Id: 0829eb51-4ad7-457f-b85f-7d77690329a0
   deckContents:
   - {fileID: 11400000, guid: e11006d9fd756d24ba08d1bc9086a503, type: 2}
-  - {fileID: 11400000, guid: 4e3636f5cfa02ca4d8de3fd5f8adc59f, type: 2}
-  - {fileID: 11400000, guid: 9855abf37d8b8ba4e8f80e8fb217bf2e, type: 2}
+  - {fileID: 11400000, guid: 8391db4e7b2f20442b834442e513a46b, type: 2}
+  - {fileID: 11400000, guid: e054587526b91e74895b9c8b752856fc, type: 2}
   - {fileID: 11400000, guid: 4e3636f5cfa02ca4d8de3fd5f8adc59f, type: 2}
   preDescription: Essence of a sniper.
   symbol: S

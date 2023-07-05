@@ -61,6 +61,7 @@ public class BarrierTracker : MonoBehaviour
                 incomingDamage = Mathf.Abs(deflectInstances[0]);
                 RemoveDeflectInstance(0);
             }
+            else return 0;
         }
         unitActions.deflectHealth = GetTotalDeflect();
         return incomingDamage;
@@ -73,8 +74,9 @@ public class BarrierTracker : MonoBehaviour
         {
             incomingDamage = Mathf.Abs(unitActions.shieldHealth);
             unitActions.shieldHealth = 0;
+            return incomingDamage;
         }
-        return incomingDamage;
+        else return 0;
     }
 
     public int GetTotalDeflect()

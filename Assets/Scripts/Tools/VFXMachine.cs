@@ -6,16 +6,17 @@ using static UnityEngine.UI.Image;
 
 public static class VFXMachine 
 {
+    static readonly float particleKillDelay = 4f;
     public static void PlayVFX(string vfxName, VFXStyle vfxStyle, BattleUnit actor, BattleTileController targetCell)
     {
-        Debug.Log(vfxName);
-        if (vfxName == "none") return;
+        if (vfxName == "none" || string.IsNullOrEmpty(vfxName)) return;
         switch (vfxStyle)
         {
             case (VFXStyle.UNIT): PlayAtLocation(vfxName, targetCell.unitPosition); break;
             case (VFXStyle.CELL): PlayAtLocation(vfxName, targetCell.unitPosition); break;
             case (VFXStyle.DIRECTION): PlayToLocation(vfxName, actor.gameObject.transform.position, targetCell.unitPosition); break;
             case (VFXStyle.TRAIL): AttachTrail(vfxName, actor.gameObject); break;
+            case (VFXStyle.DROP): PlayAboveLocation(vfxName, targetCell.unitPosition); break;
 
         }
     }
@@ -23,13 +24,19 @@ public static class VFXMachine
     {
         GameObject particle = GameObject.Instantiate(PrepareAsset(effect), origin, Quaternion.identity);
         particle.transform.LookAt(target);
-        GameObject.Destroy(particle, 2f);
+        GameObject.Destroy(particle, particleKillDelay);
     }
 
     public static void PlayAtLocation(string effect, Vector3 origin)
     {   
         GameObject particle = GameObject.Instantiate(PrepareAsset(effect), origin, Quaternion.identity);
-        GameObject.Destroy(particle, 2f);
+        GameObject.Destroy(particle, particleKillDelay);
+    }
+
+    public static void PlayAboveLocation(string effect, Vector3 origin)
+    {
+        Vector3 above = new(origin.x, origin.y + 1f, origin.z);
+        PlayAtLocation(effect, above);
     }
 
     public static void ShootToLocation()
@@ -40,7 +47,7 @@ public static class VFXMachine
     public static void AttachTrail(string effect, GameObject attached)
     {
         GameObject particle = GameObject.Instantiate(PrepareAsset(effect), attached.transform.position, Quaternion.identity , attached.transform);
-        GameObject.Destroy(particle, 2f);
+        GameObject.Destroy(particle, particleKillDelay);
     }
 
     static GameObject PrepareAsset(string effect)

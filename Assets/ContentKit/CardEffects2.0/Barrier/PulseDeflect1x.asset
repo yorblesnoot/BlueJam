@@ -17,7 +17,7 @@ MonoBehaviour:
   vfxStyleSelf: 0
   vfxNameSelf: PulseShield
   vfxStyleTarget: 0
-  vfxNameTarget: none
+  vfxNameTarget: PulseShield
   scalingMultiplier: 0.7
   aoeShape: 0
   aoeSize: 3

@@ -17,7 +17,7 @@ MonoBehaviour:
   vfxStyleSelf: 0
   vfxNameSelf: none
   vfxStyleTarget: 0
-  vfxNameTarget: none
+  vfxNameTarget: ImpactSmall
   scalingMultiplier: 2
   aoeShape: 0
   aoeSize: 0

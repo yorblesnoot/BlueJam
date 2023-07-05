@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd7d8637bc1cbd4cad686ac9fbf943d, type: 3}
   m_Name: DOTHeal.5x
   m_EditorClassIdentifier: 
-  delayAfter: 0.5
-  targetSelf: 0
+  forceTargetSelf: 0
   effectClass: 2
-  vfxStyle: 0
-  vfxName: GreenHeal
+  vfxStyleSelf: 0
+  vfxNameSelf: none
+  vfxStyleTarget: 0
+  vfxNameTarget: GreenHeal
   scalingMultiplier: 0.5
-  description: 
+  aoeShape: 0
+  aoeSize: 0
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
+  doneExecuting: 1
   blockTrigger: 1

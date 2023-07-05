@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: PulseHeal
   m_EditorClassIdentifier: 
-  Id: 2fc0a21d-3fd3-4015-92fd-44fabf6eb7d1
+  Id: 69cb4f28-3e87-40a6-8e1c-c29d8a07935b
   displayName: Mend Pulse
   cost: 5
   description: 
@@ -21,10 +21,7 @@ MonoBehaviour:
   targetSize: 0
   targetGap: 0
   pathCheckForTargets: 0
-  aoeShape: 0
-  aoeSize: 4
-  aoeGap: 0
-  cardClass: 02000000
+  cardClass: 
   consumed: 0
   animType: 0
   effects:

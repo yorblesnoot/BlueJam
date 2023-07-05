@@ -27,13 +27,14 @@ public class BuffTracker : MonoBehaviour
 
     public void RegisterBuff(BattleUnit ownerIn, EffectBuff buff, bool[,] aoeIn)
     {
-        myTile = MapTools.VectorToTile(gameObject.transform.position).GetComponent<BattleTileController>();
-        TrackedBuff incomingBuff = new TrackedBuff {
+        TrackedBuff incomingBuff = new() {
             lapseEffect = buff.turnLapseEffect,
             endEffect = buff.removalEffect,
             remainingDuration = buff.duration,
             owner = ownerIn,
             aoe = aoeIn};
+        incomingBuff.endEffect?.Initialize();
+        incomingBuff.lapseEffect?.Initialize();
         buffs.Add(incomingBuff);
         buffDisplay.DisplayBuff(buff);
     }
@@ -42,13 +43,11 @@ public class BuffTracker : MonoBehaviour
     {
         if (gameObject.GetComponent<BattleUnit>().myTurn)
         {
+            myTile = MapTools.VectorToTile(gameObject.transform.position).GetComponent<BattleTileController>();
             for (int i = 0; i < buffs.Count; i++)
             {
                 buffs[i].remainingDuration--;
-                if (buffs[i] != null)
-                {
-                    buffs[i].lapseEffect.Execute(buffs[i].owner, myTile);
-                }
+                buffs[i]?.lapseEffect.Execute(buffs[i].owner, myTile);
                 if (buffs[i].remainingDuration <= 0)
                 {
                     //remove the buff in question

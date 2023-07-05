@@ -39,8 +39,9 @@ public class BattleTileController : MonoBehaviour
 
     void OnMouseDown()
     {
-        if(loadedCard == null && myPath != null)
+        if(loadedCard == null && myPath != null && TurnManager.activeTurn == TurnManager.playerUnit)
         {
+            TurnManager.EndTurn();
             StartCoroutine(TurnManager.playerUnit.ChainPath(myPath));
         }
         else if (availableMove == true)
@@ -53,7 +54,7 @@ public class BattleTileController : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if(loadedCard == null && TurnManager.activeTurn == TurnManager.playerUnit)
+        if(PlayerUnit.playerState == PlayerBattleState.IDLE)
         {
             Pathfinder pather = new();
             myPath = pather.FindObjectPath(MapTools.playerLocation, MapTools.VectorToMap(unitPosition));
@@ -64,6 +65,7 @@ public class BattleTileController : MonoBehaviour
                 {
                     cell.GetComponent<BattleTileController>().HighlightCellAOE();
                 }
+                TurnManager.ShowPossibleTurnTakers(myPath.Count * PlayerUnit.costPerGenericMove);
             }
         }
         else if(availableMove == true)
@@ -79,7 +81,10 @@ public class BattleTileController : MonoBehaviour
             }
         }
     }
-    private void OnMouseExit() { EventManager.clearAOE?.Invoke(); }
+    private void OnMouseExit() { 
+        EventManager.clearAOE?.Invoke();
+        if(PlayerUnit.playerState == PlayerBattleState.IDLE) EventManager.hideTurnDisplay.Invoke();
+    }
 
     public void HighlightCell() 
     {

@@ -12,21 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: LightStrike
   m_EditorClassIdentifier: 
-  Id: e4b1b341-4924-4d60-852e-ca7745841319
+  Id: 6f0fb606-a7a2-46cf-b376-4cb70831e2d6
   displayName: Light Strike
   cost: 2
-  description: 'deal <color=#FF4E2B>20</color> damage.
-
-'
+  description: 
   keywords: 
   targetShape: 2
   targetSize: 1
   targetGap: 1
   pathCheckForTargets: 0
-  aoeShape: 0
-  aoeSize: 0
-  aoeGap: 0
-  cardClass: 00000000
+  cardClass: 
   consumed: 0
   animType: 0
   effects:

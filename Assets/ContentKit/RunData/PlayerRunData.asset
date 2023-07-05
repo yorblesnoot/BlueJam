@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
+  worldEnemies: []
   playerWorldX: 2
   playerWorldY: 1
   bossWorldX: 8
@@ -23,18 +24,12 @@ MonoBehaviour:
   essenceInventory:
   - {fileID: 11400000, guid: 6f2ca178234700047a90e7fbf967b698, type: 2}
   - {fileID: 11400000, guid: 6f2ca178234700047a90e7fbf967b698, type: 2}
+  - {fileID: 11400000, guid: eaeca6a9ebc64974d92fc3cfb6d838e4, type: 2}
+  - {fileID: 11400000, guid: eaeca6a9ebc64974d92fc3cfb6d838e4, type: 2}
+  - {fileID: 11400000, guid: ac8da426af411204f90b7cd3fd6a8528, type: 2}
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
-  keyStock: 0
-  removeStock: 0
+  KeyStock: 0
+  RemoveStock: 0
   worldSteps: 0
-  runDifficulty: 0
   baseEnemies: 7
-  currentHealth: 70
-  availableMaps: {fileID: 11400000, guid: ba858f3e3ccb08d41bc8c490657cdbbb, type: 2}
-  staticSpawns: []
-  spawnUnits:
-  - {fileID: 8660871373512753979, guid: 8a367e4fabeb017439ca523912929127, type: 3}
-  - {fileID: 5721908823824948755, guid: 63c92e51d7e2acf44b90088b5d314507, type: 3}
-  spawnWeights: 0300000001000000
-  enemyBudget: 7
-  bossEncounter: 1
+  currentHealth: 94

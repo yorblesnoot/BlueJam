@@ -20,6 +20,7 @@ public static class EventManager
     public static UnityEvent clearAOE = new();
     public static UnityEvent allowTriggers = new();
     public static CheckForTriggers checkForTriggers = new();
+    public static UnityEvent hideTurnDisplay = new();
 
     //worldmap events
 

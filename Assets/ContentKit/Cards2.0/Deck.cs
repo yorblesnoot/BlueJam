@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "Deck", menuName = "ScriptableObjects/UnitKit/UnitDeck")]
@@ -13,6 +14,7 @@ public class Deck : SOWithGUID
 
     public void Initialize()
     {
-        essenceDescription = $"{preDescription}.. Contains: *{string.Join(" *", deckContents)}";
+        List<string> cardNames = deckContents.Select(x=> x.displayName).ToList();
+        essenceDescription = $"{preDescription}.. Contains: *{string.Join(" *", cardNames)}";
     }
 }

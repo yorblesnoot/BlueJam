@@ -4,9 +4,12 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+public enum PlayerBattleState { IDLE, TARGETING_CARD, PERFORMING_ACTION, AWAITING_TURN }
 public class PlayerUnit : BattleUnit
 {
+    public static PlayerBattleState playerState = PlayerBattleState.IDLE;
     public PlayerTurnIndicator turnIndicator;
+    public static int costPerGenericMove = 2;
     public override void Initialize()
     {
         unitStats = runData.playerStats;
@@ -31,7 +34,7 @@ public class PlayerUnit : BattleUnit
 
     public IEnumerator ChainPath(List<GameObject> path)
     {
-        TurnManager.EndTurn();
+        playerState = PlayerBattleState.PERFORMING_ACTION;
         MapTools.ReportPositionChange(this, path.Last().GetComponent<BattleTileController>());
         foreach (GameObject tile in path)
         {
@@ -43,6 +46,6 @@ public class PlayerUnit : BattleUnit
                 yield return new WaitForSeconds(.01f);
             }
         }
-        TurnManager.SpendBeats(this, path.Count * 2);
+        TurnManager.SpendBeats(this, path.Count * costPerGenericMove);
     }
 }

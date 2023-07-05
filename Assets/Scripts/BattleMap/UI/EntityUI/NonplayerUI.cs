@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class NonplayerUI : EntityUI
 {
+    public Slider sliderBeats;
+    public Slider sliderGhostBeats;
     private Vector3[] cardSlots;
 
     //contents of hand
@@ -14,6 +16,7 @@ public class NonplayerUI : EntityUI
         cardSize = 1;
         unitActions = GetComponentInParent<BattleUnit>();
         TurnManager.updateBeatCounts.AddListener(UpdateBeats);
+        EventManager.hideTurnDisplay.AddListener(HideBeatGhost);
     } 
     
     void LateUpdate()
@@ -21,12 +24,30 @@ public class NonplayerUI : EntityUI
         transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward ,Camera.main.transform.rotation * Vector3.up);
     }
 
+    public virtual void UpdateBeats()
+    {
+        if (!unitActions.isDead)
+        {
+            SetBar(unitActions.currentBeats, TurnManager.beatThreshold + 2, sliderGhostBeats, false);
+            StartCoroutine(UpdateBar(unitActions.currentBeats, TurnManager.beatThreshold + 2, sliderBeats, false));
+        }
+        else TurnManager.updateBeatCounts.RemoveListener(UpdateBeats);
+    }
+
+    public void ShowBeatGhost(int beats)
+    {
+        float beatIn = unitActions.turnSpeed * beats;
+        SetBar(unitActions.currentBeats + beatIn, TurnManager.beatThreshold + 2, sliderGhostBeats, false);
+    }
+    public void HideBeatGhost()
+    {
+        SetBar(unitActions.currentBeats, TurnManager.beatThreshold + 2, sliderGhostBeats, false);
+    }
+
     public override void PositionCards()
     {
         //find the length and width of the camera to render cards at a set interval
-        Camera cam = Camera.main;
         RectTransform canvasRect = GetComponent<RectTransform>();
-        float height = canvasRect.rect.height;
         float width = canvasRect.rect.width;
 
         //distance and height at which to render cards

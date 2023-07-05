@@ -57,6 +57,7 @@ public class WorldEventHandler : MonoBehaviour
             //start combat
             builder.LaunchEncounter();
         }
+        EventManager.updateWorldCounters.Invoke();
         runningEvents = false;
     }
 

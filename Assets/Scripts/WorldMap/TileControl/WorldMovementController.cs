@@ -18,10 +18,11 @@ public class WorldMovementController : MonoBehaviour
 
     List<GameObject> myPath;
 
+    public static readonly float heightAdjust = .5f;
+
     void Awake()
     {
         player = GameObject.FindWithTag("Player").GetComponent<WorldPlayerControl>();
-        float heightAdjust = .7f;
         Vector3 myPosition = gameObject.transform.position;
         unitPosition = new Vector3(myPosition.x, myPosition.y + heightAdjust, myPosition.z);
         EventManager.clearWorldDestination.AddListener(ClearHighlight);
@@ -31,8 +32,9 @@ public class WorldMovementController : MonoBehaviour
 
     public void OnMouseDown()
     {
-        if (!player.pathing && myPath != null && !EventSystem.current.IsPointerOverGameObject())
+        if (WorldPlayerControl.playerState == WorldPlayerState.IDLE && myPath != null && !EventSystem.current.IsPointerOverGameObject())
         {
+            WorldPlayerControl.playerState = WorldPlayerState.PATHING;
             //move the player to the cell
             StartCoroutine(player.ChainPath(myPath));
 
@@ -43,7 +45,7 @@ public class WorldMovementController : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (player.pathing) return;
+        if (WorldPlayerControl.playerState != WorldPlayerState.IDLE) return;
         Pathfinder pather = new();
         myPath = pather.FindObjectPath(MapTools.playerLocation, MapTools.VectorToMap(unitPosition));
         if (myPath != null)

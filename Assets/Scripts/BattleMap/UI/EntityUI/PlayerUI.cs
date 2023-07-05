@@ -65,7 +65,5 @@ public class PlayerUI : EntityUI
         }
     }
 
-    public override void UpdateBeats() { }
-
 
 }

@@ -8,7 +8,6 @@ using static UnityEngine.Rendering.DebugUI;
 public class EntityUI : MonoBehaviour
 {
     public Slider sliderHealth;
-    public Slider sliderBeats;
     public Slider sliderDeflect;
     public Slider sliderShield;
 
@@ -43,14 +42,7 @@ public class EntityUI : MonoBehaviour
         SetBar(unitActions.shieldHealth, unitActions.maxHealth, sliderShield);
     }
 
-    public virtual void UpdateBeats()
-    {
-        if (!unitActions.isDead)
-            StartCoroutine(UpdateBar(unitActions.currentBeats, TurnManager.beatThreshold + 2, sliderBeats));
-        else TurnManager.updateBeatCounts.RemoveListener(UpdateBeats);
-    }
-
-    public IEnumerator UpdateBar(float current, float max, Slider slider)
+    public IEnumerator UpdateBar(float current, float max, Slider slider, bool vanish = true)
     {
         int changeInterval = 10;
 
@@ -63,16 +55,16 @@ public class EntityUI : MonoBehaviour
             slider.value -= mod;
             yield return new WaitForSeconds(.01f);
         }
-        if (slider.value == 0 && slider != sliderBeats)
+        if (slider.value == 0 && vanish == true)
         {
             slider.gameObject.SetActive(false);
         }
     }
 
-    public void SetBar(float current, float max, Slider slider)
+    public void SetBar(float current, float max, Slider slider, bool vanish = true)
     {
         slider.value = current / max;
-        if (slider.value == 0 && slider != sliderBeats)
+        if (slider.value == 0 && vanish == true)
         {
             slider.gameObject.SetActive(false);
         }

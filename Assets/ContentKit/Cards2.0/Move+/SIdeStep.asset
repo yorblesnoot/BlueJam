@@ -10,25 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: SIdeStep
+  m_Name: SideStep
   m_EditorClassIdentifier: 
-  Id: 87717cd3-c060-4af8-ab93-079b3973f167
+  Id: 83b0be0c-6c15-4ca9-b357-30c0d307ce18
   displayName: Sidestep
   cost: 1
-  description: 'Walk to the target cell.
-
-    Deflect for <color=#1ED5FA>15</color>.
-
-'
+  description: 
   keywords: 
   targetShape: 1
   targetSize: 1
   targetGap: 1
   pathCheckForTargets: 0
-  aoeShape: 0
-  aoeSize: 0
-  aoeGap: 0
-  cardClass: 01000000
+  cardClass: 
   consumed: 0
   animType: 2
   effects:

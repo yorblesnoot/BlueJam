@@ -8,7 +8,7 @@ public class WorldLauncher : MapLauncher
     // Start is called before the first frame update
     [SerializeField] RunData runData;
     [SerializeField] WorldMapRenderer mapRenderer;
-    [SerializeField] EventRenderer eventRenderer;
+    [SerializeField] WorldEventRenderer eventRenderer;
 
     public int amountOfWorldEnemies;
 

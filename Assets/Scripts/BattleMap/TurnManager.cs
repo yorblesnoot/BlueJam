@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
+using UnityEngine.Playables;
 
 [System.Serializable]
 public class TurnChange : UnityEvent<GameObject> {}
@@ -80,7 +81,7 @@ public class TurnManager : MonoBehaviour
         int enemyCount = 0;
         foreach(BattleUnit turnTaker in turnTakers)
         {
-            if (turnTaker.gameObject.tag == "Enemy")
+            if (turnTaker.gameObject.CompareTag("Enemy"))
             {
                 enemyCount++;
             }
@@ -99,16 +100,19 @@ public class TurnManager : MonoBehaviour
     {
         foreach(NonplayerUnit turnTaker in turnTakers.OfType<NonplayerUnit>())
         {
-            if (turnTaker.currentBeats + beatCost * turnTaker.turnSpeed >= beatThreshold)
+            if (turnTaker.currentBeats + (beatCost * turnTaker.turnSpeed) >= beatThreshold)
             {
                 turnTaker.ShowTurnPossibility();
             }
+            NonplayerUI npUI = (NonplayerUI)turnTaker.myUI;
+            npUI.ShowBeatGhost(beatCost);
         }
     }
 
     public static void SpendBeats(BattleUnit owner, int beats)
     {
-        if(owner.gameObject.tag == "Player")
+        PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
+        if (owner.gameObject.CompareTag("Player"))
         {
             //distribute beats to all units based on their individual speeds when the player acts
             for(int entry = 0; entry < turnTakers.Count; entry++)
@@ -136,7 +140,7 @@ public class TurnManager : MonoBehaviour
 
     private static IEnumerator WaitForTurn()
     {
-        int turnDelay = 1;
+        float turnDelay = .5f;
         yield return new WaitForSeconds(turnDelay);
         AssignTurn();
     }
@@ -147,7 +151,7 @@ public class TurnManager : MonoBehaviour
         activeTurn.myTurn = true;
         drawThenBuffPhase?.Invoke();
         deathPhase?.Invoke();
-        if (activeTurn.gameObject == null) AssignTurn();
+        if (!activeTurn.gameObject.activeSelf) AssignTurn();
         else turnChange?.Invoke(activeTurn.gameObject);
     }
     
@@ -164,6 +168,7 @@ public class TurnManager : MonoBehaviour
         else
         {
             playerUnit.StartCoroutine(playerUnit.turnIndicator.ShowTurn());
+            PlayerUnit.playerState = PlayerBattleState.IDLE;
             return playerUnit;
         }
     }

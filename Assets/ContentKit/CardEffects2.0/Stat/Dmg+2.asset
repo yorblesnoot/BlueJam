@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd8a4e2b936a4b343b05d5accc717910, type: 3}
   m_Name: Dmg+2
   m_EditorClassIdentifier: 
-  targetSelf: 0
+  forceTargetSelf: 0
   effectClass: 2
-  vfxStyle: 0
-  vfxName: BuffCharge
+  vfxStyleSelf: 0
+  vfxNameSelf: none
+  vfxStyleTarget: 0
+  vfxNameTarget: BuffCharge
   scalingMultiplier: 2
   aoeShape: 0
   aoeSize: 0

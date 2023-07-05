@@ -13,6 +13,7 @@ public class NonplayerUnit : BattleUnit
 
         currentHealth = maxHealth;
         myUI.InitializeHealth();
+        EventManager.hideTurnDisplay.AddListener(HideTurnPossibility);
         EventManager.clearActivation.AddListener(HideTurnPossibility);
     }
     public void ScaleDifficulty(int scaleFactor)

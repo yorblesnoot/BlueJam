@@ -12,10 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcd7d8637bc1cbd4cad686ac9fbf943d, type: 3}
   m_Name: PulseHeal.5x
   m_EditorClassIdentifier: 
-  targetSelf: 0
+  forceTargetSelf: 0
   effectClass: 2
-  vfxStyle: 0
-  vfxName: PulseHeal
+  vfxStyleSelf: 0
+  vfxNameSelf: none
+  vfxStyleTarget: 0
+  vfxNameTarget: PulseHeal
   scalingMultiplier: 0.5
   aoeShape: 0
   aoeSize: 3

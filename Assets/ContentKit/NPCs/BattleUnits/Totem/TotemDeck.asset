@@ -12,14 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
   m_Name: TotemDeck
   m_EditorClassIdentifier: 
-  Id: 61ad7428-661e-4541-9e8c-20340e051dee
+  Id: 1bdfac97-e211-45be-ac15-681009a836f1
   deckContents:
+  - {fileID: 11400000, guid: 67b4c31eec0a415468d0ce598fefe66a, type: 2}
   - {fileID: 11400000, guid: b4b499345c1341d4a9f46bc6baab5e46, type: 2}
-  - {fileID: 11400000, guid: 890c923cd4216cd4fab1ee0362e9ffc6, type: 2}
-  - {fileID: 11400000, guid: d72c37adbe3e4ac4f8ce1b7e185eb120, type: 2}
-  preDescription: Essence of a totem.
-  symbol: t
+  - {fileID: 11400000, guid: ce153f21a765da24e811f88d0b55bd91, type: 2}
+  preDescription: 
+  symbol: 
   iconColor:
     serializedVersion: 2
-    rgba: 4279462061
+    rgba: 0
   essenceDescription: 

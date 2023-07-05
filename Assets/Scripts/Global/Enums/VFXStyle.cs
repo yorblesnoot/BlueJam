@@ -4,5 +4,6 @@ public enum VFXStyle
     CELL,
     DIRECTION,
     TRAIL,
-    AURA
+    AURA,
+    DROP
 }

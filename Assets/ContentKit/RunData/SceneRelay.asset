@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   availableMaps: {fileID: 11400000, guid: ba858f3e3ccb08d41bc8c490657cdbbb, type: 2}
   staticSpawns: []
-  spawnUnits: []
-  spawnWeights: 
-  enemyBudget: 0
+  spawnUnits:
+  - {fileID: 7566552127858462820, guid: 6a8ba7e5c56784d46beed0129c7aa960, type: 3}
+  - {fileID: 1248187907569993784, guid: 8e33d67d04e8ea543803e55066e7f41a, type: 3}
+  spawnWeights: 0200000001000000
+  enemyBudget: 6
   bossEncounter: 0
   cameraPosition: {x: 0, y: 0, z: 0}

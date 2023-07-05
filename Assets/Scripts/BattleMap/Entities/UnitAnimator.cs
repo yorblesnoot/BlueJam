@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum AnimType { CAST, DAMAGED, WALK, JUMP, DIE }
+public enum AnimType { CAST, DAMAGED, WALK, JUMP, DIE, CHEER }
 public class UnitAnimator : MonoBehaviour
 {
     Animator animator;
@@ -18,7 +18,8 @@ public class UnitAnimator : MonoBehaviour
         { AnimType.DAMAGED, "TakeDamage_BlendTree"},
         { AnimType.WALK, "Crawl_BlendTree"},
         { AnimType.JUMP, "Jump_BlendTree"},
-        { AnimType.DIE, "Death"}
+        { AnimType.DIE, "Death"},
+        { AnimType.CHEER, "Cheer" }
     };
     public void Animate(AnimType anim)
     {

@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba3d1643db261cb4d945ce4b8bd7c06f, type: 3}
   m_Name: StandardWalk
   m_EditorClassIdentifier: 
-  targetSelf: 0
+  forceTargetSelf: 0
   effectClass: 1
-  vfxStyle: 0
-  vfxName: 
+  vfxStyleSelf: 0
+  vfxNameSelf: none
+  vfxStyleTarget: 3
+  vfxNameTarget: MoveTrail
   scalingMultiplier: 0
-  description: Walk to the target cell
+  aoeShape: 0
+  aoeSize: 0
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
   doneExecuting: 1
   blockTrigger: 0

@@ -12,20 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: RallyingStride
   m_EditorClassIdentifier: 
-  Id: d752e259-a57f-4a36-8ae9-bb88878ae668
+  Id: 0cb195e1-a675-4e2a-9284-772455f10c52
   displayName: Rallying Stride
   cost: 4
-  description: 'decrease strength by -2.
-
-    move to target.
-
-'
+  description: 
   keywords: 
   targetShape: 0
   targetSize: 2
   targetGap: 1
   pathCheckForTargets: 1
-  cardClass: 0000000001000000
+  cardClass: 
   consumed: 0
   animType: 2
   effects:

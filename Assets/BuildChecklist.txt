@@ -1,0 +1,1 @@
+1. load items/cards/decks into load library

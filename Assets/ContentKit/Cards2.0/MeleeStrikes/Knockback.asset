@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: Knockback
   m_EditorClassIdentifier: 
-  Id: 2178fcff-1198-42f3-b839-fbeb7a4a0d73
+  Id: a89cef1e-bfc4-40d7-a4d9-6d7ea07eeb9e
   displayName: Dislodge
   cost: 3
   description: 
@@ -21,10 +21,7 @@ MonoBehaviour:
   targetSize: 1
   targetGap: 1
   pathCheckForTargets: 0
-  aoeShape: 0
-  aoeSize: 0
-  aoeGap: 0
-  cardClass: 00000000
+  cardClass: 
   consumed: 0
   animType: 0
   effects:

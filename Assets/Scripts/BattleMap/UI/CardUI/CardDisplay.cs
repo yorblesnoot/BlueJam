@@ -81,10 +81,11 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
 
     public void ActivateCard()
     {
-        if(owner.GetComponent<BattleUnit>().myTurn == true && activated == false)
+        if(owner.myTurn == true && activated == false)
         {
             //tell every active card to become inactive
             EventManager.clearActivation?.Invoke();
+            PlayerUnit.playerState = PlayerBattleState.TARGETING_CARD;
             //find list of legal cell targets
             List<GameObject> legalCells = CellTargeting.ConvertMapRuleToTiles(thisCard.targetRules, owner.transform.position);
 
@@ -112,18 +113,17 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
         EventManager.showAOE.Invoke(null);
         EventManager.clearAOE?.Invoke();
         EventManager.targetConfirmed.RemoveListener(ProxyPlayCard);
+        if (PlayerUnit.playerState == PlayerBattleState.TARGETING_CARD) PlayerUnit.playerState = PlayerBattleState.IDLE;
     }
 
     public void ProxyPlayCard(BattleTileController tile)
     {
-        if(activated == true)
+        if (activated == true && CellTargeting.ValidPlay(tile, owner.tag, thisCard))
         {
-            if (CellTargeting.ValidPlay(tile, owner.tag, thisCard))
-            {
-                EventManager.clearActivation?.Invoke();
-                StartCoroutine(thisCard.PlaySequence(owner, tile));
-                owner.GetComponent<Hand>().Discard(gameObject, true);
-            }
+            PlayerUnit.playerState = PlayerBattleState.PERFORMING_ACTION;
+            EventManager.clearActivation?.Invoke();
+            StartCoroutine(thisCard.PlaySequence(owner, tile));
+            owner.GetComponent<Hand>().Discard(gameObject, true);
         }
         EventManager.clearActivation?.Invoke();
     }

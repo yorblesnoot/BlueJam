@@ -16,7 +16,7 @@ MonoBehaviour:
   thumbnail: {fileID: 21300000, guid: 798a0192e5e2a1c45a1f6786703af909, type: 3}
   thumbnailColor:
     serializedVersion: 2
-    rgba: 4278721613
+    rgba: 4278790779
   effects:
   - {fileID: 11400000, guid: 81ffcad782729fb44a50da1f43dbf3b9, type: 2}
   description: Gain damage every time you summon an ally.

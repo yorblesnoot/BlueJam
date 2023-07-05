@@ -31,6 +31,7 @@ public class WorldMenuControl : MonoBehaviour
     }
     public void ToggleWindow(GameObject window, bool value)
     {
+        if (WorldPlayerControl.playerState != WorldPlayerState.IDLE && WorldPlayerControl.playerState != WorldPlayerState.MENUS) return;
         lastOpened = window;
         window.SetActive(value);
         cameraController.enabled = !value;
@@ -40,6 +41,9 @@ public class WorldMenuControl : MonoBehaviour
         openDeck.gameObject.SetActive(!value);
 
         close.gameObject.SetActive(value);
+
+        if (value == true) WorldPlayerControl.playerState = WorldPlayerState.MENUS;
+        else WorldPlayerControl.playerState = WorldPlayerState.IDLE;
     }
 
 }

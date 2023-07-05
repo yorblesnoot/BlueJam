@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   effectClass: 2
-  vfxStyle: 0
-  vfxName: SpinRiseBlue
+  vfxStyleSelf: 0
+  vfxNameSelf: none
+  vfxStyleTarget: 0
+  vfxNameTarget: SpinRiseBlue
   scalingMultiplier: 1
   aoeShape: 0
   aoeSize: 0

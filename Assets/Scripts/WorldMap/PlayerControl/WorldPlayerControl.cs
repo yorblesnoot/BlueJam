@@ -4,25 +4,24 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
+public enum WorldPlayerState { IDLE, PATHING, MENUS}
 
 public class WorldPlayerControl : MonoBehaviour
 {
     public RunData runData;
-    public float heightAdjust;
 
-    public bool pathing = false;
+    public static WorldPlayerState playerState;
 
     void Awake()
     {
-        heightAdjust = 1f;
-        Vector3 myPosition = MapTools.MapToVector(runData.playerWorldX, runData.playerWorldY, heightAdjust);
+        playerState = WorldPlayerState.IDLE;
+        Vector3 myPosition = MapTools.MapToVector(runData.playerWorldX, runData.playerWorldY, WorldMovementController.heightAdjust);
         gameObject.transform.position = myPosition;
         MapTools.playerLocation = MapTools.VectorToMap(myPosition);
     }
 
     public IEnumerator ChainPath(List<GameObject> path)
     {
-        pathing = true;
         foreach (GameObject tile in path)
         {
             WorldMovementController tileController = tile.GetComponent<WorldMovementController>();
@@ -45,10 +44,9 @@ public class WorldPlayerControl : MonoBehaviour
             runData.playerWorldY = newCoords[1];
             MapTools.playerLocation = newCoords;
             runData.worldSteps++;
-            EventManager.updateWorldCounters.Invoke();
             StartCoroutine(tileController.eventHandler.TriggerWorldEvents());
             yield return new WaitUntil(() => tileController.eventHandler.runningEvents == false);
         }
-        pathing = false;
+       playerState = WorldPlayerState.IDLE;
     }
 }

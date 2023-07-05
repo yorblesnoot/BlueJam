@@ -30,6 +30,7 @@ public class DeckViewerUI : MonoBehaviour
         if(removal.isOn && runData.playerDeck.deckContents.Count > 5 && runData.RemoveStock > 0)
         {
             runData.RemoveStock--;
+            EventManager.updateWorldCounters?.Invoke();
             runData.playerDeck.deckContents.Remove(card);
             cardObject.SetActive(false);
         }

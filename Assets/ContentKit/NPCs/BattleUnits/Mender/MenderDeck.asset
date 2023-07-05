@@ -16,7 +16,7 @@ MonoBehaviour:
   deckContents:
   - {fileID: 11400000, guid: 88535221f70034846b63e0356b93f064, type: 2}
   - {fileID: 11400000, guid: 2ffa4b0a193fb714b9480b5caad9122c, type: 2}
-  - {fileID: 11400000, guid: de8d20e9ca97cf148bd88b18d259311c, type: 2}
+  - {fileID: 11400000, guid: 270cfc519866ae54db20b2dd4b9c53fe, type: 2}
   preDescription: Essence of a mender.
   symbol: M
   iconColor:

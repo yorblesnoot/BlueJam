@@ -16,8 +16,8 @@ MonoBehaviour:
   effectClass: 0
   vfxStyleSelf: 0
   vfxNameSelf: none
-  vfxStyleTarget: 0
-  vfxNameTarget: none
+  vfxStyleTarget: 5
+  vfxNameTarget: GreenDropSplat
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0

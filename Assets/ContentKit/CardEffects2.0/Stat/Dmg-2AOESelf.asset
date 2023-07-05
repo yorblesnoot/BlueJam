@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   effectClass: 0
-  vfxStyle: 0
-  vfxName: none
+  vfxStyleSelf: 0
+  vfxNameSelf: none
+  vfxStyleTarget: 0
+  vfxNameTarget: none
   scalingMultiplier: -2
   aoeShape: 2
   aoeSize: 1

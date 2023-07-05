@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
   m_Name: RandomTotem
   m_EditorClassIdentifier: 
-  Id: b76610f9-50c8-414f-a591-cc20adcfeef8
-  displayName: Uncover Totem
+  Id: 8bf81ee3-31a6-456d-bb75-aede941d983e
+  displayName: Unocver Totem
   cost: 4
   description: 
   keywords: 
@@ -21,10 +21,7 @@ MonoBehaviour:
   targetSize: 1
   targetGap: 0
   pathCheckForTargets: 0
-  aoeShape: 0
-  aoeSize: 4
-  aoeGap: 0
-  cardClass: 03000000
+  cardClass: 
   consumed: 0
   animType: 0
   effects:
