@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using System.Data;
 
-public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
+public class CardDisplay : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler, ICardDisplay
 {
-    public TMP_Text nameText;
-    public List<GameObject> costPips;
-    public Image cardArt;
-    public Image targetPane;
-    public TMP_Text targetType;
-    public TMP_Text effectText;
-    public TMP_Text keywordPane;
+    [SerializeField] TMP_Text nameText;
+    [SerializeField] List<GameObject> costPips;
+    [SerializeField] Image cardArt;
+    [SerializeField] Image targetPane;
+    [SerializeField] TMP_Text targetType;
+    [SerializeField] TMP_Text effectText;
+    [SerializeField] TMP_Text keywordPane;
 
     public BattleUnit owner { get; set; }
     public CardPlus thisCard { get; set; }
@@ -36,6 +36,7 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
     {
         thisCard = card;
         nameText.text = card.displayName;
+        foreach(GameObject pip in costPips) pip.SetActive(false);
         for(int pips = 0; pips < card.cost; pips++)
         {
             costPips[pips].SetActive(true);
@@ -124,5 +125,21 @@ public class CardDisplay : MonoBehaviour, IPointerClickHandler, ICardDisplay
             owner.GetComponent<Hand>().Discard(gameObject, true);
         }
         EventManager.clearActivation?.Invoke();
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if(PlayerUnit.playerState == PlayerBattleState.IDLE)
+        {
+            TurnManager.ShowPossibleTurnTakers(thisCard.cost);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (PlayerUnit.playerState == PlayerBattleState.IDLE)
+        {
+            EventManager.hideTurnDisplay?.Invoke();
+        }
     }
 }

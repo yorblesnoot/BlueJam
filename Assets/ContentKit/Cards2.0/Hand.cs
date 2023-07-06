@@ -73,7 +73,7 @@ public class Hand : MonoBehaviour
     public void Discard(GameObject toDiscard, bool played)
     {
         //send the card to the shadow realm, then destroy it later
-        toDiscard.transform.position = new Vector3(-100,-100,-100);
+        toDiscard.transform.position = new Vector3(-1000,-1000,-1000);
         Destroy(toDiscard, 5f);
         int discardIndex = handObjects.IndexOf(toDiscard);
         

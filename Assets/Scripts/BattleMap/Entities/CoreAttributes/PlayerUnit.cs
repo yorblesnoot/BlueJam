@@ -10,6 +10,7 @@ public class PlayerUnit : BattleUnit
     public static PlayerBattleState playerState = PlayerBattleState.IDLE;
     public PlayerTurnIndicator turnIndicator;
     public static int costPerGenericMove = 2;
+    [SerializeField] BattleEnder ender;
     public override void Initialize()
     {
         unitStats = runData.playerStats;
@@ -28,8 +29,9 @@ public class PlayerUnit : BattleUnit
     public override void Die()
     {
         //gameover
-        System.IO.File.Delete(Application.persistentDataPath + "/runData.json");
-        SceneManager.LoadScene(0);
+        isDead = true;
+        TurnManager.deathPhase.RemoveListener(CheckForDeath);
+        StartCoroutine(ender.DefeatSequence());
     }
 
     public IEnumerator ChainPath(List<GameObject> path)

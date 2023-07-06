@@ -8,7 +8,6 @@ public class NonplayerUnit : BattleUnit
     public override void Initialize()
     {
         base.Initialize();
-        //correct difficulty scaling source~~~~~~~~~~~~~~~~
         ScaleDifficulty(runData.runDifficulty);
 
         currentHealth = maxHealth;

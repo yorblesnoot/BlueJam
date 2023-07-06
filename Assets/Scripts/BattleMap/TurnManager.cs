@@ -92,7 +92,7 @@ public class TurnManager : MonoBehaviour
         {
             EndTurn();
             BattleEnder battleEnder = GameObject.FindGameObjectWithTag("GameController").GetComponent<BattleEnder>();
-            battleEnder.EndCombat();
+            battleEnder.StartCoroutine(battleEnder.VictorySequence());
         }
     }
 
@@ -151,6 +151,7 @@ public class TurnManager : MonoBehaviour
         activeTurn.myTurn = true;
         drawThenBuffPhase?.Invoke();
         deathPhase?.Invoke();
+        if (playerUnit.isDead) return;
         if (!activeTurn.gameObject.activeSelf) AssignTurn();
         else turnChange?.Invoke(activeTurn.gameObject);
     }

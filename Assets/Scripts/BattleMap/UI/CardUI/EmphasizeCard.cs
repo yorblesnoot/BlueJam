@@ -37,9 +37,13 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void PrepareForEmphasis()
     {
-        readyEmphasis = true;
-        originalPosition = transform.localPosition;
-        originalScale = transform.localScale;
+        if (!readyEmphasis)
+        {
+            readyEmphasis = true;
+            originalPosition = transform.localPosition;
+            originalScale = transform.localScale;
+        }
+        
     }
     public void OnPointerEnter(PointerEventData data)
     {
