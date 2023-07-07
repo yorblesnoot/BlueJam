@@ -11,38 +11,43 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public Image image;
     public TMP_Text mySymbol;
     [HideInInspector]public EssenceCrafting essenceCrafting;
-    [HideInInspector]public TMP_Text description;
 
     [HideInInspector] public Deck essence;
     [HideInInspector] public Canvas mainCanvas;
-    
+
+    [SerializeField] InventorySlot originalSlot;
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        essence.Initialize();
-        description.text = essence.essenceDescription;
+        if(essenceCrafting.essenceSlotContents == null)
+        {
+            essence.Initialize();
+            essenceCrafting.ShowEssenceDisplay(essence);
+        }
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
         image.raycastTarget = false;
-        if (essenceCrafting.craftingSlots.Contains(this))
+        if (essenceCrafting.craftingSlotContents.Contains(this))
         {
-            essenceCrafting.craftingSlots.Remove(this);
+            essenceCrafting.ModifyCraftingSlotContents(this, false);
         }
-        if (essenceCrafting.essenceSlot == this)
+        if (essenceCrafting.essenceSlotContents == this)
         {
-            essenceCrafting.essenceSlot = null;
+            essenceCrafting.EssenceSlotFilled();
         }
+        essenceCrafting.ShowEssenceDisplay(essence);
     }
 
     public void OnDrag(PointerEventData eventData)
     {
         var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit Hit;
-        Physics.Raycast(ray, out Hit);
+        Physics.Raycast(ray, out RaycastHit Hit);
         Vector3 screenPoint = Hit.point;
         screenPoint = mainCanvas.transform.InverseTransformPoint(screenPoint);
         screenPoint = new Vector3(screenPoint.x, screenPoint.y, 0);
@@ -51,6 +56,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if (essenceCrafting.essenceSlotContents != null) essenceCrafting.ShowEssenceDisplay(essenceCrafting.essenceSlotContents.essence);
         transform.SetParent(parentAfterDrag);
         image.raycastTarget = true;
     }

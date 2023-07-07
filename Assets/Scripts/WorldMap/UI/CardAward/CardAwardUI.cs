@@ -7,12 +7,17 @@ using System;
 
 public class CardAwardUI : MonoBehaviour
 {
-    public List<GameObject> awardCards;
-    public RunData runData;
-    public EssenceCrafting essenceCrafting;
-    private void Awake()
+    [SerializeField] List<GameObject> awardCards;
+    [SerializeField] RunData runData;
+    [SerializeField] EssenceCrafting essenceCrafting;
+    [SerializeField] WorldMenuControl worldMenuControl;
+    private void OnEnable()
     {
         EventManager.clickedCard.AddListener(FinalizeAward);
+    }
+    private void OnDisable()
+    {
+        EventManager.clickedCard.RemoveListener(FinalizeAward);
     }
     public void AwardCards(List<CardPlus> drops)
     {
@@ -40,7 +45,8 @@ public class CardAwardUI : MonoBehaviour
         {
             awardCards[i].SetActive(false);
         }
-        essenceCrafting.gameObject.SetActive(true);
+
+        //worldMenuControl.ToggleWindow(essenceCrafting.gameObject, true);
         gameObject.SetActive(false);
     }
 }

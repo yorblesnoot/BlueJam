@@ -24,6 +24,11 @@ public class DeckViewerUI : MonoBehaviour
         EventManager.clickedCard.AddListener(RemoveCard);
     }
 
+    private void OnDisable()
+    {
+        EventManager.clickedCard.RemoveListener(RemoveCard);
+    }
+
     public void RemoveCard(CardPlus card, GameObject cardObject)
     {
         //check if the player has enough removes, the switch is toggled, and deck size is high enough--then remove a card

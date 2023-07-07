@@ -1,31 +1,22 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CraftingSlot : MonoBehaviour, IDropHandler
+public class CraftingSlot : InventorySlot
 {
-#nullable enable
-    EssenceCrafting? essenceCrafting;
-#nullable disable
-    public void OnDrop(PointerEventData eventData)
+    public EssenceCrafting essenceCrafting;
+    public override void OnDrop(PointerEventData eventData)
     {
-        if (ChildCountActive(transform) < 1)
-        {
-            GameObject dropped = eventData.pointerDrag;
-            DraggableItem droppedItem = dropped.GetComponent<DraggableItem>();
-            droppedItem.parentAfterDrag = transform;
-            essenceCrafting = droppedItem.essenceCrafting;
-            essenceCrafting.craftingSlots.Add(droppedItem);
-        }
+        essenceCrafting.ModifyCraftingSlotContents(ConfirmDrop(eventData), true);
     }
-
-    public int ChildCountActive(Transform t)
+    public void EvictChildren()
     {
-        int k = 0;
-        foreach (Transform c in t)
+        try
         {
-            if (c.gameObject.activeSelf)
-                k++;
+            DraggableItem contents = transform.GetChild(0).gameObject.GetComponent<DraggableItem>();
+            essenceCrafting.ModifyCraftingSlotContents(contents, false);
+            essenceCrafting.PlaceStrayDraggable(contents);
         }
-        return k;
+        catch { }
     }
 }

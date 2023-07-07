@@ -45,7 +45,7 @@ public class WorldMovementController : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if (WorldPlayerControl.playerState != WorldPlayerState.IDLE) return;
+        if (WorldPlayerControl.playerState != WorldPlayerState.IDLE || EventSystem.current.IsPointerOverGameObject()) return;
         Pathfinder pather = new();
         myPath = pather.FindObjectPath(MapTools.playerLocation, MapTools.VectorToMap(unitPosition));
         if (myPath != null)

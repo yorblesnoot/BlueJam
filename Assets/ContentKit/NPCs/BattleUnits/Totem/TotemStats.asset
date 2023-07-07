@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TotemStats
   m_EditorClassIdentifier: 
   unitName: Totem
-  maxHealth: 20
+  maxHealth: 10
   handSize: 2
   playerAllied: 0
   startBeats: 1

@@ -10,9 +10,7 @@ public class WorldMenuControl : MonoBehaviour
 
     GameObject lastOpened;
 
-    public Button openCrafting;
-    public Button openMenu;
-    public Button openDeck;
+    [SerializeField] List<GameObject> hudComponents;
 
     public Button close;
 
@@ -36,10 +34,10 @@ public class WorldMenuControl : MonoBehaviour
         window.SetActive(value);
         cameraController.enabled = !value;
 
-        openCrafting.gameObject.SetActive(!value);
-        openMenu.gameObject.SetActive(!value);
-        openDeck.gameObject.SetActive(!value);
-
+        foreach (var component in hudComponents)
+        {
+            component.SetActive(!value);
+        }
         close.gameObject.SetActive(value);
 
         if (value == true) WorldPlayerControl.playerState = WorldPlayerState.MENUS;

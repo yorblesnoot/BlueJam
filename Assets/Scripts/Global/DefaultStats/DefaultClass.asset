@@ -16,13 +16,10 @@ MonoBehaviour:
   <basehandSize>k__BackingField: 4
   <baseDamage>k__BackingField: 10
   <baseBarrier>k__BackingField: 10
-  <baseHealing>k__BackingField: 5
+  <baseHealing>k__BackingField: 10
   <basedeckContents>k__BackingField:
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}

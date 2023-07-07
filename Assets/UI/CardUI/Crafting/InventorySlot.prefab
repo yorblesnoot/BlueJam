@@ -116,6 +116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 866e8171c2696fd43a4a95844c484da5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  occupied: 0
 --- !u!61 &4301262436409176327
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -149,6 +150,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6221452704444179718}
     m_Modifications:
+    - target: {fileID: 1090909939, guid: 4d9c77728bfee6a4a986316534f3aee7, type: 3}
+      propertyPath: originalSlot
+      value: 
+      objectReference: {fileID: 3584731228121885765}
     - target: {fileID: 4666443776312707097, guid: 4d9c77728bfee6a4a986316534f3aee7, type: 3}
       propertyPath: m_Maskable
       value: 0

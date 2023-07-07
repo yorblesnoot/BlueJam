@@ -7,7 +7,6 @@ using UnityEngine;
 public class Deck : SOWithGUID
 {
     public List<CardPlus> deckContents;
-    public string preDescription;
     public string symbol;
     public Color32 iconColor;
     [HideInInspector]public string essenceDescription;
@@ -15,6 +14,8 @@ public class Deck : SOWithGUID
     public void Initialize()
     {
         List<string> cardNames = deckContents.Select(x=> x.displayName).ToList();
-        essenceDescription = $"{preDescription}.. Contains: *{string.Join(" *", cardNames)}";
+        string myName = name;
+        myName = myName.Replace("Deck", "");
+        essenceDescription = $"Essence of the {myName}. Contains:";
     }
 }

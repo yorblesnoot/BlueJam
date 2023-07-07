@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 8519150486060143746}
   - component: {fileID: 8519150486060143744}
   - component: {fileID: 8519150486060143745}
-  - component: {fileID: 5396217784127494917}
   - component: {fileID: 1065164714262176951}
   - component: {fileID: 7185567049170960089}
   - component: {fileID: 7357095442576250153}
+  - component: {fileID: 2020354872182314770}
   m_Layer: 5
-  m_Name: PlayerCard
+  m_Name: BtlPlayerCard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,34 +86,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5396217784127494917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8519150486060143747}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c3ff9656b8f96f24daacc772aa56d0c4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nameText: {fileID: 8519150487596666534}
-  costPips:
-  - {fileID: 8519150487767854532}
-  - {fileID: 8519150486238997231}
-  - {fileID: 8519150486778358752}
-  - {fileID: 8519150486914094774}
-  - {fileID: 8519150487090922707}
-  - {fileID: 8519150486959415202}
-  - {fileID: 8519150487039489920}
-  cardArt: {fileID: 8519150487685189465}
-  targetPane: {fileID: 8519150486367621690}
-  targetType: {fileID: 8519150486815760486}
-  effectText: {fileID: 8519150487366099922}
-  keywordPane: {fileID: 8519150487843660602}
-  sceneIndex: 0
-  emphasize: {fileID: 1065164714262176951}
 --- !u!114 &1065164714262176951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,6 +139,33 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &2020354872182314770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8519150486060143747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c591a821d021aea41b37dc6f17a19e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 8519150487596666534}
+  costPips:
+  - {fileID: 8519150487767854532}
+  - {fileID: 8519150486238997231}
+  - {fileID: 8519150486778358752}
+  - {fileID: 8519150486914094774}
+  - {fileID: 8519150487090922707}
+  - {fileID: 8519150486959415202}
+  - {fileID: 8519150487039489920}
+  cardArt: {fileID: 8519150487685189465}
+  targetPane: {fileID: 8519150486367621690}
+  targetType: {fileID: 8519150486815760486}
+  effectText: {fileID: 8519150487366099922}
+  keywordPane: {fileID: 8519150487843660602}
+  emphasize: {fileID: 1065164714262176951}
 --- !u!1 &8519150486238997231
 GameObject:
   m_ObjectHideFlags: 0
