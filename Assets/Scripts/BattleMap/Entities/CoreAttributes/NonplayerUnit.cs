@@ -35,4 +35,20 @@ public class NonplayerUnit : BattleUnit
     {
         turnShow.SetActive(false);
     }
+
+    public override void Die()
+    {
+        if (gameObject.CompareTag("Enemy") && isSummoned != true)
+        {
+            //when an enemy dies, add its deck to the player's inventory for later use
+            BattleEnder.deckDrops.Add(GetComponent<Hand>().deckRecord);
+        }
+        TurnManager.UnreportTurn(this);
+        UnreportCell();
+        TurnManager.deathPhase.RemoveListener(CheckForDeath);
+        isDead = true;
+        VFXMachine.PlayAtLocation("Explosion", transform.position);
+        gameObject.SetActive(false);
+        //Destroy(gameObject);
+    }
 }

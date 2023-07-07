@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
-  m_Name: NecroDeck
+  m_Name: NecromancerDeck
   m_EditorClassIdentifier: 
   Id: 6c1774a6-b1c9-4f73-b88d-df597fac97a1
   deckContents:

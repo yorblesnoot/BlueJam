@@ -9,13 +9,14 @@ public class Deck : SOWithGUID
     public List<CardPlus> deckContents;
     public string symbol;
     public Color32 iconColor;
-    [HideInInspector]public string essenceDescription;
+    [HideInInspector] public string essenceDescription;
+    [HideInInspector] public string unitName;
 
     public void Initialize()
     {
         List<string> cardNames = deckContents.Select(x=> x.displayName).ToList();
-        string myName = name;
-        myName = myName.Replace("Deck", "");
-        essenceDescription = $"Essence of the {myName}. Contains:";
+        unitName = name;
+        unitName = unitName.Replace("Deck", "");
+        essenceDescription = $"Essence of the {unitName}. Contains:";
     }
 }
