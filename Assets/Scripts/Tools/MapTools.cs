@@ -5,7 +5,6 @@ using UnityEngine;
 public static class MapTools
 {
     public static Dictionary<Vector2Int,GameObject> gameMap;
-    public static Vector2Int playerLocation;
     public static void SubmitTileMap(Dictionary<Vector2Int, GameObject> map)
     {
         gameMap = map;
@@ -21,13 +20,13 @@ public static class MapTools
         return output;
     }
 
-    public static Vector3 MapToVector (int x, int y, float height)
+    public static Vector3 MapToVector (Vector2Int coords, float height)
     {
         Vector3 newVector = new()
         {
-            x = (x + .5f),
+            x = (coords.x + .5f),
             y = height,
-            z = (y + .5f)
+            z = (coords.y + .5f)
         };
         return newVector;
     }
@@ -55,15 +54,6 @@ public static class MapTools
         GameObject oldTile = VectorToTile(actor.transform.position);
         oldTile.GetComponent<BattleTileController>().unitContents = null;
         newTile.unitContents = actor;
-        ReportPlayer(actor, newTile.transform.position);
-    }
-
-    public static void ReportPlayer(BattleUnit actor, Vector3 position)
-    {
-        if (actor.gameObject.CompareTag("Player"))
-        {
-            playerLocation = VectorToMap(position);
-        }
     }
 
     public static void ReportPositionSwap(BattleUnit actor, BattleTileController newTile, BattleUnit secondActor)
@@ -72,7 +62,5 @@ public static class MapTools
         newTile.unitContents = actor;
         BattleTileController oldTile = VectorToTile(actor.gameObject.transform.position).GetComponent<BattleTileController>();
         oldTile.unitContents = secondActor;
-        ReportPlayer(actor, newTile.transform.position);
-        ReportPlayer(secondActor, oldTile.transform.position);
     }
 }

@@ -58,7 +58,7 @@ public class BattleTileController : MonoBehaviour
         if(PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
         {
             Pathfinder pather = new();
-            myPath = pather.FindObjectPath(MapTools.playerLocation, MapTools.VectorToMap(unitPosition));
+            myPath = pather.FindObjectPath(MapTools.VectorToMap(TurnManager.playerUnit.transform.position), MapTools.VectorToMap(unitPosition));
             if (myPath != null)
             {
                 myPath = myPath.Take(3).ToList();

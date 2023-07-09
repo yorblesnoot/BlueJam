@@ -25,7 +25,6 @@ public class BattleLauncher : MapLauncher
         BattleUnitSpawner encounterBuilder = new(sceneRelay.staticSpawns, sceneRelay.spawnUnits, sceneRelay.spawnWeights, map);
         encounterBuilder.PlacePlayer(player);
         PlayerUnit playerUnit = player.GetComponent<PlayerUnit>();
-        MapTools.ReportPlayer(playerUnit, playerUnit.transform.position);
         encounterBuilder.PlaceEnemies(sceneRelay.enemyBudget);
 
         //initialize combat

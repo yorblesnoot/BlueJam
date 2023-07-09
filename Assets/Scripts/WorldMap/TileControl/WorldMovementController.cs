@@ -47,7 +47,7 @@ public class WorldMovementController : MonoBehaviour
     {
         if (WorldPlayerControl.playerState != WorldPlayerState.IDLE || EventSystem.current.IsPointerOverGameObject()) return;
         Pathfinder pather = new();
-        myPath = pather.FindObjectPath(MapTools.playerLocation, MapTools.VectorToMap(unitPosition));
+        myPath = pather.FindObjectPath(MapTools.VectorToMap(WorldPlayerControl.player.transform.position), MapTools.VectorToMap(unitPosition));
         if (myPath != null)
         {
             foreach (GameObject cell in myPath)

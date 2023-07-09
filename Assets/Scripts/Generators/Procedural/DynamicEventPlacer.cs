@@ -7,7 +7,6 @@ public class DynamicEventPlacer
 {
     readonly public static int chunkSize = 10;
     Vector2Int currentChunk;
-    readonly string[,] worldMap;
     readonly int totalChance;
     readonly List<int> probabilities;
     RunData runData;
@@ -23,7 +22,6 @@ public class DynamicEventPlacer
     public DynamicEventPlacer(RunData data)
     {
         runData = data;
-        worldMap = data.worldMap;
         totalChance = 0;
         probabilities = new();
         foreach (var item in eventsAndOdds.Keys)
@@ -98,5 +96,15 @@ public class DynamicEventPlacer
             }
         }
         return validSpots;
+    }
+
+    public Vector2Int PlaceBoss()
+    {
+        Vector2 direction = UnityEngine.Random.insideUnitCircle.normalized;
+        direction *= 100;
+        Vector2Int intLocation = new(Mathf.RoundToInt(direction.x), Mathf.RoundToInt(direction.y));
+        runData.eventMap.Remove(intLocation);
+        runData.eventMap.Add(intLocation,"b");
+        return intLocation;
     }
 }

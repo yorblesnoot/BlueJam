@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Reflection;
 using UnityEngine;
-using static UnityEditor.Rendering.CameraUI;
 
 public class WorldMapRenderer : MonoBehaviour
 {
@@ -16,27 +14,21 @@ public class WorldMapRenderer : MonoBehaviour
     public void RenderInitialWorldWindow(string[,] worldMap, int windowRadius)
     {
         MapTools.gameMap = new();
-        //get a circle window shape expressed in a 2d array or equivalent
         windowShape = GenerateWindowShape(windowRadius);
 
-        //superimpose the window on the larger world map
-        //fill it with values from the world map
         Vector2Int windowCenter = new(runData.playerWorldX, runData.playerWorldY);
-        string[,] windowMap = SuperimposeMapWindow(windowShape, worldMap, windowCenter);
-
-        //render the window
-        RenderLocalMap(windowMap);
-        
+        RenderFromInitialWindow(windowShape, worldMap, windowCenter);
     }
 
     public bool[,] GenerateWindowShape(int windowRadius)
     {
+        //create a circular shape in a boolean array
         int mapSize = windowRadius * 2 + 1;
         Vector2Int centerPoint = new(windowRadius, windowRadius);
         bool[,] circleContents = new bool[mapSize,mapSize];
-        for(int x = 0;x < mapSize; x++)
+        for(int x = 0; x < mapSize; x++)
         {
-            for(int y = 0;y < mapSize; y++)
+            for(int y = 0; y < mapSize; y++)
             {
                 Vector2Int point = new(x, y);
                 if (Vector2Int.Distance(centerPoint, point) <= windowRadius) circleContents[x, y] = true;
@@ -46,46 +38,32 @@ public class WorldMapRenderer : MonoBehaviour
         return circleContents;
     }
 
-    public string[,] SuperimposeMapWindow(bool[,] localMap, string[,] globalMap, Vector2Int globalCenter)
+    public void RenderFromInitialWindow(bool[,] localMap, string[,] globalMap, Vector2Int globalCenter)
     {
+        //project a boolean grid onto a larger string grid, then render from the string grid based on the overlap
         int localSize = localMap.GetLength(0);
-        string[,] windowMap = new string[localSize, localSize];
         spotlightLocalOffset = new(localSize / 2, localSize / 2);
         spotlightGlobalOffset = globalCenter - spotlightLocalOffset;
+
+        mapKey.Initialize();
         for (int x = 0; x < localSize; x++)
         {
             for (int y = 0; y < localSize; y++)
             {  
                 if (localMap[x, y] == true)
                 {
-                    Vector2Int globalPosition = new Vector2Int(x, y) + spotlightGlobalOffset;
-                    windowMap[x, y] = globalMap[globalPosition.x, globalPosition.y];
-
+                    Vector2Int localPosition = new(x, y);
+                    Vector2Int globalPosition = localPosition + spotlightGlobalOffset;
+                    string tileKey = globalMap[globalPosition.x, globalPosition.y];
+                    RenderCell(tileKey, localPosition);
                 }
-                else windowMap[x, y] = "x";
-            }
-        }
-        return windowMap;
-    }
-
-    public void RenderLocalMap(string[,] localMap)
-    {
-        mapKey.Initialize();
-        int xMaster = localMap.GetLength(0);
-        int yMaster = localMap.GetLength(1);
-        for (int x = 0; x < xMaster; x++)
-        {
-            for (int y = 0; y < yMaster; y++)
-            {
-                string tileKey = localMap[x, y];
-                if (tileKey != "x") RenderCell(tileKey, x, y);
             }
         }
     }
 
-    void RenderCell(string tileKey, int x, int y)
+    void RenderCell(string tileKey, Vector2Int cellCoords)
     {
-        Vector2Int cellCoords = new(x, y);
+        //check if we have previously rendered the cell, if yes re-enable it otherwise create it and associated events
         if (MapTools.gameMap.ContainsKey(cellCoords))
         {
             MapTools.gameMap[cellCoords].SetActive(true);
@@ -93,11 +71,11 @@ public class WorldMapRenderer : MonoBehaviour
         }
         else
         {
-            GameObject tile = Instantiate(mapKey.hashKey[tileKey], MapTools.MapToVector(x, y, 0), Quaternion.identity);
+            GameObject tile = Instantiate(mapKey.hashKey[tileKey], MapTools.MapToVector(cellCoords, 0), Quaternion.identity);
             MapTools.gameMap.Add(cellCoords, tile);
-            GameObject renderedEvent = eventRenderer.RenderCellEvent(new Vector2Int(x, y), spotlightGlobalOffset);
+            GameObject renderedEvent = eventRenderer.RenderCellEvent(cellCoords, spotlightGlobalOffset);
             if(renderedEvent != null) renderedEvent.transform.SetParent(tile.transform);
-            StartCoroutine(StaggeredMoveIn(MapTools.gameMap[cellCoords], -5f, 0f));
+            StartCoroutine(StaggeredMoveIn(tile, -5f, 0f));
         }
     }
 
@@ -150,13 +128,9 @@ public class WorldMapRenderer : MonoBehaviour
                 Vector2Int oldCoords = newCoords+displacement;
 
                 if (windowShape.Safe2DFind(newCoords.x,newCoords.y) == true && windowShape.Safe2DFind(oldCoords.x, oldCoords.y) != true)
-                {
                     positiveDifference.Add(newCoords);
-                }
                 else if (windowShape.Safe2DFind(newCoords.x, newCoords.y) != true && windowShape.Safe2DFind(oldCoords.x, oldCoords.y) == true)
-                {
                     negativeDifference.Add(newCoords);
-                }
             }
         }
 
@@ -165,7 +139,7 @@ public class WorldMapRenderer : MonoBehaviour
         {
             Vector2Int newPosition = spotlightShapeDifference + playerLocalPosition - spotlightLocalOffset;
             Vector2Int worldPosition = newPosition + spotlightGlobalOffset;
-            RenderCell(runData.worldMap[worldPosition.x, worldPosition.y],newPosition.x, newPosition.y);
+            RenderCell(runData.worldMap[worldPosition.x, worldPosition.y], newPosition);
         }
 
         foreach (var spotlightShapeDifference in negativeDifference)

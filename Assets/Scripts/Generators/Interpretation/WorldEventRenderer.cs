@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -24,7 +23,7 @@ public class WorldEventRenderer : MonoBehaviour
             { "b", bossEnemy }};
         if (!runData.eventMap.ContainsKey(globalCoordinates)) return null;
         string cellKey = runData.eventMap[globalCoordinates];
-        Vector3 spawnLocation = MapTools.MapToVector(localCoordinates.x, localCoordinates.y, eventHeight);
+        Vector3 spawnLocation = MapTools.MapToVector(localCoordinates, eventHeight);
         return Instantiate(eventTable[cellKey], spawnLocation, Quaternion.identity);
     }
 }

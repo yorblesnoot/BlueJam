@@ -15,20 +15,26 @@ public class WorldPlayerControl : MonoBehaviour
     [SerializeField] GameObject fogRing;
     [SerializeField] Camera mainCamera;
     [SerializeField] WorldMapRenderer worldRenderer;
-
+    [SerializeField] WorldCompass compass;
     DynamicEventPlacer dynamicEventPlacer;
 
-    void Start()
+    [SerializeField] Vector2Int worldBossLocation;
+
+    [SerializeField] public static GameObject player;
+
+    public void InitializePlayer()
     {
+        player = gameObject;
         playerState = WorldPlayerState.IDLE;
-        Vector2Int localCoords = new(runData.playerWorldX, runData.playerWorldY);
-        localCoords -= WorldMapRenderer.spotlightGlobalOffset;
-        Vector3 myPosition = MapTools.MapToVector(localCoords.x, localCoords.y, WorldMovementController.heightAdjust);
+        Vector2Int worldMapCoords = new(runData.playerWorldX, runData.playerWorldY);
+        worldMapCoords -= WorldMapRenderer.spotlightGlobalOffset;
+        Vector3 myPosition = MapTools.MapToVector(worldMapCoords, WorldMovementController.heightAdjust);
         gameObject.transform.position = myPosition;
-        MapTools.playerLocation = MapTools.VectorToMap(myPosition);
+
         fogRing.transform.SetParent(null);
         dynamicEventPlacer = new(runData);
-        dynamicEventPlacer.CheckToPopulateChunks(MapTools.playerLocation + WorldMapRenderer.spotlightGlobalOffset);
+        dynamicEventPlacer.CheckToPopulateChunks(MapTools.VectorToMap(transform.position) + WorldMapRenderer.spotlightGlobalOffset);
+        worldBossLocation = runData.eventMap.FirstOrDefault(x => x.Value == "b").Key;
     }
 
     public IEnumerator ChainPath(List<GameObject> path)
@@ -37,13 +43,6 @@ public class WorldPlayerControl : MonoBehaviour
         {
             Vector2Int oldCoords = MapTools.VectorToMap(gameObject.transform.position);
             WorldMovementController tileController = tile.GetComponent<WorldMovementController>();
-            if (tileController.eventHandler.enemyEvents.OfType<WorldBoss>().Any())
-            {
-                if (runData.KeyStock < 3)
-                {
-                    break;
-                }
-            }
             transform.LookAt(tileController.unitPosition);
             Vector3 displacement = tileController.unitPosition - transform.position;
             Vector3 cameraDestination = displacement + mainCamera.transform.position;
@@ -63,7 +62,6 @@ public class WorldPlayerControl : MonoBehaviour
 
             runData.playerWorldX = globalCoords.x;
             runData.playerWorldY = globalCoords.y;
-            MapTools.playerLocation = newCoords;
             runData.worldSteps++;
 
             //draw new tiles
@@ -72,8 +70,10 @@ public class WorldPlayerControl : MonoBehaviour
             //check if we need to generate more world events
             dynamicEventPlacer.CheckToPopulateChunks(globalCoords);
 
+            compass.PointAtWorldCoordinates(worldBossLocation, transform.position);
+
             yield return StartCoroutine(tileController.eventHandler.TriggerWorldEvents());
         }
-       playerState = WorldPlayerState.IDLE;
+        playerState = WorldPlayerState.IDLE;
     }
 }

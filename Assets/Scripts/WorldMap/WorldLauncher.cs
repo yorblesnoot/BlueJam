@@ -2,20 +2,22 @@ using UnityEngine;
 
 public class WorldLauncher : MapLauncher
 {
-    public static string[,] worldMap;
     [SerializeField] RunData runData;
     [SerializeField] WorldMapRenderer mapRenderer;
-    [SerializeField] WorldEventRenderer eventRenderer;
+    [SerializeField] WorldPlayerControl playerControl;
 
-    public int amountOfWorldEnemies;
-
+    readonly int windowSize = 4;
     private void Awake() 
     {
-        //set variables
-        worldMap = runData.worldMap;
-        new DynamicEventPlacer(runData).CheckToPopulateChunks(MapTools.playerLocation + WorldMapRenderer.spotlightGlobalOffset);
+        mapRenderer.RenderInitialWorldWindow(runData.worldMap, windowSize);
+
+        playerControl.InitializePlayer();
+
+        DynamicEventPlacer placer = new(runData);
+        placer.CheckToPopulateChunks(MapTools.VectorToMap(WorldPlayerControl.player.transform.position) + WorldMapRenderer.spotlightGlobalOffset);
+        placer.PlaceBoss();
+
         new SaveContainer(runData).SaveGame();
-        mapRenderer.RenderInitialWorldWindow(worldMap, 4);
 
         EventManager.updateWorldCounters.Invoke();
         EventManager.updateWorldHealth.Invoke();
