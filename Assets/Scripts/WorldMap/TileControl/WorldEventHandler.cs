@@ -16,11 +16,9 @@ public class WorldEventHandler : MonoBehaviour
     [HideInInspector] public WorldEvent cellEvent;
 
     bool pickedItem = false;
-    public bool runningEvents = false;
 
     public IEnumerator TriggerWorldEvents()
     {
-        runningEvents = true;
         //give the player whatever items
         if(cellEvent != null)
         {
@@ -47,7 +45,7 @@ public class WorldEventHandler : MonoBehaviour
                 if(enemy.GetType() == typeof(WorldBoss)) sceneRelay.bossEncounter = true;
                 pools.Add(enemy.spawnPool);
                 //remove activated enemies from the enemy map in rundata
-                runData.worldEnemies?.RemoveCoordinates(MapTools.VectorToMap(enemy.gameObject.transform.position));
+                runData.eventMap.Remove(MapTools.VectorToMap(enemy.gameObject.transform.position));
             }
             builder.ConsolidateSpawnPools(pools);
 
@@ -58,7 +56,6 @@ public class WorldEventHandler : MonoBehaviour
             builder.LaunchEncounter();
         }
         EventManager.updateWorldCounters.Invoke();
-        runningEvents = false;
     }
 
     public void ConfirmItemPicked()

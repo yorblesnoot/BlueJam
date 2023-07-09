@@ -2,19 +2,15 @@ using UnityEngine;
 
 public class WorldLauncher : MapLauncher
 {
-    #nullable enable
-    public static string[,]? worldMap;
-    #nullable disable
-    // Start is called before the first frame update
+    public static string[,] worldMap;
     [SerializeField] RunData runData;
     [SerializeField] WorldMapRenderer mapRenderer;
     [SerializeField] WorldEventRenderer eventRenderer;
 
     public int amountOfWorldEnemies;
 
-    private void Start() 
+    private void Awake() 
     {
-        
         //set variables
         worldMap = runData.worldMap;
         if (worldMap == null)
@@ -33,12 +29,7 @@ public class WorldLauncher : MapLauncher
         {
             new SaveContainer(runData).SaveGame();
         }
-        mapRenderer.RenderWorld(worldMap);
-        RequestMapReferences();
-
-        eventRenderer.RenderBoss(runData.bossWorldX, runData.bossWorldY);
-        eventRenderer.RenderEnemies(runData.worldEnemies);
-        eventRenderer.RenderEvents(runData.eventMap);
+        mapRenderer.RenderInitialWorldWindow(worldMap, 4);
 
         EventManager.updateWorldCounters.Invoke();
         EventManager.updateWorldHealth.Invoke();

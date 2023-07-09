@@ -56,7 +56,7 @@ public class BuffTracker : MonoBehaviour
                     buffs.RemoveAt(i);
                 }
             }
-            buffDisplay.UpdateBuffs();
+            buffDisplay.TickDownBuffTokens();
         }
     }
 }

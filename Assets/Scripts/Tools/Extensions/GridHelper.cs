@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public static class GridHelper
@@ -13,7 +14,6 @@ public static class GridHelper
         }
         else return default;
     }
-
     public static List<T> Flatten<T>(this T[,] toFlatten)
     {
         List<T> result = new();
@@ -41,5 +41,35 @@ public static class GridHelper
             }
         }
         return result;
+    }
+
+    public static List<Vector2Int> GetSurroundingCoordinates(this Vector2Int coordinates)
+    {
+        List<Vector2Int> surrounding = new();
+        for(int x = -1; x <= 1; x++)
+        {
+            for (int y = -1; y <= 1; y++)
+            {
+                if (x == 0 && y == 0) continue;
+                surrounding.Add(new Vector2Int(x+coordinates.x, y+coordinates.y));
+            }
+        }
+        return surrounding;
+    }
+    public static List<Vector2Int> GetAdjacentCoordinates(this Vector2Int coordinates)
+    {
+        return new List<Vector2Int>()
+        {
+            new Vector2Int(coordinates.x+1, coordinates.y),
+            new Vector2Int(coordinates.x-1, coordinates.y),
+            new Vector2Int(coordinates.x, coordinates.y+1),
+            new Vector2Int(coordinates.x, coordinates.y-1),
+        };
+    }
+
+    public static int GetLength(this Dictionary<Vector2Int, GameObject> map)
+    {
+        List<int> coords = map.Select(entry => entry.Key.x).ToList();
+        return coords.Max()+1;
     }
 }

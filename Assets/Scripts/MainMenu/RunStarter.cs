@@ -13,10 +13,6 @@ public class RunStarter : MonoBehaviour
     public GenerationParameters generationParameters;
     public void NewGame()
     {
-        //starting position on world map; ~~~~~~~~~~add randomization and legality check
-        int startX = 1;
-        int startY = 1;
-
         //reset the players deck and base stats to the class's
         playerClass.ResetAndInitialize(playerStats);
         playerClass.ResetAndInitialize(playerDeck);
@@ -28,16 +24,11 @@ public class RunStarter : MonoBehaviour
         ProceduralMapGenerator proceduralGenerator = new();
         runData.worldMap = proceduralGenerator.Generate(generationParameters);
 
-        runData.playerWorldX = startX;
-        runData.playerWorldY = startY;
+        int mapSize = runData.worldMap.GetLength(0);
 
-        runData.bossWorldX = runData.worldMap.GetLength(0) - 2;
-        runData.bossWorldY = runData.worldMap.GetLength(1) - 2;
-
-        //place enemies and world items
-        ProceduralEventPlacer eventPlacer = new(runData);
-        runData.worldEnemies = eventPlacer.PlaceEnemies();
-        runData.eventMap = eventPlacer.PlaceWorldEvents();
+        //starting position on world map; ~~~~~~~~~~add randomization and legality check
+        runData.playerWorldX = mapSize/2;
+        runData.playerWorldY = mapSize/2;
 
         //initalize gameplay lists
         runData.itemPool.awardableItems = new();
@@ -47,6 +38,7 @@ public class RunStarter : MonoBehaviour
         runData.KeyStock = 0;
         runData.RemoveStock = 0;
         runData.worldSteps = 0;
+        runData.eventMap = new();
 
         //send the player to the world map
         SceneManager.LoadScene(1);

@@ -3,26 +3,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Pathfinder 
 {
     Dictionary<Vector2Int, Node> nodeMap = new();
     public Pathfinder()
     {
-        for(int x = 0; x < MapTools.gameMap.GetLength(0); x++)
+        foreach (Vector2Int key in MapTools.gameMap.Keys)
         {
-            for(int y = 0; y <  MapTools.gameMap.GetLength(1); y++)
+            bool isBlocked = false;
+            GameObject tile = MapTools.MapToTile(key);
+            if (tile == null || tile.GetComponent<BattleTileController>()?.unitContents != null)
             {
-                Vector2Int position = new(x, y);
-                GameObject tile = MapTools.MapToTile(position);
-                bool isBlocked = false;
-                //add impassable test here
-                if(tile == null || tile.GetComponent<BattleTileController>()?.unitContents != null)
-                {
-                    isBlocked = true;
-                }
-                nodeMap.Add(position, new Node { location = position, reference = tile, blocked = isBlocked });
+                isBlocked = true;
             }
+            nodeMap.Add(key, new Node { location = key, reference = MapTools.gameMap[key], blocked = isBlocked });
         }
     }
     public List<GameObject> FindObjectPath(Vector2Int start, Vector2Int end)
@@ -103,7 +99,7 @@ public class Pathfinder
     {
         List<Node> neighbors = new();
 
-        Vector2Int locationCheck = new Vector2Int(current.location.x, current.location.y+1);
+        Vector2Int locationCheck = new(current.location.x, current.location.y+1);
         if (nodeMap.ContainsKey(locationCheck)) neighbors.Add(nodeMap[locationCheck]);
         locationCheck = new Vector2Int(current.location.x+1, current.location.y);
         if (nodeMap.ContainsKey(locationCheck)) neighbors.Add(nodeMap[locationCheck]);

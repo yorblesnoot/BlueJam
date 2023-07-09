@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92ada100808ed53408334a296bf7b617, type: 3}
   m_Name: WorldParameters
   m_EditorClassIdentifier: 
-  mapSize: 10
-  noiseFrequency: 3
+  mapSize: 1000
+  noiseFrequency: 2.89
   symbolThresholds:
   - d
   - w

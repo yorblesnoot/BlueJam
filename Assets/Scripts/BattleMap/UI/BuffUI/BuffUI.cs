@@ -5,45 +5,38 @@ using UnityEngine;
 
 public class BuffUI : MonoBehaviour
 {
-    public List<GameObject> buffSlots;
-    List<BuffToken> buffTokens;
+    public List<BuffToken> buffTokens;
 
-    List<EffectBuff> buffs;
-    private void Awake()
+    class TimedBuff
     {
-        buffs = new List<EffectBuff>();
-        buffTokens = new List<BuffToken>();
-        for(int i = 0; i < buffSlots.Count; i++)
-        {
-            buffTokens.Add(buffSlots[i].GetComponent<BuffToken>());
-            buffSlots[i].SetActive(false);
-        }
+        public EffectBuff buff;
+        public BuffToken token;
+        public int remainingDuration;
     }
+
+    List<TimedBuff> timedBuffs = new();
 
     public void DisplayBuff(EffectBuff newBuff)
     {
-        buffs.Add(newBuff);
-        int buffLocation = buffs.IndexOf(newBuff);
-        buffSlots[buffLocation].SetActive(true);
+        int buffLocation = timedBuffs.Count;
+        TimedBuff timedBuff = new() { buff = newBuff, token = buffTokens[buffLocation], remainingDuration = newBuff.duration };
+        buffTokens[buffLocation].gameObject.SetActive(true);
         buffTokens[buffLocation].RenderBuff(newBuff.iconColor,newBuff.duration);
+        timedBuffs.Add(timedBuff);
     }
 
-    public void UpdateBuffs()
+    public void TickDownBuffTokens()
     {
-        for (int i = 0; i < buffSlots.Count; i++)
+        for (int i = 0; i < timedBuffs.Count; i++)
         {
-            if (buffSlots[i].activeSelf)
+            timedBuffs[i].remainingDuration--;
+            if (timedBuffs[i].remainingDuration <= 0)
             {
-                buffTokens[i].DecrementBuff();
+                timedBuffs[i].token.gameObject.SetActive(false);
+                timedBuffs.RemoveAt(i);
             }
+            else timedBuffs[i].token.SetDuration(timedBuffs[i].remainingDuration);
         }
-    }
-
-    public void HideBuff(EffectBuff buff)
-    {
-        int buffLocation = buffs.IndexOf(buff);
-        buffs.RemoveAt(buffLocation);
-        buffSlots[buffLocation].SetActive(false);
     }
 }
 

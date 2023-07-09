@@ -308,15 +308,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 698385989474931241, guid: 86bdd3a318f96f74dac11e498e4ab192, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.5899625
+      value: 7.44
       objectReference: {fileID: 0}
     - target: {fileID: 698385989474931241, guid: 86bdd3a318f96f74dac11e498e4ab192, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.002
+      value: 4.72
       objectReference: {fileID: 0}
     - target: {fileID: 698385989474931241, guid: 86bdd3a318f96f74dac11e498e4ab192, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 3.529
+      value: 5.05
       objectReference: {fileID: 0}
     - target: {fileID: 698385989474931241, guid: 86bdd3a318f96f74dac11e498e4ab192, type: 3}
       propertyPath: m_LocalRotation.w
@@ -350,7 +350,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ornament_Pagoda_01_Atlased
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -98140218294284312, guid: 86bdd3a318f96f74dac11e498e4ab192, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 86bdd3a318f96f74dac11e498e4ab192, type: 3}
 --- !u!4 &4853669448235025816 stripped
 Transform:
@@ -1543,15 +1544,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 84aa219465e56b14ea27e35c966916bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.22
+      value: 8.3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 84aa219465e56b14ea27e35c966916bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.4189997
+      value: 3.37
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 84aa219465e56b14ea27e35c966916bc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 6.57
+      value: 6.64
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 84aa219465e56b14ea27e35c966916bc, type: 3}
       propertyPath: m_LocalRotation.w

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class BattleUnitSpawner
@@ -8,10 +9,10 @@ public class BattleUnitSpawner
     public List<GameObject> spawnUnits;
     public List<int> spawnWeights;
 
-    GameObject[,] battleMap;
+    Dictionary<Vector2Int, GameObject> battleMap;
     List<BattleTileController> playerSpots;
     List<BattleTileController> enemySpots;
-    public BattleUnitSpawner(List<GameObject> statics, List<GameObject> units, List<int> weights, GameObject[,] map)
+    public BattleUnitSpawner(List<GameObject> statics, List<GameObject> units, List<int> weights, Dictionary<Vector2Int, GameObject> map)
     {
         staticSpawns = statics;
         spawnUnits = units;
@@ -21,18 +22,14 @@ public class BattleUnitSpawner
         playerSpots = new();
         enemySpots = new();
         //loop through every battle map spot and add it to a list of valid cell placements
-        for (int x = 0; x < battleMap.GetLength(0); x++)
-        {
-            for(int y = 0;  y < battleMap.GetLength(1); y++) 
-            {
-                CheckValidSpot(x,y);
-            }
-        }
+        foreach(Vector2Int key in battleMap.Keys) CheckValidSpot(key);
     }
 
-    void CheckValidSpot(int x, int y)
+
+
+    void CheckValidSpot(Vector2Int position)
     {
-        GameObject tile = battleMap[x,y];
+        GameObject tile = battleMap[position];
         if(tile != null)
         {
             BattleTileController battleTileController = tile.GetComponent<BattleTileController>();

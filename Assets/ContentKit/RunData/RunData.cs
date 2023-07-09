@@ -9,14 +9,10 @@ public class RunData : ScriptableObject
     public UnitStats playerStats;
     public Deck playerDeck;
     [HideInInspector] public string[,] worldMap;
-    [HideInInspector] public List<Vector2Int> worldEnemies;
-    [HideInInspector] public string[,] eventMap;
+    [HideInInspector] public Dictionary<Vector2Int, string> eventMap;
 
     public int playerWorldX;
     public int playerWorldY;
-
-    public int bossWorldX;
-    public int bossWorldY;
 
     public List<BattleItem> itemInventory;
     public List<Deck> essenceInventory;

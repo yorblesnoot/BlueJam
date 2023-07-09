@@ -7,7 +7,7 @@ public class GenerationParameters : ScriptableObject
 {
     public int mapSize;
     
-    [Range(0f, 5f)]
+    [Range(1f, 10f)]
     public float noiseFrequency;
 
     public List<string> symbolThresholds;

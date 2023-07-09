@@ -6,13 +6,13 @@ using UnityEngine;
 public class MapKey : ScriptableObject
 {
     // Start is called before the first frame update
-    public Hashtable hashKey;
+    public Dictionary<string, GameObject> hashKey;
     public List<string> stringKey;
     public List<GameObject> objKey;
 
     public void Initialize()
     {
-        hashKey = new Hashtable();
+        hashKey = new();
         for (int i = 0; i < stringKey.Count; i++)
         {
             hashKey.Add(stringKey[i],objKey[i]);

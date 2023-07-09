@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHandler
+public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     bool activated = false;
     void Awake()
@@ -11,7 +11,7 @@ public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHan
         EventManager.clearActivation.AddListener(ClearActive);
     }
 
-    public void OnPointerClick()
+    public void OnPointerClick(PointerEventData eventData)
     {
         // activate targeting
         ActivateCard();

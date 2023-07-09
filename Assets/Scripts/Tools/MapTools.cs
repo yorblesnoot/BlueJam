@@ -4,12 +4,13 @@ using UnityEngine;
 
 public static class MapTools
 {
-    public static GameObject[,] gameMap;
+    public static Dictionary<Vector2Int,GameObject> gameMap;
     public static Vector2Int playerLocation;
-    public static void SubmitTileMap(GameObject[,] map)
+    public static void SubmitTileMap(Dictionary<Vector2Int, GameObject> map)
     {
         gameMap = map;
     }
+
     public static Vector2Int VectorToMap (Vector3 toConvert)
     {
         Vector2Int output = new()
@@ -39,7 +40,12 @@ public static class MapTools
 
     public static GameObject MapToTile(Vector2Int coords)
     {
-        try { return gameMap[coords.x, coords.y]; }
+        try
+        {
+            GameObject tile = gameMap[coords];
+            if(!tile.activeSelf) return null;
+            return tile;
+        }
         catch { return null; }
     }
 

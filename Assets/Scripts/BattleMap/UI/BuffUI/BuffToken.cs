@@ -5,18 +5,11 @@ using UnityEngine.UI;
 public class BuffToken : MonoBehaviour
 {
     public TMP_Text stackDisplay;
-    int stacks;
-    Image myImage;
+    [SerializeField] Image myImage;
     public void RenderBuff(Color32 buffColor, int buffStack)
     {
-        myImage = GetComponent<Image>();
         myImage.color = buffColor;
-        stacks = buffStack;
-        stackDisplay.text = buffStack.ToString();
+        SetDuration(buffStack);
     }
-    public void DecrementBuff()
-    {
-        stacks--;
-        stackDisplay.text = stacks.ToString();
-    }
+    public void SetDuration(int buffStack) { stackDisplay.text = buffStack.ToString(); }
 }

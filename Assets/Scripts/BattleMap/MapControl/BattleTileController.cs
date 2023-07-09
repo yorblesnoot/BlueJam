@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class BattleTileController : MonoBehaviour
 {
@@ -39,7 +40,7 @@ public class BattleTileController : MonoBehaviour
 
     void OnMouseDown()
     {
-        if(loadedCard == null && myPath != null && TurnManager.activeTurn == TurnManager.playerUnit)
+        if(loadedCard == null && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
         {
             TurnManager.EndTurn();
             StartCoroutine(TurnManager.playerUnit.ChainPath(myPath));
@@ -54,7 +55,7 @@ public class BattleTileController : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if(PlayerUnit.playerState == PlayerBattleState.IDLE)
+        if(PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
         {
             Pathfinder pather = new();
             myPath = pather.FindObjectPath(MapTools.playerLocation, MapTools.VectorToMap(unitPosition));

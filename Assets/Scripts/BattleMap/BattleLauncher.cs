@@ -22,7 +22,7 @@ public class BattleLauncher : MapLauncher
         RequestMapReferences();
 
         //place units onto the map
-        BattleUnitSpawner encounterBuilder = new BattleUnitSpawner(sceneRelay.staticSpawns, sceneRelay.spawnUnits, sceneRelay.spawnWeights, map);
+        BattleUnitSpawner encounterBuilder = new(sceneRelay.staticSpawns, sceneRelay.spawnUnits, sceneRelay.spawnWeights, map);
         encounterBuilder.PlacePlayer(player);
         PlayerUnit playerUnit = player.GetComponent<PlayerUnit>();
         MapTools.ReportPlayer(playerUnit, playerUnit.transform.position);

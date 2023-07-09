@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class ProceduralMapGenerator
 {
@@ -14,14 +16,15 @@ public class ProceduralMapGenerator
         float yOrg = Random.Range(0, randMax);
 
         //frequency: around 1? is best
-        float noiseFrequency = genParam.noiseFrequency;
+        float noiseFrequency = genParam.noiseFrequency/10;
 
         for (int x = 0; x < mapSize; x++)
         {
             for(int y = 0; y < mapSize; y++)
             {
-                float noiseX = x / (mapSize - .5f);
-                float noiseY = y / (mapSize - .5f);
+                
+                float noiseX = .99f * x;
+                float noiseY = .99f * y;
                 noiseX += xOrg;
                 noiseY += yOrg;
                 noiseX *= noiseFrequency;

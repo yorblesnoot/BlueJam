@@ -24,11 +24,11 @@ public class SaveContainer
     public List<string> battleItems;
     public List<string> essenceInventory;
 
-    public List<int> worldEnemiesX;
-    public List<int> worldEnemiesY;
-
     public List<string> worldMap;
-    public List<string> eventMap;
+
+    public List<string> eventsOnMap;
+    public List<int> eventsX;
+    public List<int> eventsY;
 
     public int currentHealth;
     public int playerX;
@@ -51,8 +51,9 @@ public class SaveContainer
     {
 
         SaveNums();
-        SaveLists();
+        SaveCollectibles();
         SaveArrays();
+        SaveEvents();
         saveJSON = JsonUtility.ToJson(this, false);
         System.IO.File.WriteAllText(Application.persistentDataPath + "/runData.json", saveJSON);
         //Debug.Log(saveJSON);
@@ -63,8 +64,6 @@ public class SaveContainer
         currentHealth = RunData.currentHealth;
         playerX = RunData.playerWorldX;
         playerY = RunData.playerWorldY;
-        bossX = RunData.bossWorldX;
-        bossY = RunData.bossWorldY;
         steps = RunData.worldSteps;
         keyStock = RunData.KeyStock;
         removeStock = RunData.RemoveStock;
@@ -77,20 +76,26 @@ public class SaveContainer
         turnSpeed = RunData.playerStats.turnSpeed;
     }
 
-    void SaveLists()
+    void SaveCollectibles()
     {
         playerDeck = RunData.playerDeck.deckContents.Select(x => x.Id).ToList();
         battleItems = RunData.itemInventory.Select(x => x.Id).ToList();
         essenceInventory = RunData.essenceInventory.Select(x => x.Id).ToList();
-
-        worldEnemiesX = RunData.worldEnemies.Select(x => x[0]).ToList();
-        worldEnemiesY = RunData.worldEnemies.Select(x => x[1]).ToList();
     }
 
     void SaveArrays()
     {
         worldMap = RunData.worldMap.Flatten();
-        eventMap = RunData.eventMap.Flatten();
+    }
+
+    void SaveEvents()
+    {
+        foreach(Vector2Int location in RunData.eventMap.Keys)
+        {
+            eventsX.Add(location.x);
+            eventsY.Add(location.y);
+            eventsOnMap.Add(RunData.eventMap[location]);
+        }
     }
 
     public void LoadGame()
@@ -102,10 +107,20 @@ public class SaveContainer
 
         LoadNums();
         LoadArrays();
-        LoadLists();
+        LoadCollectibles();
+        LoadEvents();
         LoadDerived();
 
         SceneManager.LoadScene(1);
+    }
+
+    private void LoadEvents()
+    {
+        RunData.eventMap = new();
+        for (int i = 0; i < eventsOnMap.Count; i++)
+        {
+            RunData.eventMap.Add(new Vector2Int(eventsX[i], eventsY[i]), eventsOnMap[i]);
+        }
     }
 
     void LoadNums()
@@ -113,8 +128,6 @@ public class SaveContainer
         RunData.currentHealth = currentHealth;
         RunData.playerWorldX = playerX;
         RunData.playerWorldY = playerY;
-        RunData.bossWorldX = bossX;
-        RunData.bossWorldY = bossY;
         RunData.worldSteps = steps;
         RunData.KeyStock = keyStock;
         RunData.RemoveStock = removeStock;
@@ -130,16 +143,14 @@ public class SaveContainer
     void LoadArrays()
     {
         RunData.worldMap = worldMap.Unflatten();
-        RunData.eventMap = eventMap.Unflatten();
     }
 
-    void LoadLists()
+    void LoadCollectibles()
     {
         loadLibrary.Initialize();
         RunData.playerDeck.deckContents = playerDeck.Select(x => loadLibrary.cards[x]).ToList();
         RunData.itemInventory = battleItems.Select(x => loadLibrary.items[x]).ToList();
         RunData.essenceInventory = essenceInventory.Select(x => loadLibrary.decks[x]).ToList();
-        RunData.worldEnemies = worldEnemiesX.Zip(worldEnemiesY, (x,y) => new Vector2Int ( x,y)).ToList();
     }
 
     void LoadDerived()

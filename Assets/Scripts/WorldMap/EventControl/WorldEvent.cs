@@ -26,7 +26,7 @@ public class WorldEvent : MonoBehaviour
     void RemoveEvent()
     {
         Vector2Int coords = MapTools.VectorToMap(transform.position);
-        runData.eventMap[coords[0], coords[1]] = null;
+        runData.eventMap.Remove(coords);
         gameObject.SetActive(false);
     }
 }
