@@ -2,10 +2,6 @@ using UnityEngine;
 
 public class BattleLauncher : MapLauncher
 {
-#nullable enable
-    public static string[,]? battleMap;
-#nullable disable
-
     public GameObject player;
     public SceneRelay sceneRelay;
     public RunData runData;

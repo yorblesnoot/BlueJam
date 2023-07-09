@@ -9,6 +9,8 @@ public class ClickedCard : UnityEvent<CardPlus, GameObject> { }
 
 public class RequestMapReferences : UnityEvent<MapLauncher> { }
 
+public class PlayerAtWorldLocation: UnityEvent<Vector2Int> { }
+
 public static class EventManager
 {
 
@@ -34,6 +36,7 @@ public static class EventManager
     public static UnityEvent awardItem = new();
     public static UnityEvent updateWorldHealth = new();
     public static UnityEvent prepareForBattle = new();
+    public static PlayerAtWorldLocation playerAtWorldLocation = new();
 
     //global events
 

@@ -10,6 +10,7 @@ public class WorldMapRenderer : MonoBehaviour
     public static Vector2Int spotlightGlobalOffset;
     public static Vector2Int spotlightLocalOffset;
     bool[,] windowShape;
+    Vector2Int lastRecordedPlayerLocalPosition;
 
     public void RenderInitialWorldWindow(string[,] worldMap, int windowRadius)
     {
@@ -17,7 +18,9 @@ public class WorldMapRenderer : MonoBehaviour
         windowShape = GenerateWindowShape(windowRadius);
 
         Vector2Int windowCenter = new(runData.playerWorldX, runData.playerWorldY);
-        RenderFromInitialWindow(windowShape, worldMap, windowCenter);
+        RenderFromFullWindow(windowShape, worldMap, windowCenter);
+
+        EventManager.playerAtWorldLocation.AddListener(ShiftWindow);
     }
 
     public bool[,] GenerateWindowShape(int windowRadius)
@@ -38,13 +41,13 @@ public class WorldMapRenderer : MonoBehaviour
         return circleContents;
     }
 
-    public void RenderFromInitialWindow(bool[,] localMap, string[,] globalMap, Vector2Int globalCenter)
+    public void RenderFromFullWindow(bool[,] localMap, string[,] globalMap, Vector2Int globalCenter)
     {
         //project a boolean grid onto a larger string grid, then render from the string grid based on the overlap
         int localSize = localMap.GetLength(0);
         spotlightLocalOffset = new(localSize / 2, localSize / 2);
         spotlightGlobalOffset = globalCenter - spotlightLocalOffset;
-
+        lastRecordedPlayerLocalPosition = spotlightLocalOffset;
         mapKey.Initialize();
         for (int x = 0; x < localSize; x++)
         {
@@ -114,8 +117,11 @@ public class WorldMapRenderer : MonoBehaviour
         }
     }
 
-    public void ShiftWindow(Vector2Int playerLocalPosition, Vector2Int displacement)
+    public void ShiftWindow(Vector2Int playerGlobalPosition)
     {
+        Vector2Int playerLocalPosition = playerGlobalPosition - spotlightGlobalOffset;
+        Vector2Int displacement = playerLocalPosition - lastRecordedPlayerLocalPosition;
+        lastRecordedPlayerLocalPosition = playerLocalPosition;
         int size = windowShape.GetLength(0);
         //get the negative and positive difference between the new window and the old window
         List<Vector2Int> positiveDifference = new();

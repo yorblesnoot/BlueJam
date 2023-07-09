@@ -11,6 +11,8 @@ public class DynamicEventPlacer
     readonly List<int> probabilities;
     RunData runData;
 
+    readonly int bossDistance = 10;
+
     readonly Dictionary<int, string> eventsAndOdds = new()
     {
         { 2, "i"}, //item
@@ -29,6 +31,7 @@ public class DynamicEventPlacer
             totalChance += item;
             probabilities.Add(item);
         }
+        EventManager.playerAtWorldLocation.AddListener(CheckToPopulateChunks);
     }
     public void CheckToPopulateChunks(Vector2Int globalPosition)
     {
@@ -101,8 +104,8 @@ public class DynamicEventPlacer
     public Vector2Int PlaceBoss()
     {
         Vector2 direction = UnityEngine.Random.insideUnitCircle.normalized;
-        direction *= 100;
-        Vector2Int intLocation = new(Mathf.RoundToInt(direction.x), Mathf.RoundToInt(direction.y));
+        direction *= bossDistance;
+        Vector2Int intLocation = new(Mathf.RoundToInt(direction.x) + runData.playerWorldX, Mathf.RoundToInt(direction.y) + runData.playerWorldY);
         runData.eventMap.Remove(intLocation);
         runData.eventMap.Add(intLocation,"b");
         return intLocation;

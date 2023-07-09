@@ -14,24 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
-  worldEnemies:
-  - {x: 0, y: 6}
-  - {x: 3, y: 5}
-  - {x: 3, y: 9}
-  - {x: 7, y: 0}
-  - {x: 0, y: 5}
-  - {x: 1, y: 3}
-  - {x: 8, y: 5}
-  - {x: 7, y: 1}
-  - {x: 5, y: 4}
-  playerWorldX: 6
-  playerWorldY: 5
-  bossWorldX: 8
-  bossWorldY: 8
+  playerWorldX: 165
+  playerWorldY: 166
   itemInventory: []
   essenceInventory: []
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
   RemoveStock: 0
-  worldSteps: 7
+  worldSteps: 13
   currentHealth: 100

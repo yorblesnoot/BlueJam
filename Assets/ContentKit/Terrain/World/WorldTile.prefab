@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e81d8d46340cd8e4da437522fbaf6e15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitPosition: {x: 0, y: 0, z: 0}
   mySelector: {fileID: 6248393279998555506}
-  eventHandler: {fileID: 1284691866914449898}
+  myEventHandler: {fileID: 1284691866914449898}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
+  unitPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &8538304405607322379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -82,7 +82,6 @@ MonoBehaviour:
   sceneRelay: {fileID: 11400000, guid: 560180093c409b041b59db9d69699861, type: 2}
   enemyEvents: []
   cellEvent: {fileID: 0}
-  runningEvents: 0
 --- !u!1001 &6475996535825401225
 PrefabInstance:
   m_ObjectHideFlags: 0

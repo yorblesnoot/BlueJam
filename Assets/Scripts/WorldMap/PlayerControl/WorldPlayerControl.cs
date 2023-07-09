@@ -15,10 +15,7 @@ public class WorldPlayerControl : MonoBehaviour
     [SerializeField] GameObject fogRing;
     [SerializeField] Camera mainCamera;
     [SerializeField] WorldMapRenderer worldRenderer;
-    [SerializeField] WorldCompass compass;
-    DynamicEventPlacer dynamicEventPlacer;
-
-    [SerializeField] Vector2Int worldBossLocation;
+    public CompassMaster compassMaster;
 
     [SerializeField] public static GameObject player;
 
@@ -30,49 +27,41 @@ public class WorldPlayerControl : MonoBehaviour
         worldMapCoords -= WorldMapRenderer.spotlightGlobalOffset;
         Vector3 myPosition = MapTools.MapToVector(worldMapCoords, WorldMovementController.heightAdjust);
         gameObject.transform.position = myPosition;
-
         fogRing.transform.SetParent(null);
-        dynamicEventPlacer = new(runData);
-        dynamicEventPlacer.CheckToPopulateChunks(MapTools.VectorToMap(transform.position) + WorldMapRenderer.spotlightGlobalOffset);
-        worldBossLocation = runData.eventMap.FirstOrDefault(x => x.Value == "b").Key;
+        compassMaster.transform.SetParent(null);
     }
 
     public IEnumerator ChainPath(List<GameObject> path)
     {
         foreach (GameObject tile in path)
         {
-            Vector2Int oldCoords = MapTools.VectorToMap(gameObject.transform.position);
             WorldMovementController tileController = tile.GetComponent<WorldMovementController>();
             transform.LookAt(tileController.unitPosition);
             Vector3 displacement = tileController.unitPosition - transform.position;
             Vector3 cameraDestination = displacement + mainCamera.transform.position;
-            Vector3 fogDestination = displacement + fogRing.transform.position;
 
-            while (transform.position != tileController.unitPosition)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, tileController.unitPosition, .05f);
-                mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, cameraDestination, .05f);
-                fogRing.transform.position = Vector3.MoveTowards(fogRing.transform.position, fogDestination, .05f);
-                yield return new WaitForSeconds(.02f);
-            }
             //modify player's world position and run difficulty in run data
             Vector2Int newCoords = MapTools.VectorToMap(tile.transform.position);
 
-            Vector2Int globalCoords = newCoords+WorldMapRenderer.spotlightGlobalOffset;
+            Vector2Int globalCoords = newCoords + WorldMapRenderer.spotlightGlobalOffset;
 
             runData.playerWorldX = globalCoords.x;
             runData.playerWorldY = globalCoords.y;
             runData.worldSteps++;
 
-            //draw new tiles
-            worldRenderer.ShiftWindow(newCoords, newCoords - oldCoords);
+            EventManager.playerAtWorldLocation.Invoke(globalCoords);
 
-            //check if we need to generate more world events
-            dynamicEventPlacer.CheckToPopulateChunks(globalCoords);
+            while (transform.position != tileController.unitPosition)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, tileController.unitPosition, .05f);
+                mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, cameraDestination, .05f);
+                fogRing.transform.position = Vector3.MoveTowards(fogRing.transform.position, tileController.unitPosition, .05f);
+                yield return new WaitForSeconds(.02f);
+            }
+            
 
-            compass.PointAtWorldCoordinates(worldBossLocation, transform.position);
 
-            yield return StartCoroutine(tileController.eventHandler.TriggerWorldEvents());
+            yield return StartCoroutine(tileController.myEventHandler.TriggerWorldEvents());
         }
         playerState = WorldPlayerState.IDLE;
     }

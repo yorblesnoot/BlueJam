@@ -19,8 +19,7 @@ public class BattleTileController : MonoBehaviour
 
     public enum SpawnPermission { NONE, PLAYER, ENEMY, OBJECT}
     public SpawnPermission spawns;
-
-    float heightAdjust = .4f;
+    readonly float heightAdjust = .4f;
 
     CardPlus loadedCard;
 
