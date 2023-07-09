@@ -13,22 +13,8 @@ public class WorldLauncher : MapLauncher
     {
         //set variables
         worldMap = runData.worldMap;
-        if (worldMap == null)
-        {
-            int defaultWorldSize = 10;
-            worldMap = new string[defaultWorldSize, defaultWorldSize];
-            for(int x = 0; x < defaultWorldSize; x++)
-            {
-                for(int y = 0; y < defaultWorldSize; y++)
-                {
-                    worldMap[x, y] = "w";
-                }
-            }
-        }
-        else
-        {
-            new SaveContainer(runData).SaveGame();
-        }
+        new DynamicEventPlacer(runData).CheckToPopulateChunks(MapTools.playerLocation + WorldMapRenderer.spotlightGlobalOffset);
+        new SaveContainer(runData).SaveGame();
         mapRenderer.RenderInitialWorldWindow(worldMap, 4);
 
         EventManager.updateWorldCounters.Invoke();

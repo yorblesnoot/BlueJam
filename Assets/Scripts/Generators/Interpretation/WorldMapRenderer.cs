@@ -59,15 +59,8 @@ public class WorldMapRenderer : MonoBehaviour
                 if (localMap[x, y] == true)
                 {
                     Vector2Int globalPosition = new Vector2Int(x, y) + spotlightGlobalOffset;
-                    try
-                    {
-                        windowMap[x, y] = globalMap[globalPosition.x, globalPosition.y];
-                    }
-                    catch
-                    {
-                        Debug.Log(globalPosition);
-                        Debug.Log($"{x} + {y}");
-                    }
+                    windowMap[x, y] = globalMap[globalPosition.x, globalPosition.y];
+
                 }
                 else windowMap[x, y] = "x";
             }
@@ -100,9 +93,10 @@ public class WorldMapRenderer : MonoBehaviour
         }
         else
         {
-            GameObject output = Instantiate(mapKey.hashKey[tileKey], MapTools.MapToVector(x, y, 0), Quaternion.identity);
-            MapTools.gameMap.Add(cellCoords, output);
-            eventRenderer.RenderCellEvent(new Vector2Int(x, y), spotlightGlobalOffset);
+            GameObject tile = Instantiate(mapKey.hashKey[tileKey], MapTools.MapToVector(x, y, 0), Quaternion.identity);
+            MapTools.gameMap.Add(cellCoords, tile);
+            GameObject renderedEvent = eventRenderer.RenderCellEvent(new Vector2Int(x, y), spotlightGlobalOffset);
+            if(renderedEvent != null) renderedEvent.transform.SetParent(tile.transform);
             StartCoroutine(StaggeredMoveIn(MapTools.gameMap[cellCoords], -5f, 0f));
         }
     }

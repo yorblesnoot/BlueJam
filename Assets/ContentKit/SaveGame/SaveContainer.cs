@@ -29,6 +29,7 @@ public class SaveContainer
     public List<string> eventsOnMap;
     public List<int> eventsX;
     public List<int> eventsY;
+    public List<bool> chunks;
 
     public int currentHealth;
     public int playerX;
@@ -86,10 +87,14 @@ public class SaveContainer
     void SaveArrays()
     {
         worldMap = RunData.worldMap.Flatten();
+        chunks = RunData.exploredChunks.Flatten();
     }
 
     void SaveEvents()
     {
+        eventsX = new();
+        eventsY = new();
+        eventsOnMap = new();
         foreach(Vector2Int location in RunData.eventMap.Keys)
         {
             eventsX.Add(location.x);
@@ -143,6 +148,7 @@ public class SaveContainer
     void LoadArrays()
     {
         RunData.worldMap = worldMap.Unflatten();
+        RunData.exploredChunks = chunks.Unflatten();
     }
 
     void LoadCollectibles()

@@ -13,7 +13,7 @@ public class WorldEventRenderer : MonoBehaviour
     [SerializeField] RunData runData;
 
     readonly float eventHeight = .7f;
-    public void RenderCellEvent(Vector2Int localCoordinates, Vector2Int offset)
+    public GameObject RenderCellEvent(Vector2Int localCoordinates, Vector2Int offset)
     {
         Vector2Int globalCoordinates = localCoordinates + offset;
         Dictionary<string,GameObject> eventTable = new()
@@ -22,9 +22,9 @@ public class WorldEventRenderer : MonoBehaviour
             { "i", item },
             { "h", heal },
             { "b", bossEnemy }};
-        if (!runData.eventMap.ContainsKey(globalCoordinates)) return;
+        if (!runData.eventMap.ContainsKey(globalCoordinates)) return null;
         string cellKey = runData.eventMap[globalCoordinates];
         Vector3 spawnLocation = MapTools.MapToVector(localCoordinates.x, localCoordinates.y, eventHeight);
-        Instantiate(eventTable[cellKey], spawnLocation, Quaternion.identity);
+        return Instantiate(eventTable[cellKey], spawnLocation, Quaternion.identity);
     }
 }

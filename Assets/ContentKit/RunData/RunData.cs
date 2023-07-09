@@ -10,6 +10,7 @@ public class RunData : ScriptableObject
     public Deck playerDeck;
     [HideInInspector] public string[,] worldMap;
     [HideInInspector] public Dictionary<Vector2Int, string> eventMap;
+    [HideInInspector] public bool[,] exploredChunks;
 
     public int playerWorldX;
     public int playerWorldY;
@@ -23,7 +24,7 @@ public class RunData : ScriptableObject
     public int RemoveStock;
     
     public int worldSteps;
-    public int runDifficulty { get { return worldSteps / 5; } }
+    public int runDifficulty { get { return worldSteps / 20; } }
 
     public int currentHealth;
 }

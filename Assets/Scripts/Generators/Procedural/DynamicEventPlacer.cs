@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class DynamicEventPlacer
 {
-    readonly int chunkSize = 10;
-    bool[,] chunkMap;
+    readonly public static int chunkSize = 10;
     Vector2Int currentChunk;
     readonly string[,] worldMap;
     readonly int totalChance;
@@ -19,14 +18,12 @@ public class DynamicEventPlacer
         { 4, "r" }, //removal
         { 6, "h" }, //heal
         { 12, "e" }, //enemy
-        { 100, "" }, //nothing
+        { 200, "" }, //nothing
     };
     public DynamicEventPlacer(RunData data)
     {
         runData = data;
         worldMap = data.worldMap;
-        int chunksInLength = worldMap.GetLength(0) / chunkSize;
-        chunkMap = new bool[chunksInLength, chunksInLength];
         totalChance = 0;
         probabilities = new();
         foreach (var item in eventsAndOdds.Keys)
@@ -50,10 +47,10 @@ public class DynamicEventPlacer
         List<Vector2Int> neighbors = chunkLocation.GetSurroundingCoordinates();
         foreach(Vector2Int neighbor in neighbors)
         {
-            bool? chunk = chunkMap.Safe2DFind(neighbor.x, neighbor.y);
+            bool? chunk = runData.exploredChunks.Safe2DFind(neighbor.x, neighbor.y);
             if (chunk != false) continue;
             PopulateChunk(neighbor);
-            chunkMap[neighbor.x, neighbor.y] = true;
+            runData.exploredChunks[neighbor.x, neighbor.y] = true;
         }
     }
 
@@ -65,7 +62,7 @@ public class DynamicEventPlacer
             string output = RandomEvent(eventsAndOdds, totalChance);
             if (!string.IsNullOrEmpty(output))
             {
-                Debug.Log($"adding event {output} at {validSpot} in chunk {chunk}");
+                //Debug.Log($"adding event {output} at {validSpot} in chunk {chunk}");
                 runData.eventMap.Add(validSpot, output);
                 
             }
