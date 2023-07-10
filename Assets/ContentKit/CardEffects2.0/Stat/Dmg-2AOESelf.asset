@@ -15,7 +15,7 @@ MonoBehaviour:
   forceTargetSelf: 1
   effectClass: 0
   vfxStyleSelf: 0
-  vfxNameSelf: none
+  vfxNameSelf: RedLoopDown
   vfxStyleTarget: 0
   vfxNameTarget: none
   scalingMultiplier: -2
@@ -23,6 +23,5 @@ MonoBehaviour:
   aoeSize: 1
   aoeGap: 1
   userOriginalTile: {fileID: 0}
-  doneExecuting: 1
   blockTrigger: 0
   entityStat: 4

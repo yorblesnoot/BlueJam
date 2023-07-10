@@ -13,9 +13,13 @@ MonoBehaviour:
   m_Name: WorldParameters
   m_EditorClassIdentifier: 
   mapSize: 500
-  noiseFrequency: 2.25
+  noiseFrequency: 1.5
   symbolThresholds:
-  - d
+  - u
+  - w
   - w
   - f
+  - d
+  - t
+  - m
   - m

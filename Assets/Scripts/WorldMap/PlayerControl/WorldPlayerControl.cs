@@ -12,14 +12,16 @@ public class WorldPlayerControl : MonoBehaviour
     [SerializeField] GameObject fogRing;
     [SerializeField] Camera mainCamera;
     [SerializeField] WorldMapRenderer worldRenderer;
+    [SerializeField] UnitAnimator unitAnimator;
     public CompassMaster compassMaster;
     public static WorldPlayerControl player;
 
     public static List<string> badTiles;
+    readonly int tileDamage = 2;
     public void InitializePlayer()
     {
         player = this;
-        badTiles = new() {"w", "d"};
+        badTiles = new() {"w", "u"};
         playerState = WorldPlayerState.IDLE;
         Vector2Int worldMapCoords = new(runData.playerWorldX, runData.playerWorldY);
         worldMapCoords -= WorldMapRenderer.spotlightGlobalOffset;
@@ -55,6 +57,14 @@ public class WorldPlayerControl : MonoBehaviour
                 mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, cameraDestination, .05f);
                 fogRing.transform.position = Vector3.MoveTowards(fogRing.transform.position, tileController.unitPosition, .05f);
                 yield return new WaitForSeconds(.02f);
+            }
+            if(tileController.dangerTile == true)
+            {
+                runData.currentHealth -= tileDamage;
+                EventManager.updateWorldHealth.Invoke();
+                VFXMachine.PlayAtLocation("DescendingVibes", transform.position);
+                unitAnimator.Animate(AnimType.DAMAGED);
+                yield return new WaitForSeconds(.4f);
             }
             yield return StartCoroutine(tileController.myEventHandler.TriggerWorldEvents());
         }

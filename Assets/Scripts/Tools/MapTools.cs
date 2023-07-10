@@ -39,13 +39,8 @@ public static class MapTools
 
     public static GameObject MapToTile(Vector2Int coords)
     {
-        try
-        {
-            GameObject tile = gameMap[coords];
-            if(!tile.activeSelf) return null;
-            return tile;
-        }
-        catch { return null; }
+        GameObject tile = gameMap[coords];
+        return tile;
     }
 
     public static void ReportPositionChange(BattleUnit actor, BattleTileController newTile)

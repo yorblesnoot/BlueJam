@@ -3,7 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Pathfinder 
 {
@@ -26,13 +25,11 @@ public class Pathfinder
     {
         foreach (Vector2Int localKey in MapTools.gameMap.Keys)
         {
-            Vector2Int key = localKey + globalOffset;
-            bool isBlocked = false;   
-            if (badTiles.Contains(worldMap[key.x,key.y]))
-            {
-                isBlocked = true;
-            }
-            nodeMap.Add(localKey, new Node { location = localKey, reference = MapTools.gameMap[localKey], blocked = isBlocked });
+            Vector2Int globalKey = localKey + globalOffset;
+            int penalty = 0;
+            if (badTiles.Contains(worldMap[globalKey.x,globalKey.y]))
+                penalty++;
+            nodeMap.Add(localKey, new Node { location = localKey, reference = MapTools.gameMap[localKey], blocked = false, P = penalty });
         }
     }
     public List<GameObject> FindObjectPath(Vector2Int start, Vector2Int end)
@@ -126,12 +123,13 @@ public class Pathfinder
     }
 }
 
-public class Node
+class Node
 {
     public int G;
     public int H;
 
-    public int F { get { return G + H; } }
+    public int P;
+    public int F { get { return G + H + P; } }
 
     //consider switching to vector3
     public Vector2Int location;

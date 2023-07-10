@@ -23,7 +23,6 @@ MonoBehaviour:
   aoeSize: 0
   aoeGap: 0
   userOriginalTile: {fileID: 0}
-  doneExecuting: 1
   blockTrigger: 0
   purgeable: 0
   duration: 1000
@@ -31,4 +30,4 @@ MonoBehaviour:
   triggeringEffect: {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
   triggersRequiredForActivation: 1
   effectRecipient: 0
-  triggeredEffect: {fileID: 11400000, guid: 28e3e3d4988f62b4eaf92c6371cc8b5a, type: 2}
+  triggeredEffect: {fileID: 11400000, guid: ad352c4f04455674ca61014e0802281e, type: 2}

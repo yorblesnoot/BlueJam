@@ -4,7 +4,6 @@ using UnityEngine.EventSystems;
 
 public class WorldMovementController : MonoBehaviour
 {
-
     [SerializeField] CellHighlight mySelector;
     public WorldEventHandler myEventHandler;
 
@@ -14,14 +13,14 @@ public class WorldMovementController : MonoBehaviour
 
     public static readonly float heightAdjust = .5f;
     public Vector3 unitPosition;
-    Vector2Int localCoords;
-    bool dangerTile;
+    
+    public bool dangerTile;
 
     void Awake()
     {
         Vector3 myPosition = gameObject.transform.position;
         unitPosition = new Vector3(myPosition.x, myPosition.y + heightAdjust, myPosition.z);
-        localCoords = MapTools.VectorToMap(myPosition);
+        Vector2Int localCoords = MapTools.VectorToMap(myPosition);
         EventManager.clearWorldDestination.AddListener(ClearHighlight);
         EventManager.requestMapReferences.AddListener(launcher => { launcher.SubmitMapReference(gameObject); });
         Vector2Int globalCoords = localCoords + WorldMapRenderer.spotlightGlobalOffset;
@@ -46,15 +45,7 @@ public class WorldMovementController : MonoBehaviour
     private void OnMouseEnter()
     {
         if (WorldPlayerControl.playerState != WorldPlayerState.IDLE || EventSystem.current.IsPointerOverGameObject()) return;
-
-        
-        Pathfinder pather;
-        if (dangerTile || MapTools.VectorToTile(WorldPlayerControl.player.gameObject.transform.position).GetComponent<WorldMovementController>().dangerTile)
-        {
-            pather = new();
-        }
-        else pather = new(runData.worldMap, WorldPlayerControl.badTiles, WorldMapRenderer.spotlightGlobalOffset);
-
+        Pathfinder pather = new(runData.worldMap, WorldPlayerControl.badTiles, WorldMapRenderer.spotlightGlobalOffset);
         myPath = pather.FindObjectPath(MapTools.VectorToMap(WorldPlayerControl.player.transform.position), MapTools.VectorToMap(unitPosition));
         if (myPath != null)
             foreach (GameObject cell in myPath)

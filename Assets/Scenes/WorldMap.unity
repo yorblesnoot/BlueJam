@@ -4439,7 +4439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -596.00006, y: 207}
+  m_AnchoredPosition: {x: -596, y: 207}
   m_SizeDelta: {x: -1216, y: -588}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &506452294
@@ -20382,6 +20382,7 @@ GameObject:
   - component: {fileID: 1773061056}
   - component: {fileID: 1773061057}
   - component: {fileID: 1773061058}
+  - component: {fileID: 1773061059}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -20423,6 +20424,7 @@ MonoBehaviour:
   fogRing: {fileID: 847594244}
   mainCamera: {fileID: 905900237}
   worldRenderer: {fileID: 835403972}
+  unitAnimator: {fileID: 1773061059}
   compassMaster: {fileID: 2070254544}
 --- !u!114 &1773061058
 MonoBehaviour:
@@ -20437,6 +20439,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
+--- !u!114 &1773061059
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1773061052}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 331d2488dd0020b44ae7c5843e8cfe77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1790379826 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6221452704444179718, guid: b678fc027cca7974b94bfd1819149153, type: 3}

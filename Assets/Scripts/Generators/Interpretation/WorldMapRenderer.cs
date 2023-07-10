@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class WorldMapRenderer : MonoBehaviour
@@ -99,7 +100,7 @@ public class WorldMapRenderer : MonoBehaviour
         }
         else
         {
-            GameObject tile = Instantiate(mapKey.hashKey[tileKey], MapTools.MapToVector(cellCoords, 0), Quaternion.identity);
+            GameObject tile = Instantiate(mapKey.hashKey[tileKey], MapTools.MapToVector(cellCoords, 0), RandomRotate());
             MapTools.gameMap.Add(cellCoords, tile);
             GameObject renderedEvent = eventRenderer.RenderCellEvent(cellCoords, spotlightGlobalOffset);
             if(renderedEvent != null) renderedEvent.transform.SetParent(tile.transform);
@@ -107,8 +108,16 @@ public class WorldMapRenderer : MonoBehaviour
         }
     }
 
+    Quaternion RandomRotate()
+    {
+        int random = Random.Range(1, 4);
+        Quaternion rot = Quaternion.Euler(0, random*90, 0);
+        return rot;
+    }
+
     IEnumerator StaggeredMoveIn(GameObject riser, float startElevation, float endElevation)
     {
+        if (riser == null) yield break;
         //figure out where to put the object at the start
         Vector3 startPosition = riser.transform.position;
         startPosition.y = startElevation;
@@ -121,7 +130,7 @@ public class WorldMapRenderer : MonoBehaviour
         //get the distance to move
         float distance = Mathf.Abs(endElevation - startElevation);
         //use a random final travel time and figure out how many steps to take to arrive at the final destination
-        float travelTime = Random.Range(.2f, .4f);
+        float travelTime = Random.Range(.2f, .35f);
         float stepDelay = .01f;
         int steps = Mathf.RoundToInt(travelTime / stepDelay);
         float stepSize = distance / steps;
@@ -139,6 +148,7 @@ public class WorldMapRenderer : MonoBehaviour
             GameObject toUnrender = MapTools.MapToTile(coords);
             disabledMap.Add(coords, toUnrender);
             MapTools.gameMap.Remove(coords);
+            if (!toUnrender.activeSelf) yield break;
             yield return StartCoroutine(StaggeredMoveIn(toUnrender, 0f, -5f));
             if(toUnrender != null) toUnrender.SetActive(false);
         }
