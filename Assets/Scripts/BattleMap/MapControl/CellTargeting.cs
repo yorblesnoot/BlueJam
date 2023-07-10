@@ -131,20 +131,17 @@ public static class CellTargeting
     {
         List<GameObject> checkCells = ConvertMapRuleToTiles(aoeRule, tile.transform.position);
         List<BattleUnit> aoeTargets = new();
-        if (checkCells.Count > 0)
+        if (checkCells.Count == 0) return aoeTargets;
+        for (int i = 0; i < checkCells.Count; i++)
         {
-            for (int i = 0; i < checkCells.Count; i++)
+            BattleTileController tileController = checkCells[i].GetComponent<BattleTileController>();
+            if (TileIsValidTarget(tileController, tSource, cardClass))
             {
-                BattleTileController tileController = checkCells[i].GetComponent<BattleTileController>();
-                if (TileIsValidTarget(tileController, tSource, cardClass))
-                {
-                    BattleUnit cellContents = tileController.unitContents;
-                    if(cellContents != null) aoeTargets.Add(cellContents);
-                }
+                BattleUnit cellContents = tileController.unitContents;
+                if(cellContents != null) aoeTargets.Add(cellContents);
             }
-            return aoeTargets;
         }
-        else return null;
+        return aoeTargets;
     }
 
     public static bool[,] CombineAOEIndicators(List<bool[,]> indicators)

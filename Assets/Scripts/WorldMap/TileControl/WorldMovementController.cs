@@ -9,20 +9,26 @@ public class WorldMovementController : MonoBehaviour
     public WorldEventHandler myEventHandler;
 
     [SerializeField] RunData runData;
-    WorldPlayerControl player;
 
     List<GameObject> myPath;
 
     public static readonly float heightAdjust = .5f;
     public Vector3 unitPosition;
+    Vector2Int localCoords;
+    bool dangerTile;
 
     void Awake()
     {
-        player = GameObject.FindWithTag("Player").GetComponent<WorldPlayerControl>();
         Vector3 myPosition = gameObject.transform.position;
         unitPosition = new Vector3(myPosition.x, myPosition.y + heightAdjust, myPosition.z);
+        localCoords = MapTools.VectorToMap(myPosition);
         EventManager.clearWorldDestination.AddListener(ClearHighlight);
         EventManager.requestMapReferences.AddListener(launcher => { launcher.SubmitMapReference(gameObject); });
+        Vector2Int globalCoords = localCoords + WorldMapRenderer.spotlightGlobalOffset;
+        if (WorldPlayerControl.badTiles.Contains(runData.worldMap[globalCoords.x, globalCoords.y]))
+        {
+            dangerTile = true;
+        }
     }
 
     public void OnMouseDown()
@@ -30,7 +36,7 @@ public class WorldMovementController : MonoBehaviour
         if (WorldPlayerControl.playerState == WorldPlayerState.IDLE && myPath != null && !EventSystem.current.IsPointerOverGameObject())
         {
             //move the player to the cell
-            StartCoroutine(player.ChainPath(myPath));
+            StartCoroutine(WorldPlayerControl.player.ChainPath(myPath));
 
             //deactivate pathfinding displays
             EventManager.clearWorldDestination?.Invoke();
@@ -40,19 +46,33 @@ public class WorldMovementController : MonoBehaviour
     private void OnMouseEnter()
     {
         if (WorldPlayerControl.playerState != WorldPlayerState.IDLE || EventSystem.current.IsPointerOverGameObject()) return;
-        Pathfinder pather = new();
+
+        
+        Pathfinder pather;
+        if (dangerTile || MapTools.VectorToTile(WorldPlayerControl.player.gameObject.transform.position).GetComponent<WorldMovementController>().dangerTile)
+        {
+            pather = new();
+        }
+        else pather = new(runData.worldMap, WorldPlayerControl.badTiles, WorldMapRenderer.spotlightGlobalOffset);
+
         myPath = pather.FindObjectPath(MapTools.VectorToMap(WorldPlayerControl.player.transform.position), MapTools.VectorToMap(unitPosition));
         if (myPath != null)
             foreach (GameObject cell in myPath)
-                cell.GetComponent<WorldMovementController>().HighlightCell();
+                cell.GetComponent<WorldMovementController>().HighlightRoute();
     }
     private void OnMouseExit()
     {
         EventManager.clearWorldDestination.Invoke();
         myPath = null;
     }
-
+    public void HighlightRoute()
+    {
+        if (dangerTile)
+        {
+            mySelector.ChangeHighlightMode(HighlightMode.ILLEGAL);
+        }
+        else
+            mySelector.ChangeHighlightMode(HighlightMode.AOE);
+    }
     public void ClearHighlight() { mySelector.ChangeHighlightMode(HighlightMode.OFF); }
-
-    public void HighlightCell() { mySelector.ChangeHighlightMode(HighlightMode.AOE); }
 }

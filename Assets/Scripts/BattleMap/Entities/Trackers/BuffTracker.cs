@@ -39,12 +39,11 @@ public class BuffTracker : MonoBehaviour
         for (int i = 0; i < buffs.Count; i++)
         {
             buffs[i].remainingDuration--;
-            buffs[i]?.lapseEffect.Execute(buffs[i].owner, myTile);
+            StartCoroutine(buffs[i]?.lapseEffect.Execute(buffs[i].owner, myTile));
             if (buffs[i].remainingDuration <= 0)
             {
                 //remove the buff in question
-                try { buffs[i].endEffect.Execute(buffs[i].owner, myTile); }
-                catch { }
+                StartCoroutine(buffs[i].endEffect?.Execute(buffs[i].owner, myTile)); 
                 buffs.RemoveAt(i);
             }
         }

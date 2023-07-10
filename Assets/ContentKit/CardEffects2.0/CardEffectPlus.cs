@@ -23,7 +23,6 @@ public class CardEffectPlus : ScriptableObject
     [HideInInspector] public bool[,] aoe;
 
     [HideInInspector] public BattleTileController userOriginalTile;
-    [HideInInspector] public bool doneExecuting = true;
 
     public bool blockTrigger;
 
@@ -32,11 +31,13 @@ public class CardEffectPlus : ScriptableObject
         aoe = MapRulesGenerator.Convert(aoeShape, aoeSize, aoeGap);
     }
 
-    public void Execute(BattleUnit actor, BattleTileController targetCell)
+    public IEnumerator Execute(BattleUnit actor, BattleTileController targetCell)
     {
         List<BattleUnit> targets = AcquireTargets(actor, targetCell, aoe);
 
-        ActivateEffect(actor, targetCell, aoe, targets);
+        VFXMachine.PlayVFX(vfxNameSelf, vfxStyleSelf, actor, MapTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>());
+        yield return actor.StartCoroutine(ActivateEffect(actor, targetCell, aoe, targets));
+        VFXMachine.PlayVFX(vfxNameTarget, vfxStyleTarget, actor, targetCell);
 
         if (targets.Count > 0) foreach(BattleUnit target in targets) EventManager.checkForTriggers.Invoke(this, actor, target);
         else EventManager.checkForTriggers.Invoke(this, actor, null);
@@ -48,7 +49,7 @@ public class CardEffectPlus : ScriptableObject
         return CellTargeting.AreaTargets(targetCell.gameObject, actor.gameObject.tag, effectClass, aoe);
     }
 
-    public virtual void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null) { }
+    public virtual IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null) { yield return null; }
 
     public virtual string GenerateDescription(IPlayerStats player)
     {

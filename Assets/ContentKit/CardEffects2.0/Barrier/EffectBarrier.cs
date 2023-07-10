@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +23,7 @@ public class EffectBarrier : CardEffectPlus
     {
         return $"{barrierNames[barrierType]} for <color=#1ED5FA>{player.barrierScaling * scalingMultiplier}</color>";
     }
-    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
+    public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
         foreach (BattleUnit targetUnit in targets)
         {
@@ -31,5 +32,6 @@ public class EffectBarrier : CardEffectPlus
             if (barrierType == BarrierType.DEFLECT) barrierTracker.AddDeflect(barrier);
             else if (barrierType == BarrierType.SHIELD) barrierTracker.AddShield(barrier);
         }
+        yield return null;
     }
 }

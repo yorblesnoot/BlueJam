@@ -6,16 +6,16 @@ public class WorldLauncher : MapLauncher
     [SerializeField] WorldMapRenderer mapRenderer;
     [SerializeField] WorldPlayerControl playerControl;
 
-    readonly int windowSize = 4;
     private void Awake() 
     {
-        mapRenderer.RenderInitialWorldWindow(runData.worldMap, windowSize);
-
+        mapRenderer.Initialize();
         playerControl.InitializePlayer();
 
         DynamicEventPlacer placer = new(runData);
         placer.CheckToPopulateChunks(MapTools.VectorToMap(WorldPlayerControl.player.transform.position) + WorldMapRenderer.spotlightGlobalOffset);
         placer.PlaceBoss();
+
+        mapRenderer.RenderFullWindow(runData.worldMap);
 
         playerControl.compassMaster.DeployCompass("b", Color.red);
 

@@ -21,6 +21,20 @@ public class Pathfinder
             nodeMap.Add(key, new Node { location = key, reference = MapTools.gameMap[key], blocked = isBlocked });
         }
     }
+
+    public Pathfinder(string[,] worldMap, List<string> badTiles, Vector2Int globalOffset)
+    {
+        foreach (Vector2Int localKey in MapTools.gameMap.Keys)
+        {
+            Vector2Int key = localKey + globalOffset;
+            bool isBlocked = false;   
+            if (badTiles.Contains(worldMap[key.x,key.y]))
+            {
+                isBlocked = true;
+            }
+            nodeMap.Add(localKey, new Node { location = localKey, reference = MapTools.gameMap[localKey], blocked = isBlocked });
+        }
+    }
     public List<GameObject> FindObjectPath(Vector2Int start, Vector2Int end)
     {
         List<Node> path = FindPath(nodeMap[start], nodeMap[end]);

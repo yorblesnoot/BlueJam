@@ -9,18 +9,27 @@ public class WorldMapRenderer : MonoBehaviour
     [SerializeField] RunData runData;
     public static Vector2Int spotlightGlobalOffset;
     public static Vector2Int spotlightLocalOffset;
-    bool[,] windowShape;
+    
     Vector2Int lastRecordedPlayerLocalPosition;
+    readonly int windowRadius = 4;
+    static bool[,] windowShape;
 
-    public void RenderInitialWorldWindow(string[,] worldMap, int windowRadius)
+    Dictionary<Vector2Int, GameObject> disabledMap = new();
+
+    public void Initialize()
     {
         MapTools.gameMap = new();
         windowShape = GenerateWindowShape(windowRadius);
-
-        Vector2Int windowCenter = new(runData.playerWorldX, runData.playerWorldY);
-        RenderFromFullWindow(windowShape, worldMap, windowCenter);
-
+        SetKeyParameters(windowShape);
         EventManager.playerAtWorldLocation.AddListener(ShiftWindow);
+    }
+
+    public void SetKeyParameters(bool[,] windowShape)
+    {
+        int windowSize = windowShape.GetLength(0);
+        spotlightLocalOffset = new(windowSize / 2, windowSize / 2);
+        lastRecordedPlayerLocalPosition = spotlightLocalOffset;
+        spotlightGlobalOffset = new Vector2Int(runData.playerWorldX, runData.playerWorldY) - spotlightLocalOffset;
     }
 
     public bool[,] GenerateWindowShape(int windowRadius)
@@ -41,25 +50,39 @@ public class WorldMapRenderer : MonoBehaviour
         return circleContents;
     }
 
-    public void RenderFromFullWindow(bool[,] localMap, string[,] globalMap, Vector2Int globalCenter)
+    public static string[,] GetLocalMapFromWindow(string[,] globalMap)
     {
+        //project a boolean grid onto a larger string grid
+        int localSize = windowShape.GetLength(0);
+        string[,] localMap = new string[localSize,localSize];
+        for (int x = 0; x < localSize; x++)
+        {
+            for (int y = 0; y < localSize; y++)
+            {
+                if (windowShape[x, y] == true)
+                {
+                    Vector2Int localPosition = new(x, y);
+                    Vector2Int globalPosition = localPosition + spotlightGlobalOffset;
+                    localMap[x,y] = globalMap[globalPosition.x, globalPosition.y];
+                }
+            }
+        }
+        return localMap;
+    }
+
+    public void RenderFullWindow(string[,] globalMap)
+    {
+        string[,] localMap = GetLocalMapFromWindow(globalMap);
         //project a boolean grid onto a larger string grid, then render from the string grid based on the overlap
         int localSize = localMap.GetLength(0);
-        spotlightLocalOffset = new(localSize / 2, localSize / 2);
-        spotlightGlobalOffset = globalCenter - spotlightLocalOffset;
-        lastRecordedPlayerLocalPosition = spotlightLocalOffset;
         mapKey.Initialize();
         for (int x = 0; x < localSize; x++)
         {
             for (int y = 0; y < localSize; y++)
-            {  
-                if (localMap[x, y] == true)
-                {
-                    Vector2Int localPosition = new(x, y);
-                    Vector2Int globalPosition = localPosition + spotlightGlobalOffset;
-                    string tileKey = globalMap[globalPosition.x, globalPosition.y];
-                    RenderCell(tileKey, localPosition);
-                }
+            {
+                string tileKey = localMap[x, y];
+                if (tileKey == null) continue;
+                RenderCell(tileKey, new Vector2Int(x,y));
             }
         }
     }
@@ -67,10 +90,12 @@ public class WorldMapRenderer : MonoBehaviour
     void RenderCell(string tileKey, Vector2Int cellCoords)
     {
         //check if we have previously rendered the cell, if yes re-enable it otherwise create it and associated events
-        if (MapTools.gameMap.ContainsKey(cellCoords))
+        if (disabledMap.ContainsKey(cellCoords))
         {
-            MapTools.gameMap[cellCoords].SetActive(true);
-            StartCoroutine(StaggeredMoveIn(MapTools.gameMap[cellCoords], -5f, 0f));
+            disabledMap[cellCoords].SetActive(true);  
+            StartCoroutine(StaggeredMoveIn(disabledMap[cellCoords], -5f, 0f));
+            MapTools.gameMap.Add(cellCoords, disabledMap[cellCoords]);
+            disabledMap.Remove(cellCoords);
         }
         else
         {
@@ -109,11 +134,13 @@ public class WorldMapRenderer : MonoBehaviour
 
     IEnumerator UnrenderCell(Vector2Int coords)
     {
-        GameObject toUnrender = MapTools.MapToTile(coords);
-        if (toUnrender != null)
+        if (!disabledMap.ContainsKey(coords))
         {
+            GameObject toUnrender = MapTools.MapToTile(coords);
+            disabledMap.Add(coords, toUnrender);
+            MapTools.gameMap.Remove(coords);
             yield return StartCoroutine(StaggeredMoveIn(toUnrender, 0f, -5f));
-            toUnrender.SetActive(false);
+            if(toUnrender != null) toUnrender.SetActive(false);
         }
     }
 

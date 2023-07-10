@@ -18,7 +18,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: a544b62a876199746b2256cd92e80c37, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   symbol: 
   iconColor:
     serializedVersion: 2

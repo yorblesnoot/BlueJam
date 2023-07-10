@@ -65,12 +65,8 @@ public class CardPlus : SOWithGUID
         EventManager.allowTriggers.Invoke();
         for (int i = 0; i < effects.Count; i++)
         {
-            VFXMachine.PlayVFX(effects[i].vfxNameSelf, effects[i].vfxStyleSelf, actor, MapTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>());
             effects[i].userOriginalTile = userOriginalTile;
-            effects[i].Execute(actor, targetCell);
-
-            yield return new WaitUntil(() => effects[i].doneExecuting == true);
-            VFXMachine.PlayVFX(effects[i].vfxNameTarget, effects[i].vfxStyleTarget, actor, targetCell);
+            yield return actor.StartCoroutine(effects[i].Execute(actor, targetCell));          
         }
         TurnManager.SpendBeats(actor.GetComponent<BattleUnit>(), cost);
     }

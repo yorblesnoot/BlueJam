@@ -44,7 +44,9 @@ public class TurnManager : MonoBehaviour
         unitsReport?.Invoke();
         updateBeatCounts?.Invoke();
         initialPositionReport?.Invoke();
-
+        playerUnit.myHand.DrawPhase();
+        foreach (var unit in turnTakers)
+            unit.myHand.DrawPhase();
         Main.StartCoroutine(WaitForTurn());
     }
 
@@ -55,13 +57,7 @@ public class TurnManager : MonoBehaviour
 
     static bool PlayerHasWon()
     {
-        int enemyCount = 0;
-        foreach (NonplayerUnit turnTaker in turnTakers)
-        {
-            if (turnTaker.gameObject.CompareTag("Enemy"))
-                enemyCount++;
-        }
-        if (enemyCount <= 0)
+        if (turnTakers.Where(x => x.gameObject.CompareTag("Enemy") && x.isSummoned != true).Count() == 0)
         {
             BattleEnder battleEnder = GameObject.FindGameObjectWithTag("GameController").GetComponent<BattleEnder>();
             battleEnder.StartCoroutine(battleEnder.VictorySequence());
@@ -86,6 +82,7 @@ public class TurnManager : MonoBehaviour
     public static void SpendBeats(BattleUnit owner, int beats)
     {
         deathPhase?.Invoke();
+        owner.myHand.DrawPhase();
         PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
         if (owner.gameObject.CompareTag("Player"))
         {

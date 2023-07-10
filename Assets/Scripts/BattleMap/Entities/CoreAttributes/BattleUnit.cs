@@ -7,7 +7,7 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
     [field: SerializeField] public UnitStats unitStats { get; set; }
     [SerializeField] BarrierTracker barrierTracker;
     [SerializeField] BuffTracker buffTracker;
-    [SerializeField] Hand myHand;
+    public Hand myHand;
     public UnitAnimator unitAnimator;
 
     public int maxHealth { get; set; }
@@ -48,11 +48,9 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
             TurnManager.AssignTurn();
             return;
         }
-        myHand.DrawPhase();
+        //myHand.DrawPhase();
 
         GetAction();
-        //check for deaths
-        //spend beats -> next turn
     }
 
     public virtual void GetAction() { }

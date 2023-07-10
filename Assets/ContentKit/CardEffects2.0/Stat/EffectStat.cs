@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -29,9 +30,10 @@ public class EffectStat : CardEffectPlus
         else changeDirection = "(SCALING SET TO 0)";
         return $"{changeDirection} {statNames[entityStat]} by {scalingMultiplier}";
     }
-    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
+    public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
         foreach (BattleUnit target in targets) Modify(scalingMultiplier, target);
+        yield return null;
     }
 
     void Modify(float scale, BattleUnit target)

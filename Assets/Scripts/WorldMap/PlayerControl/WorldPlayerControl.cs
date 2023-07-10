@@ -13,13 +13,13 @@ public class WorldPlayerControl : MonoBehaviour
     [SerializeField] Camera mainCamera;
     [SerializeField] WorldMapRenderer worldRenderer;
     public CompassMaster compassMaster;
+    public static WorldPlayerControl player;
 
-    [SerializeField] public static GameObject player;
-    bool endPathing = false;
-
+    public static List<string> badTiles;
     public void InitializePlayer()
     {
-        player = gameObject;
+        player = this;
+        badTiles = new() {"w", "d"};
         playerState = WorldPlayerState.IDLE;
         Vector2Int worldMapCoords = new(runData.playerWorldX, runData.playerWorldY);
         worldMapCoords -= WorldMapRenderer.spotlightGlobalOffset;
@@ -34,11 +34,6 @@ public class WorldPlayerControl : MonoBehaviour
         playerState = WorldPlayerState.PATHING;
         foreach (GameObject tile in path)
         {
-            if (endPathing)
-            {
-                endPathing = false;
-                break;
-            }
             WorldMovementController tileController = tile.GetComponent<WorldMovementController>();
             transform.LookAt(tileController.unitPosition);
             Vector3 displacement = tileController.unitPosition - transform.position;
@@ -54,7 +49,6 @@ public class WorldPlayerControl : MonoBehaviour
             runData.worldSteps++;
 
             EventManager.playerAtWorldLocation.Invoke(globalCoords);
-
             while (transform.position != tileController.unitPosition)
             {
                 transform.position = Vector3.MoveTowards(transform.position, tileController.unitPosition, .05f);
@@ -65,10 +59,5 @@ public class WorldPlayerControl : MonoBehaviour
             yield return StartCoroutine(tileController.myEventHandler.TriggerWorldEvents());
         }
         playerState = WorldPlayerState.IDLE;
-    }
-
-    private void OnMouseDown()
-    {
-        if(playerState == WorldPlayerState.PATHING) { endPathing = true; }
     }
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -16,7 +17,7 @@ public class EffectSummon : CardEffectPlus
     {
         return $"summon a {entityToSummon.name}";
     }
-    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
+    public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
         Vector3 location = new();
         if (aoe.GetLength(0) > 1)
@@ -33,12 +34,12 @@ public class EffectSummon : CardEffectPlus
                 }
                 cells.RemoveAt(cellIndex);
             }
-            if (cells.Count == 0) return;
         }
         else location = targetCell.unitPosition;
         GameObject summoned = Instantiate(entityToSummon, location, Quaternion.identity);
         ModifyStats(actor, summoned.GetComponent<NonplayerUnit>());
         VFXMachine.PlayAtLocation("SummonCircles", location);
+        yield return null;
     }
 
     void ModifyStats(BattleUnit owner, NonplayerUnit toModify)

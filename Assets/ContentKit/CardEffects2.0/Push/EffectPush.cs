@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectPush", menuName = "ScriptableObjects/CardEffects/Push")]
 public class EffectPush : CardEffectPlus
 {
+    int pushes = 0;
     private void Reset()
     {
         effectClass = CardClass.ATTACK;
@@ -16,11 +17,14 @@ public class EffectPush : CardEffectPlus
     {
         return $"push target {pushDistance} cells";
     }
-    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
+    public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        doneExecuting = false;
         foreach (BattleUnit target in targets)
+        {
             target.StartCoroutine(Push(actor, target, pushDistance, stepSize));
+            pushes++;
+        }
+        yield return new WaitUntil(() => pushes == 0);
     }
 
     IEnumerator Push(BattleUnit actor, BattleUnit target, int distance, float stepsize)
@@ -74,7 +78,7 @@ public class EffectPush : CardEffectPlus
             Collide(target, collisionDamage);
             VFXMachine.PlayAtLocation("ImpactSmall", target.transform.position);
         }
-        doneExecuting = true;
+        pushes--;
     }
 
     void Collide(BattleUnit target, int factor)

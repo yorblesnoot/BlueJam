@@ -30,9 +30,10 @@ public class EffectBuff : CardEffectPlus
             description = $"buff target: {lapseDescription} for {duration} actions";
         return description;
     }
-    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
+    public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
         bool[,] aoeRulesRecurring = MapRulesGenerator.Convert(aoeShapeRecurring, aoeSizeRecurring, aoeGapRecurring);
         foreach(BattleUnit target in targets) target.gameObject.GetComponent<BuffTracker>().RegisterBuff(actor, this, aoeRulesRecurring);
+        yield return null;
     }
 }

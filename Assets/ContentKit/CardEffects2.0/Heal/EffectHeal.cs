@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,17 +9,16 @@ public class EffectHeal : CardEffectPlus
     {
         effectClass = CardClass.BUFF;
     }
-    //GreenHeal, HealBurst
 
     public override string GenerateDescription(IPlayerStats player)
     {
         return $"heal for <color=#1EFA61>{player.healScaling * scalingMultiplier}</color>";
     }
-    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
+    public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
         foreach (BattleUnit target in targets) Heal(actor, scalingMultiplier, target);
+        yield return null ;
     }
-    //VFXMachine.PlayToLocation(effect, TurnManager.activeTurn.transform.position, targetCell.GetComponent<BattleTileController>().unitPosition);
 
     void Heal(BattleUnit owner, float healMult, BattleUnit target)
     {

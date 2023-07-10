@@ -33,7 +33,7 @@ public class BattleLauncher : MapLauncher
             foreach (var effect in item.effects)
             {
                 effect.Initialize();
-                effect.Execute(playerUnit, MapTools.VectorToTile(player.transform.position).GetComponent<BattleTileController>());
+                StartCoroutine(effect.Execute(playerUnit, MapTools.VectorToTile(player.transform.position).GetComponent<BattleTileController>()));
             }
         }
     }

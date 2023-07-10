@@ -24,24 +24,20 @@ public class EffectTrigger : CardEffectPlus
     public TriggerIdentity effectRecipient;
     public CardEffectPlus triggeredEffect;
 
-    public TileMapShape aoeShapeTrigger;
-    public int aoeSizeTrigger;
-    public int aoeGapTrigger;
-
     public override string GenerateDescription(IPlayerStats player)
     {
         string triggerName = triggeringEffect.GetType().Name;
         triggerName.Replace("Effect", "");
         string description = $"for {duration} actions, {triggeredEffect.GenerateDescription(player)} on {triggerName}";
-        //generate a description somehow..?
         return description;
     }
 
-    public override void ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
+    public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
         for (int i = 0; i < targets.Count; i++)
         {
             targets[i].gameObject.GetComponent<TriggerTracker>().RegisterTrigger(this);
         }
+        yield return null;
     }
 }

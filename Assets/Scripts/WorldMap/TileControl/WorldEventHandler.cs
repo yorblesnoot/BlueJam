@@ -14,7 +14,29 @@ public class WorldEventHandler : MonoBehaviour
     [HideInInspector] public WorldEnemy cellEnemy;
 
     bool pickedItem = false;
+    [SerializeField] GameObject redGlow;
 
+    private void OnEnable()
+    {
+        GlowIfAdjacentEnemy();
+    }
+
+    void GlowIfAdjacentEnemy()
+    {
+        Vector2Int myPosition = MapTools.VectorToMap(transform.position);
+        myPosition += WorldMapRenderer.spotlightGlobalOffset;
+        List<Vector2Int> adjacents = myPosition.GetAdjacentCoordinates();
+        adjacents.Add(myPosition);
+        foreach (var adjacent in adjacents)
+        {
+            if (runData.eventMap.ContainsKey(adjacent) && runData.eventMap[adjacent] == "e")
+            { 
+                redGlow.SetActive(true);
+                return;
+            }
+        }
+        redGlow.SetActive(false);
+    }
     public IEnumerator TriggerWorldEvents()
     {
         //give the player whatever items

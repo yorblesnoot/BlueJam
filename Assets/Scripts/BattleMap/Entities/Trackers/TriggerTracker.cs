@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
-using static UnityEngine.UI.Image;
 
 public class TriggerTracker : MonoBehaviour
 {
@@ -18,7 +16,6 @@ public class TriggerTracker : MonoBehaviour
         public EffectTrigger trigger;
         public int remainingActivations;
         public bool availableForTrigger;
-        public bool[,] aoe;
     }
 
     private void Awake()
@@ -31,8 +28,7 @@ public class TriggerTracker : MonoBehaviour
     public void RegisterTrigger(EffectTrigger incomingTrigger)
     {
         activeTriggers.Add(new TrackedTrigger {trigger = incomingTrigger,
-            remainingActivations = incomingTrigger.triggersRequiredForActivation,
-            aoe = MapRulesGenerator.Convert(incomingTrigger.aoeShapeTrigger, incomingTrigger.aoeSizeTrigger, incomingTrigger.aoeGapTrigger)});
+            remainingActivations = incomingTrigger.triggersRequiredForActivation});
         incomingTrigger.triggeredEffect.Initialize();
     }
     public void ExecutedEffect(CardEffectPlus effect, BattleUnit origin, BattleUnit target)
@@ -60,21 +56,22 @@ public class TriggerTracker : MonoBehaviour
             //count down activations; if we've activated enough times, execute the effect
             tracked.remainingActivations--;
             tracked.availableForTrigger = false;
-            if (tracked.remainingActivations == 0)
+            if (tracked.remainingActivations > 0) return;
+
+            Debug.Log(gameObject + " triggered " + tracked.trigger.triggeredEffect);
+            BattleTileController targetCell = null;
+            if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.USER)
             {
-                Debug.Log(gameObject + " triggered " + tracked.trigger.triggeredEffect);
-                if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.USER)
-                {
-                    Debug.Log($"..on {origin}");
-                    tracked.trigger.triggeredEffect.Execute(battleUnit, MapTools.VectorToTile(origin.transform.position).GetComponent<BattleTileController>());
-                }
-                else if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.RECEIVER)
-                {
-                    Debug.Log($"..on {target}");
-                    tracked.trigger.triggeredEffect.Execute(battleUnit, MapTools.VectorToTile(target.transform.position).GetComponent<BattleTileController>());
-                }
-                tracked.remainingActivations = tracked.trigger.triggersRequiredForActivation;
+                Debug.Log($"..on {origin}");
+                targetCell = MapTools.VectorToTile(origin.transform.position).GetComponent<BattleTileController>();
             }
+            else if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.RECEIVER)
+            {
+                Debug.Log($"..on {target}");
+                targetCell = MapTools.VectorToTile(target.transform.position).GetComponent<BattleTileController>();
+            }
+            StartCoroutine(tracked.trigger.triggeredEffect.Execute(battleUnit, targetCell));
+            tracked.remainingActivations = tracked.trigger.triggersRequiredForActivation;
         }
     }
 
