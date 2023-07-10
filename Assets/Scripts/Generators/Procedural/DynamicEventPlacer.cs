@@ -11,15 +11,15 @@ public class DynamicEventPlacer
     readonly List<int> probabilities;
     RunData runData;
 
-    readonly int bossDistance = 10;
+    readonly int bossDistance = 70;
 
     readonly Dictionary<int, string> eventsAndOdds = new()
     {
-        { 2, "i"}, //item
-        { 4, "r" }, //removal
+        { 1, "i"}, //item
+        { 3, "r" }, //removal
         { 6, "h" }, //heal
-        { 12, "e" }, //enemy
-        { 200, "" }, //nothing
+        { 20, "e" }, //enemy
+        { 300, "" }, //nothing
     };
     public DynamicEventPlacer(RunData data)
     {
@@ -61,12 +61,8 @@ public class DynamicEventPlacer
         foreach (Vector2Int validSpot in validSpots)
         {
             string output = RandomEvent(eventsAndOdds, totalChance);
-            if (!string.IsNullOrEmpty(output))
-            {
-                //Debug.Log($"adding event {output} at {validSpot} in chunk {chunk}");
+            if (!string.IsNullOrEmpty(output)) 
                 runData.eventMap.Add(validSpot, output);
-                
-            }
         }
     }
 
@@ -101,13 +97,12 @@ public class DynamicEventPlacer
         return validSpots;
     }
 
-    public Vector2Int PlaceBoss()
+    public void PlaceBoss()
     {
         Vector2 direction = UnityEngine.Random.insideUnitCircle.normalized;
         direction *= bossDistance;
         Vector2Int intLocation = new(Mathf.RoundToInt(direction.x) + runData.playerWorldX, Mathf.RoundToInt(direction.y) + runData.playerWorldY);
         runData.eventMap.Remove(intLocation);
         runData.eventMap.Add(intLocation,"b");
-        return intLocation;
     }
 }

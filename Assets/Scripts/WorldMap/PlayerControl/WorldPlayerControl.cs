@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UIElements;
 public enum WorldPlayerState { IDLE, PATHING, MENUS}
 
 public class WorldPlayerControl : MonoBehaviour
@@ -18,6 +15,7 @@ public class WorldPlayerControl : MonoBehaviour
     public CompassMaster compassMaster;
 
     [SerializeField] public static GameObject player;
+    bool endPathing = false;
 
     public void InitializePlayer()
     {
@@ -33,8 +31,14 @@ public class WorldPlayerControl : MonoBehaviour
 
     public IEnumerator ChainPath(List<GameObject> path)
     {
+        playerState = WorldPlayerState.PATHING;
         foreach (GameObject tile in path)
         {
+            if (endPathing)
+            {
+                endPathing = false;
+                break;
+            }
             WorldMovementController tileController = tile.GetComponent<WorldMovementController>();
             transform.LookAt(tileController.unitPosition);
             Vector3 displacement = tileController.unitPosition - transform.position;
@@ -58,11 +62,13 @@ public class WorldPlayerControl : MonoBehaviour
                 fogRing.transform.position = Vector3.MoveTowards(fogRing.transform.position, tileController.unitPosition, .05f);
                 yield return new WaitForSeconds(.02f);
             }
-            
-
-
             yield return StartCoroutine(tileController.myEventHandler.TriggerWorldEvents());
         }
         playerState = WorldPlayerState.IDLE;
+    }
+
+    private void OnMouseDown()
+    {
+        if(playerState == WorldPlayerState.PATHING) { endPathing = true; }
     }
 }

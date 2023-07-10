@@ -5,15 +5,9 @@ using UnityEngine;
 public class WorldBoss : WorldEnemy
 {
     public SpawnPool bossPool;
-    public override void PullSpawnPool()
+    public override void PullSpawnPool(WorldEventHandler handler)
     {
         //get static spawn
         spawnPool = bossPool;
-    }
-
-    public override void RegisterAggroZone()
-    {
-        //register aggro on cell
-        MapTools.VectorToTile(transform.position).GetComponent<WorldEventHandler>().RegisterAggroZone(this);
     }
 }

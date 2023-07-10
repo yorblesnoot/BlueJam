@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
+  m_Name: PeonDeck
+  m_EditorClassIdentifier: 
+  Id: 72b8bbbe-7ab8-4d0d-9494-34bbeb314903
+  deckContents:
+  - {fileID: 11400000, guid: 14e1c741942f644498c99955ab5c1198, type: 2}
+  - {fileID: 11400000, guid: dffaba21e454c2a4eb030abee740e28c, type: 2}
+  symbol: p
+  iconColor:
+    serializedVersion: 2
+    rgba: 4284572012
+  essenceDescription: 
+  unitName: 

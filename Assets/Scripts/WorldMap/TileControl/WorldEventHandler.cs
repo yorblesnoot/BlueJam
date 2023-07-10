@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class WorldEventHandler : MonoBehaviour
@@ -9,11 +10,8 @@ public class WorldEventHandler : MonoBehaviour
     public RunData runData;
     public SceneRelay sceneRelay;
 
-    [HideInInspector] public List<WorldEnemy> enemyEvents;
-
-    //[HideInInspector] public List<EventEncounterModifier> modifierEvents;
-
     [HideInInspector] public WorldEvent cellEvent;
+    [HideInInspector] public WorldEnemy cellEnemy;
 
     bool pickedItem = false;
 
@@ -34,38 +32,46 @@ public class WorldEventHandler : MonoBehaviour
             cellEvent = null;
         }
 
-        if (enemyEvents.Count > 0)
+        sceneRelay.bossEncounter = false;
+        if (cellEnemy != null && cellEnemy.GetType() == typeof(WorldBoss))
         {
-            sceneRelay.bossEncounter = false;
-            WorldEncounterBuilder builder = new(sceneRelay, runData);
-            //consolidate enemy combats
-            List<SpawnPool> pools = new();
-            foreach (WorldEnemy enemy in enemyEvents)
-            {
-                if(enemy.GetType() == typeof(WorldBoss)) sceneRelay.bossEncounter = true;
-                pools.Add(enemy.spawnPool);
-                //remove activated enemies from the enemy map in rundata
-                runData.eventMap.Remove(MapTools.VectorToMap(enemy.gameObject.transform.position) + WorldMapRenderer.spotlightGlobalOffset);
-            }
-            builder.ConsolidateSpawnPools(pools);
+            sceneRelay.bossEncounter = true;
+            LaunchCombat(cellEnemy);
+        }
 
-            //modify encounters-- extra map generation parameters
-            builder.ModifyMapGeneration(biomeMaps);
-
-            //start combat
-            builder.LaunchEncounter();
+        List<Vector2Int> adjacentPositions = MapTools.VectorToMap(transform.position).GetAdjacentCoordinates();
+        foreach(Vector2Int position in adjacentPositions)
+        {
+            GameObject tile = MapTools.MapToTile(position);
+            if(tile == null) continue;
+            WorldEventHandler eventHandler = tile.GetComponent<WorldEventHandler>();
+            if (eventHandler.cellEnemy == null || eventHandler.cellEnemy.GetType() == typeof(WorldBoss)) continue;
+            LaunchCombat(eventHandler.cellEnemy);
+            
         }
         EventManager.updateWorldCounters.Invoke();
     }
 
-    public void ConfirmItemPicked()
+    void LaunchCombat(WorldEnemy cellEnemy)
     {
-        pickedItem = true;
+        sceneRelay.spawnPool = cellEnemy.spawnPool;
+        WorldEncounterBuilder builder = new(sceneRelay, runData);
+
+        //remove activated enemies from the enemy map in rundata
+        runData.eventMap.Remove(MapTools.VectorToMap(cellEnemy.transform.position) + WorldMapRenderer.spotlightGlobalOffset);
+
+        //modify encounters-- extra map generation parameters
+        builder.ModifyMapGeneration(biomeMaps);
+
+        //start combat
+        builder.LaunchEncounter();
     }
 
-    public void RegisterAggroZone(WorldEnemy enemy)
+    public void ConfirmItemPicked() { pickedItem = true; }
+
+    public void RegisterEnemy(WorldEnemy enemy)
     {
-        enemyEvents.Add(enemy);
+        cellEnemy = enemy;
     }
 
     public void RegisterEvent(WorldEvent item)

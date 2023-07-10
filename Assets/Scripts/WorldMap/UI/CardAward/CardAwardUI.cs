@@ -46,7 +46,7 @@ public class CardAwardUI : MonoBehaviour
             awardCards[i].SetActive(false);
         }
 
-        //worldMenuControl.ToggleWindow(essenceCrafting.gameObject, true);
+        new SaveContainer(runData).SaveGame();
         gameObject.SetActive(false);
     }
 }

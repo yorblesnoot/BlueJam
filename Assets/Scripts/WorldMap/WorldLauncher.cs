@@ -17,7 +17,7 @@ public class WorldLauncher : MapLauncher
         placer.CheckToPopulateChunks(MapTools.VectorToMap(WorldPlayerControl.player.transform.position) + WorldMapRenderer.spotlightGlobalOffset);
         placer.PlaceBoss();
 
-        playerControl.compassMaster.DeployCompass("b");
+        playerControl.compassMaster.DeployCompass("b", Color.red);
 
         new SaveContainer(runData).SaveGame();
 

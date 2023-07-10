@@ -5,27 +5,20 @@ using UnityEngine;
 public class WorldEnemy : MonoBehaviour
 {
     [HideInInspector]public SpawnPool spawnPool;
-    bool[,] aggroZone;
     private void Awake()
     {
-        PullSpawnPool();
-        RegisterAggroZone();
+        WorldEventHandler handler = MapTools.VectorToTile(transform.position).GetComponent<WorldEventHandler>();
+        PullSpawnPool(handler);
+        RegisterWithTile(handler);
     }
-    public virtual void PullSpawnPool()
+    public virtual void PullSpawnPool(WorldEventHandler handler)
     {
         //get spawn pool from tile we were spawned on
-        GameObject tile = MapTools.VectorToTile(transform.position);
-        spawnPool = tile.GetComponent<WorldEventHandler>().tileEnemyPreset;       
+        spawnPool = handler.tileEnemyPreset;
     }
 
-    public virtual void RegisterAggroZone()
+    public void RegisterWithTile(WorldEventHandler handler)
     {
-        aggroZone = MapRulesGenerator.Convert(TileMapShape.CROSS, 1, 0);
-        List<GameObject> zone = CellTargeting.ConvertMapRuleToTiles(aggroZone, gameObject.transform.position);
-        foreach (GameObject tile in zone)
-        {
-            tile.GetComponent<WorldEventHandler>().RegisterAggroZone(this);
-        }
-        //register aggro locations on adjacent cells
+        handler.cellEnemy = this;
     }
 }

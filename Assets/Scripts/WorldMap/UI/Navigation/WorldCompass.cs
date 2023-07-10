@@ -17,7 +17,6 @@ public class WorldCompass : MonoBehaviour
 
     public void PointAtLockedCoordinates(Vector2Int playerGlobalCoordinates)
     {
-        //StopAllCoroutines();
         StartCoroutine(LerpAt(targetPosition, playerGlobalCoordinates));
         transform.LookAt(MapTools.MapToVector(targetPosition-WorldMapRenderer.spotlightGlobalOffset, 1));
     }
@@ -44,9 +43,9 @@ public class WorldCompass : MonoBehaviour
         while (timeElapsed < lerpDuration)
         {
             float lerpValue = timeElapsed / lerpDuration;
-            transform.rotation = Quaternion.Slerp(startRotation, toRotation, lerpValue);
-            pointer.transform.localPosition = Vector3.Lerp(pointerStartPosition,pointerToPosition, lerpValue);
-            transform.position = Vector3.Lerp(startLocation, endLocation, lerpValue);
+            pointer.transform.localPosition = Vector3.Lerp(pointerStartPosition, pointerToPosition, lerpValue);
+            transform.SetPositionAndRotation(Vector3.Lerp(startLocation, endLocation, lerpValue),
+                Quaternion.Slerp(startRotation, toRotation, lerpValue));
 
             timeElapsed += Time.deltaTime;
             yield return null;

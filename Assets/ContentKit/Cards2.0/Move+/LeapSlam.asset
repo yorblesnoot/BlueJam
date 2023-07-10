@@ -15,15 +15,16 @@ MonoBehaviour:
   Id: 184af214-1dd9-4c43-b7a5-dd582e7a2845
   displayName: Leap Slam
   cost: 3
-  description: 
-  keywords: 
+  description: 'move to target.
+
+    deal <color=#FF4E2B>10</color> damage.
+
+'
+  keywords: 'Range: 3-3 AOE: 1 '
   targetShape: 2
-  targetSize: 3
-  targetGap: 3
+  targetSize: 2
+  targetGap: 2
   pathCheckForTargets: 0
-  aoeShape: 1
-  aoeSize: 1
-  aoeGap: 1
   cardClass: 0000000001000000
   consumed: 0
   animType: 3

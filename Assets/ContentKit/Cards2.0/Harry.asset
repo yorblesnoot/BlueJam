@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: Harry
+  m_EditorClassIdentifier: 
+  Id: b4becf35-4d35-4e2a-ba31-ec681769d6bb
+  displayName: Harrying Shot
+  cost: 3
+  description: 'deal <color=#FF4E2B>10</color> damage.
+
+'
+  keywords: 'Range: 2-3 AOE: 0 '
+  targetShape: 0
+  targetSize: 3
+  targetGap: 2
+  pathCheckForTargets: 0
+  cardClass: 00000000
+  consumed: 0
+  animType: 0
+  effects:
+  - {fileID: 11400000, guid: 8968a202145980840b9e6861fa538f22, type: 2}

@@ -18,9 +18,7 @@ MonoBehaviour:
   playerAllied: 0
   startBeats: 1
   myTurn: 0
-  damageScaling: 5
-  barrierScaling: 10
-  healScaling: 5
+  damageScaling: 8
+  barrierScaling: 8
+  healScaling: 8
   turnSpeed: 0.4
-  percentDamage: 0
-  percentArmor: 0

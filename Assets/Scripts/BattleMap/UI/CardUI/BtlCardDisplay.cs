@@ -55,7 +55,7 @@ public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHan
 
     public void ProxyPlayCard(BattleTileController tile)
     {
-        if (activated == true && CellTargeting.ValidPlay(tile, owner.tag, thisCard))
+        if (activated == true && CellTargeting.ValidPlay(tile, owner, thisCard))
         {
             PlayerUnit.playerState = PlayerBattleState.PERFORMING_ACTION;
             EventManager.clearActivation?.Invoke();

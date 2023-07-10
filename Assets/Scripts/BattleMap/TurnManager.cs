@@ -119,7 +119,7 @@ public class TurnManager : MonoBehaviour
             {
                 if (!turnTakers[entry].gameObject.CompareTag("Player"))
                 {
-                    float beatChange = turnRatios[entry] * beats;
+                    float beatChange = turnRatios[entry] * beats / playerUnit.turnSpeed;
                     turnTakers[entry].currentBeats += beatChange;
                     beatStock[entry] += beatChange;
                 }

@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 public class ItemDisplay : MonoBehaviour
 {
-    [HideInInspector]public BattleItem battleItem;
+    [HideInInspector] public BattleItem battleItem;
 
-    [SerializeField] Image thumbnail;
+    public Image thumbnail;
+
+    public string tooltipDescription { get; set; }
 
     public virtual void DisplayItem(BattleItem item)
     {
         battleItem = item;
+        tooltipDescription = item.description;
         thumbnail.sprite = item.thumbnail;
         thumbnail.color = item.thumbnailColor;
     }

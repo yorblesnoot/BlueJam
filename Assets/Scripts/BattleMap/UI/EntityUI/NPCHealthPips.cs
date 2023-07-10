@@ -12,6 +12,11 @@ public class NPCHealthPips : MonoBehaviour
     {
         //divide the health bar into regions based on max health and health/region
         int pipAmount = maxHealth / pipFactor;
+        while(pipAmount > pips.Count)
+        {
+            GameObject newPip = Instantiate(pips[0], rectTransform);
+            pips.Add(newPip);
+        }
         //get size of each region
         float pipSpacing = rectTransform.rect.width / pipAmount;
         //start at the far left of the overlay

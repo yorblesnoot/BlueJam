@@ -24,7 +24,7 @@ public class RunData : ScriptableObject
     public int RemoveStock;
     
     public int worldSteps;
-    public int runDifficulty { get { return worldSteps / 20; } }
+    public int runDifficulty { get { return worldSteps / 10; } }
 
     public int currentHealth;
 }

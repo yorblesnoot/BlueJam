@@ -7,6 +7,7 @@ public class BattleLauncher : MapLauncher
     public RunData runData;
 
     [SerializeField] CameraLock camLock;
+    [SerializeField] MasterEnemyPool masterEnemyPool;
 
     private void Start() 
     {
@@ -18,7 +19,7 @@ public class BattleLauncher : MapLauncher
         RequestMapReferences();
 
         //place units onto the map
-        BattleUnitSpawner encounterBuilder = new(sceneRelay.staticSpawns, sceneRelay.spawnUnits, sceneRelay.spawnWeights, map);
+        BattleUnitSpawner encounterBuilder = new(sceneRelay.spawnPool, map, masterEnemyPool);
         encounterBuilder.PlacePlayer(player);
         PlayerUnit playerUnit = player.GetComponent<PlayerUnit>();
         encounterBuilder.PlaceEnemies(sceneRelay.enemyBudget);

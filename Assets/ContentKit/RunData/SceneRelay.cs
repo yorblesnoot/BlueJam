@@ -7,9 +7,7 @@ public class SceneRelay : ScriptableObject
 {
     //enemy spawn info to convey from world to battle
     public BiomePool availableMaps;
-    public List<GameObject> staticSpawns;
-    public List<GameObject> spawnUnits;
-    public List<int> spawnWeights;
+    public SpawnPool spawnPool;
     public int enemyBudget;
     public bool bossEncounter;
 

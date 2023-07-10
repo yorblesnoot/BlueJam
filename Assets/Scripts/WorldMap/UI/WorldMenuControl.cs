@@ -14,7 +14,6 @@ public class WorldMenuControl : MonoBehaviour
 
     public Button close;
 
-    [SerializeField] CameraController cameraController;
     public void OpenCrafting()
     {
         ToggleWindow(essenceCrafting, true);
@@ -32,7 +31,6 @@ public class WorldMenuControl : MonoBehaviour
         if (WorldPlayerControl.playerState != WorldPlayerState.IDLE && WorldPlayerControl.playerState != WorldPlayerState.MENUS) return;
         lastOpened = window;
         window.SetActive(value);
-        cameraController.enabled = !value;
 
         foreach (var component in hudComponents)
         {

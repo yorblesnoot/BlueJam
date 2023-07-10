@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095a6fe426d45484c859eb273f007cc8, type: 3}
+  m_Name: NewStuffPool
+  m_EditorClassIdentifier: 
+  spawnWeights: 010000000100000001000000010000000100000001000000
+  spawnUnits:
+  - {fileID: 8820218125386000028, guid: 5e3d9bdb651335e4d8f7b51cd2f02b9c, type: 3}
+  - {fileID: 3133330526298665950, guid: 3bba7746011c99a45b1c9111fa289616, type: 3}
+  - {fileID: 7888735582937761990, guid: 3f888ee8ade326c409518187bf5bab05, type: 3}
+  - {fileID: 869028331013816921, guid: 67a715d2fdeb9964a8544bc2c121fb6a, type: 3}
+  - {fileID: 1325030485822884939, guid: fba31002c5e2b9649aa8343bd5fc3adb, type: 3}
+  - {fileID: 7143469114425514057, guid: 2da3941d4f46e774d8de606a5a195bfe, type: 3}
+  staticSpawns: []

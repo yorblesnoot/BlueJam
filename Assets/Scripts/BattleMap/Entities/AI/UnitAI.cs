@@ -48,7 +48,7 @@ public class UnitAI : MonoBehaviour
                 for(int x = 0; x < ruleLength; x++)
                 {
                     BattleTileController addTile = legalTiles[x].GetComponent<BattleTileController>();
-                    if (CellTargeting.ValidPlay(addTile, gameObject.tag, cardReferences[rule]))
+                    if (CellTargeting.ValidPlay(addTile, thisUnit, cardReferences[rule]))
                     { 
                         optionTile.Add(addTile);
                         float inFavor = CalculateFavor(addTile, cardReferences[rule]);

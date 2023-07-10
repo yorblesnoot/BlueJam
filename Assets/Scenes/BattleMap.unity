@@ -1986,6 +1986,7 @@ MonoBehaviour:
   sceneRelay: {fileID: 11400000, guid: 560180093c409b041b59db9d69699861, type: 2}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   camLock: {fileID: 1678473390}
+  masterEnemyPool: {fileID: 11400000, guid: fdfcfaa337bce144d8e682a23350c8d2, type: 2}
 --- !u!4 &388095517
 Transform:
   m_ObjectHideFlags: 0

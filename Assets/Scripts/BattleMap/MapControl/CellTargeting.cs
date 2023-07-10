@@ -102,25 +102,28 @@ public static class CellTargeting
     }
 
     //return true if areatargets found valid plays
-    public static bool ValidPlay(BattleTileController tile, string tSource, CardPlus card)
+    public static bool ValidPlay(BattleTileController tile, BattleUnit source, CardPlus card)
     {
+        string tSource = source.gameObject.tag;
+        List<CardClass> classes = card.effects.Select(x => x.effectClass).ToList();
+        if (classes.Contains(CardClass.MOVE) || classes.Contains(CardClass.SUMMON))
+        {
+            if (!TileIsValidTarget(tile, tSource, CardClass.MOVE)) return false;
+            else return true;
+        }
         foreach (var effect in card.effects)
         {
-            if (effect.effectClass == CardClass.MOVE || effect.effectClass == CardClass.SUMMON)
+            if (effect.forceTargetSelf) tile = MapTools.VectorToTile(source.transform.position).GetComponent<BattleTileController>();
+            if (effect.effectClass == CardClass.ATTACK && AreaTargets(tile.gameObject, tSource, CardClass.ATTACK, effect.aoe).Count == 0)
             {
-                if (TileIsValidTarget(tile, tSource, CardClass.MOVE)) return true;
-                else return false;
+                return false;
             }
-            else if (effect.effectClass == CardClass.ATTACK && AreaTargets(tile.gameObject, tSource, CardClass.ATTACK, effect.aoe).Count > 0)
+            if (effect.effectClass == CardClass.BUFF && AreaTargets(tile.gameObject, tSource, CardClass.BUFF, effect.aoe).Count == 0)
             {
-                return true;
-            }
-            else if (effect.effectClass == CardClass.BUFF && AreaTargets(tile.gameObject, tSource, CardClass.BUFF, effect.aoe).Count > 0)
-            {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     //return all valid targets in an aoe target based on the class, aoe size, and owner

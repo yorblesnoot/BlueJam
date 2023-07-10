@@ -4439,7 +4439,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -596, y: 207}
+  m_AnchoredPosition: {x: -596.00006, y: 207}
   m_SizeDelta: {x: -1216, y: -588}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &506452294
@@ -5551,7 +5551,6 @@ MonoBehaviour:
   - {fileID: 617775868}
   - {fileID: 1665007201}
   close: {fileID: 34096195}
-  cameraController: {fileID: 0}
 --- !u!225 &573176810
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -15373,6 +15372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: KeyCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 6082687576091848538, guid: c570f572286c12842a99e7c2c394a79d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c570f572286c12842a99e7c2c394a79d, type: 3}
 --- !u!1 &1134950300
@@ -24467,6 +24470,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3406134658459511761, guid: 4db3ef8958354bf4ba352ee997ccfdd9, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3406134658459511761, guid: 4db3ef8958354bf4ba352ee997ccfdd9, type: 3}
+      propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3406134658459511774, guid: 4db3ef8958354bf4ba352ee997ccfdd9, type: 3}

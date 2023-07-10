@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: Prance
+  m_EditorClassIdentifier: 
+  Id: 74b25a91-47d8-4a38-b817-535085006ee2
+  displayName: Daring Leap
+  cost: 3
+  description: 'move to target.
+
+'
+  keywords: 'Range: 3-3 AOE: 0 '
+  targetShape: 0
+  targetSize: 3
+  targetGap: 3
+  pathCheckForTargets: 0
+  cardClass: 01000000
+  consumed: 0
+  animType: 3
+  effects:
+  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}

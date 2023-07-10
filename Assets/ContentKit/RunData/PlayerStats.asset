@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91c23a3e06a55c4c853ecd822414ace, type: 3}
   m_Name: PlayerStats
   m_EditorClassIdentifier: 
-  unitName: 
+  unitName: Player
   maxHealth: 100
   handSize: 4
   playerAllied: 1
@@ -20,5 +20,5 @@ MonoBehaviour:
   myTurn: 0
   damageScaling: 10
   barrierScaling: 10
-  healScaling: 0
-  turnSpeed: 0
+  healScaling: 10
+  turnSpeed: 1

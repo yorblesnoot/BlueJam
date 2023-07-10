@@ -111,25 +111,28 @@ public class EssenceCrafting : MonoBehaviour
             actualDrops.Add(potentialDrops[dropIndex]);
             potentialDrops.RemoveAt(dropIndex);
         }
+
+        EssenceSlotFilled();
+        craftStatus.text = "Insufficient materials for crafting.";
+        new SaveContainer(runData).SaveGame();
         cardAwardUI.gameObject.SetActive(true);
         cardAwardUI.AwardCards(actualDrops);
 
         SpendEssence(essenceSlotContents);
         for (int i = 0; i < craftingSlotContents.Count; i++)
         {
-            SpendEssence(craftingSlotContents[i]);
-                
+            SpendEssence(craftingSlotContents[i]);    
         }
 
+        craftingSlotContents.Clear();
+        essenceSlotContents = null;
         //worldMenuControl.ToggleWindow(gameObject, false);
     }
 
     public void SpendEssence(DraggableItem essence)
     {
-        //remove the essences from the player's runData inventory
+        //remove the essences from the player's runData inventory and disable the draggables for the crafted items
         runData.essenceInventory.Remove(essence.essence);
-
-        //disable the draggables for the crafted items
         essence.gameObject.SetActive(false);
     }
 

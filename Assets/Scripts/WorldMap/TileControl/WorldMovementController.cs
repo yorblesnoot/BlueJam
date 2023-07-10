@@ -29,11 +29,10 @@ public class WorldMovementController : MonoBehaviour
     {
         if (WorldPlayerControl.playerState == WorldPlayerState.IDLE && myPath != null && !EventSystem.current.IsPointerOverGameObject())
         {
-            WorldPlayerControl.playerState = WorldPlayerState.PATHING;
             //move the player to the cell
             StartCoroutine(player.ChainPath(myPath));
 
-            //deactivate targeting on unpicked cells
+            //deactivate pathfinding displays
             EventManager.clearWorldDestination?.Invoke();
         }
     }

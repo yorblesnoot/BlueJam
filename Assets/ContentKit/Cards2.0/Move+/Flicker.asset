@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: Flicker
+  m_EditorClassIdentifier: 
+  Id: ea78c616-88ea-490e-a02c-4e7876d3a840
+  displayName: Sharp Apparition
+  cost: 4
+  description: 
+  keywords: 
+  targetShape: 0
+  targetSize: 3
+  targetGap: 2
+  pathCheckForTargets: 0
+  cardClass: 
+  consumed: 0
+  animType: 0
+  effects:
+  - {fileID: 11400000, guid: 28e3e3d4988f62b4eaf92c6371cc8b5a, type: 2}
+  - {fileID: 11400000, guid: 1b857c7ec9548694bb27e9051902091f, type: 2}
+  - {fileID: 11400000, guid: ad352c4f04455674ca61014e0802281e, type: 2}

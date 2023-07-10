@@ -7,23 +7,11 @@ public class WorldEncounterBuilder
 {
     public RunData RunData;
     public SceneRelay sceneRelay;
+    readonly int baseEnemies = 4;
     public WorldEncounterBuilder(SceneRelay relay, RunData data)
     {
         sceneRelay = relay;
         RunData = data;
-    }
-
-    public void ConsolidateSpawnPools(List<SpawnPool> pools)
-    {
-        sceneRelay.spawnUnits = new();
-        sceneRelay.spawnWeights = new();
-        sceneRelay.staticSpawns = new();
-        foreach (SpawnPool pool in pools)
-        {
-            sceneRelay.spawnUnits.AddRange(pool.spawnUnits);
-            sceneRelay.spawnWeights.AddRange(pool.spawnWeight);
-            sceneRelay.staticSpawns.AddRange(pool.staticSpawns);
-        }
     }
 
     public void ModifyMapGeneration(BiomePool maps)
@@ -34,7 +22,7 @@ public class WorldEncounterBuilder
     public void LaunchEncounter()
     {
         //save the biome generation data to runData, then send us into the battlemap
-        sceneRelay.enemyBudget = 4 + RunData.runDifficulty/2;
+        sceneRelay.enemyBudget = baseEnemies + RunData.runDifficulty/2;
         EventManager.prepareForBattle.Invoke();
         SceneManager.LoadScene(2);
     }
