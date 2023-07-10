@@ -161,7 +161,7 @@ MonoBehaviour:
   maxSize: 0
   handObjects: []
   handReferences: []
-  ownerType: 
+  thisUnit: {fileID: 25600}
   deckRecord: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
   deckDrawable: []
   deckDiscarded: []
@@ -197,6 +197,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <unitStats>k__BackingField: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   barrierTracker: {fileID: 25603}
+  buffTracker: {fileID: 25602}
+  myHand: {fileID: 25595}
   unitAnimator: {fileID: 25605}
   isSummoned: 0
   isDead: 0

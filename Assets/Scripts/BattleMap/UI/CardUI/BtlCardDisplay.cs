@@ -18,7 +18,8 @@ public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHan
     }
     public void ActivateCard()
     {
-        if (owner.myTurn == true && activated == false)
+        if (activated == true) return;
+        if (PlayerUnit.playerState == PlayerBattleState.IDLE || PlayerUnit.playerState == PlayerBattleState.TARGETING_CARD)
         {
             //tell every active card to become inactive
             EventManager.clearActivation?.Invoke();
@@ -33,7 +34,7 @@ public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHan
             for (int i = 0; i < legalCells.Count; i++)
             {
                 BattleTileController cellController = legalCells[i].GetComponent<BattleTileController>();
-                cellController.availableMove = true;
+                cellController.availableForPlay = true;
                 cellController.HighlightCell();
             }
             EventManager.showAOE.Invoke(thisCard);

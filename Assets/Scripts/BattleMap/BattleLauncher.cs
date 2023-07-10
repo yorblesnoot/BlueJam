@@ -25,7 +25,7 @@ public class BattleLauncher : MapLauncher
         encounterBuilder.PlaceEnemies(sceneRelay.enemyBudget);
 
         //initialize combat
-        EventManager.initalizeBattlemap?.Invoke();
+        TurnManager.InitializeTurns();
 
         //activate item effects
         foreach (BattleItem item in runData.itemInventory)

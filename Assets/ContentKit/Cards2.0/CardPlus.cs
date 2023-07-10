@@ -11,7 +11,7 @@ public class CardPlus : SOWithGUID
 
     public string displayName;
     public int cost;
-    [HideInInspector]public string description;
+    [HideInInspector] public string description;
     [HideInInspector] public string keywords;
 
     [SerializeField]TileMapShape targetShape;
@@ -20,8 +20,8 @@ public class CardPlus : SOWithGUID
     [HideInInspector] public bool[,] targetRules;
     public bool pathCheckForTargets;
 
-    [HideInInspector]public bool[,] aoePoint;
-    [HideInInspector]public bool[,] aoeSelf;
+    [HideInInspector] public bool[,] aoePoint;
+    [HideInInspector] public bool[,] aoeSelf;
 
     [HideInInspector] public List<CardClass> cardClass;
     public bool consumed;

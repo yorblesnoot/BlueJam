@@ -12,9 +12,7 @@ public class Hand : MonoBehaviour
     public List<GameObject> handObjects = new();
     public List<CardPlus> handReferences = new();
 
-    [HideInInspector]
-    public string ownerType;
-
+    [SerializeField] BattleUnit thisUnit;
     public Deck deckRecord;
 
     [HideInInspector] public List<CardPlus> deckDrawable = new();
@@ -23,14 +21,12 @@ public class Hand : MonoBehaviour
 
     void Awake()
     {
-        ownerType = gameObject.tag;
         deckDiscarded.AddRange(deckRecord.deckContents);
-        TurnManager.drawThenBuffPhase.AddListener(DrawPhase);
     }
 
     public void DrawPhase()
     {
-        maxSize = GetComponent<BattleUnit>().handSize;
+        maxSize = thisUnit.handSize;
         while(handObjects.Count < maxSize)
         {
             if(deckDrawable.Count == 0)

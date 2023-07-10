@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 
 public class BattleTileController : MonoBehaviour
 {
-    [HideInInspector]public bool availableMove;
+    [HideInInspector]public bool availableForPlay;
 
     #nullable enable
     [HideInInspector] public BattleUnit? unitContents;
@@ -27,7 +27,7 @@ public class BattleTileController : MonoBehaviour
 
     void Awake()
     {
-        availableMove = false;
+        availableForPlay = false;
         EventManager.clearActivation.AddListener(ClearHighlight);
         EventManager.showAOE.AddListener(card => { loadedCard = card; });
         EventManager.clearAOE.AddListener(() => { cellHighlighter.ChangeHighlightMode(baseHighlight); });
@@ -39,15 +39,14 @@ public class BattleTileController : MonoBehaviour
 
     void OnMouseDown()
     {
-        if(loadedCard == null && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
-        {
-            TurnManager.EndTurn();
-            StartCoroutine(TurnManager.playerUnit.ChainPath(myPath));
-        }
-        else if (availableMove == true)
+        if (availableForPlay == true)
         {
             EventManager.targetConfirmed?.Invoke(this);
-            availableMove = false;
+            availableForPlay = false;
+        }
+        else if (loadedCard == null && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
+        {
+            StartCoroutine(TurnManager.playerUnit.ChainPath(myPath));
         }
         else EventManager.clearActivation?.Invoke();
     }
@@ -68,7 +67,7 @@ public class BattleTileController : MonoBehaviour
                 TurnManager.ShowPossibleTurnTakers(myPath.Count * PlayerUnit.costPerGenericMove);
             }
         }
-        else if(availableMove == true)
+        else if(availableForPlay == true)
         {
             //find list of legal cell aoe targets
             List<GameObject> legalCells = CellTargeting.ConvertMapRuleToTiles(loadedCard.aoePoint, transform.position);
@@ -93,7 +92,7 @@ public class BattleTileController : MonoBehaviour
     }
     public void ClearHighlight()
     {
-        availableMove = false;
+        availableForPlay = false;
         baseHighlight = HighlightMode.OFF;
         cellHighlighter.ChangeHighlightMode(HighlightMode.OFF);
     }

@@ -37,11 +37,11 @@ public class EffectSummon : CardEffectPlus
         }
         else location = targetCell.unitPosition;
         GameObject summoned = Instantiate(entityToSummon, location, Quaternion.identity);
-        ModifyStats(actor, summoned.GetComponent<BattleUnit>());
+        ModifyStats(actor, summoned.GetComponent<NonplayerUnit>());
         VFXMachine.PlayAtLocation("SummonCircles", location);
     }
 
-    void ModifyStats(BattleUnit owner, BattleUnit toModify)
+    void ModifyStats(BattleUnit owner, NonplayerUnit toModify)
     {
         int summonModifier = 2;
         if(owner.CompareTag("Player"))

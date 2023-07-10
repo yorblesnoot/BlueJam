@@ -20,6 +20,11 @@ public class PlayerUnit : BattleUnit
         myUI.InitializeHealth();
     }
 
+    public override void GetAction()
+    {
+        playerState = PlayerBattleState.IDLE;
+    }
+
     public override void ReduceHealth(int reduction)
     {
         base.ReduceHealth(reduction);

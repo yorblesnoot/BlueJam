@@ -1,7 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 public class BuffTracker : MonoBehaviour
@@ -20,10 +18,6 @@ public class BuffTracker : MonoBehaviour
         public BattleUnit owner;
         public bool[,] aoe;
     }
-    void Awake()
-    {
-        TurnManager.drawThenBuffPhase.AddListener(DurationProc);
-    }
 
     public void RegisterBuff(BattleUnit ownerIn, EffectBuff buff, bool[,] aoeIn)
     {
@@ -39,25 +33,22 @@ public class BuffTracker : MonoBehaviour
         buffDisplay.DisplayBuff(buff);
     }
 
-    void DurationProc()
+    public void DurationProc()
     {
-        if (gameObject.GetComponent<BattleUnit>().myTurn)
+        myTile = MapTools.VectorToTile(gameObject.transform.position).GetComponent<BattleTileController>();
+        for (int i = 0; i < buffs.Count; i++)
         {
-            myTile = MapTools.VectorToTile(gameObject.transform.position).GetComponent<BattleTileController>();
-            for (int i = 0; i < buffs.Count; i++)
+            buffs[i].remainingDuration--;
+            buffs[i]?.lapseEffect.Execute(buffs[i].owner, myTile);
+            if (buffs[i].remainingDuration <= 0)
             {
-                buffs[i].remainingDuration--;
-                buffs[i]?.lapseEffect.Execute(buffs[i].owner, myTile);
-                if (buffs[i].remainingDuration <= 0)
-                {
-                    //remove the buff in question
-                    try { buffs[i].endEffect.Execute(buffs[i].owner, myTile); }
-                    catch { }
-                    buffs.RemoveAt(i);
-                }
+                //remove the buff in question
+                try { buffs[i].endEffect.Execute(buffs[i].owner, myTile); }
+                catch { }
+                buffs.RemoveAt(i);
             }
-            buffDisplay.TickDownBuffTokens();
         }
+        buffDisplay.TickDownBuffTokens();
     }
 }
 

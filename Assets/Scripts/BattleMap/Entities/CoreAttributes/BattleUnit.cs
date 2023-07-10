@@ -5,7 +5,9 @@ using UnityEngine;
 public class BattleUnit : MonoBehaviour, IPlayerStats
 {
     [field: SerializeField] public UnitStats unitStats { get; set; }
-    public BarrierTracker barrierTracker;
+    [SerializeField] BarrierTracker barrierTracker;
+    [SerializeField] BuffTracker buffTracker;
+    [SerializeField] Hand myHand;
     public UnitAnimator unitAnimator;
 
     public int maxHealth { get; set; }
@@ -22,7 +24,6 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
     public int healScaling { get; set; }
     public int barrierScaling { get; set; }
 
-    public bool myTurn { get; set; }
     public bool isSummoned;
 
     public bool isDead;
@@ -37,28 +38,36 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
         TurnManager.deathPhase.AddListener(CheckForDeath);
     }
 
+    public void TakeTurn()
+    {
+        //buff lapse effects DurationProc()
+        buffTracker.DurationProc();
+        TurnManager.deathPhase?.Invoke();
+        if (isDead)
+        {
+            TurnManager.AssignTurn();
+            return;
+        }
+        myHand.DrawPhase();
+
+        GetAction();
+        //check for deaths
+        //spend beats -> next turn
+    }
+
+    public virtual void GetAction() { }
+
     public virtual void Initialize()
     {
         maxHealth = unitStats.maxHealth;
         damageScaling = unitStats.damageScaling;
         healScaling = unitStats.healScaling;
         barrierScaling = unitStats.barrierScaling;
-
         handSize = unitStats.handSize;
         turnSpeed = unitStats.turnSpeed;
         currentBeats = unitStats.startBeats;
-
-        myTurn = false;
         TurnManager.initialPositionReport.AddListener(ReportCell);
-        TurnManager.unitsReport.AddListener(RegisterTurn);
-
         myUI = GetComponentInChildren<EntityUI>();
-    }
-
-
-    public void RegisterTurn()
-    {
-        TurnManager.ReportTurn(this);
     }
 
     public void ReceiveDamage(int damage)
@@ -67,10 +76,7 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
         if (shieldHealth > 0) damage = barrierTracker.ReceiveShieldDamage(damage);
 
         ReduceHealth(damage);
-
-
         //update healthbar in UI
-        
         unitAnimator.Animate(AnimType.DAMAGED);
     }
 

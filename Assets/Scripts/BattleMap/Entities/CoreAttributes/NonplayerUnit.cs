@@ -4,18 +4,20 @@ using UnityEngine;
 
 public class NonplayerUnit : BattleUnit
 {
-    [SerializeField]GameObject turnShow;
+    [SerializeField] GameObject turnShow;
+    [SerializeField] UnitAI unitAI;
     public override void Initialize()
     {
         base.Initialize();
-        ScaleDifficulty(runData.runDifficulty);
+        ScaleWithDifficulty(runData.runDifficulty);
 
         currentHealth = maxHealth;
         myUI.InitializeHealth();
+        TurnManager.unitsReport.AddListener(RegisterTurn);
         EventManager.hideTurnDisplay.AddListener(HideTurnPossibility);
         EventManager.clearActivation.AddListener(HideTurnPossibility);
     }
-    public void ScaleDifficulty(int scaleFactor)
+    public void ScaleWithDifficulty(int scaleFactor)
     {
         maxHealth *= 1 + Mathf.RoundToInt(scaleFactor * .05f);
         //nonplayerUnit.handSize = 0;
@@ -24,7 +26,15 @@ public class NonplayerUnit : BattleUnit
         healScaling *= 1 + Mathf.RoundToInt(scaleFactor * .1f);
         turnSpeed *= 1 + Mathf.RoundToInt(scaleFactor * .01f);
     }
+    public override void GetAction()
+    {
+        unitAI.AITakeTurn();
+    }
 
+    public void RegisterTurn()
+    {
+        TurnManager.ReportTurn(this);
+    }
 
     public void ShowTurnPossibility()
     {
@@ -49,6 +59,5 @@ public class NonplayerUnit : BattleUnit
         isDead = true;
         VFXMachine.PlayAtLocation("Explosion", transform.position);
         gameObject.SetActive(false);
-        //Destroy(gameObject);
     }
 }

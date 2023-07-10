@@ -9,68 +9,61 @@ public class UnitAI : MonoBehaviour
 {
     List<CardPlus> cardReferences;
 
-    public AIProfile personality;
+    [SerializeField] AIProfile personality;
 
     private List<BattleUnit> entities;
 
-    public Hand myHand;
-
+    [SerializeField] Hand myHand;
     [SerializeField] BattleUnit thisUnit;
 
-    // Start is called before the first frame update
-    void Awake()
-    {
-        TurnManager.turnChange.AddListener(TakeTurn);
-    }
 
     //get information from cards: legal targets, card class, target requirements, object reference
 
-    public void TakeTurn(GameObject active)
+    public void AITakeTurn()
     {
-        if(gameObject == active)
+        cardReferences = myHand.handReferences;
+        //1. put all possible moves with their respective cards in one place
+        //checklegal on every targetRules
+        entities = new();
+        entities.AddRange(TurnManager.turnTakers);
+        entities.Add(TurnManager.playerUnit);
+
+        List<BattleTileController> optionTile = new();
+        List<float> optionFavor = new();
+        List<CardPlus> optionReference = new();
+        for(int rule = 0; rule < cardReferences.Count; rule++)
         {
-            cardReferences = myHand.handReferences;
-            //1. put all possible moves with their respective cards in one place
-            //checklegal on every targetRules
-            entities = TurnManager.turnTakers;
+            //use battlemap to find legal cells for every card in hand
+            List<GameObject> legalTiles = CellTargeting.ConvertMapRuleToTiles(cardReferences[rule].targetRules, transform.position);
 
-            List<BattleTileController> optionTile = new();
-            List<float> optionFavor = new();
-            List<CardPlus> optionReference = new();
-            for(int rule = 0; rule < cardReferences.Count; rule++)
+            if (cardReferences[rule].pathCheckForTargets == true) legalTiles = legalTiles.EliminateUnpathable(gameObject);
+
+            int ruleLength = legalTiles.Count;
+            for(int x = 0; x < ruleLength; x++)
             {
-                //use battlemap to find legal cells for every card in hand
-                List<GameObject> legalTiles = CellTargeting.ConvertMapRuleToTiles(cardReferences[rule].targetRules, transform.position);
-
-                if (cardReferences[rule].pathCheckForTargets == true) legalTiles = legalTiles.EliminateUnpathable(gameObject);
-
-                int ruleLength = legalTiles.Count;
-                for(int x = 0; x < ruleLength; x++)
-                {
-                    BattleTileController addTile = legalTiles[x].GetComponent<BattleTileController>();
-                    if (CellTargeting.ValidPlay(addTile, thisUnit, cardReferences[rule]))
-                    { 
-                        optionTile.Add(addTile);
-                        float inFavor = CalculateFavor(addTile, cardReferences[rule]);
-                        optionFavor.Add(inFavor);
-                        optionReference.Add(cardReferences[rule]);
-                    }
+                BattleTileController addTile = legalTiles[x].GetComponent<BattleTileController>();
+                if (CellTargeting.ValidPlay(addTile, thisUnit, cardReferences[rule]))
+                { 
+                    optionTile.Add(addTile);
+                    float inFavor = CalculateFavor(addTile, cardReferences[rule]);
+                    optionFavor.Add(inFavor);
+                    optionReference.Add(cardReferences[rule]);
                 }
             }
-            //highest Favor means choose that option
-            int numberofOptions = optionFavor.Count;
-            if(numberofOptions > 0)
-            {
-                float highestFavor = optionFavor.Max(); 
-                int activateIndex = optionFavor.IndexOf(highestFavor);
-                StartCoroutine(AIPlayCard(optionReference[activateIndex], optionTile[activateIndex]));
-            }
-            else if(numberofOptions == 0)
-            {
-                //if there are no legal options, mulligan and reset the card registry
-                cardReferences = new();
-                myHand.DiscardAll();
-            }
+        }
+        //highest Favor means choose that option
+        int numberofOptions = optionFavor.Count;
+        if(numberofOptions > 0)
+        {
+            float highestFavor = optionFavor.Max(); 
+            int activateIndex = optionFavor.IndexOf(highestFavor);
+            StartCoroutine(AIPlayCard(optionReference[activateIndex], optionTile[activateIndex]));
+        }
+        else if(numberofOptions == 0)
+        {
+            //if there are no legal options, mulligan and reset the card registry
+            cardReferences = new();
+            myHand.DiscardAll();
         }
     }
 
@@ -97,7 +90,6 @@ public class UnitAI : MonoBehaviour
         float favor = 0f;
         foreach (CardEffectPlus effect in card.effects)
         {
-            
             Vector3 moveVect = moveTile.transform.position;
             if (effect.effectClass == CardClass.MOVE)
             {
@@ -111,13 +103,9 @@ public class UnitAI : MonoBehaviour
             {
                 List<BattleUnit> targetables = CellTargeting.AreaTargets(moveTile.gameObject, gameObject.tag, CardClass.ATTACK, effect.aoe);
                 if (effect.effectClass == CardClass.ATTACK)
-                {
                     favor += targetables.Count * personality.interestAttack;
-                }
                 else if (effect.effectClass == CardClass.BUFF)
-                {
                     favor += targetables.Count * personality.interestBuff;
-                }
             }
         }
         //Debug.Log($"{gameObject.name}: Favor for targeting {moveVect} with card class {cardClass} is {favor}.");
@@ -129,28 +117,20 @@ public class UnitAI : MonoBehaviour
         if(me.CompareTag("Ally"))
         {
             if(you.CompareTag("Ally") || you.CompareTag("Player"))
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
         }
         else if(me.CompareTag("Enemy"))
         {
             if(you.CompareTag("Ally") || you.CompareTag("Player"))
-            {
                 return false;
-            }
             else
-            {
                 return true;
-            }
         }
         else
         {
-            Debug.Log("Unrecognized tag checked.");
+            Debug.LogError("Unrecognized tag checked.");
             return false;
         }
     }

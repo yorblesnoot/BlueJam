@@ -58,7 +58,7 @@ public class PlayerUI : EntityUI
 
     public void MullPress()
     {
-        if(gameObject.GetComponent<BattleUnit>().myTurn == true)
+        if(PlayerUnit.playerState == PlayerBattleState.IDLE)
         {
             EventManager.clearActivation?.Invoke();
             myHand.DiscardAll();

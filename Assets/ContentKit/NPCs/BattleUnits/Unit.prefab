@@ -54,11 +54,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <unitStats>k__BackingField: {fileID: 0}
   barrierTracker: {fileID: 1117014247259313703}
+  buffTracker: {fileID: 8464405472856945552}
+  myHand: {fileID: 141478417373896780}
   unitAnimator: {fileID: 7119020024479498164}
   isSummoned: 0
   isDead: 0
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   turnShow: {fileID: 9213481635271868737}
+  unitAI: {fileID: 7599744135600204344}
 --- !u!114 &7599744135600204344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -89,7 +92,7 @@ MonoBehaviour:
   maxSize: 0
   handObjects: []
   handReferences: []
-  ownerType: 
+  thisUnit: {fileID: 8320433818775275716}
   deckRecord: {fileID: 0}
   deckDrawable: []
   deckDiscarded: []
