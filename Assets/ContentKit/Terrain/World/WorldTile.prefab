@@ -52,6 +52,7 @@ MonoBehaviour:
   myEventHandler: {fileID: 1284691866914449898}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   unitPosition: {x: 0, y: 0, z: 0}
+  dangerTile: 0
 --- !u!65 &8538304405607322379
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -64,7 +65,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!114 &1284691866914449898
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a057104c2913b0e4b814b2dbaa6fc6ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tileEnemyPreset: {fileID: 0}
+  tileEnemyPreset: {fileID: 11400000, guid: 6a4c4ef27b52d364086a3673619d5033, type: 2}
   biomeMaps: {fileID: 0}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   sceneRelay: {fileID: 11400000, guid: 560180093c409b041b59db9d69699861, type: 2}

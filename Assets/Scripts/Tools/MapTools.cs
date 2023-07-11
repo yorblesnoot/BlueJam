@@ -39,6 +39,7 @@ public static class MapTools
 
     public static GameObject MapToTile(Vector2Int coords)
     {
+        if (!gameMap.ContainsKey(coords)) return null;
         GameObject tile = gameMap[coords];
         return tile;
     }
@@ -49,6 +50,7 @@ public static class MapTools
         GameObject oldTile = VectorToTile(actor.transform.position);
         oldTile.GetComponent<BattleTileController>().unitContents = null;
         newTile.unitContents = actor;
+        actor.gameObject.GetComponent<StencilControl>().ToggleStencil(newTile);
     }
 
     public static void ReportPositionSwap(BattleUnit actor, BattleTileController newTile, BattleUnit secondActor)
@@ -57,5 +59,7 @@ public static class MapTools
         newTile.unitContents = actor;
         BattleTileController oldTile = VectorToTile(actor.gameObject.transform.position).GetComponent<BattleTileController>();
         oldTile.unitContents = secondActor;
+        actor.gameObject.GetComponent<StencilControl>().ToggleStencil(newTile);
+        secondActor.gameObject.GetComponent<StencilControl>().ToggleStencil(newTile);
     }
 }

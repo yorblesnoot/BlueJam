@@ -192,8 +192,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 474445117250018342}
   m_LocalRotation: {x: -0, y: 0.55602974, z: -0, w: 0.83116245}
-  m_LocalPosition: {x: 0.29058772, y: 1.0660002, z: -0.30952957}
-  m_LocalScale: {x: 0.14295453, y: 0.41170904, z: 0.14295453}
+  m_LocalPosition: {x: 0.277, y: 1.092, z: -0.276}
+  m_LocalScale: {x: 0.17454748, y: 0.5026967, z: 0.17454748}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3072869265707542982}
@@ -359,8 +359,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2506185886671918034}
   m_LocalRotation: {x: -0, y: 0.55602974, z: -0, w: 0.83116245}
-  m_LocalPosition: {x: 0.26401994, y: 1.1100001, z: -0.44378972}
-  m_LocalScale: {x: 0.09806008, y: 0.28241304, z: 0.09806008}
+  m_LocalPosition: {x: 0.304, y: 0.98, z: -0.43}
+  m_LocalScale: {x: 0.11713276, y: 0.33734235, z: 0.11713276}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3072869265707542982}
@@ -858,8 +858,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8887023691478625816}
   m_LocalRotation: {x: 5.0793638e-17, y: 0.9846585, z: 7.2628847e-17, w: -0.17449307}
-  m_LocalPosition: {x: 0.34743068, y: 0.9900002, z: 0.38458243}
-  m_LocalScale: {x: 0.23824856, y: 0.6861553, z: 0.23824856}
+  m_LocalPosition: {x: -0.42736, y: 0.963, z: 0.40671}
+  m_LocalScale: {x: 0.2845879, y: 0.8196125, z: 0.2845879}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3072869265707542982}
@@ -1005,6 +1005,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1284691866914449898, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
+      propertyPath: tileEnemyPreset
+      value: 
+      objectReference: {fileID: 11400000, guid: 6a4c4ef27b52d364086a3673619d5033, type: 2}
     - target: {fileID: 7392724090278510493, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1051,7 +1055,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7913928217956033831, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
       propertyPath: m_Name
-      value: WorldTile
+      value: TundraTile
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}

@@ -10,19 +10,18 @@ public class BattleTileController : MonoBehaviour
     #nullable enable
     [HideInInspector] public BattleUnit? unitContents;
     #nullable disable
-
     [HideInInspector] public Vector3 unitPosition;
 
     [SerializeField] CellHighlight cellHighlighter;
-
     HighlightMode baseHighlight = HighlightMode.OFF;
 
     public enum SpawnPermission { NONE, PLAYER, ENEMY, OBJECT}
     public SpawnPermission spawns;
+    public bool activateUnitStencil;
+
     readonly float heightAdjust = .4f;
 
     CardPlus loadedCard;
-
     List<GameObject> myPath;
 
     void Awake()
@@ -44,7 +43,8 @@ public class BattleTileController : MonoBehaviour
             EventManager.targetConfirmed?.Invoke(this);
             availableForPlay = false;
         }
-        else if (loadedCard == null && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
+        else if (loadedCard == null && myPath != null && myPath.Count > 0 
+            && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
         {
             StartCoroutine(TurnManager.playerUnit.ChainPath(myPath));
         }
