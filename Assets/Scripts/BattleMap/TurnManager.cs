@@ -18,8 +18,6 @@ public class TurnManager : MonoBehaviour
     public static UnityEvent unitsReport = new();
     public static UnityEvent deathPhase = new();
 
-    public static TurnChange turnChange = new();
-
     public static UnityEvent updateBeatCounts = new();
     public static UnityEvent initialPositionReport = new();
 

@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 8d30d41a8e14e3e4388eba63777289d2, type: 2}
     - target: {fileID: 4905220179140931022, guid: 054f6b48a6a7449488d276cb0d70d7cd, type: 3}
       propertyPath: m_Name
-      value: Slime_Cube
+      value: Paladin
       objectReference: {fileID: 0}
     - target: {fileID: 5717609375388252020, guid: 054f6b48a6a7449488d276cb0d70d7cd, type: 3}
       propertyPath: m_RootOrder
@@ -141,5 +141,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5596465940149738481, guid: 32d0623cdced6a542a0661831f8659a8, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 32d0623cdced6a542a0661831f8659a8, type: 3}

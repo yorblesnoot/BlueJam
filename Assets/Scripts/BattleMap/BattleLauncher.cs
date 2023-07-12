@@ -12,7 +12,7 @@ public class BattleLauncher : MapLauncher
     private void Start() 
     {
         //instantiate a prefab map
-        Instantiate(sceneRelay.availableMaps.DispenseMap(), new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(sceneRelay.availableMaps[Random.Range(0,sceneRelay.availableMaps.Count)], new Vector3(0, 0, 0), Quaternion.identity);
 
         //tell the camera to find the lockpoint on the battle map and lock onto it
         camLock.CameraLockOn();

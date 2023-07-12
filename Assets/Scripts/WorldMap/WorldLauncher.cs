@@ -6,14 +6,14 @@ public class WorldLauncher : MapLauncher
     [SerializeField] WorldMapRenderer mapRenderer;
     [SerializeField] WorldPlayerControl playerControl;
 
-    private void Awake() 
+    private void Start() 
     {
         mapRenderer.Initialize();
         playerControl.InitializePlayer();
 
         DynamicEventPlacer placer = new(runData);
         placer.CheckToPopulateChunks(MapTools.VectorToMap(WorldPlayerControl.player.transform.position) + WorldMapRenderer.spotlightGlobalOffset);
-        placer.PlaceBoss();
+        if(!runData.eventMap.ContainsValue("b")) placer.PlaceBoss();
 
         mapRenderer.RenderFullWindow(runData.worldMap);
 

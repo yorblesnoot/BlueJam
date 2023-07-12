@@ -26,6 +26,7 @@ public class UnitAI : MonoBehaviour
         //checklegal on every targetRules
         entities = new();
         entities.AddRange(TurnManager.turnTakers);
+        entities = entities.Where(t => !t.isSummoned).ToList();
         entities.Add(TurnManager.playerUnit);
 
         List<BattleTileController> optionTile = new();

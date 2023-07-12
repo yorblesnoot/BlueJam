@@ -9,8 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f29faa576b12054aae2cb51a9d903cb, type: 3}
-  m_Name: ForestPool
+  m_Script: {fileID: 11500000, guid: f91c23a3e06a55c4c853ecd822414ace, type: 3}
+  m_Name: AttractorStats
   m_EditorClassIdentifier: 
-  maps:
-  - {fileID: 6579961044355922646, guid: 5ad2a5aabe284d44587b14a66d6d173c, type: 3}
+  unitName: Attractor
+  maxHealth: 40
+  handSize: 2
+  playerAllied: 0
+  startBeats: 1
+  myTurn: 0
+  damageScaling: 10
+  barrierScaling: 10
+  healScaling: 10
+  turnSpeed: 0.4

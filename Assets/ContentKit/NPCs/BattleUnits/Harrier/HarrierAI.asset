@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6856cce20993b2b43b6b389f2802db86, type: 3}
   m_Name: HarrierAI
   m_EditorClassIdentifier: 
-  interestAttack: 11.59
+  interestAttack: 16.56
   interestBuff: 0
   interestFriendly: 0
   interestHostile: 2

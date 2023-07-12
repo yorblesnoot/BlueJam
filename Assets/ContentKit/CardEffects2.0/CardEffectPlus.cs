@@ -9,11 +9,11 @@ public class CardEffectPlus : ScriptableObject
 
     public CardClass effectClass;
 
-    public VFXStyle vfxStyleSelf;
-    [StringInList(typeof(VFXHelper), "AllVFXNames")] public string vfxNameSelf;
+    public VFXStyle vfxStyleBefore;
+    [StringInList(typeof(VFXHelper), "AllVFXNames")] public string vfxNameBefore;
 
-    public VFXStyle vfxStyleTarget;
-    [StringInList(typeof(VFXHelper), "AllVFXNames")] public string vfxNameTarget;
+    public VFXStyle vfxStyleAfter;
+    [StringInList(typeof(VFXHelper), "AllVFXNames")] public string vfxNameAfter;
 
     public float scalingMultiplier;
 
@@ -35,9 +35,9 @@ public class CardEffectPlus : ScriptableObject
     {
         List<BattleUnit> targets = AcquireTargets(actor, targetCell, aoe);
 
-        VFXMachine.PlayVFX(vfxNameSelf, vfxStyleSelf, actor, MapTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>());
+        VFXMachine.PlayVFX(vfxNameBefore, vfxStyleBefore, actor, targetCell);
         yield return actor.StartCoroutine(ActivateEffect(actor, targetCell, aoe, targets));
-        VFXMachine.PlayVFX(vfxNameTarget, vfxStyleTarget, actor, targetCell);
+        VFXMachine.PlayVFX(vfxNameAfter, vfxStyleAfter, actor, targetCell);
 
         if (targets.Count > 0) foreach(BattleUnit target in targets) EventManager.checkForTriggers.Invoke(this, actor, target);
         else EventManager.checkForTriggers.Invoke(this, actor, null);

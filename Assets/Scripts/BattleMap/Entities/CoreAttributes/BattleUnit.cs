@@ -38,17 +38,21 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
 
     public void TakeTurn()
     {
-        //buff lapse effects DurationProc()
-        buffTracker.DurationProc();
+        //buff lapse effects
+        TurnTick();
         TurnManager.deathPhase?.Invoke();
         if (isDead)
         {
             TurnManager.AssignTurn();
             return;
         }
-        //myHand.DrawPhase();
-
         GetAction();
+    }
+
+    void TurnTick()
+    {
+        buffTracker.DurationProc();
+        barrierTracker.DeflectLapse();
     }
 
     public virtual void GetAction() { }

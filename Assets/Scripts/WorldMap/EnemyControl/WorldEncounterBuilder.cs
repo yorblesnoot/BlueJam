@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,7 +13,7 @@ public class WorldEncounterBuilder
         RunData = data;
     }
 
-    public void ModifyMapGeneration(BiomePool maps)
+    public void ModifyMapGeneration(List<GameObject> maps)
     {
         sceneRelay.availableMaps = maps;
     }

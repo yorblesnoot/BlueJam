@@ -1,0 +1,6 @@
+1. build map
+2. attach tile grid and paint battle tiles
+3. set player and enemy spawns
+4. set stencil locations
+5. add camera lock point to center of map
+6. add map to pool for a world tile

@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1324673641937048145, guid: df1bc6e49bf6da548a9a1764d86083b9, type: 3}
       propertyPath: m_Name
-      value: Slime
+      value: Mender
       objectReference: {fileID: 0}
     - target: {fileID: 1813260718515636459, guid: df1bc6e49bf6da548a9a1764d86083b9, type: 3}
       propertyPath: m_RootOrder
@@ -141,5 +141,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AngelWings_[ACCESSORY]_[BOTTOM]
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4912087006294635409, guid: 6b00c63c7fb39a34d95687fe2b85cc49, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6b00c63c7fb39a34d95687fe2b85cc49, type: 3}

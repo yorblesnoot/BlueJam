@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "EffectPush", menuName = "ScriptableObjects/CardEffects/Push")]
-public class EffectPush : CardEffectPlus
+[CreateAssetMenu(fileName = "EffectPushPull", menuName = "ScriptableObjects/CardEffects/PushPull")]
+public class EffectPushPull : CardEffectPlus
 {
     int pushes = 0;
     private void Reset()
     {
         effectClass = CardClass.ATTACK;
     }
-    public int pushDistance;
     [Range(.1f, .01f)] public float stepSize;
     public override string GenerateDescription(IPlayerStats player)
     {
-        return $"push target {pushDistance} cells";
+        string verb = "";
+        if (scalingMultiplier > 0) verb = "push";
+        else verb = "pull";
+        return $"{verb} target {Mathf.RoundToInt(scalingMultiplier)} cells";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
+        int pushDistance = Mathf.RoundToInt(scalingMultiplier);
         foreach (BattleUnit target in targets)
         {
             target.StartCoroutine(Push(actor, target, pushDistance, stepSize));
@@ -31,8 +34,9 @@ public class EffectPush : CardEffectPlus
     {
         Vector3 direction;
         direction = target.transform.position - actor.transform.position;
-        direction = new Vector3(direction.x, 0f, direction.z);
+        direction = new Vector3(direction.x, 0f, direction.z)*distance;
         direction.Normalize();
+        distance = Mathf.Abs(distance);
         Vector3 destination = target.transform.position;
         int collisionDamage = 0;
         for (int i = 0; i < distance; i++)
@@ -40,22 +44,18 @@ public class EffectPush : CardEffectPlus
             //evaluate each cell in turn as a push destination
             Vector3 possibleDestination = destination + direction;
             BattleTileController cell;
-            try
+            GameObject cellObj = MapTools.VectorToTile(possibleDestination);
+            if(cellObj != null)
             {
-                cell = MapTools.VectorToTile(possibleDestination).GetComponent<BattleTileController>();
-                BattleUnit contents = cell.unitContents;
-                if (contents == null)
+                cell = cellObj.GetComponent<BattleTileController>();
+                if (cell.unitContents == null)
                 {
                     destination += direction;
+                    continue;
                 }
-                else collisionDamage = distance - i;
             }
-            catch { collisionDamage = distance - i; }
-
-            if (collisionDamage > 0)
-            {
-                break;
-            }
+            collisionDamage = distance - i;
+            break;
         }
         MapTools.ReportPositionChange(target, MapTools.VectorToTile(destination).GetComponent<BattleTileController>());
         while (target.transform.position != destination)

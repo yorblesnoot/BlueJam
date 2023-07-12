@@ -112,8 +112,6 @@ public class EssenceCrafting : MonoBehaviour
             potentialDrops.RemoveAt(dropIndex);
         }
 
-        EssenceSlotFilled();
-        craftStatus.text = "Insufficient materials for crafting.";
         new SaveContainer(runData).SaveGame();
         cardAwardUI.gameObject.SetActive(true);
         cardAwardUI.AwardCards(actualDrops);
@@ -126,7 +124,8 @@ public class EssenceCrafting : MonoBehaviour
 
         craftingSlotContents.Clear();
         essenceSlotContents = null;
-        //worldMenuControl.ToggleWindow(gameObject, false);
+        EssenceSlotFilled();
+        craftStatus.text = "Insufficient materials for crafting.";
     }
 
     public void SpendEssence(DraggableItem essence)

@@ -9,13 +9,7 @@ public class BarrierTracker : MonoBehaviour
     [HideInInspector] public List<int> deflectInstances;
     [HideInInspector] public List<int> deflectDurations;
 
-    int deflectLength;
-    //barrier isnt appearing when applied; review health update logic
-    void Awake()
-    {
-        deflectLength = 2;
-        TurnManager.turnChange.AddListener(DeflectLapse);
-    }
+    readonly int deflectLength = 2;
 
     public void AddDeflect(int amount)
     {
@@ -31,17 +25,14 @@ public class BarrierTracker : MonoBehaviour
         unitActions.myUI.UpdateHealth();
     }
 
-    void DeflectLapse(GameObject active)
+    public void DeflectLapse()
     {
-        if(active == gameObject)
+        for(int i = 0; i < deflectInstances.Count; i++)
         {
-            for(int i = 0; i < deflectInstances.Count; i++)
-            {
-                deflectDurations[i]--;
-                if (deflectDurations[i] <= 0) RemoveDeflectInstance(i);
-            }
-            unitActions.deflectHealth = GetTotalDeflect();
+            deflectDurations[i]--;
+            if (deflectDurations[i] <= 0) RemoveDeflectInstance(i);
         }
+        unitActions.deflectHealth = GetTotalDeflect();
     }
     public void RemoveDeflectInstance(int i)
     {

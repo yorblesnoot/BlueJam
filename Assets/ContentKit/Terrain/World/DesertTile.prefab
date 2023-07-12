@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: tileEnemyPreset
       value: 
       objectReference: {fileID: 11400000, guid: 6a4c4ef27b52d364086a3673619d5033, type: 2}
+    - target: {fileID: 1284691866914449898, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
+      propertyPath: biomeMaps.Array.data[0]
+      value: 
+      objectReference: {fileID: 8796646488429909966, guid: 81e82d0cfa83fea46a25f0b41fff1ecd, type: 3}
     - target: {fileID: 7392724090278510493, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
       propertyPath: m_RootOrder
       value: 0

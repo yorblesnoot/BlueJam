@@ -22,15 +22,6 @@ public class EntityUI : MonoBehaviour
     public void UpdateHealth()
     {
         StartCoroutine(UpdateBar(unitActions.currentHealth, unitActions.maxHealth, sliderHealth));
-        if (unitActions.deflectHealth > 0)
-        {
-            sliderDeflect.gameObject.SetActive(true);
-        }
-        if (unitActions.shieldHealth > 0)
-        {
-            sliderShield.gameObject.SetActive(true);
-        }
-
         StartCoroutine(UpdateBar(unitActions.deflectHealth, unitActions.maxHealth, sliderDeflect));
         StartCoroutine(UpdateBar(unitActions.shieldHealth, unitActions.maxHealth, sliderShield));
     }
@@ -44,6 +35,7 @@ public class EntityUI : MonoBehaviour
 
     public IEnumerator UpdateBar(float current, float max, Slider slider, bool vanish = true)
     {
+        if(current > 0) { slider.gameObject.SetActive(true);}
         int changeInterval = 10;
 
         float toValue = current / max;

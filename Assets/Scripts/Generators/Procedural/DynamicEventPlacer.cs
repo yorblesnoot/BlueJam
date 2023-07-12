@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class DynamicEventPlacer
 {
@@ -11,7 +12,7 @@ public class DynamicEventPlacer
     readonly List<int> probabilities;
     RunData runData;
 
-    readonly int bossDistance = 70;
+    readonly int bossDistance = 10;
 
     readonly Dictionary<int, string> eventsAndOdds = new()
     {
@@ -48,15 +49,15 @@ public class DynamicEventPlacer
         List<Vector2Int> neighbors = chunkLocation.GetSurroundingCoordinates();
         foreach(Vector2Int neighbor in neighbors)
         {
-            bool? chunk = runData.exploredChunks.Safe2DFind(neighbor.x, neighbor.y);
-            if (chunk != false) continue;
             PopulateChunk(neighbor);
-            runData.exploredChunks[neighbor.x, neighbor.y] = true;
         }
     }
 
     private void PopulateChunk(Vector2Int chunk)
     {
+        bool? hasBeenPopulated = runData.exploredChunks.Safe2DFind(chunk.x, chunk.y);
+        if (hasBeenPopulated != false) return;
+
         List<Vector2Int> validSpots = GetValidSpots(chunk);
         foreach (Vector2Int validSpot in validSpots)
         {
@@ -64,6 +65,7 @@ public class DynamicEventPlacer
             if (!string.IsNullOrEmpty(output)) 
                 runData.eventMap.Add(validSpot, output);
         }
+        runData.exploredChunks[chunk.x, chunk.y] = true;
     }
 
     private string RandomEvent(Dictionary<int, string> options, int total)
@@ -91,7 +93,9 @@ public class DynamicEventPlacer
             for (int y = 0; y < chunkSize; y++)
             {
                 //add any extra placement logic here
-                validSpots.Add(new Vector2Int(chunkLocation.x + x, chunkLocation.y + y));
+                Vector2Int spot = new(x, y);
+                spot += chunkLocation;
+                validSpots.Add(spot);
             }
         }
         return validSpots;
@@ -102,6 +106,8 @@ public class DynamicEventPlacer
         Vector2 direction = UnityEngine.Random.insideUnitCircle.normalized;
         direction *= bossDistance;
         Vector2Int intLocation = new(Mathf.RoundToInt(direction.x) + runData.playerWorldX, Mathf.RoundToInt(direction.y) + runData.playerWorldY);
+        Vector2Int chunkLocation = intLocation/chunkSize;
+        PopulateChunk(chunkLocation);
         runData.eventMap.Remove(intLocation);
         runData.eventMap.Add(intLocation,"b");
     }

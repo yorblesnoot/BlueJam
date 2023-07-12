@@ -19,14 +19,13 @@ public class BuffTracker : MonoBehaviour
         public bool[,] aoe;
     }
 
-    public void RegisterBuff(BattleUnit ownerIn, EffectBuff buff, bool[,] aoeIn)
+    public void RegisterBuff(BattleUnit ownerIn, EffectBuff buff)
     {
         TrackedBuff incomingBuff = new() {
             lapseEffect = buff.turnLapseEffect,
             endEffect = buff.removalEffect,
             remainingDuration = buff.duration,
-            owner = ownerIn,
-            aoe = aoeIn};
+            owner = ownerIn};
         incomingBuff.endEffect?.Initialize();
         incomingBuff.lapseEffect?.Initialize();
         buffs.Add(incomingBuff);
@@ -39,11 +38,13 @@ public class BuffTracker : MonoBehaviour
         for (int i = 0; i < buffs.Count; i++)
         {
             buffs[i].remainingDuration--;
-            StartCoroutine(buffs[i]?.lapseEffect.Execute(buffs[i].owner, myTile));
+            if (buffs[i].lapseEffect != null)
+                StartCoroutine(buffs[i].lapseEffect.Execute(buffs[i].owner, myTile));
             if (buffs[i].remainingDuration <= 0)
             {
                 //remove the buff in question
-                StartCoroutine(buffs[i].endEffect?.Execute(buffs[i].owner, myTile)); 
+                if (buffs[i].endEffect != null)
+                    StartCoroutine(buffs[i].endEffect.Execute(buffs[i].owner, myTile)); 
                 buffs.RemoveAt(i);
             }
         }

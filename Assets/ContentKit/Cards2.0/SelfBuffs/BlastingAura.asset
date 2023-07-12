@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: BlastingAura
+  m_EditorClassIdentifier: 
+  Id: 2c3bea56-871c-4970-b07a-b6e8876a2720
+  displayName: Bursting Presence
+  cost: 4
+  description: 
+  keywords: 
+  targetShape: 0
+  targetSize: 0
+  targetGap: 0
+  pathCheckForTargets: 0
+  cardClass: 
+  consumed: 0
+  animType: 0
+  effects:
+  - {fileID: 11400000, guid: 50865f04114077e4ca2f668fee2f6cfc, type: 2}

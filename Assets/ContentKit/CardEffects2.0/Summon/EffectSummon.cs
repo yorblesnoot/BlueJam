@@ -15,7 +15,9 @@ public class EffectSummon : CardEffectPlus
     public GameObject entityToSummon;
     public override string GenerateDescription(IPlayerStats player)
     {
-        return $"summon a {entityToSummon.name}";
+        string entityName = entityToSummon.name;
+        entityName = entityName.Replace("NPC", "");
+        return $"summon a {entityName}";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {

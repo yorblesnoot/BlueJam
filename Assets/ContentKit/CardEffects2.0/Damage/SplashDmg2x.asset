@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   effectClass: 0
-  vfxStyleSelf: 0
-  vfxNameSelf: GroundBurst
-  vfxStyleTarget: 0
-  vfxNameTarget: none
+  vfxStyleBefore: 0
+  vfxNameBefore: none
+  vfxStyleAfter: 0
+  vfxNameAfter: GroundBurst
   scalingMultiplier: 2
   aoeShape: 1
   aoeSize: 1
   aoeGap: 1
   userOriginalTile: {fileID: 0}
-  doneExecuting: 1
   blockTrigger: 0

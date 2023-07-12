@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2e09cbe6c9746489b5a70c6a1e13ff, type: 3}
+  m_Name: DamageAura
+  m_EditorClassIdentifier: 
+  forceTargetSelf: 0
+  effectClass: 2
+  vfxStyleBefore: 0
+  vfxNameBefore: none
+  vfxStyleAfter: 0
+  vfxNameAfter: BuffCharge
+  scalingMultiplier: 0
+  aoeShape: 0
+  aoeSize: 0
+  aoeGap: 0
+  userOriginalTile: {fileID: 0}
+  blockTrigger: 0
+  purgeable: 1
+  duration: 5
+  iconColor:
+    serializedVersion: 2
+    rgba: 4278217215
+  applicationEffect: {fileID: 0}
+  turnLapseEffect: {fileID: 11400000, guid: 34d0eb95861aecc42896ece5d8e9ff14, type: 2}
+  removalEffect: {fileID: 0}

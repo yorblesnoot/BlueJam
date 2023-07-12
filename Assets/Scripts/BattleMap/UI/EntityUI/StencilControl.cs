@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class StencilControl : MonoBehaviour
 {
+    //if this isn't working, check to make sure the stencil shaders are on the blocking objects
     [SerializeField] GameObject stencil;
     public void ToggleStencil(BattleTileController tile)
     {

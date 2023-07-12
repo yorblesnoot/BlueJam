@@ -67,7 +67,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Crown_[ACCESSORY]_[TOP]_[1.1]
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 325020155794251841, guid: 98ad8c9a0a44bc54eae7191347fa66ba, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 98ad8c9a0a44bc54eae7191347fa66ba, type: 3}
 --- !u!1001 &6621343926427975271
 PrefabInstance:
@@ -78,7 +79,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1324673641937048145, guid: df1bc6e49bf6da548a9a1764d86083b9, type: 3}
       propertyPath: m_Name
-      value: Slime
+      value: Warchief
       objectReference: {fileID: 0}
     - target: {fileID: 1813260718515636459, guid: df1bc6e49bf6da548a9a1764d86083b9, type: 3}
       propertyPath: m_RootOrder

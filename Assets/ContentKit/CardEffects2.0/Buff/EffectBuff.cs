@@ -16,10 +16,6 @@ public class EffectBuff : CardEffectPlus
     public CardEffectPlus turnLapseEffect;
     public CardEffectPlus removalEffect;
 
-    [SerializeField] TileMapShape aoeShapeRecurring;
-    [SerializeField] int aoeSizeRecurring;
-    [SerializeField] int aoeGapRecurring;
-
     public override string GenerateDescription(IPlayerStats player)
     {
         string description = "";
@@ -32,8 +28,7 @@ public class EffectBuff : CardEffectPlus
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        bool[,] aoeRulesRecurring = MapRulesGenerator.Convert(aoeShapeRecurring, aoeSizeRecurring, aoeGapRecurring);
-        foreach(BattleUnit target in targets) target.gameObject.GetComponent<BuffTracker>().RegisterBuff(actor, this, aoeRulesRecurring);
+        foreach(BattleUnit target in targets) target.gameObject.GetComponent<BuffTracker>().RegisterBuff(actor, this);
         yield return null;
     }
 }

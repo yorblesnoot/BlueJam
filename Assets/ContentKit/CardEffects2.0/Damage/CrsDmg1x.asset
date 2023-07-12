@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   effectClass: 0
-  vfxStyleSelf: 0
-  vfxNameSelf: none
-  vfxStyleTarget: 0
-  vfxNameTarget: LilSpines
+  vfxStyleBefore: 0
+  vfxNameBefore: none
+  vfxStyleAfter: 0
+  vfxNameAfter: LilSpines
   scalingMultiplier: 1
   aoeShape: 2
   aoeSize: 1
   aoeGap: 1
   userOriginalTile: {fileID: 0}
-  doneExecuting: 1
   blockTrigger: 0

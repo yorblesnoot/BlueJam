@@ -4,6 +4,16 @@ using UnityEditor;
 using UnityEngine;
 using static UnityEngine.UI.Image;
 
+public enum VFXStyle
+{
+    UNIT,
+    CELL,
+    DIRECTION,
+    TRAIL,
+    AURA,
+    DROP,
+    SELFALWAYS
+}
 public static class VFXMachine 
 {
     static readonly float particleKillDelay = 4f;
@@ -17,6 +27,7 @@ public static class VFXMachine
             case (VFXStyle.DIRECTION): PlayToLocation(vfxName, actor.gameObject.transform.position, targetCell.unitPosition); break;
             case (VFXStyle.TRAIL): AttachTrail(vfxName, actor.gameObject); break;
             case (VFXStyle.DROP): PlayAboveLocation(vfxName, targetCell.unitPosition); break;
+            case (VFXStyle.SELFALWAYS): PlayAtLocation(vfxName, actor.transform.position); break;
 
         }
     }

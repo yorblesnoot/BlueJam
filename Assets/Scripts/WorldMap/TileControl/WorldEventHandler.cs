@@ -6,7 +6,7 @@ using UnityEngine;
 public class WorldEventHandler : MonoBehaviour
 {
     public SpawnPool tileEnemyPreset;
-    public BiomePool biomeMaps;
+    public List<GameObject> biomeMaps;
     public RunData runData;
     public SceneRelay sceneRelay;
 
@@ -59,6 +59,9 @@ public class WorldEventHandler : MonoBehaviour
         {
             sceneRelay.bossEncounter = true;
             LaunchCombat(cellEnemy);
+            Debug.Log(cellEnemy.GetType());
+            Debug.Log(cellEnemy.name);
+            Debug.Log("launching boss");
         }
 
         List<Vector2Int> adjacentPositions = MapTools.VectorToMap(transform.position).GetAdjacentCoordinates();

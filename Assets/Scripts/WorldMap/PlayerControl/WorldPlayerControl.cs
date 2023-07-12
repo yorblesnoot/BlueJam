@@ -61,6 +61,7 @@ public class WorldPlayerControl : MonoBehaviour
             if(tileController.dangerTile == true)
             {
                 runData.currentHealth -= tileDamage;
+                runData.currentHealth = Mathf.Clamp(runData.currentHealth, 1, runData.playerStats.maxHealth);
                 EventManager.updateWorldHealth.Invoke();
                 VFXMachine.PlayAtLocation("DescendingVibes", transform.position);
                 unitAnimator.Animate(AnimType.DAMAGED);

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
-  playerWorldX: 268
-  playerWorldY: 269
+  playerWorldX: 247
+  playerWorldY: 250
   itemInventory:
-  - {fileID: 11400000, guid: dec479f9c49bab44bab2bf2e833a1bd9, type: 2}
+  - {fileID: 11400000, guid: 1f6204a9a5dd893428d091f1566ce5a7, type: 2}
   essenceInventory: []
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
   RemoveStock: 0
-  worldSteps: 51
+  worldSteps: 11
   currentHealth: 100

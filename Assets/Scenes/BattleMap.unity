@@ -295,9 +295,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stencil: {fileID: 1253408969}
-  detectMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1001 &3451738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4296,7 +4293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2682643835033316751, guid: c9ccdf7b7351bf9458cb7b52d36f7d8e, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.4395763
+      value: 0.8693633
       objectReference: {fileID: 0}
     - target: {fileID: 2682643835033316751, guid: c9ccdf7b7351bf9458cb7b52d36f7d8e, type: 3}
       propertyPath: m_LocalScale.z

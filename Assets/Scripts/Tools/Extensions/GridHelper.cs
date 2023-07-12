@@ -66,10 +66,4 @@ public static class GridHelper
             new Vector2Int(coordinates.x, coordinates.y-1),
         };
     }
-
-    public static int GetLength(this Dictionary<Vector2Int, GameObject> map)
-    {
-        List<int> coords = map.Select(entry => entry.Key.x).ToList();
-        return coords.Max()+1;
-    }
 }
