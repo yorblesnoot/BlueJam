@@ -37,7 +37,7 @@ public class BattleEnder : MonoBehaviour
 
         yield return StartCoroutine(FadeInDrops());
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         if (sceneRelay.bossEncounter == true)
         {
             //send the player to credits if they beat the boss
@@ -60,7 +60,7 @@ public class BattleEnder : MonoBehaviour
         }
         runData.essenceInventory.AddRange(deckDrops);
         deckDrops.Clear();
-        yield return StartCoroutine(FadeInWords(dropsWords.Take(drops.Count).ToList(), 15));
+        yield return StartCoroutine(FadeInWords(dropsWords.Take(drops.Count).ToList(), 17));
     }
     List<string> ProcessDropList(List<Deck> drops)
     {

@@ -10,6 +10,11 @@ public class RemoveCounter : MonoBehaviour
         EventManager.updateWorldCounters.AddListener(UpdateCounter);
     }
 
+    private void OnEnable()
+    {
+        UpdateCounter();
+    }
+
     public void UpdateCounter()
     {
         counter.text = runData.RemoveStock.ToString();

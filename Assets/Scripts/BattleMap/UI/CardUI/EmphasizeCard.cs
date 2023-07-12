@@ -17,21 +17,21 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     public bool readyEmphasis = false;
 
     float scaleFactor = 1.5f;
-    float positionFactor = 1.3f;
+    float screenHeightFactor = 1.35f;
 
     void Awake()
     {
         if(SceneManager.GetActiveScene().buildIndex == 2)
         {
             scaleFactor = 1.5f;
-            positionFactor = 1.3f;
+            screenHeightFactor = 1.35f;
             RectTransform cardRect = gameObject.GetComponent<RectTransform>();
-            positionFactor = cardRect.rect.height / positionFactor;
+            screenHeightFactor = cardRect.rect.height / screenHeightFactor;
         }
         else
         {
             scaleFactor = 1.05f;
-            positionFactor = 0f;
+            screenHeightFactor = 0f;
         }
     }
 
@@ -57,10 +57,10 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             transform.localScale = new Vector3(scale.x*scaleFactor,scale.y*scaleFactor,scale.z*scaleFactor);
 
             //pop up
-            if (positionFactor > 0f)
+            if (screenHeightFactor > 0f)
             {
                 Vector3 position = transform.localPosition;
-                transform.localPosition = new Vector3(position.x, position.y + positionFactor, position.z);
+                transform.localPosition = new Vector3(position.x, position.y + screenHeightFactor, position.z);
             }
             //StartCoroutine(BlockEmphasis());
         }
@@ -70,7 +70,7 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if (emphasis == true)
         {
-            if(positionFactor > 0f) transform.localPosition = originalPosition;
+            if(screenHeightFactor > 0f) transform.localPosition = originalPosition;
             transform.localScale = originalScale;
             emphasis = false;
         }

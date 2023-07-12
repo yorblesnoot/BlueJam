@@ -61,7 +61,6 @@ public class WorldEventHandler : MonoBehaviour
             LaunchCombat(cellEnemy);
             Debug.Log(cellEnemy.GetType());
             Debug.Log(cellEnemy.name);
-            Debug.Log("launching boss");
         }
 
         List<Vector2Int> adjacentPositions = MapTools.VectorToMap(transform.position).GetAdjacentCoordinates();
