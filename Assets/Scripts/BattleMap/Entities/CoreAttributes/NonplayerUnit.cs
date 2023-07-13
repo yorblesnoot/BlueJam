@@ -51,7 +51,7 @@ public class NonplayerUnit : BattleUnit
         if (gameObject.CompareTag("Enemy") && isSummoned != true)
         {
             //when an enemy dies, add its deck to the player's inventory for later use
-            BattleEnder.deckDrops.Add(GetComponent<Hand>().deckRecord);
+            BattleEnder.deckDrops.Add(GetComponent<HandPlus>().deckRecord);
         }
         TurnManager.UnreportTurn(this);
         UnreportCell();

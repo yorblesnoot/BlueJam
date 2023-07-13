@@ -23,6 +23,7 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
     //fill the details of a blank card
     public void PopulateCard(CardPlus card)
     {
+        thisCard = card;
         if (card.cardClass.Contains(CardClass.SUMMON))
         {
             image.sprite = summon;

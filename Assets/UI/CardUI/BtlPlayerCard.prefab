@@ -244,6 +244,7 @@ MonoBehaviour:
   effectText: {fileID: 8519150487366099922}
   keywordPane: {fileID: 8519150487843660602}
   emphasize: {fileID: 1065164714262176951}
+  cardBack: {fileID: 3468691988779716902}
 --- !u!1 &8519150486238997231
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,6 +1756,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d2b1ffe8432dec418c7e80e5fecc974, type: 3}
+--- !u!1 &3468691988779716902 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 884357333345681491, guid: 4d2b1ffe8432dec418c7e80e5fecc974, type: 3}
+  m_PrefabInstance: {fileID: 4352336184679174517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3468691988779716903 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 884357333345681490, guid: 4d2b1ffe8432dec418c7e80e5fecc974, type: 3}

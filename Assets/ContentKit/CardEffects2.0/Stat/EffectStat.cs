@@ -65,7 +65,7 @@ public class EffectStat : CardEffectPlus
         }
         if(target.gameObject.tag == "Player")
         {
-            target.gameObject.GetComponent<Hand>().UpdateHand();
+            target.gameObject.GetComponent<HandPlus>().UpdateHand();
         }
     }
 }

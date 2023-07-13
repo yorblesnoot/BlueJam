@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class HandPlus : MonoBehaviour
@@ -46,6 +47,24 @@ public class HandPlus : MonoBehaviour
         currentHand.Add(cardToDraw);
         display.DrawCard(cardToDraw);
     }
+    public void Discard(ICardDisplay toDiscard, bool played)
+    {
+        display.Discard(toDiscard);
+        if (toDiscard.thisCard.consumed == true & played == true)
+        {
+            //do nothing, ie, the card is burned
+        }
+        else deckDiscarded.Add(toDiscard.thisCard);
+        currentHand.Remove(toDiscard.thisCard);
+    }
+
+    public void Discard(CardPlus toDiscard, bool played)
+    {
+        Debug.Log(toDiscard);
+        ICardDisplay toDiscardDisplay = display.handCards.FirstOrDefault(card => card.thisCard == toDiscard);
+        Debug.Log(toDiscardDisplay);
+        Discard(toDiscardDisplay, played);
+    }
 
     public CardPlus FromTopOfDeck()
     {
@@ -59,6 +78,21 @@ public class HandPlus : MonoBehaviour
         deckDrawable.AddRange(deckDiscarded);
         deckDiscarded = new();
         deckDrawable = Shuffle(deckDrawable);
+        display.RecycleDeck();
+    }
+
+    public void DiscardAll()
+    {
+        //implement discard all functionality~~~~~~~~~~~~~~~~~~~~~~~~~~
+    }
+
+    public void UpdateHand()
+    {
+        /*for (int i = 0; i < handReferences.Count; i++)
+        {
+            handReferences[i].AssembleDescription();
+            handObjects[i].GetComponent<CardDisplay>().PopulateCard(handReferences[i]);
+        }*/
     }
 
     public static List<CardPlus> Shuffle(List<CardPlus> list)

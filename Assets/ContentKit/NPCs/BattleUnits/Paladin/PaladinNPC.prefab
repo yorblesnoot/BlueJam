@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5569718427745176160, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5629394624018249364, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -81,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7073732932440425903, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: m_Name
-      value: Paladin
+      value: PaladinNPC
       objectReference: {fileID: 0}
     - target: {fileID: 7599744135600204344, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: personality
@@ -91,6 +95,10 @@ PrefabInstance:
       propertyPath: <unitStats>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: 56ca69252f82aa9409bdf7b0e6f604fa, type: 2}
+    - target: {fileID: 8710544832909475706, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
+      propertyPath: deckRecord
+      value: 
+      objectReference: {fileID: 11400000, guid: fbf1c818b1064894783c8030b86b2eb9, type: 2}
     - target: {fileID: 8756678418362555511, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

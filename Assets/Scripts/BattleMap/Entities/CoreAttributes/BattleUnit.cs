@@ -5,7 +5,7 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
     [field: SerializeField] public UnitStats unitStats { get; set; }
     [SerializeField] BarrierTracker barrierTracker;
     [SerializeField] BuffTracker buffTracker;
-    public Hand myHand;
+    public HandPlus myHand;
     public UnitAnimator unitAnimator;
 
     public int maxHealth { get; set; }

@@ -116,6 +116,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5569718427745176160, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6232642773674876250, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -134,7 +138,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7073732932440425903, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: m_Name
-      value: Totem
+      value: TotemNPC
       objectReference: {fileID: 0}
     - target: {fileID: 7599744135600204344, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: personality
@@ -144,6 +148,10 @@ PrefabInstance:
       propertyPath: <unitStats>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: c5192659e2cd34640b42c98a6a67278c, type: 2}
+    - target: {fileID: 8710544832909475706, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
+      propertyPath: deckRecord
+      value: 
+      objectReference: {fileID: 11400000, guid: ceeb1002e3f590a47ac6f7fd26ac13b0, type: 2}
     - target: {fileID: 8756678418362555511, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

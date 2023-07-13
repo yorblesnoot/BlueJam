@@ -168,6 +168,10 @@ PrefabInstance:
       propertyPath: <unitStats>k__BackingField
       value: 
       objectReference: {fileID: 11400000, guid: e407e740995181743ad5a1f4513eb4cb, type: 2}
+    - target: {fileID: 8710544832909475706, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
+      propertyPath: deckRecord
+      value: 
+      objectReference: {fileID: 11400000, guid: e9d6f90f24f0b0d4f841e9584099afdf, type: 2}
     - target: {fileID: 8756678418362555511, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0

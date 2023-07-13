@@ -12,13 +12,11 @@ public class EntityUI : MonoBehaviour
     public Slider sliderShield;
 
     public GameObject blankCard;
-    public Hand myHand;
     public GameObject unitCanvas;
     public BattleUnit unitActions;
 
     [field: SerializeField]public BuffUI buffUI { get; set; }
 
-    public int cardSize;
     public void UpdateHealth()
     {
         StartCoroutine(UpdateBar(unitActions.currentHealth, unitActions.maxHealth, sliderHealth));
@@ -61,21 +59,4 @@ public class EntityUI : MonoBehaviour
             slider.gameObject.SetActive(false);
         }
     }
-
-    public GameObject RenderBlank(CardPlus card)
-    {
-        //scale and rotation for cards 
-        Quaternion rotate = Quaternion.Euler(0, 0, 0);
-
-        GameObject newCard = Instantiate(blankCard, new Vector3(0, -20, 0), rotate);
-        newCard.transform.SetParent(unitCanvas.transform, false);
-        newCard.transform.localScale = new Vector3(cardSize, cardSize, cardSize);
-        ICardDisplay cardDisplay = newCard.GetComponent<ICardDisplay>();
-        cardDisplay.owner = gameObject.GetComponent<BattleUnit>();
-        cardDisplay.PopulateCard(card);
-
-        return newCard;
-    }
-
-    public virtual void PositionCards() { }
 }

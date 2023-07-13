@@ -1,46 +1,24 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class HandDisplayPlus : MonoBehaviour
 {
-    [SerializeField] GameObject deckSlot;
-    [SerializeField] GameObject discardSlot;
+    public GameObject blankCard;
 
-    [SerializeField] GameObject blankCard;
+    public BattleUnit thisUnit;
 
-    [SerializeField] BattleUnit thisUnit;
+    internal readonly int cardSize = 1;
 
-    public List<CardDisplay> cards = new();
+    public List<ICardDisplay> deckCards = new();
+    public List<ICardDisplay> handCards = new();
+    public List<ICardDisplay> discardCards = new();
+    internal virtual void BuildVisualDeck(int count)
+    { }
 
+    public virtual void DrawCard(CardPlus card) { }
 
-    readonly int cardSize = 1;
-    internal void BuildVisualDeck(int count)
-    {
-        for(int i = 0; i < count; i++)
-        {
-            RenderBlankCard();
-        }
-    }
+    public virtual void Discard(ICardDisplay Idiscarded) { }
 
-    public void RenderBlankCard()
-    {
-        //scale and rotation for cards 
-        Quaternion rotate = Quaternion.Euler(0, 0, 0);
-        GameObject newCard = Instantiate(blankCard, new Vector3(0, -20, 0), rotate);
-        newCard.transform.SetParent(deckSlot.transform, false);
-        newCard.transform.localScale = new Vector3(cardSize, cardSize, cardSize);
-        CardDisplay cardDisplay = newCard.GetComponent<CardDisplay>();
-        //cardDisplay.cardBack.SetActive(true);
-        cardDisplay.owner = thisUnit;
-        cards.Add(cardDisplay);
-        //cardDisplay.PopulateCard(card);
-    }
-
-    public void DrawCard(CardPlus card)
-    {
-
-    }
+    public virtual void RecycleDeck() { }
 }

@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using Unity.VisualScripting;
 using System.Collections;
 using System.Data;
 
@@ -13,7 +12,7 @@ public class UnitAI : MonoBehaviour
 
     private List<BattleUnit> entities;
 
-    [SerializeField] Hand myHand;
+    [SerializeField] HandPlus myHand;
     [SerializeField] BattleUnit thisUnit;
 
 
@@ -21,7 +20,7 @@ public class UnitAI : MonoBehaviour
 
     public void AITakeTurn()
     {
-        cardReferences = myHand.handReferences;
+        cardReferences = myHand.currentHand;
         //1. put all possible moves with their respective cards in one place
         //checklegal on every targetRules
         entities = new();
