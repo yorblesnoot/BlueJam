@@ -68,7 +68,7 @@ public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHan
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (PlayerUnit.playerState == PlayerBattleState.IDLE)
+        if (PlayerUnit.playerState == PlayerBattleState.IDLE && thisCard != null)
         {
             TurnManager.ShowPossibleTurnTakers(thisCard.cost);
         }

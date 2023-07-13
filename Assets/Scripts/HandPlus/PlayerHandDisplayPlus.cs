@@ -10,6 +10,7 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
     [SerializeField] GameObject deckSlot;
     [SerializeField] GameObject handSlot;
     [SerializeField] GameObject discardSlot;
+
     internal override void BuildVisualDeck(int count)
     {
         for(int i = 0; i < count; i++)
@@ -22,7 +23,7 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
     {
         //scale and rotation for cards 
         Quaternion rotate = Quaternion.Euler(0, 0, 0);
-        GameObject newCard = Instantiate(blankCard, new Vector3(0, -20, 0), rotate);
+        GameObject newCard = Instantiate(blankCard, new Vector3(0, 0, 0), rotate);
         newCard.transform.SetParent(deckSlot.transform, false);
         newCard.transform.localScale = new Vector3(cardSize, cardSize, cardSize);
         CardDisplay cardDisplay = newCard.GetComponent<CardDisplay>();
@@ -52,45 +53,49 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
         handCards.Remove(discarded);
     }
 
-    public override void RecycleDeck()
+    public override void RecycleCard(ICardDisplay card)
     {
-        foreach(var card in discardCards)
-        {
-            card.transform.SetParent(deckSlot.transform, false);
-
-            deckCards.Add(card);
-            discardCards.Remove(card);
-        }
+        card.transform.SetParent(deckSlot.transform, false);
     }
 
 
-    /*public void PositionCards()
+    public void PositionCards()
     {
-        //find the length and width of the camera to render cards at a set interval
-        Camera cam = Camera.main;
-        float height = 2f * cam.orthographicSize;
-        float width = height * cam.aspect * 50;
+        RectTransform handRect = handSlot.GetComponent<RectTransform>();
+        float width = handRect.rect.width;
 
-        //distance and height at which to render cards
-        RectTransform canvasRect = unitCanvas.GetComponent<RectTransform>();
-        float cardHeight = -canvasRect.rect.height / 2;
-        //maths to find the middle of the first card interval
+        int handSize = handCards.Count;
 
-        int handSize = myHand.maxSize;
-        float initialX = width * (handSize - 1) / (2 * handSize) * -1;
-        //build an array of places for cards to be
-        cardSlots = new Vector3[handSize];
-        for (int count = 0; count < cardSlots.Length; count++)
+        Vector3 startPosition = new(-width / 2, 0, 0);
+
+        Vector3 cardSpace = new(width / handSize, 0, 0);
+
+        List<CardSlot> cardSlots = new();
+
+        float centerPoint = (float)(handSize-1) / 2;
+
+        for(int i = 0; i < handSize; i++)
         {
-            float cardX;
-            cardX = initialX + (count * width / handSize);
+            CardSlot slot = new()
+            {
+                position = startPosition + cardSpace * i,
+                rotation = Quaternion.Euler(0, 0, centerPoint - i),
+                reference = handCards[i]
+            };
+            cardSlots.Add(slot);
+        }
+    }
+}
 
-            cardSlots[count] = new Vector3(cardX, cardHeight, 0);
-        }
-        for (int i = 0; i < myHand.handObjects.Count; i++)
-        {
-            GameObject cardObj = myHand.handObjects[i];
-            StartCoroutine(ArrangeCards(cardObj, cardSlots[i]));
-        }
-    }*/
+class CardSlot
+{
+    public Vector3 position;
+    public Quaternion rotation;
+    public ICardDisplay reference;
+
+    IEnumerator FlipToPosition()
+    {
+        //set up animation for card movement
+        yield return null;
+    }
 }

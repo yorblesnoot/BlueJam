@@ -51,15 +51,6 @@ public class NPCHandDisplayPlus : HandDisplayPlus
         discarded.gameObject.SetActive(false);
         
     }
-
-    public override void RecycleDeck()
-    {
-        foreach (var card in discardCards)
-        {
-            deckCards.Add(card);
-            discardCards.Remove(card);
-        }
-    }
     void PositionCards()
     {
         //find the length and width of the camera to render cards at a set interval

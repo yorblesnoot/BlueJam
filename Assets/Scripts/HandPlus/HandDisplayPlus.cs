@@ -13,12 +13,23 @@ public class HandDisplayPlus : MonoBehaviour
     public List<ICardDisplay> deckCards = new();
     public List<ICardDisplay> handCards = new();
     public List<ICardDisplay> discardCards = new();
-    internal virtual void BuildVisualDeck(int count)
-    { }
+    internal virtual void BuildVisualDeck(int count) { }
 
     public virtual void DrawCard(CardPlus card) { }
 
     public virtual void Discard(ICardDisplay Idiscarded) { }
 
-    public virtual void RecycleDeck() { }
+    public void RecycleDeck()
+    {
+        int discards = discardCards.Count;
+        for (int i = 0; i < discards; i++)
+        {
+            ICardDisplay card = discardCards[0];
+            RecycleCard(card);
+            deckCards.Add(card);
+            discardCards.Remove(card);
+        }
+    }
+
+    public virtual void RecycleCard(ICardDisplay card) { }
 }

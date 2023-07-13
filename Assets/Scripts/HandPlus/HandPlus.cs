@@ -60,9 +60,7 @@ public class HandPlus : MonoBehaviour
 
     public void Discard(CardPlus toDiscard, bool played)
     {
-        Debug.Log(toDiscard);
         ICardDisplay toDiscardDisplay = display.handCards.FirstOrDefault(card => card.thisCard == toDiscard);
-        Debug.Log(toDiscardDisplay);
         Discard(toDiscardDisplay, played);
     }
 
