@@ -11,12 +11,11 @@ public class CraftingSlot : InventorySlot
     }
     public void EvictChildren()
     {
-        try
-        {
+        if(transform.childCount > 0) 
+        { 
             DraggableItem contents = transform.GetChild(0).gameObject.GetComponent<DraggableItem>();
             essenceCrafting.ModifyCraftingSlotContents(contents, false);
             essenceCrafting.PlaceStrayDraggable(contents);
         }
-        catch { }
     }
 }

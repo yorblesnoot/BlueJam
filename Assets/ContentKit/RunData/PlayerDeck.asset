@@ -19,9 +19,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  symbol: 
+  - {fileID: 11400000, guid: 2ffa4b0a193fb714b9480b5caad9122c, type: 2}
+  symbol: ??
   iconColor:
     serializedVersion: 2
-    rgba: 0
-  essenceDescription: '.. Contains: *LongWalk *SmallBurst *SmallBurst *PushHit'
-  unitName: 
+    rgba: 4294967295
+  essenceDescription: 'Essence of the Player. Contains:'
+  unitName: Player

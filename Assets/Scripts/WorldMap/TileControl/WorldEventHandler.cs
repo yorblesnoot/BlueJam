@@ -59,8 +59,7 @@ public class WorldEventHandler : MonoBehaviour
         {
             sceneRelay.bossEncounter = true;
             LaunchCombat(cellEnemy);
-            Debug.Log(cellEnemy.GetType());
-            Debug.Log(cellEnemy.name);
+            yield break;
         }
 
         List<Vector2Int> adjacentPositions = MapTools.VectorToMap(transform.position).GetAdjacentCoordinates();
@@ -71,6 +70,7 @@ public class WorldEventHandler : MonoBehaviour
             WorldEventHandler eventHandler = tile.GetComponent<WorldEventHandler>();
             if (eventHandler.cellEnemy == null || eventHandler.cellEnemy.GetType() == typeof(WorldBoss)) continue;
             LaunchCombat(eventHandler.cellEnemy);
+            yield break;
             
         }
         EventManager.updateWorldCounters.Invoke();

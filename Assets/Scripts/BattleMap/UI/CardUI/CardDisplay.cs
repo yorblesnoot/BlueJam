@@ -48,6 +48,5 @@ public class CardDisplay : MonoBehaviour, ICardDisplay
             targetPane.color = new Color32(47, 231, 122, 255);
         }
         keywordPane.text = card.keywords;
-        emphasize.PrepareForEmphasis();
     }
 }

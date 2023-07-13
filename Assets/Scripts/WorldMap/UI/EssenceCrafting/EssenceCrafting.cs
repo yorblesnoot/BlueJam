@@ -91,6 +91,7 @@ public class EssenceCrafting : MonoBehaviour
     {
         //count the cards we're going to drop
         int dropCount = craftingSlotContents.Count;
+        Debug.Log(dropCount);
         if (essenceSlotContents == null || dropCount == 0) return;
         //create list of cards we'll drop
         List<CardPlus> actualDrops = new();

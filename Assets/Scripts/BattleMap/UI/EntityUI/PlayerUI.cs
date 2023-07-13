@@ -53,7 +53,6 @@ public class PlayerUI : EntityUI
             card.transform.localPosition = Vector3.MoveTowards(card.transform.localPosition, position, relocateDelta);
             yield return new WaitForSeconds(.01f);
         }
-        emphasize.PrepareForEmphasis();
     }
 
     public void MullPress()

@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   effectClass: 2
-  vfxStyleSelf: 0
-  vfxNameSelf: none
-  vfxStyleTarget: 0
-  vfxNameTarget: none
+  vfxStyleBefore: 0
+  vfxNameBefore: none
+  vfxStyleAfter: 0
+  vfxNameAfter: none
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0
@@ -30,4 +30,4 @@ MonoBehaviour:
   triggeringEffect: {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
   triggersRequiredForActivation: 1
   effectRecipient: 0
-  triggeredEffect: {fileID: 11400000, guid: ad352c4f04455674ca61014e0802281e, type: 2}
+  triggeredEffect: {fileID: 11400000, guid: 0142e1c960e0ca147a973aed18d0acf3, type: 2}

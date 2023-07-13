@@ -39,6 +39,7 @@ public class BarrierTracker : MonoBehaviour
         deflectInstances.RemoveAt(i);
         deflectDurations.RemoveAt(i);
         unitActions.deflectHealth = GetTotalDeflect();
+        Debug.Log(unitActions.deflectHealth);
         unitActions.myUI.UpdateHealth();
     }
 

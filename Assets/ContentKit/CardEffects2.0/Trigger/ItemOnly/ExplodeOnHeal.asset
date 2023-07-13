@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0ee5c551a020e0498bfb407790d89e4, type: 3}
-  m_Name: HealOnHit
+  m_Name: ExplodeOnHeal
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   effectClass: 2
@@ -25,9 +25,9 @@ MonoBehaviour:
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
   purgeable: 0
-  duration: 100
-  triggerIdentityCondition: 0
-  triggeringEffect: {fileID: 11400000, guid: f111fd945c1e2314b8cc1b68ef11a2c6, type: 2}
+  duration: 1000
+  triggerIdentityCondition: 1
+  triggeringEffect: {fileID: 11400000, guid: 973b2223225b38d48a2c92d7d79ab6bb, type: 2}
   triggersRequiredForActivation: 1
-  effectRecipient: 0
-  triggeredEffect: {fileID: 11400000, guid: 96c32cc241a8c0642a7b95d256cfccc3, type: 2}
+  effectRecipient: 1
+  triggeredEffect: {fileID: 11400000, guid: 3c4dbb024c1054e428662603a6ea590d, type: 2}

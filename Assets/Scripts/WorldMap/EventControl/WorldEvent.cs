@@ -27,6 +27,7 @@ public class WorldEvent : MonoBehaviour
     {
         Vector2Int coords = MapTools.VectorToMap(transform.position);
         coords += WorldMapRenderer.spotlightGlobalOffset;
+        runData.eventMap.Remove(coords);
         gameObject.SetActive(false);
     }
 }

@@ -7,7 +7,7 @@ using System;
 
 public class CardAwardUI : MonoBehaviour
 {
-    [SerializeField] List<GameObject> awardCards;
+    [SerializeField] List<CardDisplay> awardCards;
     [SerializeField] RunData runData;
     [SerializeField] EssenceCrafting essenceCrafting;
     [SerializeField] WorldMenuControl worldMenuControl;
@@ -25,15 +25,14 @@ public class CardAwardUI : MonoBehaviour
         {
             if (i < drops.Count)
             {
-                awardCards[i].SetActive(true);
+                awardCards[i].gameObject.SetActive(true);
                 drops[i].Initialize();
-                CardDisplay cardDisplay = awardCards[i].GetComponent<CardDisplay>();
-                cardDisplay.PopulateCard(drops[i]);
-                cardDisplay.thisCard = drops[i];
+                awardCards[i].thisCard = drops[i];
+                awardCards[i].PopulateCard(drops[i]);
             }
             else
             {
-                awardCards[i].SetActive(false);
+                awardCards[i].gameObject.SetActive(false);
             }
         }   
     }
@@ -41,11 +40,6 @@ public class CardAwardUI : MonoBehaviour
     public void FinalizeAward(CardPlus card, GameObject cardObject)
     {
         runData.playerDeck.deckContents.Add(card);
-        for (int i = 0; i < awardCards.Count; i++)
-        {
-            awardCards[i].SetActive(false);
-        }
-
         new SaveContainer(runData).SaveGame();
         gameObject.SetActive(false);
     }

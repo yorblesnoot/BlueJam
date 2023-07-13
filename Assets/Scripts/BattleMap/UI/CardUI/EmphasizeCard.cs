@@ -24,7 +24,7 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if(SceneManager.GetActiveScene().buildIndex == 2)
         {
             scaleFactor = 1.5f;
-            screenHeightFactor = 1.35f;
+            screenHeightFactor = 1.6f;
             RectTransform cardRect = gameObject.GetComponent<RectTransform>();
             screenHeightFactor = cardRect.rect.height / screenHeightFactor;
         }
@@ -33,17 +33,6 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             scaleFactor = 1.05f;
             screenHeightFactor = 0f;
         }
-    }
-
-    public void PrepareForEmphasis()
-    {
-        if (!readyEmphasis)
-        {
-            readyEmphasis = true;
-            originalPosition = transform.localPosition;
-            originalScale = transform.localScale;
-        }
-        
     }
     public void OnPointerEnter(PointerEventData data)
     {
@@ -68,18 +57,21 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     public void OnPointerExit(PointerEventData data)
     {
-        if (emphasis == true)
-        {
-            if(screenHeightFactor > 0f) transform.localPosition = originalPosition;
-            transform.localScale = originalScale;
-            emphasis = false;
-        }
+        Deemphasize();
     }
 
     private void OnDisable()
     {
-        transform.localPosition = originalPosition;
-        transform.localScale = originalScale;
-        emphasis = false;
+        Deemphasize();
+    }
+
+    void Deemphasize()
+    {
+        if (emphasis == true)
+        {
+            if (screenHeightFactor > 0f) transform.localPosition = originalPosition;
+            transform.localScale = originalScale;
+            emphasis = false;
+        }
     }
 }

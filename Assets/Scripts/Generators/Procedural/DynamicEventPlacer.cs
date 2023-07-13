@@ -12,7 +12,7 @@ public class DynamicEventPlacer
     readonly List<int> probabilities;
     RunData runData;
 
-    readonly int bossDistance = 10;
+    readonly int bossDistance = 60;
 
     readonly Dictionary<int, string> eventsAndOdds = new()
     {

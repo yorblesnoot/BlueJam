@@ -16,12 +16,10 @@ MonoBehaviour:
   deckContents:
   - {fileID: 11400000, guid: 5d300892ab23b89459e7ec5ce4a75327, type: 2}
   - {fileID: 11400000, guid: f21dd54ab1c96fe4b91e21bdc0f4bea9, type: 2}
-  - {fileID: 11400000, guid: 8356ab5dddb7d4d4d97d27bbb0bb99dc, type: 2}
   - {fileID: 11400000, guid: 3f6b117e2be98fb44935008663180977, type: 2}
-  - {fileID: 11400000, guid: 3f6b117e2be98fb44935008663180977, type: 2}
-  preDescription: Essence of a paladin.
   symbol: P
   iconColor:
     serializedVersion: 2
     rgba: 4290110714
-  essenceDescription: 
+  essenceDescription: 'Essence of the Paladin. Contains:'
+  unitName: Paladin

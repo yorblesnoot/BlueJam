@@ -14,16 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   effectClass: 2
-  vfxStyleSelf: 0
-  vfxNameSelf: none
-  vfxStyleTarget: 0
-  vfxNameTarget: none
+  vfxStyleBefore: 0
+  vfxNameBefore: none
+  vfxStyleAfter: 0
+  vfxNameAfter: none
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
   userOriginalTile: {fileID: 0}
-  doneExecuting: 1
   blockTrigger: 0
   purgeable: 0
   duration: 100
@@ -31,7 +30,4 @@ MonoBehaviour:
   triggeringEffect: {fileID: 11400000, guid: f111fd945c1e2314b8cc1b68ef11a2c6, type: 2}
   triggersRequiredForActivation: 1
   effectRecipient: 1
-  triggeredEffect: {fileID: 11400000, guid: 802cbfb7f9ed4574e99583e15a0f5718, type: 2}
-  aoeShapeTrigger: 0
-  aoeSizeTrigger: 0
-  aoeGapTrigger: 0
+  triggeredEffect: {fileID: 11400000, guid: 96c32cc241a8c0642a7b95d256cfccc3, type: 2}

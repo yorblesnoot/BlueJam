@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf01b78a6872684ab53675f17ed6943, type: 3}
+  m_Name: BruteForce
+  m_EditorClassIdentifier: 
+  Id: bb53f20e-f487-489d-98f7-869143b73780
+  thumbnail: {fileID: 21300000, guid: 322058629e47df340a9cfbe5daf6c21a, type: 3}
+  thumbnailColor:
+    serializedVersion: 2
+    rgba: 4279387640
+  effects:
+  - {fileID: 11400000, guid: be566222432371a4ca091ce2876818e8, type: 2}
+  - {fileID: 11400000, guid: d9c8f51980d00c74bb5c75ac3face56e, type: 2}
+  - {fileID: 11400000, guid: d9c8f51980d00c74bb5c75ac3face56e, type: 2}
+  description: Massively increases strength at the expense of intelligence.
