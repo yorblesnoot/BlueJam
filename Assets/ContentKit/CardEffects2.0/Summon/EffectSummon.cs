@@ -40,6 +40,9 @@ public class EffectSummon : CardEffectPlus
         else location = targetCell.unitPosition;
         GameObject summoned = Instantiate(entityToSummon, location, Quaternion.identity);
         ModifyStats(actor, summoned.GetComponent<NonplayerUnit>());
+        HandPlus hand = summoned.GetComponent<HandPlus>();
+        hand.PrepDeck();
+        hand.DrawPhase();
         VFXMachine.PlayAtLocation("SummonCircles", location);
         yield return null;
     }
