@@ -23,9 +23,7 @@ public class BattleLauncher : MapLauncher
         encounterBuilder.PlacePlayer(player);
         PlayerUnit playerUnit = player.GetComponent<PlayerUnit>();
         encounterBuilder.PlaceEnemies(sceneRelay.enemyBudget);
-
-        //initialize combat
-        TurnManager.InitializeTurns();
+        TurnManager.InitializePositions();
 
         //activate item effects
         foreach (BattleItem item in runData.itemInventory)
@@ -36,5 +34,8 @@ public class BattleLauncher : MapLauncher
                 StartCoroutine(effect.Execute(playerUnit, MapTools.VectorToTile(player.transform.position).GetComponent<BattleTileController>()));
             }
         }
+
+        //initialize combat
+        TurnManager.InitializeTurns();
     }
 }

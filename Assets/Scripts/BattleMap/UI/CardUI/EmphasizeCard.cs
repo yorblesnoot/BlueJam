@@ -38,10 +38,8 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     {
         if(emphasis == false && readyEmphasis == true)
         {
-            //save original position and scale
             emphasis = true;
 
-            //emphasize scale
             Vector3 scale = transform.localScale;
             transform.localScale = new Vector3(scale.x*scaleFactor,scale.y*scaleFactor,scale.z*scaleFactor);
 
@@ -50,8 +48,8 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
             {
                 Vector3 position = transform.localPosition;
                 transform.localPosition = new Vector3(position.x, position.y + screenHeightFactor, position.z);
+                transform.SetAsLastSibling();
             }
-            //StartCoroutine(BlockEmphasis());
         }
     }
 

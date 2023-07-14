@@ -29,6 +29,9 @@ public class CardAwardUI : MonoBehaviour
                 drops[i].Initialize();
                 awardCards[i].thisCard = drops[i];
                 awardCards[i].PopulateCard(drops[i]);
+                EmphasizeCard emphasis = awardCards[i].GetComponent<EmphasizeCard>();
+                emphasis.originalScale = awardCards[i].transform.localScale;
+                emphasis.readyEmphasis = true;
             }
             else
             {

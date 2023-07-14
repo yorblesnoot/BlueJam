@@ -95,6 +95,7 @@ public class BattleTileController : MonoBehaviour
         availableForPlay = false;
         baseHighlight = HighlightMode.OFF;
         cellHighlighter.ChangeHighlightMode(HighlightMode.OFF);
+        myPath = null;
     }
 
     public void HighlightCellAOE() { cellHighlighter.ChangeHighlightMode(HighlightMode.AOE); }

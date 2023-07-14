@@ -36,13 +36,16 @@ public class TurnManager : MonoBehaviour
         playerUnit = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerUnit>();
     }
 
-    public static void InitializeTurns()
+    public static void InitializePositions()
     {
         //tell every unit on the map to report their turn
         unitsReport?.Invoke();
         updateBeatCounts?.Invoke();
         initialPositionReport?.Invoke();
-        //playerUnit.myHand.DrawPhase(); ~~~~~~~~~~~~~~~~~~~~~~~~
+    }
+
+    public static void InitializeTurns()
+    {
         InitializeDecks(playerUnit);
         foreach (var unit in turnTakers)
         {

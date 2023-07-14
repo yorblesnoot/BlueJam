@@ -10,7 +10,7 @@ public class HandPlus : MonoBehaviour
     [HideInInspector] public List<CardPlus> currentHand = new();
     public Deck deckRecord;
 
-    [SerializeField] HandDisplayPlus display;
+    public HandDisplayPlus display;
     [SerializeField] BattleUnit thisUnit;
 
     public void PrepDeck()

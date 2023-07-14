@@ -63,9 +63,9 @@ public class EffectStat : CardEffectPlus
                 target.barrierScaling += modifier;
                 break;
         }
-        if(target.gameObject.tag == "Player")
+        if(target.gameObject.CompareTag("Player"))
         {
-            target.gameObject.GetComponent<HandPlus>().UpdateHand();
+            target.gameObject.GetComponent<PlayerHandDisplayPlus>().UpdateHand();
         }
     }
 }

@@ -59,6 +59,20 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
         }
     }
 
+    public void RegenerateHandSlots()
+    {
+        List<CardSlot> oldSlots = new(cardSlots);
+        GenerateHandSlots(thisUnit.HandSize);
+        for (int i = 0; i < oldSlots.Count; i++)
+        {
+            if (oldSlots[i].reference != null)
+            {
+                cardSlots[i].reference = oldSlots[i].reference;
+                StartCoroutine(cardSlots[i].FlipToCardPosition());
+            }
+        }
+    }
+
     CardDisplay RenderBlankCard()
     {
         //scale and rotation for cards 
@@ -88,6 +102,7 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
         drawn.transform.SetParent(handSpot.transform, true);
         drawn.transform.SetAsFirstSibling();
 
+        if(cardSlots.Count != thisUnit.HandSize) RegenerateHandSlots();
         CardSlot slot = cardSlots.FirstOrDefault(x => x.reference == null);
         slot.reference = drawn;
         deckCards.TransferItemTo(handCards, drawn);
@@ -144,12 +159,12 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
         yield return new WaitUntil(() => subMoves == 0);
     }
 
-    
-    public void PositionCards()
+    internal void UpdateHand()
     {
-        foreach(var slot in cardSlots.Where(x => x.reference != null))
+        foreach(ICardDisplay card in handCards)
         {
-            StartCoroutine(slot.FlipToCardPosition());
+            card.thisCard.Initialize();
+            card.PopulateCard(card.thisCard);
         }
     }
 }

@@ -34,8 +34,6 @@ public class NPCHandDisplayPlus : HandDisplayPlus
         ICardDisplay drawn = deckCards[0];
         drawn.gameObject.SetActive(true);
         drawn.PopulateCard(card);
-        //handCards.Add(drawn);
-        //deckCards.Remove(drawn);
         deckCards.TransferItemTo(handCards, drawn);
         PositionCards();
         yield break;

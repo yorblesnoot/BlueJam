@@ -66,6 +66,14 @@ public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHan
         EventManager.clearActivation?.Invoke();
     }
 
+    private void Update()
+    {
+        if(activated && Input.GetMouseButtonDown(1))
+        {
+            EventManager.clearActivation?.Invoke();
+        }
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         if (PlayerUnit.playerState == PlayerBattleState.IDLE && thisCard != null)
