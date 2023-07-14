@@ -43,12 +43,21 @@ public class TurnManager : MonoBehaviour
         updateBeatCounts?.Invoke();
         initialPositionReport?.Invoke();
         //playerUnit.myHand.DrawPhase(); ~~~~~~~~~~~~~~~~~~~~~~~~
-        playerUnit.GetComponent<HandPlus>().DrawPhase();
-
+        InitializeDecks(playerUnit);
         foreach (var unit in turnTakers)
-            unit.myHand.DrawPhase();
+        {
+            InitializeDecks(unit);
+        }
         Main.StartCoroutine(WaitForTurn());
+
+        static void InitializeDecks(BattleUnit unit)
+        {
+            unit.myHand.PrepDeck();
+            unit.myHand.DrawPhase();
+        }
     }
+
+   
 
     public static void ReportTurn(NonplayerUnit actor)
     { turnTakers.Add(actor); }

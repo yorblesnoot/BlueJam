@@ -24,7 +24,7 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         if(SceneManager.GetActiveScene().buildIndex == 2)
         {
             scaleFactor = 1.5f;
-            screenHeightFactor = 1.6f;
+            screenHeightFactor = 1.4f;
             RectTransform cardRect = gameObject.GetComponent<RectTransform>();
             screenHeightFactor = cardRect.rect.height / screenHeightFactor;
         }

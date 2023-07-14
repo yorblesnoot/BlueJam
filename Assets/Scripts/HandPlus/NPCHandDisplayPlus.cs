@@ -7,8 +7,6 @@ public class NPCHandDisplayPlus : HandDisplayPlus
     private Vector3[] cardSlots;
     [SerializeField] HandPlus myHand;
 
-    [SerializeField] Canvas unitCanvas;
-
     internal override void BuildVisualDeck(int count)
     {
         for (int i = 0; i < count; i++)
@@ -31,25 +29,33 @@ public class NPCHandDisplayPlus : HandDisplayPlus
         return cardDisplay;
     }
 
-    public override void DrawCard(CardPlus card)
+    public override IEnumerator VisualDraw(CardPlus card)
     {
         ICardDisplay drawn = deckCards[0];
         drawn.gameObject.SetActive(true);
         drawn.PopulateCard(card);
-        handCards.Add(drawn);
-        deckCards.Remove(drawn);
-        Debug.Log("draw card to " + handCards.Count);
+        //handCards.Add(drawn);
+        //deckCards.Remove(drawn);
+        deckCards.TransferItemTo(handCards, drawn);
         PositionCards();
+        yield break;
     }
 
-    public override void Discard(ICardDisplay discarded)
+    public override IEnumerator VisualDiscard(ICardDisplay discarded)
     {
-        Debug.Log(discarded);
-        discardCards.Add(discarded);
-        handCards.Remove(discarded);
-        Debug.Log("discard card to " + handCards.Count);
+        handCards.TransferItemTo(discardCards, discarded);
         discarded.gameObject.SetActive(false);
-        
+        if (deckCards.Count == 0) RecycleDeck();
+        yield break;
+    }
+    public void RecycleDeck()
+    {
+        int discards = discardCards.Count;
+        for (int i = 0; i < discards; i++)
+        {
+            ICardDisplay card = discardCards[0];
+            discardCards.TransferItemTo(deckCards, card);
+        }
     }
     void PositionCards()
     {

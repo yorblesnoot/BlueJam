@@ -12,12 +12,8 @@ public class HandPlus : MonoBehaviour
 
     [SerializeField] HandDisplayPlus display;
     [SerializeField] BattleUnit thisUnit;
-    void Awake()
-    {
-        PrepDeck();
-    }
 
-    void PrepDeck()
+    public void PrepDeck()
     {
         //initial draw phase and deck build
         deckDrawable.AddRange(deckRecord.deckContents);
@@ -45,11 +41,11 @@ public class HandPlus : MonoBehaviour
 
         //tell the UI to pull a card from the visual deck~~~~
         currentHand.Add(cardToDraw);
-        display.DrawCard(cardToDraw);
+        StartCoroutine(display.VisualDraw(cardToDraw));
     }
     public void Discard(ICardDisplay toDiscard, bool played)
     {
-        display.Discard(toDiscard);
+        StartCoroutine(display.VisualDiscard(toDiscard));
         if (toDiscard.thisCard.consumed == true & played == true)
         {
             //do nothing, ie, the card is burned
@@ -76,7 +72,6 @@ public class HandPlus : MonoBehaviour
         deckDrawable.AddRange(deckDiscarded);
         deckDiscarded = new();
         deckDrawable = Shuffle(deckDrawable);
-        display.RecycleDeck();
     }
 
     public void DiscardAll()

@@ -5,16 +5,9 @@ using UnityEngine;
 
 public static class ListHelper
 {
-    public static bool RemoveCoordinates(this List<Vector2Int> list, Vector2Int toRemove)
+    public static void TransferItemTo<T>(this  List<T> list1, List<T> list2, T item)
     {
-        foreach (Vector2Int entry in list)
-        {
-            if(entry == toRemove)
-            {
-                list.Remove(entry);
-                return true;
-            }
-        }
-        return false;
+        list1.Remove(item);
+        list2.Add(item);
     }
 }

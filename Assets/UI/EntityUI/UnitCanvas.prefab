@@ -1067,7 +1067,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!114 &9024284370559484644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,11 +1101,9 @@ MonoBehaviour:
   sliderDeflect: {fileID: 7723881892703958458}
   sliderShield: {fileID: 5822452377339639697}
   blankCard: {fileID: 8125039690481149630, guid: 0aa464d779125cc4f9307b253cd89fcf, type: 3}
-  myHand: {fileID: 0}
   unitCanvas: {fileID: 9024284370559484642}
   unitActions: {fileID: 0}
   <buffUI>k__BackingField: {fileID: 5034534223951127692}
-  cardSize: 0
   sliderBeats: {fileID: 9024284371554428698}
   sliderGhostBeats: {fileID: 4305476194834637129}
   pips: {fileID: 7564634238537135656}
@@ -1550,7 +1548,7 @@ MonoBehaviour:
   m_MinValue: -1
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.04
+  m_Value: 0.012
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

@@ -5,7 +5,7 @@ using UnityEngine;
 public class HandDisplayPlus : MonoBehaviour
 {
     public GameObject blankCard;
-
+    public Canvas unitCanvas;
     public BattleUnit thisUnit;
 
     internal readonly int cardSize = 1;
@@ -15,21 +15,7 @@ public class HandDisplayPlus : MonoBehaviour
     public List<ICardDisplay> discardCards = new();
     internal virtual void BuildVisualDeck(int count) { }
 
-    public virtual void DrawCard(CardPlus card) { }
+    public virtual IEnumerator VisualDraw(CardPlus card) { yield break; }
 
-    public virtual void Discard(ICardDisplay Idiscarded) { }
-
-    public void RecycleDeck()
-    {
-        int discards = discardCards.Count;
-        for (int i = 0; i < discards; i++)
-        {
-            ICardDisplay card = discardCards[0];
-            RecycleCard(card);
-            deckCards.Add(card);
-            discardCards.Remove(card);
-        }
-    }
-
-    public virtual void RecycleCard(ICardDisplay card) { }
+    public virtual IEnumerator VisualDiscard(ICardDisplay Idiscarded) { yield break; }
 }

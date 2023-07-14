@@ -20,7 +20,10 @@ MonoBehaviour:
   <basedeckContents>k__BackingField:
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
+  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: dffaba21e454c2a4eb030abee740e28c, type: 2}
   <baseEnemies>k__BackingField: 7
