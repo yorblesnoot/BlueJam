@@ -17,12 +17,13 @@ public class HandPlus : MonoBehaviour
     {
         //initial draw phase and deck build
         deckDrawable.AddRange(deckRecord.deckContents);
+        deckDrawable = Shuffle(deckDrawable);
         display.BuildVisualDeck(deckDrawable.Count);
     }
 
     public void DrawPhase()
     {
-        while (currentHand.Count < thisUnit.handSize)
+        while (currentHand.Count < thisUnit.HandSize)
         {
             if (deckDrawable.Count == 0)
             {
@@ -95,9 +96,7 @@ public class HandPlus : MonoBehaviour
         {
             n--;
             int k = Random.Range(0, n + 1);
-            CardPlus value = list[k];
-            list[k] = list[n];
-            list[n] = value;
+            (list[n], list[k]) = (list[k], list[n]);
         }
         return list;
     }

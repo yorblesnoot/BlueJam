@@ -16,7 +16,7 @@ public class CardDisplay : MonoBehaviour, ICardDisplay
     public BattleUnit owner { get; set; }
     public CardPlus thisCard { get; set; }
 
-    [SerializeField] EmphasizeCard emphasize;
+    public EmphasizeCard emphasize;
     public GameObject cardBack;
 
     //fill the details of a blank card

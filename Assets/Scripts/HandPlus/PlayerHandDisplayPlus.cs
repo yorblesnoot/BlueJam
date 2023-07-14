@@ -18,7 +18,7 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
     List<CardSlot> cardSlots = new();
     internal override void BuildVisualDeck(int count)
     {
-        GenerateHandSlots(thisUnit.handSize);
+        GenerateHandSlots(thisUnit.HandSize);
         for (int i = 0; i < count; i++)
         {
             deckCards.Add(RenderBlankCard());

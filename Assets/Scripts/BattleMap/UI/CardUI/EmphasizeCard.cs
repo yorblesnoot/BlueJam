@@ -63,6 +63,7 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
     private void OnDisable()
     {
         Deemphasize();
+        readyEmphasis = false;
     }
 
     void Deemphasize()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour, IPlayerStats
 {
-    public int damageScaling { get; set; }
+    public int DamageScaling { get; set; }
     public int healScaling { get; set; }
     public int barrierScaling { get; set; }
     public int maxHealth { get; set; }
@@ -12,7 +12,7 @@ public class PlayerData : MonoBehaviour, IPlayerStats
     public RunData runData;
     void Awake()
     {
-        damageScaling = runData.playerStats.damageScaling;
+        DamageScaling = runData.playerStats.damageScaling;
         healScaling = runData.playerStats.healScaling;
         barrierScaling = runData.playerStats.barrierScaling;
         maxHealth = runData.playerStats.maxHealth;

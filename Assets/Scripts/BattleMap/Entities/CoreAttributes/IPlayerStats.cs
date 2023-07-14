@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IPlayerStats
 {
-    public int damageScaling { get; set; }
+    public int DamageScaling { get; set; }
     public int healScaling { get; set; }
     public int barrierScaling { get; set; }
     public int maxHealth { get; set; }

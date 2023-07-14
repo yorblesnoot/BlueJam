@@ -45,16 +45,16 @@ public class EffectStat : CardEffectPlus
                 target.maxHealth += modifier;
                 break;
             case StatType.HANDSIZE:
-                target.handSize += modifier;
+                target.HandSize += modifier;
                 break;
             case StatType.SPEED:
-                target.turnSpeed += scale;
+                target.TurnSpeed += scale;
                 break;
             case StatType.BEATS:
                 target.currentBeats += scale;
                 break;
             case StatType.DAMAGE:
-                target.damageScaling += modifier;
+                target.DamageScaling += modifier;
                 break;
             case StatType.HEAL:
                 target.healScaling += modifier;

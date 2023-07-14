@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,9 @@ public class DeckViewerUI : MonoBehaviour
     [SerializeField] RunData runData;
     [SerializeField] List<CardDisplay> cardDisplays;
     [SerializeField] Toggle removal;
+    [SerializeField] TMP_Text status;
+
+    readonly int minimumDeckSize = 9;
     private void OnEnable()
     {
         foreach (var card in cardDisplays)
@@ -20,6 +24,8 @@ public class DeckViewerUI : MonoBehaviour
             cardDisplays[c].gameObject.SetActive(true);
             runData.playerDeck.deckContents[c].Initialize();
             cardDisplays[c].PopulateCard(runData.playerDeck.deckContents[c]);
+            cardDisplays[c].emphasize.originalScale = cardDisplays[c].transform.localScale;
+            cardDisplays[c].emphasize.readyEmphasis = true;
         }
         EventManager.clickedCard.AddListener(RemoveCard);
     }
@@ -31,13 +37,24 @@ public class DeckViewerUI : MonoBehaviour
 
     public void RemoveCard(CardPlus card, GameObject cardObject)
     {
-        //check if the player has enough removes, the switch is toggled, and deck size is high enough--then remove a card
-        if(removal.isOn && runData.playerDeck.deckContents.Count > 5 && runData.RemoveStock > 0)
+        if (!removal.isOn)
         {
-            runData.RemoveStock--;
-            EventManager.updateWorldCounters?.Invoke();
-            runData.playerDeck.deckContents.Remove(card);
-            cardObject.SetActive(false);
+            status.text = "Press the button above to toggle card removal.";
+            return;
         }
+        if(runData.RemoveStock == 0)
+        {
+            status.text = "Gather bombs in the overworld to remove cards from your deck.";
+            return;
+        }
+        if(runData.playerDeck.deckContents.Count < minimumDeckSize)
+        {
+            status.text = $"Removing a card would put you below the minimum deck size of {minimumDeckSize}...";
+            return;
+        }
+        runData.RemoveStock--;
+        EventManager.updateWorldCounters?.Invoke();
+        runData.playerDeck.deckContents.Remove(card);
+        cardObject.SetActive(false);
     }
 }

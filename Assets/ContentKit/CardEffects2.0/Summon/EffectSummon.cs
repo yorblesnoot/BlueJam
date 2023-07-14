@@ -61,7 +61,7 @@ public class EffectSummon : CardEffectPlus
         toModify.maxHealth /= summonModifier;
         toModify.currentHealth /= summonModifier;
 
-        toModify.damageScaling /= summonModifier;
+        toModify.DamageScaling /= summonModifier;
         toModify.healScaling /= summonModifier;
         toModify.barrierScaling /= summonModifier;
 

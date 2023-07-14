@@ -79,7 +79,7 @@ public class TurnManager : MonoBehaviour
     {
         foreach(NonplayerUnit turnTaker in turnTakers.OfType<NonplayerUnit>())
         {
-            if (turnTaker.currentBeats + (beatCost * turnTaker.turnSpeed) >= beatThreshold)
+            if (turnTaker.currentBeats + (beatCost * turnTaker.TurnSpeed) >= beatThreshold)
             {
                 turnTaker.ShowTurnPossibility();
             }
@@ -98,7 +98,7 @@ public class TurnManager : MonoBehaviour
             //distribute beats to all units based on their individual speeds when the player acts
             for(int entry = 0; entry < turnTakers.Count; entry++)
             {
-                float beatChange = turnTakers[entry].turnSpeed * beats / playerUnit.turnSpeed;
+                float beatChange = turnTakers[entry].TurnSpeed * beats / playerUnit.TurnSpeed;
                 turnTakers[entry].currentBeats += beatChange;
             }
         }

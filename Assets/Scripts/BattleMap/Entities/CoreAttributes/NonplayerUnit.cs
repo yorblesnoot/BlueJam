@@ -21,10 +21,10 @@ public class NonplayerUnit : BattleUnit
     {
         maxHealth *= 1 + Mathf.RoundToInt(scaleFactor * .05f);
         //nonplayerUnit.handSize = 0;
-        damageScaling *= 1 + Mathf.RoundToInt(scaleFactor * .1f);
+        DamageScaling *= 1 + Mathf.RoundToInt(scaleFactor * .1f);
         barrierScaling *= 1 + Mathf.RoundToInt(scaleFactor * .1f);
         healScaling *= 1 + Mathf.RoundToInt(scaleFactor * .1f);
-        turnSpeed *= 1 + Mathf.RoundToInt(scaleFactor * .01f);
+        TurnSpeed *= 1 + Mathf.RoundToInt(scaleFactor * .01f);
     }
     public override void GetAction()
     {

@@ -9,8 +9,19 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
     public UnitAnimator unitAnimator;
 
     public int maxHealth { get; set; }
-    public int handSize { get; set; }
-    public float turnSpeed { get; set; }
+
+    private int handSize; 
+    public int HandSize
+    {
+        get => handSize; 
+        set { handSize = Mathf.Clamp(value, 1, 7); }
+    }
+    private float turnSpeed;
+    public float TurnSpeed
+    {
+        get => turnSpeed; 
+        set { turnSpeed = Mathf.Clamp(value, .2f, value); }
+    }
 
     public int currentHealth { get; set; }
     public int deflectHealth { get; set; }
@@ -18,7 +29,12 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
 
     public float currentBeats { get; set; }
 
-    public int damageScaling { get; set; }
+    private int damageScaling;
+    public int DamageScaling
+    {
+        get => damageScaling;
+        set { damageScaling = Mathf.Clamp(value, 5, value); }
+    }
     public int healScaling { get; set; }
     public int barrierScaling { get; set; }
 
@@ -60,11 +76,11 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
     public virtual void Initialize()
     {
         maxHealth = unitStats.maxHealth;
-        damageScaling = unitStats.damageScaling;
+        DamageScaling = unitStats.damageScaling;
         healScaling = unitStats.healScaling;
         barrierScaling = unitStats.barrierScaling;
-        handSize = unitStats.handSize;
-        turnSpeed = unitStats.turnSpeed;
+        HandSize = unitStats.handSize;
+        TurnSpeed = unitStats.turnSpeed;
         currentBeats = unitStats.startBeats;
         TurnManager.initialPositionReport.AddListener(ReportCell);
         myUI = GetComponentInChildren<EntityUI>();
