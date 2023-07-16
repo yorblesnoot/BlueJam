@@ -30,27 +30,23 @@ public class HandPlus : MonoBehaviour
                 if (deckDiscarded.Count == 0) return;
                 RecycleDeck();
             }
-            DrawCard(FromTopOfDeck());
+            DrawCard();
         }
     }
 
-    public void DrawCard(CardPlus cardToDraw)
+    public void DrawCard()
     {
-        //draw a card into a UI based on hand owner
-        //rendered cards send play instructions
+        CardPlus cardToDraw = deckDrawable[0];
+        deckDrawable.RemoveAt(0);
         cardToDraw.Initialize();
 
-        //tell the UI to pull a card from the visual deck~~~~
         currentHand.Add(cardToDraw);
         StartCoroutine(display.VisualDraw(cardToDraw));
     }
     public void Discard(ICardDisplay toDiscard, bool played)
     {
         StartCoroutine(display.VisualDiscard(toDiscard));
-        if (toDiscard.thisCard.consumed == true & played == true)
-        {
-            //do nothing, ie, the card is burned
-        }
+        if (toDiscard.thisCard.consumed == true & played == true) { }
         else deckDiscarded.Add(toDiscard.thisCard);
         currentHand.Remove(toDiscard.thisCard);
     }
@@ -59,13 +55,6 @@ public class HandPlus : MonoBehaviour
     {
         ICardDisplay toDiscardDisplay = display.handCards.FirstOrDefault(card => card.thisCard == toDiscard);
         Discard(toDiscardDisplay, played);
-    }
-
-    public CardPlus FromTopOfDeck()
-    {
-        CardPlus output = deckDrawable[0];
-        deckDrawable.RemoveAt(0);
-        return output;
     }
 
     public void RecycleDeck()
@@ -95,5 +84,27 @@ public class HandPlus : MonoBehaviour
             (list[n], list[k]) = (list[k], list[n]);
         }
         return list;
+    }
+    void Inject(CardPlus card)
+    {
+
+    }
+
+    public void InjectIntoHand(CardPlus card, Vector3 location)
+    {
+        currentHand.Add(card);
+        display.VisualConjure(location, card);
+    }
+
+    public void InjectIntoDeck(CardPlus card, Vector3 location)
+    {
+        deckDrawable.Add(card);
+        display.VisualConjure(location, true);
+    }
+
+    public void InjectIntoDiscard(CardPlus card, Vector3 location)
+    {
+        deckDrawable.Add(card);
+        display.VisualConjure(location, true);
     }
 }

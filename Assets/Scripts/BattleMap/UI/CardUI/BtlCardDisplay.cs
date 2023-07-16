@@ -60,8 +60,8 @@ public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHan
         {
             PlayerUnit.playerState = PlayerBattleState.PERFORMING_ACTION;
             EventManager.clearActivation?.Invoke();
-            StartCoroutine(thisCard.PlaySequence(owner, tile));
             owner.GetComponent<HandPlus>().Discard(this, true);
+            StartCoroutine(thisCard.PlaySequence(owner, tile));
         }
         EventManager.clearActivation?.Invoke();
     }

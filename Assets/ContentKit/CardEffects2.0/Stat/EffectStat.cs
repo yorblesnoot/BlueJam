@@ -16,7 +16,7 @@ public class EffectStat : CardEffectPlus
         {StatType.MAXHEALTH, "max health" },
         {StatType.HANDSIZE, "intelligence"},
         {StatType.SPEED, "speed"},
-        {StatType.BEATS, ""},
+        {StatType.BEATS, "time"},
         {StatType.DAMAGE, "strength"},
         {StatType.HEAL, "wisdom" },
         {StatType.BARRIER, "constitution"}
@@ -63,9 +63,7 @@ public class EffectStat : CardEffectPlus
                 target.barrierScaling += modifier;
                 break;
         }
-        if(target.gameObject.CompareTag("Player"))
-        {
-            target.gameObject.GetComponent<PlayerHandDisplayPlus>().UpdateHand();
-        }
+        if(target.gameObject.CompareTag("Player")) target.gameObject.GetComponent<PlayerHandDisplayPlus>().UpdateHand();
+        if (entityStat == StatType.BEATS) TurnManager.updateBeatCounts.Invoke();
     }
 }

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: NecroStats
   m_EditorClassIdentifier: 
   unitName: Necromancer
-  maxHealth: 30
+  maxHealth: 25
   handSize: 2
   playerAllied: 0
   startBeats: 1

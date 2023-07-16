@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MinionStats
   m_EditorClassIdentifier: 
   unitName: Minion
-  maxHealth: 10
+  maxHealth: 8
   handSize: 2
   playerAllied: 0
   startBeats: 1

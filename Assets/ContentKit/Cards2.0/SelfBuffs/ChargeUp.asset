@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: f46e4f61-cf2b-44b8-9ab9-cb33651ba36f
   displayName: Intense Focus
-  cost: 4
+  cost: 3
   description: 
   keywords: 
   targetShape: 0

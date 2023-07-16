@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MenderStats
   m_EditorClassIdentifier: 
   unitName: Mender
-  maxHealth: 30
+  maxHealth: 25
   handSize: 2
   playerAllied: 0
   startBeats: 1

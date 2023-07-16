@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PaladinStats
   m_EditorClassIdentifier: 
   unitName: 
-  maxHealth: 40
+  maxHealth: 35
   handSize: 2
   playerAllied: 0
   startBeats: 1

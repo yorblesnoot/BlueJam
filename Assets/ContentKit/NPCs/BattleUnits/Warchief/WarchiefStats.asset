@@ -21,4 +21,4 @@ MonoBehaviour:
   damageScaling: 15
   barrierScaling: 15
   healScaling: 15
-  turnSpeed: 0.6
+  turnSpeed: 0.5

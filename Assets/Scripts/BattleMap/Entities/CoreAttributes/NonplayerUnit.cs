@@ -17,15 +17,15 @@ public class NonplayerUnit : BattleUnit
         EventManager.hideTurnDisplay.AddListener(HideTurnPossibility);
         EventManager.clearActivation.AddListener(HideTurnPossibility);
     }
-    public void ScaleWithDifficulty(int scaleFactor)
+    public void ScaleWithDifficulty(int difficultyFactor)
     {
-        maxHealth *= 1 + Mathf.RoundToInt(scaleFactor * .05f);
-        //nonplayerUnit.handSize = 0;
-        DamageScaling *= 1 + Mathf.RoundToInt(scaleFactor * .1f);
-        barrierScaling *= 1 + Mathf.RoundToInt(scaleFactor * .1f);
-        healScaling *= 1 + Mathf.RoundToInt(scaleFactor * .1f);
-        TurnSpeed *= 1 + Mathf.RoundToInt(scaleFactor * .01f);
+        maxHealth = Mathf.RoundToInt(maxHealth * (1 + (difficultyFactor * .05f)));
+        DamageScaling = Mathf.RoundToInt(DamageScaling * (1 + (difficultyFactor * .1f)));
+        barrierScaling = Mathf.RoundToInt(barrierScaling * (1 + (difficultyFactor * .1f)));
+        healScaling = Mathf.RoundToInt(healScaling * (1 + (difficultyFactor * .1f)));
+        TurnSpeed *= 1 + (difficultyFactor * .01f);
     }
+
     public override void GetAction()
     {
         unitAI.AITakeTurn();

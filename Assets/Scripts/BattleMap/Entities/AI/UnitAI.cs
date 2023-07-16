@@ -26,7 +26,7 @@ public class UnitAI : MonoBehaviour
         //checklegal on every targetRules
         entities = new();
         entities.AddRange(TurnManager.turnTakers);
-        entities = entities.Where(t => !t.isSummoned).ToList();
+        entities = entities.Where(t => !(t.isSummoned && t.CompareTag("Ally"))).ToList();
         entities.Add(TurnManager.playerUnit);
 
         List<BattleTileController> optionTile = new();
@@ -78,8 +78,8 @@ public class UnitAI : MonoBehaviour
 
         //clear the range display and take the action
         EventManager.clearActivation.Invoke();
-        StartCoroutine(cardReference.PlaySequence(thisUnit,targetTile));
         myHand.Discard(cardReference, true);
+        StartCoroutine(cardReference.PlaySequence(thisUnit,targetTile));
     }
 
     void ShowAITargeting(bool[,] targetRule, Vector3 source, bool aoeMode = false)
@@ -111,7 +111,7 @@ public class UnitAI : MonoBehaviour
             }
             else
             {
-                List<BattleUnit> targetables = CellTargeting.AreaTargets(moveTile.gameObject, gameObject.tag, CardClass.ATTACK, effect.aoe);
+                List<BattleUnit> targetables = CellTargeting.AreaTargets(moveTile.gameObject, gameObject.tag, effect.effectClass, effect.aoe);
                 if (effect.effectClass == CardClass.ATTACK)
                     favor += targetables.Count * personality.interestAttack;
                 else if (effect.effectClass == CardClass.BUFF)

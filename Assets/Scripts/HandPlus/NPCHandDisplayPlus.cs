@@ -6,54 +6,56 @@ public class NPCHandDisplayPlus : HandDisplayPlus
 {
     private Vector3[] cardSlots;
     [SerializeField] HandPlus myHand;
+    List<ICardDisplay> inactiveCards = new();
 
     internal override void BuildVisualDeck(int count)
     {
         for (int i = 0; i < count; i++)
         {
-            NPCCardDisplay card = RenderBlankCard();
-            deckCards.Add(card);
+            ICardDisplay card = RenderBlankCard();
+            inactiveCards.Add(card);
             card.gameObject.SetActive(false);
         }
     }
 
-    NPCCardDisplay RenderBlankCard()
+    public override void VisualConjure(Vector3 location, bool intoDeck = true, CardPlus card = null)
+    {
+        ICardDisplay cardDisplay = RenderBlankCard();
+        if (card != null)
+            StartCoroutine(VisualDraw(card, cardDisplay));
+        else
+        {
+            inactiveCards.Add(cardDisplay);
+        }
+    }
+
+    ICardDisplay RenderBlankCard()
     {
         //scale and rotation for cards 
         GameObject newCard = Instantiate(blankCard, new Vector3(0, -20, 0), Quaternion.identity);
         newCard.transform.SetParent(unitCanvas.transform, false);
         newCard.transform.localScale = new Vector3(cardSize, cardSize, cardSize);
-        NPCCardDisplay cardDisplay = newCard.GetComponent<NPCCardDisplay>();
+        ICardDisplay cardDisplay = newCard.GetComponent<NPCCardDisplay>();
         cardDisplay.owner = thisUnit;
         cardDisplay.gameObject.SetActive(false);
         return cardDisplay;
     }
 
-    public override IEnumerator VisualDraw(CardPlus card)
+    public override IEnumerator VisualDraw(CardPlus card, ICardDisplay drawn = null)
     {
-        ICardDisplay drawn = deckCards[0];
+        drawn ??= inactiveCards[0];
         drawn.gameObject.SetActive(true);
         drawn.PopulateCard(card);
-        deckCards.TransferItemTo(handCards, drawn);
+        inactiveCards.TransferItemTo(handCards, drawn);
         PositionCards();
         yield break;
     }
 
     public override IEnumerator VisualDiscard(ICardDisplay discarded)
     {
-        handCards.TransferItemTo(discardCards, discarded);
+        handCards.TransferItemTo(inactiveCards, discarded);
         discarded.gameObject.SetActive(false);
-        if (deckCards.Count == 0) RecycleDeck();
         yield break;
-    }
-    public void RecycleDeck()
-    {
-        int discards = discardCards.Count;
-        for (int i = 0; i < discards; i++)
-        {
-            ICardDisplay card = discardCards[0];
-            discardCards.TransferItemTo(deckCards, card);
-        }
     }
     void PositionCards()
     {
