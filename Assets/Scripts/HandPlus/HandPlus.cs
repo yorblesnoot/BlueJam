@@ -77,16 +77,12 @@ public class HandPlus : MonoBehaviour
 
     public void DiscardAll()
     {
-        //implement discard all functionality~~~~~~~~~~~~~~~~~~~~~~~~~~
-    }
-
-    public void UpdateHand()
-    {
-        /*for (int i = 0; i < handReferences.Count; i++)
+        deckDiscarded.AddRange(currentHand);
+        foreach(CardPlus card in currentHand)
         {
-            handReferences[i].AssembleDescription();
-            handObjects[i].GetComponent<CardDisplay>().PopulateCard(handReferences[i]);
-        }*/
+            Discard(card, false);
+        }
+        TurnManager.SpendBeats(thisUnit, 2);
     }
 
     public static List<CardPlus> Shuffle(List<CardPlus> list)

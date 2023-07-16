@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EngineerAI
   m_EditorClassIdentifier: 
   interestAttack: 5
-  interestBuff: 12.48
+  interestBuff: 20
   interestFriendly: 2
   interestHostile: 0
   proximityFriendly: 0

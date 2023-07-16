@@ -15,15 +15,19 @@ MonoBehaviour:
   Id: 087a61d2-7617-4a48-a390-7afa36cca9c5
   displayName: Bolster Ally
   cost: 3
-  description: 
-  keywords: 
+  description: 'increase strength by 5.
+
+    shield for <color=#1ED5FA>10</color>.
+
+'
+  keywords: 'Range: 1-1 AOE: 0 '
   targetShape: 1
   targetSize: 1
   targetGap: 1
   pathCheckForTargets: 0
-  cardClass: 
+  cardClass: 02000000
   consumed: 0
   animType: 0
   effects:
   - {fileID: 11400000, guid: d9c8f51980d00c74bb5c75ac3face56e, type: 2}
-  - {fileID: 11400000, guid: 6c194519cdd0bac40a9d724a935dec92, type: 2}
+  - {fileID: 11400000, guid: e10209a212b92d04392cead9e40d854a, type: 2}

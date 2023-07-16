@@ -102,7 +102,7 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
         drawn.transform.SetParent(handSpot.transform, true);
         drawn.transform.SetAsFirstSibling();
 
-        if(cardSlots.Count != thisUnit.HandSize) RegenerateHandSlots();
+        if(cardSlots.Count != thisUnit.myHand.currentHand.Count) RegenerateHandSlots();
         CardSlot slot = cardSlots.FirstOrDefault(x => x.reference == null);
         slot.reference = drawn;
         deckCards.TransferItemTo(handCards, drawn);

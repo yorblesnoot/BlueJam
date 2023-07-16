@@ -40,12 +40,12 @@ public class BattleUnitSpawner
 
     public void PlaceEnemies(int budget)
     {
+        masterEnemyPool.Initialize();
         if (spawnPool.spawnUnits.Count > 0)
         {
             while (budget > 0)
             {
                 int enemyIndex = Random.Range(0, spawnPool.spawnUnits.Count);
-                masterEnemyPool.Initialize();
                 int enemyWeight = masterEnemyPool.masterPool[spawnPool.spawnUnits[enemyIndex]];
                 if (enemyWeight <= budget)
                 {

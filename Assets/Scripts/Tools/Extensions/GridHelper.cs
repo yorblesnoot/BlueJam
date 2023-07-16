@@ -66,4 +66,28 @@ public static class GridHelper
             new Vector2Int(coordinates.x, coordinates.y-1),
         };
     }
+
+    public static Vector2Int SpiralSearch<T>(this T[,] grid, T[] values, Vector2Int originPoint, bool equals = true)
+    {
+        int gridRadius = grid.GetLength(0)/2;
+        for(int loops = 0; loops < gridRadius; loops++)
+        {
+            for(int path = 0; path<loops*2; path++)
+            {
+                List<Vector2Int> searchPoints = new()
+                {
+                    new Vector2Int(originPoint.x - loops + path, originPoint.y - loops),
+                    new Vector2Int(originPoint.x + loops, originPoint.y - loops + path),
+                    new Vector2Int(originPoint.x + loops - path, originPoint.y + loops),
+                    new Vector2Int(originPoint.x - loops, originPoint.y + loops - path)
+                };
+                foreach (var point in searchPoints)
+                {
+                    if (equals && values.Contains(grid.Safe2DFind(point.x, point.y))) return point;
+                    else if (!equals && !values.Contains(grid.Safe2DFind(point.x, point.y))) return point;
+                }
+            }
+        }
+        return default;
+    }
 }

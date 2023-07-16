@@ -27,8 +27,11 @@ public class RunStarter : MonoBehaviour
         int mapSize = runData.worldMap.GetLength(0);
 
         //starting position on world map; ~~~~~~~~~~add randomization and legality check
-        runData.playerWorldX = mapSize/2;
-        runData.playerWorldY = mapSize/2;
+        string[] badTiles = new string[] {"w", "u"};
+        Vector2Int startPosition = runData.worldMap.SpiralSearch(badTiles, new Vector2Int(mapSize / 2, mapSize / 2), false);
+
+        runData.playerWorldX = startPosition.x;
+        runData.playerWorldY = startPosition.y;
 
         //initalize gameplay lists
         runData.itemPool.awardableItems = new();

@@ -15,6 +15,7 @@ public class UnitAI : MonoBehaviour
     [SerializeField] HandPlus myHand;
     [SerializeField] BattleUnit thisUnit;
 
+    readonly float playDelay = .4f;
 
     //get information from cards: legal targets, card class, target requirements, object reference
 
@@ -69,20 +70,29 @@ public class UnitAI : MonoBehaviour
 
     IEnumerator AIPlayCard(CardPlus cardReference, BattleTileController targetTile)
     {
-        //highlight the range for an AI card briefly
-        List<GameObject> displayCells = CellTargeting.ConvertMapRuleToTiles(cardReference.targetRules, transform.position);
-        for (int i = 0; i < displayCells.Count; i++)
-        {
-            BattleTileController cellController = displayCells[i].GetComponent<BattleTileController>();
-            cellController.HighlightCell();
-        }
-        float playDelay = .8f;
+        ShowAITargeting(cardReference.targetRules, transform.position);
+        yield return new WaitForSeconds(playDelay);
+        ShowAITargeting(cardReference.aoePoint, targetTile.transform.position, true);
+        if(cardReference.aoeSelf != null) ShowAITargeting(cardReference.aoeSelf, transform.position, true);
         yield return new WaitForSeconds(playDelay);
 
         //clear the range display and take the action
         EventManager.clearActivation.Invoke();
         StartCoroutine(cardReference.PlaySequence(thisUnit,targetTile));
         myHand.Discard(cardReference, true);
+    }
+
+    void ShowAITargeting(bool[,] targetRule, Vector3 source, bool aoeMode = false)
+    {
+        List<GameObject> displayCells = CellTargeting.ConvertMapRuleToTiles(targetRule, source);
+        for (int i = 0; i < displayCells.Count; i++)
+        {
+            BattleTileController cellController = displayCells[i].GetComponent<BattleTileController>();
+            if(!aoeMode)
+                cellController.HighlightCell();
+            else
+                cellController.HighlightCellAOE();
+        }
     }
 
     private float CalculateFavor(BattleTileController moveTile, CardPlus card)
