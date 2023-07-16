@@ -5,106 +5,68 @@ using UnityEngine;
 
 public class HandPlus : MonoBehaviour
 {
-    [HideInInspector] public List<CardPlus> deckDrawable = new();
-    [HideInInspector] public List<CardPlus> deckDiscarded = new();
-    [HideInInspector] public List<CardPlus> currentHand = new();
+    public GameObject blankCard;
+    public Canvas unitCanvas;
+    public BattleUnit thisUnit;
+    public List<ICardDisplay> handCards = new();
+    protected List<ICardDisplay> deckCards = new();
+    protected List<ICardDisplay> discardCards = new();
+    internal readonly int cardSize = 1;
+
     public Deck deckRecord;
 
-    public HandDisplayPlus display;
-    [SerializeField] BattleUnit thisUnit;
-
-    public void PrepDeck()
-    {
-        //initial draw phase and deck build
-        deckDrawable.AddRange(deckRecord.deckContents);
-        deckDrawable = Shuffle(deckDrawable);
-        display.BuildVisualDeck(deckDrawable.Count);
-    }
+    protected float cardFlyDelay = .1f;
 
     public void DrawPhase()
     {
-        while (currentHand.Count < thisUnit.HandSize)
+        while (handCards.Count < thisUnit.HandSize)
         {
-            if (deckDrawable.Count == 0)
+            if (deckCards.Count == 0)
             {
-                if (deckDiscarded.Count == 0) return;
-                RecycleDeck();
+                if (discardCards.Count == 0) break;
+                StartCoroutine(RecycleDeck());
             }
-            DrawCard();
+            StartCoroutine(DrawCard());
         }
     }
-
-    public void DrawCard()
-    {
-        CardPlus cardToDraw = deckDrawable[0];
-        deckDrawable.RemoveAt(0);
-        cardToDraw.Initialize();
-
-        currentHand.Add(cardToDraw);
-        StartCoroutine(display.VisualDraw(cardToDraw));
-    }
-    public void Discard(ICardDisplay toDiscard, bool played)
-    {
-        StartCoroutine(display.VisualDiscard(toDiscard));
-        if (toDiscard.thisCard.consumed == true & played == true) { }
-        else deckDiscarded.Add(toDiscard.thisCard);
-        currentHand.Remove(toDiscard.thisCard);
-    }
-
-    public void Discard(CardPlus toDiscard, bool played)
-    {
-        ICardDisplay toDiscardDisplay = display.handCards.FirstOrDefault(card => card.thisCard == toDiscard);
-        Discard(toDiscardDisplay, played);
-    }
-
-    public void RecycleDeck()
-    {
-        deckDrawable.AddRange(deckDiscarded);
-        deckDiscarded = new();
-        deckDrawable = Shuffle(deckDrawable);
-    }
+    internal virtual void BuildVisualDeck() { }
 
     public void DiscardAll()
     {
-        int handCount = currentHand.Count;
+        int handCount = handCards.Count;
         for (int i = 0; i < handCount; i++)
         {
-            Discard(currentHand[0], false);
+            StartCoroutine(DiscardCard(handCards[0], false));
         }
         TurnManager.SpendBeats(thisUnit, 2);
     }
-
-    public static List<CardPlus> Shuffle(List<CardPlus> list)
+    public virtual IEnumerator RecycleDeck()
     {
-        int n = list.Count;
-        while (n > 1)
+        int discards = discardCards.Count;
+        discardCards.Shuffle();
+        for (int i = 0; i < discards; i++)
         {
-            n--;
-            int k = Random.Range(0, n + 1);
-            (list[n], list[k]) = (list[k], list[n]);
+            ICardDisplay card = discardCards[0];
+            discardCards.TransferItemTo(deckCards, card);
+            RecyleCard(card);
+            yield return new WaitForSeconds(cardFlyDelay);
         }
-        return list;
-    }
-    void Inject(CardPlus card)
-    {
-
     }
 
-    public void InjectIntoHand(CardPlus card, Vector3 location)
-    {
-        currentHand.Add(card);
-        display.VisualConjure(location, card);
-    }
+    protected virtual void RecyleCard(ICardDisplay card)
+    { }
 
-    public void InjectIntoDeck(CardPlus card, Vector3 location)
-    {
-        deckDrawable.Add(card);
-        display.VisualConjure(location, true);
-    }
+    public virtual ICardDisplay ConjureCard(CardPlus card, Vector3 location, EffectInject.InjectLocation injectLocation) { return null; }
 
-    public void InjectIntoDiscard(CardPlus card, Vector3 location)
+    public virtual IEnumerator DrawCard(ICardDisplay display = null) { yield break; }
+
+    public virtual IEnumerator DiscardCard(ICardDisplay Idiscarded, bool played)
     {
-        deckDrawable.Add(card);
-        display.VisualConjure(location, true);
+        if (Idiscarded.thisCard.consumed == true & played == true)
+        {
+            discardCards.Remove(Idiscarded);
+            Destroy(Idiscarded.gameObject);
+        }
+        yield return null;
     }
 }

@@ -55,7 +55,7 @@ public class TurnManager : MonoBehaviour
 
         static void InitializeDecks(BattleUnit unit)
         {
-            unit.myHand.PrepDeck();
+            unit.myHand.BuildVisualDeck();
             unit.myHand.DrawPhase();
         }
     }

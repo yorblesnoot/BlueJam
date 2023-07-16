@@ -8,4 +8,5 @@ public interface ICardDisplay
 
     public Transform transform { get; }
     public GameObject gameObject { get; }
+    public bool forceConsume { get; set; }
 }

@@ -2,34 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCHandDisplayPlus : HandDisplayPlus
+public class NonplayerHandPlus : HandPlus
 {
     private Vector3[] cardSlots;
-    [SerializeField] HandPlus myHand;
-    List<ICardDisplay> inactiveCards = new();
-
-    internal override void BuildVisualDeck(int count)
+    private void Awake()
     {
-        for (int i = 0; i < count; i++)
-        {
-            ICardDisplay card = RenderBlankCard();
-            inactiveCards.Add(card);
-            card.gameObject.SetActive(false);
-        }
+        cardFlyDelay = 0;
     }
 
-    public override void VisualConjure(Vector3 location, bool intoDeck = true, CardPlus card = null)
+    internal override void BuildVisualDeck()
     {
-        ICardDisplay cardDisplay = RenderBlankCard();
-        if (card != null)
-            StartCoroutine(VisualDraw(card, cardDisplay));
-        else
+        foreach(CardPlus card in deckRecord.deckContents)
         {
-            inactiveCards.Add(cardDisplay);
+            ICardDisplay cardDisplay = RenderCard(card);
+            deckCards.Add(cardDisplay);
         }
+        deckCards.Shuffle();
     }
 
-    ICardDisplay RenderBlankCard()
+    ICardDisplay RenderCard(CardPlus card)
     {
         //scale and rotation for cards 
         GameObject newCard = Instantiate(blankCard, new Vector3(0, -20, 0), Quaternion.identity);
@@ -37,24 +28,44 @@ public class NPCHandDisplayPlus : HandDisplayPlus
         newCard.transform.localScale = new Vector3(cardSize, cardSize, cardSize);
         ICardDisplay cardDisplay = newCard.GetComponent<NPCCardDisplay>();
         cardDisplay.owner = thisUnit;
+        card.Initialize();
+        cardDisplay.PopulateCard(card);
         cardDisplay.gameObject.SetActive(false);
         return cardDisplay;
     }
 
-    public override IEnumerator VisualDraw(CardPlus card, ICardDisplay drawn = null)
-    {
-        drawn ??= inactiveCards[0];
+    public override IEnumerator DrawCard(ICardDisplay drawn = null)
+    {          
+        drawn ??= deckCards[0];
         drawn.gameObject.SetActive(true);
-        drawn.PopulateCard(card);
-        inactiveCards.TransferItemTo(handCards, drawn);
+        deckCards.TransferItemTo(handCards, drawn);
         PositionCards();
         yield break;
     }
-
-    public override IEnumerator VisualDiscard(ICardDisplay discarded)
+    public override ICardDisplay ConjureCard(CardPlus card, Vector3 location, EffectInject.InjectLocation injectLocation)
     {
-        handCards.TransferItemTo(inactiveCards, discarded);
+        ICardDisplay cardDisplay = RenderCard(card);
+        switch (injectLocation)
+        {
+            case (EffectInject.InjectLocation.HAND):
+                StartCoroutine(DrawCard(cardDisplay));
+                break;
+            case (EffectInject.InjectLocation.DISCARD):
+                discardCards.Add(cardDisplay);
+                discardCards.Shuffle();
+                break;
+            case (EffectInject.InjectLocation.DECK):
+                deckCards.Add(cardDisplay);
+                deckCards.Shuffle();
+                break;
+        }
+        return cardDisplay;
+    }
+    public override IEnumerator DiscardCard(ICardDisplay discarded, bool played)
+    {
+        handCards.TransferItemTo(discardCards, discarded);
         discarded.gameObject.SetActive(false);
+        StartCoroutine(base.DiscardCard(discarded, played));
         yield break;
     }
     void PositionCards()

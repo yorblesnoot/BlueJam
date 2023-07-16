@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using UnityEngine.SceneManagement;
-using UnityEngine.EventSystems;
 
 public class NPCCardDisplay : MonoBehaviour, ICardDisplay
 {
     public BattleUnit owner { get; set; }
     public CardPlus thisCard { get; set; }
+
+    public bool forceConsume { get; set; } = false;
 
     public Image image;
 

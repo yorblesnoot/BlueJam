@@ -14,30 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0693ae95-75b7-40b1-9447-577095d1a2f7
   deckContents:
-  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: dffaba21e454c2a4eb030abee740e28c, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
+  - {fileID: 11400000, guid: c161b3b7342e7094094a63ae62d7ceee, type: 2}
+  - {fileID: 11400000, guid: d92a6e9b7d814e649a4ee92389b26195, type: 2}
+  - {fileID: 11400000, guid: 2e0d124858a11314ebb669170c265cb1, type: 2}
+  - {fileID: 11400000, guid: 2e0d124858a11314ebb669170c265cb1, type: 2}
+  - {fileID: 11400000, guid: 5c0197f042e7f614db3cbaba01138758, type: 2}
+  - {fileID: 11400000, guid: 5c0197f042e7f614db3cbaba01138758, type: 2}
+  - {fileID: 11400000, guid: 5c0197f042e7f614db3cbaba01138758, type: 2}
   symbol: ??
   iconColor:
     serializedVersion: 2

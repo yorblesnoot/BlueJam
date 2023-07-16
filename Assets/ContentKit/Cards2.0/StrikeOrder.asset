@@ -10,21 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: IllusionSwap
+  m_Name: StrikeOrder
   m_EditorClassIdentifier: 
-  Id: 4bcaa2d4-9c07-41f5-a099-c105a1161c56
-  displayName: Illusion Swap
-  cost: 3
+  Id: 4af1dfd2-af46-4c29-9ebc-eb10ed9c0f35
+  displayName: Convergent Assault
+  cost: 2
   description: 
   keywords: 
   targetShape: 0
-  targetSize: 4
-  targetGap: 1
+  targetSize: 0
+  targetGap: 0
   pathCheckForTargets: 0
   cardClass: 
   consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: ae52442554ad28442bceccd45c697b69, type: 2}
-  - {fileID: 11400000, guid: 48057421bd3af604f89e64b599304447, type: 2}
-  - {fileID: 11400000, guid: a928d340492cb284cb2a0a333e9ae2fb, type: 2}
+  - {fileID: 11400000, guid: 7458cfaed3b96e947b0b5805ec66fe62, type: 2}

@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class CardEffectPlus : ScriptableObject
 {
     public bool forceTargetSelf;
+    public bool targetNotRequired;
 
     public CardClass effectClass;
 
@@ -33,6 +33,7 @@ public class CardEffectPlus : ScriptableObject
 
     public IEnumerator Execute(BattleUnit actor, BattleTileController targetCell)
     {
+        if (forceTargetSelf == true) targetCell = userOriginalTile;
         List<BattleUnit> targets = AcquireTargets(actor, targetCell, aoe);
 
         VFXMachine.PlayVFX(vfxNameBefore, vfxStyleBefore, actor, targetCell);
@@ -45,7 +46,6 @@ public class CardEffectPlus : ScriptableObject
 
     public List<BattleUnit> AcquireTargets(BattleUnit actor, BattleTileController targetCell, bool[,] aoe)
     {
-        if (forceTargetSelf == true) targetCell = userOriginalTile;
         return CellTargeting.AreaTargets(targetCell.gameObject, actor.gameObject.tag, effectClass, aoe);
     }
 

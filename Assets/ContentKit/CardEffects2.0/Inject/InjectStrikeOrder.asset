@@ -9,18 +9,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4d7e4cd232b3843afe9d9f6eba80fb, type: 3}
-  m_Name: SplashDmg2x
+  m_Script: {fileID: 11500000, guid: c5f3e3af7a7e16e49a9410794f718e52, type: 3}
+  m_Name: InjectStrikeOrder
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
-  effectClass: 0
+  effectClass: 2
   vfxStyleBefore: 0
-  vfxNameBefore: none
+  vfxNameBefore: BuffCharge
   vfxStyleAfter: 0
-  vfxNameAfter: GroundBurst
-  scalingMultiplier: 2
-  aoeShape: 1
-  aoeSize: 1
-  aoeGap: 1
+  vfxNameAfter: SpinRiseBlue
+  scalingMultiplier: 1
+  aoeShape: 0
+  aoeSize: 0
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
+  location: 2
+  toInject: {fileID: 11400000, guid: 93350f7b02fd3da4b8b2bff7f8daa8bc, type: 2}
+  forceConsume: 1

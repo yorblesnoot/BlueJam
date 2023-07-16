@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: IllusionSwap
+  m_Name: PrepareStrikeOrder
   m_EditorClassIdentifier: 
-  Id: 4bcaa2d4-9c07-41f5-a099-c105a1161c56
-  displayName: Illusion Swap
+  Id: 184fbbeb-cb9a-4774-a117-222226c01a17
+  displayName: Poised To Strike
   cost: 3
   description: 
   keywords: 
   targetShape: 0
-  targetSize: 4
-  targetGap: 1
+  targetSize: 0
+  targetGap: 0
   pathCheckForTargets: 0
   cardClass: 
   consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: ae52442554ad28442bceccd45c697b69, type: 2}
-  - {fileID: 11400000, guid: 48057421bd3af604f89e64b599304447, type: 2}
-  - {fileID: 11400000, guid: a928d340492cb284cb2a0a333e9ae2fb, type: 2}
+  - {fileID: 11400000, guid: 5ed5cb4b4b00bca4aadde5a5ea8df198, type: 2}
+  - {fileID: 11400000, guid: 55319a3e1913e854bbe7a76f6314834a, type: 2}
+  - {fileID: 11400000, guid: de0589b85a134db4fb23b49d78f4585a, type: 2}

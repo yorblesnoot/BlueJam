@@ -9,18 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5b47c56657599542958ca2f61249c99, type: 3}
-  m_Name: AllySwap
+  m_Script: {fileID: 11500000, guid: bd8a4e2b936a4b343b05d5accc717910, type: 3}
+  m_Name: Beats+2AOE
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   effectClass: 2
-  vfxStyleBefore: 6
-  vfxNameBefore: Blink
+  vfxStyleBefore: 0
+  vfxNameBefore: PulseDamage
   vfxStyleAfter: 0
-  vfxNameAfter: Blink
-  scalingMultiplier: 0
+  vfxNameAfter: none
+  scalingMultiplier: 2
   aoeShape: 0
-  aoeSize: 0
-  aoeGap: 0
+  aoeSize: 5
+  aoeGap: 1
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
+  entityStat: 3

@@ -18,11 +18,13 @@ public class CardDisplay : MonoBehaviour, ICardDisplay
 
     public EmphasizeCard emphasize;
     public GameObject cardBack;
+    public bool forceConsume { get; set; } = false;
 
     //fill the details of a blank card
     public void PopulateCard(CardPlus card)
     {
         thisCard = card;
+        forceConsume = thisCard.consumed;
         nameText.text = card.displayName;
         foreach(GameObject pip in costPips) pip.SetActive(false);
         for(int pips = 0; pips < card.cost; pips++)

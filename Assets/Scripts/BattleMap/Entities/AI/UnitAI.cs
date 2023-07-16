@@ -6,7 +6,7 @@ using System.Data;
 
 public class UnitAI : MonoBehaviour
 {
-    List<CardPlus> cardReferences;
+    List<ICardDisplay> cardReferences;
 
     [SerializeField] AIProfile personality;
 
@@ -21,7 +21,7 @@ public class UnitAI : MonoBehaviour
 
     public void AITakeTurn()
     {
-        cardReferences = myHand.currentHand;
+        cardReferences = myHand.handCards;
         //1. put all possible moves with their respective cards in one place
         //checklegal on every targetRules
         entities = new();
@@ -31,22 +31,22 @@ public class UnitAI : MonoBehaviour
 
         List<BattleTileController> optionTile = new();
         List<float> optionFavor = new();
-        List<CardPlus> optionReference = new();
+        List<ICardDisplay> optionReference = new();
         for(int rule = 0; rule < cardReferences.Count; rule++)
         {
             //use battlemap to find legal cells for every card in hand
-            List<GameObject> legalTiles = CellTargeting.ConvertMapRuleToTiles(cardReferences[rule].targetRules, transform.position);
+            List<GameObject> legalTiles = CellTargeting.ConvertMapRuleToTiles(cardReferences[rule].thisCard.targetRules, transform.position);
 
-            if (cardReferences[rule].pathCheckForTargets == true) legalTiles = legalTiles.EliminateUnpathable(gameObject);
+            if (cardReferences[rule].thisCard.pathCheckForTargets == true) legalTiles = legalTiles.EliminateUnpathable(gameObject);
 
             int ruleLength = legalTiles.Count;
             for(int x = 0; x < ruleLength; x++)
             {
                 BattleTileController addTile = legalTiles[x].GetComponent<BattleTileController>();
-                if (CellTargeting.ValidPlay(addTile, thisUnit, cardReferences[rule]))
+                if (CellTargeting.ValidPlay(addTile, thisUnit, cardReferences[rule].thisCard))
                 { 
                     optionTile.Add(addTile);
-                    float inFavor = CalculateFavor(addTile, cardReferences[rule]);
+                    float inFavor = CalculateFavor(addTile, cardReferences[rule].thisCard);
                     optionFavor.Add(inFavor);
                     optionReference.Add(cardReferences[rule]);
                 }
@@ -68,18 +68,18 @@ public class UnitAI : MonoBehaviour
         }
     }
 
-    IEnumerator AIPlayCard(CardPlus cardReference, BattleTileController targetTile)
+    IEnumerator AIPlayCard(ICardDisplay cardReference, BattleTileController targetTile)
     {
-        ShowAITargeting(cardReference.targetRules, transform.position);
+        ShowAITargeting(cardReference.thisCard.targetRules, transform.position);
         yield return new WaitForSeconds(playDelay);
-        ShowAITargeting(cardReference.aoePoint, targetTile.transform.position, true);
-        if(cardReference.aoeSelf != null) ShowAITargeting(cardReference.aoeSelf, transform.position, true);
+        ShowAITargeting(cardReference.thisCard.aoePoint, targetTile.transform.position, true);
+        if(cardReference.thisCard.aoeSelf != null) ShowAITargeting(cardReference.thisCard.aoeSelf, transform.position, true);
         yield return new WaitForSeconds(playDelay);
 
         //clear the range display and take the action
         EventManager.clearActivation.Invoke();
-        myHand.Discard(cardReference, true);
-        StartCoroutine(cardReference.PlaySequence(thisUnit,targetTile));
+        StartCoroutine(myHand.DiscardCard(cardReference, true));
+        StartCoroutine(cardReference.thisCard.PlaySequence(thisUnit,targetTile));
     }
 
     void ShowAITargeting(bool[,] targetRule, Vector3 source, bool aoeMode = false)

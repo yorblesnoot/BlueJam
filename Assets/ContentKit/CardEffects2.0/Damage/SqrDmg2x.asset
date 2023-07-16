@@ -10,17 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe4d7e4cd232b3843afe9d9f6eba80fb, type: 3}
-  m_Name: SplashDmg1xSelf
+  m_Name: SqrDmg2x
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   effectClass: 0
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
-  vfxNameAfter: none
-  scalingMultiplier: 0
-  aoeShape: 0
-  aoeSize: 0
-  aoeGap: 0
+  vfxNameAfter: GroundBurst
+  scalingMultiplier: 2
+  aoeShape: 1
+  aoeSize: 1
+  aoeGap: 1
   userOriginalTile: {fileID: 0}
   blockTrigger: 0

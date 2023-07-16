@@ -2,40 +2,47 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerHandDisplayPlus : HandDisplayPlus
+public class PlayerHandPlus : HandPlus
 {
     [SerializeField] GameObject deckSpot;
     [SerializeField] GameObject handSpot;
     [SerializeField] GameObject discardSpot;
 
-    List<ICardDisplay> deckCards = new();
-    List<ICardDisplay> discardCards = new();
-
     readonly float rotationFactor = 4f;
     readonly int pileDisplacementFactor = 5;
-    readonly float cardFlyDelay = .1f;
     readonly int cardFlySteps = 50;
-
     List<CardSlot> cardSlots = new();
-    internal override void BuildVisualDeck(int count)
+
+    internal override void BuildVisualDeck()
     {
         GenerateHandSlots(thisUnit.HandSize);
-        for (int i = 0; i < count; i++)
+        foreach(CardPlus card in deckRecord.deckContents)
         {
-            deckCards.Add(RenderBlankCard());
+            deckCards.Add(RenderCard(card));
         }
+        deckCards.Shuffle();
         FanPile(deckCards);
     }
 
-    public override void VisualConjure(Vector3 location, bool intoDeck = true, CardPlus card = null)
+    public override ICardDisplay ConjureCard(CardPlus card, Vector3 location, EffectInject.InjectLocation injectLocation)
     {
-        CardDisplay cardDisplay = RenderBlankCard(location);
-        if (card != null)
-            StartCoroutine(VisualDraw(card, cardDisplay));
-        else if(intoDeck == true) StartCoroutine(AnimateRecyleCard(cardDisplay, deckSpot));
-        else if(intoDeck == false) StartCoroutine(AnimateRecyleCard(cardDisplay, discardSpot));
+        CardDisplay cardDisplay = RenderCard(card, location);
+        switch (injectLocation)
+        {
+            case (EffectInject.InjectLocation.HAND):
+                StartCoroutine(DrawCard(cardDisplay));
+                break;
+            case (EffectInject.InjectLocation.DISCARD):
+                StartCoroutine(AnimateRecyleCard(cardDisplay, deckSpot));
+                break;
+            case (EffectInject.InjectLocation.DECK):
+                StartCoroutine(AnimateRecyleCard(cardDisplay, discardSpot));
+                break;
+        }
+        return cardDisplay;
     }
 
     private void GenerateHandSlots(int handSize)
@@ -85,7 +92,7 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
         }
     }
 
-    CardDisplay RenderBlankCard(Vector3 location = default)
+    CardDisplay RenderCard(CardPlus card, Vector3 location = default)
     {
         //scale and rotation for cards 
         Quaternion rotate = Quaternion.Euler(0, 0, 0);
@@ -95,6 +102,8 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
         CardDisplay cardDisplay = newCard.GetComponent<CardDisplay>();
         cardDisplay.cardBack.SetActive(true);
         cardDisplay.owner = thisUnit;
+        card.Initialize();
+        cardDisplay.PopulateCard(card);
         return cardDisplay;
     }
 
@@ -104,19 +113,19 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
         {
             Vector3 cardPosition = new(-i * pileDisplacementFactor * direction, i * pileDisplacementFactor, 0);
             cards[i].transform.localPosition = cardPosition;
+            cards[i].transform.SetAsLastSibling();
         }        
     }
 
-    public override IEnumerator VisualDraw(CardPlus card, ICardDisplay display = null)
+    public override IEnumerator DrawCard(ICardDisplay display = null)
     {
         CardDisplay drawn;
         if (display == null) drawn = (CardDisplay)deckCards.Last();
         else drawn = (CardDisplay)display;
-        drawn.PopulateCard(card);
         drawn.transform.SetParent(handSpot.transform, true);
         drawn.transform.SetAsFirstSibling();
 
-        if(cardSlots.Count != thisUnit.myHand.currentHand.Count) RegenerateHandSlots();
+        if(cardSlots.Count != handCards.Count) RegenerateHandSlots();
         CardSlot slot = cardSlots.FirstOrDefault(x => x.reference == null);
         slot.reference = drawn;
         if(display == null) deckCards.TransferItemTo(handCards, drawn);
@@ -124,11 +133,12 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
         yield return StartCoroutine(slot.FlipToCardPosition());
         if (deckCards.Count == 0)
         {
-            StartCoroutine(AnimateRecycleDeck());
+            //keep an eye on this for index errors ~~~
+            StartCoroutine(RecycleDeck());
         }
     }
 
-    public override IEnumerator VisualDiscard(ICardDisplay Idiscarded)
+    public override IEnumerator DiscardCard(ICardDisplay Idiscarded, bool played)
     {
         CardDisplay discarded = (CardDisplay)Idiscarded;
         discarded.gameObject.GetComponent<EmphasizeCard>().readyEmphasis = false;
@@ -136,22 +146,14 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
         CardSlot slot = cardSlots.FirstOrDefault(x => x.reference == discarded);
         handCards.TransferItemTo(discardCards, discarded);
         yield return StartCoroutine(slot.FlipToSpot(discardSpot));
-        
+        StartCoroutine(base.DiscardCard(discarded, played));
         FanPile(discardCards, -1);
         yield break;
     }
 
-    IEnumerator AnimateRecycleDeck()
-    {
-        int discards = discardCards.Count;
-        for (int i = 0; i < discards; i++)
-        {
-            ICardDisplay card = discardCards[0];
-            discardCards.TransferItemTo(deckCards, card);
-            StartCoroutine(AnimateRecyleCard(card, deckSpot));
-            yield return new WaitForSeconds(cardFlyDelay);
-        }
-    }
+    protected override void RecyleCard(ICardDisplay card)
+    { StartCoroutine(AnimateRecyleCard(card, deckSpot)); }
+
     IEnumerator AnimateRecyleCard(ICardDisplay card, GameObject spot)
     {
         card.transform.SetParent(spot.transform, true);
@@ -226,7 +228,7 @@ class CardSlot
             transform.SetLocalPositionAndRotation(Vector3.Lerp(startPosition, Vector3.zero, ((float)i) / cardDrawDiscardSteps),
                 Quaternion.Slerp(startRotation, Quaternion.identity, ((float)i) / cardDrawDiscardSteps));
             transform.localScale = Vector3.Lerp(startScale, Vector3.one, ((float)i) / cardDrawDiscardSteps);
-            if (!reference.cardBack.activeSelf && transform.localRotation.eulerAngles.y >= 270) cardBack.SetActive(true);
+            if (!cardBack.activeSelf && transform.localRotation.eulerAngles.y >= 270) cardBack.SetActive(true);
             yield return new WaitForSeconds(.01f);
         }
         transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);

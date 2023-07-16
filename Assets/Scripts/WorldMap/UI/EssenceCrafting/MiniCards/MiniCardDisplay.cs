@@ -13,6 +13,8 @@ public class MiniCardDisplay : MonoBehaviour, ICardDisplay, IPointerEnterHandler
 
     [SerializeField] WrldCardDisplay bigCard;
 
+    public bool forceConsume { get; set; } = false;
+
     public void PopulateCard(CardPlus card)
     {
         thisCard = card;

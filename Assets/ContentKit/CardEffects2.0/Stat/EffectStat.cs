@@ -63,7 +63,7 @@ public class EffectStat : CardEffectPlus
                 target.barrierScaling += modifier;
                 break;
         }
-        if(target.gameObject.CompareTag("Player")) target.gameObject.GetComponent<PlayerHandDisplayPlus>().UpdateHand();
+        if(target.gameObject.CompareTag("Player")) target.gameObject.GetComponent<PlayerHandPlus>().UpdateHand();
         if (entityStat == StatType.BEATS) TurnManager.updateBeatCounts.Invoke();
     }
 }

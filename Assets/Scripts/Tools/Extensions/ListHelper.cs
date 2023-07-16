@@ -10,4 +10,15 @@ public static class ListHelper
         list1.Remove(item);
         list2.Add(item);
     }
+
+    public static void Shuffle<T>(this List<T> list)
+    {
+        int n = list.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = Random.Range(0, n + 1);
+            (list[n], list[k]) = (list[k], list[n]);
+        }
+    }
 }

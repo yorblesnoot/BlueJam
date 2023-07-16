@@ -113,6 +113,7 @@ public static class CellTargeting
         }
         foreach (var effect in card.effects)
         {
+            if (effect.targetNotRequired) return true;
             if (effect.forceTargetSelf) tile = MapTools.VectorToTile(source.transform.position).GetComponent<BattleTileController>();
             if (effect.effectClass == CardClass.ATTACK && AreaTargets(tile.gameObject, tSource, CardClass.ATTACK, effect.aoe).Count == 0)
             {
@@ -147,6 +148,7 @@ public static class CellTargeting
     public static bool[,] CombineAOEIndicators(List<bool[,]> indicators)
     {
         List<int> sizes = indicators.Select(x => x.GetLength(0)).ToList();
+        if(sizes.Count == 0) return new bool[,] { { true } };
         int maxSize = sizes.Max();
         List<int> offsets = sizes.Select(x => (maxSize - x) / 2).ToList();
         bool[,] output = new bool[maxSize, maxSize];
