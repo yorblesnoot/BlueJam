@@ -14,10 +14,10 @@ public class EffectPushPull : CardEffectPlus
     [Range(.1f, .01f)] public float stepSize;
     public override string GenerateDescription(IPlayerStats player)
     {
-        string verb = "";
+        string verb;
         if (scalingMultiplier > 0) verb = "push";
         else verb = "pull";
-        return $"{verb} target {Mathf.RoundToInt(scalingMultiplier)} cells";
+        return $"{verb} target {Mathf.Abs(Mathf.RoundToInt(scalingMultiplier))} cells";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
@@ -57,10 +57,11 @@ public class EffectPushPull : CardEffectPlus
             collisionDamage = distance - i;
             break;
         }
-        MapTools.ReportPositionChange(target, MapTools.VectorToTile(destination).GetComponent<BattleTileController>());
-        while (target.transform.position != destination)
+        BattleTileController destinationTile = MapTools.VectorToTile(destination).GetComponent<BattleTileController>();
+        MapTools.ReportPositionChange(target, destinationTile);
+        while (target.transform.position != destinationTile.unitPosition)
         {
-            target.transform.position = Vector3.MoveTowards(target.transform.position, destination, stepsize);
+            target.transform.position = Vector3.MoveTowards(target.transform.position, destinationTile.unitPosition, stepsize);
             yield return new WaitForSeconds(.01f);
         }
 

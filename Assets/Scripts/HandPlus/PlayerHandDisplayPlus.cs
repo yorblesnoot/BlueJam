@@ -90,7 +90,7 @@ public class PlayerHandDisplayPlus : HandDisplayPlus
     {
         for(int i = 0; i < cards.Count;i++)
         {
-            Vector3 cardPosition = new(i * pileDisplacementFactor * direction, i * pileDisplacementFactor, 0);
+            Vector3 cardPosition = new(-i * pileDisplacementFactor * direction, i * pileDisplacementFactor, 0);
             cards[i].transform.localPosition = cardPosition;
         }        
     }
@@ -177,7 +177,7 @@ class CardSlot
     public GameObject cardBack;
 
     public CardDisplay reference;
-    readonly static int cardDrawDiscardSteps = 50;
+    readonly static int cardDrawDiscardSteps = 40;
 
     public IEnumerator FlipToCardPosition()
     {

@@ -77,10 +77,10 @@ public class HandPlus : MonoBehaviour
 
     public void DiscardAll()
     {
-        deckDiscarded.AddRange(currentHand);
-        foreach(CardPlus card in currentHand)
+        int handCount = currentHand.Count;
+        for (int i = 0; i < handCount; i++)
         {
-            Discard(card, false);
+            Discard(currentHand[0], false);
         }
         TurnManager.SpendBeats(thisUnit, 2);
     }
