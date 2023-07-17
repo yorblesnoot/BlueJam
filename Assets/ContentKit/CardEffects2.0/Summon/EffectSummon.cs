@@ -39,17 +39,17 @@ public class EffectSummon : CardEffectPlus
         }
         else location = targetCell.unitPosition;
         GameObject summoned = Instantiate(entityToSummon, location, Quaternion.identity);
+        summoned.transform.LookAt(actor.transform);
         ModifyStats(actor, summoned.GetComponent<NonplayerUnit>());
         NonplayerHandPlus hand = summoned.GetComponent<NonplayerHandPlus>();
         hand.BuildVisualDeck();
         hand.DrawPhase();
-        VFXMachine.PlayAtLocation("SummonCircles", location);
         yield return null;
     }
 
     void ModifyStats(BattleUnit owner, NonplayerUnit toModify)
     {
-        int summonModifier = 2;
+        float summonModifier = .6f;
         if(owner.CompareTag("Player"))
         {
             toModify.tag = "Ally";
@@ -58,12 +58,12 @@ public class EffectSummon : CardEffectPlus
         toModify.transform.localScale -= new Vector3(.3f, .3f, .3f);
 
         toModify.isSummoned = true;
-        toModify.maxHealth /= summonModifier;
-        toModify.currentHealth /= summonModifier;
+        toModify.maxHealth = Mathf.RoundToInt(toModify.maxHealth * summonModifier);
+        toModify.currentHealth = toModify.maxHealth;
 
-        toModify.DamageScaling /= summonModifier;
-        toModify.healScaling /= summonModifier;
-        toModify.barrierScaling /= summonModifier;
+        toModify.DamageScaling = Mathf.RoundToInt(toModify.DamageScaling * summonModifier);
+        toModify.healScaling = Mathf.RoundToInt(toModify.healScaling * summonModifier);
+        toModify.barrierScaling = Mathf.RoundToInt(toModify.barrierScaling * summonModifier);
 
         toModify.RegisterTurn();
         toModify.ReportCell();

@@ -18,7 +18,7 @@ MonoBehaviour:
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
-  vfxNameAfter: GroundBurst
+  vfxNameAfter: CircleSlash
   scalingMultiplier: 1
   aoeShape: 1
   aoeSize: 1

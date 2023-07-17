@@ -62,11 +62,6 @@ public class HandPlus : MonoBehaviour
 
     public virtual IEnumerator DiscardCard(ICardDisplay Idiscarded, bool played)
     {
-        if (Idiscarded.thisCard.consumed == true & played == true)
-        {
-            discardCards.Remove(Idiscarded);
-            Destroy(Idiscarded.gameObject);
-        }
-        yield return null;
+        yield break;
     }
 }

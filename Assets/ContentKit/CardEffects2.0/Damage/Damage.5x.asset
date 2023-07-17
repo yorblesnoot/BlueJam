@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Damage.5x
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
+  targetNotRequired: 0
   effectClass: 0
-  vfxStyleBefore: 0
-  vfxNameBefore: none
+  vfxStyleBefore: 2
+  vfxNameBefore: GreenDiagSlash
   vfxStyleAfter: 0
   vfxNameAfter: ImpactSmall
   scalingMultiplier: 0.5

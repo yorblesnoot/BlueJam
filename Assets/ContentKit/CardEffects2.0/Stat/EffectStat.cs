@@ -48,10 +48,12 @@ public class EffectStat : CardEffectPlus
                 target.HandSize += modifier;
                 break;
             case StatType.SPEED:
-                target.TurnSpeed += scale;
+                target.turnSpeed += scale;
+                target.turnSpeed = Mathf.Clamp(target.turnSpeed, .2f, 2f);
                 break;
             case StatType.BEATS:
                 target.currentBeats += scale;
+                TurnManager.updateBeatCounts.Invoke();
                 break;
             case StatType.DAMAGE:
                 target.DamageScaling += modifier;
@@ -64,6 +66,5 @@ public class EffectStat : CardEffectPlus
                 break;
         }
         if(target.gameObject.CompareTag("Player")) target.gameObject.GetComponent<PlayerHandPlus>().UpdateHand();
-        if (entityStat == StatType.BEATS) TurnManager.updateBeatCounts.Invoke();
     }
 }

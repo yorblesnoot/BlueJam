@@ -23,7 +23,7 @@ public class NonplayerUnit : BattleUnit
         DamageScaling = Mathf.RoundToInt(DamageScaling * (1 + (difficultyFactor * .1f)));
         barrierScaling = Mathf.RoundToInt(barrierScaling * (1 + (difficultyFactor * .1f)));
         healScaling = Mathf.RoundToInt(healScaling * (1 + (difficultyFactor * .1f)));
-        TurnSpeed *= 1 + (difficultyFactor * .01f);
+        turnSpeed *= 1 + (difficultyFactor * .01f);
     }
 
     public override void GetAction()

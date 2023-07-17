@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: InjectStrikeOrder
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
+  targetNotRequired: 0
   effectClass: 2
   vfxStyleBefore: 0
   vfxNameBefore: BuffCharge
@@ -24,6 +25,6 @@ MonoBehaviour:
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  location: 2
+  location: 1
   toInject: {fileID: 11400000, guid: 93350f7b02fd3da4b8b2bff7f8daa8bc, type: 2}
   forceConsume: 1

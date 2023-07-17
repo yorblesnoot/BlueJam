@@ -10,6 +10,7 @@ public class PlayerHandPlus : HandPlus
     [SerializeField] GameObject deckSpot;
     [SerializeField] GameObject handSpot;
     [SerializeField] GameObject discardSpot;
+    [SerializeField] GameObject conjureSpot;
 
     readonly float rotationFactor = 4f;
     readonly int pileDisplacementFactor = 5;
@@ -21,7 +22,9 @@ public class PlayerHandPlus : HandPlus
         GenerateHandSlots(thisUnit.HandSize);
         foreach(CardPlus card in deckRecord.deckContents)
         {
-            deckCards.Add(RenderCard(card));
+            CardDisplay cardDisplay = RenderCard(card);
+            deckCards.Add(cardDisplay);
+            cardDisplay.transform.SetParent(deckSpot.transform, false);
         }
         deckCards.Shuffle();
         FanPile(deckCards);
@@ -30,16 +33,22 @@ public class PlayerHandPlus : HandPlus
     public override ICardDisplay ConjureCard(CardPlus card, Vector3 location, EffectInject.InjectLocation injectLocation)
     {
         CardDisplay cardDisplay = RenderCard(card, location);
+        cardDisplay.transform.SetParent(conjureSpot.transform, false);
         switch (injectLocation)
         {
             case (EffectInject.InjectLocation.HAND):
                 StartCoroutine(DrawCard(cardDisplay));
                 break;
             case (EffectInject.InjectLocation.DISCARD):
-                StartCoroutine(AnimateRecyleCard(cardDisplay, deckSpot));
+                StartCoroutine(AnimateRecyleCard(cardDisplay, discardSpot));
+                discardCards.Add(cardDisplay);
+                FanPile(discardCards);
                 break;
             case (EffectInject.InjectLocation.DECK):
-                StartCoroutine(AnimateRecyleCard(cardDisplay, discardSpot));
+                StartCoroutine(AnimateRecyleCard(cardDisplay, deckSpot));
+                deckCards.Add(cardDisplay);
+                deckCards.Shuffle();
+                FanPile(deckCards);
                 break;
         }
         return cardDisplay;
@@ -97,7 +106,6 @@ public class PlayerHandPlus : HandPlus
         //scale and rotation for cards 
         Quaternion rotate = Quaternion.Euler(0, 0, 0);
         GameObject newCard = Instantiate(blankCard, location, rotate);
-        newCard.transform.SetParent(deckSpot.transform, false);
         newCard.transform.localScale = new Vector3(cardSize, cardSize, cardSize);
         CardDisplay cardDisplay = newCard.GetComponent<CardDisplay>();
         cardDisplay.cardBack.SetActive(true);
@@ -142,11 +150,18 @@ public class PlayerHandPlus : HandPlus
     {
         CardDisplay discarded = (CardDisplay)Idiscarded;
         discarded.gameObject.GetComponent<EmphasizeCard>().readyEmphasis = false;
-        discarded.transform.SetParent(discardSpot.transform, true);
         CardSlot slot = cardSlots.FirstOrDefault(x => x.reference == discarded);
+        if (Idiscarded.forceConsume == true && played == true)
+        {
+            discarded.transform.SetParent(conjureSpot.transform, true);
+            handCards.Remove(discarded);
+            yield return StartCoroutine(slot.FlipToSpot());
+            Destroy(discarded.gameObject);
+            yield break;
+        }
+        discarded.transform.SetParent(discardSpot.transform, true);
         handCards.TransferItemTo(discardCards, discarded);
-        yield return StartCoroutine(slot.FlipToSpot(discardSpot));
-        StartCoroutine(base.DiscardCard(discarded, played));
+        yield return StartCoroutine(slot.FlipToSpot());
         FanPile(discardCards, -1);
         yield break;
     }
@@ -159,9 +174,11 @@ public class PlayerHandPlus : HandPlus
         card.transform.SetParent(spot.transform, true);
         card.transform.SetAsFirstSibling();
         Vector3 startPosition = card.transform.localPosition;
+        Vector3 startScale = card.transform.localScale;
         for (int i = 0; i < cardFlySteps; i++)
         {
             card.transform.localPosition = Vector3.Lerp(startPosition, Vector3.zero, ((float)i) / cardFlySteps);
+            card.transform.localScale = Vector3.Lerp(startScale, Vector3.one, ((float)i) / cardFlySteps);
             yield return new WaitForSeconds(.01f);
         }
         if(spot == deckSpot) FanPile(deckCards);
@@ -213,7 +230,7 @@ class CardSlot
         yield return null;
     }
 
-    public IEnumerator FlipToSpot(GameObject spot)
+    public IEnumerator FlipToSpot()
     {
         Transform transform = reference.transform;
         EmphasizeCard emphasis = reference.gameObject.GetComponent<EmphasizeCard>();

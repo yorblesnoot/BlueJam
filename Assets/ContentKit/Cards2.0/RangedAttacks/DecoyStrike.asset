@@ -15,14 +15,20 @@ MonoBehaviour:
   Id: 77a14045-ddc9-40c6-a446-74ccb577edbd
   displayName: Decoy Strike
   cost: 1
-  description: 
-  keywords: 
+  description: 'deal <color=#FF4E2B>21</color> damage.
+
+    deal <color=#FF4E2B>7</color>
+    damage.
+
+'
+  keywords: 'Range: 1-5 AOE: 0 '
   targetShape: 0
   targetSize: 5
   targetGap: 1
   pathCheckForTargets: 0
-  cardClass: 
+  cardClass: 0000000002000000
   consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: f111fd945c1e2314b8cc1b68ef11a2c6, type: 2}
+  - {fileID: 11400000, guid: e5642390b5d343744b04a59eaeaa1641, type: 2}
+  - {fileID: 11400000, guid: cfa56c55d989787439eeafde71fe607b, type: 2}

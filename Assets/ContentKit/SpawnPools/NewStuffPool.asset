@@ -12,10 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 095a6fe426d45484c859eb273f007cc8, type: 3}
   m_Name: NewStuffPool
   m_EditorClassIdentifier: 
-  spawnUnits:
-  - {fileID: 8820218125386000028, guid: 5e3d9bdb651335e4d8f7b51cd2f02b9c, type: 3}
-  - {fileID: 7888735582937761990, guid: 3f888ee8ade326c409518187bf5bab05, type: 3}
-  - {fileID: 7888735582937761990, guid: 3f888ee8ade326c409518187bf5bab05, type: 3}
-  - {fileID: 7888735582937761990, guid: 3f888ee8ade326c409518187bf5bab05, type: 3}
-  - {fileID: 7888735582937761990, guid: 3f888ee8ade326c409518187bf5bab05, type: 3}
-  staticSpawns: []
+  spawnUnits: []
+  staticSpawns:
+  - {fileID: 2886879726939958382, guid: f761821ff0471564b8b9397c5263cabe, type: 3}

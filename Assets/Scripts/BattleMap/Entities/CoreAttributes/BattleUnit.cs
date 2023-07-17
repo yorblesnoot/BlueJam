@@ -16,12 +16,8 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
         get => handSize; 
         set { handSize = Mathf.Clamp(value, 1, 7); }
     }
-    private float turnSpeed;
-    public float TurnSpeed
-    {
-        get => turnSpeed; 
-        set { turnSpeed = Mathf.Clamp(value, .2f, value); }
-    }
+
+    public float turnSpeed { get; set; }
 
     public int currentHealth { get; set; }
     public int deflectHealth { get; set; }
@@ -80,7 +76,7 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
         healScaling = unitStats.healScaling;
         barrierScaling = unitStats.barrierScaling;
         HandSize = unitStats.handSize;
-        TurnSpeed = unitStats.turnSpeed;
+        turnSpeed = unitStats.turnSpeed;
         currentBeats = unitStats.startBeats;
         TurnManager.initialPositionReport.AddListener(ReportCell);
         myUI = GetComponentInChildren<EntityUI>();

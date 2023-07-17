@@ -82,7 +82,7 @@ public class TurnManager : MonoBehaviour
     {
         foreach(NonplayerUnit turnTaker in turnTakers.OfType<NonplayerUnit>())
         {
-            if (turnTaker.currentBeats + (beatCost * turnTaker.TurnSpeed) >= beatThreshold)
+            if (turnTaker.currentBeats + (beatCost * turnTaker.turnSpeed) >= beatThreshold)
             {
                 turnTaker.ShowTurnPossibility();
             }
@@ -93,7 +93,6 @@ public class TurnManager : MonoBehaviour
 
     public static void SpendBeats(BattleUnit owner, int beats)
     {
-        deathPhase?.Invoke();
         owner.myHand.DrawPhase();
         PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
         if (owner.gameObject.CompareTag("Player"))
@@ -101,12 +100,13 @@ public class TurnManager : MonoBehaviour
             //distribute beats to all units based on their individual speeds when the player acts
             for(int entry = 0; entry < turnTakers.Count; entry++)
             {
-                float beatChange = turnTakers[entry].TurnSpeed * beats / playerUnit.TurnSpeed;
+                float beatChange = turnTakers[entry].turnSpeed * beats / playerUnit.turnSpeed;
                 turnTakers[entry].currentBeats += beatChange;
             }
         }
         else owner.currentBeats -= beats;
         updateBeatCounts?.Invoke();
+        deathPhase?.Invoke();
         Main.StartCoroutine(WaitForTurn());
     }
 

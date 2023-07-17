@@ -13,8 +13,14 @@ MonoBehaviour:
   m_Name: ShadowDeck
   m_EditorClassIdentifier: 
   Id: f9eb845d-0afb-4e81-acdd-fa95dde744e5
-  deckContents: []
-  symbol: N!
+  deckContents:
+  - {fileID: 11400000, guid: d92a6e9b7d814e649a4ee92389b26195, type: 2}
+  - {fileID: 11400000, guid: c161b3b7342e7094094a63ae62d7ceee, type: 2}
+  - {fileID: 11400000, guid: 2e0d124858a11314ebb669170c265cb1, type: 2}
+  - {fileID: 11400000, guid: 0ce8ed87b2c936844b6e74c8898c9faf, type: 2}
+  - {fileID: 11400000, guid: 5c0197f042e7f614db3cbaba01138758, type: 2}
+  - {fileID: 11400000, guid: 5c0197f042e7f614db3cbaba01138758, type: 2}
+  symbol: S!
   iconColor:
     serializedVersion: 2
     rgba: 4294457697

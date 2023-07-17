@@ -56,10 +56,10 @@ public static class MapTools
     public static void ReportPositionSwap(BattleUnit actor, BattleTileController newTile, BattleUnit secondActor)
     {
         //report locations when actors are switching places
-        newTile.unitContents = actor;
         BattleTileController oldTile = VectorToTile(actor.gameObject.transform.position).GetComponent<BattleTileController>();
+        newTile.unitContents = actor;
         oldTile.unitContents = secondActor;
         actor.gameObject.GetComponent<StencilControl>().ToggleStencil(newTile);
-        secondActor.gameObject.GetComponent<StencilControl>().ToggleStencil(newTile);
+        secondActor.gameObject.GetComponent<StencilControl>().ToggleStencil(oldTile);
     }
 }

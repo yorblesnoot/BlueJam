@@ -68,6 +68,7 @@ public class CardPlus : SOWithGUID
             effects[i].userOriginalTile = userOriginalTile;
             yield return actor.StartCoroutine(effects[i].Execute(actor, targetCell));          
         }
+        Debug.Log($"{this.name} spent beats");
         TurnManager.SpendBeats(actor.GetComponent<BattleUnit>(), cost);
     }
     public void AssembleDescription()

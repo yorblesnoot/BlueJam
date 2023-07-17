@@ -15,16 +15,23 @@ MonoBehaviour:
   Id: 4bcaa2d4-9c07-41f5-a099-c105a1161c56
   displayName: Illusion Swap
   cost: 3
-  description: 
-  keywords: 
+  description: 'deal <color=#FF4E2B>10</color> damage.
+
+    swap places with target.
+
+    deal
+    <color=#FF4E2B>10</color> damage.
+
+'
+  keywords: 'Range: 1-4 AOE: 1 '
   targetShape: 0
   targetSize: 4
   targetGap: 1
   pathCheckForTargets: 0
-  cardClass: 
+  cardClass: 0000000002000000
   consumed: 0
   animType: 0
   effects:
   - {fileID: 11400000, guid: ae52442554ad28442bceccd45c697b69, type: 2}
   - {fileID: 11400000, guid: 48057421bd3af604f89e64b599304447, type: 2}
-  - {fileID: 11400000, guid: a928d340492cb284cb2a0a333e9ae2fb, type: 2}
+  - {fileID: 11400000, guid: 507728f0f614c274eb135bad6c458f80, type: 2}

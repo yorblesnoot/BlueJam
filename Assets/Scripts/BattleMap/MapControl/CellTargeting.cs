@@ -113,7 +113,7 @@ public static class CellTargeting
         }
         foreach (var effect in card.effects)
         {
-            if (effect.targetNotRequired) return true;
+            if (effect.targetNotRequired) continue;
             if (effect.forceTargetSelf) tile = MapTools.VectorToTile(source.transform.position).GetComponent<BattleTileController>();
             if (effect.effectClass == CardClass.ATTACK && AreaTargets(tile.gameObject, tSource, CardClass.ATTACK, effect.aoe).Count == 0)
             {

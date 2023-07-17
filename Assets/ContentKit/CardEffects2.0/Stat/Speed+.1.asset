@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: Speed+.1
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
+  targetNotRequired: 0
   effectClass: 2
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
-  vfxNameAfter: UpSpiral
+  vfxNameAfter: SpinRiseBlue
   scalingMultiplier: 0.1
   aoeShape: 0
   aoeSize: 0

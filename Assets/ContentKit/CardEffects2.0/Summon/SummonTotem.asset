@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: SummonTotem
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
+  targetNotRequired: 0
   effectClass: 3
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
-  vfxNameAfter: none
+  vfxNameAfter: SummonCircles
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 3
