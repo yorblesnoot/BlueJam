@@ -63,13 +63,16 @@ public class NonplayerHandPlus : HandPlus
     }
     public override IEnumerator DiscardCard(ICardDisplay discarded, bool played)
     {
-        handCards.TransferItemTo(discardCards, discarded);
         if (discarded.forceConsume == true && played == true)
         {
             discardCards.Remove(discarded);
             Destroy(discarded.gameObject);
         }
-        else discarded.gameObject.SetActive(false);
+        else
+        {
+            handCards.TransferItemTo(discardCards, discarded);
+            discarded.gameObject.SetActive(false);
+        }
         yield break;
     }
     void PositionCards()

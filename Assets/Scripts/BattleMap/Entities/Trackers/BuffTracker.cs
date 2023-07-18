@@ -32,7 +32,7 @@ public class BuffTracker : MonoBehaviour
             owner = ownerIn};
         incomingBuff.lapseEffect.Initialize();
         buffs.Add(incomingBuff);
-        
+        buffDisplay.DisplayBuff(buff.duration, buff.iconColor);
     }
 
     public void RegisterTempStat(EffectStat stat)

@@ -14,8 +14,6 @@ public class PlayerClass : ScriptableObject
 
     [field: SerializeField] public List<CardPlus> basedeckContents { get; private set; }
 
-    [field: SerializeField] public int baseEnemies { get; private set; }
-
     public void ResetAndInitialize(Deck deck)
     {
         deck.deckContents = new List<CardPlus>(basedeckContents);

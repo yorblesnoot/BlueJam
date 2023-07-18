@@ -3,11 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
-using static UnityEngine.EventSystems.EventTrigger;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
-
-[System.Serializable]
-public class TurnChange : UnityEvent<GameObject> {}
 
 public class TurnManager : MonoBehaviour
 {
@@ -61,8 +56,6 @@ public class TurnManager : MonoBehaviour
             unit.myHand.DrawPhase();
         }
     }
-
-   
 
     public static void ReportTurn(NonplayerUnit actor)
     { turnTakers.Add(actor); }

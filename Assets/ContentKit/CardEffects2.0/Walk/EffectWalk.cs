@@ -20,7 +20,6 @@ public class EffectWalk : CardEffectPlus
     {
         MapTools.ReportPositionChange(actor, targetCell);
         yield return new WaitForSeconds(.1f);
-        VFXMachine.AttachTrail("MoveTrail", actor.gameObject);
         Vector3 destination = targetCell.unitPosition;
         while (actor.transform.position != destination)
         {

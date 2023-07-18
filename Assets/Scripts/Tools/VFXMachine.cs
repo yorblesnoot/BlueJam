@@ -1,8 +1,4 @@
-using System.Xml.Linq;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using static UnityEngine.UI.Image;
 
 public enum VFXStyle
 {
