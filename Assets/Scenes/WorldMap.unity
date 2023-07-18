@@ -8420,6 +8420,7 @@ MonoBehaviour:
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   mapRenderer: {fileID: 835403972}
   playerControl: {fileID: 1773061057}
+  bossPool: {fileID: 11400000, guid: 8cbd4e0fa500bd240906fc665a6a79b3, type: 2}
 --- !u!4 &835403974
 Transform:
   m_ObjectHideFlags: 0

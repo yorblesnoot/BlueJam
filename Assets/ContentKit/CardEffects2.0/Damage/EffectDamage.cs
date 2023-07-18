@@ -10,7 +10,7 @@ public class EffectDamage : CardEffectPlus
         effectClass = CardClass.ATTACK;
     }
 
-    public override string GenerateDescription(IPlayerStats player)
+    public override string GetEffectDescription(IPlayerStats player)
     {
         return $"deal <color=#FF4E2B>{player.DamageScaling * scalingMultiplier}</color> damage";
     }

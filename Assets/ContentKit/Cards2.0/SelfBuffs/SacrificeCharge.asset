@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: SacrificeCharge
+  m_EditorClassIdentifier: 
+  Id: f46e4f61-cf2b-44b8-9ab9-cb33651ba36f
+  displayName: Intense Focus
+  cost: 3
+  description: 
+  keywords: 
+  targetShape: 0
+  targetSize: 0
+  targetGap: 0
+  pathCheckForTargets: 0
+  cardClass: 
+  consumed: 0
+  animType: 0
+  effects:
+  - {fileID: 11400000, guid: cfa56c55d989787439eeafde71fe607b, type: 2}
+  - {fileID: 11400000, guid: d9c8f51980d00c74bb5c75ac3face56e, type: 2}

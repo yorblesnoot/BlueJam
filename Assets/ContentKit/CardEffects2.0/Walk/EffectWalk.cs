@@ -12,7 +12,7 @@ public class EffectWalk : CardEffectPlus
     }
     bool walked;
     [Range(.1f, .01f)] public float stepSize;
-    public override string GenerateDescription(IPlayerStats player)
+    public override string GetEffectDescription(IPlayerStats player)
     {
         return "move to target";
     }

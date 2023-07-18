@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095a6fe426d45484c859eb273f007cc8, type: 3}
+  m_Name: BossPool
+  m_EditorClassIdentifier: 
+  spawnUnits:
+  - {fileID: 2886879726939958382, guid: f761821ff0471564b8b9397c5263cabe, type: 3}
+  - {fileID: 308681686112875647, guid: 198614c91168c6648948ca2d6b1b72f9, type: 3}
+  - {fileID: 1461540883103785981, guid: cf8a6d2a8c37101428219d2b6e930f97, type: 3}
+  staticSpawns: []

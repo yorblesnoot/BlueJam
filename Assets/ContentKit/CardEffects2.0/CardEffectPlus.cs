@@ -26,6 +26,13 @@ public class CardEffectPlus : ScriptableObject
 
     public bool blockTrigger;
 
+    public static readonly Dictionary<TileMapShape, string> aoeShapeName = new()
+    {
+        {TileMapShape.CROSS, "<color=blue>+</color>" },
+        { TileMapShape.CIRCLE, "<color=blue>O</color>" },
+        { TileMapShape.DIAGONALCROSS, "<color=blue>X</color>"},
+        { TileMapShape.SQUARE, "<color=blue>[  ]</color>"}
+    };
     public void Initialize()
     {
         aoe = MapRulesGenerator.Convert(aoeShape, aoeSize, aoeGap);
@@ -51,7 +58,19 @@ public class CardEffectPlus : ScriptableObject
 
     public virtual IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null) { yield return null; }
 
-    public virtual string GenerateDescription(IPlayerStats player)
+    public string GenerateDescription(IPlayerStats player)
+    {
+        string baseDescription = GetEffectDescription(player);
+        if(aoeSize > 0) return baseDescription = AppendAOEInfo(baseDescription);
+        return baseDescription;
+    }
+
+    internal string AppendAOEInfo(string description)
+    {
+        return description + $" in a <color=red>{aoeSize}{aoeShapeName[aoeShape]}</color> AOE";
+    }
+
+    public virtual string GetEffectDescription(IPlayerStats player)
     {
         return "";
     }

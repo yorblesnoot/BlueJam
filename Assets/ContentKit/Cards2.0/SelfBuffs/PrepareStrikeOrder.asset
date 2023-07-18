@@ -15,16 +15,24 @@ MonoBehaviour:
   Id: 184fbbeb-cb9a-4774-a117-222226c01a17
   displayName: Poised To Strike
   cost: 3
-  description: 
-  keywords: 
+  description: 'conjure 1 temporary copy of <color=#FFA500>Convergent Assault</color>
+    to target''s discard.
+
+    deflect for <color=#1ED5FA>10</color>.
+
+    increase
+    strength by 2.
+
+'
+  keywords: 'Range: 0-0 AOE: 0 '
   targetShape: 0
   targetSize: 0
   targetGap: 0
   pathCheckForTargets: 0
-  cardClass: 
+  cardClass: 02000000
   consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: 5ed5cb4b4b00bca4aadde5a5ea8df198, type: 2}
   - {fileID: 11400000, guid: 55319a3e1913e854bbe7a76f6314834a, type: 2}
   - {fileID: 11400000, guid: de0589b85a134db4fb23b49d78f4585a, type: 2}
+  - {fileID: 11400000, guid: 5ed5cb4b4b00bca4aadde5a5ea8df198, type: 2}

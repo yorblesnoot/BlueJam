@@ -36,6 +36,7 @@ public class WorldPlayerControl : MonoBehaviour
         playerState = WorldPlayerState.PATHING;
         foreach (GameObject tile in path)
         {
+            runData.score -= 1;
             WorldMovementController tileController = tile.GetComponent<WorldMovementController>();
             transform.LookAt(tileController.unitPosition);
             Vector3 displacement = tileController.unitPosition - transform.position;

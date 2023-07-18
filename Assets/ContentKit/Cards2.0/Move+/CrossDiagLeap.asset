@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: CrossDiagLeap
+  m_EditorClassIdentifier: 
+  Id: 9504179f-e5ba-4332-a240-97d2ffcfccb6
+  displayName: Erupting Pounce
+  cost: 4
+  description: 'move to target. deal <color=#FF4E2B>15</color> damage. '
+  keywords: 'Range: 1-2 AOE: 2 '
+  targetShape: 3
+  targetSize: 2
+  targetGap: 1
+  pathCheckForTargets: 0
+  cardClass: 0000000001000000
+  consumed: 0
+  animType: 3
+  effects:
+  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: b7b6939e91c1a214dbb8ca8d9cc6dba8, type: 2}

@@ -10,10 +10,7 @@ public class UnitStats : ScriptableObject
     public int maxHealth;
     public int handSize;
 
-    public bool playerAllied;
-
     public float startBeats;
-    public bool myTurn;
     
     //to be used later
     public int damageScaling;
@@ -26,9 +23,7 @@ public class UnitStats : ScriptableObject
     {
         maxHealth = 20;
         handSize = 2;
-        playerAllied = false;
         startBeats = 1;
-        myTurn = false;
         damageScaling = 10; barrierScaling = 10; healScaling = 10;
 
         turnSpeed = .4f;

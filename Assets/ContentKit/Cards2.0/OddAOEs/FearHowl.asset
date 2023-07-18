@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: ChargeUp
+  m_Name: FearHowl
   m_EditorClassIdentifier: 
-  Id: f46e4f61-cf2b-44b8-9ab9-cb33651ba36f
-  displayName: Intense Focus
+  Id: 777e2a4e-2a7f-42d7-bab3-2b28d13d0c6f
+  displayName: Terrifying Howl
   cost: 3
   description: 
   keywords: 
@@ -25,5 +25,5 @@ MonoBehaviour:
   consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: cfa56c55d989787439eeafde71fe607b, type: 2}
-  - {fileID: 11400000, guid: d9c8f51980d00c74bb5c75ac3face56e, type: 2}
+  - {fileID: 11400000, guid: e4488fe1cc17d2e44926a670232de052, type: 2}
+  - {fileID: 11400000, guid: de0589b85a134db4fb23b49d78f4585a, type: 2}

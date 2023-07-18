@@ -41,7 +41,9 @@ public class RunStarter : MonoBehaviour
         runData.KeyStock = 0;
         runData.RemoveStock = 0;
         runData.worldSteps = 0;
+        runData.score = 0;
         runData.eventMap = new();
+        runData.bossSequence = new();
         runData.exploredChunks = new bool[mapSize / DynamicEventPlacer.chunkSize, mapSize / DynamicEventPlacer.chunkSize];
 
         //send the player to the world map

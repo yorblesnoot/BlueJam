@@ -31,6 +31,9 @@ public class BattleEnder : MonoBehaviour
     }*/
     public IEnumerator VictorySequence()
     {
+        if (sceneRelay.bossEncounter) runData.score += 1000;
+        else runData.score += 100;
+
         TurnManager.playerUnit.unitAnimator.Animate(AnimType.CHEER);
         winSign.SetActive(true);
         yield return StartCoroutine(FadeInWords(winWords));
@@ -38,13 +41,7 @@ public class BattleEnder : MonoBehaviour
         yield return StartCoroutine(FadeInDrops());
 
         yield return new WaitForSeconds(2f);
-        if (sceneRelay.bossEncounter == true)
-        {
-            //send the player to credits if they beat the boss
-            System.IO.File.Delete(Application.persistentDataPath + "/runData.json");
-            SceneManager.LoadScene(3);
-        }
-        else SceneManager.LoadScene(1);
+        SceneManager.LoadScene(1);
     }
 
     IEnumerator FadeInDrops()
@@ -85,8 +82,10 @@ public class BattleEnder : MonoBehaviour
         StartCoroutine(FadeScreenToBlack(blackScreen));
         loseSign.SetActive(true);
         yield return StartCoroutine(FadeInWords(loseWords));
-        yield return new WaitForSeconds(2f);
-        
+    }
+
+    public void ReturnToMain()
+    {
         SceneManager.LoadScene(0);
     }
 

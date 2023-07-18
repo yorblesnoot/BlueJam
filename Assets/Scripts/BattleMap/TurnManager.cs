@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
+using static UnityEngine.EventSystems.EventTrigger;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 
 [System.Serializable]
 public class TurnChange : UnityEvent<GameObject> {}
@@ -82,12 +84,13 @@ public class TurnManager : MonoBehaviour
     {
         foreach(NonplayerUnit turnTaker in turnTakers.OfType<NonplayerUnit>())
         {
-            if (turnTaker.currentBeats + (beatCost * turnTaker.turnSpeed) >= beatThreshold)
+            float expenditure = GetBeatCost(beatCost, turnTaker, playerUnit);
+            if (turnTaker.currentBeats + expenditure >= beatThreshold)
             {
                 turnTaker.ShowTurnPossibility();
             }
             NonplayerUI npUI = (NonplayerUI)turnTaker.myUI;
-            npUI.ShowBeatGhost(beatCost);
+            npUI.ShowBeatGhost(expenditure);
         }
     }
 
@@ -100,7 +103,7 @@ public class TurnManager : MonoBehaviour
             //distribute beats to all units based on their individual speeds when the player acts
             for(int entry = 0; entry < turnTakers.Count; entry++)
             {
-                float beatChange = turnTakers[entry].turnSpeed * beats / playerUnit.turnSpeed;
+                float beatChange = GetBeatCost(beats, turnTakers[entry], playerUnit);
                 turnTakers[entry].currentBeats += beatChange;
             }
         }
@@ -108,6 +111,11 @@ public class TurnManager : MonoBehaviour
         updateBeatCounts?.Invoke();
         deathPhase?.Invoke();
         Main.StartCoroutine(WaitForTurn());
+    }
+
+    static float GetBeatCost(int beats, BattleUnit unit, PlayerUnit player)
+    {
+        return unit.turnSpeed * beats / player.turnSpeed; 
     }
 
     private static IEnumerator WaitForTurn()

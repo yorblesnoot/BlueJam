@@ -13,7 +13,7 @@ public class EffectPushPull : CardEffectPlus
         steps = 20;
     }
     [Range(20, 50)] public int steps;
-    public override string GenerateDescription(IPlayerStats player)
+    public override string GetEffectDescription(IPlayerStats player)
     {
         string verb;
         if (scalingMultiplier > 0) verb = "push";

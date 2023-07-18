@@ -31,6 +31,8 @@ public class SaveContainer
     public List<int> eventsY;
     public List<bool> chunks;
 
+    public List<int> bossSequence;
+
     public int currentHealth;
     public int playerX;
     public int playerY;
@@ -39,6 +41,7 @@ public class SaveContainer
     public int steps;
     public int keyStock;
     public int removeStock;
+    public int score;
 
     //unitstats
     public int maxHealth;
@@ -53,7 +56,7 @@ public class SaveContainer
 
         SaveNums();
         SaveCollectibles();
-        SaveArrays();
+        SaveGrids();
         SaveEvents();
         saveJSON = JsonUtility.ToJson(this, false);
         System.IO.File.WriteAllText(Application.persistentDataPath + "/runData.json", saveJSON);
@@ -68,6 +71,7 @@ public class SaveContainer
         steps = RunData.worldSteps;
         keyStock = RunData.KeyStock;
         removeStock = RunData.RemoveStock;
+        score = RunData.score;
 
         maxHealth = RunData.playerStats.maxHealth;
         handSize = RunData.playerStats.handSize;
@@ -84,7 +88,7 @@ public class SaveContainer
         essenceInventory = RunData.essenceInventory.Select(x => x.Id).ToList();
     }
 
-    void SaveArrays()
+    void SaveGrids()
     {
         worldMap = RunData.worldMap.Flatten();
         chunks = RunData.exploredChunks.Flatten();
@@ -101,6 +105,7 @@ public class SaveContainer
             eventsY.Add(location.y);
             eventsOnMap.Add(RunData.eventMap[location]);
         }
+        bossSequence = RunData.bossSequence;
     }
 
     public void LoadGame()
@@ -111,7 +116,7 @@ public class SaveContainer
         JsonUtility.FromJsonOverwrite(saveJSON, this);
 
         LoadNums();
-        LoadArrays();
+        LoadGrids();
         LoadCollectibles();
         LoadEvents();
         LoadDerived();
@@ -126,6 +131,7 @@ public class SaveContainer
         {
             RunData.eventMap.Add(new Vector2Int(eventsX[i], eventsY[i]), eventsOnMap[i]);
         }
+        RunData.bossSequence = bossSequence;
     }
 
     void LoadNums()
@@ -136,6 +142,7 @@ public class SaveContainer
         RunData.worldSteps = steps;
         RunData.KeyStock = keyStock;
         RunData.RemoveStock = removeStock;
+        RunData.score = score;
 
         RunData.playerStats.maxHealth = maxHealth;
         RunData.playerStats.handSize = handSize;
@@ -145,7 +152,7 @@ public class SaveContainer
         RunData.playerStats.turnSpeed = turnSpeed;
     }
 
-    void LoadArrays()
+    void LoadGrids()
     {
         RunData.worldMap = worldMap.Unflatten();
         RunData.exploredChunks = chunks.Unflatten();

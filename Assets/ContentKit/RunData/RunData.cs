@@ -24,10 +24,10 @@ public class RunData : ScriptableObject
     public int RemoveStock;
     
     public int worldSteps;
-    public int runDifficulty { get { return worldSteps / 10 - difficultyCushion; } }
-    public readonly int difficultyCushion = 2;
+    public int runDifficulty { get { return worldSteps / Settings.Profile.StepsPerThreat - Settings.Profile.InitialThreatPenalty; } }
 
     public int currentHealth;
 
     public int score;
+    public List<int> bossSequence;
 }

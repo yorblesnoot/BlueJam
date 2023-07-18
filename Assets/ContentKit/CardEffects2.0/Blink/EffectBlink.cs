@@ -11,7 +11,7 @@ public class EffectBlink : CardEffectPlus
         effectClass = CardClass.MOVE;
     }
     [SerializeField] float delay;
-    public override string GenerateDescription(IPlayerStats player)
+    public override string GetEffectDescription(IPlayerStats player)
     {
         return $"blink to target";
     }

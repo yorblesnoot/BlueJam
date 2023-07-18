@@ -85,4 +85,10 @@ public class BattleUnitSpawner
         GameObject.Instantiate(unit, tilePosition, Quaternion.identity);
         
     }
+
+    internal void PlaceBoss(List<int> sequence)
+    {
+        PlaceEnemy(spawnPool.spawnUnits[sequence[0]]);
+        sequence.RemoveAt(0);
+    }
 }

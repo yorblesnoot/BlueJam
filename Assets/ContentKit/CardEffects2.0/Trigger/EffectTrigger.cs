@@ -24,11 +24,11 @@ public class EffectTrigger : CardEffectPlus
     public TriggerIdentity effectRecipient;
     public CardEffectPlus triggeredEffect;
 
-    public override string GenerateDescription(IPlayerStats player)
+    public override string GetEffectDescription(IPlayerStats player)
     {
         string triggerName = triggeringEffect.GetType().Name;
         triggerName.Replace("Effect", "");
-        string description = $"for {duration} actions, {triggeredEffect.GenerateDescription(player)} on {triggerName}";
+        string description = $"for {duration} actions, {triggeredEffect.GetEffectDescription(player)} on {triggerName}";
         return description;
     }
 

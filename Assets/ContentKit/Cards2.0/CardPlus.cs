@@ -68,7 +68,6 @@ public class CardPlus : SOWithGUID
             effects[i].userOriginalTile = userOriginalTile;
             yield return actor.StartCoroutine(effects[i].Execute(actor, targetCell));          
         }
-        Debug.Log($"{this.name} spent beats");
         TurnManager.SpendBeats(actor.GetComponent<BattleUnit>(), cost);
     }
     public void AssembleDescription()
@@ -80,10 +79,10 @@ public class CardPlus : SOWithGUID
         for (int i = 0; i < effects.Count; i++)
         {
             description += $"{effects[i].GenerateDescription(stats)}.";
-            description += Environment.NewLine;
+            description += " ";
+            //Environment.NewLine
         }
-        keywords += $"Range: {targetGap}-{targetSize} ";
-        keywords += $"AOE: {aoePoint.GetLength(0)/2} ";
+        keywords += $"Range: {targetGap}-{targetSize} {CardEffectPlus.aoeShapeName[targetShape]}";
         if (consumed == true)
         {
             keywords += "~Consumed~";

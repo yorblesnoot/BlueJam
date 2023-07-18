@@ -22,7 +22,8 @@ public class BattleLauncher : MapLauncher
         BattleUnitSpawner encounterBuilder = new(sceneRelay.spawnPool, map, masterEnemyPool);
         encounterBuilder.PlacePlayer(player);
         PlayerUnit playerUnit = player.GetComponent<PlayerUnit>();
-        encounterBuilder.PlaceEnemies(sceneRelay.enemyBudget);
+        if (sceneRelay.bossEncounter == true) encounterBuilder.PlaceBoss(runData.bossSequence);
+        else encounterBuilder.PlaceEnemies(sceneRelay.enemyBudget);
         TurnManager.InitializePositions();
 
         //activate item effects

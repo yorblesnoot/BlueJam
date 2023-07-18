@@ -4,32 +4,45 @@ using UnityEngine;
 
 public class BuffTracker : MonoBehaviour
 {
-    public BattleUnit stats;
     public BuffUI buffDisplay;
 
     BattleTileController myTile;
     List<TrackedBuff> buffs = new();
+    List<TrackedStat> statMods = new();
 
     class TrackedBuff
     {
         public CardEffectPlus lapseEffect;
-        public CardEffectPlus endEffect;
         public int remainingDuration;
         public BattleUnit owner;
         public bool[,] aoe;
     }
 
-    public void RegisterBuff(BattleUnit ownerIn, EffectBuff buff)
+    class TrackedStat
+    {
+        public EffectStat effectStat;
+        public int remainingDuration;
+    }
+
+    public void RegisterRecurring(BattleUnit ownerIn, EffectRecurring buff)
     {
         TrackedBuff incomingBuff = new() {
             lapseEffect = buff.turnLapseEffect,
-            endEffect = buff.removalEffect,
             remainingDuration = buff.duration,
             owner = ownerIn};
-        incomingBuff.endEffect?.Initialize();
-        incomingBuff.lapseEffect?.Initialize();
+        incomingBuff.lapseEffect.Initialize();
         buffs.Add(incomingBuff);
-        buffDisplay.DisplayBuff(buff);
+        
+    }
+
+    public void RegisterTempStat(EffectStat stat)
+    {
+        statMods.Add(new TrackedStat
+        {
+            effectStat = stat,
+            remainingDuration = stat.duration
+        });
+        buffDisplay.DisplayBuff(stat.duration, Color.yellow);
     }
 
     public void DurationProc()
@@ -38,17 +51,21 @@ public class BuffTracker : MonoBehaviour
         for (int i = 0; i < buffs.Count; i++)
         {
             buffs[i].remainingDuration--;
-            if (buffs[i].lapseEffect != null)
-                StartCoroutine(buffs[i].lapseEffect.Execute(buffs[i].owner, myTile));
-            if (buffs[i].remainingDuration <= 0)
+            StartCoroutine(buffs[i].lapseEffect.Execute(buffs[i].owner, myTile));
+        }
+        buffs.RemoveAll(x => x.remainingDuration == 0);
+        buffDisplay.TickDownBuffTokens();
+
+        for (int i = 0; i < statMods.Count; i++)
+        {
+            statMods[i].remainingDuration--;
+            if (statMods[i].remainingDuration == 0)
             {
-                //remove the buff in question
-                if (buffs[i].endEffect != null)
-                    StartCoroutine(buffs[i].endEffect.Execute(buffs[i].owner, myTile)); 
-                buffs.RemoveAt(i);
+                EffectStat stat = statMods[i].effectStat;
+                stat.Modify(-stat.scalingMultiplier, myTile.unitContents);
             }
         }
-        buffDisplay.TickDownBuffTokens();
+        statMods.RemoveAll(x => x.remainingDuration == 0);
     }
 }
 

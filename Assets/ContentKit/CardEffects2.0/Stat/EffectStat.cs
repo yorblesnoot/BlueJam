@@ -7,9 +7,11 @@ public class EffectStat : CardEffectPlus
 {
     enum StatType { MAXHEALTH, HANDSIZE, SPEED, BEATS, DAMAGE, HEAL, BARRIER }
     [SerializeField] StatType entityStat;
+    public int duration;
     private void Reset()
     {
         effectClass = CardClass.BUFF;
+        duration = 0;
     }
     Dictionary<StatType, string> statNames = new()
     {
@@ -22,21 +24,38 @@ public class EffectStat : CardEffectPlus
         {StatType.BARRIER, "constitution"}
     };
 
-    public override string GenerateDescription(IPlayerStats player)
+    Dictionary<StatType, int> statVisualMultiplier = new()
+    {
+        {StatType.MAXHEALTH, 1 },
+        {StatType.HANDSIZE, 1},
+        {StatType.SPEED, 10},
+        {StatType.BEATS, 1},
+        {StatType.DAMAGE, 1},
+        {StatType.HEAL, 1 },
+        {StatType.BARRIER, 1}
+    };
+
+    public override string GetEffectDescription(IPlayerStats player)
     {
         string changeDirection;
         if (scalingMultiplier > 0) changeDirection = "increase";
         else if (scalingMultiplier < 0) changeDirection = "decrease";
         else changeDirection = "(SCALING SET TO 0)";
-        return $"{changeDirection} {statNames[entityStat]} by {scalingMultiplier}";
+        string finalDescription = $"{changeDirection} {statNames[entityStat]} by {scalingMultiplier * statVisualMultiplier[entityStat]}";
+        if (duration > 0) finalDescription += $" for {duration} actions";
+        return finalDescription;
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        foreach (BattleUnit target in targets) Modify(scalingMultiplier, target);
+        foreach (BattleUnit target in targets)
+        {
+            Modify(scalingMultiplier, target);
+            if (duration > 0) target.GetComponent<BuffTracker>().RegisterTempStat(this);
+        }
         yield return null;
     }
 
-    void Modify(float scale, BattleUnit target)
+    public void Modify(float scale, BattleUnit target)
     {
         int modifier = Mathf.RoundToInt(scale);
         switch(entityStat)
@@ -49,7 +68,7 @@ public class EffectStat : CardEffectPlus
                 break;
             case StatType.SPEED:
                 target.turnSpeed += scale;
-                target.turnSpeed = Mathf.Clamp(target.turnSpeed, .2f, 2f);
+                target.turnSpeed = Mathf.Clamp(target.turnSpeed, .2f, 3f);
                 break;
             case StatType.BEATS:
                 target.currentBeats += scale;

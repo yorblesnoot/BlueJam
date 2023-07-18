@@ -604,6 +604,7 @@ GameObject:
   - component: {fileID: 757350160}
   - component: {fileID: 757350161}
   - component: {fileID: 757350162}
+  - component: {fileID: 757350163}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -739,6 +740,19 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
   generationParameters: {fileID: 11400000, guid: 63153acca1a18c94c8fce2490a8cdde7, type: 2}
+--- !u!114 &757350163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 757350155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb38864920c3be4db90fbf8fc4254a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 9a73c382e19b25a49822bc2e465ca819, type: 2}
 --- !u!1 &837666467
 GameObject:
   m_ObjectHideFlags: 0

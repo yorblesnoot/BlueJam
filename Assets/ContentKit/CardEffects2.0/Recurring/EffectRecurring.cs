@@ -2,24 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static EffectDamage;
 
-[CreateAssetMenu(fileName = "EffectBuff", menuName = "ScriptableObjects/CardEffects/Buff")]
-public class EffectBuff : CardEffectPlus
+[CreateAssetMenu(fileName = "EffectRecurring", menuName = "ScriptableObjects/CardEffects/Recurring")]
+public class EffectRecurring : CardEffectPlus
 {
     public bool purgeable;
     public int duration;
 
     public Color32 iconColor;
 
-    public CardEffectPlus applicationEffect;
     public CardEffectPlus turnLapseEffect;
-    public CardEffectPlus removalEffect;
 
-    public override string GenerateDescription(IPlayerStats player)
+    public override string GetEffectDescription(IPlayerStats player)
     {
+        turnLapseEffect.Initialize();
         string description = "";
-        string lapseDescription = turnLapseEffect.GenerateDescription(player);
+        string lapseDescription = turnLapseEffect.GetEffectDescription(player);
+        lapseDescription = turnLapseEffect.AppendAOEInfo(lapseDescription);
         if (effectClass == CardClass.ATTACK)
             description = $"debuff target: {lapseDescription} for {duration} actions";
         else if (effectClass == CardClass.BUFF)
@@ -28,7 +27,7 @@ public class EffectBuff : CardEffectPlus
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        foreach(BattleUnit target in targets) target.gameObject.GetComponent<BuffTracker>().RegisterBuff(actor, this);
+        foreach(BattleUnit target in targets) target.gameObject.GetComponent<BuffTracker>().RegisterRecurring(actor, this);
         yield return null;
     }
 }

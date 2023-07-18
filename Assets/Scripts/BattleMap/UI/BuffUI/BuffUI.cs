@@ -9,19 +9,18 @@ public class BuffUI : MonoBehaviour
 
     class TimedBuff
     {
-        public EffectBuff buff;
         public BuffToken token;
         public int remainingDuration;
     }
 
     List<TimedBuff> timedBuffs = new();
 
-    public void DisplayBuff(EffectBuff newBuff)
+    public void DisplayBuff(int duration, Color32 iconColor)
     {
         int buffLocation = timedBuffs.Count;
-        TimedBuff timedBuff = new() { buff = newBuff, token = buffTokens[buffLocation], remainingDuration = newBuff.duration };
+        TimedBuff timedBuff = new() { token = buffTokens[buffLocation], remainingDuration = duration };
         buffTokens[buffLocation].gameObject.SetActive(true);
-        buffTokens[buffLocation].RenderBuff(newBuff.iconColor,newBuff.duration);
+        buffTokens[buffLocation].RenderBuff(iconColor,duration);
         timedBuffs.Add(timedBuff);
     }
 

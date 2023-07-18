@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class DynamicEventPlacer
 {
@@ -11,8 +10,6 @@ public class DynamicEventPlacer
     readonly int totalChance;
     readonly List<int> probabilities;
     RunData runData;
-
-    readonly int bossDistance = 60;
 
     readonly Dictionary<int, string> eventsAndOdds = new()
     {
@@ -58,6 +55,7 @@ public class DynamicEventPlacer
         bool? hasBeenPopulated = runData.exploredChunks.Safe2DFind(chunk.x, chunk.y);
         if (hasBeenPopulated != false) return;
 
+        runData.score += 5;
         List<Vector2Int> validSpots = GetValidSpots(chunk);
         foreach (Vector2Int validSpot in validSpots)
         {
@@ -104,7 +102,7 @@ public class DynamicEventPlacer
     public void PlaceBoss()
     {
         Vector2 direction = UnityEngine.Random.insideUnitCircle.normalized;
-        direction *= bossDistance;
+        direction *= Settings.Profile.BossSpawnDistance;
         Vector2Int intLocation = new(Mathf.RoundToInt(direction.x) + runData.playerWorldX, Mathf.RoundToInt(direction.y) + runData.playerWorldY);
         Vector2Int chunkLocation = intLocation/chunkSize;
         PopulateChunk(chunkLocation);

@@ -40,10 +40,9 @@ public class NonplayerUI : EntityUI
         else TurnManager.updateBeatCounts.RemoveListener(UpdateBeats);
     }
 
-    public void ShowBeatGhost(int beats)
+    public void ShowBeatGhost(float beats)
     {
-        float beatIn = unitActions.turnSpeed * beats;
-        SetBar(unitActions.currentBeats + beatIn, TurnManager.beatThreshold + 2, sliderGhostBeats, false);
+        SetBar(unitActions.currentBeats + beats, TurnManager.beatThreshold + 2, sliderGhostBeats, false);
     }
     public void HideBeatGhost()
     {
