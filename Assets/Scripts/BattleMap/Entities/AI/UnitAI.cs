@@ -17,8 +17,13 @@ public class UnitAI : MonoBehaviour
 
     readonly float playDelay = .4f;
 
-    //get information from cards: legal targets, card class, target requirements, object reference
+    Pathfinder pathfinder;
 
+    //get information from cards: legal targets, card class, target requirements, object reference
+    private void OnEnable()
+    {
+        pathfinder = new();
+    }
     public void AITakeTurn()
     {
         cardReferences = myHand.handCards;
@@ -100,7 +105,7 @@ public class UnitAI : MonoBehaviour
         float favor = 0f;
         foreach (CardEffectPlus effect in card.effects)
         {
-            Vector3 moveVect = moveTile.transform.position;
+            Vector2Int moveVect = MapTools.VectorToMap(moveTile.transform.position);
             if (effect.effectClass == CardClass.MOVE)
             {
                 favor += EntityScan(moveVect, personality.interestHostile, personality.interestFriendly, personality.proximityHostile, personality.proximityFriendly);
@@ -122,7 +127,7 @@ public class UnitAI : MonoBehaviour
         return favor;
     }
 
-    private bool AreWeFriends(GameObject me, GameObject you)
+    private bool WeAreFriends(GameObject me, GameObject you)
     {
         if(me.CompareTag("Ally"))
         {
@@ -153,20 +158,20 @@ public class UnitAI : MonoBehaviour
         return Mathf.Pow(a, -(input - b));
     }
 
-    private float EntityScan(Vector3 moveVect, float interestHostile, float interestFriendly, float proximityHostile, float proximityFriendly)
+    private float EntityScan(Vector2Int moveVect, float interestHostile, float interestFriendly, float proximityHostile, float proximityFriendly)
     {
         float output = 0;
         for (int i = 0; i < entities.Count; i++)
         {
             GameObject entity = entities[i].gameObject;
-            if (AreWeFriends(this.gameObject, entity) == false)
+            if (!WeAreFriends(gameObject, entity))
             {
-                float distance = Vector3.Distance(entity.transform.position, moveVect);
+                float distance = pathfinder.GetPathLength(MapTools.VectorToMap(entity.transform.position), moveVect);
                 output += interestHostile * DistanceProcessing(proximityHostile - distance);
             }
-            else if (AreWeFriends(this.gameObject, entity) == true)
+            else if (WeAreFriends(gameObject, entity))
             {
-                float distance = Vector3.Distance(entity.transform.position, moveVect);
+                float distance = pathfinder.GetPathLength(MapTools.VectorToMap(entity.transform.position), moveVect);
                 output += interestFriendly * DistanceProcessing(proximityFriendly - distance);
             }
         }

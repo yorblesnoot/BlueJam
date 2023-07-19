@@ -1977,6 +1977,7 @@ GameObject:
   - component: {fileID: 388095516}
   - component: {fileID: 388095518}
   - component: {fileID: 388095520}
+  - component: {fileID: 388095521}
   m_Layer: 0
   m_Name: BattleMaster
   m_TagString: GameController
@@ -2067,6 +2068,19 @@ MonoBehaviour:
   - {fileID: 517542004}
   - {fileID: 517542004}
   blackScreen: {fileID: 167643142}
+--- !u!114 &388095521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388095515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb38864920c3be4db90fbf8fc4254a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 9a73c382e19b25a49822bc2e465ca819, type: 2}
 --- !u!1001 &394582959
 PrefabInstance:
   m_ObjectHideFlags: 0

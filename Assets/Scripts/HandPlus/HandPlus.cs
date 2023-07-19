@@ -15,7 +15,7 @@ public class HandPlus : MonoBehaviour
 
     public Deck deckRecord;
 
-    protected float cardFlyDelay = .1f;
+    protected float cardFlyDelay = 0f;
 
     public void DrawPhase()
     {
@@ -49,7 +49,7 @@ public class HandPlus : MonoBehaviour
             ICardDisplay card = discardCards[0];
             discardCards.TransferItemTo(deckCards, card);
             RecyleCard(card);
-            yield return new WaitForSeconds(cardFlyDelay);
+            if(cardFlyDelay > 0) yield return new WaitForSeconds(cardFlyDelay);
         }
     }
 

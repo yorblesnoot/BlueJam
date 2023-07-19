@@ -8383,6 +8383,7 @@ GameObject:
   - component: {fileID: 835403973}
   - component: {fileID: 835403972}
   - component: {fileID: 835403975}
+  - component: {fileID: 835403976}
   m_Layer: 0
   m_Name: WorldMaster
   m_TagString: Untagged
@@ -8454,6 +8455,19 @@ MonoBehaviour:
   item: {fileID: 5646597843019752695, guid: 8bd5f0c365b934f478952de64c369a9f, type: 3}
   heal: {fileID: 4988517733454850341, guid: e560e395bd4ea8842bf3fb7219a23eb7, type: 3}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
+--- !u!114 &835403976
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835403971}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4fb38864920c3be4db90fbf8fc4254a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profile: {fileID: 11400000, guid: 9a73c382e19b25a49822bc2e465ca819, type: 2}
 --- !u!114 &841480958 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6221452705481964520, guid: b678fc027cca7974b94bfd1819149153, type: 3}

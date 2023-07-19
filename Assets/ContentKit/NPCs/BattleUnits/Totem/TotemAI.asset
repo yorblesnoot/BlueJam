@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TotemAI
   m_EditorClassIdentifier: 
   interestAttack: 20
-  interestBuff: 10.12
+  interestBuff: 5
   interestFriendly: 2
   interestHostile: 2
   proximityFriendly: 0

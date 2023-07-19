@@ -7,6 +7,6 @@ public class SettingsImporter : MonoBehaviour
     [SerializeField] SettingsProfile profile;
     private void Awake()
     {
-        Settings.Profile = profile;
+        if(Settings.Profile == null) Settings.Profile = profile;
     }
 }

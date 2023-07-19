@@ -16,6 +16,10 @@ public class PlayerHandPlus : HandPlus
     readonly int pileDisplacementFactor = 5;
     readonly int cardFlySteps = 50;
     List<CardSlot> cardSlots = new();
+    private void Awake()
+    {
+        cardFlyDelay = .1f;
+    }
 
     internal override void BuildVisualDeck()
     {
