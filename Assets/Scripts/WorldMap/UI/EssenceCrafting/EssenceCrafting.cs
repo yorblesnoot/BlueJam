@@ -107,7 +107,7 @@ public class EssenceCrafting : MonoBehaviour
         for (int dropped = 0; dropped < dropCount; dropped++)
         {
             //pick a random card out of the potential drops and put it in the final drops
-            int dropIndex = Random.Range(0, potentialDrops.Count - 1);
+            int dropIndex = Random.Range(0, potentialDrops.Count);
             actualDrops.Add(potentialDrops[dropIndex]);
             potentialDrops.RemoveAt(dropIndex);
         }

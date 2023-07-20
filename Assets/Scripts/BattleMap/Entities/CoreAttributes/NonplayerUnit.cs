@@ -46,6 +46,14 @@ public class NonplayerUnit : BattleUnit
         turnShow.SetActive(false);
     }
 
+    public override void ReduceHealth(int reduction)
+    {
+        base.ReduceHealth(reduction);
+        if (reduction <= 0) return;
+        Tutorial.Initiate(TutorialFor.BATTLEDODAMAGE, TutorialFor.BATTLEACTIONS);
+        Tutorial.EnterStage(TutorialFor.BATTLEDODAMAGE, 1, "Good hit! Reduce the health of all non-summoned enemies to 0 to win the battle!");
+    }
+
     public override void Die()
     {
         if (gameObject.CompareTag("Enemy") && isSummoned != true)

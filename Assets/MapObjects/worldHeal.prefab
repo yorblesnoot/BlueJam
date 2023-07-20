@@ -75,7 +75,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
-  healFactor: 20
+  tutorialText: Picking up a heart restores my health if I'm damaged and slightly
+    increases my maximum health!
+  tutorialType: 3
 --- !u!4 &5648852518316629965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7563423237932440413, guid: 6381d5eb9939e5b4396ed2aed2e1870e, type: 3}

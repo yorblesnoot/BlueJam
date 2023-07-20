@@ -32,6 +32,8 @@ public class WorldEventHandler : MonoBehaviour
             if (runData.eventMap.ContainsKey(adjacent) && runData.eventMap[adjacent] == "e")
             { 
                 redGlow.SetActive(true);
+                Tutorial.Initiate(TutorialFor.WORLDBATTLE, TutorialFor.WORLDPICKUPS);
+                Tutorial.EnterStage(TutorialFor.WORLDBATTLE, 1, "Red energy over a tile means that there's an enemy there! If I walk over one of those tiles, I'll go into battle!");
                 return;
             }
         }
@@ -57,6 +59,7 @@ public class WorldEventHandler : MonoBehaviour
         sceneRelay.bossEncounter = false;
         if (cellEnemy != null && cellEnemy.GetType() == typeof(WorldBoss))
         {
+            Tutorial.CompleteStage(TutorialFor.WORLDBOSS, 1, true);
             sceneRelay.bossEncounter = true;
             LaunchCombat(cellEnemy);
             yield break;
@@ -69,6 +72,7 @@ public class WorldEventHandler : MonoBehaviour
             if(tile == null) continue;
             WorldEventHandler eventHandler = tile.GetComponent<WorldEventHandler>();
             if (eventHandler.cellEnemy == null || eventHandler.cellEnemy.GetType() == typeof(WorldBoss)) continue;
+            Tutorial.CompleteStage(TutorialFor.WORLDBATTLE, 1, true);
             LaunchCombat(eventHandler.cellEnemy);
             yield break;
             

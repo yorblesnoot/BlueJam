@@ -33,6 +33,9 @@ public class WorldPlayerControl : MonoBehaviour
 
     public IEnumerator ChainPath(List<GameObject> path)
     {
+        Tutorial.CompleteStage(TutorialFor.WORLDHEAL, 1, true);
+        Tutorial.CompleteStage(TutorialFor.WORLDITEM, 1, true);
+        Tutorial.CompleteStage(TutorialFor.WORLDREMOVE, 1, true);
         playerState = WorldPlayerState.PATHING;
         foreach (GameObject tile in path)
         {

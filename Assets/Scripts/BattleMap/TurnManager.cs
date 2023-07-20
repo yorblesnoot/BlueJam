@@ -93,8 +93,10 @@ public class TurnManager : MonoBehaviour
         PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
         if (owner.gameObject.CompareTag("Player"))
         {
+            
+            Tutorial.CompleteStage(TutorialFor.BATTLEDAMAGE, 1, true);
             //distribute beats to all units based on their individual speeds when the player acts
-            for(int entry = 0; entry < turnTakers.Count; entry++)
+            for (int entry = 0; entry < turnTakers.Count; entry++)
             {
                 float beatChange = GetBeatCost(beats, turnTakers[entry], playerUnit);
                 turnTakers[entry].currentBeats += beatChange;

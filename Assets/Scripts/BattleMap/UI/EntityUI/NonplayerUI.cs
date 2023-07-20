@@ -18,11 +18,6 @@ public class NonplayerUI : EntityUI
         TurnManager.updateBeatCounts.AddListener(UpdateBeats);
         EventManager.hideTurnDisplay.AddListener(HideBeatGhost);
     } 
-    
-    void LateUpdate()
-    {
-        transform.LookAt(transform.position + Camera.main.transform.rotation * Vector3.forward, Camera.main.transform.rotation * Vector3.up);
-    }
 
     public override void InitializeHealth()
     {

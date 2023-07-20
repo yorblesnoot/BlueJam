@@ -65,7 +65,7 @@ public class TriggerTracker : MonoBehaviour
                 Debug.Log($"..on {origin}");
                 targetCell = MapTools.VectorToTile(origin.transform.position).GetComponent<BattleTileController>();
             }
-            else if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.RECEIVER)
+            else if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.RECEIVER && target != null)
             {
                 Debug.Log($"..on {target}");
                 targetCell = MapTools.VectorToTile(target.transform.position).GetComponent<BattleTileController>();

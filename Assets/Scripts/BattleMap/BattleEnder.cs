@@ -31,7 +31,11 @@ public class BattleEnder : MonoBehaviour
     }*/
     public IEnumerator VictorySequence()
     {
-        if (sceneRelay.bossEncounter) runData.score += 1000;
+        if (sceneRelay.bossEncounter)
+        {
+            Tutorial.CompleteStage(TutorialFor.WORLDBOSS, 1);
+            runData.score += 1000;
+        }
         else runData.score += 100;
 
         TurnManager.playerUnit.unitAnimator.Animate(AnimType.CHEER);

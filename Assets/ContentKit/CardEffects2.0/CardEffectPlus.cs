@@ -44,7 +44,7 @@ public class CardEffectPlus : ScriptableObject
         List<BattleUnit> targets = AcquireTargets(actor, targetCell, aoe);
 
         VFXMachine.PlayVFX(vfxNameBefore, vfxStyleBefore, actor, targetCell);
-        yield return actor.StartCoroutine(ActivateEffect(actor, targetCell, aoe, targets));
+        yield return targetCell.StartCoroutine(ActivateEffect(actor, targetCell, aoe, targets));
         VFXMachine.PlayVFX(vfxNameAfter, vfxStyleAfter, actor, targetCell);
 
         if (targets.Count > 0) foreach(BattleUnit target in targets) EventManager.checkForTriggers.Invoke(this, actor, target);

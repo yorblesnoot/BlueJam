@@ -6,7 +6,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectPushPull", menuName = "ScriptableObjects/CardEffects/PushPull")]
 public class EffectPushPull : CardEffectPlus
 {
-    int pushes;
     private void Reset()
     {
         effectClass = CardClass.ATTACK;
@@ -22,23 +21,19 @@ public class EffectPushPull : CardEffectPlus
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        pushes = 0;
         int pushDistance = Mathf.RoundToInt(scalingMultiplier);
         foreach (BattleUnit target in targets)
         {
-            Debug.Log(target.name);
-            target.StartCoroutine(Push(actor, target, pushDistance, steps));
-            pushes++;
+            yield return target.StartCoroutine(Push(actor, target, pushDistance, steps));
         }
-        Debug.Log(pushes);
-        yield return new WaitUntil(() => pushes == 0);
     }
 
     IEnumerator Push(BattleUnit actor, BattleUnit target, int distance, int steps)
     {
         Vector3 direction;
         direction = target.transform.position - actor.transform.position;
-        direction = new Vector3(direction.x, 0f, direction.z)*distance;
+        direction.y = 0f;
+        direction *= distance;
         direction.Normalize();
         distance = Mathf.Abs(distance);
         Vector3 startPosition = target.transform.position;
@@ -48,11 +43,10 @@ public class EffectPushPull : CardEffectPlus
         {
             //evaluate each cell in turn as a push destination
             Vector3 possibleDestination = destination + direction;
-            BattleTileController cell;
             GameObject cellObj = MapTools.VectorToTile(possibleDestination);
             if(cellObj != null)
             {
-                cell = cellObj.GetComponent<BattleTileController>();
+                BattleTileController cell = cellObj.GetComponent<BattleTileController>();
                 if (cell.unitContents == null)
                 {
                     destination += direction;
@@ -84,7 +78,6 @@ public class EffectPushPull : CardEffectPlus
             Collide(target, collisionDamage);
             VFXMachine.PlayAtLocation("ImpactSmall", target.transform.position);
         }
-        pushes--;
     }
 
     void Collide(BattleUnit target, int factor)

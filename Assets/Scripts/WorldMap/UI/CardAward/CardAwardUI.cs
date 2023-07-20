@@ -44,6 +44,8 @@ public class CardAwardUI : MonoBehaviour
     {
         runData.playerDeck.deckContents.Add(card);
         new SaveContainer(runData).SaveGame();
+        Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 2);
+        Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 3, "Nice! That card made me stronger! When you're done crafting, hit the X in the bottom right and click the scroll in the top right to see my current deck.");
         gameObject.SetActive(false);
     }
 }

@@ -46,6 +46,7 @@ public class BattleTileController : MonoBehaviour
         else if (loadedCard == null && myPath != null && myPath.Count > 0 
             && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
         {
+            Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 1);
             StartCoroutine(TurnManager.playerUnit.ChainPath(myPath));
         }
         else EventManager.clearActivation?.Invoke();

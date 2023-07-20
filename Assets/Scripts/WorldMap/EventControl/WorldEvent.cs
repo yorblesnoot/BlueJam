@@ -6,6 +6,8 @@ public class WorldEvent : MonoBehaviour
 {
     public RunData runData;
     GameObject tile;
+    [SerializeField] string tutorialText;
+    [SerializeField] TutorialFor tutorialType;
     private void Awake()
     {
         RegisterWithCell();
@@ -22,6 +24,8 @@ public class WorldEvent : MonoBehaviour
         //do whatever when the player enters the cell
         RemoveEvent();
         runData.score += 50;
+        Tutorial.Initiate(tutorialType, TutorialFor.WORLDMOVE);
+        Tutorial.EnterStage(tutorialType, 1, tutorialText);
     }
 
     void RemoveEvent()

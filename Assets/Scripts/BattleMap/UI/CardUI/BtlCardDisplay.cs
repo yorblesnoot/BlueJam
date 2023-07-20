@@ -21,6 +21,9 @@ public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHan
         if (activated == true) return;
         if (PlayerUnit.playerState == PlayerBattleState.IDLE || PlayerUnit.playerState == PlayerBattleState.TARGETING_CARD)
         {
+            Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 2);
+            Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 3, "The blue tiles on the map are where you can play the card, but only if the tile contains the type of target described on the card.");
+            
             //tell every active card to become inactive
             EventManager.clearActivation?.Invoke();
             PlayerUnit.playerState = PlayerBattleState.TARGETING_CARD;
@@ -58,6 +61,12 @@ public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHan
     {
         if (activated == true && CellTargeting.ValidPlay(tile, owner, thisCard))
         {
+            Tutorial.CompleteStage(TutorialFor.BATTLEBARRIER, 1, true);
+            Tutorial.CompleteStage(TutorialFor.BATTLEDODAMAGE, 1, true);
+            Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 5, true);
+            Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 4);
+            Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 3);
+
             PlayerUnit.playerState = PlayerBattleState.PERFORMING_ACTION;
             EventManager.clearActivation?.Invoke();
             StartCoroutine(owner.GetComponent<HandPlus>().DiscardCard(this, true));

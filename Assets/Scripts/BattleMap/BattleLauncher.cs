@@ -22,6 +22,9 @@ public class BattleLauncher : MapLauncher
         BattleUnitSpawner encounterBuilder = new(sceneRelay.spawnPool, map, masterEnemyPool);
         encounterBuilder.PlacePlayer(player);
         PlayerUnit playerUnit = player.GetComponent<PlayerUnit>();
+
+        Tutorial.Initiate(TutorialFor.BATTLEACTIONS, TutorialFor.MAIN);
+        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 1, "The fight is on! An orange exclamation means it's my turn. On my turn, you can click on a map tile and I'll move there.");
         if (sceneRelay.bossEncounter == true) encounterBuilder.PlaceBoss(runData.bossSequence);
         else encounterBuilder.PlaceEnemies(sceneRelay.enemyBudget);
         TurnManager.InitializePositions();

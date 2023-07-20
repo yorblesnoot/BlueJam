@@ -35,8 +35,15 @@ public class WorldMovementController : MonoBehaviour
         if (WorldPlayerControl.playerState == WorldPlayerState.IDLE && myPath != null && !EventSystem.current.IsPointerOverGameObject())
         {
             //move the player to the cell
-            StartCoroutine(WorldPlayerControl.player.ChainPath(myPath));
+            Tutorial.CompleteStage(TutorialFor.WORLDPICKUPS, 1, true);
+            Tutorial.CompleteStage(TutorialFor.WORLDMOVE, 1, true);
+            Tutorial.Initiate(TutorialFor.WORLDPICKUPS, TutorialFor.WORLDMOVE);
+            Tutorial.EnterStage(TutorialFor.WORLDPICKUPS, 1, "To get stronger, I'll need to defeat enemies and gather helpful pickups like bombs, hearts, and chests. But move cautiously; with every step, my enemies gain power...");
 
+            Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 4, true);
+            Tutorial.CompleteStage(TutorialFor.WORLDBOSS, 2, true);
+            StartCoroutine(WorldPlayerControl.player.ChainPath(myPath));
+            
             //deactivate pathfinding displays
             EventManager.clearWorldDestination?.Invoke();
         }

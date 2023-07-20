@@ -285,3 +285,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
+  tutorialText: Picking up a chest lets you pick 1 of 3 items to make me permanently
+    stronger! After picking, you'll see my current items in the top left.
+  tutorialType: 4

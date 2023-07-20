@@ -35,6 +35,12 @@ public class DeckViewerUI : MonoBehaviour
         EventManager.clickedCard.RemoveListener(RemoveCard);
     }
 
+    public void BombToggleTutorial()
+    {
+        Tutorial.CompleteStage(TutorialFor.WORLDDECK, 1);
+        Tutorial.EnterStage(TutorialFor.WORLDDECK, 2, "While the icon is red and I have bombs, clicking a card will permanently remove it from my deck. Click X to return to the map.");
+    }
+
     public void RemoveCard(CardPlus card, GameObject cardObject)
     {
         if (!removal.isOn)
