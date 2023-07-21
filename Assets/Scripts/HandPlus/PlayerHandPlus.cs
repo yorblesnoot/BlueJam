@@ -13,8 +13,8 @@ public class PlayerHandPlus : HandPlus
     [SerializeField] GameObject conjureSpot;
 
     readonly float rotationFactor = 4f;
-    readonly int pileDisplacementFactor = 5;
-    readonly int cardFlySteps = 50;
+    readonly int pileDisplacementFactor = 4;
+    readonly float cardFlyTime = .2f;
     List<CardSlot> cardSlots = new();
     private void Awake()
     {
@@ -179,11 +179,13 @@ public class PlayerHandPlus : HandPlus
         card.transform.SetAsFirstSibling();
         Vector3 startPosition = card.transform.localPosition;
         Vector3 startScale = card.transform.localScale;
-        for (int i = 0; i < cardFlySteps; i++)
+        float timeElapsed = 0;
+        while (timeElapsed < cardFlyTime)
         {
-            card.transform.localPosition = Vector3.Lerp(startPosition, Vector3.zero, ((float)i) / cardFlySteps);
-            card.transform.localScale = Vector3.Lerp(startScale, Vector3.one, ((float)i) / cardFlySteps);
-            yield return new WaitForSeconds(.01f);
+            card.transform.localPosition = Vector3.Lerp(startPosition, Vector3.zero, timeElapsed / cardFlyTime);
+            card.transform.localScale = Vector3.Lerp(startScale, Vector3.one, timeElapsed / cardFlyTime);
+            timeElapsed += Time.deltaTime;
+            yield return null;
         }
         if(spot == deckSpot) FanPile(deckCards);
         else if(spot == discardSpot) FanPile(discardCards, -1);
@@ -208,7 +210,7 @@ class CardSlot
     public GameObject cardBack;
 
     public CardDisplay reference;
-    readonly static int cardDrawDiscardSteps = 40;
+    readonly static float cardDrawDiscardTime = .2f;
 
     public IEnumerator FlipToCardPosition()
     {
@@ -216,13 +218,15 @@ class CardSlot
         Vector3 startScale = reference.transform.localScale;
         Quaternion startRotation = reference.transform.rotation;
 
-        for (int i = 0; i < cardDrawDiscardSteps; i++)
+        float timeElapsed = 0;
+        while(timeElapsed < cardDrawDiscardTime)
         {
-            reference.transform.SetLocalPositionAndRotation(Vector3.Lerp(startPosition, cardPosition, ((float)i) / cardDrawDiscardSteps),
-                Quaternion.Slerp(startRotation, cardRotation, ((float)i) / cardDrawDiscardSteps));
-            reference.transform.localScale = Vector3.Lerp(startScale, cardScale, ((float)i) / cardDrawDiscardSteps);
+            reference.transform.SetLocalPositionAndRotation(Vector3.Lerp(startPosition, cardPosition, timeElapsed/cardDrawDiscardTime),
+                Quaternion.Slerp(startRotation, cardRotation, timeElapsed / cardDrawDiscardTime));
+            reference.transform.localScale = Vector3.Lerp(startScale, cardScale, timeElapsed / cardDrawDiscardTime);
             if (reference.cardBack.activeSelf && reference.transform.localRotation.eulerAngles.y <= 90) reference.cardBack.SetActive(false);
-            yield return new WaitForSeconds(.01f);
+            timeElapsed += Time.deltaTime;
+            yield return null;
         }
         reference.transform.SetLocalPositionAndRotation(cardPosition, cardRotation);
         reference.transform.localScale = cardScale;
@@ -230,8 +234,6 @@ class CardSlot
         emphasis.originalPosition = cardPosition;
         emphasis.originalScale = cardScale;
         emphasis.readyEmphasis = true;
-        //set up animation for card movement
-        yield return null;
     }
 
     public IEnumerator FlipToSpot()
@@ -244,13 +246,15 @@ class CardSlot
         Quaternion startRotation = transform.localRotation;
         GameObject cardBack = reference.cardBack;
         reference = null;
-        for (int i = 0; i < cardDrawDiscardSteps; i++)
+        float timeElapsed = 0;
+        while (timeElapsed < cardDrawDiscardTime)
         {
-            transform.SetLocalPositionAndRotation(Vector3.Lerp(startPosition, Vector3.zero, ((float)i) / cardDrawDiscardSteps),
-                Quaternion.Slerp(startRotation, Quaternion.identity, ((float)i) / cardDrawDiscardSteps));
-            transform.localScale = Vector3.Lerp(startScale, Vector3.one, ((float)i) / cardDrawDiscardSteps);
+            transform.SetLocalPositionAndRotation(Vector3.Lerp(startPosition, Vector3.zero, timeElapsed / cardDrawDiscardTime),
+                Quaternion.Slerp(startRotation, Quaternion.identity, timeElapsed / cardDrawDiscardTime));
+            transform.localScale = Vector3.Lerp(startScale, Vector3.one, timeElapsed / cardDrawDiscardTime);
             if (!cardBack.activeSelf && transform.localRotation.eulerAngles.y >= 270) cardBack.SetActive(true);
-            yield return new WaitForSeconds(.01f);
+            timeElapsed += Time.deltaTime;
+            yield return null;
         }
         transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         transform.localScale = Vector3.one;

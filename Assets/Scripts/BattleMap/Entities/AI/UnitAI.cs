@@ -6,8 +6,6 @@ using System.Data;
 
 public class UnitAI : MonoBehaviour
 {
-    List<ICardDisplay> cardReferences;
-
     [SerializeField] AIProfile personality;
 
     private List<BattleUnit> entities;
@@ -15,7 +13,7 @@ public class UnitAI : MonoBehaviour
     [SerializeField] HandPlus myHand;
     [SerializeField] BattleUnit thisUnit;
 
-    readonly float playDelay = .4f;
+    readonly float playDelay = .3f;
 
     Pathfinder pathfinder;
 
@@ -24,51 +22,53 @@ public class UnitAI : MonoBehaviour
     {
         pathfinder = new();
     }
+
+    class PossiblePlay
+    {
+        public ICardDisplay card;
+        public BattleTileController target;
+        public float favor;
+    }
+
     public void AITakeTurn()
     {
-        cardReferences = myHand.handCards;
         //1. put all possible moves with their respective cards in one place
         //checklegal on every targetRules
-        entities = new();
-        entities.AddRange(TurnManager.turnTakers);
+        entities = new(TurnManager.turnTakers);
         entities = entities.Where(t => !(t.isSummoned && t.CompareTag("Ally"))).ToList();
         entities.Add(TurnManager.playerUnit);
 
-        List<BattleTileController> optionTile = new();
-        List<float> optionFavor = new();
-        List<ICardDisplay> optionReference = new();
-        for(int rule = 0; rule < cardReferences.Count; rule++)
+        List<PossiblePlay> possiblePlays = new();
+        for(int rule = 0; rule < myHand.handCards.Count; rule++)
         {
             //use battlemap to find legal cells for every card in hand
-            List<GameObject> legalTiles = CellTargeting.ConvertMapRuleToTiles(cardReferences[rule].thisCard.targetRules, transform.position);
+            List<GameObject> legalTiles = CellTargeting.ConvertMapRuleToTiles(myHand.handCards[rule].thisCard.targetRules, transform.position);
 
-            if (cardReferences[rule].thisCard.pathCheckForTargets == true) legalTiles = legalTiles.EliminateUnpathable(gameObject);
+            if (myHand.handCards[rule].thisCard.pathCheckForTargets == true) legalTiles = legalTiles.EliminateUnpathable(gameObject);
 
             int ruleLength = legalTiles.Count;
             for(int x = 0; x < ruleLength; x++)
             {
                 BattleTileController addTile = legalTiles[x].GetComponent<BattleTileController>();
-                if (CellTargeting.ValidPlay(addTile, thisUnit, cardReferences[rule].thisCard))
+                if (CellTargeting.ValidPlay(addTile, thisUnit, myHand.handCards[rule].thisCard))
                 { 
-                    optionTile.Add(addTile);
-                    float inFavor = CalculateFavor(addTile, cardReferences[rule].thisCard);
-                    optionFavor.Add(inFavor);
-                    optionReference.Add(cardReferences[rule]);
+                    possiblePlays.Add(new PossiblePlay
+                    {
+                        card = myHand.handCards[rule],
+                        target = addTile,
+                        favor = CalculateFavor(addTile, myHand.handCards[rule].thisCard),
+                    });
                 }
             }
         }
         //highest Favor means choose that option
-        int numberofOptions = optionFavor.Count;
-        if(numberofOptions > 0)
+        if(possiblePlays.Count > 0)
         {
-            float highestFavor = optionFavor.Max(); 
-            int activateIndex = optionFavor.IndexOf(highestFavor);
-            StartCoroutine(AIPlayCard(optionReference[activateIndex], optionTile[activateIndex]));
+            possiblePlays = possiblePlays.OrderBy(x => x.favor).ToList();
+            StartCoroutine(AIPlayCard(possiblePlays[0].card, possiblePlays[0].target));
         }
-        else if(numberofOptions == 0)
+        else
         {
-            //if there are no legal options, mulligan and reset the card registry
-            cardReferences = new();
             myHand.DiscardAll();
         }
     }
@@ -164,15 +164,14 @@ public class UnitAI : MonoBehaviour
         for (int i = 0; i < entities.Count; i++)
         {
             GameObject entity = entities[i].gameObject;
+            float pathDistance = pathfinder.GetPathLength(moveVect, MapTools.VectorToMap(entity.transform.position));
             if (!WeAreFriends(gameObject, entity))
             {
-                float distance = pathfinder.GetPathLength(MapTools.VectorToMap(entity.transform.position), moveVect);
-                output += interestHostile * DistanceProcessing(proximityHostile - distance);
+                output += interestHostile * DistanceProcessing(proximityHostile - pathDistance);
             }
             else if (WeAreFriends(gameObject, entity))
             {
-                float distance = pathfinder.GetPathLength(MapTools.VectorToMap(entity.transform.position), moveVect);
-                output += interestFriendly * DistanceProcessing(proximityFriendly - distance);
+                output += interestFriendly * DistanceProcessing(proximityFriendly - pathDistance);
             }
         }
         return output;

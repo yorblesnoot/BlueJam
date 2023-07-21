@@ -18,6 +18,7 @@ public class WorldPlayerControl : MonoBehaviour
 
     public static List<string> badTiles;
     readonly int tileDamage = 2;
+    readonly float moveTime = .5f;
     public void InitializePlayer()
     {
         player = this;
@@ -42,8 +43,7 @@ public class WorldPlayerControl : MonoBehaviour
             runData.score -= 1;
             WorldMovementController tileController = tile.GetComponent<WorldMovementController>();
             transform.LookAt(tileController.unitPosition);
-            Vector3 displacement = tileController.unitPosition - transform.position;
-            Vector3 cameraDestination = displacement + mainCamera.transform.position;
+            Vector3 displacement = mainCamera.transform.position - transform.position;
 
             //modify player's world position and run difficulty in run data
             Vector2Int newCoords = MapTools.VectorToMap(tile.transform.position);
@@ -55,14 +55,20 @@ public class WorldPlayerControl : MonoBehaviour
             runData.worldSteps++;
 
             EventManager.playerAtWorldLocation.Invoke(globalCoords);
-            while (transform.position != tileController.unitPosition)
+
+            float timeElapsed = 0;
+            Vector3 startPosition = transform.position;
+            while (timeElapsed < moveTime)
             {
-                transform.position = Vector3.MoveTowards(transform.position, tileController.unitPosition, .05f);
-                mainCamera.transform.position = Vector3.MoveTowards(mainCamera.transform.position, cameraDestination, .05f);
-                fogRing.transform.position = Vector3.MoveTowards(fogRing.transform.position, tileController.unitPosition, .05f);
-                yield return new WaitForSeconds(.02f);
-            }
-            if(tileController.dangerTile == true)
+                Vector3 step = Vector3.Lerp(startPosition, tileController.unitPosition, timeElapsed / moveTime);
+                timeElapsed += Time.deltaTime;
+                transform.position = step;
+                fogRing.transform.position = step;
+                mainCamera.transform.position = step + displacement;
+                yield return null;
+            }   
+
+            if (tileController.dangerTile == true)
             {
                 runData.currentHealth -= tileDamage;
                 runData.currentHealth = Mathf.Clamp(runData.currentHealth, 1, runData.playerStats.maxHealth);

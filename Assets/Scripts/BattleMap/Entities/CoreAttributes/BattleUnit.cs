@@ -48,26 +48,16 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
         TurnManager.deathPhase.AddListener(CheckForDeath);
     }
 
-    public void TakeTurn()
+    public virtual void TakeTurn()
     {
-        //buff lapse effects
-        TurnTick();
-        TurnManager.deathPhase?.Invoke();
-        if (isDead)
-        {
-            TurnManager.AssignTurn();
-            return;
-        }
-        GetAction();
+        
     }
 
-    void TurnTick()
+    public void TurnTick()
     {
         buffTracker.DurationProc();
         barrierTracker.DeflectLapse();
     }
-
-    public virtual void GetAction() { }
 
     public virtual void Initialize()
     {

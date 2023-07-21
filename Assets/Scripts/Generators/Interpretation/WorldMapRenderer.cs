@@ -127,18 +127,9 @@ public class WorldMapRenderer : MonoBehaviour
 
         riser.transform.position = startPosition;
 
-        //get the distance to move
-        float distance = Mathf.Abs(endElevation - startElevation);
-        //use a random final travel time and figure out how many steps to take to arrive at the final destination
+        //use a random final travel time to get a staggered effect
         float travelTime = Random.Range(.2f, .35f);
-        float stepDelay = .01f;
-        int steps = Mathf.RoundToInt(travelTime / stepDelay);
-        float stepSize = distance / steps;
-        for(int i = 0; i < steps; i++)
-        {
-            riser.transform.position = Vector3.MoveTowards(riser.transform.position, finalPosition, stepSize);
-            yield return new WaitForSeconds(stepDelay);
-        }
+        yield return StartCoroutine(riser.LerpTo(finalPosition, travelTime));
     }
 
     IEnumerator UnrenderCell(Vector2Int coords)

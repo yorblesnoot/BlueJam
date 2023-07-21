@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7e8db3a4b44dc4ea9acbe2145bc05e, type: 3}
   m_Name: MainProfile
   m_EditorClassIdentifier: 
-  <BossSpawnDistance>k__BackingField: 50
+  <BossSpawnDistance>k__BackingField: 40
   <StepsPerThreat>k__BackingField: 10
   <ThreatHandicap>k__BackingField: 2
-  <BaseFoeBudget>k__BackingField: 6
-  <ThreatPerBudgetUp>k__BackingField: 4
+  <BaseFoeBudget>k__BackingField: 5
+  <ThreatPerBudgetUp>k__BackingField: 5
+  <StatPerThreat>k__BackingField: 0.1
+  <HealthPerThreat>k__BackingField: 0.03
+  <SpeedPerThreat>k__BackingField: 0.01

@@ -130,11 +130,11 @@ namespace OffAxisStudios
 		{
 			RenderTexture highlightRt;
 
-#if UNITY_ANDROID
+/*#if UNITY_ANDROID
         RenderTexture.active = highlightRT = RenderTexture.GetTemporary(m_RTWidth, m_RTHeight, 0, RenderTextureFormat.ARGB32 );
-#else
+#else*/
 			RenderTexture.active = highlightRt = RenderTexture.GetTemporary(_rtWidth, _rtHeight, 0, RenderTextureFormat.R8);
-#endif
+//#endif
 			GL.Clear(true, true, Color.clear);
 			RenderTexture.active = null;
 
@@ -142,11 +142,11 @@ namespace OffAxisStudios
 
 			RenderHighlights(highlightRt);
 
-#if UNITY_ANDROID
+/*#if UNITY_ANDROID
         RenderTexture.active = highlightRT = RenderTexture.GetTemporary(m_RTWidth, m_RTHeight, 0, RenderTextureFormat.ARGB32 );
-#else
+#else*/
 			var blurred = RenderTexture.GetTemporary(_rtWidth, _rtHeight, 0, RenderTextureFormat.R8);
-#endif
+//#endif
 
 			_blur.OnRenderImage(highlightRt, blurred);
 
@@ -155,11 +155,11 @@ namespace OffAxisStudios
 
 			if (RenderFillType == FillType.Outline)
 			{
-#if UNITY_ANDROID
+/*#if UNITY_ANDROID
             RenderTexture.active = highlightRT = RenderTexture.GetTemporary(m_RTWidth, m_RTHeight, 0, RenderTextureFormat.ARGB32 );
-#else
+#else*/
 				var occluded = RenderTexture.GetTemporary(_rtWidth, _rtHeight, 0, RenderTextureFormat.R8);
-#endif
+//#endif
 				_highlightMaterial.SetTexture("_OccludeMap", highlightRt);
 				Graphics.Blit(blurred, occluded, _highlightMaterial, 2);
 

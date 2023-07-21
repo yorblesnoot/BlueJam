@@ -104,6 +104,7 @@ public class TurnManager : MonoBehaviour
         }
         else owner.currentBeats -= beats;
         updateBeatCounts?.Invoke();
+        owner.TurnTick();
         deathPhase?.Invoke();
         Main.StartCoroutine(WaitForTurn());
     }

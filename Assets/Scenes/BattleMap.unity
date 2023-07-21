@@ -337,6 +337,18 @@ PrefabInstance:
       value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5657739058423302558, guid: afe3bc56997412845b5a55eb08885007, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657739058423302558, guid: afe3bc56997412845b5a55eb08885007, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657739058423302558, guid: afe3bc56997412845b5a55eb08885007, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5657739058423302558, guid: afe3bc56997412845b5a55eb08885007, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -366,11 +378,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5657739058423302558, guid: afe3bc56997412845b5a55eb08885007, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -30
+      value: -48.8
       objectReference: {fileID: 0}
     - target: {fileID: 5657739058423302558, guid: afe3bc56997412845b5a55eb08885007, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -30
+      value: -47.1
       objectReference: {fileID: 0}
     - target: {fileID: 5657739058423302558, guid: afe3bc56997412845b5a55eb08885007, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -3619,12 +3631,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1024, y: 780}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
+  m_MatchWidthOrHeight: 0.5
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
@@ -4413,7 +4425,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -55, y: 51}
+  m_AnchoredPosition: {x: -76.2, y: 34}
   m_SizeDelta: {x: 110, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206556546
@@ -6422,6 +6434,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 25599}
     m_Modifications:
+    - target: {fileID: 1370324046002458951, guid: 6d70d1eedd1b4de42a1f3255322b4464, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1370324046074304892, guid: 6d70d1eedd1b4de42a1f3255322b4464, type: 3}
       propertyPath: m_text
       value: Tutorial text here.

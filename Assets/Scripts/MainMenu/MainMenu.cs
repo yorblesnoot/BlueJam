@@ -14,17 +14,17 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] GameObject tutorialPrompt;
 
+    [SerializeField] GameObject optionsWindow;
+
 
     private void Start()
     {
-        PlayerPrefs.SetInt(nameof(TutorialFor.MAIN), 0);
-        //if there is no save file, disable the continue button~~~~~~~
         if (!System.IO.File.Exists(Application.persistentDataPath + "/runData.json"))
         {
             continueButton.SetActive(false);
         }
     }
-    public void ClickNewGameButton()
+    public void NewGameButton()
     {
         if(PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == 0)
             tutorialPrompt.SetActive(true);
@@ -44,17 +44,21 @@ public class MainMenu : MonoBehaviour
         {
             PlayerPrefs.SetInt(name, 0);
         }
-
         starter.NewGame();
     }
 
-    public void ClickContinueButton()
+    public void ContinueButton()
     {
         SaveContainer saver = new(runData, loadLibrary);
         saver.LoadGame();
     }
+
+    public void OptionsButton()
+    {
+        optionsWindow.SetActive(true);
+    }
     
-    public void ClickExitButton()
+    public void ExitButton()
     {
         Application.Quit();
     }

@@ -10,8 +10,7 @@ public class EffectWalk : CardEffectPlus
     {
         effectClass = CardClass.MOVE;
     }
-    bool walked;
-    [Range(.1f, .01f)] public float stepSize;
+    [Range(.1f, 1f)] public float walkDuration;
     public override string GetEffectDescription(IPlayerStats player)
     {
         return "move to target";
@@ -20,11 +19,6 @@ public class EffectWalk : CardEffectPlus
     {
         MapTools.ReportPositionChange(actor, targetCell);
         yield return new WaitForSeconds(.1f);
-        Vector3 destination = targetCell.unitPosition;
-        while (actor.transform.position != destination)
-        {
-            actor.transform.position = Vector3.MoveTowards(actor.transform.position, destination, stepSize);
-            yield return new WaitForSeconds(.015f);
-        }
+        yield return actor.StartCoroutine(actor.gameObject.LerpTo(targetCell.unitPosition, walkDuration));
     }
 }

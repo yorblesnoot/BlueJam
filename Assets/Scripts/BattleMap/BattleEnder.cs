@@ -93,34 +93,37 @@ public class BattleEnder : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    IEnumerator FadeInWords(List<TMP_Text> words, int interval = 5)
+    readonly Color32 invisWhite = new(255, 255, 255, 0);
+    IEnumerator FadeInWords(List<TMP_Text> words, float duration = .3f)
     {
         foreach (var word in words)
         {
-            word.color = new Color32(255, 255, 255, 0);
+            word.gameObject.SetActive(true);
+            word.color = invisWhite;
         }
         foreach (var word in words)
         {
-            Color32 colorCurrent = new(255, 255, 255, 0);
-            word.gameObject.SetActive(true);
-            for (int i = 0; i < 255; i += interval)
+            float timeElapsed = 0;
+            while (timeElapsed < duration)
             {
-                colorCurrent.a = (byte)i;
-                word.color = colorCurrent;
-                yield return new WaitForSeconds(.02f);
+                word.color = Color32.Lerp(invisWhite, Color.white, timeElapsed/duration);
+                timeElapsed += Time.deltaTime;
+                yield return null;
             }
         }
     }
 
-    IEnumerator FadeScreenToBlack(Image screen)
+    Color32 invisBlack = new(0, 0, 0, 0);
+    IEnumerator FadeScreenToBlack(Image screen, float duration = 1f)
     {
         screen.gameObject.SetActive(true);
-        Color32 colorCurrent = new(0, 0, 0, 0);
-        for (int i = 0; i < 255; i += 5)
+
+        float timeElapsed = 0;
+        while (timeElapsed < duration)
         {
-            colorCurrent.a = (byte)i;
-            screen.color = colorCurrent;
-            yield return new WaitForSeconds(.02f);
+            screen.color = Color32.Lerp(invisBlack, Color.black, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            yield return null;
         }
     }
 }

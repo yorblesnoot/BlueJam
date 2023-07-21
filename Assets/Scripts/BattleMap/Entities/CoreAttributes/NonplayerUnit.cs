@@ -19,14 +19,14 @@ public class NonplayerUnit : BattleUnit
     }
     public void ScaleWithDifficulty(int difficultyFactor)
     {
-        maxHealth = Mathf.RoundToInt(maxHealth * (1 + (difficultyFactor * .05f)));
-        DamageScaling = Mathf.RoundToInt(DamageScaling * (1 + (difficultyFactor * .1f)));
-        barrierScaling = Mathf.RoundToInt(barrierScaling * (1 + (difficultyFactor * .1f)));
-        healScaling = Mathf.RoundToInt(healScaling * (1 + (difficultyFactor * .1f)));
-        turnSpeed *= 1 + (difficultyFactor * .01f);
+        maxHealth = Mathf.RoundToInt(maxHealth * (1 + (difficultyFactor * Settings.Profile.HealthPerThreat)));
+        DamageScaling = Mathf.RoundToInt(DamageScaling * (1 + (difficultyFactor * Settings.Profile.StatPerThreat)));
+        barrierScaling = Mathf.RoundToInt(barrierScaling * (1 + (difficultyFactor * Settings.Profile.StatPerThreat)));
+        healScaling = Mathf.RoundToInt(healScaling * (1 + (difficultyFactor * Settings.Profile.StatPerThreat)));
+        turnSpeed *= 1 + (difficultyFactor * Settings.Profile.SpeedPerThreat);
     }
 
-    public override void GetAction()
+    public override void TakeTurn()
     {
         unitAI.AITakeTurn();
     }

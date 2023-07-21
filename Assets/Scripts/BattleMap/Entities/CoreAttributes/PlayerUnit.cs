@@ -9,8 +9,10 @@ public class PlayerUnit : BattleUnit
 {
     public static PlayerBattleState playerState = PlayerBattleState.IDLE;
     public PlayerTurnIndicator turnIndicator;
-    public static int costPerGenericMove = 2;
+    public readonly static int costPerGenericMove = 2;
     [SerializeField] BattleEnder ender;
+
+    readonly float moveDuration = .3f;
     public override void Initialize()
     {
         unitStats = runData.playerStats;
@@ -20,7 +22,7 @@ public class PlayerUnit : BattleUnit
         myUI.InitializeHealth();
     }
 
-    public override void GetAction()
+    public override void TakeTurn()
     {
         Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 2, "It's my turn again! The cards in my hand, below, give me access to powerful actions for defeating my enemies. Click one to select it!");
         Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 4, "See the blue bar above each enemy? That tells you how soon they'll take their turn! Their bars will fill up based on your actions.");
@@ -54,11 +56,7 @@ public class PlayerUnit : BattleUnit
         {
             BattleTileController tileController = tile.GetComponent<BattleTileController>();
             transform.LookAt(tileController.unitPosition);
-            while (gameObject.transform.position != tileController.unitPosition)
-            {
-                transform.position = Vector3.MoveTowards(transform.position, tileController.unitPosition, .05f);
-                yield return new WaitForSeconds(.01f);
-            }
+            yield return StartCoroutine(gameObject.LerpTo(tileController.unitPosition, moveDuration));
         }
         TurnManager.SpendBeats(this, path.Count * costPerGenericMove);
     }
