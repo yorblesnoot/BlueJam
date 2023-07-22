@@ -14,17 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0b8c844a-1a36-4c96-9ccf-6196a65fb031
   displayName: Accelerating Step
+  art: {fileID: 21300000, guid: 6a79e8c8609884a3cb201e9bbd37f9cd, type: 3}
   cost: 4
-  description: 'move to target.
-
-    increase speed by 0.1.
-
-'
-  keywords: 'Range: 1-1 AOE: 0 '
+  description: 'move to target. increase speed by 1. '
+  keywords: 'Range: 1-1 <color=blue>[  ]</color>'
   targetShape: 1
   targetSize: 1
   targetGap: 1
-  pathCheckForTargets: 1
+  needsPath: 0
+  isCurse: 0
   cardClass: 0100000002000000
   consumed: 0
   animType: 0

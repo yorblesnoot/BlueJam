@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: b7b3c98c-fac9-4fc9-864d-781320c3138f
   displayName: Long Strike
+  art: {fileID: 21300000, guid: ca3860a6754f24499ba86e277a813d99, type: 3}
   cost: 3
-  description: 
-  keywords: 
+  description: 'deal <color=#FF4E2B>10</color> damage. '
+  keywords: 'Range: 1-2 <color=blue>+</color>'
   targetShape: 2
   targetSize: 2
   targetGap: 1
-  pathCheckForTargets: 0
-  cardClass: 
+  needsPath: 0
+  isCurse: 0
+  cardClass: 00000000
   consumed: 0
   animType: 0
   effects:

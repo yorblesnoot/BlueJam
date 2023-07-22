@@ -15,8 +15,8 @@ MonoBehaviour:
   forceTargetSelf: 0
   targetNotRequired: 1
   effectClass: 2
-  vfxStyleBefore: 0
-  vfxNameBefore: none
+  vfxStyleBefore: 6
+  vfxNameBefore: RedPuddle
   vfxStyleAfter: 0
   vfxNameAfter: none
   scalingMultiplier: 10

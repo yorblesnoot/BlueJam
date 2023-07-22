@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 4bcaa2d4-9c07-41f5-a099-c105a1161c56
   displayName: Illusion Swap
+  art: {fileID: 21300000, guid: 2728f77a1347547bca66ec2ed7475fd0, type: 3}
   cost: 3
   description: 'deal <color=#FF4E2B>10</color> damage.
 
@@ -27,7 +28,8 @@ MonoBehaviour:
   targetShape: 0
   targetSize: 4
   targetGap: 1
-  pathCheckForTargets: 0
+  needsPath: 0
+  isCurse: 0
   cardClass: 0000000002000000
   consumed: 0
   animType: 0

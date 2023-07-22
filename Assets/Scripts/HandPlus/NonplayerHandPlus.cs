@@ -65,7 +65,7 @@ public class NonplayerHandPlus : HandPlus
     {
         if (discarded.forceConsume == true && played == true)
         {
-            discardCards.Remove(discarded);
+            handCards.Remove(discarded);
             Destroy(discarded.gameObject);
         }
         else

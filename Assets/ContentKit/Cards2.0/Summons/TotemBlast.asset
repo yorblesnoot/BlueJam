@@ -14,16 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: b76610f9-50c8-414f-a591-cc20adcfeef8
   displayName: Totemic Power
+  art: {fileID: 21300000, guid: ef65aab13e15a4980bc0a51d43ee69e9, type: 3}
   cost: 5
   description: 
   keywords: 
   targetShape: 0
   targetSize: 1
   targetGap: 0
-  pathCheckForTargets: 0
-  aoeShape: 0
-  aoeSize: 4
-  aoeGap: 0
+  needsPath: 0
+  isCurse: 0
   cardClass: 03000000
   consumed: 1
   animType: 0

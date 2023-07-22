@@ -22,7 +22,8 @@ public class WorldLauncher : MapLauncher
         Tutorial.EnterStage(TutorialFor.WORLDBOSS, 2, "Wow, you did it! Now you can craft a boss card for my deck... but a new, stronger foe has arisen! Looks like you've got the basics down; let's see how far you can go!");
 
         DynamicEventPlacer placer = new(runData);
-        //placer.CheckToPopulateChunks(MapTools.VectorToMap(WorldPlayerControl.player.transform.position) + WorldMapRenderer.spotlightGlobalOffset);
+        if(PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1)
+            placer.CheckToPopulateChunks(MapTools.VectorToMap(WorldPlayerControl.player.transform.position) + WorldMapRenderer.spotlightGlobalOffset);
         if(runData.bossSequence.Count == 0) GenerateBossSequence();
         if (!runData.eventMap.ContainsValue("b")) placer.PlaceBoss();
 

@@ -10,6 +10,7 @@ public class CardPlus : SOWithGUID
     //core card parameters
 
     public string displayName;
+    public Sprite art;
     public int cost;
     [HideInInspector] public string description;
     [HideInInspector] public string keywords;
@@ -18,7 +19,8 @@ public class CardPlus : SOWithGUID
     [SerializeField] int targetSize;
     [SerializeField] int targetGap;
     [HideInInspector] public bool[,] targetRules;
-    public bool pathCheckForTargets;
+    public bool needsPath;
+    public bool isCurse;
 
     [HideInInspector] public bool[,] aoePoint;
     [HideInInspector] public bool[,] aoeSelf;

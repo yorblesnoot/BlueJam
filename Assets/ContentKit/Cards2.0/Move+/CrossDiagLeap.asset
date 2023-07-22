@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 9504179f-e5ba-4332-a240-97d2ffcfccb6
   displayName: Erupting Pounce
+  art: {fileID: 21300000, guid: 4b4c678e6ad9e4873b02ca8ca35d778f, type: 3}
   cost: 4
   description: 'move to target. deal <color=#FF4E2B>15</color> damage. '
   keywords: 'Range: 1-2 AOE: 2 '
   targetShape: 3
   targetSize: 2
   targetGap: 1
-  pathCheckForTargets: 0
+  needsPath: 0
+  isCurse: 0
   cardClass: 0000000001000000
   consumed: 0
   animType: 3

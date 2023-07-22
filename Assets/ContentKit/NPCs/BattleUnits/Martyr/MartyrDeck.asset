@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
+  m_Name: MartyrDeck
+  m_EditorClassIdentifier: 
+  Id: 0460bb08-2e5f-4f95-a8df-87a0cb12399f
+  deckContents:
+  - {fileID: 11400000, guid: d1dee9a812753634c9094d2959b6a5df, type: 2}
+  - {fileID: 11400000, guid: e03a6aac5947b364fa2bdba99772d6a7, type: 2}
+  - {fileID: 11400000, guid: 7735ea9bc9228e84d9e45c587cb2a697, type: 2}
+  symbol: M
+  iconColor:
+    serializedVersion: 2
+    rgba: 4278191610
+  essenceDescription: 
+  unitName: 

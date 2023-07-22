@@ -20,5 +20,4 @@ MonoBehaviour:
   effects:
   - {fileID: 11400000, guid: be566222432371a4ca091ce2876818e8, type: 2}
   - {fileID: 11400000, guid: d9c8f51980d00c74bb5c75ac3face56e, type: 2}
-  - {fileID: 11400000, guid: d9c8f51980d00c74bb5c75ac3face56e, type: 2}
-  description: Massively increases strength at the expense of intelligence.
+  description: Greatly increases strength at the expense of intelligence.

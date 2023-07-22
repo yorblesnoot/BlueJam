@@ -14,17 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 184af214-1dd9-4c43-b7a5-dd582e7a2845
   displayName: Leap Slam
+  art: {fileID: 21300000, guid: 4b4c678e6ad9e4873b02ca8ca35d778f, type: 3}
   cost: 3
-  description: 'move to target.
-
-    deal <color=#FF4E2B>10</color> damage.
-
-'
-  keywords: 'Range: 3-3 AOE: 1 '
+  description: 'move to target. deal <color=#FF4E2B>10</color> damage in a <color=red>1<color=blue>[ 
+    ]</color></color> AOE. '
+  keywords: 'Range: 2-2 <color=blue>+</color>'
   targetShape: 2
   targetSize: 2
   targetGap: 2
-  pathCheckForTargets: 0
+  needsPath: 0
+  isCurse: 0
   cardClass: 0000000001000000
   consumed: 0
   animType: 3

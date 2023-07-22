@@ -26,6 +26,7 @@ public class CardDisplay : MonoBehaviour, ICardDisplay
         thisCard = card;
         forceConsume = thisCard.consumed;
         nameText.text = card.displayName;
+        cardArt.sprite = card.art;
         foreach(GameObject pip in costPips) pip.SetActive(false);
         for(int pips = 0; pips < card.cost; pips++)
         {

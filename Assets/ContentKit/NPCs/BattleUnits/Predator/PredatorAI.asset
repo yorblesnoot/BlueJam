@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PredatorAI
   m_EditorClassIdentifier: 
   interestAttack: 12.16
-  interestBuff: 17.51
+  interestBuff: 2
   interestFriendly: 0
   interestHostile: 2
   proximityFriendly: 0

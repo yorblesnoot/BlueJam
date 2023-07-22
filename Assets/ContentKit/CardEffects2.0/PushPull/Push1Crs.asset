@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96366642e9149f8489220c87d4a50286, type: 3}
+  m_Name: Push1Crs
+  m_EditorClassIdentifier: 
+  forceTargetSelf: 0
+  targetNotRequired: 0
+  effectClass: 0
+  vfxStyleBefore: 2
+  vfxNameBefore: LineGust
+  vfxStyleAfter: 0
+  vfxNameAfter: none
+  scalingMultiplier: 1
+  aoeShape: 2
+  aoeSize: 1
+  aoeGap: 1
+  userOriginalTile: {fileID: 0}
+  blockTrigger: 0
+  duration: 0.25

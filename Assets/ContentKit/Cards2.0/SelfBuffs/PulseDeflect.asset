@@ -14,16 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 2fc0a21d-3fd3-4015-92fd-44fabf6eb7d1
   displayName: Ward Pulse
+  art: {fileID: 21300000, guid: 9345211fd172c4e75985765a853af697, type: 3}
   cost: 5
-  description: 
-  keywords: 
+  description: 'deflect for <color=#1ED5FA>7</color> in a <color=red>3<color=blue>O</color></color>
+    AOE. '
+  keywords: 'Range: 0-0 <color=blue>O</color>'
   targetShape: 0
   targetSize: 0
   targetGap: 0
-  pathCheckForTargets: 0
-  aoeShape: 0
-  aoeSize: 4
-  aoeGap: 0
+  needsPath: 0
+  isCurse: 0
   cardClass: 02000000
   consumed: 0
   animType: 0

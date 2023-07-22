@@ -25,4 +25,4 @@ MonoBehaviour:
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  steps: 20
+  duration: 0.25

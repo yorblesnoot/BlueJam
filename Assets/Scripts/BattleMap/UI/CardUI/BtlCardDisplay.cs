@@ -31,7 +31,7 @@ public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHan
             List<GameObject> legalCells = CellTargeting.ConvertMapRuleToTiles(thisCard.targetRules, owner.transform.position);
 
             //LOS logic for move cards
-            if (thisCard.pathCheckForTargets == true) legalCells = legalCells.EliminateUnpathable(owner.gameObject);
+            if (thisCard.needsPath == true) legalCells = legalCells.EliminateUnpathable(owner.gameObject);
 
             //highlight on each legal cell
             for (int i = 0; i < legalCells.Count; i++)

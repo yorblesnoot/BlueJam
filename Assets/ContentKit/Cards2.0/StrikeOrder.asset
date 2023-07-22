@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 4af1dfd2-af46-4c29-9ebc-eb10ed9c0f35
   displayName: Convergent Assault
+  art: {fileID: 21300000, guid: 6a79e8c8609884a3cb201e9bbd37f9cd, type: 3}
   cost: 2
   description: 
   keywords: 
   targetShape: 0
   targetSize: 0
   targetGap: 0
-  pathCheckForTargets: 0
+  needsPath: 0
+  isCurse: 0
   cardClass: 
   consumed: 0
   animType: 0

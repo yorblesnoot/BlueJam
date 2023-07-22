@@ -14,19 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 07e0a795-bdb8-45f8-87f6-24be1604dff7
   displayName: Deflect
+  art: {fileID: 21300000, guid: 577de0353c3f34e91b4bdeb038bcb2e9, type: 3}
   cost: 2
-  description: '*Deflect for <color=#1ED5FA>30</color>.
-
-'
-  keywords: 
+  description: 'deflect for <color=#1ED5FA>20</color>. '
+  keywords: 'Range: 0-0 <color=blue>O</color>'
   targetShape: 0
   targetSize: 0
   targetGap: 0
-  pathCheckForTargets: 0
-  aoeShape: 0
-  aoeSize: 0
-  aoeGap: 0
+  needsPath: 0
+  isCurse: 0
   cardClass: 02000000
   consumed: 0
+  animType: 0
   effects:
   - {fileID: 11400000, guid: 0fc427abd6b338246a37234d7932a2a0, type: 2}

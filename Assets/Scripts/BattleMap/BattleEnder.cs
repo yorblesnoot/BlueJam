@@ -61,7 +61,7 @@ public class BattleEnder : MonoBehaviour
         }
         runData.essenceInventory.AddRange(deckDrops);
         deckDrops.Clear();
-        yield return StartCoroutine(FadeInWords(dropsWords.Take(drops.Count).ToList(), 17));
+        yield return StartCoroutine(FadeInWords(dropsWords.Take(drops.Count).ToList(), .2f));
     }
     List<string> ProcessDropList(List<Deck> drops)
     {

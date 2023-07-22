@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
+  m_Name: ZephyrDeck
+  m_EditorClassIdentifier: 
+  Id: 4331d157-4faf-443e-af78-9145336c3825
+  deckContents:
+  - {fileID: 11400000, guid: ec03fa5091f94c54a8a4fd551f458054, type: 2}
+  - {fileID: 11400000, guid: 91cd3f6acd69fea429f0ff2b6332d744, type: 2}
+  - {fileID: 11400000, guid: 0280d72001cfed44194a986e607ba3e7, type: 2}
+  symbol: Z
+  iconColor:
+    serializedVersion: 2
+    rgba: 4294963974
+  essenceDescription: 
+  unitName: 

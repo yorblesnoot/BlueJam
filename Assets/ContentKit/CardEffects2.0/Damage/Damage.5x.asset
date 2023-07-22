@@ -15,10 +15,10 @@ MonoBehaviour:
   forceTargetSelf: 0
   targetNotRequired: 0
   effectClass: 0
-  vfxStyleBefore: 2
-  vfxNameBefore: GreenDiagSlash
+  vfxStyleBefore: 0
+  vfxNameBefore: ImpactSmall
   vfxStyleAfter: 0
-  vfxNameAfter: ImpactSmall
+  vfxNameAfter: none
   scalingMultiplier: 0.5
   aoeShape: 0
   aoeSize: 0

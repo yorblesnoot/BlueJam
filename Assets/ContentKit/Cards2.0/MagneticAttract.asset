@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 5d5afaf9-8f25-4812-bc90-a3028f20b896
   displayName: Magnetize
+  art: {fileID: 21300000, guid: 07aa89d2416874192aa53a2e6356a068, type: 3}
   cost: 2
-  description: 'pull target -3 cells.
-
-'
-  keywords: 'Range: 2-4 AOE: 0 '
+  description: 'pull target 3 cells. '
+  keywords: 'Range: 2-4 <color=blue>+</color>'
   targetShape: 2
   targetSize: 4
   targetGap: 2
-  pathCheckForTargets: 0
+  needsPath: 0
+  isCurse: 0
   cardClass: 00000000
   consumed: 0
   animType: 0

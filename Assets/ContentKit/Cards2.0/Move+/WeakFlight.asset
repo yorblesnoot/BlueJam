@@ -14,17 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: d752e259-a57f-4a36-8ae9-bb88878ae668
   displayName: Debilitating Flight
+  art: {fileID: 21300000, guid: deb255acb3759467cbec577957a9403e, type: 3}
   cost: 4
-  description: 'decrease strength by -2.
-
-    move to target.
-
-'
-  keywords: 'Range: 1-2 AOE: 0 '
+  description: 'decrease strength by -2% in a <color=red>1<color=blue>+</color></color>
+    AOE. move to target. '
+  keywords: 'Range: 1-2 <color=blue>O</color>'
   targetShape: 0
   targetSize: 2
   targetGap: 1
-  pathCheckForTargets: 1
+  needsPath: 1
+  isCurse: 0
   cardClass: 0000000001000000
   consumed: 0
   animType: 2

@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 83b0be0c-6c15-4ca9-b357-30c0d307ce18
   displayName: Sidestep
+  art: {fileID: 21300000, guid: 9048f1bbff3cf47ce8b0467ca61e0f4f, type: 3}
   cost: 1
-  description: 
-  keywords: 
+  description: 'move to target. '
+  keywords: 'Range: 1-1 <color=blue>[  ]</color>'
   targetShape: 1
   targetSize: 1
   targetGap: 1
-  pathCheckForTargets: 0
-  cardClass: 
+  needsPath: 0
+  isCurse: 0
+  cardClass: 01000000
   consumed: 0
   animType: 2
   effects:

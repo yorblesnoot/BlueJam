@@ -13,27 +13,6 @@ public class EffectStat : CardEffectPlus
         effectClass = CardClass.BUFF;
         duration = 0;
     }
-    Dictionary<StatType, string> statNames = new()
-    {
-        {StatType.MAXHEALTH, "max health" },
-        {StatType.HANDSIZE, "intelligence"},
-        {StatType.SPEED, "speed"},
-        {StatType.BEATS, "time"},
-        {StatType.DAMAGE, "strength"},
-        {StatType.HEAL, "wisdom" },
-        {StatType.BARRIER, "constitution"}
-    };
-
-    Dictionary<StatType, int> statVisualMultiplier = new()
-    {
-        {StatType.MAXHEALTH, 1 },
-        {StatType.HANDSIZE, 1},
-        {StatType.SPEED, 10},
-        {StatType.BEATS, 1},
-        {StatType.DAMAGE, 1},
-        {StatType.HEAL, 1 },
-        {StatType.BARRIER, 1}
-    };
 
     public override string GetEffectDescription(IPlayerStats player)
     {
@@ -41,7 +20,7 @@ public class EffectStat : CardEffectPlus
         if (scalingMultiplier > 0) changeDirection = "increase";
         else if (scalingMultiplier < 0) changeDirection = "decrease";
         else changeDirection = "(SCALING SET TO 0)";
-        string finalDescription = $"{changeDirection} {statNames[entityStat]} by {scalingMultiplier * statVisualMultiplier[entityStat]}";
+        string finalDescription = $"{changeDirection} {statNames[entityStat]} by {scalingMultiplier * statVisualMultiplier[entityStat] * 10}{statModSymbol[entityStat]}";
         if (duration > 0) finalDescription += $" for {duration} actions";
         return finalDescription;
     }
@@ -55,35 +34,98 @@ public class EffectStat : CardEffectPlus
         yield return null;
     }
 
-    public void Modify(float scale, BattleUnit target)
+    void Modify(float scale, BattleUnit target)
     {
-        int modifier = Mathf.RoundToInt(scale);
         switch(entityStat)
         {
             case StatType.MAXHEALTH:
-                target.maxHealth += modifier;
+                target.maxHealth = Mathf.RoundToInt(target.maxHealth * (1 + scale/10));
                 break;
+            case StatType.DAMAGE:
+                target.DamageScaling = Mathf.RoundToInt(target.DamageScaling * (1 + scale / 10));
+                break;
+            case StatType.HEAL:
+                target.healScaling = Mathf.RoundToInt(target.healScaling * (1 + scale / 10));
+                break;
+            case StatType.BARRIER:
+                target.barrierScaling = Mathf.RoundToInt(target.barrierScaling * (1 + scale / 10));
+                break;
+
             case StatType.HANDSIZE:
-                target.HandSize += modifier;
+                target.HandSize += Mathf.RoundToInt(scale);
                 break;
             case StatType.SPEED:
                 target.turnSpeed += scale;
                 target.turnSpeed = Mathf.Clamp(target.turnSpeed, .2f, 3f);
                 break;
             case StatType.BEATS:
-                target.currentBeats += scale;
+                target.currentBeats += Mathf.RoundToInt(scale);
                 TurnManager.updateBeatCounts.Invoke();
-                break;
-            case StatType.DAMAGE:
-                target.DamageScaling += modifier;
-                break;
-            case StatType.HEAL:
-                target.healScaling += modifier;
-                break;
-            case StatType.BARRIER:
-                target.barrierScaling += modifier;
                 break;
         }
         if(target.gameObject.CompareTag("Player")) target.gameObject.GetComponent<PlayerHandPlus>().UpdateHand();
     }
+
+    public void Unmodify(float scale, BattleUnit target)
+    {
+        switch (entityStat)
+        {
+            case StatType.MAXHEALTH:
+                target.maxHealth = Mathf.RoundToInt(target.maxHealth / (1 + scale / 10));
+                break;
+            case StatType.DAMAGE:
+                target.DamageScaling = Mathf.RoundToInt(target.DamageScaling / (1 + scale / 10));
+                break;
+            case StatType.HEAL:
+                target.healScaling = Mathf.RoundToInt(target.healScaling / (1 + scale / 10));
+                break;
+            case StatType.BARRIER:
+                target.barrierScaling = Mathf.RoundToInt(target.barrierScaling / (1 + scale / 10));
+                break;
+
+            case StatType.HANDSIZE:
+                target.HandSize -= Mathf.RoundToInt(scale);
+                break;
+            case StatType.SPEED:
+                target.turnSpeed -= scale;
+                target.turnSpeed = Mathf.Clamp(target.turnSpeed, .2f, 3f);
+                break;
+            case StatType.BEATS:
+                target.currentBeats -= Mathf.RoundToInt(scale);
+                TurnManager.updateBeatCounts.Invoke();
+                break;
+        }
+        if (target.gameObject.CompareTag("Player")) target.gameObject.GetComponent<PlayerHandPlus>().UpdateHand();
+    }
+
+    readonly Dictionary<StatType, string> statNames = new()
+    {
+        {StatType.MAXHEALTH, "max health" },
+        {StatType.HANDSIZE, "intelligence"},
+        {StatType.SPEED, "speed"},
+        {StatType.BEATS, "time"},
+        {StatType.DAMAGE, "strength"},
+        {StatType.HEAL, "wisdom" },
+        {StatType.BARRIER, "constitution"}
+    };
+    readonly Dictionary<StatType, string> statModSymbol = new()
+    {
+        {StatType.MAXHEALTH, "%" },
+        {StatType.HANDSIZE, ""},
+        {StatType.SPEED, ""},
+        {StatType.BEATS, ""},
+        {StatType.DAMAGE, "%"},
+        {StatType.HEAL, "%" },
+        {StatType.BARRIER, "%"}
+    };
+    readonly Dictionary<StatType, float> statVisualMultiplier = new()
+    {
+        {StatType.MAXHEALTH, 1 },
+        {StatType.HANDSIZE, .1f},
+        {StatType.SPEED, 1},
+        {StatType.BEATS, .1f},
+        {StatType.DAMAGE, 1},
+        {StatType.HEAL, 1 },
+        {StatType.BARRIER, 1}
+    };
 }

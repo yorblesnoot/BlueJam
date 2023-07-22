@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: StormEye
+  m_EditorClassIdentifier: 
+  Id: c8e99f0d-7959-4c10-827e-2874771e02fa
+  displayName: Eye of Storm
+  art: {fileID: 21300000, guid: 55502c66063344fb2b31606342a3cba5, type: 3}
+  cost: 4
+  description: 
+  keywords: 
+  targetShape: 0
+  targetSize: 0
+  targetGap: 0
+  needsPath: 0
+  isCurse: 0
+  cardClass: 
+  consumed: 0
+  animType: 0
+  effects:
+  - {fileID: 11400000, guid: c3cf77bede35d74448f7d26875e1ee0a, type: 2}

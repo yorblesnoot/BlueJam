@@ -96,3 +96,4 @@ MonoBehaviour:
   summon: {fileID: 21300000, guid: 06823b49a1fcd154da0942a436195adb, type: 3}
   move: {fileID: 21300000, guid: 98a4af8159bbcd245af2cdf358f3d4ba, type: 3}
   mixed: {fileID: 21300000, guid: 25180e46342b2214a9d68d0f0ce01ca5, type: 3}
+  curse: {fileID: 21300000, guid: 8066e15c4e3df6e4f9806f9d5f71e70a, type: 3}

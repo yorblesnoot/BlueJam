@@ -37,6 +37,7 @@ public class UnitAI : MonoBehaviour
         entities = new(TurnManager.turnTakers);
         entities = entities.Where(t => !(t.isSummoned && t.CompareTag("Ally"))).ToList();
         entities.Add(TurnManager.playerUnit);
+        entities.Remove(thisUnit);
 
         List<PossiblePlay> possiblePlays = new();
         for(int rule = 0; rule < myHand.handCards.Count; rule++)
@@ -44,7 +45,7 @@ public class UnitAI : MonoBehaviour
             //use battlemap to find legal cells for every card in hand
             List<GameObject> legalTiles = CellTargeting.ConvertMapRuleToTiles(myHand.handCards[rule].thisCard.targetRules, transform.position);
 
-            if (myHand.handCards[rule].thisCard.pathCheckForTargets == true) legalTiles = legalTiles.EliminateUnpathable(gameObject);
+            if (myHand.handCards[rule].thisCard.needsPath == true) legalTiles = legalTiles.EliminateUnpathable(gameObject);
 
             int ruleLength = legalTiles.Count;
             for(int x = 0; x < ruleLength; x++)
@@ -64,7 +65,8 @@ public class UnitAI : MonoBehaviour
         //highest Favor means choose that option
         if(possiblePlays.Count > 0)
         {
-            possiblePlays = possiblePlays.OrderBy(x => x.favor).ToList();
+            possiblePlays = possiblePlays.OrderByDescending(x => x.favor).ToList();
+            Debug.Log("playing " + possiblePlays[0].card.thisCard.displayName + " with " + possiblePlays[0].favor);
             StartCoroutine(AIPlayCard(possiblePlays[0].card, possiblePlays[0].target));
         }
         else
@@ -123,7 +125,7 @@ public class UnitAI : MonoBehaviour
                     favor += targetables.Count * personality.interestBuff;
             }
         }
-        //Debug.Log($"{gameObject.name}: Favor for targeting {moveVect} with card class {cardClass} is {favor}.");
+        //Debug.Log($"{gameObject.name}: Favor for targeting {moveTile.transform.position} with {card.name} is {favor}.");
         return favor;
     }
 
@@ -150,12 +152,13 @@ public class UnitAI : MonoBehaviour
         }
     }
 
-    private float DistanceProcessing(float input)
+    readonly int maxMoveScore = 5;
+    private float DistanceProcessing(float desiredProximity, float pathDistance, float linearDistance)
     {
-        input = Mathf.Abs(input);
-        float a = 1.6f;
-        float b = 3f;
-        return Mathf.Pow(a, -(input - b));
+        float difference = Mathf.Abs(desiredProximity - pathDistance);
+        difference = maxMoveScore - difference;
+        difference /= linearDistance;
+        return difference;
     }
 
     private float EntityScan(Vector2Int moveVect, float interestHostile, float interestFriendly, float proximityHostile, float proximityFriendly)
@@ -165,13 +168,14 @@ public class UnitAI : MonoBehaviour
         {
             GameObject entity = entities[i].gameObject;
             float pathDistance = pathfinder.GetPathLength(moveVect, MapTools.VectorToMap(entity.transform.position));
+            float linearDistance = Vector3.Distance(transform.position, entity.transform.position);
             if (!WeAreFriends(gameObject, entity))
             {
-                output += interestHostile * DistanceProcessing(proximityHostile - pathDistance);
+                output += interestHostile * DistanceProcessing(proximityHostile, pathDistance, linearDistance);
             }
             else if (WeAreFriends(gameObject, entity))
             {
-                output += interestFriendly * DistanceProcessing(proximityFriendly - pathDistance);
+                output += interestFriendly * DistanceProcessing(proximityFriendly, pathDistance, linearDistance);
             }
         }
         return output;

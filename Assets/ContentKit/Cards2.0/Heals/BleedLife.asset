@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 63761585-71b6-4fa3-895a-aa67222b4454
   displayName: Hemorrhage Vitality
+  art: {fileID: 21300000, guid: 15795860a9d324250823686a664034a3, type: 3}
   cost: 4
   description: 'debuff target: heal for <color=#1EFA61>5</color> for 0 actions. deal
     <color=#FF4E2B>10</color> damage. '
@@ -21,7 +22,8 @@ MonoBehaviour:
   targetShape: 1
   targetSize: 1
   targetGap: 1
-  pathCheckForTargets: 0
+  needsPath: 0
+  isCurse: 0
   cardClass: 00000000
   consumed: 0
   animType: 0

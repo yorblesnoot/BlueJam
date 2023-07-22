@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SceneRelay
   m_EditorClassIdentifier: 
   availableMaps:
-  - {fileID: 698135778367879114, guid: 300d9306a3757904e8fcced422aebb4a, type: 3}
+  - {fileID: 7543938464709401897, guid: 2463823e6c8c60846bb3d9955a3bc04e, type: 3}
   spawnPool: {fileID: 11400000, guid: 03d7bdef708ff434089d7e7451aa8d25, type: 2}
-  enemyBudget: 3
+  enemyBudget: 5
   bossEncounter: 0
   cameraPosition: {x: -12.320112, y: 16, z: -12.377581}

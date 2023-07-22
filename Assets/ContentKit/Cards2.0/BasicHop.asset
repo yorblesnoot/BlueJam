@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 21ddb987-588c-4e4d-b1a2-ef40b78178ba
   displayName: Small Hop
+  art: {fileID: 21300000, guid: 9048f1bbff3cf47ce8b0467ca61e0f4f, type: 3}
   cost: 2
-  description: 
-  keywords: 
+  description: 'move to target. '
+  keywords: 'Range: 2-2 <color=blue>+</color>'
   targetShape: 2
   targetSize: 2
   targetGap: 2
-  pathCheckForTargets: 0
-  cardClass: 
+  needsPath: 0
+  isCurse: 0
+  cardClass: 01000000
   consumed: 0
   animType: 3
   effects:

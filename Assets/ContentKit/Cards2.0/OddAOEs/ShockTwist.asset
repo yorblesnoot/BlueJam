@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 689b0e06-77c8-4c40-b4e8-872c091f525e
   displayName: Plasm Ring
+  art: {fileID: 21300000, guid: 40c351e12b03e45d5b9a6f523dd372f0, type: 3}
   cost: 4
-  description: 
-  keywords: 
+  description: 'deal <color=#FF4E2B>15</color> damage in a <color=red>2<color=blue>O</color></color>
+    AOE. '
+  keywords: 'Range: 0-0 <color=blue>O</color>'
   targetShape: 0
   targetSize: 0
   targetGap: 0
-  pathCheckForTargets: 0
-  cardClass: 
+  needsPath: 0
+  isCurse: 0
+  cardClass: 00000000
   consumed: 0
   animType: 0
   effects:

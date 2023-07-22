@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 62e81313-b756-46d5-8b08-1816900d821b
   displayName: Solidifying Step
+  art: {fileID: 21300000, guid: 4e1f4a4f5e1564beaa2174c851421180, type: 3}
   cost: 4
-  description: 
-  keywords: 
+  description: 'move to target. increase constitution by 5%. '
+  keywords: 'Range: 1-1 <color=blue>[  ]</color>'
   targetShape: 1
   targetSize: 1
   targetGap: 1
-  pathCheckForTargets: 0
-  cardClass: 
+  needsPath: 0
+  isCurse: 0
+  cardClass: 0100000002000000
   consumed: 0
   animType: 0
   effects:

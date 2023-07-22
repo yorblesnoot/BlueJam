@@ -16,7 +16,7 @@ MonoBehaviour:
   <StepsPerThreat>k__BackingField: 10
   <ThreatHandicap>k__BackingField: 2
   <BaseFoeBudget>k__BackingField: 5
-  <ThreatPerBudgetUp>k__BackingField: 5
+  <ThreatPerBudgetUp>k__BackingField: 4
   <StatPerThreat>k__BackingField: 0.1
   <HealthPerThreat>k__BackingField: 0.03
   <SpeedPerThreat>k__BackingField: 0.01

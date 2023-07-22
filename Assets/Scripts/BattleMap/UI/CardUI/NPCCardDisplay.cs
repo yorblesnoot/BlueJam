@@ -8,20 +8,26 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
 
     public bool forceConsume { get; set; } = false;
 
-    public Image image;
+    [SerializeField] Image image;
 
-    public Sprite attack;
-    public Sprite jumpAttack;
-    public Sprite heal;
-    public Sprite summon;
-    public Sprite move;
-    public Sprite mixed;
+    [SerializeField] Sprite attack;
+    [SerializeField] Sprite jumpAttack;
+    [SerializeField] Sprite heal;
+    [SerializeField] Sprite summon;
+    [SerializeField] Sprite move;
+    [SerializeField] Sprite mixed;
+    [SerializeField] Sprite curse;
 
     //fill the details of a blank card
     public void PopulateCard(CardPlus card)
     {
         thisCard = card;
-        if (card.cardClass.Contains(CardClass.SUMMON))
+        if (card.isCurse)
+        {
+            image.sprite = curse;
+            image.color = new Color32(181, 77, 240, 255); //purple
+        }
+        else if (card.cardClass.Contains(CardClass.SUMMON))
         {
             image.sprite = summon;
             image.color = new Color32(176, 176, 176, 255); //gray

@@ -20,6 +20,10 @@ public class EntityUI : MonoBehaviour
     public void UpdateHealth()
     {
         StartCoroutine(UpdateBar(unitActions.currentHealth, unitActions.maxHealth, sliderHealth));
+    }
+
+    public void UpdateBarriers()
+    {
         StartCoroutine(UpdateBar(unitActions.deflectHealth, unitActions.maxHealth, sliderDeflect));
         StartCoroutine(UpdateBar(unitActions.shieldHealth, unitActions.maxHealth, sliderShield));
     }

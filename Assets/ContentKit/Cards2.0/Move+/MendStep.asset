@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 10bfc2bd-f8a5-46d6-a7bc-b80fda364422
   displayName: Mendstep
+  art: {fileID: 21300000, guid: b6df32240e3ff4b0d9845e311bd6cbf6, type: 3}
   cost: 3
-  description: 
-  keywords: 
+  description: 'move to target. heal for <color=#1EFA61>5</color> in a <color=red>1<color=blue>+</color></color>
+    AOE. '
+  keywords: 'Range: 1-1 <color=blue>[  ]</color>'
   targetShape: 1
   targetSize: 1
   targetGap: 1
-  pathCheckForTargets: 0
-  cardClass: 
+  needsPath: 0
+  isCurse: 0
+  cardClass: 0100000002000000
   consumed: 0
   animType: 2
   effects:

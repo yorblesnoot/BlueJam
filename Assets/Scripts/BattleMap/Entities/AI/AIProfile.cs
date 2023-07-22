@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "AIProfile", menuName = "ScriptableObjects/UnitKit/AIProfile")]
 public class AIProfile : ScriptableObject
 {
-    [Range(5f, 20f)] public float interestAttack;
-    [Range(5f, 20f)] public float interestBuff;
+    [Range(1f, 20f)] public float interestAttack;
+    [Range(1f, 20f)] public float interestBuff;
 
     [Range(0f, 2f)] public float interestFriendly;
     [Range(0f, 2f)] public float interestHostile;

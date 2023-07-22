@@ -9,9 +9,9 @@ public class EffectPushPull : CardEffectPlus
     private void Reset()
     {
         effectClass = CardClass.ATTACK;
-        steps = 20;
+        duration = .3f;
     }
-    [Range(20, 50)] public int steps;
+    [Range(.1f, 1f)] public float duration;
     public override string GetEffectDescription(IPlayerStats player)
     {
         string verb;
@@ -24,11 +24,11 @@ public class EffectPushPull : CardEffectPlus
         int pushDistance = Mathf.RoundToInt(scalingMultiplier);
         foreach (BattleUnit target in targets)
         {
-            yield return target.StartCoroutine(Push(actor, target, pushDistance, steps));
+            yield return target.StartCoroutine(Push(actor, target, pushDistance, duration));
         }
     }
 
-    IEnumerator Push(BattleUnit actor, BattleUnit target, int distance, int steps)
+    IEnumerator Push(BattleUnit actor, BattleUnit target, int distance, float duration)
     {
         Vector3 direction;
         direction = target.transform.position - actor.transform.position;
@@ -58,11 +58,7 @@ public class EffectPushPull : CardEffectPlus
         }
         BattleTileController destinationTile = MapTools.VectorToTile(destination).GetComponent<BattleTileController>();
         MapTools.ReportPositionChange(target, destinationTile);
-        for (int i = 0; i < steps; i++)
-        {
-            target.transform.position = Vector3.Lerp(startPosition, destinationTile.unitPosition, (float)i / steps);
-            yield return new WaitForSeconds(.01f);
-        }
+        yield return target.StartCoroutine(target.gameObject.LerpTo(destinationTile.unitPosition, duration));
 
         if (collisionDamage > 0)
         {

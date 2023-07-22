@@ -5,7 +5,6 @@ using UnityEngine;
 public class EssenceCrafting : MonoBehaviour
 {
     [SerializeField] RunData runData;
-    private List<Deck> essences;
     public List<DraggableItem> dragItems;
 
     [SerializeField] TMP_Text description;
@@ -24,24 +23,22 @@ public class EssenceCrafting : MonoBehaviour
     [SerializeField] List<MiniCardDisplay> miniCards;
 
     [SerializeField] WorldMenuControl worldMenuControl;
-    private void Awake()
-    {
-        essences = new List<Deck>(runData.essenceInventory);
-    }
 
-    private void Start()
+    private void OnEnable()
     {
+        runData.essenceInventory = runData.essenceInventory.OrderBy(x => x.symbol).ToList();
         for( int i = 0; i < dragItems.Count; i++ )
         {
-            if(i < essences.Count)
+            if(i < runData.essenceInventory.Count)
             {
+                dragItems[i].gameObject.SetActive(true);
                 dragItems[i].essenceCrafting = this;
                 dragItems[i].mainCanvas = mainCanvas;
 
                 //associate a draggable with a specific deck
-                dragItems[i].essence = essences[i];
-                dragItems[i].mySymbol.text = essences[i].symbol;
-                dragItems[i].image.color = essences[i].iconColor;
+                dragItems[i].essence = runData.essenceInventory[i];
+                dragItems[i].mySymbol.text = runData.essenceInventory[i].symbol;
+                dragItems[i].image.color = runData.essenceInventory[i].iconColor;
             }
             else
             {

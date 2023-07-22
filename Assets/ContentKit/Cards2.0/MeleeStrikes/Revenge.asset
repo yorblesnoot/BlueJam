@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: Revenge
+  m_EditorClassIdentifier: 
+  Id: d0f05061-2aa1-47bb-a130-51d424ca63db
+  displayName: Brutal Vengeance
+  art: {fileID: 21300000, guid: 0de4843180c7f47d58f676d3bdc27881, type: 3}
+  cost: 4
+  description: 
+  keywords: 
+  targetShape: 2
+  targetSize: 1
+  targetGap: 1
+  needsPath: 0
+  isCurse: 0
+  cardClass: 
+  consumed: 0
+  animType: 0
+  effects:
+  - {fileID: 11400000, guid: 36c423c50ba1862439e757aecde8dade, type: 2}

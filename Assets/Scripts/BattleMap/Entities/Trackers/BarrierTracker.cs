@@ -21,13 +21,13 @@ public class BarrierTracker : MonoBehaviour
         deflectInstances.Add(amount);
         deflectDurations.Add(deflectLength);
         unitActions.deflectHealth = GetTotalDeflect();
-        unitActions.myUI.UpdateHealth();
+        unitActions.myUI.UpdateBarriers();
     }
 
     public void AddShield(int amount)
     {
         unitActions.shieldHealth += amount;
-        unitActions.myUI.UpdateHealth();
+        unitActions.myUI.UpdateBarriers();
     }
 
     public void DeflectLapse()
@@ -38,13 +38,13 @@ public class BarrierTracker : MonoBehaviour
             if (deflectDurations[i] <= 0) RemoveDeflectInstance(i);
         }
         unitActions.deflectHealth = GetTotalDeflect();
+        unitActions.myUI.UpdateBarriers();
     }
     public void RemoveDeflectInstance(int i)
     {
         deflectInstances.RemoveAt(i);
         deflectDurations.RemoveAt(i);
         unitActions.deflectHealth = GetTotalDeflect();
-        unitActions.myUI.UpdateHealth();
     }
 
     public int ReceiveDeflectDamage(int incomingDamage)
@@ -60,12 +60,14 @@ public class BarrierTracker : MonoBehaviour
             else incomingDamage = 0;
         }
         unitActions.deflectHealth = GetTotalDeflect();
+        unitActions.myUI.UpdateBarriers();
         return incomingDamage;
     }
 
     public int ReceiveShieldDamage(int incomingDamage)
     {
         unitActions.shieldHealth -= incomingDamage;
+        unitActions.myUI.UpdateBarriers();
         if (unitActions.shieldHealth <= 0)
         {
             incomingDamage = Mathf.Abs(unitActions.shieldHealth);

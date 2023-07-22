@@ -14,13 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 3e77061e-f89b-4b1c-90b6-6cea7559edda
   displayName: Toxic Glimmer
+  art: {fileID: 21300000, guid: 9cd41af4e897a4d74bf78fe2fce91b6e, type: 3}
   cost: 1
   description: 
   keywords: 
   targetShape: 1
   targetSize: 1
   targetGap: 1
-  pathCheckForTargets: 0
+  needsPath: 0
+  isCurse: 0
   cardClass: 
   consumed: 0
   animType: 0

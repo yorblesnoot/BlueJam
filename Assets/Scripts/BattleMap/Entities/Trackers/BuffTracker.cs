@@ -62,7 +62,7 @@ public class BuffTracker : MonoBehaviour
             if (statMods[i].remainingDuration == 0)
             {
                 EffectStat stat = statMods[i].effectStat;
-                stat.Modify(-stat.scalingMultiplier, myTile.unitContents);
+                stat.Unmodify(stat.scalingMultiplier, myTile.unitContents);
             }
         }
         statMods.RemoveAll(x => x.remainingDuration == 0);

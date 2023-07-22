@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 2c3bea56-871c-4970-b07a-b6e8876a2720
   displayName: Bursting Presence
+  art: {fileID: 21300000, guid: 1d520af83799d4cbf9374bbe22ca1dee, type: 3}
   cost: 4
-  description: 
-  keywords: 
+  description: 'buff target: deal <color=#FF4E2B>5</color> damage in a <color=red>1<color=blue>[ 
+    ]</color></color> AOE for 5 actions. '
+  keywords: 'Range: 0-0 <color=blue>O</color>'
   targetShape: 0
   targetSize: 0
   targetGap: 0
-  pathCheckForTargets: 0
-  cardClass: 
+  needsPath: 0
+  isCurse: 0
+  cardClass: 02000000
   consumed: 0
   animType: 0
   effects:

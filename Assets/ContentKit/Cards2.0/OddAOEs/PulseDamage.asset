@@ -14,14 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 8f570373-83d1-48bc-8aa4-8a2d3ca2cebf
   displayName: Damage Pulse
+  art: {fileID: 21300000, guid: 67bf23377ee844f0284a3d974b49c0c4, type: 3}
   cost: 5
-  description: 
-  keywords: 
+  description: 'deal <color=#FF4E2B>5</color> damage in a <color=red>3<color=blue>O</color></color>
+    AOE. '
+  keywords: 'Range: 0-0 <color=blue>O</color>'
   targetShape: 0
   targetSize: 0
   targetGap: 0
-  pathCheckForTargets: 0
-  cardClass: 
+  needsPath: 0
+  isCurse: 0
+  cardClass: 00000000
   consumed: 0
   animType: 0
   effects:

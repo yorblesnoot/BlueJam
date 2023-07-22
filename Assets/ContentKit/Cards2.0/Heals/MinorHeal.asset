@@ -14,19 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: f4ca2e8e-0db6-4bf8-b751-77b48e7bc667
   displayName: Minor Heal
+  art: {fileID: 21300000, guid: 41f765b960395416192f6fba79ab2dfe, type: 3}
   cost: 3
-  description: 'Heal for <color=#1EFA61>3</color>.
-
-'
-  keywords: 
+  description: 'heal for <color=#1EFA61>10</color>. '
+  keywords: 'Range: 0-2 <color=blue>O</color>'
   targetShape: 0
   targetSize: 2
   targetGap: 0
-  pathCheckForTargets: 0
-  aoeShape: 0
-  aoeSize: 0
-  aoeGap: 0
+  needsPath: 0
+  isCurse: 0
   cardClass: 02000000
   consumed: 0
+  animType: 0
   effects:
   - {fileID: 11400000, guid: b964cccee85a4e6409be016a19e2ebe8, type: 2}
