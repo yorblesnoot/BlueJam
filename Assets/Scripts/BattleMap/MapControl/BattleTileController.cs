@@ -43,7 +43,7 @@ public class BattleTileController : MonoBehaviour
             EventManager.targetConfirmed?.Invoke(this);
             availableForPlay = false;
         }
-        else if (loadedCard == null && myPath != null && myPath.Count > 0 
+        else if (loadedCard == null && myPath != null && myPath.Count > 0 && myPath.Count <= 3
             && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
         {
             Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 1);
@@ -58,9 +58,8 @@ public class BattleTileController : MonoBehaviour
         {
             Pathfinder pather = new();
             myPath = pather.FindObjectPath(MapTools.VectorToMap(TurnManager.playerUnit.transform.position), MapTools.VectorToMap(unitPosition));
-            if (myPath != null)
+            if (myPath != null && myPath.Count <= 3)
             {
-                myPath = myPath.Take(3).ToList();
                 foreach (GameObject cell in myPath)
                 {
                     cell.GetComponent<BattleTileController>().HighlightCellAOE();

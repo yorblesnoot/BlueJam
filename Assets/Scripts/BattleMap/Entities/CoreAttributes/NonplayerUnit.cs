@@ -28,6 +28,7 @@ public class NonplayerUnit : BattleUnit
 
     public override void TakeTurn()
     {
+        base.TakeTurn();
         unitAI.AITakeTurn();
     }
 

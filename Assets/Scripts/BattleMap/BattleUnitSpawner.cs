@@ -62,7 +62,7 @@ public class BattleUnitSpawner
 
     public void PlacePlayer(GameObject player)
     {
-        int placementIndex = Random.Range(0, playerSpots.Count - 1);
+        int placementIndex = Random.Range(0, playerSpots.Count);
         Vector3 tilePosition = playerSpots[placementIndex].unitPosition;
         player.transform.position = tilePosition;
     }
@@ -72,13 +72,13 @@ public class BattleUnitSpawner
         Vector3 tilePosition;
         if (enemySpots.Count > 0)
         {
-            int placementIndex = Random.Range(0, enemySpots.Count - 1);
+            int placementIndex = Random.Range(0, enemySpots.Count);
             tilePosition = enemySpots[placementIndex].unitPosition;
             enemySpots.RemoveAt(placementIndex);
         }
         else
         {
-            int placementIndex = Random.Range(0, extraEnemySpots.Count - 1);
+            int placementIndex = Random.Range(0, extraEnemySpots.Count);
             tilePosition = extraEnemySpots[placementIndex].unitPosition;
             extraEnemySpots.RemoveAt(placementIndex);
         }

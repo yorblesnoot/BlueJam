@@ -27,11 +27,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 437becdc0fafd7a4fa6f79a3a91ad66c, type: 2}
   - {fileID: 11400000, guid: 21f923c860f856341abb55236642c7be, type: 2}
   - {fileID: 11400000, guid: ca53669c7951849408ad718d6c7efe3a, type: 2}
+  - {fileID: 11400000, guid: d23e69694e699954da9b79e4896299ab, type: 2}
   awardableItems:
   - {fileID: 11400000, guid: 45ec6cc202f11e4439e9b0df257d67f9, type: 2}
   - {fileID: 11400000, guid: 3d64909f256302f4daab9908ca069e48, type: 2}
+  - {fileID: 11400000, guid: 8ed3e41fc8a87c548a9b1f0acd77c456, type: 2}
   - {fileID: 11400000, guid: 0da3a3258aa6a9f489e45c3c55511568, type: 2}
   - {fileID: 11400000, guid: 0cc2c6a566d86fd44b848e16736d6b51, type: 2}
+  - {fileID: 11400000, guid: 1b364c3d76d80144e9c7331def457312, type: 2}
   - {fileID: 11400000, guid: dec479f9c49bab44bab2bf2e833a1bd9, type: 2}
   - {fileID: 11400000, guid: 1f6204a9a5dd893428d091f1566ce5a7, type: 2}
   - {fileID: 11400000, guid: 0f56768351732184a95fef67ab69cdd8, type: 2}
@@ -39,3 +42,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f5fac138ae4ee264ebff2ebcec6179a3, type: 2}
   - {fileID: 11400000, guid: 437becdc0fafd7a4fa6f79a3a91ad66c, type: 2}
   - {fileID: 11400000, guid: 21f923c860f856341abb55236642c7be, type: 2}
+  - {fileID: 11400000, guid: ca53669c7951849408ad718d6c7efe3a, type: 2}

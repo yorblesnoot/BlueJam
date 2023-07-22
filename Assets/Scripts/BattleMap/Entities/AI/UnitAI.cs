@@ -20,7 +20,7 @@ public class UnitAI : MonoBehaviour
     //get information from cards: legal targets, card class, target requirements, object reference
     private void OnEnable()
     {
-        pathfinder = new();
+        pathfinder = new(false);
     }
 
     class PossiblePlay
@@ -66,7 +66,7 @@ public class UnitAI : MonoBehaviour
         if(possiblePlays.Count > 0)
         {
             possiblePlays = possiblePlays.OrderByDescending(x => x.favor).ToList();
-            Debug.Log("playing " + possiblePlays[0].card.thisCard.displayName + " with " + possiblePlays[0].favor);
+            //Debug.Log("playing " + possiblePlays[0].card.thisCard.displayName + " with " + possiblePlays[0].favor);
             StartCoroutine(AIPlayCard(possiblePlays[0].card, possiblePlays[0].target));
         }
         else

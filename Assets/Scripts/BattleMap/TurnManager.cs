@@ -19,7 +19,7 @@ public class TurnManager : MonoBehaviour
     public static UnityEvent initialPositionReport = new();
 
     public static readonly int beatThreshold = 2;
-    readonly static float turnDelay = .5f;
+    readonly static float turnDelay = .2f;
 
     private void Awake()
     {
@@ -104,7 +104,7 @@ public class TurnManager : MonoBehaviour
         }
         else owner.currentBeats -= beats;
         updateBeatCounts?.Invoke();
-        owner.TurnTick();
+        owner.buffTracker.DurationProc();
         deathPhase?.Invoke();
         Main.StartCoroutine(WaitForTurn());
     }

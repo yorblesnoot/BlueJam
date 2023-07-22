@@ -12,12 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91c23a3e06a55c4c853ecd822414ace, type: 3}
   m_Name: EngineerStats
   m_EditorClassIdentifier: 
-  unitName: 
+  unitName: Engineer
   maxHealth: 30
   handSize: 2
-  playerAllied: 0
   startBeats: 1
-  myTurn: 0
   damageScaling: 0
   barrierScaling: 8
   healScaling: 0

@@ -55,7 +55,7 @@ public class EffectStat : CardEffectPlus
                 target.HandSize += Mathf.RoundToInt(scale);
                 break;
             case StatType.SPEED:
-                target.turnSpeed += scale;
+                target.turnSpeed *= 1+scale;
                 target.turnSpeed = Mathf.Clamp(target.turnSpeed, .2f, 3f);
                 break;
             case StatType.BEATS:

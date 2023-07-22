@@ -15,9 +15,8 @@ MonoBehaviour:
   unitName: Predator
   maxHealth: 100
   handSize: 3
-  playerAllied: 0
   startBeats: 1
   damageScaling: 14
   barrierScaling: 10
   healScaling: 14
-  turnSpeed: 0.5
+  turnSpeed: 0.6

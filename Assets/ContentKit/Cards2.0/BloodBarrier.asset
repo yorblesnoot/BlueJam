@@ -16,16 +16,16 @@ MonoBehaviour:
   displayName: Coagulated Blood
   art: {fileID: 21300000, guid: fa3ab781962ed482b80a780752f5f33d, type: 3}
   cost: 3
-  description: 
-  keywords: 
+  description: 'pay <color=red>10</color> life. shield for <color=#1ED5FA>20</color>. '
+  keywords: 'Range: 0-2 <color=blue>[  ]</color>'
   targetShape: 1
   targetSize: 2
   targetGap: 0
   needsPath: 0
   isCurse: 0
-  cardClass: 
+  cardClass: 02000000
   consumed: 0
   animType: 0
   effects:
   - {fileID: 11400000, guid: 4a90f222882288d4e949d658b643bd82, type: 2}
-  - {fileID: 11400000, guid: e10209a212b92d04392cead9e40d854a, type: 2}
+  - {fileID: 11400000, guid: bde73667b98568d4080f2164cc782a5e, type: 2}

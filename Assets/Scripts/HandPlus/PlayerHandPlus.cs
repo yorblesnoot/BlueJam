@@ -12,8 +12,8 @@ public class PlayerHandPlus : HandPlus
     [SerializeField] GameObject discardSpot;
     [SerializeField] GameObject conjureSpot;
 
-    readonly float rotationFactor = 4f;
-    readonly int pileDisplacementFactor = 4;
+    
+    readonly int pileDisplacementFactor = 3;
     readonly float cardFlyTime = .2f;
     List<CardSlot> cardSlots = new();
     private void Awake()
@@ -58,6 +58,8 @@ public class PlayerHandPlus : HandPlus
         return cardDisplay;
     }
 
+    readonly int heightDifferenceFactor = 1000; //12 is good
+    readonly float rotationFactor = 0f; //4 is good
     private void GenerateHandSlots(int handSize)
     {
         RectTransform handRect = handSpot.GetComponent<RectTransform>();
@@ -68,7 +70,7 @@ public class PlayerHandPlus : HandPlus
         Vector3 startPosition = new(-width / 2, 0, 0);
         startPosition += cardSpace / 2;
 
-        Vector3 heightDifference = new(0, height / 12, 0);
+        Vector3 heightDifference = new(0, height / heightDifferenceFactor, 0);
         cardSlots = new();
 
         float centerPoint = (float)(handSize - 1) / 2;

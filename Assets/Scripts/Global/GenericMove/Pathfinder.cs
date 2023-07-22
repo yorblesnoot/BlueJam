@@ -7,15 +7,18 @@ using UnityEngine;
 public class Pathfinder 
 {
     Dictionary<Vector2Int, Node> nodeMap = new();
-    public Pathfinder()
+    public Pathfinder(bool occupiedIsUnpathable = true)
     {
         foreach (Vector2Int key in MapTools.gameMap.Keys)
         {
             bool isBlocked = false;
             GameObject tile = MapTools.MapToTile(key);
-            if (tile == null || tile.GetComponent<BattleTileController>()?.unitContents != null)
+            if (occupiedIsUnpathable)
             {
-                isBlocked = true;
+                if (tile == null || tile.GetComponent<BattleTileController>()?.unitContents != null)
+                {
+                    isBlocked = true;
+                }
             }
             nodeMap.Add(key, new Node { location = key, reference = MapTools.gameMap[key], blocked = isBlocked });
         }

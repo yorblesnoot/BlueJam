@@ -28,7 +28,7 @@ public class EffectBarrier : CardEffectPlus
         foreach (BattleUnit targetUnit in targets)
         {
             BarrierTracker barrierTracker = targetUnit.gameObject.GetComponent<BarrierTracker>();
-            int barrier = Mathf.RoundToInt(targetUnit.barrierScaling * scalingMultiplier);
+            int barrier = Mathf.RoundToInt(actor.barrierScaling * scalingMultiplier);
             if (barrierType == BarrierType.DEFLECT) barrierTracker.AddDeflect(barrier);
             else if (barrierType == BarrierType.SHIELD) barrierTracker.AddShield(barrier);
         }

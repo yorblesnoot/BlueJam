@@ -4,7 +4,7 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
 {
     [field: SerializeField] public UnitStats unitStats { get; set; }
     [SerializeField] BarrierTracker barrierTracker;
-    [SerializeField] BuffTracker buffTracker;
+    public BuffTracker buffTracker;
     public HandPlus myHand;
     public UnitAnimator unitAnimator;
 
@@ -50,12 +50,6 @@ public class BattleUnit : MonoBehaviour, IPlayerStats
 
     public virtual void TakeTurn()
     {
-        
-    }
-
-    public void TurnTick()
-    {
-        buffTracker.DurationProc();
         barrierTracker.DeflectLapse();
     }
 

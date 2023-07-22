@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd8a4e2b936a4b343b05d5accc717910, type: 3}
-  m_Name: Speed+1.0for3
+  m_Script: {fileID: 11500000, guid: d0ee5c551a020e0498bfb407790d89e4, type: 3}
+  m_Name: Heal+OnPayLife
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   targetNotRequired: 0
@@ -18,12 +18,17 @@ MonoBehaviour:
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
-  vfxNameAfter: Enrage
-  scalingMultiplier: 1
+  vfxNameAfter: none
+  scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  entityStat: 2
-  duration: 3
+  purgeable: 0
+  duration: 0
+  triggerIdentityCondition: 0
+  triggeringEffect: {fileID: 11400000, guid: 4a90f222882288d4e949d658b643bd82, type: 2}
+  triggersRequiredForActivation: 1
+  effectRecipient: 0
+  triggeredEffect: {fileID: 11400000, guid: a92aeab031ba6224eade6fc9cdd395f7, type: 2}
