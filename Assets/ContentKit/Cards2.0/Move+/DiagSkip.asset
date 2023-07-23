@@ -16,16 +16,17 @@ MonoBehaviour:
   displayName: Giggling Retreat
   art: {fileID: 21300000, guid: d5fc92820481b43a2986103f885cef46, type: 3}
   cost: 3
-  description: 
-  keywords: 
+  description: 'deal <color=#FF4E2B>10</color> damage in a <color=red>1<color=blue>+</color></color>
+    AOE. move to target. '
+  keywords: 'Range: 1-2 <color=blue>X</color>'
   targetShape: 3
   targetSize: 2
   targetGap: 1
   needsPath: 0
   isCurse: 0
-  cardClass: 
+  cardClass: 0000000001000000
   consumed: 0
-  animType: 0
+  animType: 3
   effects:
   - {fileID: 11400000, guid: 28e3e3d4988f62b4eaf92c6371cc8b5a, type: 2}
   - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}

@@ -15,10 +15,8 @@ MonoBehaviour:
   unitName: Juggernaut
   maxHealth: 40
   handSize: 2
-  playerAllied: 0
   startBeats: 1
-  myTurn: 0
-  damageScaling: 10
-  barrierScaling: 10
+  damageScaling: 9
+  barrierScaling: 9
   healScaling: 10
   turnSpeed: 0.4
