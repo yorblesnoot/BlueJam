@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        optionsWindow.SetActive(true);
         if (!System.IO.File.Exists(Application.persistentDataPath + "/runData.json"))
         {
             continueButton.SetActive(false);

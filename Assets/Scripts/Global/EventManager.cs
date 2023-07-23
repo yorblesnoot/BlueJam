@@ -13,6 +13,7 @@ public static class EventManager
 
     //battlemap events
     public static TargetConfirmed targetConfirmed = new();
+    public static UnityEvent endEmphasis = new();
     public static UnityEvent clearActivation = new();
     public static ToggleAOE showAOE = new();
     public static UnityEvent clearAOE = new();

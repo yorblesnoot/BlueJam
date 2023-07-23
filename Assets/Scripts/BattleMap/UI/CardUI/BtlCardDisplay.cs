@@ -5,6 +5,7 @@ using UnityEngine.EventSystems;
 
 public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
+    [SerializeField] GameObject outline;
     bool activated = false;
     void Awake()
     {
@@ -45,12 +46,16 @@ public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHan
             TurnManager.ShowPossibleTurnTakers(thisCard.cost);
             EventManager.targetConfirmed.AddListener(ProxyPlayCard);
             activated = true;
+            EventManager.endEmphasis.Invoke();
+            outline.SetActive(true);
         }
     }
 
     public void ClearActive()
     {
         activated = false;
+        emphasize.readyEmphasis = true;
+        outline.SetActive(false);
         EventManager.showAOE.Invoke(null);
         EventManager.clearAOE?.Invoke();
         EventManager.targetConfirmed.RemoveListener(ProxyPlayCard);

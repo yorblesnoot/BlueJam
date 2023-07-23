@@ -24,7 +24,7 @@ public class WorldMenuControl : MonoBehaviour
     {
         Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 3, true);
         Tutorial.Initiate(TutorialFor.WORLDDECK, TutorialFor.WORLDCRAFTING);
-        Tutorial.EnterStage(TutorialFor.WORLDDECK, 1, "This is my current deck, which I draw cards from in battle. Click the button on the left to toggle card removal.");
+        Tutorial.EnterStage(TutorialFor.WORLDDECK, 1, "This is my current deck, which I draw cards from in battle. Click the button in the top left to toggle card removal.");
         ToggleWindow(deckView, true);
     }
     public void CloseLast()

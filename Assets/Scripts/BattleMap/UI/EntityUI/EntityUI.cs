@@ -15,6 +15,9 @@ public class EntityUI : MonoBehaviour
     public GameObject unitCanvas;
     public BattleUnit unitActions;
 
+    int visualDeflectMax;
+    int visualShieldMax;
+
     [field: SerializeField]public BuffUI buffUI { get; set; }
 
     public void UpdateHealth()
@@ -24,15 +27,19 @@ public class EntityUI : MonoBehaviour
 
     public void UpdateBarriers()
     {
-        StartCoroutine(UpdateBar(unitActions.deflectHealth, unitActions.maxHealth, sliderDeflect));
-        StartCoroutine(UpdateBar(unitActions.shieldHealth, unitActions.maxHealth, sliderShield));
+        if(unitActions.deflectHealth > visualDeflectMax) visualDeflectMax = unitActions.deflectHealth;
+        if(unitActions.shieldHealth > visualShieldMax) visualShieldMax = unitActions.shieldHealth;
+        StartCoroutine(UpdateBar(unitActions.deflectHealth, visualDeflectMax, sliderDeflect));
+        StartCoroutine(UpdateBar(unitActions.shieldHealth, visualShieldMax, sliderShield));
     }
 
     public virtual void InitializeHealth()
     {
+        visualDeflectMax = unitActions.maxHealth;
+        visualShieldMax = unitActions.maxHealth;
         SetBar(unitActions.currentHealth, unitActions.maxHealth, sliderHealth);
-        SetBar(unitActions.deflectHealth, unitActions.maxHealth, sliderDeflect);
-        SetBar(unitActions.shieldHealth, unitActions.maxHealth, sliderShield);
+        SetBar(unitActions.deflectHealth, visualDeflectMax, sliderDeflect);
+        SetBar(unitActions.shieldHealth, visualShieldMax, sliderShield);
     }
 
     public IEnumerator UpdateBar(float current, float max, Slider slider, bool vanish = true)

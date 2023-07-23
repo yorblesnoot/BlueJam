@@ -5,22 +5,19 @@ using UnityEngine;
 public class EssenceCrafting : MonoBehaviour
 {
     [SerializeField] RunData runData;
+
     public List<DraggableItem> dragItems;
-
-    [SerializeField] TMP_Text description;
-    [SerializeField] Canvas mainCanvas;
-
-    [SerializeField] CardAwardUI cardAwardUI;
-
+    [SerializeField] List<InventorySlot> inventorySlots;
     [HideInInspector] public List<DraggableItem> craftingSlotContents;
     [HideInInspector] public DraggableItem essenceSlotContents;
-
     [SerializeField] List<CraftingSlot> craftingSlots;
     [SerializeField] TMP_Text craftStatus;
 
-    [SerializeField] List<InventorySlot> inventorySlots;
-
+    [SerializeField] TMP_Text description;
+    [SerializeField] Canvas mainCanvas;
     [SerializeField] List<MiniCardDisplay> miniCards;
+
+    [SerializeField] CardAwardUI cardAwardUI;
 
     [SerializeField] WorldMenuControl worldMenuControl;
 
@@ -29,6 +26,8 @@ public class EssenceCrafting : MonoBehaviour
         runData.essenceInventory = runData.essenceInventory.OrderBy(x => x.symbol).ToList();
         for( int i = 0; i < dragItems.Count; i++ )
         {
+            EssenceSlotFilled();
+            dragItems[i].transform.SetParent(inventorySlots[i].transform, false);
             if(i < runData.essenceInventory.Count)
             {
                 dragItems[i].gameObject.SetActive(true);

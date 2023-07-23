@@ -112,7 +112,7 @@ public class EffectStat : CardEffectPlus
     {
         {StatType.MAXHEALTH, "%" },
         {StatType.HANDSIZE, ""},
-        {StatType.SPEED, ""},
+        {StatType.SPEED, "%"},
         {StatType.BEATS, ""},
         {StatType.DAMAGE, "%"},
         {StatType.HEAL, "%" },

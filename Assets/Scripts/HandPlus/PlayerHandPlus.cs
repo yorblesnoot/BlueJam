@@ -44,15 +44,15 @@ public class PlayerHandPlus : HandPlus
                 StartCoroutine(DrawCard(cardDisplay));
                 break;
             case (EffectInject.InjectLocation.DISCARD):
-                StartCoroutine(AnimateRecyleCard(cardDisplay, discardSpot));
                 discardCards.Add(cardDisplay);
-                FanPile(discardCards);
+                StartCoroutine(AnimateRecyleCard(cardDisplay, discardSpot));
+                //FanPile(discardCards);
                 break;
             case (EffectInject.InjectLocation.DECK):
-                StartCoroutine(AnimateRecyleCard(cardDisplay, deckSpot));
                 deckCards.Add(cardDisplay);
                 deckCards.Shuffle();
-                FanPile(deckCards);
+                StartCoroutine(AnimateRecyleCard(cardDisplay, deckSpot));
+                //FanPile(deckCards);
                 break;
         }
         return cardDisplay;

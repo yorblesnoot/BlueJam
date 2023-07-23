@@ -21,6 +21,7 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     void Awake()
     {
+        EventManager.endEmphasis.AddListener(() => { Deemphasize(); readyEmphasis = false; } );
         if(SceneManager.GetActiveScene().buildIndex == 2)
         {
             scaleFactor = 1.5f;
