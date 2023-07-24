@@ -13,7 +13,7 @@ public class EffectSummon : CardEffectPlus
         effectClass = CardClass.SUMMON;
     }
     public GameObject entityToSummon;
-    public override string GetEffectDescription(IPlayerStats player)
+    public override string GetEffectDescription(IUnitStats player)
     {
         string entityName = entityToSummon.name;
         entityName = entityName.Replace("NPC", "");

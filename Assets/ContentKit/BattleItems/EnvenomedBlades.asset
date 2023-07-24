@@ -19,4 +19,4 @@ MonoBehaviour:
     rgba: 4280778000
   effects:
   - {fileID: 11400000, guid: f2a91fda217a8254d8851577e014be10, type: 2}
-  description: Your hits apply a small poison.
+  description: Your damage applies a small poison.

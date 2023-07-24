@@ -14,7 +14,7 @@ public class EffectStat : CardEffectPlus
         duration = 0;
     }
 
-    public override string GetEffectDescription(IPlayerStats player)
+    public override string GetEffectDescription(IUnitStats player)
     {
         string changeDirection;
         if (scalingMultiplier > 0) changeDirection = "increase";
@@ -101,12 +101,12 @@ public class EffectStat : CardEffectPlus
     readonly Dictionary<StatType, string> statNames = new()
     {
         {StatType.MAXHEALTH, "max health" },
-        {StatType.HANDSIZE, "intelligence"},
+        {StatType.HANDSIZE, "hand size"},
         {StatType.SPEED, "speed"},
         {StatType.BEATS, "time"},
-        {StatType.DAMAGE, "strength"},
-        {StatType.HEAL, "wisdom" },
-        {StatType.BARRIER, "constitution"}
+        {StatType.DAMAGE, "damage"},
+        {StatType.HEAL, "healing" },
+        {StatType.BARRIER, "barriers"}
     };
     readonly Dictionary<StatType, string> statModSymbol = new()
     {

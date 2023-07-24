@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BattleUnit : MonoBehaviour, IPlayerStats
+public class BattleUnit : MonoBehaviour, IUnitStats
 {
     [field: SerializeField] public UnitStats unitStats { get; set; }
     [SerializeField] BarrierTracker barrierTracker;

@@ -19,4 +19,4 @@ MonoBehaviour:
     rgba: 4280295677
   effects:
   - {fileID: 11400000, guid: ee76d39ce2bf1bb449be3b0aed721071, type: 2}
-  description: Gain strength whenever you gain barrier.
+  description: Boost your damage whenever you gain barrier.

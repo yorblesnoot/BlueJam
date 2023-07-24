@@ -10,7 +10,7 @@ public class EffectBloodPrice : CardEffectPlus
         effectClass = CardClass.BUFF;
     }
 
-    public override string GetEffectDescription(IPlayerStats player)
+    public override string GetEffectDescription(IUnitStats player)
     {
         return $"pay <color=red>{player.maxHealth * scalingMultiplier/100}</color> life";
     }

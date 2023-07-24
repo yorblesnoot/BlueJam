@@ -21,7 +21,7 @@ public class EffectInject : CardEffectPlus
         forceConsume = true;
     }
 
-    public override string GetEffectDescription(IPlayerStats player)
+    public override string GetEffectDescription(IUnitStats player)
     {
         toInject.Initialize();
         string copyWord;

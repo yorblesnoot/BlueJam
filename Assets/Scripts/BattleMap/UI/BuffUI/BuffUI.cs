@@ -15,12 +15,12 @@ public class BuffUI : MonoBehaviour
 
     List<TimedBuff> timedBuffs = new();
 
-    public void DisplayBuff(int duration, Color32 iconColor)
+    public void DisplayBuff(int duration, Color32 iconColor, string description)
     {
         int buffLocation = timedBuffs.Count;
         TimedBuff timedBuff = new() { token = buffTokens[buffLocation], remainingDuration = duration };
         buffTokens[buffLocation].gameObject.SetActive(true);
-        buffTokens[buffLocation].RenderBuff(iconColor,duration);
+        buffTokens[buffLocation].RenderBuff(iconColor, duration, description);
         timedBuffs.Add(timedBuff);
     }
 

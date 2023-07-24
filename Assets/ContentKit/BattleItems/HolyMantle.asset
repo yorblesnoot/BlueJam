@@ -19,4 +19,4 @@ MonoBehaviour:
     rgba: 4284795903
   effects:
   - {fileID: 11400000, guid: 26dfe7f1e81eb964ab263494102cbe06, type: 2}
-  description: Release a large explosion after receiving a direct heal.
+  description: Release a large explosion after you are targeted by a healing card.

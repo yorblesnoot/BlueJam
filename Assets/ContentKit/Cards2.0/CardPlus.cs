@@ -61,7 +61,8 @@ public class CardPlus : SOWithGUID
 
     public IEnumerator PlaySequence(BattleUnit actor, BattleTileController targetCell)
     {
-        actor.transform.LookAt(targetCell.unitPosition);
+        
+        actor.transform.LookAt(new Vector3(targetCell.unitPosition.x, actor.transform.position.y, targetCell.unitPosition.z));
         actor.unitAnimator.Animate(animType);
         BattleTileController userOriginalTile = MapTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>();
         EventManager.allowTriggers.Invoke();
@@ -77,7 +78,7 @@ public class CardPlus : SOWithGUID
         description = "";
         //for the purposes of generating a description, the owner should always be the player
         keywords = "";
-        IPlayerStats stats = player.GetComponent<IPlayerStats>();
+        IUnitStats stats = player.GetComponent<IUnitStats>();
         for (int i = 0; i < effects.Count; i++)
         {
             description += $"{effects[i].GenerateDescription(stats)}.";

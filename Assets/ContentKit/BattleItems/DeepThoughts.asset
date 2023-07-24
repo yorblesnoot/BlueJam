@@ -19,4 +19,4 @@ MonoBehaviour:
     rgba: 4289849107
   effects:
   - {fileID: 11400000, guid: 2834426337460ae4c93df2bac8f2254b, type: 2}
-  description: Increase your intelligence by 1.
+  description: Increase your hand size by 1.

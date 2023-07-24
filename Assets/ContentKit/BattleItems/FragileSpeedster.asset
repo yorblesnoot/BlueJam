@@ -20,4 +20,4 @@ MonoBehaviour:
   effects:
   - {fileID: 11400000, guid: dd11a32b6c77b224fbdd022dc79cec99, type: 2}
   - {fileID: 11400000, guid: 95697e361d50e4a4788957d5531c0127, type: 2}
-  description: You are permanently faster, but your strength is reduced.
+  description: You are permanently faster, but your damage is reduced.

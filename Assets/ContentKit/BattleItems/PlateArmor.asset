@@ -19,4 +19,4 @@ MonoBehaviour:
     rgba: 4285624689
   effects:
   - {fileID: 11400000, guid: e10209a212b92d04392cead9e40d854a, type: 2}
-  description: Grants a shield at the start of battle.
+  description: Gain a shield at the start of battle.

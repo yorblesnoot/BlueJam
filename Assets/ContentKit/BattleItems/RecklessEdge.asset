@@ -20,4 +20,4 @@ MonoBehaviour:
   effects:
   - {fileID: 11400000, guid: d9c8f51980d00c74bb5c75ac3face56e, type: 2}
   - {fileID: 11400000, guid: 60d4c98cc223b5840b75cd562801df6c, type: 2}
-  description: Greatly increases strength at the expense of constitution.
+  description: Greatly increases damage but weakens your barriers.

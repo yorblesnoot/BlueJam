@@ -10,7 +10,7 @@ public class EffectHeal : CardEffectPlus
         effectClass = CardClass.BUFF;
     }
 
-    public override string GetEffectDescription(IPlayerStats player)
+    public override string GetEffectDescription(IUnitStats player)
     {
         return $"heal for <color=#1EFA61>{player.healScaling * scalingMultiplier}</color>";
     }

@@ -24,7 +24,7 @@ public class EffectTrigger : CardEffectPlus
     public TriggerIdentity effectRecipient;
     public CardEffectPlus triggeredEffect;
 
-    public override string GetEffectDescription(IPlayerStats player)
+    public override string GetEffectDescription(IUnitStats player)
     {
         string triggerName = triggeringEffect.GetType().Name;
         triggerName.Replace("Effect", "");

@@ -13,17 +13,11 @@ public class EffectRecurring : CardEffectPlus
 
     public CardEffectPlus turnLapseEffect;
 
-    public override string GetEffectDescription(IPlayerStats player)
+    public override string GetEffectDescription(IUnitStats player)
     {
         turnLapseEffect.Initialize();
-        string description = "";
-        string lapseDescription = turnLapseEffect.GetEffectDescription(player);
-        lapseDescription = turnLapseEffect.AppendAOEInfo(lapseDescription);
-        if (effectClass == CardClass.ATTACK)
-            description = $"debuff target: {lapseDescription} for {duration} actions";
-        else if (effectClass == CardClass.BUFF)
-            description = $"buff target: {lapseDescription} for {duration} actions";
-        return description;
+        string lapseDescription = turnLapseEffect.GenerateDescription(player);
+        return $"on target: {lapseDescription} each action for <color=blue>{duration}</color> actions";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {

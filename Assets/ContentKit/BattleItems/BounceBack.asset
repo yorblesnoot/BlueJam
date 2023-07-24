@@ -19,4 +19,4 @@ MonoBehaviour:
     rgba: 4282546407
   effects:
   - {fileID: 11400000, guid: 122bb1180dfb3ad4c9818f37b828f025, type: 2}
-  description: Gain wisdom whenever you pay life.
+  description: Boost your healing whenever you pay life.

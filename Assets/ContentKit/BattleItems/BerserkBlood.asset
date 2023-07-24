@@ -19,4 +19,4 @@ MonoBehaviour:
     rgba: 4278524645
   effects:
   - {fileID: 11400000, guid: 3f1d43e5769a9384389fe3a1da100866, type: 2}
-  description: Gain strength whenever you take damage.
+  description: Boost your damage whenever you take damage.
