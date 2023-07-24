@@ -8,7 +8,7 @@ public class WorldEvent : MonoBehaviour
     GameObject tile;
     [SerializeField] string tutorialText;
     [SerializeField] TutorialFor tutorialType;
-    private void Awake()
+    private void OnEnable()
     {
         RegisterWithCell();
     }

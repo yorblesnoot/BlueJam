@@ -15,7 +15,7 @@ public class WorldMapRenderer : MonoBehaviour
     readonly int windowRadius = 4;
     static bool[,] windowShape;
 
-    Dictionary<Vector2Int, GameObject> disabledMap = new();
+    Dictionary<string, ObjectPool> tilePools;
 
     public void Initialize()
     {
@@ -77,6 +77,9 @@ public class WorldMapRenderer : MonoBehaviour
         //project a boolean grid onto a larger string grid, then render from the string grid based on the overlap
         int localSize = localMap.GetLength(0);
         mapKey.Initialize();
+        tilePools = new();
+        foreach (var key in mapKey.hashKey.Keys)
+            tilePools.Add(key, new ObjectPool(mapKey.hashKey[key]));
         for (int x = 0; x < localSize; x++)
         {
             for (int y = 0; y < localSize; y++)
@@ -90,27 +93,31 @@ public class WorldMapRenderer : MonoBehaviour
 
     void RenderCell(string tileKey, Vector2Int cellCoords)
     {
-        //check if we have previously rendered the cell, if yes re-enable it otherwise create it and associated events
-        if (disabledMap.ContainsKey(cellCoords))
+        GameObject tile = tilePools[tileKey].InstantiateFromPool(MapTools.MapToVector(cellCoords, 0), RandomCardinalRotate());
+        MapTools.gameMap.Add(cellCoords, tile);
+        GameObject cellEvent = eventRenderer.RenderCellEvent(cellCoords, spotlightGlobalOffset);
+        if(cellEvent != null) cellEvent.transform.SetParent(tile.transform, true);
+        StartCoroutine(StaggeredMoveIn(tile, -5f, 0f));
+    }
+
+    IEnumerator UnrenderCell(Vector2Int coords)
+    {
+        GameObject toUnrender = MapTools.MapToTile(coords);
+        MapTools.gameMap.Remove(coords);
+        if (!toUnrender.activeSelf) yield break;
+        yield return StartCoroutine(StaggeredMoveIn(toUnrender, 0f, -5f));
+        Vector2Int globalCoords = coords + spotlightGlobalOffset;
+        if (runData.eventMap.ContainsKey(globalCoords))
+            eventRenderer.UnrenderCellEvent(globalCoords);
+        if (toUnrender != null)
         {
-            disabledMap[cellCoords].SetActive(true);  
-            StartCoroutine(StaggeredMoveIn(disabledMap[cellCoords], -5f, 0f));
-            MapTools.gameMap.Add(cellCoords, disabledMap[cellCoords]);
-            disabledMap.Remove(cellCoords);
-        }
-        else
-        {
-            GameObject tile = Instantiate(mapKey.hashKey[tileKey], MapTools.MapToVector(cellCoords, 0), RandomRotate());
-            MapTools.gameMap.Add(cellCoords, tile);
-            GameObject renderedEvent = eventRenderer.RenderCellEvent(cellCoords, spotlightGlobalOffset);
-            if(renderedEvent != null) renderedEvent.transform.SetParent(tile.transform);
-            StartCoroutine(StaggeredMoveIn(tile, -5f, 0f));
+            tilePools[runData.worldMap[globalCoords.x, globalCoords.y]].ReturnToPool(toUnrender);
         }
     }
 
-    Quaternion RandomRotate()
+    Quaternion RandomCardinalRotate()
     {
-        int random = Random.Range(1, 4);
+        int random = Random.Range(0, 4);
         Quaternion rot = Quaternion.Euler(0, random*90, 0);
         return rot;
     }
@@ -132,18 +139,7 @@ public class WorldMapRenderer : MonoBehaviour
         yield return StartCoroutine(riser.LerpTo(finalPosition, travelTime));
     }
 
-    IEnumerator UnrenderCell(Vector2Int coords)
-    {
-        if (!disabledMap.ContainsKey(coords))
-        {
-            GameObject toUnrender = MapTools.MapToTile(coords);
-            disabledMap.Add(coords, toUnrender);
-            MapTools.gameMap.Remove(coords);
-            if (!toUnrender.activeSelf) yield break;
-            yield return StartCoroutine(StaggeredMoveIn(toUnrender, 0f, -5f));
-            if(toUnrender != null) toUnrender.SetActive(false);
-        }
-    }
+    
 
     public void ShiftWindow(Vector2Int playerGlobalPosition)
     {

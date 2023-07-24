@@ -16,14 +16,14 @@ public class WorldMovementController : MonoBehaviour
     
     public bool dangerTile;
 
-    void Awake()
+    void OnEnable()
     {
+        myPath = new();
         Vector3 myPosition = gameObject.transform.position;
         unitPosition = new Vector3(myPosition.x, myPosition.y + heightAdjust, myPosition.z);
-        Vector2Int localCoords = MapTools.VectorToMap(myPosition);
         EventManager.clearWorldDestination.AddListener(ClearHighlight);
         EventManager.requestMapReferences.AddListener(launcher => { launcher.SubmitMapReference(gameObject); });
-        Vector2Int globalCoords = localCoords + WorldMapRenderer.spotlightGlobalOffset;
+        Vector2Int globalCoords = MapTools.VectorToMap(myPosition) + WorldMapRenderer.spotlightGlobalOffset;
         if (WorldPlayerControl.badTiles.Contains(runData.worldMap[globalCoords.x, globalCoords.y]))
         {
             dangerTile = true;

@@ -19,6 +19,7 @@ public class WorldEventHandler : MonoBehaviour
     private void OnEnable()
     {
         GlowIfAdjacentEnemy();
+        cellEvent = null; cellEnemy = null;
     }
 
     void GlowIfAdjacentEnemy()
