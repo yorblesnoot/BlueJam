@@ -58,18 +58,19 @@ public class TriggerTracker : MonoBehaviour
             tracked.availableForTrigger = false;
             if (tracked.remainingActivations > 0) return;
 
-            Debug.Log(gameObject + " triggered " + tracked.trigger.triggeredEffect);
-            BattleTileController targetCell = null;
+            //Debug.Log(gameObject + " triggered " + tracked.trigger.triggeredEffect);
+            BattleTileController targetCell;
             if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.USER)
             {
-                Debug.Log($"..on {origin}");
+                //Debug.Log($"..on {origin}");
                 targetCell = MapTools.VectorToTile(origin.transform.position).GetComponent<BattleTileController>();
             }
             else if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.RECEIVER && target != null)
             {
-                Debug.Log($"..on {target}");
+                //Debug.Log($"..on {target}");
                 targetCell = MapTools.VectorToTile(target.transform.position).GetComponent<BattleTileController>();
             }
+            else return;
             StartCoroutine(tracked.trigger.triggeredEffect.Execute(battleUnit, targetCell));
             tracked.remainingActivations = tracked.trigger.triggersRequiredForActivation;
         }

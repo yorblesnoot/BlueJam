@@ -10,18 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd8a4e2b936a4b343b05d5accc717910, type: 3}
-  m_Name: Dmg-2AOESelf
+  m_Name: Heal+20%
   m_EditorClassIdentifier: 
-  forceTargetSelf: 1
-  effectClass: 0
-  vfxStyleBefore: 6
-  vfxNameBefore: RedLoopDown
+  forceTargetSelf: 0
+  targetNotRequired: 0
+  effectClass: 2
+  vfxStyleBefore: 0
+  vfxNameBefore: BuffCharge
   vfxStyleAfter: 0
   vfxNameAfter: none
-  scalingMultiplier: -2
-  aoeShape: 2
-  aoeSize: 1
-  aoeGap: 1
+  scalingMultiplier: 20
+  aoeShape: 0
+  aoeSize: 0
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  entityStat: 4
+  entityStat: 5
+  duration: 0

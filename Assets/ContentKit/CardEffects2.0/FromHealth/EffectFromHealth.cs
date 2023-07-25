@@ -43,7 +43,6 @@ public class EffectFromHealth : CardEffectPlus
         relevantHealth /= relevantUnit.maxHealth;
 
         int repetitions = Mathf.FloorToInt(relevantHealth * 100 / scalingMultiplier);
-        Debug.Log(repetitions);
         for(int i = 0; i < repetitions; i++)
         {
             actor.StartCoroutine(outputEffect.Execute(actor, targetCell));

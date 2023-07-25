@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 [CreateAssetMenu(fileName = "EffectStat", menuName = "ScriptableObjects/CardEffects/Stat")]
 public class EffectStat : CardEffectPlus
@@ -39,16 +40,16 @@ public class EffectStat : CardEffectPlus
         switch(entityStat)
         {
             case StatType.MAXHEALTH:
-                target.maxHealth = Mathf.RoundToInt(target.maxHealth * (1 + scale/10));
+                target.maxHealth = Mathf.RoundToInt(target.maxHealth * (1 + scale / 100));
                 break;
             case StatType.DAMAGE:
-                target.DamageScaling = Mathf.RoundToInt(target.DamageScaling * (1 + scale / 10));
+                target.DamageScaling = Mathf.RoundToInt(target.DamageScaling * (1 + scale / 100));
                 break;
             case StatType.HEAL:
-                target.healScaling = Mathf.RoundToInt(target.healScaling * (1 + scale / 10));
+                target.healScaling = Mathf.RoundToInt(target.healScaling * (1 + scale / 100));
                 break;
             case StatType.BARRIER:
-                target.barrierScaling = Mathf.RoundToInt(target.barrierScaling * (1 + scale / 10));
+                target.barrierScaling = Mathf.RoundToInt(target.barrierScaling * (1 + scale / 100));
                 break;
 
             case StatType.HANDSIZE:
@@ -71,23 +72,23 @@ public class EffectStat : CardEffectPlus
         switch (entityStat)
         {
             case StatType.MAXHEALTH:
-                target.maxHealth = Mathf.RoundToInt(target.maxHealth / (1 + scale / 10));
+                target.maxHealth = Mathf.RoundToInt(target.maxHealth / (1 + scale / 100));
                 break;
             case StatType.DAMAGE:
-                target.DamageScaling = Mathf.RoundToInt(target.DamageScaling / (1 + scale / 10));
+                target.DamageScaling = Mathf.RoundToInt(target.DamageScaling / (1 + scale / 100));
                 break;
             case StatType.HEAL:
-                target.healScaling = Mathf.RoundToInt(target.healScaling / (1 + scale / 10));
+                target.healScaling = Mathf.RoundToInt(target.healScaling / (1 + scale / 100));
                 break;
             case StatType.BARRIER:
-                target.barrierScaling = Mathf.RoundToInt(target.barrierScaling / (1 + scale / 10));
+                target.barrierScaling = Mathf.RoundToInt(target.barrierScaling / (1 + scale / 100));
                 break;
 
             case StatType.HANDSIZE:
                 target.HandSize -= Mathf.RoundToInt(scale);
                 break;
             case StatType.SPEED:
-                target.turnSpeed -= scale;
+                target.turnSpeed /= 1 + scale/100;
                 target.turnSpeed = Mathf.Clamp(target.turnSpeed, .2f, 3f);
                 break;
             case StatType.BEATS:
@@ -122,7 +123,7 @@ public class EffectStat : CardEffectPlus
     {
         {StatType.MAXHEALTH, 1 },
         {StatType.HANDSIZE, .1f},
-        {StatType.SPEED, 1},
+        {StatType.SPEED, 10},
         {StatType.BEATS, .1f},
         {StatType.DAMAGE, 1},
         {StatType.HEAL, 1 },

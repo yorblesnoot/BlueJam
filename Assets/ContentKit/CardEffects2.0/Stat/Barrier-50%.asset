@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd8a4e2b936a4b343b05d5accc717910, type: 3}
-  m_Name: Dmg+1
+  m_Name: Barrier-50%
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   effectClass: 2
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
-  vfxNameAfter: BuffCharge
-  scalingMultiplier: 1
+  vfxNameAfter: DescendingVibes
+  scalingMultiplier: -5
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  entityStat: 4
+  entityStat: 6

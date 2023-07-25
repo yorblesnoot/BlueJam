@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6298488964772943205}
   - component: {fileID: 6298488964772943227}
   - component: {fileID: 6298488964772943204}
-  - component: {fileID: 1823643626894210370}
+  - component: {fileID: 8014765561426330370}
   m_Layer: 5
   m_Name: ItemDisplay
   m_TagString: Untagged
@@ -78,7 +78,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1823643626894210370
+--- !u!114 &8014765561426330370
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -87,13 +87,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 6298488964772943206}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 239dcda67312b0a4ea438761d46c57a1, type: 3}
+  m_Script: {fileID: 11500000, guid: 55dbbe481805c71498d4e2bfaccc69ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   battleItem: {fileID: 0}
+  thumbnail: {fileID: 6298488964772943204}
   tooltipText: {fileID: 4081675534126628831}
   tooltip: {fileID: 1830436250186194168}
-  thumbnail: {fileID: 6298488964772943204}
 --- !u!1001 &2158584788963655485
 PrefabInstance:
   m_ObjectHideFlags: 0
