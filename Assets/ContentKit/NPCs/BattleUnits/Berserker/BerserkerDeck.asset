@@ -17,9 +17,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 46a4f46e590e8c642a233271119ce5f5, type: 2}
   - {fileID: 11400000, guid: 8a9fe3de4e840c54c9662fa726a7bcee, type: 2}
   - {fileID: 11400000, guid: 8356ab5dddb7d4d4d97d27bbb0bb99dc, type: 2}
-  preDescription: Essence of a berserker.
   symbol: B
   iconColor:
     serializedVersion: 2
-    rgba: 4280368864
-  essenceDescription: 
+    rgba: 4278211069
+  essenceDescription: 'Essence of the Berserker. Contains:'
+  unitName: Berserker

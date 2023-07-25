@@ -12,6 +12,10 @@ public class Deck : SOWithGUID
     [HideInInspector] public string essenceDescription;
     [HideInInspector] public string unitName;
 
+    private void Reset()
+    {
+        iconColor = Color.white;
+    }
     public void Initialize()
     {
         List<string> cardNames = deckContents.Select(x=> x.displayName).ToList();

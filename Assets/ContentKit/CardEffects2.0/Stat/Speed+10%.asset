@@ -19,10 +19,11 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: SpinRiseBlue
-  scalingMultiplier: 0.1
+  scalingMultiplier: 10
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
   entityStat: 2
+  duration: 0

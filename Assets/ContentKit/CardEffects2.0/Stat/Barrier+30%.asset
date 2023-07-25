@@ -19,7 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: BuffCharge
-  scalingMultiplier: 3
+  scalingMultiplier: 30
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0

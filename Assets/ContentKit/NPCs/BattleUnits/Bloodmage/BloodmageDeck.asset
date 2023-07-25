@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
+  m_Name: BloodmageDeck
+  m_EditorClassIdentifier: 
+  Id: 439843f5-2204-4cbb-9c84-c6b51ce45880
+  deckContents:
+  - {fileID: 11400000, guid: 011b170c14e65cd4ba7931048c535a3c, type: 2}
+  symbol: B
+  iconColor:
+    serializedVersion: 2
+    rgba: 4279111336
+  essenceDescription: 
+  unitName: 
