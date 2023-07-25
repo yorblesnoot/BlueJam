@@ -14,15 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0693ae95-75b7-40b1-9447-577095d1a2f7
   deckContents:
-  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: a05f8b0a2a741eb4dad8d818d96d93ed, type: 2}
-  - {fileID: 11400000, guid: a05f8b0a2a741eb4dad8d818d96d93ed, type: 2}
-  - {fileID: 11400000, guid: a05f8b0a2a741eb4dad8d818d96d93ed, type: 2}
+  - {fileID: 11400000, guid: 91914c6c2f84fff45b120d5e7b946da6, type: 2}
+  - {fileID: 11400000, guid: 91914c6c2f84fff45b120d5e7b946da6, type: 2}
+  - {fileID: 11400000, guid: 91914c6c2f84fff45b120d5e7b946da6, type: 2}
+  - {fileID: 11400000, guid: 02faf0d81b4be4b4ab81584adc7980c0, type: 2}
+  - {fileID: 11400000, guid: 02faf0d81b4be4b4ab81584adc7980c0, type: 2}
+  - {fileID: 11400000, guid: 02faf0d81b4be4b4ab81584adc7980c0, type: 2}
   symbol: ??
   iconColor:
     serializedVersion: 2

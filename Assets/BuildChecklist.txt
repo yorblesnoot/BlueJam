@@ -1,2 +1,3 @@
 1. load items/cards/decks into load library
-2. load enemies into master spawn pool
+2. load enemies into master spawn pool and sub spawns
+

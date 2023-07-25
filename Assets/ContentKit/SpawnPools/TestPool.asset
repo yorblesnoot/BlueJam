@@ -29,4 +29,7 @@ MonoBehaviour:
   - {fileID: 7888735582937761990, guid: 3f888ee8ade326c409518187bf5bab05, type: 3}
   - {fileID: 5721908823824948755, guid: 63c92e51d7e2acf44b90088b5d314507, type: 3}
   - {fileID: 7417294192327895783, guid: eb2c05d0b168de849b165e92c6dc08f2, type: 3}
+  - {fileID: 4039637195503505460, guid: 7db4e0a7f63e9dc4b90e0e0e3d325cd9, type: 3}
+  - {fileID: 4039637195503505460, guid: 7b06bd1145bb3b44689e1fead537e570, type: 3}
+  - {fileID: 4679250314591635210, guid: c0aba7a6cdf919a4ea88d29db6c5d877, type: 3}
   staticSpawns: []

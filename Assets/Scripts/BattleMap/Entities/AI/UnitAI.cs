@@ -125,7 +125,7 @@ public class UnitAI : MonoBehaviour
                     favor += targetables.Count * personality.interestBuff;
             }
         }
-        //Debug.Log($"{gameObject.name}: Favor for targeting {moveTile.transform.position} with {card.name} is {favor}.");
+        Debug.Log($"{gameObject.name}: Favor for targeting {moveTile.transform.position} with {card.name} is {favor}.");
         return favor;
     }
 

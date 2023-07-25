@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 3628849966878135161}
   - component: {fileID: -2678450847963815027}
   m_Layer: 5
-  m_Name: BuffSlotNPC
+  m_Name: BuffSlotNonplayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

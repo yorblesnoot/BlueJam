@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 895265c0-d989-4d32-91cb-5e3bf63ea2c8
   displayName: Deploy Peon
-  art: {fileID: 21300000, guid: 310c9e07e0cf54ee99abf0200d2adbba, type: 3}
+  art: {fileID: 21300000, guid: 012deee41ffa241ceb581fb6acc2b3f3, type: 3}
   cost: 3
   description: 'summon a Peon. '
   keywords: 'Range: 1-1 <color=blue>+</color>'
