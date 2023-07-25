@@ -85,10 +85,14 @@ public class BattleTileController : MonoBehaviour
         if(PlayerUnit.playerState == PlayerBattleState.IDLE) EventManager.hideTurnDisplay.Invoke();
     }
 
-    public void HighlightCell() 
+    public void HighlightCell(BattleUnit owner, CardPlus card) 
     {
-        baseHighlight = HighlightMode.LEGAL;
-        cellHighlighter.ChangeHighlightMode(HighlightMode.LEGAL); 
+        HighlightMode mode;
+        if (CellTargeting.ValidPlay(this, owner, card)) mode = HighlightMode.LEGAL;
+        else mode = HighlightMode.ILLEGAL;
+        //add illegal check and highlight here~~~~~~~~~~~~~~~
+        baseHighlight = mode;
+        cellHighlighter.ChangeHighlightMode(mode); 
     }
     public void ClearHighlight()
     {

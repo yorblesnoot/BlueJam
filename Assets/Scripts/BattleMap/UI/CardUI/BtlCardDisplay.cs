@@ -39,7 +39,7 @@ public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHan
             {
                 BattleTileController cellController = legalCells[i].GetComponent<BattleTileController>();
                 cellController.availableForPlay = true;
-                cellController.HighlightCell();
+                cellController.HighlightCell(owner, thisCard);
             }
             EventManager.showAOE.Invoke(thisCard);
             //add self aoe effect

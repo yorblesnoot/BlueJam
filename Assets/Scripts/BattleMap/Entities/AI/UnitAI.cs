@@ -77,10 +77,10 @@ public class UnitAI : MonoBehaviour
 
     IEnumerator AIPlayCard(ICardDisplay cardReference, BattleTileController targetTile)
     {
-        ShowAITargeting(cardReference.thisCard.targetRules, transform.position);
+        ShowAITargeting(cardReference.thisCard.targetRules, transform.position, cardReference.thisCard);
         yield return new WaitForSeconds(playDelay);
-        ShowAITargeting(cardReference.thisCard.aoePoint, targetTile.transform.position, true);
-        if(cardReference.thisCard.aoeSelf != null) ShowAITargeting(cardReference.thisCard.aoeSelf, transform.position, true);
+        ShowAITargeting(cardReference.thisCard.aoePoint, targetTile.transform.position);
+        if(cardReference.thisCard.aoeSelf != null) ShowAITargeting(cardReference.thisCard.aoeSelf, transform.position);
         yield return new WaitForSeconds(playDelay);
 
         //clear the range display and take the action
@@ -89,14 +89,14 @@ public class UnitAI : MonoBehaviour
         StartCoroutine(cardReference.thisCard.PlaySequence(thisUnit,targetTile));
     }
 
-    void ShowAITargeting(bool[,] targetRule, Vector3 source, bool aoeMode = false)
+    void ShowAITargeting(bool[,] targetRule, Vector3 source, CardPlus card = null)
     {
         List<GameObject> displayCells = CellTargeting.ConvertMapRuleToTiles(targetRule, source);
         for (int i = 0; i < displayCells.Count; i++)
         {
             BattleTileController cellController = displayCells[i].GetComponent<BattleTileController>();
-            if(!aoeMode)
-                cellController.HighlightCell();
+            if(card != null)
+                cellController.HighlightCell(thisUnit, card);
             else
                 cellController.HighlightCellAOE();
         }

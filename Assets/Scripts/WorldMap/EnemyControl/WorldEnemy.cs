@@ -5,7 +5,7 @@ using UnityEngine;
 public class WorldEnemy : MonoBehaviour
 {
     [HideInInspector]public SpawnPool spawnPool;
-    private void Awake()
+    private void OnEnable()
     {
         WorldEventHandler handler = MapTools.VectorToTile(transform.position).GetComponent<WorldEventHandler>();
         PullSpawnPool(handler);
