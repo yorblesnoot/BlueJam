@@ -22,25 +22,25 @@ public class NonplayerUI : EntityUI
     public override void InitializeHealth()
     {
         base.InitializeHealth();
-        pips.SetPips(unitActions.maxHealth);
+        pips.SetPips(Mathf.RoundToInt(unitActions.loadedStats[StatType.MAXHEALTH]));
     }
 
     public void UpdateBeats()
     {
         if (!unitActions.isDead)
         {
-            SetBar(unitActions.currentBeats, TurnManager.beatThreshold + 2, sliderGhostBeats, false);
-            StartCoroutine(UpdateBar(unitActions.currentBeats, TurnManager.beatThreshold + 2, sliderBeats, false));
+            SetBar(unitActions.loadedStats[StatType.BEATS], TurnManager.beatThreshold + 2, sliderGhostBeats, false);
+            StartCoroutine(UpdateBar(unitActions.loadedStats[StatType.BEATS], TurnManager.beatThreshold + 2, sliderBeats, false));
         }
         else TurnManager.updateBeatCounts.RemoveListener(UpdateBeats);
     }
 
     public void ShowBeatGhost(float beats)
     {
-        SetBar(unitActions.currentBeats + beats, TurnManager.beatThreshold + 2, sliderGhostBeats, false);
+        SetBar(unitActions.loadedStats[StatType.BEATS] + beats, TurnManager.beatThreshold + 2, sliderGhostBeats, false);
     }
     public void HideBeatGhost()
     {
-        SetBar(unitActions.currentBeats, TurnManager.beatThreshold + 2, sliderGhostBeats, false);
+        SetBar(unitActions.loadedStats[StatType.BEATS], TurnManager.beatThreshold + 2, sliderGhostBeats, false);
     }
 }

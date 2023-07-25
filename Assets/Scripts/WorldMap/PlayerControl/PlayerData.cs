@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class PlayerData : MonoBehaviour, IUnitStats
 {
-    public int DamageScaling { get; set; }
-    public int healScaling { get; set; }
-    public int barrierScaling { get; set; }
-    public int maxHealth { get; set; }
+    public Dictionary<StatType, float> loadedStats { get; set; }
     public int currentHealth { get; set; }
     public RunData runData;
     void Awake()
     {
-        DamageScaling = runData.playerStats.damageScaling;
-        healScaling = runData.playerStats.healScaling;
-        barrierScaling = runData.playerStats.barrierScaling;
-        maxHealth = runData.playerStats.maxHealth;
+        loadedStats = new()
+        {
+            { StatType.MAXHEALTH, runData.playerStats.maxHealth },
+            { StatType.DAMAGE, runData.playerStats.damageScaling },
+            { StatType.HEAL, runData.playerStats.healScaling },
+            { StatType.BARRIER, runData.playerStats.barrierScaling },
+            { StatType.HANDSIZE, runData.playerStats.handSize },
+            { StatType.SPEED, runData.playerStats.turnSpeed },
+            { StatType.BEATS, runData.playerStats.startBeats },
+        };
         currentHealth = runData.currentHealth;
     }
 

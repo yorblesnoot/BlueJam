@@ -12,7 +12,7 @@ public class EffectHeal : CardEffectPlus
 
     public override string GetEffectDescription(IUnitStats player)
     {
-        return $"heal for <color=#1EFA61>{player.healScaling * scalingMultiplier}</color>";
+        return $"heal for <color=#1EFA61>{player.loadedStats[StatType.HEAL] * scalingMultiplier}</color>";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
@@ -22,7 +22,7 @@ public class EffectHeal : CardEffectPlus
 
     void Heal(BattleUnit owner, float healMult, BattleUnit target)
     {
-        int heal = -Mathf.RoundToInt(owner.healScaling * healMult);
+        int heal = -Mathf.RoundToInt(owner.loadedStats[StatType.HEAL] * healMult);
         target.ReduceHealth(heal);
     }
 }

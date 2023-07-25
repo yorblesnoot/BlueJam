@@ -12,7 +12,7 @@ public class EffectDamage : CardEffectPlus
 
     public override string GetEffectDescription(IUnitStats player)
     {
-        return $"deal <color=#FF4E2B>{player.DamageScaling * scalingMultiplier}</color> damage";
+        return $"deal <color=#FF4E2B>{player.loadedStats[StatType.DAMAGE] * scalingMultiplier}</color> damage";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
@@ -23,7 +23,7 @@ public class EffectDamage : CardEffectPlus
 
     void Normal(BattleUnit owner, float damageMult, BattleUnit target)
     {
-        int damage = Mathf.RoundToInt(owner.DamageScaling * damageMult);
+        int damage = Mathf.RoundToInt(owner.loadedStats[StatType.DAMAGE] * damageMult);
         target.ReceiveDamage(damage);
     }
 }

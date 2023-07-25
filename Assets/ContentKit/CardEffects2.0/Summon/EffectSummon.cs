@@ -1,9 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
-using static EffectDamage;
-using static UnityEngine.EventSystems.EventTrigger;
 
 [CreateAssetMenu(fileName = "EffectSummon", menuName = "ScriptableObjects/CardEffects/Summon")]
 public class EffectSummon : CardEffectPlus
@@ -58,12 +55,12 @@ public class EffectSummon : CardEffectPlus
         toModify.transform.localScale -= new Vector3(.3f, .3f, .3f);
 
         toModify.isSummoned = true;
-        toModify.maxHealth = Mathf.RoundToInt(toModify.maxHealth * summonModifier);
-        toModify.currentHealth = toModify.maxHealth;
+        toModify.loadedStats[StatType.MAXHEALTH] *= summonModifier;
+        toModify.currentHealth = Mathf.RoundToInt(toModify.loadedStats[StatType.MAXHEALTH]);
 
-        toModify.DamageScaling = Mathf.RoundToInt(toModify.DamageScaling * summonModifier);
-        toModify.healScaling = Mathf.RoundToInt(toModify.healScaling * summonModifier);
-        toModify.barrierScaling = Mathf.RoundToInt(toModify.barrierScaling * summonModifier);
+        toModify.loadedStats[StatType.DAMAGE] *= summonModifier;
+        toModify.loadedStats[StatType.HEAL] *= summonModifier;
+        toModify.loadedStats[StatType.BARRIER] *= summonModifier;
 
         toModify.RegisterTurn();
         toModify.ReportCell();

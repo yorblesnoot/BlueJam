@@ -38,9 +38,9 @@ public class EffectFromHealth : CardEffectPlus
         if (checkedUnit == CheckedUnit.self) relevantUnit = actor;
         else relevantUnit = targetCell.unitContents;
 
-        if (healthType == HealthType.missing) relevantHealth = relevantUnit.maxHealth - relevantUnit.currentHealth;
+        if (healthType == HealthType.missing) relevantHealth = relevantUnit.loadedStats[StatType.MAXHEALTH] - relevantUnit.currentHealth;
         else relevantHealth = relevantUnit.currentHealth;
-        relevantHealth /= relevantUnit.maxHealth;
+        relevantHealth /= relevantUnit.loadedStats[StatType.MAXHEALTH];
 
         int repetitions = Mathf.FloorToInt(relevantHealth * 100 / scalingMultiplier);
         for(int i = 0; i < repetitions; i++)

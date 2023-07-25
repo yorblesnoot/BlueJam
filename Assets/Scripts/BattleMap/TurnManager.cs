@@ -78,7 +78,7 @@ public class TurnManager : MonoBehaviour
         foreach(NonplayerUnit turnTaker in turnTakers.OfType<NonplayerUnit>())
         {
             float expenditure = GetBeatCost(beatCost, turnTaker, playerUnit);
-            if (turnTaker.currentBeats + expenditure >= beatThreshold)
+            if (turnTaker.loadedStats[StatType.BEATS] + expenditure >= beatThreshold)
             {
                 turnTaker.ShowTurnPossibility();
             }
@@ -99,10 +99,10 @@ public class TurnManager : MonoBehaviour
             for (int entry = 0; entry < turnTakers.Count; entry++)
             {
                 float beatChange = GetBeatCost(beats, turnTakers[entry], playerUnit);
-                turnTakers[entry].currentBeats += beatChange;
+                turnTakers[entry].loadedStats[StatType.BEATS] += beatChange;
             }
         }
-        else owner.currentBeats -= beats;
+        else owner.loadedStats[StatType.BEATS] -= beats;
         updateBeatCounts?.Invoke();
         owner.buffTracker.DurationProc();
         deathPhase?.Invoke();
@@ -111,7 +111,7 @@ public class TurnManager : MonoBehaviour
 
     static float GetBeatCost(int beats, BattleUnit unit, PlayerUnit player)
     {
-        return unit.turnSpeed * beats / player.turnSpeed; 
+        return unit.loadedStats[StatType.SPEED] * beats / player.loadedStats[StatType.SPEED]; 
     }
 
     private static IEnumerator WaitForTurn()
@@ -123,8 +123,8 @@ public class TurnManager : MonoBehaviour
     public static void AssignTurn()
     {
         if (PlayerHasWon() || playerUnit.isDead) return;
-        turnTakers = turnTakers.OrderByDescending(x => x.currentBeats).ToList();
-        if (turnTakers.Count == 0 || turnTakers[0].currentBeats < beatThreshold)
+        turnTakers = turnTakers.OrderByDescending(x => x.loadedStats[StatType.BEATS]).ToList();
+        if (turnTakers.Count == 0 || turnTakers[0].loadedStats[StatType.BEATS] < beatThreshold)
         {
             playerUnit.StartCoroutine(playerUnit.turnIndicator.ShowTurnExclamation());
             PlayerUnit.playerState = PlayerBattleState.IDLE;

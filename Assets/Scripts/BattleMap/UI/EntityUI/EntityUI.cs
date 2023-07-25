@@ -1,9 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
 
 public class EntityUI : MonoBehaviour
 {
@@ -22,7 +19,7 @@ public class EntityUI : MonoBehaviour
 
     public void UpdateHealth()
     {
-        StartCoroutine(UpdateBar(unitActions.currentHealth, unitActions.maxHealth, sliderHealth));
+        StartCoroutine(UpdateBar(unitActions.currentHealth, Mathf.RoundToInt(unitActions.loadedStats[StatType.MAXHEALTH]), sliderHealth));
     }
 
     public void UpdateBarriers()
@@ -35,9 +32,9 @@ public class EntityUI : MonoBehaviour
 
     public virtual void InitializeHealth()
     {
-        visualDeflectMax = unitActions.maxHealth;
-        visualShieldMax = unitActions.maxHealth;
-        SetBar(unitActions.currentHealth, unitActions.maxHealth, sliderHealth);
+        visualDeflectMax = Mathf.RoundToInt(unitActions.loadedStats[StatType.MAXHEALTH]);
+        visualShieldMax = Mathf.RoundToInt(unitActions.loadedStats[StatType.MAXHEALTH]);
+        SetBar(unitActions.currentHealth, unitActions.loadedStats[StatType.MAXHEALTH], sliderHealth);
         SetBar(unitActions.deflectHealth, visualDeflectMax, sliderDeflect);
         SetBar(unitActions.shieldHealth, visualShieldMax, sliderShield);
     }

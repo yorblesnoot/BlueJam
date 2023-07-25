@@ -1,5 +1,7 @@
+using System.Collections.Generic;
 using UnityEngine;
 
+public enum StatType { MAXHEALTH, HANDSIZE, SPEED, BEATS, DAMAGE, HEAL, BARRIER }
 public class BattleUnit : MonoBehaviour, IUnitStats
 {
     [field: SerializeField] public UnitStats unitStats { get; set; }
@@ -8,31 +10,10 @@ public class BattleUnit : MonoBehaviour, IUnitStats
     public HandPlus myHand;
     public UnitAnimator unitAnimator;
 
-    public int maxHealth { get; set; }
-
-    private int handSize; 
-    public int HandSize
-    {
-        get => handSize; 
-        set { handSize = Mathf.Clamp(value, 1, 7); }
-    }
-
-    public float turnSpeed { get; set; }
-
+    public Dictionary<StatType, float> loadedStats { get; set; }
     public int currentHealth { get; set; }
     public int deflectHealth { get; set; }
     public int shieldHealth { get; set; }
-
-    public float currentBeats { get; set; }
-
-    private int damageScaling;
-    public int DamageScaling
-    {
-        get => damageScaling;
-        set { damageScaling = Mathf.Clamp(value, 5, value); }
-    }
-    public int healScaling { get; set; }
-    public int barrierScaling { get; set; }
 
     public bool isSummoned;
 
@@ -55,13 +36,16 @@ public class BattleUnit : MonoBehaviour, IUnitStats
 
     public virtual void Initialize()
     {
-        maxHealth = unitStats.maxHealth;
-        DamageScaling = unitStats.damageScaling;
-        healScaling = unitStats.healScaling;
-        barrierScaling = unitStats.barrierScaling;
-        HandSize = unitStats.handSize;
-        turnSpeed = unitStats.turnSpeed;
-        currentBeats = unitStats.startBeats;
+        loadedStats = new()
+        {
+            { StatType.MAXHEALTH, unitStats.maxHealth },
+            { StatType.DAMAGE, unitStats.damageScaling },
+            { StatType.HEAL, unitStats.healScaling },
+            { StatType.BARRIER, unitStats.barrierScaling },
+            { StatType.HANDSIZE, unitStats.handSize },
+            { StatType.SPEED, unitStats.turnSpeed },
+            { StatType.BEATS, unitStats.startBeats },
+        };
         TurnManager.initialPositionReport.AddListener(ReportCell);
         myUI = GetComponentInChildren<EntityUI>();
     }
@@ -72,7 +56,6 @@ public class BattleUnit : MonoBehaviour, IUnitStats
         if (shieldHealth > 0) damage = barrierTracker.ReceiveShieldDamage(damage);
 
         ReduceHealth(damage);
-        //update healthbar in UI
         unitAnimator.Animate(AnimType.DAMAGED);
     }
 
@@ -84,20 +67,18 @@ public class BattleUnit : MonoBehaviour, IUnitStats
     public virtual void ReduceHealth(int reduction)
     {
         currentHealth -= reduction;
-        if (currentHealth > maxHealth) currentHealth = maxHealth;
+        if (currentHealth > loadedStats[StatType.MAXHEALTH]) currentHealth = Mathf.RoundToInt(loadedStats[StatType.MAXHEALTH]);
         myUI.UpdateHealth();
     }
 
     public void ReportCell()
     {
-        //report our location to the cell we're in
         GameObject myTile = MapTools.VectorToTile(gameObject.transform.position);
         myTile.GetComponent<BattleTileController>().unitContents = this;
     }
 
     public void UnreportCell()
     {
-        //report leaving a cell
         GameObject myTile = MapTools.VectorToTile(gameObject.transform.position);
         myTile.GetComponent<BattleTileController>().unitContents = null;
     }

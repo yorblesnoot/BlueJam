@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NonplayerUnit : BattleUnit
@@ -11,7 +9,7 @@ public class NonplayerUnit : BattleUnit
         base.Initialize();
         ScaleWithDifficulty(runData.runDifficulty);
 
-        currentHealth = maxHealth;
+        currentHealth = Mathf.RoundToInt(loadedStats[StatType.MAXHEALTH]);
         myUI.InitializeHealth();
         TurnManager.unitsReport.AddListener(RegisterTurn);
         EventManager.hideTurnDisplay.AddListener(HideTurnPossibility);
@@ -19,11 +17,11 @@ public class NonplayerUnit : BattleUnit
     }
     public void ScaleWithDifficulty(int difficultyFactor)
     {
-        maxHealth = Mathf.RoundToInt(maxHealth * (1 + (difficultyFactor * Settings.Profile.HealthPerThreat)));
-        DamageScaling = Mathf.RoundToInt(DamageScaling * (1 + (difficultyFactor * Settings.Profile.StatPerThreat)));
-        barrierScaling = Mathf.RoundToInt(barrierScaling * (1 + (difficultyFactor * Settings.Profile.StatPerThreat)));
-        healScaling = Mathf.RoundToInt(healScaling * (1 + (difficultyFactor * Settings.Profile.StatPerThreat)));
-        turnSpeed *= 1 + (difficultyFactor * Settings.Profile.SpeedPerThreat);
+        loadedStats[StatType.MAXHEALTH] *= 1 + difficultyFactor * Settings.Profile.HealthPerThreat;
+        loadedStats[StatType.DAMAGE] *= 1 + difficultyFactor * Settings.Profile.StatPerThreat;
+        loadedStats[StatType.BARRIER] *= 1 + difficultyFactor * Settings.Profile.StatPerThreat;
+        loadedStats[StatType.HEAL] *= 1 + difficultyFactor * Settings.Profile.StatPerThreat;
+        loadedStats[StatType.SPEED] *= 1 + difficultyFactor * Settings.Profile.SpeedPerThreat;
     }
 
     public override void TakeTurn()

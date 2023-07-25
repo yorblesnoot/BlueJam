@@ -12,11 +12,11 @@ public class EffectBloodPrice : CardEffectPlus
 
     public override string GetEffectDescription(IUnitStats player)
     {
-        return $"pay <color=red>{player.maxHealth * scalingMultiplier/100}</color> life";
+        return $"pay <color=red>{player.loadedStats[StatType.MAXHEALTH] * scalingMultiplier/100}</color> life";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        actor.ReduceHealth(Mathf.RoundToInt(actor.maxHealth * scalingMultiplier/100));
+        actor.ReduceHealth(Mathf.RoundToInt(actor.loadedStats[StatType.MAXHEALTH] * scalingMultiplier/100));
         yield return null;
     }
 }

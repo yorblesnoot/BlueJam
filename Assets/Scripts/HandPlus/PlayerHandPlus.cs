@@ -1,8 +1,6 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerHandPlus : HandPlus
@@ -12,7 +10,6 @@ public class PlayerHandPlus : HandPlus
     [SerializeField] GameObject discardSpot;
     [SerializeField] GameObject conjureSpot;
 
-    
     readonly int pileDisplacementFactor = 3;
     readonly float cardFlyTime = .2f;
     List<CardSlot> cardSlots = new();
@@ -23,7 +20,7 @@ public class PlayerHandPlus : HandPlus
 
     internal override void BuildVisualDeck()
     {
-        GenerateHandSlots(thisUnit.HandSize);
+        GenerateHandSlots(Mathf.RoundToInt(thisUnit.loadedStats[StatType.HANDSIZE]));
         foreach(CardPlus card in deckRecord.deckContents)
         {
             CardDisplay cardDisplay = RenderCard(card);
@@ -46,13 +43,11 @@ public class PlayerHandPlus : HandPlus
             case (EffectInject.InjectLocation.DISCARD):
                 discardCards.Add(cardDisplay);
                 StartCoroutine(AnimateRecyleCard(cardDisplay, discardSpot));
-                //FanPile(discardCards);
                 break;
             case (EffectInject.InjectLocation.DECK):
                 deckCards.Add(cardDisplay);
                 deckCards.Shuffle();
                 StartCoroutine(AnimateRecyleCard(cardDisplay, deckSpot));
-                //FanPile(deckCards);
                 break;
         }
         return cardDisplay;
@@ -96,7 +91,7 @@ public class PlayerHandPlus : HandPlus
     public void RegenerateHandSlots()
     {
         List<CardSlot> oldSlots = new(cardSlots);
-        GenerateHandSlots(thisUnit.HandSize);
+        GenerateHandSlots(Mathf.RoundToInt(thisUnit.loadedStats[StatType.HANDSIZE]));
         for (int i = 0; i < oldSlots.Count; i++)
         {
             if (oldSlots[i].reference != null)
@@ -109,7 +104,6 @@ public class PlayerHandPlus : HandPlus
 
     CardDisplay RenderCard(CardPlus card, Vector3 location = default)
     {
-        //scale and rotation for cards 
         Quaternion rotate = Quaternion.Euler(0, 0, 0);
         GameObject newCard = Instantiate(blankCard, location, rotate);
         newCard.transform.localScale = new Vector3(cardSize, cardSize, cardSize);
@@ -147,7 +141,6 @@ public class PlayerHandPlus : HandPlus
         yield return StartCoroutine(slot.FlipToCardPosition());
         if (deckCards.Count == 0)
         {
-            //keep an eye on this for index errors ~~~
             StartCoroutine(RecycleDeck());
         }
     }

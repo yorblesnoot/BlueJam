@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 public class HandPlus : MonoBehaviour
@@ -19,7 +18,7 @@ public class HandPlus : MonoBehaviour
 
     public void DrawPhase()
     {
-        while (handCards.Count < thisUnit.HandSize)
+        while (handCards.Count < thisUnit.loadedStats[StatType.HANDSIZE])
         {
             if (deckCards.Count == 0)
             {
