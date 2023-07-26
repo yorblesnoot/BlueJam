@@ -41,5 +41,6 @@ public class BattleLauncher : MapLauncher
 
         //initialize combat
         TurnManager.InitializeTurns();
+        SoundManager.PlaySound(SoundType.MUSICBATTLE);
     }
 }

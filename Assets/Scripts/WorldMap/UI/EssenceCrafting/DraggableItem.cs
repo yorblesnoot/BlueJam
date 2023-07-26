@@ -28,7 +28,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        
+        SoundManager.PlaySound(SoundType.INVENTORYGRAB);
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
@@ -50,12 +50,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         Physics.Raycast(ray, out RaycastHit Hit);
         Vector3 screenPoint = Hit.point;
         screenPoint = mainCanvas.transform.InverseTransformPoint(screenPoint);
-        screenPoint = new Vector3(screenPoint.x, screenPoint.y, 0);
+        screenPoint = new Vector3(screenPoint.x, screenPoint.y, -50);
         transform.localPosition = screenPoint;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        SoundManager.PlaySound(SoundType.INVENTORYDROP);
         if (essenceCrafting.essenceSlotContents != null) essenceCrafting.ShowEssenceDisplay(essenceCrafting.essenceSlotContents.essence);
         transform.SetParent(parentAfterDrag);
         if (parentAfterDrag.TryGetComponent<EssenceSlot>(out _)) essenceCrafting.EssenceSlotFilled(this);

@@ -18,9 +18,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8391db4e7b2f20442b834442e513a46b, type: 2}
   - {fileID: 11400000, guid: e054587526b91e74895b9c8b752856fc, type: 2}
   - {fileID: 11400000, guid: 4e3636f5cfa02ca4d8de3fd5f8adc59f, type: 2}
-  preDescription: Essence of a sniper.
   symbol: S
   iconColor:
     serializedVersion: 2
     rgba: 4282437897
+  hat: {fileID: 6261396977033212992, guid: 7a21474195fc7a94f84707d9594aa869, type: 3}
   essenceDescription: 'Essence of a sniper... Contains: *LongShot *PushHit *ShortWalk'
+  unitName: 

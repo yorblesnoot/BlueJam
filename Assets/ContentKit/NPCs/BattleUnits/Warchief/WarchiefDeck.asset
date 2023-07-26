@@ -20,9 +20,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 12195c26184ffe140b90078f4408bf10, type: 2}
   - {fileID: 11400000, guid: a2a9ad8d03e74d7418f3fd0c56b3e75d, type: 2}
   - {fileID: 11400000, guid: c02e1c4747e01d74d983e74c83ca5318, type: 2}
-  preDescription: Essence of the Warchief.
   symbol: W!
   iconColor:
     serializedVersion: 2
     rgba: 4278230271
+  hat: {fileID: 734857106146437271, guid: 98ad8c9a0a44bc54eae7191347fa66ba, type: 3}
   essenceDescription: 
+  unitName: 

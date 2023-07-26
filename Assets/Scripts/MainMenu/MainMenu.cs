@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
     }
     public void NewGameButton()
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         if(PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == 0)
             tutorialPrompt.SetActive(true);
         else starter.NewGame();
@@ -34,12 +35,14 @@ public class MainMenu : MonoBehaviour
 
     public void TutorialPromptNo()
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         PlayerPrefs.SetInt(nameof(TutorialFor.MAIN), -1);
         starter.NewGame();
     }
 
     public void TutorialPromptYes()
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         PlayerPrefs.SetInt(nameof(TutorialFor.MAIN), 1);
         foreach (string name in Enum.GetNames(typeof(TutorialFor)))
         {
@@ -50,17 +53,20 @@ public class MainMenu : MonoBehaviour
 
     public void ContinueButton()
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         SaveContainer saver = new(runData, loadLibrary);
         saver.LoadGame();
     }
 
     public void OptionsButton()
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         optionsWindow.SetActive(true);
     }
     
     public void ExitButton()
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         Application.Quit();
     }
 }

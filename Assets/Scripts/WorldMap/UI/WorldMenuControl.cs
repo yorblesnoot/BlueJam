@@ -34,6 +34,7 @@ public class WorldMenuControl : MonoBehaviour
     }
     public void ToggleWindow(GameObject window, bool value)
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         if (WorldPlayerControl.playerState != WorldPlayerState.IDLE && WorldPlayerControl.playerState != WorldPlayerState.MENUS) return;
         lastOpened = window;
         window.SetActive(value);

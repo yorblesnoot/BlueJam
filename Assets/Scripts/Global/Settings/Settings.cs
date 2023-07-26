@@ -4,5 +4,6 @@ using UnityEngine;
 
 public static class Settings
 {
-    public static SettingsProfile Profile;
+    public static DevSettings Dev;
+    public static PlayerSettings Player;
 }

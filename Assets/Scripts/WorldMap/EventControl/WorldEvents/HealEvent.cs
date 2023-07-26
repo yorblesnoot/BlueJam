@@ -9,6 +9,7 @@ public class HealEvent : WorldEvent
     
     public override void Activate()
     {
+        SoundManager.PlaySound(SoundType.GOTHEART);
         runData.playerStats.maxHealth += maxFactor;
         runData.currentHealth += Mathf.RoundToInt(healFactor * runData.playerStats.maxHealth);
         runData.currentHealth = Mathf.Clamp(runData.currentHealth, 0, runData.playerStats.maxHealth);

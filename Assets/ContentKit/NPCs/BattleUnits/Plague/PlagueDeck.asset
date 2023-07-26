@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
+  m_Name: PlagueDeck
+  m_EditorClassIdentifier: 
+  Id: ed40f24c-a712-4a20-b8ef-2fd39e70e018
+  deckContents:
+  - {fileID: 11400000, guid: 9d82f473b4eb8294290f6df02a89a072, type: 2}
+  - {fileID: 11400000, guid: 9e4460968712b554f992d6e25cbb15fa, type: 2}
+  - {fileID: 11400000, guid: d8e99f105552fba4f96a1dea4dfd31e1, type: 2}
+  symbol: P
+  iconColor:
+    serializedVersion: 2
+    rgba: 4278432259
+  hat: {fileID: 5271347508966097207, guid: 3571e0232b2e0334b8599d8fe2fafc1b, type: 3}
+  essenceDescription: 
+  unitName: 

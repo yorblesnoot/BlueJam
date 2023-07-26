@@ -6,6 +6,7 @@ public class RemovalEvent : WorldEvent
 {
     public override void Activate()
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         runData.RemoveStock++;
         base.Activate();
     }

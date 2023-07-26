@@ -16,9 +16,10 @@ MonoBehaviour:
   deckContents:
   - {fileID: 11400000, guid: 8356ab5dddb7d4d4d97d27bbb0bb99dc, type: 2}
   - {fileID: 11400000, guid: 14e1c741942f644498c99955ab5c1198, type: 2}
-  preDescription: Essence of a minion.
   symbol: o
   iconColor:
     serializedVersion: 2
     rgba: 4285822072
+  hat: {fileID: 7550745799460231510, guid: d1c30f76ca811194fb650c36dd98739f, type: 3}
   essenceDescription: 
+  unitName: Minion

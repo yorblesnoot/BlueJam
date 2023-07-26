@@ -66,7 +66,8 @@ public class WorldPlayerControl : MonoBehaviour
                 fogRing.transform.position = step;
                 mainCamera.transform.position = step + displacement;
                 yield return null;
-            }   
+            }
+            SoundManager.PlaySound(SoundType.SLIMESTEP);
 
             if (tileController.dangerTile == true)
             {

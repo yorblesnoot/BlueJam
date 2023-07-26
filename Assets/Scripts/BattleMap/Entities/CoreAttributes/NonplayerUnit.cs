@@ -17,11 +17,11 @@ public class NonplayerUnit : BattleUnit
     }
     public void ScaleWithDifficulty(int difficultyFactor)
     {
-        loadedStats[StatType.MAXHEALTH] *= 1 + difficultyFactor * Settings.Profile.HealthPerThreat;
-        loadedStats[StatType.DAMAGE] *= 1 + difficultyFactor * Settings.Profile.StatPerThreat;
-        loadedStats[StatType.BARRIER] *= 1 + difficultyFactor * Settings.Profile.StatPerThreat;
-        loadedStats[StatType.HEAL] *= 1 + difficultyFactor * Settings.Profile.StatPerThreat;
-        loadedStats[StatType.SPEED] *= 1 + difficultyFactor * Settings.Profile.SpeedPerThreat;
+        loadedStats[StatType.MAXHEALTH] *= 1 + difficultyFactor * Settings.Dev.HealthPerThreat;
+        loadedStats[StatType.DAMAGE] *= 1 + difficultyFactor * Settings.Dev.StatPerThreat;
+        loadedStats[StatType.BARRIER] *= 1 + difficultyFactor * Settings.Dev.StatPerThreat;
+        loadedStats[StatType.HEAL] *= 1 + difficultyFactor * Settings.Dev.StatPerThreat;
+        loadedStats[StatType.SPEED] *= 1 + difficultyFactor * Settings.Dev.SpeedPerThreat;
     }
 
     public override void TakeTurn()

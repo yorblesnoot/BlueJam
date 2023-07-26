@@ -13,17 +13,20 @@ public class OptionsWIndow : MonoBehaviour
     }
     public void ResetTutorials()
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         PlayerPrefs.SetInt(nameof(TutorialFor.MAIN), 0);
     }
 
     public void ToggleVSync()
     {
-        if(vSync.isOn) QualitySettings.vSyncCount = 1;
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
+        if (vSync.isOn) QualitySettings.vSyncCount = 1;
         else QualitySettings.vSyncCount = 0;
     }
 
     public void Close()
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         gameObject.SetActive(false);
     }
 }

@@ -21,12 +21,11 @@ public class EssenceCrafting : MonoBehaviour
 
     [SerializeField] WorldMenuControl worldMenuControl;
 
-    private void OnEnable()
+    private void Awake()
     {
         runData.essenceInventory = runData.essenceInventory.OrderBy(x => x.symbol).ToList();
         for( int i = 0; i < dragItems.Count; i++ )
         {
-            EssenceSlotFilled();
             dragItems[i].transform.SetParent(inventorySlots[i].transform, false);
             if(i < runData.essenceInventory.Count)
             {
@@ -37,12 +36,33 @@ public class EssenceCrafting : MonoBehaviour
                 //associate a draggable with a specific deck
                 dragItems[i].essence = runData.essenceInventory[i];
                 dragItems[i].mySymbol.text = runData.essenceInventory[i].symbol;
-                dragItems[i].image.color = runData.essenceInventory[i].iconColor;
+
+                GameObject hat = Instantiate(runData.essenceInventory[i].hat);
+                hat.transform.SetParent(dragItems[i].transform, false);
+                
+
+                Transform scalingCube = hat.transform.GetChild(0);
+                scalingCube.transform.SetParent(dragItems[i].transform, true);
+                hat.transform.SetParent(scalingCube, true);
+
+                scalingCube.transform.localScale = Vector3.one * 50;
+                Vector3 position = new(0, 0, -20);
+                scalingCube.transform.localPosition = position;
+                scalingCube.transform.localRotation = Quaternion.Euler(0,0,0);
             }
             else
             {
                 dragItems[i].gameObject.SetActive(false);
             }
+        }
+    }
+
+    private void OnEnable()
+    {
+        EssenceSlotFilled();
+        for (int i = 0; i < dragItems.Count; i++)
+        {
+            dragItems[i].transform.SetParent(inventorySlots[i].transform, false);
         }
     }
 
@@ -88,6 +108,7 @@ public class EssenceCrafting : MonoBehaviour
         //count the cards we're going to drop
         int dropCount = craftingSlotContents.Count;
         if (essenceSlotContents == null || dropCount == 0) return;
+        SoundManager.PlaySound(SoundType.CRAFTCONFIRMED);
         //create list of cards we'll drop
         List<CardPlus> actualDrops = new();
 

@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SettingsImporter : MonoBehaviour
 {
-    [SerializeField] SettingsProfile profile;
+    [SerializeField] DevSettings devProfile;
+    [SerializeField] PlayerSettings playerProfile;
     private void Awake()
     {
-        if(Settings.Profile == null) Settings.Profile = profile;
+        if(Settings.Dev == null) Settings.Dev = devProfile;
     }
 }

@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d2e09cbe6c9746489b5a70c6a1e13ff, type: 3}
+  m_Name: MiniPoisonCrc2
+  m_EditorClassIdentifier: 
+  forceTargetSelf: 1
+  targetNotRequired: 0
+  effectClass: 0
+  vfxStyleBefore: 0
+  vfxNameBefore: FartCloud
+  vfxStyleAfter: 0
+  vfxNameAfter: none
+  scalingMultiplier: 0
+  aoeShape: 0
+  aoeSize: 3
+  aoeGap: 2
+  userOriginalTile: {fileID: 0}
+  blockTrigger: 0
+  purgeable: 1
+  duration: 4
+  iconColor:
+    serializedVersion: 2
+    rgba: 4283423555
+  turnLapseEffect: {fileID: 11400000, guid: 5466e07a909423243b2dc24efbf89328, type: 2}

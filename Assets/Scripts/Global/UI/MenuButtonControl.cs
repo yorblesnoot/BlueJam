@@ -9,11 +9,13 @@ public class MenuButtonControl : MonoBehaviour
 
     public void MenuButtonClicked()
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         menu.SetActive(!menu.activeSelf);
     }
 
     public void MainMenuLinkClicked()
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         SceneManager.LoadScene(0);
     }
 }

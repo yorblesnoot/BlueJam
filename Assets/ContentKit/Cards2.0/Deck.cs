@@ -8,14 +8,12 @@ public class Deck : SOWithGUID
 {
     public List<CardPlus> deckContents;
     public string symbol;
-    public Color32 iconColor;
+
+    public GameObject hat;
+
     [HideInInspector] public string essenceDescription;
     [HideInInspector] public string unitName;
 
-    private void Reset()
-    {
-        iconColor = Color.white;
-    }
     public void Initialize()
     {
         List<string> cardNames = deckContents.Select(x=> x.displayName).ToList();

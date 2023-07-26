@@ -170,6 +170,7 @@ public class PlayerHandPlus : HandPlus
 
     IEnumerator AnimateRecyleCard(ICardDisplay card, GameObject spot)
     {
+        SoundManager.PlaySound(SoundType.CARDDEALT);
         card.transform.SetParent(spot.transform, true);
         card.transform.SetAsFirstSibling();
         Vector3 startPosition = card.transform.localPosition;
@@ -209,6 +210,7 @@ class CardSlot
 
     public IEnumerator FlipToCardPosition()
     {
+        SoundManager.PlaySound(SoundType.CARDDEALT);
         Vector3 startPosition = reference.transform.localPosition;
         Vector3 startScale = reference.transform.localScale;
         Quaternion startRotation = reference.transform.rotation;
@@ -233,6 +235,7 @@ class CardSlot
 
     public IEnumerator FlipToSpot()
     {
+        SoundManager.PlaySound(SoundType.CARDDEALT);
         Transform transform = reference.transform;
         EmphasizeCard emphasis = reference.gameObject.GetComponent<EmphasizeCard>();
         emphasis.readyEmphasis = false;

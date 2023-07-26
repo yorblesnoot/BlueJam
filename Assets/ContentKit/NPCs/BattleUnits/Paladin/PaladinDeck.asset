@@ -21,5 +21,6 @@ MonoBehaviour:
   iconColor:
     serializedVersion: 2
     rgba: 4290110714
+  hat: {fileID: 7378846531368617295, guid: 32d0623cdced6a542a0661831f8659a8, type: 3}
   essenceDescription: 'Essence of the Paladin. Contains:'
   unitName: Paladin

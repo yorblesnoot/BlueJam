@@ -17,9 +17,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 88535221f70034846b63e0356b93f064, type: 2}
   - {fileID: 11400000, guid: 2ffa4b0a193fb714b9480b5caad9122c, type: 2}
   - {fileID: 11400000, guid: 270cfc519866ae54db20b2dd4b9c53fe, type: 2}
-  preDescription: Essence of a mender.
   symbol: M
   iconColor:
     serializedVersion: 2
     rgba: 4286929617
+  hat: {fileID: 5395082189607745956, guid: 6b00c63c7fb39a34d95687fe2b85cc49, type: 3}
   essenceDescription: 'Essence of a mender... Contains: *MinorHeal *LongWalk *PushHit'
+  unitName: Mender

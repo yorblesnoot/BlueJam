@@ -58,6 +58,7 @@ public class DeckViewerUI : MonoBehaviour
             status.text = $"Removing a card would put you below the minimum deck size of {minimumDeckSize}...";
             return;
         }
+        SoundManager.PlaySound(SoundType.CARDREMOVED);
         runData.RemoveStock--;
         EventManager.updateWorldCounters?.Invoke();
         runData.playerDeck.deckContents.Remove(card);

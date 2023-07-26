@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: LesserPoison
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
+  targetNotRequired: 0
   effectClass: 0
   vfxStyleBefore: 0
   vfxNameBefore: none
@@ -25,10 +26,8 @@ MonoBehaviour:
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
   purgeable: 1
-  duration: 3
+  duration: 4
   iconColor:
     serializedVersion: 2
     rgba: 4283423555
-  applicationEffect: {fileID: 0}
   turnLapseEffect: {fileID: 11400000, guid: 5466e07a909423243b2dc24efbf89328, type: 2}
-  removalEffect: {fileID: 0}

@@ -21,5 +21,6 @@ MonoBehaviour:
   iconColor:
     serializedVersion: 2
     rgba: 4294792611
+  hat: {fileID: 6415567554520192123, guid: 6e7f416322fb1f24f8d8879f22286b0d, type: 3}
   essenceDescription: 
   unitName: 

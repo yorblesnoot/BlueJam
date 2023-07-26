@@ -29,5 +29,5 @@ MonoBehaviour:
   duration: 4
   iconColor:
     serializedVersion: 2
-    rgba: 0
+    rgba: 4279835094
   turnLapseEffect: {fileID: 11400000, guid: 4003ccd8c3a284a44bed4b60b8ac2b86, type: 2}
