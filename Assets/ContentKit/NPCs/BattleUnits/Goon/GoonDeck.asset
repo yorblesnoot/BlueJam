@@ -16,7 +16,7 @@ MonoBehaviour:
   deckContents:
   - {fileID: 11400000, guid: b294e0d5b7d3c02469af2418e29522f8, type: 2}
   - {fileID: 11400000, guid: 14e1c741942f644498c99955ab5c1198, type: 2}
-  symbol: G
+  symbol: g
   iconColor:
     serializedVersion: 2
     rgba: 4281293456
