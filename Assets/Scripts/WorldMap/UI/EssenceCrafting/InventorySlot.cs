@@ -5,6 +5,7 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 {
     public virtual void OnDrop(PointerEventData eventData)
     {
+        SoundManager.PlaySound(SoundType.INVENTORYDROP);
         ConfirmDrop(eventData);
     }
 

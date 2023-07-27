@@ -33,6 +33,10 @@ public class SettingSlider : MonoBehaviour
         Settings.UpdateSetting(thisSetting, slider.value);
         settingValue.text = (slider.value * 100).ToString();
         if (thisSetting == PlayerSetting.master_volume || thisSetting == PlayerSetting.music_volume || thisSetting == PlayerSetting.fx_volume)
+        {
+            Debug.Log("attempted update");
             SoundManager.UpdateVolume();
+        }
+            
     }
 }

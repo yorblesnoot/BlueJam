@@ -10,16 +10,19 @@ public static class SoundManager
 
     public static void PlaySound(SoundType type)
     {
-        SourceCheck();
-        FXSource.volume = Settings.Player[PlayerSetting.fx_volume] * Settings.Player[PlayerSetting.master_volume] * Settings.Dev.FXVolumeMod;
         if (Library.Cliptionary.TryGetValue(type, out AudioClip clip))
-            FXSource.PlayOneShot(clip);
+            PlaySound(clip);
+    }
+
+    public static void PlaySound(AudioClip clip)
+    {
+        SourceCheck();
+        FXSource.PlayOneShot(clip);
     }
 
     public static void PlayMusic(SoundType type)
     {
         SourceCheck();
-        MusicSource.volume = Settings.Player[PlayerSetting.music_volume] * Settings.Player[PlayerSetting.master_volume] * Settings.Dev.MusicVolumeMod;
         if (!Library.Cliptionary.TryGetValue(type, out AudioClip clip)) return;
         MusicSource.clip = clip;
         MusicSource.loop = true;
@@ -42,6 +45,7 @@ public static class SoundManager
 
     public static void UpdateVolume()
     {
+        SourceCheck();
         MusicSource.volume = Settings.Player[PlayerSetting.music_volume] * Settings.Player[PlayerSetting.master_volume] * Settings.Dev.MusicVolumeMod;
         FXSource.volume = Settings.Player[PlayerSetting.fx_volume] * Settings.Player[PlayerSetting.master_volume] * Settings.Dev.FXVolumeMod;
     }

@@ -15,6 +15,8 @@ public class CardEffectPlus : ScriptableObject
     public VFXStyle vfxStyleAfter;
     [StringInList(typeof(VFXHelper), "AllVFXNames")] public string vfxNameAfter;
 
+    public AudioClip effectSound;
+
     public float scalingMultiplier;
 
     [SerializeField] TileMapShape aoeShape;
@@ -42,6 +44,8 @@ public class CardEffectPlus : ScriptableObject
     {
         if (forceTargetSelf == true) targetCell = userOriginalTile;
         List<BattleUnit> targets = AcquireTargets(actor, targetCell, aoe);
+
+        if(effectSound != null) SoundManager.PlaySound(effectSound);
 
         VFXMachine.PlayVFX(vfxNameBefore, vfxStyleBefore, actor, targetCell);
         yield return targetCell.StartCoroutine(ActivateEffect(actor, targetCell, aoe, targets));
