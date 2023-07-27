@@ -23,10 +23,4 @@ public class OptionsWIndow : MonoBehaviour
         if (vSync.isOn) QualitySettings.vSyncCount = 1;
         else QualitySettings.vSyncCount = 0;
     }
-
-    public void Close()
-    {
-        SoundManager.PlaySound(SoundType.BUTTONPRESS);
-        gameObject.SetActive(false);
-    }
 }

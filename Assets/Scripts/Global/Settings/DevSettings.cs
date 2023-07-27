@@ -15,6 +15,10 @@ public class DevSettings : ScriptableObject
     [field: SerializeField] public float HealthPerThreat { get; private set; }
     [field: SerializeField] public float SpeedPerThreat { get; private set; }
 
+    [field: SerializeField] public float FXVolumeMod { get; private set; }
+    [field: SerializeField] public float MusicVolumeMod { get; private set; }
+
+
     private void Reset()
     {
         BossSpawnDistance = 50;
@@ -26,5 +30,8 @@ public class DevSettings : ScriptableObject
         StatPerThreat = .1f;
         HealthPerThreat = .05f;
         SpeedPerThreat = .01f;
+
+        FXVolumeMod = .5f;
+        MusicVolumeMod = 1f;
     }
 }

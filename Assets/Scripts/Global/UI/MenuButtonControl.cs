@@ -4,8 +4,10 @@ using UnityEngine;
 public class MenuButtonControl : MonoBehaviour
 {
     [SerializeField] GameObject menu;
-    [SerializeField] GameObject optionsButton;
     [SerializeField] GameObject menuButton;
+
+    [SerializeField] GameObject options;
+    [SerializeField] GameObject optionsButton;
 
     public void MenuButtonClicked()
     {
@@ -17,5 +19,10 @@ public class MenuButtonControl : MonoBehaviour
     {
         SoundManager.PlaySound(SoundType.BUTTONPRESS);
         SceneManager.LoadScene(0);
+    }
+
+    public void OptionButtonClicked()
+    {
+        options.SetActive(true);
     }
 }

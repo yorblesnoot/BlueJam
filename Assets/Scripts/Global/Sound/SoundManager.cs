@@ -5,30 +5,44 @@ using UnityEngine;
 public static class SoundManager
 {
     public static SoundLibrary Library;
-    public static AudioSource Source;
+    public static AudioSource FXSource;
+    public static AudioSource MusicSource;
 
     public static void PlaySound(SoundType type)
     {
-        CheckForSource();
-        if(Library.Cliptionary.TryGetValue(type, out AudioClip clip))
-            Source.PlayOneShot(clip);
+        SourceCheck();
+        FXSource.volume = Settings.Player[PlayerSetting.fx_volume] * Settings.Player[PlayerSetting.master_volume] * Settings.Dev.FXVolumeMod;
+        if (Library.Cliptionary.TryGetValue(type, out AudioClip clip))
+            FXSource.PlayOneShot(clip);
     }
 
     public static void PlayMusic(SoundType type)
     {
-        CheckForSource();
+        SourceCheck();
+        MusicSource.volume = Settings.Player[PlayerSetting.music_volume] * Settings.Player[PlayerSetting.master_volume] * Settings.Dev.MusicVolumeMod;
         if (!Library.Cliptionary.TryGetValue(type, out AudioClip clip)) return;
-        Source.clip = clip;
-        Source.loop = true;
-        Source.Play();
+        MusicSource.clip = clip;
+        MusicSource.loop = true;
+        MusicSource.Play();
     }
 
-    static void CheckForSource()
+    static void SourceCheck()
     {
-        if (Source == null)
+        if (FXSource == null)
         {
             GameObject speaker = new("Speaker");
-            Source = speaker.AddComponent<AudioSource>();
+            FXSource = speaker.AddComponent<AudioSource>();
         }
+        if (MusicSource == null)
+        {
+            GameObject speaker = new("Speaker");
+            MusicSource = speaker.AddComponent<AudioSource>();
+        }
+    }
+
+    public static void UpdateVolume()
+    {
+        MusicSource.volume = Settings.Player[PlayerSetting.music_volume] * Settings.Player[PlayerSetting.master_volume] * Settings.Dev.MusicVolumeMod;
+        FXSource.volume = Settings.Player[PlayerSetting.fx_volume] * Settings.Player[PlayerSetting.master_volume] * Settings.Dev.FXVolumeMod;
     }
 }

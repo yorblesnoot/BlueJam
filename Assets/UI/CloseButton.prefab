@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4762151525864183109}
   - component: {fileID: 4762151525864183110}
   - component: {fileID: 4762151525864183111}
+  - component: {fileID: 9001840648332169932}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -121,9 +122,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: WorldMenuControl, Assembly-CSharp
-        m_MethodName: CloseLast
+      - m_Target: {fileID: 9001840648332169932}
+        m_TargetAssemblyTypeName: UniversalCloseButton, Assembly-CSharp
+        m_MethodName: CloseButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -133,3 +134,16 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &9001840648332169932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4762151525864183105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55c494d9445d40542841440258eec261, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  windowToClose: {fileID: 0}

@@ -36,7 +36,7 @@ public class WorldLauncher : MapLauncher
         EventManager.updateWorldCounters.Invoke();
         EventManager.updateWorldHealth.Invoke();
 
-        SoundManager.PlaySound(SoundType.MUSICWORLD);
+        SoundManager.PlayMusic(SoundType.MUSICWORLD);
     }
 
     void GenerateBossSequence()
