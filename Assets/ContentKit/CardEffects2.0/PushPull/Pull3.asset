@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: AttractShot
   vfxStyleAfter: 0
   vfxNameAfter: none
+  effectSound: 7
   scalingMultiplier: -3
   aoeShape: 0
   aoeSize: 0

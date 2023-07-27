@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: Howl
+  effectSound: 9
   scalingMultiplier: -30
   aoeShape: 0
   aoeSize: 5

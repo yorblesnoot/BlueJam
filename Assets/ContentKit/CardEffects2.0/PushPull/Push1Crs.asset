@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: LineGust
   vfxStyleAfter: 0
   vfxNameAfter: none
+  effectSound: 6
   scalingMultiplier: 1
   aoeShape: 2
   aoeSize: 1

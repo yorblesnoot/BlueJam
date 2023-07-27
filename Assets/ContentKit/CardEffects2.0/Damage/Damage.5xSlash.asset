@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: GreenDiagSlash
   vfxStyleAfter: 0
   vfxNameAfter: ImpactSmall
+  effectSound: 14
   scalingMultiplier: 0.5
   aoeShape: 0
   aoeSize: 0

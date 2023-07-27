@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: Blink
   vfxStyleAfter: 0
   vfxNameAfter: Blink
+  effectSound: 2
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0

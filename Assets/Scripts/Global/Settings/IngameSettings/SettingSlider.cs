@@ -31,10 +31,9 @@ public class SettingSlider : MonoBehaviour
     {
         PlayerPrefs.SetFloat(thisSetting.ToString(), slider.value);
         Settings.UpdateSetting(thisSetting, slider.value);
-        settingValue.text = (slider.value * 100).ToString();
+        settingValue.text = Mathf.RoundToInt(slider.value * 100).ToString();
         if (thisSetting == PlayerSetting.master_volume || thisSetting == PlayerSetting.music_volume || thisSetting == PlayerSetting.fx_volume)
         {
-            Debug.Log("attempted update");
             SoundManager.UpdateVolume();
         }
             

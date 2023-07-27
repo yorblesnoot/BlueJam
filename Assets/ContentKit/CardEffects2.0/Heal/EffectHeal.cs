@@ -13,7 +13,7 @@ public class EffectHeal : CardEffectPlus
 
     public override string GetEffectDescription(IUnitStats player)
     {
-        return $"heal for <color=#1EFA61>{player.loadedStats[StatType.HEAL] * scalingMultiplier}</color>";
+        return $"heal for <color=#1EFA61>{Mathf.RoundToInt(player.loadedStats[StatType.HEAL] * scalingMultiplier)}</color>";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {

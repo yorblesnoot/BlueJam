@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: AllySwap
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
+  targetNotRequired: 0
   effectClass: 2
   vfxStyleBefore: 6
   vfxNameBefore: Blink
   vfxStyleAfter: 0
   vfxNameAfter: Blink
+  effectSound: 2
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0

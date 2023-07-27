@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: BuffCharge
   vfxStyleAfter: 0
   vfxNameAfter: none
+  effectSound: 8
   scalingMultiplier: 20
   aoeShape: 0
   aoeSize: 0

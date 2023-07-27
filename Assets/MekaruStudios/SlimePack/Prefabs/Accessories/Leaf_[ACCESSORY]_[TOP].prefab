@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7373205449819000502}
   - component: {fileID: 5907940820541014291}
   - component: {fileID: 8510061214052677081}
-  - component: {fileID: 759513389554167109}
   m_Layer: 0
   m_Name: Leaf_[ACCESSORY]_[TOP]
   m_TagString: Untagged
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &759513389554167109
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7861371688408044556}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7575697, y: 0.5318094, z: 0.27074933}
-  m_Center: {x: 0.002570495, y: 0.28363112, z: 0.004411325}
 --- !u!1001 &8833934629131906034
 PrefabInstance:
   m_ObjectHideFlags: 0

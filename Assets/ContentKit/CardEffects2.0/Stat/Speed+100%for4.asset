@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: Enrage
+  effectSound: 8
   scalingMultiplier: 100
   aoeShape: 0
   aoeSize: 0

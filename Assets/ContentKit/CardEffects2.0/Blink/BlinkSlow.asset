@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: BlinkSlow
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
+  targetNotRequired: 0
   effectClass: 1
   vfxStyleBefore: 6
   vfxNameBefore: Blink
   vfxStyleAfter: 0
   vfxNameAfter: Blink
+  effectSound: 2
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0

@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: RedLoopDown
   vfxStyleAfter: 0
   vfxNameAfter: none
+  effectSound: 9
   scalingMultiplier: -20
   aoeShape: 2
   aoeSize: 1

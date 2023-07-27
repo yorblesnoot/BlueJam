@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: CircleSlash
   vfxStyleAfter: 0
   vfxNameAfter: none
+  effectSound: 14
   scalingMultiplier: 1
   aoeShape: 1
   aoeSize: 1

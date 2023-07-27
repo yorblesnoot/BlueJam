@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: BloodNova
+  effectSound: 15
   scalingMultiplier: 2
   aoeShape: 0
   aoeSize: 2

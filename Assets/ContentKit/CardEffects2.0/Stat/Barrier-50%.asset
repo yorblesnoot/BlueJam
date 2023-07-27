@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: DescendingVibes
+  effectSound: 9
   scalingMultiplier: -50
   aoeShape: 0
   aoeSize: 0

@@ -21,6 +21,8 @@ public class EssenceCrafting : MonoBehaviour
 
     [SerializeField] WorldMenuControl worldMenuControl;
 
+    readonly int hatTiltAngle = -10;
+    readonly int hatProjectionDistance = 20;
     private void Awake()
     {
         runData.essenceInventory = runData.essenceInventory.OrderBy(x => x.symbol).ToList();
@@ -46,9 +48,10 @@ public class EssenceCrafting : MonoBehaviour
                 hat.transform.SetParent(scalingCube, true);
 
                 scalingCube.transform.localScale = Vector3.one * 50;
-                Vector3 position = new(0, 0, -20);
+                Vector3 position = new(0, 0, -hatProjectionDistance);
                 scalingCube.transform.localPosition = position;
-                scalingCube.transform.localRotation = Quaternion.Euler(0,0,0);
+                scalingCube.transform.localRotation = Quaternion.identity;
+                hat.transform.localRotation = Quaternion.Euler(hatTiltAngle,0,0);
             }
             else
             {

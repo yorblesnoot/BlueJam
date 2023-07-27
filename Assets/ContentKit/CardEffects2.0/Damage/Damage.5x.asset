@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: ImpactSmall
   vfxStyleAfter: 0
   vfxNameAfter: none
+  effectSound: 13
   scalingMultiplier: 0.5
   aoeShape: 0
   aoeSize: 0

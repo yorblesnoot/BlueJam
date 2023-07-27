@@ -20,5 +20,5 @@ MonoBehaviour:
   <StatPerThreat>k__BackingField: 0.1
   <HealthPerThreat>k__BackingField: 0.04
   <SpeedPerThreat>k__BackingField: 0.01
-  <FXVolumeMod>k__BackingField: 0.2
+  <FXVolumeMod>k__BackingField: 0.25
   <MusicVolumeMod>k__BackingField: 1

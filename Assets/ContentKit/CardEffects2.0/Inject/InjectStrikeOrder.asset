@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: BuffCharge
   vfxStyleAfter: 0
   vfxNameAfter: SpinRiseBlue
+  effectSound: 5
   scalingMultiplier: 1
   aoeShape: 0
   aoeSize: 0

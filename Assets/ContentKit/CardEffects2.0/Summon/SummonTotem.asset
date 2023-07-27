@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: SummonCircles
+  effectSound: 10
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 3

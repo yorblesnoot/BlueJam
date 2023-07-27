@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: RageBurst
+  effectSound: 15
   scalingMultiplier: 20
   aoeShape: 0
   aoeSize: 3

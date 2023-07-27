@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: CrossSlash
+  effectSound: 14
   scalingMultiplier: 1.5
   aoeShape: 2
   aoeSize: 2

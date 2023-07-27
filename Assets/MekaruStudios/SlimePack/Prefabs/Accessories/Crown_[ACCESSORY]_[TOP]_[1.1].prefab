@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 106234854784889389}
   - component: {fileID: 3951547607334583688}
   - component: {fileID: 1239124131894004034}
-  - component: {fileID: 325020155794251841}
   m_Layer: 0
   m_Name: Crown_[ACCESSORY]_[TOP]_[1.1]
   m_TagString: Untagged
@@ -85,19 +84,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &325020155794251841
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 734857106146437271}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.1931654, y: 0.5495119, z: 1.1931639}
-  m_Center: {x: 0.00000071525574, y: 0.1927399, z: 0.00000011920929}
 --- !u!1001 &6857467428248827625
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 6
   vfxNameAfter: LilSpines
+  effectSound: 14
   scalingMultiplier: 0.5
   aoeShape: 2
   aoeSize: 1

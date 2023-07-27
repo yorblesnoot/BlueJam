@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: BarrierLines
+  effectSound: 1
   scalingMultiplier: 3
   aoeShape: 0
   aoeSize: 0

@@ -9,5 +9,11 @@ public class SoundLibImporter : MonoBehaviour
     {
         library.Initialize();
         SoundManager.Library = library;
+        
+    }
+
+    private void Start()
+    {
+        SoundManager.UpdateVolume();
     }
 }

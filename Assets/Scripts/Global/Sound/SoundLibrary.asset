@@ -66,3 +66,13 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 9bed72dfb913fde4487b700ed25d1777, type: 3}
   - soundType: 11
     clip: {fileID: 0}
+  - soundType: 12
+    clip: {fileID: 8300000, guid: 45a4d7ab429d9684eb9208e70ced77ec, type: 3}
+  - soundType: 13
+    clip: {fileID: 8300000, guid: c517aa3350d96d14fba0879289894f9d, type: 3}
+  - soundType: 14
+    clip: {fileID: 8300000, guid: 51c69f3dd56721a46ad97404f75c910d, type: 3}
+  - soundType: 15
+    clip: {fileID: 8300000, guid: ec7c81b910943c74ab13cdee24930da3, type: 3}
+  - soundType: 16
+    clip: {fileID: 8300000, guid: cf9866351ef79104591bbc273ae2a34b, type: 3}

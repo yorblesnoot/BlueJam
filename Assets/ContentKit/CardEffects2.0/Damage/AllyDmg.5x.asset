@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: RedPuddle
+  effectSound: 14
   scalingMultiplier: 0.5
   aoeShape: 0
   aoeSize: 0

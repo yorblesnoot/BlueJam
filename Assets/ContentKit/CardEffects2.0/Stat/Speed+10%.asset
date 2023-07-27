@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: SpinRiseBlue
+  effectSound: 8
   scalingMultiplier: 10
   aoeShape: 0
   aoeSize: 0

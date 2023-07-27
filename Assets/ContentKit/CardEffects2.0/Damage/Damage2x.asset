@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: Damage2x
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
+  targetNotRequired: 0
   effectClass: 0
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: ImpactSmall
+  effectSound: 13
   scalingMultiplier: 2
   aoeShape: 0
   aoeSize: 0

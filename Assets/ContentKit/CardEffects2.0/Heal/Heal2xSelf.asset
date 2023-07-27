@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 6
   vfxNameAfter: GreenHeal
+  effectSound: 4
   scalingMultiplier: 2
   aoeShape: 0
   aoeSize: 0

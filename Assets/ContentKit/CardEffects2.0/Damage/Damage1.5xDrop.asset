@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: ShadowRise
   vfxStyleAfter: 5
   vfxNameAfter: ShadowDrop
+  effectSound: 16
   scalingMultiplier: 1.5
   aoeShape: 0
   aoeSize: 0

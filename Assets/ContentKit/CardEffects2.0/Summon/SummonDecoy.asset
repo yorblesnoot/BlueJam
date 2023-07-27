@@ -19,6 +19,7 @@ MonoBehaviour:
   vfxNameBefore: ShadowDrop
   vfxStyleAfter: 0
   vfxNameAfter: none
+  effectSound: 10
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0

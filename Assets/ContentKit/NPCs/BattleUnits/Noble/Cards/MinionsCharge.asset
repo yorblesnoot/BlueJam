@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: 74841243-08b5-4bf9-9cc4-0cd69a7d6957
   displayName: Fight for Me!
   art: {fileID: 21300000, guid: a59472258ed0e44a1a03c13b03d5bc04, type: 3}
-  cost: 2
+  cost: 1
   description: 'conjure 1 temporary copy of <color=#FFA500>Bullrush</color> to target''s
     hand. increase time by 1. '
   keywords: 'Range: 1-4 <color=blue>O</color>'

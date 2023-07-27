@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: PulseDeflect.7x
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
+  targetNotRequired: 0
   effectClass: 2
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: PulseShield
+  effectSound: 1
   scalingMultiplier: 0.7
   aoeShape: 0
   aoeSize: 3

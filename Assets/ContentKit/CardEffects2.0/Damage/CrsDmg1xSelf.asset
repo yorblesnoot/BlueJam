@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: CrsDmg1xSelf
   m_EditorClassIdentifier: 
   forceTargetSelf: 1
+  targetNotRequired: 0
   effectClass: 0
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 6
   vfxNameAfter: LilSpines
+  effectSound: 14
   scalingMultiplier: 1
   aoeShape: 2
   aoeSize: 1

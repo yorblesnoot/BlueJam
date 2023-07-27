@@ -17,6 +17,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     [SerializeField] InventorySlot originalSlot;
 
+    readonly int thrustDistance = 50;
     public void OnPointerEnter(PointerEventData eventData)
     {
         if(essenceCrafting.essenceSlotContents == null)
@@ -50,14 +51,15 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         Physics.Raycast(ray, out RaycastHit Hit);
         Vector3 screenPoint = Hit.point;
         screenPoint = mainCanvas.transform.InverseTransformPoint(screenPoint);
-        screenPoint = new Vector3(screenPoint.x, screenPoint.y, -50);
+        screenPoint = new Vector3(screenPoint.x, screenPoint.y, -thrustDistance);
         transform.localPosition = screenPoint;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
         if (essenceCrafting.essenceSlotContents != null) essenceCrafting.ShowEssenceDisplay(essenceCrafting.essenceSlotContents.essence);
-        transform.SetParent(parentAfterDrag);
+        transform.SetParent(parentAfterDrag, false);
+        transform.localPosition = Vector3.zero;
         if (parentAfterDrag.TryGetComponent<EssenceSlot>(out _)) essenceCrafting.EssenceSlotFilled(this);
         image.raycastTarget = true;
     }
