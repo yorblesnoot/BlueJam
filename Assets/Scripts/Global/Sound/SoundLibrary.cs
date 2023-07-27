@@ -27,19 +27,48 @@ public enum SoundType
 
 }
 
+public enum SoundTypeEffect
+{
+    NONE,
+    BARRIER,
+    BLINK,
+    BLOODPRICE,
+    HEAL,
+    INJECT,
+    PUSH,
+    PULL,
+    STATUP,
+    STATDOWN,
+    SUMMON,
+    WALK,
+    DIE,
+    ATTACKBLUNT,
+    ATTACKSHARP,
+    ATTACKEXPLOSIVE,
+    ATTACKWET,
+    ATTACKMYSTICAL
+}
+
 [CreateAssetMenu(fileName = "SoundLibrary", menuName = "ScriptableObjects/Singletons/SoundLibrary")]
 public class SoundLibrary : ScriptableObject
 {
     [SerializeField] List<AssignedClip> assignedClips;
+    [SerializeField] List<AssignedEffectClip> assignedEffectClips;
 
     public Dictionary<SoundType, AudioClip> Cliptionary;
+    public Dictionary<SoundTypeEffect, AudioClip> EffectCliptionary;
 
     public void Initialize()
     {
         Cliptionary = new();
+        EffectCliptionary = new();
         foreach (var cl in assignedClips)
         {
             Cliptionary.Add(cl.soundType, cl.clip);
+        }
+        foreach (var cl in assignedEffectClips)
+        {
+            EffectCliptionary.Add(cl.soundType, cl.clip);
         }
     }
 
@@ -49,5 +78,12 @@ public class SoundLibrary : ScriptableObject
 class AssignedClip
 {
     public SoundType soundType;
+    public AudioClip clip;
+}
+
+[System.Serializable]
+class AssignedEffectClip
+{
+    public SoundTypeEffect soundType;
     public AudioClip clip;
 }

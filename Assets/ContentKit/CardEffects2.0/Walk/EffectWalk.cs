@@ -8,6 +8,7 @@ public class EffectWalk : CardEffectPlus
 {
     private void Reset()
     {
+        effectSound = SoundTypeEffect.WALK;
         effectClass = CardClass.MOVE;
     }
     [Range(.1f, 1f)] public float walkDuration;

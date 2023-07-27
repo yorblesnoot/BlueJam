@@ -55,6 +55,7 @@ public class NonplayerUnit : BattleUnit
 
     public override void Die()
     {
+        base.Die();
         if (gameObject.CompareTag("Enemy") && isSummoned != true)
         {
             //when an enemy dies, add its deck to the player's inventory for later use

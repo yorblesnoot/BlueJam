@@ -7,6 +7,7 @@ public class EffectBloodPrice : CardEffectPlus
 {
     private void Reset()
     {
+        effectSound = SoundTypeEffect.BLOODPRICE;
         effectClass = CardClass.BUFF;
     }
 

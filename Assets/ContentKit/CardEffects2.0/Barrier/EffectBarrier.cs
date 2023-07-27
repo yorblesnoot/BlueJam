@@ -10,6 +10,7 @@ public class EffectBarrier : CardEffectPlus
 
     private void Reset()
     {
+        effectSound = SoundTypeEffect.BARRIER;
         effectClass = CardClass.BUFF;
     }
 

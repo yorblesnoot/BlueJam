@@ -7,6 +7,7 @@ public class EffectHeal : CardEffectPlus
 {
     private void Reset()
     {
+        effectSound = SoundTypeEffect.HEAL;
         effectClass = CardClass.BUFF;
     }
 

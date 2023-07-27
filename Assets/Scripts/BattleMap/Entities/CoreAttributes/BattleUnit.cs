@@ -83,5 +83,8 @@ public class BattleUnit : MonoBehaviour, IUnitStats
         myTile.GetComponent<BattleTileController>().unitContents = null;
     }
 
-    public virtual void Die() { }
+    public virtual void Die()
+    {
+        SoundManager.PlaySound(SoundTypeEffect.DIE);
+    }
 }

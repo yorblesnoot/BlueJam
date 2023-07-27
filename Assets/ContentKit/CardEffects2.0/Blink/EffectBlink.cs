@@ -8,6 +8,7 @@ public class EffectBlink : CardEffectPlus
 {
     private void Reset()
     {
+        effectSound = SoundTypeEffect.BLINK;
         effectClass = CardClass.MOVE;
     }
     [SerializeField] float delay;

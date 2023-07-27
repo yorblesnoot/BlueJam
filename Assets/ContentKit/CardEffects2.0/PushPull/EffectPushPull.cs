@@ -8,6 +8,7 @@ public class EffectPushPull : CardEffectPlus
 {
     private void Reset()
     {
+        effectSound = SoundTypeEffect.PUSH;
         effectClass = CardClass.ATTACK;
         duration = .3f;
     }

@@ -41,6 +41,7 @@ public class PlayerUnit : BattleUnit
 
     public override void Die()
     {
+        base.Die();
         //gameover
         isDead = true;
         TurnManager.deathPhase.RemoveListener(CheckForDeath);

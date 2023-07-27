@@ -10,6 +10,7 @@ public class EffectStat : CardEffectPlus
     public int duration;
     private void Reset()
     {
+        effectSound = SoundTypeEffect.STATUP;
         effectClass = CardClass.BUFF;
         duration = 0;
     }

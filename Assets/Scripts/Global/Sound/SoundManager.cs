@@ -14,10 +14,17 @@ public static class SoundManager
             PlaySound(clip);
     }
 
+    public static void PlaySound(SoundTypeEffect type)
+    {
+        if (Library.EffectCliptionary.TryGetValue(type, out AudioClip clip))
+            PlaySound(clip);
+    }
+
     public static void PlaySound(AudioClip clip)
     {
         SourceCheck();
-        FXSource.PlayOneShot(clip);
+        if(clip != null)
+            FXSource.PlayOneShot(clip);
     }
 
     public static void PlayMusic(SoundType type)

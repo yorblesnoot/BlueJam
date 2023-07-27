@@ -7,6 +7,7 @@ public class EffectSummon : CardEffectPlus
 {
     private void Reset()
     {
+        effectSound = SoundTypeEffect.SUMMON;
         effectClass = CardClass.SUMMON;
     }
     public GameObject entityToSummon;

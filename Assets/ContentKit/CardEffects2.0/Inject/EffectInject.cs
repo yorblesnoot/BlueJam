@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectInject", menuName = "ScriptableObjects/CardEffects/Inject")]
 public class EffectInject : CardEffectPlus
 {
+
     public enum InjectLocation { DECK, DISCARD, HAND }
     [SerializeField] InjectLocation location;
     readonly Dictionary<InjectLocation, string> locationNames = new()
@@ -17,6 +18,7 @@ public class EffectInject : CardEffectPlus
     [SerializeField] bool forceConsume;
     private void Reset()
     {
+        effectSound = SoundTypeEffect.INJECT;
         effectClass = CardClass.BUFF;
         forceConsume = true;
     }
