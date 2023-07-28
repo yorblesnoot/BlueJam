@@ -1,7 +1,8 @@
 using UnityEngine.SceneManagement;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class MenuButtonControl : MonoBehaviour
+public class MenuButtonControl : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] GameObject menu;
     [SerializeField] GameObject menuButton;
@@ -9,10 +10,16 @@ public class MenuButtonControl : MonoBehaviour
     [SerializeField] GameObject options;
     [SerializeField] GameObject optionsButton;
 
-    public void MenuButtonClicked()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        SoundManager.PlaySound(SoundType.BUTTONPRESS);
-        menu.SetActive(!menu.activeSelf);
+        //SoundManager.PlaySound(SoundType.BUTTONPRESS);
+        menu.SetActive(true);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        //SoundManager.PlaySound(SoundType.BUTTONPRESS);
+        menu.SetActive(false);
     }
 
     public void MainMenuLinkClicked()
@@ -23,6 +30,7 @@ public class MenuButtonControl : MonoBehaviour
 
     public void OptionButtonClicked()
     {
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
         options.SetActive(true);
     }
 }

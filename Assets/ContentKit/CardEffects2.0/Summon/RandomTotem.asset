@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d63e6e4550640c647bd6b18ddc08f297, type: 3}
+  m_Name: RandomTotem
+  m_EditorClassIdentifier: 
+  forceTargetSelf: 0
+  targetNotRequired: 0
+  effectClass: 3
+  vfxStyleBefore: 0
+  vfxNameBefore: none
+  vfxStyleAfter: 0
+  vfxNameAfter: SummonCircles
+  effectSound: 10
+  scalingMultiplier: 0
+  aoeShape: 0
+  aoeSize: 3
+  aoeGap: 0
+  userOriginalTile: {fileID: 0}
+  blockTrigger: 0
+  entityToSummon: {fileID: 5721908823824948755, guid: 63c92e51d7e2acf44b90088b5d314507, type: 3}

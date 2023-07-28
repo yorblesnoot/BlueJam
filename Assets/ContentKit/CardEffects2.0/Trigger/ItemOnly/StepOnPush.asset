@@ -9,21 +9,27 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d63e6e4550640c647bd6b18ddc08f297, type: 3}
-  m_Name: SummonTotem
+  m_Script: {fileID: 11500000, guid: d0ee5c551a020e0498bfb407790d89e4, type: 3}
+  m_Name: StepOnPush
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   targetNotRequired: 0
-  effectClass: 3
+  effectClass: 2
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
-  vfxNameAfter: SummonCircles
-  effectSound: 10
+  vfxNameAfter: none
+  effectSound: 0
   scalingMultiplier: 0
   aoeShape: 0
-  aoeSize: 3
+  aoeSize: 0
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  entityToSummon: {fileID: 5721908823824948755, guid: 63c92e51d7e2acf44b90088b5d314507, type: 3}
+  purgeable: 0
+  duration: 0
+  triggerIdentityCondition: 0
+  triggeringEffect: {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  triggersRequiredForActivation: 1
+  effectRecipient: 0
+  triggeredEffect: {fileID: 11400000, guid: 05fcbd2e88eaa0a4aae8c2c496f5ed3f, type: 2}

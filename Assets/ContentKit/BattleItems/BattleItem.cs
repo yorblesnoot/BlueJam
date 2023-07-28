@@ -12,4 +12,9 @@ public class BattleItem : SOWithGUID
     public List<CardEffectPlus> effects;
 
     public string description;
+
+    private void Reset()
+    {
+        thumbnailColor = Color.white;
+    }
 }
