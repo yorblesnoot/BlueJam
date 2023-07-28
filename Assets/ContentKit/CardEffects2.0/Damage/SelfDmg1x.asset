@@ -18,7 +18,7 @@ MonoBehaviour:
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
-  vfxNameAfter: ImpactSmall
+  vfxNameAfter: ShadowRise
   effectSound: 13
   scalingMultiplier: 1
   aoeShape: 0

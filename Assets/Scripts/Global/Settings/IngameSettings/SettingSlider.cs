@@ -1,3 +1,4 @@
+using Palmmedia.ReportGenerator.Core;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -25,13 +26,13 @@ public class SettingSlider : MonoBehaviour
 
     private void OnEnable()
     {
-        slider.value = PlayerPrefs.GetFloat(thisSetting.ToString());
+        slider.value = Settings.Player[thisSetting];
     }
     public void OnSliderChange()
     {
         PlayerPrefs.SetFloat(thisSetting.ToString(), slider.value);
         Settings.UpdateSetting(thisSetting, slider.value);
-        settingValue.text = Mathf.RoundToInt(slider.value * 100).ToString();
+        settingValue.text = Mathf.RoundToInt(slider.value * 100).ToString() + "%";
         if (thisSetting == PlayerSetting.master_volume || thisSetting == PlayerSetting.music_volume || thisSetting == PlayerSetting.fx_volume)
         {
             SoundManager.UpdateVolume();

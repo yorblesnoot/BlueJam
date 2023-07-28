@@ -12,7 +12,6 @@ public enum PlayerSetting
 public static class Settings
 {
     public static DevSettings Dev;
-
     public static Dictionary<PlayerSetting, float> Player;
 
     public static void LoadPlayerSettings()

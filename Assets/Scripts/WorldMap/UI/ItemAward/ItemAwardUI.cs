@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class ItemAwardUI : MonoBehaviour
 {
-    [SerializeField]ItemPool pool;
+    [SerializeField] ItemPool pool;
     List<BattleItem> awardedItems;
 
-    public List<AwardedItemOption> awardSlots;
+    [SerializeField] List<AwardedItemOption> awardSlots;
 
     [SerializeField] RunData runData;
 
-    [SerializeField] GameObject menu;
+    [SerializeField] GameObject awardScreen;
 
     private void Awake()
     {
@@ -19,22 +19,21 @@ public class ItemAwardUI : MonoBehaviour
     }
     public void ShowAwardableItems()
     {
-        menu.SetActive(true);
+        awardScreen.SetActive(true);
         awardedItems = new();
         foreach (var item in awardSlots)
         {
-
             //pull random items from the award list for each slot
-            int awardIndex = Random.Range(0, pool.awardableItems.Count);
-            try
-            {
+            if(pool.awardableItems.Count > 0)
+            { 
+                int awardIndex = Random.Range(0, pool.awardableItems.Count);
                 item.DisplayItem(pool.awardableItems[awardIndex]);
 
                 //move the displayed items into a different list
                 awardedItems.Add(pool.awardableItems[awardIndex]);
                 pool.awardableItems.RemoveAt(awardIndex);
             }
-            catch
+            else
             {
                 item.DisplayItem(null);
                 break;
@@ -49,6 +48,6 @@ public class ItemAwardUI : MonoBehaviour
         awardedItems.Remove(award);
         pool.awardableItems.AddRange(awardedItems);
         EventManager.updateItemUI.Invoke();
-        menu.SetActive(false);
+        awardScreen.SetActive(false);
     }
 }

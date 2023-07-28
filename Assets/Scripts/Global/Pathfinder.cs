@@ -31,7 +31,7 @@ public class Pathfinder
             Vector2Int globalKey = localKey + globalOffset;
             int penalty = 0;
             if (badTiles.Contains(worldMap[globalKey.x,globalKey.y]))
-                penalty++;
+                penalty+=2;
             nodeMap.Add(localKey, new Node { location = localKey, reference = MapTools.gameMap[localKey], blocked = false, P = penalty });
         }
     }
