@@ -17,7 +17,7 @@ public class EffectRecurring : CardEffectPlus
     {
         turnLapseEffect.Initialize();
         string lapseDescription = turnLapseEffect.GenerateDescription(player);
-        return $"on target: {lapseDescription} each action for <color=blue>{duration}</color> actions";
+        return $"{lapseDescription} to target each action for <color=blue>{duration}</color> actions";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {

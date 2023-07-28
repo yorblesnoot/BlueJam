@@ -15,15 +15,15 @@ MonoBehaviour:
   Id: 0693ae95-75b7-40b1-9447-577095d1a2f7
   deckContents:
   - {fileID: 11400000, guid: 9d82f473b4eb8294290f6df02a89a072, type: 2}
-  - {fileID: 11400000, guid: 9e4460968712b554f992d6e25cbb15fa, type: 2}
-  - {fileID: 11400000, guid: d8e99f105552fba4f96a1dea4dfd31e1, type: 2}
-  - {fileID: 11400000, guid: 9d82f473b4eb8294290f6df02a89a072, type: 2}
-  - {fileID: 11400000, guid: 9e4460968712b554f992d6e25cbb15fa, type: 2}
-  - {fileID: 11400000, guid: d8e99f105552fba4f96a1dea4dfd31e1, type: 2}
+  - {fileID: 11400000, guid: 5c0197f042e7f614db3cbaba01138758, type: 2}
+  - {fileID: 11400000, guid: 1ce12f84fd283ef42802065be7bc04f0, type: 2}
+  - {fileID: 11400000, guid: a05f8b0a2a741eb4dad8d818d96d93ed, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
+  - {fileID: 11400000, guid: dffaba21e454c2a4eb030abee740e28c, type: 2}
+  - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
   symbol: ??
-  iconColor:
-    serializedVersion: 2
-    rgba: 4294967295
   hat: {fileID: 7861371688408044556, guid: 3e6bf70ee875fba4d99acdd7fea73422, type: 3}
   essenceDescription: 'Essence of the Player. Contains:'
   unitName: Player

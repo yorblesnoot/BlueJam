@@ -66,12 +66,20 @@ public class CardEffectPlus : ScriptableObject
     {
         string baseDescription = GetEffectDescription(unit);
         if(aoeSize > 0) baseDescription = AppendAOEInfo(baseDescription);
+        if (forceTargetSelf) 
+        {
+            if (aoeSize > 0)
+                baseDescription += " around user";
+            else baseDescription += " on user";
+        }
         return baseDescription;
     }
 
     internal string AppendAOEInfo(string description)
     {
-        return description + $" in a <color=red>{aoeSize}{aoeShapeName[aoeShape]}</color> AOE";
+        string output = description;
+        output += $" in a <color=red>{aoeSize}{aoeShapeName[aoeShape]}</color> AOE";
+        return output;
     }
 
     public virtual string GetEffectDescription(IUnitStats unit)

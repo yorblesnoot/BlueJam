@@ -67,6 +67,7 @@ public class WorldEventHandler : MonoBehaviour
         }
 
         List<Vector2Int> adjacentPositions = MapTools.VectorToMap(transform.position).GetAdjacentCoordinates();
+        adjacentPositions.Add(MapTools.VectorToMap(transform.position));
         foreach(Vector2Int position in adjacentPositions)
         {
             GameObject tile = MapTools.MapToTile(position);

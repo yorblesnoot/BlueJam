@@ -19,7 +19,7 @@ MonoBehaviour:
   description: 'heal for <color=#1EFA61>10</color>. '
   keywords: 'Range: 0-2 <color=blue>O</color>'
   targetShape: 0
-  targetSize: 2
+  targetSize: 4
   targetGap: 0
   needsPath: 0
   isCurse: 0

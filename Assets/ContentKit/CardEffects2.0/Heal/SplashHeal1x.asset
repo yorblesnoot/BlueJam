@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bcd7d8637bc1cbd4cad686ac9fbf943d, type: 3}
-  m_Name: SplashHeal.5x
+  m_Name: SplashHeal1x
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   targetNotRequired: 0
@@ -20,7 +20,7 @@ MonoBehaviour:
   vfxStyleAfter: 0
   vfxNameAfter: HealBurst
   effectSound: 4
-  scalingMultiplier: 0.5
+  scalingMultiplier: 1
   aoeShape: 1
   aoeSize: 1
   aoeGap: 0

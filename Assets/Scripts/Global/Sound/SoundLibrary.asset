@@ -42,6 +42,8 @@ MonoBehaviour:
   - soundType: 14
     clip: {fileID: 8300000, guid: 555196efe3d9e4a42bb745176cf4f30a, type: 3}
   - soundType: 15
+    clip: {fileID: 8300000, guid: 3de1402d37889ab4f9eb2c201001f640, type: 3}
+  - soundType: 16
     clip: {fileID: 8300000, guid: 8b78fe3dfcb651a43af3a1af1f2d0f58, type: 3}
   assignedEffectClips:
   - soundType: 1

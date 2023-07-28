@@ -81,7 +81,7 @@ public class CardPlus : SOWithGUID
         IUnitStats stats = player.GetComponent<IUnitStats>();
         for (int i = 0; i < effects.Count; i++)
         {
-            description += $"{effects[i].GenerateDescription(stats)}.";
+            description += $"{effects[i].GenerateDescription(stats).FirstToUpper()}.";
             description += " ";
             //Environment.NewLine
         }

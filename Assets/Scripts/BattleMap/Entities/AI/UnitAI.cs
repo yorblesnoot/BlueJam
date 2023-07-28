@@ -105,9 +105,9 @@ public class UnitAI : MonoBehaviour
     private float CalculateFavor(BattleTileController moveTile, CardPlus card)
     {
         float favor = 0f;
+        Vector2Int moveVect = MapTools.VectorToMap(moveTile.transform.position);
         foreach (CardEffectPlus effect in card.effects)
         {
-            Vector2Int moveVect = MapTools.VectorToMap(moveTile.transform.position);
             if (effect.effectClass == CardClass.MOVE)
             {
                 favor += EntityScan(moveVect, personality.interestHostile, personality.interestFriendly, personality.proximityHostile, personality.proximityFriendly);
@@ -118,11 +118,25 @@ public class UnitAI : MonoBehaviour
             }
             else
             {
-                List<BattleUnit> targetables = CellTargeting.AreaTargets(moveTile.gameObject, gameObject.tag, effect.effectClass, effect.aoe);
+                List<BattleUnit> targetables;
+                if(effect.forceTargetSelf) targetables = CellTargeting.AreaTargets(MapTools.VectorToTile(transform.position), gameObject.tag, effect.effectClass, effect.aoe);
+                else targetables = CellTargeting.AreaTargets(moveTile.gameObject, gameObject.tag, effect.effectClass, effect.aoe);
+                
                 if (effect.effectClass == CardClass.ATTACK)
                     favor += targetables.Count * personality.interestAttack;
                 else if (effect.effectClass == CardClass.BUFF)
-                    favor += targetables.Count * personality.interestBuff;
+                {
+                    if(effect.GetType() != typeof(EffectHeal))
+                    {
+                        favor += targetables.Count * personality.interestBuff;
+                        continue;
+                    }
+                    foreach (var target in targetables)
+                    {
+                        if (target.currentHealth < target.loadedStats[StatType.MAXHEALTH]) favor += personality.interestBuff;
+                    }
+                }
+                    
             }
         }
         Debug.Log($"{gameObject.name}: Favor for targeting {moveTile.transform.position} with {card.name} is {favor}.");

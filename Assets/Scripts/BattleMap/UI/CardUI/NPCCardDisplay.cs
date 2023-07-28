@@ -33,12 +33,12 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
             image.color = new Color32(176, 176, 176, 255); //gray
 
         }
-        else if (card.cardClass.Contains(CardClass.ATTACK) && card.cardClass.Contains(CardClass.BUFF))
+        /*else if (card.cardClass.Contains(CardClass.ATTACK) && card.cardClass.Contains(CardClass.BUFF))
         {
             image.sprite = mixed;
             image.color = new Color32(253, 223, 30, 255); //yellow
 
-        }
+        }*/
         else if (card.cardClass.Contains(CardClass.MOVE) && card.cardClass.Contains(CardClass.ATTACK))
         {
             image.sprite = jumpAttack;
