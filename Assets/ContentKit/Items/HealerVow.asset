@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e47b3aa25f922944ca02e4d68bc62625, type: 3}
-  m_Name: PunyNerd
+  m_Name: HealerVow
   m_EditorClassIdentifier: 
-  Id: 5727827a-9dd5-44fd-85c8-3c3f84e7d54a
-  thumbnail: {fileID: 21300000, guid: 33a6203d7c3a9244ba0e334f4fe0ac3a, type: 3}
+  Id: 197deab0-8362-4aaf-bdb0-60d857e61fab
+  thumbnail: {fileID: 21300000, guid: ff540c47ce362b14586113013966b811, type: 3}
   thumbnailColor:
     serializedVersion: 2
-    rgba: 4293853695
-  description: Your hand size is increased by 2, but your damage is reduced.
+    rgba: 4292700671
+  description: 
   mods:
-  - {fileID: 11400000, guid: 0415eb1c349038d429a326463e63ddd1, type: 2}
-  - {fileID: 11400000, guid: 0415eb1c349038d429a326463e63ddd1, type: 2}
   - {fileID: 11400000, guid: 80b8b2a3aa2241a4c89fc68649fabf52, type: 2}
+  - {fileID: 11400000, guid: 74baf2450da07414398e770b536770cb, type: 2}

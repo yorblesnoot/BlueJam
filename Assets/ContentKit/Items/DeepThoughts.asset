@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faf01b78a6872684ab53675f17ed6943, type: 3}
+  m_Script: {fileID: 11500000, guid: e47b3aa25f922944ca02e4d68bc62625, type: 3}
   m_Name: DeepThoughts
   m_EditorClassIdentifier: 
-  Id: 0aa837fe-0335-49b8-9182-a6e6679ab214
+  Id: 508e6fd1-d476-4388-b230-a7860c94c36a
   thumbnail: {fileID: 21300000, guid: 0d6fe719ca1a6304b86fd5a8d517fa48, type: 3}
   thumbnailColor:
     serializedVersion: 2
     rgba: 4289849107
-  effects:
-  - {fileID: 11400000, guid: 2834426337460ae4c93df2bac8f2254b, type: 2}
   description: Increase your hand size by 1.
+  mods:
+  - {fileID: 11400000, guid: 0415eb1c349038d429a326463e63ddd1, type: 2}

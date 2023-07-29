@@ -11,4 +11,10 @@ public class Item : SOWithGUID
     {
         thumbnailColor = Color.white;
     }
+    
+    public virtual void PlayerGetItem(RunData runData)
+    {
+        runData.itemInventory.Add(this);
+        EventManager.updateItemUI.Invoke();
+    }
 }

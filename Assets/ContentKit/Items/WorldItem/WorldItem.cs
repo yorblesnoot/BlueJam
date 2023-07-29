@@ -6,11 +6,12 @@ using UnityEngine;
 public class WorldItem : Item
 {
     [SerializeField] List<ItemMod> mods;
-    public void ActivateItem(Unit player)
+    public override void PlayerGetItem(RunData runData)
     {
+        base.PlayerGetItem(runData);
         foreach (var mod in mods)
         {
-            mod.ModifyPlayer(player);
+            mod.ModifyPlayer(runData.playerStats);
         }
     }
 }

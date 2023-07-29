@@ -9,15 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: faf01b78a6872684ab53675f17ed6943, type: 3}
-  m_Name: FragileSpeedster
+  m_Script: {fileID: 11500000, guid: e47b3aa25f922944ca02e4d68bc62625, type: 3}
+  m_Name: FragileSpeed
   m_EditorClassIdentifier: 
-  Id: f9516029-60e9-4f02-8be8-29a32776ca9a
+  Id: caaa7855-1cf6-4a34-9408-ce40c98da5ee
   thumbnail: {fileID: 21300000, guid: ed8ef41e0593c444f89985400bb18768, type: 3}
   thumbnailColor:
     serializedVersion: 2
     rgba: 4278243327
-  effects:
-  - {fileID: 11400000, guid: dd11a32b6c77b224fbdd022dc79cec99, type: 2}
-  - {fileID: 11400000, guid: 95697e361d50e4a4788957d5531c0127, type: 2}
-  description: You are permanently faster, but your damage is reduced.
+  description: You are faster, but your damage is reduced.
+  mods:
+  - {fileID: 11400000, guid: 6850ef645c8bd9d4da9f307ed59280e3, type: 2}
+  - {fileID: 11400000, guid: 80b8b2a3aa2241a4c89fc68649fabf52, type: 2}

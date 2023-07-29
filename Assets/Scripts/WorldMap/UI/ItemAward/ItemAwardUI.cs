@@ -44,10 +44,10 @@ public class ItemAwardUI : MonoBehaviour
     public void AwardItem(Item award)
     {
         //return the unselected items to the pool and give the player the selected item
-        runData.itemInventory.Add(award);
+        
         awardedItems.Remove(award);
         pool.awardableItems.AddRange(awardedItems);
-        EventManager.updateItemUI.Invoke();
+        award.PlayerGetItem(runData);
         awardScreen.SetActive(false);
     }
 }
