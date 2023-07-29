@@ -39,7 +39,7 @@ public class BattleUnit : Unit
         if (deflectHealth > 0) damage = barrierTracker.ReceiveDeflectDamage(damage);
         if (shieldHealth > 0) damage = barrierTracker.ReceiveShieldDamage(damage);
 
-        ReduceHealth(damage);
+        ModifyHealth(damage);
         unitAnimator.Animate(AnimType.DAMAGED);
     }
 
@@ -48,11 +48,11 @@ public class BattleUnit : Unit
         if (currentHealth <= 0) Die();
     }
 
-    public virtual void ReduceHealth(int reduction)
+    public virtual void ModifyHealth(int reduction)
     {
         currentHealth -= reduction;
         if (currentHealth > loadedStats[StatType.MAXHEALTH]) currentHealth = Mathf.RoundToInt(loadedStats[StatType.MAXHEALTH]);
-        myUI.UpdateHealth();
+        myUI.UpdateHealth(reduction);
     }
 
     public void ReportCell()
@@ -71,4 +71,6 @@ public class BattleUnit : Unit
     {
         SoundManager.PlaySound(SoundTypeEffect.DIE);
     }
+
+    public virtual void SpendBeats(int beats) { }
 }

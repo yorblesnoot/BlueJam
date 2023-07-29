@@ -4,6 +4,7 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
 
+public class BeatUpdate : UnityEvent<float> { }
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager Main { get; private set; }
@@ -15,7 +16,7 @@ public class TurnManager : MonoBehaviour
     public static UnityEvent unitsReport = new();
     public static UnityEvent deathPhase = new();
 
-    public static UnityEvent updateBeatCounts = new();
+    public static BeatUpdate updateBeatCounts = new();
     public static UnityEvent initialPositionReport = new();
 
     public static readonly int beatThreshold = 2;
@@ -37,7 +38,6 @@ public class TurnManager : MonoBehaviour
     {
         //tell every unit on the map to report their turn
         unitsReport?.Invoke();
-        updateBeatCounts?.Invoke();
         initialPositionReport?.Invoke();
     }
 
@@ -75,7 +75,7 @@ public class TurnManager : MonoBehaviour
 
     public static void ShowPossibleTurnTakers(int beatCost)
     {
-        foreach(NonplayerUnit turnTaker in turnTakers.OfType<NonplayerUnit>())
+        foreach(NonplayerUnit turnTaker in turnTakers)
         {
             float expenditure = GetBeatCost(beatCost, turnTaker, playerUnit);
             if (turnTaker.loadedStats[StatType.BEATS] + expenditure >= beatThreshold)
@@ -87,23 +87,36 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    public static void SpendBeats(BattleUnit owner, int beats)
+    public static void NPCSpendBeats(NonplayerUnit owner, int beats)
     {
         owner.myHand.DrawPhase();
         PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
-        if (owner.gameObject.CompareTag("Player"))
+
+        owner.loadedStats[StatType.BEATS] -= beats;
+        EntityUI npUI = owner.myUI;
+        npUI.UpdateBeats(beats);
+        FinalizeTurn(owner);
+    }
+
+    public static void PlayerSpendBeats(int beats)
+    {
+        playerUnit.myHand.DrawPhase();
+        PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
+
+        Tutorial.CompleteStage(TutorialFor.BATTLEDAMAGE, 1, true);
+        //distribute beats to all units based on their individual speeds when the player acts
+        foreach (NonplayerUnit turnTaker in turnTakers)
         {
-            
-            Tutorial.CompleteStage(TutorialFor.BATTLEDAMAGE, 1, true);
-            //distribute beats to all units based on their individual speeds when the player acts
-            for (int entry = 0; entry < turnTakers.Count; entry++)
-            {
-                float beatChange = GetBeatCost(beats, turnTakers[entry], playerUnit);
-                turnTakers[entry].loadedStats[StatType.BEATS] += beatChange;
-            }
+            float beatChange = GetBeatCost(beats, turnTaker, playerUnit);
+            turnTaker.loadedStats[StatType.BEATS] += beatChange;
+            EntityUI npUI = turnTaker.myUI;
+            npUI.UpdateBeats(-beatChange);
         }
-        else owner.loadedStats[StatType.BEATS] -= beats;
-        updateBeatCounts?.Invoke();
+        FinalizeTurn(playerUnit);
+    }
+
+    static void FinalizeTurn(BattleUnit owner)
+    {
         owner.buffTracker.DurationProc();
         deathPhase?.Invoke();
         Main.StartCoroutine(WaitForTurn());

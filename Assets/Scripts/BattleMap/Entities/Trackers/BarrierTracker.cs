@@ -21,13 +21,13 @@ public class BarrierTracker : MonoBehaviour
         deflectInstances.Add(amount);
         deflectDurations.Add(deflectLength);
         unitActions.deflectHealth = GetTotalDeflect();
-        unitActions.myUI.UpdateBarriers();
+        unitActions.myUI.UpdateDeflect(-amount);
     }
 
     public void AddShield(int amount)
     {
         unitActions.shieldHealth += amount;
-        unitActions.myUI.UpdateBarriers();
+        unitActions.myUI.UpdateShield(-amount);
     }
 
     public void DeflectLapse()
@@ -35,10 +35,11 @@ public class BarrierTracker : MonoBehaviour
         for(int i = 0; i < deflectInstances.Count; i++)
         {
             deflectDurations[i]--;
-            if (deflectDurations[i] <= 0) RemoveDeflectInstance(i);
+            if (deflectDurations[i] > 0) continue;
+            unitActions.myUI.UpdateDeflect(deflectInstances[i]);
+            RemoveDeflectInstance(i);
         }
         unitActions.deflectHealth = GetTotalDeflect();
-        unitActions.myUI.UpdateBarriers();
     }
     public void RemoveDeflectInstance(int i)
     {
@@ -49,7 +50,8 @@ public class BarrierTracker : MonoBehaviour
 
     public int ReceiveDeflectDamage(int incomingDamage)
     {
-        while(incomingDamage > 0 && deflectInstances.Count > 0)
+        unitActions.myUI.UpdateDeflect(incomingDamage);
+        while (incomingDamage > 0 && deflectInstances.Count > 0)
         {
             deflectInstances[0] -= incomingDamage;
             if (deflectInstances[0] <= 0)
@@ -60,14 +62,13 @@ public class BarrierTracker : MonoBehaviour
             else incomingDamage = 0;
         }
         unitActions.deflectHealth = GetTotalDeflect();
-        unitActions.myUI.UpdateBarriers();
         return incomingDamage;
     }
 
     public int ReceiveShieldDamage(int incomingDamage)
     {
         unitActions.shieldHealth -= incomingDamage;
-        unitActions.myUI.UpdateBarriers();
+        unitActions.myUI.UpdateShield(incomingDamage);
         if (unitActions.shieldHealth <= 0)
         {
             incomingDamage = Mathf.Abs(unitActions.shieldHealth);

@@ -17,18 +17,25 @@ public class EntityUI : MonoBehaviour
 
     [field: SerializeField]public BuffUI buffUI { get; set; }
 
-    public void UpdateHealth()
+    public void UpdateHealth(int change)
     {
-        StartCoroutine(UpdateBar(unitActions.currentHealth, Mathf.RoundToInt(unitActions.loadedStats[StatType.MAXHEALTH]), sliderHealth));
+        StartCoroutine(UpdateBar(change, Mathf.RoundToInt(unitActions.loadedStats[StatType.MAXHEALTH]), sliderHealth));
     }
 
-    public void UpdateBarriers()
+    public void UpdateDeflect(int amount)
     {
         if(unitActions.deflectHealth > visualDeflectMax) visualDeflectMax = unitActions.deflectHealth;
-        if(unitActions.shieldHealth > visualShieldMax) visualShieldMax = unitActions.shieldHealth;
-        StartCoroutine(UpdateBar(unitActions.deflectHealth, visualDeflectMax, sliderDeflect));
-        StartCoroutine(UpdateBar(unitActions.shieldHealth, visualShieldMax, sliderShield));
+        
+        StartCoroutine(UpdateBar(amount, visualDeflectMax, sliderDeflect));
+        
     }
+
+    public void UpdateShield(int amount)
+    {
+        if (unitActions.shieldHealth > visualShieldMax) visualShieldMax = unitActions.shieldHealth;
+        StartCoroutine(UpdateBar(amount, visualShieldMax, sliderShield));
+    }
+    
 
     public virtual void InitializeHealth()
     {
@@ -39,21 +46,17 @@ public class EntityUI : MonoBehaviour
         SetBar(unitActions.shieldHealth, visualShieldMax, sliderShield);
     }
 
-    public IEnumerator UpdateBar(float current, float max, Slider slider, bool vanish = true)
+    readonly int changeSteps = 20;
+    public IEnumerator UpdateBar(float change, float max, Slider slider, bool vanish = true)
     {
-        if(current > 0) { slider.gameObject.SetActive(true);}
-        int changeInterval = 10;
-
-        float toValue = current / max;
-
-        float mod = (slider.value - toValue) / changeInterval;
-
-        for (int count = 0; count < changeInterval; count++)
+        slider.gameObject.SetActive(true);
+        float sliderChange = change / max;
+        for(int i = 0; i < changeSteps; i++)
         {
-            slider.value -= mod;
-            yield return new WaitForSeconds(.01f);
+            slider.value -= sliderChange / changeSteps;
+            yield return null;
         }
-        SetBar(current, max, slider, vanish);
+        if(vanish && slider.value <= 0) slider.gameObject.SetActive(false);
     }
 
     public void SetBar(float current, float max, Slider slider, bool vanish = true)
@@ -64,4 +67,6 @@ public class EntityUI : MonoBehaviour
             slider.gameObject.SetActive(false);
         }
     }
+
+    public virtual void UpdateBeats(float beatChange) { }
 }

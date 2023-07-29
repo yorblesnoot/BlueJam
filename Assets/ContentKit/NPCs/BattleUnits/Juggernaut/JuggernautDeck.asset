@@ -18,9 +18,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b30373dff7043b740842aa5545882474, type: 2}
   - {fileID: 11400000, guid: 58f39451461932d4c9e163891e757930, type: 2}
   symbol: J
-  iconColor:
-    serializedVersion: 2
-    rgba: 4286079854
-  hat: {fileID: 6207841477760022849, guid: 75a52d892be09e043bc65863c56275c6, type: 3}
+  hat: {fileID: 6295993313264510518, guid: ce37cde2dea4d1f46aa39ef053c3818f, type: 3}
   essenceDescription: 
   unitName: 

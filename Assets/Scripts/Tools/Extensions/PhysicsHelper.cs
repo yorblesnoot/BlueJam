@@ -17,4 +17,11 @@ public static class PhysicsHelper
         }
         transform.position = endPosition;
     }
+
+    public static Quaternion RandomCardinalRotate()
+    {
+        int random = Random.Range(0, 4);
+        Quaternion rot = Quaternion.Euler(0, random * 90, 0);
+        return rot;
+    }
 }

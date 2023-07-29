@@ -37,7 +37,7 @@ public class EffectSummon : CardEffectPlus
         }
         else location = targetCell.unitPosition;
         GameObject summoned = Instantiate(entityToSummon, location, Quaternion.identity);
-        summoned.transform.LookAt(actor.transform);
+        summoned.transform.LookAt(new Vector3(actor.transform.position.x, summoned.transform.position.y ,actor.transform.position.z));
         ModifyStats(actor, summoned.GetComponent<NonplayerUnit>());
         NonplayerHandPlus hand = summoned.GetComponent<NonplayerHandPlus>();
         hand.BuildVisualDeck();
@@ -51,6 +51,7 @@ public class EffectSummon : CardEffectPlus
         if(owner.CompareTag("Player"))
         {
             toModify.tag = "Ally";
+            toModify.transform.Find("PlayerAllyHalo").gameObject.SetActive(true);
         }
         else toModify.tag = owner.tag;
         toModify.transform.localScale -= new Vector3(.3f, .3f, .3f);

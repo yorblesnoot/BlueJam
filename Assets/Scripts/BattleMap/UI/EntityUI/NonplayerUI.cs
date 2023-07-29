@@ -8,14 +8,12 @@ public class NonplayerUI : EntityUI
     public Slider sliderBeats;
     public Slider sliderGhostBeats;
     [SerializeField] NPCHealthPips pips;
-    
 
-    //contents of hand
+    readonly int beatBarSpace = 2;
     
     void Awake()
     {
         unitActions = GetComponentInParent<BattleUnit>();
-        TurnManager.updateBeatCounts.AddListener(UpdateBeats);
         EventManager.hideTurnDisplay.AddListener(HideBeatGhost);
     } 
 
@@ -23,24 +21,24 @@ public class NonplayerUI : EntityUI
     {
         base.InitializeHealth();
         pips.SetPips(Mathf.RoundToInt(unitActions.loadedStats[StatType.MAXHEALTH]));
+        SetBar(unitActions.loadedStats[StatType.BEATS], TurnManager.beatThreshold + beatBarSpace, sliderBeats, false);
     }
 
-    public void UpdateBeats()
+    public override void UpdateBeats(float beatChange)
     {
         if (!unitActions.isDead)
         {
-            SetBar(unitActions.loadedStats[StatType.BEATS], TurnManager.beatThreshold + 2, sliderGhostBeats, false);
-            StartCoroutine(UpdateBar(unitActions.loadedStats[StatType.BEATS], TurnManager.beatThreshold + 2, sliderBeats, false));
+            SetBar(unitActions.loadedStats[StatType.BEATS], TurnManager.beatThreshold + beatBarSpace, sliderGhostBeats, false);
+            StartCoroutine(UpdateBar(beatChange, TurnManager.beatThreshold + beatBarSpace, sliderBeats, false));
         }
-        else TurnManager.updateBeatCounts.RemoveListener(UpdateBeats);
     }
 
     public void ShowBeatGhost(float beats)
     {
-        SetBar(unitActions.loadedStats[StatType.BEATS] + beats, TurnManager.beatThreshold + 2, sliderGhostBeats, false);
+        SetBar(unitActions.loadedStats[StatType.BEATS] + beats, TurnManager.beatThreshold + beatBarSpace, sliderGhostBeats, false);
     }
     public void HideBeatGhost()
     {
-        SetBar(unitActions.loadedStats[StatType.BEATS], TurnManager.beatThreshold + 2, sliderGhostBeats, false);
+        SetBar(unitActions.loadedStats[StatType.BEATS], TurnManager.beatThreshold + beatBarSpace, sliderGhostBeats, false);
     }
 }

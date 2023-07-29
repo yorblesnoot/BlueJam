@@ -41,6 +41,7 @@ public class EffectStat : CardEffectPlus
             target.loadedStats[entityStat] += scale;
         else target.loadedStats[entityStat] *= 1 + scale / 100;
         if(target.gameObject.CompareTag("Player")) target.gameObject.GetComponent<PlayerHandPlus>().UpdateHand();
+        if (entityStat == StatType.BEATS) target.myUI.UpdateBeats(-scale);
     }
 
     public void Unmodify(float scale, BattleUnit target)

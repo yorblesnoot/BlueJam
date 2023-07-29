@@ -93,7 +93,7 @@ public class WorldMapRenderer : MonoBehaviour
 
     void RenderCell(string tileKey, Vector2Int cellCoords)
     {
-        GameObject tile = tilePools[tileKey].InstantiateFromPool(MapTools.MapToVector(cellCoords, 0), RandomCardinalRotate());
+        GameObject tile = tilePools[tileKey].InstantiateFromPool(MapTools.MapToVector(cellCoords, 0), PhysicsHelper.RandomCardinalRotate());
         MapTools.gameMap.Add(cellCoords, tile);
         GameObject cellEvent = eventRenderer.RenderCellEvent(cellCoords, spotlightGlobalOffset);
         if(cellEvent != null) cellEvent.transform.SetParent(tile.transform, true);
@@ -113,13 +113,6 @@ public class WorldMapRenderer : MonoBehaviour
         {
             tilePools[runData.worldMap[globalCoords.x, globalCoords.y]].ReturnToPool(toUnrender);
         }
-    }
-
-    Quaternion RandomCardinalRotate()
-    {
-        int random = Random.Range(0, 4);
-        Quaternion rot = Quaternion.Euler(0, random*90, 0);
-        return rot;
     }
 
     IEnumerator StaggeredMoveIn(GameObject riser, float startElevation, float endElevation)

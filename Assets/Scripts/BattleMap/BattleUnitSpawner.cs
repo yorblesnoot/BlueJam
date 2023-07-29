@@ -82,7 +82,7 @@ public class BattleUnitSpawner
             tilePosition = extraEnemySpots[placementIndex].unitPosition;
             extraEnemySpots.RemoveAt(placementIndex);
         }
-        GameObject.Instantiate(unit, tilePosition, Quaternion.identity);
+        GameObject.Instantiate(unit, tilePosition, PhysicsHelper.RandomCardinalRotate());
         
     }
 

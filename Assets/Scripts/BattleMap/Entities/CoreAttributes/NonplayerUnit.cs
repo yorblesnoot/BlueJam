@@ -35,6 +35,11 @@ public class NonplayerUnit : BattleUnit
         TurnManager.ReportTurn(this);
     }
 
+    public override void SpendBeats(int beats)
+    {
+        TurnManager.NPCSpendBeats(this, beats);
+    }
+
     public void ShowTurnPossibility()
     {
         turnShow.SetActive(true);
@@ -45,9 +50,9 @@ public class NonplayerUnit : BattleUnit
         turnShow.SetActive(false);
     }
 
-    public override void ReduceHealth(int reduction)
+    public override void ModifyHealth(int reduction)
     {
-        base.ReduceHealth(reduction);
+        base.ModifyHealth(reduction);
         if (reduction <= 0) return;
         Tutorial.Initiate(TutorialFor.BATTLEDODAMAGE, TutorialFor.BATTLEACTIONS);
         Tutorial.EnterStage(TutorialFor.BATTLEDODAMAGE, 1, "Good hit! Reduce the health of all non-summoned enemies to 0 to win the battle!");

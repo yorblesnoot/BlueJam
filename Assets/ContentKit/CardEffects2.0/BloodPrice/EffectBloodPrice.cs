@@ -17,7 +17,7 @@ public class EffectBloodPrice : CardEffectPlus
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        actor.ReduceHealth(Mathf.RoundToInt(actor.loadedStats[StatType.MAXHEALTH] * scalingMultiplier/100));
+        actor.ModifyHealth(Mathf.RoundToInt(actor.loadedStats[StatType.MAXHEALTH] * scalingMultiplier/100));
         yield return null;
     }
 }

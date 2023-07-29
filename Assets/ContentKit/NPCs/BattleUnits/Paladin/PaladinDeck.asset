@@ -18,9 +18,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f21dd54ab1c96fe4b91e21bdc0f4bea9, type: 2}
   - {fileID: 11400000, guid: 3f6b117e2be98fb44935008663180977, type: 2}
   symbol: P
-  iconColor:
-    serializedVersion: 2
-    rgba: 4290110714
-  hat: {fileID: 7378846531368617295, guid: 32d0623cdced6a542a0661831f8659a8, type: 3}
+  hat: {fileID: 6207841477760022849, guid: 75a52d892be09e043bc65863c56275c6, type: 3}
   essenceDescription: 'Essence of the Paladin. Contains:'
   unitName: Paladin

@@ -32,18 +32,17 @@ public class CardPlus : SOWithGUID
 
     public List<CardEffectPlus> effects;
 
-    GameObject player;
+    static Unit player;
 
     public void Initialize()
     {
         targetRules = MapRulesGenerator.Convert(targetShape, targetSize, targetGap);
-
-        player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<Unit>();
         foreach (CardEffectPlus effect in effects)
         {
-            CardClass cclass = effect.effectClass;
+            CardClass _class = effect.effectClass;
             effect.Initialize();
-            if(!cardClass.Contains(cclass)) cardClass.Add(cclass);
+            if(!cardClass.Contains(_class)) cardClass.Add(_class);
         }
 
         List<bool[,]> selfs = new();
@@ -71,17 +70,16 @@ public class CardPlus : SOWithGUID
             effects[i].userOriginalTile = userOriginalTile;
             yield return actor.StartCoroutine(effects[i].Execute(actor, targetCell));          
         }
-        TurnManager.SpendBeats(actor.GetComponent<BattleUnit>(), cost);
+        actor.SpendBeats(cost);
     }
     public void AssembleDescription()
     {
         description = "";
         //for the purposes of generating a description, the owner should always be the player
         keywords = "";
-        Unit stats = player.GetComponent<Unit>();
         for (int i = 0; i < effects.Count; i++)
         {
-            description += $"{effects[i].GenerateDescription(stats).FirstToUpper()}.";
+            description += $"{effects[i].GenerateDescription(player).FirstToUpper()}.";
             description += " ";
             //Environment.NewLine
         }

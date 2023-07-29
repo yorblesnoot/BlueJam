@@ -30,12 +30,17 @@ public class PlayerUnit : BattleUnit
         playerState = PlayerBattleState.IDLE;
     }
 
-    public override void ReduceHealth(int reduction)
+    public override void SpendBeats(int beats)
+    {
+        TurnManager.PlayerSpendBeats(beats);
+    }
+
+    public override void ModifyHealth(int reduction)
     {
         if (reduction == 0) return;
         Tutorial.Initiate(TutorialFor.BATTLEDAMAGE, TutorialFor.BATTLEACTIONS);
         Tutorial.EnterStage(TutorialFor.BATTLEDAMAGE, 1, "Ouch, I've taken damage! You can see my health in the green bar on the right. If it empties fully, I'll die and lose all my progress!");
-        base.ReduceHealth(reduction);
+        base.ModifyHealth(reduction);
         runData.currentHealth = currentHealth;
     }
 
@@ -59,6 +64,6 @@ public class PlayerUnit : BattleUnit
             transform.LookAt(tileController.unitPosition);
             yield return StartCoroutine(gameObject.LerpTo(tileController.unitPosition, moveDuration));
         }
-        TurnManager.SpendBeats(this, path.Count * costPerGenericMove);
+        SpendBeats(path.Count * costPerGenericMove);
     }
 }

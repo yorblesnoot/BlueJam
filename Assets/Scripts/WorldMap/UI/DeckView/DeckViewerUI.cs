@@ -11,9 +11,12 @@ public class DeckViewerUI : MonoBehaviour
     [SerializeField] Toggle removal;
     [SerializeField] TMP_Text status;
 
+    [SerializeField] Unit player;
+
     readonly int minimumDeckSize = 9;
     private void OnEnable()
     {
+        player.LoadStats();
         foreach (var card in cardDisplays)
         {
             card.gameObject.SetActive(false);
