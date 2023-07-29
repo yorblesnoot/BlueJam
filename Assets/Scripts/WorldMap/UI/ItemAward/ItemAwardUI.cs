@@ -5,7 +5,7 @@ using UnityEngine;
 public class ItemAwardUI : MonoBehaviour
 {
     [SerializeField] ItemPool pool;
-    List<BattleItem> awardedItems;
+    List<Item> awardedItems;
 
     [SerializeField] List<AwardedItemOption> awardSlots;
 
@@ -41,7 +41,7 @@ public class ItemAwardUI : MonoBehaviour
         }
     }
 
-    public void AwardItem(BattleItem award)
+    public void AwardItem(Item award)
     {
         //return the unselected items to the pool and give the player the selected item
         runData.itemInventory.Add(award);

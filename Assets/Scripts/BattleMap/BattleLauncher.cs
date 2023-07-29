@@ -1,3 +1,4 @@
+using System.Linq;
 using UnityEngine;
 
 public class BattleLauncher : MapLauncher
@@ -30,7 +31,7 @@ public class BattleLauncher : MapLauncher
         TurnManager.InitializePositions();
 
         //activate item effects
-        foreach (BattleItem item in runData.itemInventory)
+        foreach (BattleItem item in runData.itemInventory.OfType<BattleItem>())
         {
             foreach (var effect in item.effects)
             {

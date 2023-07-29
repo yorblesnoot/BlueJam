@@ -15,7 +15,7 @@ public class AwardedItemOption : ItemDisplay
         if(battleItem != null) awarder.AwardItem(battleItem);
     }
 
-    public override void DisplayItem(BattleItem item)
+    public override void DisplayItem(Item item)
     {
         if (item == null)
         {

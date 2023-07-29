@@ -20,7 +20,7 @@ public class EffectBarrier : CardEffectPlus
         {BarrierType.SHIELD, "shield" }
     };
 
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         return $"{barrierNames[barrierType]} for <color=#1ED5FA>{Mathf.RoundToInt(player.loadedStats[StatType.BARRIER] * scalingMultiplier)}</color>";
     }

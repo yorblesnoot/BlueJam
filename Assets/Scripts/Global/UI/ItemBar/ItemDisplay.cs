@@ -3,10 +3,10 @@ using UnityEngine.UI;
 
 public class ItemDisplay : MonoBehaviour
 {
-    [HideInInspector] public BattleItem battleItem;
+    [HideInInspector] public Item battleItem;
     public Image thumbnail;
 
-    public virtual void DisplayItem(BattleItem item)
+    public virtual void DisplayItem(Item item)
     {
         battleItem = item;
         thumbnail.sprite = item.thumbnail;

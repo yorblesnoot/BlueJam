@@ -11,7 +11,7 @@ public class EffectSummon : CardEffectPlus
         effectClass = CardClass.SUMMON;
     }
     public GameObject entityToSummon;
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         string entityName = entityToSummon.name;
         entityName = entityName.Replace("NPC", "");

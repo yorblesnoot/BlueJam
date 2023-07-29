@@ -13,7 +13,7 @@ public class EffectRecurring : CardEffectPlus
 
     public CardEffectPlus turnLapseEffect;
 
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         turnLapseEffect.Initialize();
         string lapseDescription = turnLapseEffect.GenerateDescription(player);

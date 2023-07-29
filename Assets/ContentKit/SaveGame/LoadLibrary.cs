@@ -11,7 +11,7 @@ public class LoadLibrary : ScriptableObject
     [SerializeField] List<Deck> decksPool;
 
     public Dictionary<string, CardPlus> cards = new();
-    public Dictionary<string, BattleItem> items = new();
+    public Dictionary<string, Item> items = new();
     public Dictionary<string, Deck> decks = new();
 
     public void Initialize()

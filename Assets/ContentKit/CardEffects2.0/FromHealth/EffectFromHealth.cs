@@ -23,7 +23,7 @@ public class EffectFromHealth : CardEffectPlus
         effectClass = CardClass.ATTACK;
     }
 
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         outputEffect.Initialize();
         if(checkedUnit == CheckedUnit.self)

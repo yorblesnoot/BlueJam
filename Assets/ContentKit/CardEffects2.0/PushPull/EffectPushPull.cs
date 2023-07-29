@@ -13,7 +13,7 @@ public class EffectPushPull : CardEffectPlus
         duration = .3f;
     }
     [Range(.1f, 1f)] public float duration;
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         string verb;
         if (scalingMultiplier > 0) verb = "push";

@@ -62,7 +62,7 @@ public class CardEffectPlus : ScriptableObject
 
     public virtual IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null) { yield return null; }
 
-    public string GenerateDescription(IUnitStats unit)
+    public string GenerateDescription(Unit unit)
     {
         string baseDescription = GetEffectDescription(unit);
         if(aoeSize > 0) baseDescription = AppendAOEInfo(baseDescription);
@@ -82,7 +82,7 @@ public class CardEffectPlus : ScriptableObject
         return output;
     }
 
-    public virtual string GetEffectDescription(IUnitStats unit)
+    public virtual string GetEffectDescription(Unit unit)
     {
         return "";
     }

@@ -12,7 +12,7 @@ public class EffectBlink : CardEffectPlus
         effectClass = CardClass.MOVE;
     }
     [SerializeField] float delay;
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         return $"blink to target";
     }

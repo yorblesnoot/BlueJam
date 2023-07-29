@@ -78,7 +78,7 @@ public class CardPlus : SOWithGUID
         description = "";
         //for the purposes of generating a description, the owner should always be the player
         keywords = "";
-        IUnitStats stats = player.GetComponent<IUnitStats>();
+        Unit stats = player.GetComponent<Unit>();
         for (int i = 0; i < effects.Count; i++)
         {
             description += $"{effects[i].GenerateDescription(stats).FirstToUpper()}.";

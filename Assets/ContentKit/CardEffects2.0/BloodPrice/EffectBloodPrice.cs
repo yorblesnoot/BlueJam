@@ -11,7 +11,7 @@ public class EffectBloodPrice : CardEffectPlus
         effectClass = CardClass.BUFF;
     }
 
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         return $"pay <color=red>{Mathf.RoundToInt(player.loadedStats[StatType.MAXHEALTH] * scalingMultiplier/100)}</color> life";
     }

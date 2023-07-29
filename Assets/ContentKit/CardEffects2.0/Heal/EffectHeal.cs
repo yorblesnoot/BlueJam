@@ -11,7 +11,7 @@ public class EffectHeal : CardEffectPlus
         effectClass = CardClass.BUFF;
     }
 
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         return $"heal for <color=#1EFA61>{Mathf.RoundToInt(player.loadedStats[StatType.HEAL] * scalingMultiplier)}</color>";
     }

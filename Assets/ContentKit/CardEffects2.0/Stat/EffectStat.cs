@@ -15,7 +15,7 @@ public class EffectStat : CardEffectPlus
         duration = 0;
     }
 
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         string changeDirection;
         if (scalingMultiplier > 0) changeDirection = "increase";

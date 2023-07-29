@@ -15,7 +15,7 @@ public class RunData : ScriptableObject
     public int playerWorldX;
     public int playerWorldY;
 
-    public List<BattleItem> itemInventory;
+    public List<Item> itemInventory;
     public List<Deck> essenceInventory;
 
     public ItemPool itemPool;

@@ -10,7 +10,7 @@ public class EffectDamage : CardEffectPlus
         effectClass = CardClass.ATTACK;
     }
 
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         return $"deal <color=#FF4E2B>{Mathf.RoundToInt(player.loadedStats[StatType.DAMAGE] * scalingMultiplier)}</color> damage";
     }

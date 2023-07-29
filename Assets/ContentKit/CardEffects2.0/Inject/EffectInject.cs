@@ -23,7 +23,7 @@ public class EffectInject : CardEffectPlus
         forceConsume = true;
     }
 
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         toInject.Initialize();
         string copyWord;

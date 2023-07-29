@@ -1,32 +1,24 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum StatType { MAXHEALTH, HANDSIZE, SPEED, BEATS, DAMAGE, HEAL, BARRIER }
-public class BattleUnit : MonoBehaviour, IUnitStats
+
+public class BattleUnit : Unit
 {
-    [field: SerializeField] public UnitStats unitStats { get; set; }
     [SerializeField] BarrierTracker barrierTracker;
     public BuffTracker buffTracker;
     public HandPlus myHand;
     public UnitAnimator unitAnimator;
 
-    public Dictionary<StatType, float> loadedStats { get; set; }
-    public int currentHealth { get; set; }
     public int deflectHealth { get; set; }
     public int shieldHealth { get; set; }
 
-    public bool isSummoned;
-
-    public bool isDead;
-
-    public RunData runData;
-
+    [HideInInspector] public bool isSummoned;
+    [HideInInspector] public bool isDead;
     [HideInInspector]public EntityUI myUI { get; set; }
 
     void Awake()
     {
-        Initialize();
-        TurnManager.deathPhase.AddListener(CheckForDeath);
+        Initialize(); 
     }
 
     public virtual void TakeTurn()
@@ -36,16 +28,8 @@ public class BattleUnit : MonoBehaviour, IUnitStats
 
     public virtual void Initialize()
     {
-        loadedStats = new()
-        {
-            { StatType.MAXHEALTH, unitStats.maxHealth },
-            { StatType.DAMAGE, unitStats.damageScaling },
-            { StatType.HEAL, unitStats.healScaling },
-            { StatType.BARRIER, unitStats.barrierScaling },
-            { StatType.HANDSIZE, unitStats.handSize },
-            { StatType.SPEED, unitStats.turnSpeed },
-            { StatType.BEATS, unitStats.startBeats },
-        };
+        LoadStats();
+        TurnManager.deathPhase.AddListener(CheckForDeath);
         TurnManager.initialPositionReport.AddListener(ReportCell);
         myUI = GetComponentInChildren<EntityUI>();
     }

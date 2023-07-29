@@ -21,7 +21,7 @@ public class SaveContainer
     }
 
     public List<string> playerDeck;
-    public List<string> battleItems;
+    public List<string> items;
     public List<string> essenceInventory;
 
     public List<string> worldMap;
@@ -84,7 +84,7 @@ public class SaveContainer
     void SaveCollectibles()
     {
         playerDeck = RunData.playerDeck.deckContents.Select(x => x.Id).ToList();
-        battleItems = RunData.itemInventory.Select(x => x.Id).ToList();
+        items = RunData.itemInventory.Select(x => x.Id).ToList();
         essenceInventory = RunData.essenceInventory.Select(x => x.Id).ToList();
     }
 
@@ -162,7 +162,7 @@ public class SaveContainer
     {
         loadLibrary.Initialize();
         RunData.playerDeck.deckContents = playerDeck.Select(x => loadLibrary.cards[x]).ToList();
-        RunData.itemInventory = battleItems.Select(x => loadLibrary.items[x]).ToList();
+        RunData.itemInventory = items.Select(x => loadLibrary.items[x]).ToList();
         RunData.essenceInventory = essenceInventory.Select(x => loadLibrary.decks[x]).ToList();
     }
 

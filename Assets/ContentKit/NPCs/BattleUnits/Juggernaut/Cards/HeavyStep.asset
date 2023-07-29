@@ -15,8 +15,8 @@ MonoBehaviour:
   Id: 10b90f28-fea5-4c9e-a35e-fe58b56b8fe5
   displayName: Heavy Footfalls
   art: {fileID: 21300000, guid: e1975cbea357b484f99f95249a50d4db, type: 3}
-  cost: 5
-  description: 'move to target. increase strength by 2%. shield for <color=#1ED5FA>10</color>. '
+  cost: 4
+  description: 'Move to target. Increase damage by 20%. Shield for <color=#1ED5FA>10</color>. '
   keywords: 'Range: 1-1 <color=blue>+</color>'
   targetShape: 2
   targetSize: 1

@@ -12,7 +12,7 @@ public class EffectWalk : CardEffectPlus
         effectClass = CardClass.MOVE;
     }
     [Range(.1f, 1f)] public float walkDuration;
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         return "move to target";
     }

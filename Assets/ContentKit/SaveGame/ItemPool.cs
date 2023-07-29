@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ItemPool", menuName = "ScriptableObjects/Singletons/ItemPool")]
 public class ItemPool : ScriptableObject
 {
-    [field:SerializeField] public List<BattleItem> awardableItemPool { get; private set; }
+    [field:SerializeField] public List<Item> awardableItemPool { get; private set; }
 
-    [HideInInspector] public List<BattleItem> awardableItems;
+    [HideInInspector] public List<Item> awardableItems;
 }

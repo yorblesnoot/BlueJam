@@ -42,7 +42,7 @@ public class BuffTracker : MonoBehaviour
             effectStat = stat,
             remainingDuration = stat.duration
         });
-        buffDisplay.DisplayBuff(stat.duration, Color.yellow, stat.GenerateDescription(GetComponent<IUnitStats>()) + ".");
+        buffDisplay.DisplayBuff(stat.duration, Color.yellow, stat.GenerateDescription(GetComponent<Unit>()) + ".");
     }
 
     public void DurationProc()

@@ -10,7 +10,7 @@ public class EffectSwap : CardEffectPlus
     {
         effectSound = SoundTypeEffect.BLINK;
     }
-    public override string GetEffectDescription(IUnitStats player)
+    public override string GetEffectDescription(Unit player)
     {
         return $"swap places with target";
     }
