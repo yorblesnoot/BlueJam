@@ -8,15 +8,23 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
 
     public bool forceConsume { get; set; } = false;
 
+    [System.Serializable]
+    class ColoredSprite
+    {
+        public Sprite sprite;
+        public Color color;
+    }
+
     [SerializeField] Image image;
 
-    [SerializeField] Sprite attack;
-    [SerializeField] Sprite jumpAttack;
-    [SerializeField] Sprite heal;
-    [SerializeField] Sprite summon;
-    [SerializeField] Sprite move;
-    [SerializeField] Sprite mixed;
-    [SerializeField] Sprite curse;
+    [SerializeField] ColoredSprite meleeAttack;
+    [SerializeField] ColoredSprite rangeAttack;
+    [SerializeField] ColoredSprite jumpAttack;
+    [SerializeField] ColoredSprite heal;
+    [SerializeField] ColoredSprite summon;
+    [SerializeField] ColoredSprite move;
+    [SerializeField] ColoredSprite mixed;
+    [SerializeField] ColoredSprite curse;
 
     //fill the details of a blank card
     public void PopulateCard(CardPlus card)
@@ -24,40 +32,44 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
         thisCard = card;
         if (card.isCurse)
         {
-            image.sprite = curse;
-            image.color = new Color32(181, 77, 240, 255); //purple
+            image.sprite = curse.sprite;
+            image.color = curse.color;
         }
         else if (card.cardClass.Contains(CardClass.SUMMON))
         {
-            image.sprite = summon;
-            image.color = new Color32(176, 176, 176, 255); //gray
-
-        }
-        /*else if (card.cardClass.Contains(CardClass.ATTACK) && card.cardClass.Contains(CardClass.BUFF))
-        {
-            image.sprite = mixed;
-            image.color = new Color32(253, 223, 30, 255); //yellow
-
-        }*/
-        else if (card.cardClass.Contains(CardClass.MOVE) && card.cardClass.Contains(CardClass.ATTACK))
-        {
-            image.sprite = jumpAttack;
-            image.color = new Color32(181, 77, 240, 255); //purple
+            image.sprite = summon.sprite;
+            image.color = summon.color;
         }
         else if (card.cardClass.Contains(CardClass.MOVE))
         {
-            image.sprite = move;
-            image.color = new Color32(77, 161, 246, 255); //blue
+            if (card.cardClass.Contains(CardClass.ATTACK))
+            {
+                image.sprite = jumpAttack.sprite;
+                image.color = jumpAttack.color;
+                return;
+            }
+            image.sprite = move.sprite;
+            image.color = move.color;
         }
         else if (card.cardClass.Contains(CardClass.ATTACK))
         {
-            image.sprite = attack;
-            image.color = new Color32(249, 61, 40, 255); //red
+            int range = card.targetRules.GetLength(0);
+            foreach(CardEffectPlus effect in card.effects)
+            {
+                if((effect.aoe.GetLength(0) + range)/2 >= 2)
+                {
+                    image.sprite = rangeAttack.sprite;
+                    image.color = rangeAttack.color;
+                    return;
+                }
+            }
+            image.sprite = meleeAttack.sprite;
+            image.color = meleeAttack.color;
         }
         else if (card.cardClass.Contains(CardClass.BUFF))
         {
-            image.sprite = heal;
-            image.color = new Color32(73, 240, 90, 255); //green
+            image.sprite = heal.sprite;
+            image.color = heal.color;
         }
 
     }

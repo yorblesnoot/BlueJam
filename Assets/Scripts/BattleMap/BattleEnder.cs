@@ -45,6 +45,8 @@ public class BattleEnder : MonoBehaviour
         yield return StartCoroutine(FadeInDrops());
 
         yield return new WaitForSeconds(2f);
+
+        if(runData.bossSequence.Count == 0 && runData.endless == false) { SceneManager.LoadScene(3); yield break; }
         SceneManager.LoadScene(1);
     }
 

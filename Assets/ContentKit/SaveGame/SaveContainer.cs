@@ -32,6 +32,7 @@ public class SaveContainer
     public List<bool> chunks;
 
     public List<int> bossSequence;
+    public bool endless;
 
     public int currentHealth;
     public int playerX;
@@ -106,6 +107,7 @@ public class SaveContainer
             eventsOnMap.Add(RunData.eventMap[location]);
         }
         bossSequence = RunData.bossSequence;
+        endless = RunData.endless;
     }
 
     public void LoadGame()
@@ -132,6 +134,7 @@ public class SaveContainer
             RunData.eventMap.Add(new Vector2Int(eventsX[i], eventsY[i]), eventsOnMap[i]);
         }
         RunData.bossSequence = bossSequence;
+        RunData.endless = endless;
     }
 
     void LoadNums()

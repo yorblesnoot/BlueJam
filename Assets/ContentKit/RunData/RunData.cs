@@ -30,4 +30,5 @@ public class RunData : ScriptableObject
 
     public int score;
     public List<int> bossSequence;
+    public bool endless;
 }

@@ -15,9 +15,7 @@ MonoBehaviour:
   unitName: Attractor
   maxHealth: 35
   handSize: 2
-  playerAllied: 0
   startBeats: 1
-  myTurn: 0
   damageScaling: 10
   barrierScaling: 10
   healScaling: 10

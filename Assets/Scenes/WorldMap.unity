@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18005529, g: 0.2254375, b: 0.30678004, a: 1}
+  m_IndirectSpecularColor: {r: 0.18005565, g: 0.22543788, b: 0.30678073, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -4730,7 +4730,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -596.0001, y: 207}
+  m_AnchoredPosition: {x: -596, y: 207}
   m_SizeDelta: {x: -1216, y: -588}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &506452294
@@ -5989,9 +5989,9 @@ RectTransform:
   - {fileID: 1065617355}
   - {fileID: 617775869}
   - {fileID: 1665007202}
-  - {fileID: 1156863001}
   - {fileID: 1558374504}
   - {fileID: 1804632158}
+  - {fileID: 1156863001}
   - {fileID: 1069133797417840121}
   - {fileID: 1748002084}
   m_Father: {fileID: 0}
@@ -16335,7 +16335,7 @@ RectTransform:
   - {fileID: 106879767}
   - {fileID: 1214740895}
   m_Father: {fileID: 573176808}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -20053,7 +20053,7 @@ RectTransform:
   - {fileID: 1897063933}
   - {fileID: 1303457983}
   m_Father: {fileID: 573176808}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -26119,7 +26119,7 @@ RectTransform:
   - {fileID: 506452293}
   - {fileID: 616302506}
   m_Father: {fileID: 573176808}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -26232,6 +26232,7 @@ MonoBehaviour:
   - {fileID: 2079597944}
   removal: {fileID: 506452294}
   status: {fileID: 616302504}
+  player: {fileID: 1773061060}
 --- !u!1001 &1805389096
 PrefabInstance:
   m_ObjectHideFlags: 0

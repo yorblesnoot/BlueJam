@@ -21,8 +21,8 @@ MonoBehaviour:
   vfxNameAfter: RedPuddle
   effectSound: 3
   scalingMultiplier: 0.5
-  aoeShape: 0
-  aoeSize: 2
+  aoeShape: 1
+  aoeSize: 1
   aoeGap: 1
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
