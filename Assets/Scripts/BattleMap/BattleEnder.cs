@@ -46,7 +46,13 @@ public class BattleEnder : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        if(runData.bossSequence.Count == 0 && runData.endless == false) { SceneManager.LoadScene(3); yield break; }
+        if(runData.bossSequence.Count == 0 && runData.endless == false) 
+        {
+            System.IO.File.Delete(Application.persistentDataPath + "/runData.json");
+            //unlock next difficulty here ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            SceneManager.LoadScene(3); 
+            yield break; 
+        }
         SceneManager.LoadScene(1);
     }
 
