@@ -155,7 +155,7 @@ public class PlayerHandPlus : HandPlus
             discarded.transform.SetParent(conjureSpot.transform, true);
             handCards.Remove(discarded);
             yield return StartCoroutine(slot.FlipToSpot());
-            Destroy(discarded.gameObject);
+            discarded.gameObject.SetActive(false);
             yield break;
         }
         discarded.transform.SetParent(discardSpot.transform, true);

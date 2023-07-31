@@ -15,7 +15,7 @@ MonoBehaviour:
   unitName: IceSpike
   maxHealth: 10
   handSize: 0
-  startBeats: -10
+  startBeats: -5
   damageScaling: 10
   barrierScaling: 10
   healScaling: 10

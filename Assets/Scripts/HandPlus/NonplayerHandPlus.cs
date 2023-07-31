@@ -63,7 +63,6 @@ public class NonplayerHandPlus : HandPlus
     }
     public override IEnumerator DiscardCard(ICardDisplay discarded, bool played)
     {
-        Debug.Log(discarded.forceConsume);
         if (discarded.forceConsume == true && played == true)
         {
             handCards.Remove(discarded);

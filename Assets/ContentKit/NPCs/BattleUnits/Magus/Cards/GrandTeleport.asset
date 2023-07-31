@@ -16,14 +16,15 @@ MonoBehaviour:
   displayName: Distort Space
   art: {fileID: 21300000, guid: 11f9f7135112e48f4a6bab32d0ce98aa, type: 3}
   cost: 3
-  description: 
-  keywords: 
+  description: 'Blink to target. Conjure 1 temporary copy of <color=#FFA500>Resolve
+    Paradoxes</color> to target''s discard. '
+  keywords: 'Range: 1-12 <color=blue>O</color>~Consumed~'
   targetShape: 0
-  targetSize: 10
+  targetSize: 12
   targetGap: 1
   needsPath: 0
   isCurse: 0
-  cardClass: 
+  cardClass: 0100000002000000
   consumed: 1
   animType: 0
   effects:

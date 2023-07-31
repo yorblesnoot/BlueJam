@@ -15,6 +15,7 @@ public class NonplayerUI : EntityUI
     {
         unitActions = GetComponentInParent<BattleUnit>();
         EventManager.hideTurnDisplay.AddListener(HideBeatGhost);
+        SetBar(0f, TurnManager.beatThreshold + beatBarSpace, sliderGhostBeats, false);
     } 
 
     public override void InitializeHealth()

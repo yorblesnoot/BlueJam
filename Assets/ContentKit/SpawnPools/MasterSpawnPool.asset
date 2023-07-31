@@ -25,6 +25,7 @@ MonoBehaviour:
   - {fileID: 3335494700087549770, guid: c1d0cbd6239697241b44bbf40f228071, type: 3}
   - {fileID: 3893931155832554969, guid: 672eca6008d533943b9c4856f9b7cd78, type: 3}
   - {fileID: 4039637195503505460, guid: 7b06bd1145bb3b44689e1fead537e570, type: 3}
+  - {fileID: 4039637195503505460, guid: ca09524db9e6a5645bb13469f3e32f8f, type: 3}
   weight3Pool:
   - {fileID: 8924668989500822478, guid: 896d1b0ee53923f478923947b43069f3, type: 3}
   - {fileID: 869028331013816921, guid: 67a715d2fdeb9964a8544bc2c121fb6a, type: 3}
@@ -35,4 +36,5 @@ MonoBehaviour:
   - {fileID: 7417294192327895783, guid: eb2c05d0b168de849b165e92c6dc08f2, type: 3}
   - {fileID: 4679250314591635210, guid: c0aba7a6cdf919a4ea88d29db6c5d877, type: 3}
   - {fileID: 4039637195503505460, guid: 404ca3c3ac65ec8459c7a230c405a26f, type: 3}
+  - {fileID: 4039637195503505460, guid: e3e2f26d948ef9e4db3692f950b5b29a, type: 3}
   weight4Pool: []

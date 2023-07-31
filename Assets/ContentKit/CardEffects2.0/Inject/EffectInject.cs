@@ -33,6 +33,7 @@ public class EffectInject : CardEffectPlus
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
+        Debug.Log(targets.Count);
         foreach (BattleUnit target in targets) Inject(scalingMultiplier, actor, target, toInject);
         yield break;
     }

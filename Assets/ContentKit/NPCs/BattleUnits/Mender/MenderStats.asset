@@ -18,5 +18,5 @@ MonoBehaviour:
   startBeats: 1
   damageScaling: 7
   barrierScaling: 7
-  healScaling: 9
+  healScaling: 8
   turnSpeed: 0.4

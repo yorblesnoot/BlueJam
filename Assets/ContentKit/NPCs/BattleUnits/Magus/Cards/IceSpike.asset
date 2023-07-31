@@ -16,17 +16,19 @@ MonoBehaviour:
   displayName: Ice Spike
   art: {fileID: 21300000, guid: 11b25eb8dff954bf69ba19e8db6ab84c, type: 3}
   cost: 4
-  description: 
-  keywords: 
+  description: 'Summon a IceSpike. Decrease speed by -10% in a <color=red>1<color=blue>[ 
+    ]</color></color> AOE. Deal <color=#FF4E2B>10</color> damage in a <color=red>1<color=blue>[ 
+    ]</color></color> AOE. '
+  keywords: 'Range: 2-6 <color=blue>O</color>'
   targetShape: 0
   targetSize: 6
   targetGap: 2
   needsPath: 0
   isCurse: 0
-  cardClass: 
+  cardClass: 0300000000000000
   consumed: 0
   animType: 0
   effects:
   - {fileID: 11400000, guid: e9332556f3fc2fd4097f74f02f8106fc, type: 2}
   - {fileID: 11400000, guid: dc2de04ab11bb034fbae588815743ec6, type: 2}
-  - {fileID: 11400000, guid: ad352c4f04455674ca61014e0802281e, type: 2}
+  - {fileID: 11400000, guid: a928d340492cb284cb2a0a333e9ae2fb, type: 2}

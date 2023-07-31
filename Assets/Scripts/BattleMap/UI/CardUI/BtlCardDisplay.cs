@@ -75,7 +75,7 @@ public class BtlCardDisplay : PlayerCardDisplay, IPointerEnterHandler, IPointerE
             PlayerUnit.playerState = PlayerBattleState.PERFORMING_ACTION;
             EventManager.clearActivation?.Invoke();
             StartCoroutine(owner.GetComponent<HandPlus>().DiscardCard(this, true));
-            StartCoroutine(thisCard.PlaySequence(owner, tile));
+            owner.StartCoroutine(thisCard.PlaySequence(owner, tile));
         }
         EventManager.clearActivation?.Invoke();
     }
