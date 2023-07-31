@@ -15,15 +15,16 @@ MonoBehaviour:
   Id: c10fc1d9-812c-4cea-8dda-0c221d3e736f
   displayName: Guarded Strike
   art: {fileID: 21300000, guid: 24ec69765666542e5a2a8dc43e28ceb5, type: 3}
-  cost: 3
-  description: 
-  keywords: 
+  cost: 4
+  description: 'Deal <color=#FF4E2B>10</color> damage. Deflect for <color=#1ED5FA>15</color>
+    on user. '
+  keywords: 'Range: 1-1 <color=blue>[  ]</color>'
   targetShape: 1
   targetSize: 1
   targetGap: 1
   needsPath: 0
   isCurse: 0
-  cardClass: 
+  cardClass: 0000000002000000
   consumed: 0
   animType: 0
   effects:

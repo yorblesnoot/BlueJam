@@ -166,32 +166,40 @@ public class UnitAI : MonoBehaviour
         }
     }
 
-    readonly int maxMoveScore = 5;
-    private float DistanceProcessing(float desiredProximity, float pathDistance, float linearDistance)
+    private float DistanceProcessing(float desiredProximity, float movePathDistance, float currentPathDistance)
     {
-        float difference = Mathf.Abs(desiredProximity - pathDistance);
-        difference = maxMoveScore - difference;
-        difference /= linearDistance;
-        return difference;
+        return Mathf.Abs(desiredProximity - currentPathDistance) - Mathf.Abs(desiredProximity - movePathDistance);
     }
 
     private float EntityScan(Vector2Int moveVect, float interestHostile, float interestFriendly, float proximityHostile, float proximityFriendly)
     {
-        float output = 0;
+        int friendlyCount = 0;
+        float friendlyScore = 0;
+        int hostileCount = 0;
+        float hostileScore = 0;
         for (int i = 0; i < entities.Count; i++)
         {
             GameObject entity = entities[i].gameObject;
-            float pathDistance = pathfinder.GetPathLength(moveVect, MapTools.VectorToMap(entity.transform.position));
-            float linearDistance = Vector3.Distance(transform.position, entity.transform.position);
+            
+            float potentialPathDistance = pathfinder.GetPathLength(moveVect, MapTools.VectorToMap(entity.transform.position));
+            float currentPathDistance = pathfinder.GetPathLength(MapTools.VectorToMap(transform.position), MapTools.VectorToMap(entity.transform.position));
+            Debug.Log("path1: " + potentialPathDistance + "path2: " + currentPathDistance);
             if (!WeAreFriends(gameObject, entity))
             {
-                output += interestHostile * DistanceProcessing(proximityHostile, pathDistance, linearDistance);
+                hostileScore += interestHostile * DistanceProcessing(proximityHostile, potentialPathDistance, currentPathDistance);
+                Debug.Log("hscore " + hostileScore);
+                hostileCount++;
             }
-            else if (WeAreFriends(gameObject, entity))
+            else
             {
-                output += interestFriendly * DistanceProcessing(proximityFriendly, pathDistance, linearDistance);
+                friendlyScore += interestFriendly * DistanceProcessing(proximityFriendly, potentialPathDistance, currentPathDistance);
+                friendlyCount++;
             }
         }
+        float output = 0;
+        if (hostileCount > 0) output += hostileScore / hostileCount;
+        if (friendlyCount > 0) output = friendlyScore / friendlyCount;
+        Debug.Log(output + "final out");
         return output;
     }
 }

@@ -23,7 +23,7 @@ MonoBehaviour:
   scalingMultiplier: -2
   aoeShape: 2
   aoeSize: 3
-  aoeGap: 3
+  aoeGap: 2
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  duration: 0.44
+  duration: 0.384

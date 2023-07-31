@@ -19,7 +19,8 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: none
-  scalingMultiplier: 0
+  effectSound: 0
+  scalingMultiplier: 1
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
@@ -29,6 +30,5 @@ MonoBehaviour:
   duration: 0
   triggerIdentityCondition: 0
   triggeringEffect: {fileID: 11400000, guid: 4a90f222882288d4e949d658b643bd82, type: 2}
-  triggersRequiredForActivation: 1
   effectRecipient: 0
   triggeredEffect: {fileID: 11400000, guid: a92aeab031ba6224eade6fc9cdd395f7, type: 2}

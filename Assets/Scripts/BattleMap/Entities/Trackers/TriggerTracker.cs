@@ -28,7 +28,7 @@ public class TriggerTracker : MonoBehaviour
     public void RegisterTrigger(EffectTrigger incomingTrigger)
     {
         activeTriggers.Add(new TrackedTrigger {trigger = incomingTrigger,
-            remainingActivations = incomingTrigger.triggersRequiredForActivation});
+            remainingActivations = Mathf.RoundToInt(incomingTrigger.scalingMultiplier)});
         incomingTrigger.triggeredEffect.Initialize();
     }
     public void ExecutedEffect(CardEffectPlus effect, BattleUnit origin, BattleUnit target)
@@ -72,7 +72,7 @@ public class TriggerTracker : MonoBehaviour
             }
             else return;
             StartCoroutine(tracked.trigger.triggeredEffect.Execute(battleUnit, targetCell));
-            tracked.remainingActivations = tracked.trigger.triggersRequiredForActivation;
+            tracked.remainingActivations = Mathf.RoundToInt(tracked.trigger.scalingMultiplier);
         }
     }
 

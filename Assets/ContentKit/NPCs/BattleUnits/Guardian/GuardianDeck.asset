@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
+  m_Name: GuardianDeck
+  m_EditorClassIdentifier: 
+  Id: 2b99b396-84aa-4729-93ed-1b03d231203f
+  deckContents:
+  - {fileID: 11400000, guid: 069bd4b9a11524944bc165384c278c82, type: 2}
+  - {fileID: 11400000, guid: c0ec74863c8dc02479c75814896771e5, type: 2}
+  - {fileID: 11400000, guid: 29314994eaddaab479ed2c5e9da4dc7c, type: 2}
+  symbol: G
+  hat: {fileID: 2649775443257324812, guid: e5eab13ccb18c14439c7921c712c9cf1, type: 3}
+  essenceDescription: 
+  unitName: 

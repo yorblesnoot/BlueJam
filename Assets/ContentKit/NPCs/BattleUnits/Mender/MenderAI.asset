@@ -13,8 +13,10 @@ MonoBehaviour:
   m_Name: MenderAI
   m_EditorClassIdentifier: 
   interestAttack: 9.96
-  interestBuff: 20
+  interestBuff: 3.4
   interestFriendly: 2
-  proximityFriendly: 0.98
   interestHostile: 1.227
+  proximityFriendly: 0.98
   proximityHostile: 4
+  summonProximityHostile: 0
+  summonProximityFriendly: 0

@@ -15,9 +15,9 @@ MonoBehaviour:
   Id: 7c279556-27ee-458e-9c04-aa05b078e463
   displayName: Regenerate
   art: {fileID: 21300000, guid: 6a5b222759e6243e0a2f91d306c6072a, type: 3}
-  cost: 3
-  description: 'buff target: heal for <color=#1EFA61>5</color> in a <color=red>0<color=blue>O</color></color>
-    AOE for 5 actions. '
+  cost: 4
+  description: 'Heal for <color=#1EFA61>5</color> to target each action for <color=blue>5</color>
+    actions. '
   keywords: 'Range: 0-3 <color=blue>O</color>'
   targetShape: 0
   targetSize: 3

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 
@@ -23,6 +24,8 @@ public class EffectPushPull : CardEffectPlus
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
         int pushDistance = Mathf.RoundToInt(scalingMultiplier);
+        targets = targets.OrderBy(x => Vector3.Distance(actor.transform.position, x.transform.position)).ToList();
+        if(pushDistance > 0) targets.Reverse();
         foreach (BattleUnit target in targets)
         {
             yield return target.StartCoroutine(Push(actor, target, pushDistance, duration));

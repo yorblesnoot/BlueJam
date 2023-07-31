@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf01b78a6872684ab53675f17ed6943, type: 3}
+  m_Name: Momentum
+  m_EditorClassIdentifier: 
+  Id: 8f8ee77d-c117-4dd3-a6b2-fe34624f4b55
+  thumbnail: {fileID: 21300000, guid: 062eeb9d5e8ba8f45a9ddfea52518f82, type: 3}
+  thumbnailColor:
+    serializedVersion: 2
+    rgba: 4278210559
+  description: Boost your damage whenever you deal damage, but reduce your damage
+    whenever you barrier or heal.
+  effects:
+  - {fileID: 11400000, guid: 0d4d53fef3e7f394db430d7dd581cdc3, type: 2}
+  - {fileID: 11400000, guid: c433c84b1510b584ab4f110747e84bf6, type: 2}
+  - {fileID: 11400000, guid: defcb4533ae4d5942ba567ad9ab4e175, type: 2}

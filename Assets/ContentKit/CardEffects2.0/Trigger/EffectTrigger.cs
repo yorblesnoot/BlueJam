@@ -8,6 +8,7 @@ public class EffectTrigger : CardEffectPlus
     private void Reset()
     {
         effectClass = CardClass.BUFF;
+        scalingMultiplier = 1;
     }
     public enum TriggerIdentity
     {
@@ -19,7 +20,6 @@ public class EffectTrigger : CardEffectPlus
 
     public TriggerIdentity triggerIdentityCondition;
     public CardEffectPlus triggeringEffect;
-    [Range(1, 10)]public int triggersRequiredForActivation;
 
     public TriggerIdentity effectRecipient;
     public CardEffectPlus triggeredEffect;

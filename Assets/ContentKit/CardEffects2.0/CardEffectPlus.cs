@@ -69,8 +69,8 @@ public class CardEffectPlus : ScriptableObject
         if (forceTargetSelf) 
         {
             if (aoeSize > 0)
-                baseDescription += " around user";
-            else baseDescription += " on user";
+                baseDescription += " around origin tile";
+            else baseDescription += " on origin tile";
         }
         return baseDescription;
     }

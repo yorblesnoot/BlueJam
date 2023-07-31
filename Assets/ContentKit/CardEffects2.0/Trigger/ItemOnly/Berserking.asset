@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Berserking
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
+  targetNotRequired: 0
   effectClass: 2
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: none
-  scalingMultiplier: 0
+  effectSound: 0
+  scalingMultiplier: 1
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
@@ -28,6 +30,5 @@ MonoBehaviour:
   duration: 1000
   triggerIdentityCondition: 1
   triggeringEffect: {fileID: 11400000, guid: c5656fd05e2053f4ba96e5901032a5fa, type: 2}
-  triggersRequiredForActivation: 1
   effectRecipient: 1
   triggeredEffect: {fileID: 11400000, guid: d76d2a883d72dd24b86639174c26ff42, type: 2}

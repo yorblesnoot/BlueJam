@@ -57,8 +57,9 @@ public class BattleUnit : Unit
 
     public void ReportCell()
     {
-        GameObject myTile = MapTools.VectorToTile(gameObject.transform.position);
-        myTile.GetComponent<BattleTileController>().unitContents = this;
+        BattleTileController myTile = MapTools.VectorToTile(gameObject.transform.position).GetComponent<BattleTileController>();
+        myTile.unitContents = this;
+        GetComponent<StencilControl>().ToggleStencil(myTile);
     }
 
     public void UnreportCell()

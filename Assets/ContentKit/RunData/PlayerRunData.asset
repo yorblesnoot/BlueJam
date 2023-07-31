@@ -22,7 +22,7 @@ MonoBehaviour:
   KeyStock: 0
   RemoveStock: 0
   worldSteps: 18
-  currentHealth: 73
+  currentHealth: 62
   score: 57
   bossSequence: 010000000000000002000000
   endless: 0
