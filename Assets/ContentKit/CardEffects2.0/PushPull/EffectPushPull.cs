@@ -29,14 +29,14 @@ public class EffectPushPull : CardEffectPlus
         }
     }
 
-    IEnumerator Push(BattleUnit actor, BattleUnit target, int distance, float duration)
+    IEnumerator Push(BattleUnit actor, BattleUnit target, int directedDistance, float duration)
     {
         Vector3 direction;
         direction = target.transform.position - actor.transform.position;
         direction.y = 0f;
-        direction *= distance;
+        direction *= directedDistance;
         direction.Normalize();
-        distance = Mathf.Abs(distance);
+        int distance = Mathf.Abs(directedDistance);
         Vector3 startPosition = target.transform.position;
         Vector3 destination = startPosition;
         int collisionDamage = 0;
@@ -61,7 +61,7 @@ public class EffectPushPull : CardEffectPlus
         MapTools.ReportPositionChange(target, destinationTile);
         yield return target.StartCoroutine(target.gameObject.LerpTo(destinationTile.unitPosition, duration));
 
-        if (collisionDamage > 0)
+        if (collisionDamage > 0 && directedDistance > 0)
         {
             GameObject impactPlace = MapTools.VectorToTile(destination + direction);
             if (impactPlace != null)

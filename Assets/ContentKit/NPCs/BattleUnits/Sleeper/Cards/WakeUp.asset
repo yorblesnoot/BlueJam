@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: WakeUp
+  m_EditorClassIdentifier: 
+  Id: 1da4a584-db7c-4ecb-b1ea-6ced8c4be173
+  displayName: Powerful Stirring
+  art: {fileID: 21300000, guid: ae6fb53b668d94b4ba1dc73e1e8b8d6c, type: 3}
+  cost: 5
+  description: 
+  keywords: 
+  targetShape: 0
+  targetSize: 0
+  targetGap: 0
+  needsPath: 0
+  isCurse: 0
+  cardClass: 
+  consumed: 1
+  animType: 0
+  effects:
+  - {fileID: 11400000, guid: dd11a32b6c77b224fbdd022dc79cec99, type: 2}
+  - {fileID: 11400000, guid: d9c8f51980d00c74bb5c75ac3face56e, type: 2}

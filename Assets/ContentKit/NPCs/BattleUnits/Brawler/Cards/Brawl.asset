@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: Brawl
+  m_EditorClassIdentifier: 
+  Id: 01e52681-385f-4655-9afe-51a5f8d1589d
+  displayName: Advancing Brawl
+  art: {fileID: 21300000, guid: 87cb80b28a26948bab802db554863a96, type: 3}
+  cost: 4
+  description: 
+  keywords: 
+  targetShape: 1
+  targetSize: 1
+  targetGap: 1
+  needsPath: 0
+  isCurse: 0
+  cardClass: 
+  consumed: 0
+  animType: 0
+  effects:
+  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: ad352c4f04455674ca61014e0802281e, type: 2}
+  - {fileID: 11400000, guid: 93baeb5ae9ce11341a81e33d76add7b0, type: 2}

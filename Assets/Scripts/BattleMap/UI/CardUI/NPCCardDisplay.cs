@@ -30,6 +30,7 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
     public void PopulateCard(CardPlus card)
     {
         thisCard = card;
+        forceConsume = thisCard.consumed;
         if (card.isCurse)
         {
             image.sprite = curse.sprite;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class BtlCardDisplay : CardDisplay, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public class BtlCardDisplay : PlayerCardDisplay, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
     [SerializeField] GameObject outline;
     bool activated = false;

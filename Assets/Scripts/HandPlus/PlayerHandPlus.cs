@@ -23,7 +23,7 @@ public class PlayerHandPlus : HandPlus
         GenerateHandSlots(Mathf.RoundToInt(thisUnit.loadedStats[StatType.HANDSIZE]));
         foreach(CardPlus card in deckRecord.deckContents)
         {
-            CardDisplay cardDisplay = RenderCard(card);
+            PlayerCardDisplay cardDisplay = RenderCard(card);
             deckCards.Add(cardDisplay);
             cardDisplay.transform.SetParent(deckSpot.transform, false);
         }
@@ -33,7 +33,7 @@ public class PlayerHandPlus : HandPlus
 
     public override ICardDisplay ConjureCard(CardPlus card, Vector3 location, EffectInject.InjectLocation injectLocation)
     {
-        CardDisplay cardDisplay = RenderCard(card, location);
+        PlayerCardDisplay cardDisplay = RenderCard(card, location);
         cardDisplay.transform.SetParent(conjureSpot.transform, false);
         switch (injectLocation)
         {
@@ -102,12 +102,12 @@ public class PlayerHandPlus : HandPlus
         }
     }
 
-    CardDisplay RenderCard(CardPlus card, Vector3 location = default)
+    PlayerCardDisplay RenderCard(CardPlus card, Vector3 location = default)
     {
         Quaternion rotate = Quaternion.Euler(0, 0, 0);
         GameObject newCard = Instantiate(blankCard, location, rotate);
         newCard.transform.localScale = new Vector3(cardSize, cardSize, cardSize);
-        CardDisplay cardDisplay = newCard.GetComponent<CardDisplay>();
+        PlayerCardDisplay cardDisplay = newCard.GetComponent<PlayerCardDisplay>();
         cardDisplay.cardBack.SetActive(true);
         cardDisplay.owner = thisUnit;
         card.Initialize();
@@ -127,9 +127,9 @@ public class PlayerHandPlus : HandPlus
 
     public override IEnumerator DrawCard(ICardDisplay display = null)
     {
-        CardDisplay drawn;
-        if (display == null) drawn = (CardDisplay)deckCards.Last();
-        else drawn = (CardDisplay)display;
+        PlayerCardDisplay drawn;
+        if (display == null) drawn = (PlayerCardDisplay)deckCards.Last();
+        else drawn = (PlayerCardDisplay)display;
         drawn.transform.SetParent(handSpot.transform, true);
         drawn.transform.SetAsFirstSibling();
 
@@ -147,7 +147,7 @@ public class PlayerHandPlus : HandPlus
 
     public override IEnumerator DiscardCard(ICardDisplay Idiscarded, bool played)
     {
-        CardDisplay discarded = (CardDisplay)Idiscarded;
+        PlayerCardDisplay discarded = (PlayerCardDisplay)Idiscarded;
         discarded.gameObject.GetComponent<EmphasizeCard>().readyEmphasis = false;
         CardSlot slot = cardSlots.FirstOrDefault(x => x.reference == discarded);
         if (Idiscarded.forceConsume == true && played == true)
@@ -205,7 +205,7 @@ class CardSlot
     public Vector3 cardScale;
     public GameObject cardBack;
 
-    public CardDisplay reference;
+    public PlayerCardDisplay reference;
     readonly static float cardDrawDiscardTime = .2f;
 
     public IEnumerator FlipToCardPosition()

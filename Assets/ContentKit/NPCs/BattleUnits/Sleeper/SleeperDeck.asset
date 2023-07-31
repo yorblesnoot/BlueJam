@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
+  m_Name: SleeperDeck
+  m_EditorClassIdentifier: 
+  Id: 61836f50-55b1-4afe-820f-72593a1bc208
+  deckContents:
+  - {fileID: 11400000, guid: 95c68b5b08fb0ce49aaddab95bd5e06e, type: 2}
+  - {fileID: 11400000, guid: a2e19a35766d316438fd4ba911c64b3e, type: 2}
+  - {fileID: 11400000, guid: 00c324293cf81024b93eb470d62ac2a4, type: 2}
+  symbol: S
+  hat: {fileID: 2239341230129396542, guid: 744e99779a2ced44dbb2972330f6586d, type: 3}
+  essenceDescription: 
+  unitName: 

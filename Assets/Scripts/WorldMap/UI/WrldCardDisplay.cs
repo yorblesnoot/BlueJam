@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class WrldCardDisplay : CardDisplay, IPointerClickHandler
+public class WrldCardDisplay : PlayerCardDisplay, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {

@@ -29,6 +29,7 @@ public class NonplayerUI : EntityUI
         if (!unitActions.isDead)
         {
             SetBar(unitActions.loadedStats[StatType.BEATS], TurnManager.beatThreshold + beatBarSpace, sliderGhostBeats, false);
+            SetBar(unitActions.loadedStats[StatType.BEATS] + beatChange, TurnManager.beatThreshold + beatBarSpace, sliderBeats, false);
             StartCoroutine(UpdateBar(beatChange, TurnManager.beatThreshold + beatBarSpace, sliderBeats, false));
         }
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class CardDisplay : MonoBehaviour, ICardDisplay
+public class PlayerCardDisplay : MonoBehaviour, ICardDisplay
 {
     [SerializeField] TMP_Text nameText;
     [SerializeField] List<GameObject> costPips;

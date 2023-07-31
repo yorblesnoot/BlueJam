@@ -7,7 +7,7 @@ using System;
 
 public class CardAwardUI : MonoBehaviour
 {
-    [SerializeField] List<CardDisplay> awardCards;
+    [SerializeField] List<PlayerCardDisplay> awardCards;
     [SerializeField] RunData runData;
     [SerializeField] EssenceCrafting essenceCrafting;
     [SerializeField] WorldMenuControl worldMenuControl;

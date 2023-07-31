@@ -179,13 +179,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   <unitStats>k__BackingField: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
+  runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   barrierTracker: {fileID: 25603}
   buffTracker: {fileID: 25602}
   myHand: {fileID: 25607}
   unitAnimator: {fileID: 25605}
   isSummoned: 0
   isDead: 0
-  runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   turnIndicator: {fileID: 3617255582815159431}
   ender: {fileID: 388095520}
 --- !u!114 &25601
@@ -3646,6 +3646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7159f9c130851d4a8dcd6bc934cfe00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  RunData: {fileID: 0}
 --- !u!114 &729997258
 MonoBehaviour:
   m_ObjectHideFlags: 0

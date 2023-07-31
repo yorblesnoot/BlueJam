@@ -16,11 +16,8 @@ MonoBehaviour:
   deckContents:
   - {fileID: 11400000, guid: 46a4f46e590e8c642a233271119ce5f5, type: 2}
   - {fileID: 11400000, guid: 8a9fe3de4e840c54c9662fa726a7bcee, type: 2}
-  - {fileID: 11400000, guid: 8356ab5dddb7d4d4d97d27bbb0bb99dc, type: 2}
+  - {fileID: 11400000, guid: 16356b83252966a4a8d03a394a2ebdb6, type: 2}
   symbol: B
-  iconColor:
-    serializedVersion: 2
-    rgba: 4278211069
   hat: {fileID: 4359660020928902210, guid: acf46ef887d0a204aa8dab1266938dc0, type: 3}
   essenceDescription: 'Essence of the Berserker. Contains:'
   unitName: Berserker

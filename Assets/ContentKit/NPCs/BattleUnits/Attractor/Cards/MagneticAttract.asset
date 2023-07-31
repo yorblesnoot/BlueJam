@@ -19,7 +19,7 @@ MonoBehaviour:
   description: 'pull target 3 cells. '
   keywords: 'Range: 2-4 <color=blue>+</color>'
   targetShape: 2
-  targetSize: 4
+  targetSize: 5
   targetGap: 2
   needsPath: 0
   isCurse: 0

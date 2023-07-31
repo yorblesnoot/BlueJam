@@ -79,7 +79,9 @@ public class CardPlus : SOWithGUID
         keywords = "";
         for (int i = 0; i < effects.Count; i++)
         {
-            description += $"{effects[i].GenerateDescription(player).FirstToUpper()}.";
+            string effectDescription = effects[i].GenerateDescription(player);
+            if (effectDescription == "") continue;
+            description += $"{effectDescription.FirstToUpper()}.";
             description += " ";
             //Environment.NewLine
         }

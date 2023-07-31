@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class DeckViewerUI : MonoBehaviour
 {
     [SerializeField] RunData runData;
-    [SerializeField] List<CardDisplay> cardDisplays;
+    [SerializeField] List<PlayerCardDisplay> cardDisplays;
     [SerializeField] Toggle removal;
     [SerializeField] TMP_Text status;
 
