@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91c23a3e06a55c4c853ecd822414ace, type: 3}
   m_Name: MagusStats
   m_EditorClassIdentifier: 
-  unitName: 
-  maxHealth: 20
-  handSize: 2
+  unitName: Magus
+  maxHealth: 80
+  handSize: 3
   startBeats: 1
-  damageScaling: 10
-  barrierScaling: 10
+  damageScaling: 12
+  barrierScaling: 12
   healScaling: 10
-  turnSpeed: 0.4
+  turnSpeed: 0.5

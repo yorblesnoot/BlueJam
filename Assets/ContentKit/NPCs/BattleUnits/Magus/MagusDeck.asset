@@ -13,8 +13,13 @@ MonoBehaviour:
   m_Name: MagusDeck
   m_EditorClassIdentifier: 
   Id: 60f2d176-77a8-4cc5-a1c7-5f5de504ca19
-  deckContents: []
-  symbol: 
-  hat: {fileID: 0}
+  deckContents:
+  - {fileID: 11400000, guid: 11db368219370c84aa4e1d23f7c58abf, type: 2}
+  - {fileID: 11400000, guid: de13f3fce6f073541a81272e8e6edeb8, type: 2}
+  - {fileID: 11400000, guid: dd159f34fc6d56d41ade4fd628747ce1, type: 2}
+  - {fileID: 11400000, guid: 9d457d6919e78d54781e2efbe44a097b, type: 2}
+  - {fileID: 11400000, guid: 5e4107459127c2541995f457ef82abcb, type: 2}
+  symbol: M
+  hat: {fileID: 989107809138359794, guid: c38b21caf74dff44e8ecd5a737700548, type: 3}
   essenceDescription: 
   unitName: 

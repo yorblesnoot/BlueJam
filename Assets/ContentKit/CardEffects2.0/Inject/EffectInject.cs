@@ -25,7 +25,6 @@ public class EffectInject : CardEffectPlus
 
     public override string GetEffectDescription(Unit player)
     {
-        toInject.Initialize();
         string copyWord;
         string consumedWord = "";
         if (forceConsume == true) consumedWord = "temporary";

@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Expel
   m_EditorClassIdentifier: 
   Id: e93d08f1-0249-4700-a862-481301941afa
-  displayName: 
-  art: {fileID: 0}
-  cost: 0
+  displayName: Expulsion
+  art: {fileID: 21300000, guid: 537ecccd3eaf24df5b9acf5843f0e507, type: 3}
+  cost: 3
   description: 
   keywords: 
   targetShape: 0
@@ -26,4 +26,5 @@ MonoBehaviour:
   cardClass: 
   consumed: 0
   animType: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: e98df8da9422ecd44af74ca2b0d3f6dc, type: 2}

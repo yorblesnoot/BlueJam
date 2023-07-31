@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5f3e3af7a7e16e49a9410794f718e52, type: 3}
+  m_Name: InjectTeleport
+  m_EditorClassIdentifier: 
+  forceTargetSelf: 0
+  targetNotRequired: 0
+  effectClass: 2
+  vfxStyleBefore: 0
+  vfxNameBefore: none
+  vfxStyleAfter: 0
+  vfxNameAfter: none
+  effectSound: 5
+  scalingMultiplier: 1
+  aoeShape: 0
+  aoeSize: 0
+  aoeGap: 0
+  userOriginalTile: {fileID: 0}
+  blockTrigger: 0
+  location: 1
+  toInject: {fileID: 11400000, guid: de13f3fce6f073541a81272e8e6edeb8, type: 2}
+  forceConsume: 1
