@@ -12,8 +12,6 @@ public class DeckViewerUI : MonoBehaviour
     [SerializeField] TMP_Text status;
 
     [SerializeField] Unit player;
-
-    readonly int minimumDeckSize = 9;
     private void OnEnable()
     {
         player.LoadStats();
@@ -56,9 +54,9 @@ public class DeckViewerUI : MonoBehaviour
             status.text = "Gather bombs in the overworld to remove cards from your deck.";
             return;
         }
-        if(runData.playerDeck.deckContents.Count < minimumDeckSize)
+        if(runData.playerDeck.deckContents.Count <= Settings.Balance.MinimumDeckSize)
         {
-            status.text = $"Removing a card would put you below the minimum deck size of {minimumDeckSize}...";
+            status.text = $"Removing a card would put you below the minimum deck size of {Settings.Balance.MinimumDeckSize}...";
             return;
         }
         SoundManager.PlaySound(SoundType.CARDREMOVED);

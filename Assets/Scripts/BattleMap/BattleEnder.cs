@@ -8,8 +8,10 @@ using UnityEngine.UI;
 
 public class BattleEnder : MonoBehaviour
 {
-    public SceneRelay sceneRelay;
+    [SerializeField] SceneRelay sceneRelay;
     [SerializeField] RunData runData;
+    [SerializeField] SpawnPool bossPool;
+
     [SerializeField] GameObject winSign;
     [SerializeField] List<TMP_Text> winWords;
 
@@ -29,6 +31,7 @@ public class BattleEnder : MonoBehaviour
         deckDrops.AddRange(runData.essenceInventory);
         StartCoroutine(VictorySequence());
     }*/
+    readonly int bossesForCredits = 3;
     public IEnumerator VictorySequence()
     {
         if (sceneRelay.bossEncounter)
@@ -46,14 +49,16 @@ public class BattleEnder : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
-        if(runData.bossSequence.Count == 0 && runData.endless == false) 
+        if(runData.bossSequence.Count == bossPool.spawnUnits.Count - bossesForCredits && runData.endless == false) 
         {
             System.IO.File.Delete(Application.persistentDataPath + "/runData.json");
             //unlock next difficulty here ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-            SceneManager.LoadScene(3); 
+            EventManager.loadSceneWithScreen.Invoke(3);
+            EventManager.loadSceneWithScreen.Invoke(-1);
             yield break; 
         }
-        SceneManager.LoadScene(1);
+        EventManager.loadSceneWithScreen.Invoke(1);
+        EventManager.loadSceneWithScreen.Invoke(-1);
     }
 
     IEnumerator FadeInDrops()
@@ -98,7 +103,8 @@ public class BattleEnder : MonoBehaviour
 
     public void ReturnToMain()
     {
-        SceneManager.LoadScene(0);
+        EventManager.loadSceneWithScreen.Invoke(0);
+        EventManager.loadSceneWithScreen.Invoke(-1);
     }
 
     readonly Color32 invisWhite = new(255, 255, 255, 0);

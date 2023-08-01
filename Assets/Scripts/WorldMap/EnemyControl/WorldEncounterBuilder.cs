@@ -20,8 +20,9 @@ public class WorldEncounterBuilder
     public void LaunchEncounter()
     {
         //save the biome generation data to runData, then send us into the battlemap
-        sceneRelay.enemyBudget = Settings.Dev.BaseFoeBudget + RunData.runDifficulty/Settings.Dev.ThreatPerBudgetUp;
+        sceneRelay.enemyBudget = Settings.Balance.BaseFoeBudget + RunData.runDifficulty/Settings.Balance.ThreatPerBudgetUp;
         EventManager.prepareForBattle.Invoke();
-        SceneManager.LoadScene(2);
+        EventManager.loadSceneWithScreen.Invoke(2);
+        EventManager.loadSceneWithScreen.Invoke(-1);
     }
 }

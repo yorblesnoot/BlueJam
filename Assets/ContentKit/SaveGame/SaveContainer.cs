@@ -112,7 +112,7 @@ public class SaveContainer
 
     public void LoadGame()
     {
-
+        EventManager.loadSceneWithScreen.Invoke(1);
         //get JSON from file or elsewhere
         saveJSON = System.IO.File.ReadAllText(Application.persistentDataPath + "/runData.json");
         JsonUtility.FromJsonOverwrite(saveJSON, this);
@@ -123,7 +123,7 @@ public class SaveContainer
         LoadEvents();
         LoadDerived();
 
-        SceneManager.LoadScene(1);
+        EventManager.loadSceneWithScreen.Invoke(-1);
     }
 
     private void LoadEvents()

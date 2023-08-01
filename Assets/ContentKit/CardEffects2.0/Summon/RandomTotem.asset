@@ -22,8 +22,8 @@ MonoBehaviour:
   effectSound: 10
   scalingMultiplier: 0
   aoeShape: 0
-  aoeSize: 3
-  aoeGap: 0
+  aoeSize: 2
+  aoeGap: 1
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
   entityToSummon: {fileID: 5721908823824948755, guid: 63c92e51d7e2acf44b90088b5d314507, type: 3}

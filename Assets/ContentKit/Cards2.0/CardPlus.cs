@@ -85,10 +85,10 @@ public class CardPlus : SOWithGUID
             description += " ";
             //Environment.NewLine
         }
-        keywords += $"Range: {targetGap}-{targetSize} {CardEffectPlus.aoeShapeName[targetShape]}";
+        keywords += $"Range: {targetGap}-{targetSize} {CardEffectPlus.aoeShapeName[targetShape]}.";
         if (consumed == true)
         {
-            keywords += "~Consumed~";
+            keywords += " <color=red>Consumed.</color>";
         }
     }
 }

@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1324673641937048145, guid: df1bc6e49bf6da548a9a1764d86083b9, type: 3}
       propertyPath: m_Name
-      value: Slime
+      value: Magus
       objectReference: {fileID: 0}
     - target: {fileID: 1813260718515636459, guid: df1bc6e49bf6da548a9a1764d86083b9, type: 3}
       propertyPath: m_RootOrder
@@ -81,21 +81,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: WitchHat_[ACCESSORY]_[TOP]
       objectReference: {fileID: 0}
+    - target: {fileID: 1551158308722936110, guid: c38b21caf74dff44e8ecd5a737700548, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0d04c7c65bc38234fa9316ffa4aec709, type: 2}
     - target: {fileID: 4314832822055948257, guid: c38b21caf74dff44e8ecd5a737700548, type: 3}
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4314832822055948257, guid: c38b21caf74dff44e8ecd5a737700548, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.0035037
+      value: 0.0030082068
       objectReference: {fileID: 0}
     - target: {fileID: 4314832822055948257, guid: c38b21caf74dff44e8ecd5a737700548, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.0035037007
+      value: 0.0030082073
       objectReference: {fileID: 0}
     - target: {fileID: 4314832822055948257, guid: c38b21caf74dff44e8ecd5a737700548, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.0035037007
+      value: 0.0030082073
       objectReference: {fileID: 0}
     - target: {fileID: 4314832822055948257, guid: c38b21caf74dff44e8ecd5a737700548, type: 3}
       propertyPath: m_LocalPosition.x
@@ -103,11 +107,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4314832822055948257, guid: c38b21caf74dff44e8ecd5a737700548, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0015
+      value: -0.0006
       objectReference: {fileID: 0}
     - target: {fileID: 4314832822055948257, guid: c38b21caf74dff44e8ecd5a737700548, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.002
+      value: -0.0011
       objectReference: {fileID: 0}
     - target: {fileID: 4314832822055948257, guid: c38b21caf74dff44e8ecd5a737700548, type: 3}
       propertyPath: m_LocalRotation.w

@@ -20,7 +20,7 @@ MonoBehaviour:
   keywords: 
   targetShape: 0
   targetSize: 1
-  targetGap: 0
+  targetGap: 1
   needsPath: 0
   isCurse: 0
   cardClass: 03000000

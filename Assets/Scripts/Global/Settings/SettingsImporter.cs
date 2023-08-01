@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SettingsImporter : MonoBehaviour
 {
-    [SerializeField] DevSettings devProfile;
+    [SerializeField] BalanceSettings devProfile;
+    [SerializeField] AdminSettings adminSettings;
     private void Awake()
     {
-        if(Settings.Dev == null) Settings.Dev = devProfile;
+        if(Settings.Balance == null) Settings.Balance = devProfile;
+        if (Settings.Admin == null) Settings.Admin = adminSettings;
         Settings.LoadPlayerSettings();
     }
 }

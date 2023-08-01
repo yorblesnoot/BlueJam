@@ -53,7 +53,7 @@ public static class SoundManager
     public static void UpdateVolume()
     {
         SourceCheck();
-        MusicSource.volume = Settings.Player[PlayerSetting.music_volume] * Settings.Player[PlayerSetting.master_volume] * Settings.Dev.MusicVolumeMod;
-        FXSource.volume = Settings.Player[PlayerSetting.fx_volume] * Settings.Player[PlayerSetting.master_volume] * Settings.Dev.FXVolumeMod;
+        MusicSource.volume = Settings.Player[PlayerSetting.music_volume] * Settings.Player[PlayerSetting.master_volume] * Settings.Admin.MusicVolumeMod;
+        FXSource.volume = Settings.Player[PlayerSetting.fx_volume] * Settings.Player[PlayerSetting.master_volume] * Settings.Admin.FXVolumeMod;
     }
 }

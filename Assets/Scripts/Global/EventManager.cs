@@ -7,6 +7,7 @@ public class CheckForTriggers : UnityEvent<CardEffectPlus, BattleUnit, BattleUni
 public class ClickedCard : UnityEvent<CardPlus, GameObject> { }
 public class RequestMapReferences : UnityEvent<MapLauncher> { }
 public class PlayerAtWorldLocation: UnityEvent<Vector2Int> { }
+public class LoadSceneWithScreen: UnityEvent<int> { }
 
 public static class EventManager
 {
@@ -34,4 +35,5 @@ public static class EventManager
     //global events
 
     public static RequestMapReferences requestMapReferences = new();
+    public static LoadSceneWithScreen loadSceneWithScreen = new();
 }

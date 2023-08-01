@@ -57,7 +57,7 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
             int range = card.targetRules.GetLength(0);
             foreach(CardEffectPlus effect in card.effects)
             {
-                if((effect.aoe.GetLength(0) + range)/2 >= 2)
+                if((effect.aoe.GetLength(0) + range)/2 >= 3)
                 {
                     image.sprite = rangeAttack.sprite;
                     image.color = rangeAttack.color;

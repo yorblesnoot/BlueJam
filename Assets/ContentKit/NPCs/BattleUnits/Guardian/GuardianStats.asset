@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: GuardianStats
   m_EditorClassIdentifier: 
   unitName: Guardian
-  maxHealth: 30
+  maxHealth: 25
   handSize: 2
   startBeats: 1
   damageScaling: 10
-  barrierScaling: 10
+  barrierScaling: 9
   healScaling: 10
-  turnSpeed: 0.4
+  turnSpeed: 0.3

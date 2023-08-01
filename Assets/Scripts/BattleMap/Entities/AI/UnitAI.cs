@@ -183,11 +183,9 @@ public class UnitAI : MonoBehaviour
             
             float potentialPathDistance = pathfinder.GetPathLength(moveVect, MapTools.VectorToMap(entity.transform.position));
             float currentPathDistance = pathfinder.GetPathLength(MapTools.VectorToMap(transform.position), MapTools.VectorToMap(entity.transform.position));
-            Debug.Log("path1: " + potentialPathDistance + "path2: " + currentPathDistance);
             if (!WeAreFriends(gameObject, entity))
             {
                 hostileScore += interestHostile * DistanceProcessing(proximityHostile, potentialPathDistance, currentPathDistance);
-                Debug.Log("hscore " + hostileScore);
                 hostileCount++;
             }
             else
@@ -197,9 +195,8 @@ public class UnitAI : MonoBehaviour
             }
         }
         float output = 0;
-        if (hostileCount > 0) output += hostileScore / hostileCount;
-        if (friendlyCount > 0) output = friendlyScore / friendlyCount;
-        Debug.Log(output + "final out");
+        if (hostileCount > 0) output += (hostileScore / hostileCount);
+        if (friendlyCount > 0) output += friendlyScore / friendlyCount;
         return output;
     }
 }

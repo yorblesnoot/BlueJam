@@ -190,7 +190,11 @@ public class PlayerHandPlus : HandPlus
 
     internal void UpdateHand()
     {
-        foreach(ICardDisplay card in handCards)
+        List<ICardDisplay> cards = new();
+        cards.AddRange(deckCards);
+        cards.AddRange(discardCards);
+        cards.AddRange(handCards);
+        foreach(ICardDisplay card in cards)
         {
             card.thisCard.Initialize();
             card.PopulateCard(card.thisCard);

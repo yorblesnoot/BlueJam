@@ -13,6 +13,7 @@ public class RunStarter : MonoBehaviour
     public GenerationParameters generationParameters;
     public void NewGame()
     {
+        EventManager.loadSceneWithScreen.Invoke(1);
         //reset the players deck and base stats to the class's
         playerClass.ResetAndInitialize(playerStats);
         playerClass.ResetAndInitialize(playerDeck);
@@ -47,6 +48,6 @@ public class RunStarter : MonoBehaviour
         runData.exploredChunks = new bool[mapSize / DynamicEventPlacer.chunkSize, mapSize / DynamicEventPlacer.chunkSize];
 
         //send the player to the world map
-        SceneManager.LoadScene(1);
+        EventManager.loadSceneWithScreen.Invoke(-1);
     }
 }

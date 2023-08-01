@@ -24,7 +24,7 @@ public class RunData : ScriptableObject
     public int RemoveStock;
     
     public int worldSteps;
-    public int runDifficulty { get { return worldSteps / Settings.Dev.StepsPerThreat - Settings.Dev.ThreatHandicap; } }
+    public int runDifficulty { get { return worldSteps / Settings.Balance.StepsPerThreat - Settings.Balance.ThreatHandicap; } }
 
     public int currentHealth;
 

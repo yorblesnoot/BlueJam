@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "DevSettings", menuName = "ScriptableObjects/DevSettings")]
-public class DevSettings : ScriptableObject
+[CreateAssetMenu(fileName = "BalanceSettings", menuName = "ScriptableObjects/BalanceSettings")]
+public class BalanceSettings : ScriptableObject
 {
     [field: SerializeField] public int BossSpawnDistance { get; private set; }
     [field: SerializeField] public int StepsPerThreat { get; private set; }
@@ -15,23 +15,24 @@ public class DevSettings : ScriptableObject
     [field: SerializeField] public float HealthPerThreat { get; private set; }
     [field: SerializeField] public float SpeedPerThreat { get; private set; }
 
-    [field: SerializeField] public float FXVolumeMod { get; private set; }
-    [field: SerializeField] public float MusicVolumeMod { get; private set; }
+    [field: SerializeField] public int MinimumDeckSize { get; private set; }
+
+
+
 
 
     private void Reset()
     {
-        BossSpawnDistance = 50;
+        BossSpawnDistance = 40;
         StepsPerThreat = 10;
         ThreatHandicap = 2;
-        BaseFoeBudget = 4;
-        ThreatPerBudgetUp = 2;
+        BaseFoeBudget = 5;
+        ThreatPerBudgetUp = 5;
 
         StatPerThreat = .1f;
-        HealthPerThreat = .05f;
+        HealthPerThreat = .04f;
         SpeedPerThreat = .01f;
 
-        FXVolumeMod = .5f;
-        MusicVolumeMod = 1f;
+        MinimumDeckSize = 9;
     }
 }

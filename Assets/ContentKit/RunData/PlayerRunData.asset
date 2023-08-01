@@ -14,15 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
-  playerWorldX: 256
-  playerWorldY: 254
+  playerWorldX: 249
+  playerWorldY: 249
   itemInventory: []
-  essenceInventory: []
+  essenceInventory:
+  - {fileID: 11400000, guid: d40c66bd0600ac347816231fcbd80ca4, type: 2}
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
   RemoveStock: 0
-  worldSteps: 18
-  currentHealth: 62
-  score: 57
-  bossSequence: 010000000000000002000000
+  worldSteps: 0
+  currentHealth: 100
+  score: 45
+  bossSequence: 00000000010000000200000003000000
   endless: 0
