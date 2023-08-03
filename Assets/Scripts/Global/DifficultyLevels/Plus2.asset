@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BossSpawnDistance>k__BackingField: 40
   <StepsPerThreat>k__BackingField: 9
-  <ThreatHandicap>k__BackingField: 1
-  <BaseFoeBudget>k__BackingField: 5
+  <ThreatHandicap>k__BackingField: 2
+  <BaseFoeBudget>k__BackingField: 7
   <ThreatPerBudgetUp>k__BackingField: 5
   <StatPerThreat>k__BackingField: 0.12
   <HealthPerThreat>k__BackingField: 0.04

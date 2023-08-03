@@ -15,15 +15,15 @@ MonoBehaviour:
   Id: ca7d5856-c86f-4d6d-afc0-592ff8fb631b
   displayName: Affliction
   art: {fileID: 21300000, guid: 8a94ca56fa5d0485ab678593da84d890, type: 3}
-  cost: 2
-  description: 
-  keywords: 
+  cost: 3
+  description: 'Pay <color=red>15</color> life. '
+  keywords: 'Range: 0-0 <color=blue>O</color>. <color=red>Consumed.</color>'
   targetShape: 0
   targetSize: 0
   targetGap: 0
   needsPath: 0
   isCurse: 1
-  cardClass: 
+  cardClass: 02000000
   consumed: 1
   animType: 0
   effects:

@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e0c7db2d119bc409a226792cce5017, type: 3}
   m_Name: Plus1
   m_EditorClassIdentifier: 
-  Id: f5963024-cf98-487f-9767-a06e8f66a76f
   <BossSpawnDistance>k__BackingField: 40
   <StepsPerThreat>k__BackingField: 10
-  <ThreatHandicap>k__BackingField: 2
-  <BaseFoeBudget>k__BackingField: 5
+  <ThreatHandicap>k__BackingField: 3
+  <BaseFoeBudget>k__BackingField: 7
   <ThreatPerBudgetUp>k__BackingField: 5
   <StatPerThreat>k__BackingField: 0.1
   <HealthPerThreat>k__BackingField: 0.04
   <SpeedPerThreat>k__BackingField: 0.01
   <MinimumDeckSize>k__BackingField: 9
+  <HesitationCurses>k__BackingField: 0

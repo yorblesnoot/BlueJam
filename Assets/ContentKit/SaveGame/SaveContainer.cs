@@ -69,6 +69,7 @@ public class SaveContainer
 
     void SaveNums()
     {
+        difficulty = RunData.difficultyTier;
         currentHealth = RunData.currentHealth;
         playerX = RunData.playerWorldX;
         playerY = RunData.playerWorldY;
@@ -87,7 +88,6 @@ public class SaveContainer
 
     void SaveGUIDs()
     {
-        difficulty = RunData.difficultyTier;
 
         playerDeck = RunData.playerDeck.deckContents.Select(x => x.Id).ToList();
         items = RunData.itemInventory.Select(x => x.Id).ToList();
@@ -145,6 +145,7 @@ public class SaveContainer
     void LoadNums()
     {
         Settings.Balance = difficultySelector.GetDifficultyFromTier(difficulty);
+        RunData.difficultyTier = difficulty;
         RunData.currentHealth = currentHealth;
         RunData.playerWorldX = playerX;
         RunData.playerWorldY = playerY;

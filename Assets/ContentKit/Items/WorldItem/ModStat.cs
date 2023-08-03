@@ -6,13 +6,14 @@ using UnityEngine;
 public class ModStat : ItemMod
 {
     [SerializeField] StatType statType;
-    public override void ModifyPlayer(UnitStats player)
+    public override void ModifyPlayer(RunData player)
     {
         Stat(scaler, player);
     }
 
-    void Stat(float scale, UnitStats player)
+    void Stat(float scale, RunData runData)
     {
+        UnitStats player = runData.playerStats;
         float scaleMult = 1 + scale / 100;
         switch (statType)
         {
@@ -21,6 +22,8 @@ public class ModStat : ItemMod
                 break;
             case (StatType.MAXHEALTH):
                 player.maxHealth = Mathf.RoundToInt(player.maxHealth * scaleMult);
+                runData.currentHealth = Mathf.Clamp(runData.currentHealth, 0, player.maxHealth);
+                EventManager.updateWorldHealth.Invoke();
                 break;
             case (StatType.SPEED):
                 player.turnSpeed *= scaleMult;

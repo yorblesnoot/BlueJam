@@ -11,7 +11,7 @@ public class WorldItem : Item
         base.PlayerGetItem(runData);
         foreach (var mod in mods)
         {
-            mod.ModifyPlayer(runData.playerStats);
+            mod.ModifyPlayer(runData);
         }
     }
 }

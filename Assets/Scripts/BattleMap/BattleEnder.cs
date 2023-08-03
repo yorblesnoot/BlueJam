@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class BattleEnder : MonoBehaviour
@@ -32,8 +32,10 @@ public class BattleEnder : MonoBehaviour
         StartCoroutine(VictorySequence());
     }*/
     readonly int bossesForCredits = 3;
+    bool returnToMap;
     public IEnumerator VictorySequence()
     {
+        SoundManager.PlayMusic(SoundType.MUSICVICTORY);
         if (sceneRelay.bossEncounter)
         {
             Tutorial.CompleteStage(TutorialFor.WORLDBOSS, 1);
@@ -49,17 +51,20 @@ public class BattleEnder : MonoBehaviour
 
         yield return new WaitForSeconds(2f);
 
+        int sceneTarget;
         if(runData.bossSequence.Count == bossPool.spawnUnits.Count - bossesForCredits && runData.endless == false) 
         {
             System.IO.File.Delete(Application.persistentDataPath + "/runData.json");
             UnlockNextDifficulty();
-            EventManager.loadSceneWithScreen.Invoke(3);
-            EventManager.loadSceneWithScreen.Invoke(-1);
-            yield break; 
+            sceneTarget = 3;
         }
-        EventManager.loadSceneWithScreen.Invoke(1);
+        else sceneTarget = 1;
+        yield return new WaitUntil(() => returnToMap == true);
+        EventManager.loadSceneWithScreen.Invoke(sceneTarget);
         EventManager.loadSceneWithScreen.Invoke(-1);
     }
+
+    public void ReturnToWorldMap() { returnToMap = true; }
 
     void UnlockNextDifficulty()
     {

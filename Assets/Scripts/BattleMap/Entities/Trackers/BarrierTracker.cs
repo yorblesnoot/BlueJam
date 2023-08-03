@@ -9,7 +9,12 @@ public class BarrierTracker : MonoBehaviour
     [HideInInspector] public List<int> deflectInstances;
     [HideInInspector] public List<int> deflectDurations;
 
-    readonly int deflectLength = 2;
+    int deflectLength = 2;
+
+    private void Awake()
+    {
+        if (!gameObject.CompareTag("Player")) deflectLength = 1;
+    }
 
     public void AddDeflect(int amount)
     {

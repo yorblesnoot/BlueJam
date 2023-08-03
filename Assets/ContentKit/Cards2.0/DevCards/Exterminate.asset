@@ -14,14 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 9f050a5a-8d6c-4d5b-b441-979372c89f75
   displayName: DEV MURDER
+  art: {fileID: 0}
   cost: 1
-  description: 
-  keywords: 
+  description: 'Deal <color=#FF4E2B>100</color> damage. '
+  keywords: 'Range: 0-6 <color=blue>O</color>.'
   targetShape: 0
-  targetSize: 6
+  targetSize: 12
   targetGap: 0
-  pathCheckForTargets: 0
-  cardClass: 
+  needsPath: 0
+  isCurse: 0
+  cardClass: 00000000
   consumed: 0
   animType: 0
   effects:
