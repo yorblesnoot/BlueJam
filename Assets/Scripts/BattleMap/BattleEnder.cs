@@ -52,13 +52,19 @@ public class BattleEnder : MonoBehaviour
         if(runData.bossSequence.Count == bossPool.spawnUnits.Count - bossesForCredits && runData.endless == false) 
         {
             System.IO.File.Delete(Application.persistentDataPath + "/runData.json");
-            //unlock next difficulty here ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+            UnlockNextDifficulty();
             EventManager.loadSceneWithScreen.Invoke(3);
             EventManager.loadSceneWithScreen.Invoke(-1);
             yield break; 
         }
         EventManager.loadSceneWithScreen.Invoke(1);
         EventManager.loadSceneWithScreen.Invoke(-1);
+    }
+
+    void UnlockNextDifficulty()
+    {
+        if (runData.difficultyTier == PlayerPrefs.GetInt("UnlockedDifficulty", 2))
+            PlayerPrefs.SetInt("UnlockedDifficulty", PlayerPrefs.GetInt("UnlockedDifficulty", 2) + 1);
     }
 
     IEnumerator FadeInDrops()

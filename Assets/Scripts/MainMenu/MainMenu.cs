@@ -1,8 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -15,6 +12,8 @@ public class MainMenu : MonoBehaviour
     [SerializeField] GameObject tutorialPrompt;
 
     [SerializeField] GameObject optionsWindow;
+
+    [SerializeField] DifficultySelector difficultySelector;
 
 
     private void Start()
@@ -54,7 +53,7 @@ public class MainMenu : MonoBehaviour
     public void ContinueButton()
     {
         SoundManager.PlaySound(SoundType.BUTTONPRESS);
-        SaveContainer saver = new(runData, loadLibrary);
+        SaveContainer saver = new(runData, loadLibrary, difficultySelector);
         saver.LoadGame();
     }
 

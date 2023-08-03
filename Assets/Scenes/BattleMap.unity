@@ -293,6 +293,7 @@ MonoBehaviour:
   handSpot: {fileID: 762882978}
   discardSpot: {fileID: 1729500621}
   conjureSpot: {fileID: 1063679271}
+  hesitationCurse: {fileID: 11400000, guid: 87a956000dddd6048be7a6ee8c188023, type: 2}
 --- !u!1001 &3451738
 PrefabInstance:
   m_ObjectHideFlags: 0

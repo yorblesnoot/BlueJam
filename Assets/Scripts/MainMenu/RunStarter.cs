@@ -5,15 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class RunStarter : MonoBehaviour
 {
-    public RunData runData;
-    public PlayerClass playerClass;
-    public UnitStats playerStats;
-    public Deck playerDeck;
-
-    public GenerationParameters generationParameters;
+    [SerializeField] RunData runData;
+    [SerializeField] PlayerClass playerClass;
+    [SerializeField] UnitStats playerStats;
+    [SerializeField] Deck playerDeck;
+    [SerializeField] GenerationParameters generationParameters;
+    [SerializeField] DifficultySelector difficultySelector;
     public void NewGame()
     {
         EventManager.loadSceneWithScreen.Invoke(1);
+        runData.difficultyTier = difficultySelector.currentDifficulty;
+        Settings.Balance = difficultySelector.GetDifficultyFromTier(runData.difficultyTier);
+
+
         //reset the players deck and base stats to the class's
         playerClass.ResetAndInitialize(playerStats);
         playerClass.ResetAndInitialize(playerDeck);

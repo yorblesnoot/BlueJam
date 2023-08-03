@@ -14,7 +14,7 @@ public class NPCHealthPips : MonoBehaviour
         float pipRegions = (float)maxHealth / pipFactor;
         int pipAmount = Mathf.FloorToInt(pipRegions);
         Debug.Log($"{pipAmount} pips for {maxHealth} health");
-        while(pipAmount > pips.Count)
+        while(pipAmount >= pips.Count)
         {
             GameObject newPip = Instantiate(pips[0], rectTransform);
             pips.Add(newPip);

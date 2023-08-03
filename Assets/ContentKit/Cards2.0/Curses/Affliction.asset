@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: Affliction
+  m_EditorClassIdentifier: 
+  Id: ca7d5856-c86f-4d6d-afc0-592ff8fb631b
+  displayName: Affliction
+  art: {fileID: 21300000, guid: 8a94ca56fa5d0485ab678593da84d890, type: 3}
+  cost: 2
+  description: 
+  keywords: 
+  targetShape: 0
+  targetSize: 0
+  targetGap: 0
+  needsPath: 0
+  isCurse: 1
+  cardClass: 
+  consumed: 1
+  animType: 0
+  effects:
+  - {fileID: 11400000, guid: 4a90f222882288d4e949d658b643bd82, type: 2}

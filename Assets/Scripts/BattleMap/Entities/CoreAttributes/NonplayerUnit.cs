@@ -7,7 +7,7 @@ public class NonplayerUnit : BattleUnit
     public override void Initialize()
     {
         base.Initialize();
-        ScaleWithDifficulty(runData.runDifficulty);
+        ScaleWithDifficulty(runData.ThreatLevel);
 
         currentHealth = Mathf.RoundToInt(loadedStats[StatType.MAXHEALTH]);
         myUI.InitializeHealth();

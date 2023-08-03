@@ -10,6 +10,8 @@ public class PlayerHandPlus : HandPlus
     [SerializeField] GameObject discardSpot;
     [SerializeField] GameObject conjureSpot;
 
+    [SerializeField] CardPlus hesitationCurse;
+
     readonly int pileDisplacementFactor = 3;
     readonly float cardFlyTime = .2f;
     List<CardSlot> cardSlots = new();
@@ -23,12 +25,23 @@ public class PlayerHandPlus : HandPlus
         GenerateHandSlots(Mathf.RoundToInt(thisUnit.loadedStats[StatType.HANDSIZE]));
         foreach(CardPlus card in deckRecord.deckContents)
         {
-            PlayerCardDisplay cardDisplay = RenderCard(card);
-            deckCards.Add(cardDisplay);
-            cardDisplay.transform.SetParent(deckSpot.transform, false);
+            AddVisualCard(card);
         }
+
+        for(int i = 0; i < Settings.Balance.HesitationCurses; i++)
+        {
+            AddVisualCard(hesitationCurse);
+        }
+
         deckCards.Shuffle();
         FanPile(deckCards);
+    }
+
+    void AddVisualCard(CardPlus card)
+    {
+        PlayerCardDisplay cardDisplay = RenderCard(card);
+        deckCards.Add(cardDisplay);
+        cardDisplay.transform.SetParent(deckSpot.transform, false);
     }
 
     public override ICardDisplay ConjureCard(CardPlus card, Vector3 location, EffectInject.InjectLocation injectLocation)

@@ -12,6 +12,6 @@ public class DifficultyCounter : MonoBehaviour
 
     public void UpdateCounter()
     {
-        counter.text = $"Threat: {runData.runDifficulty + Settings.Balance.ThreatHandicap}";
+        counter.text = $"Threat: {runData.ThreatLevel + Settings.Balance.ThreatHandicap}";
     }
 }

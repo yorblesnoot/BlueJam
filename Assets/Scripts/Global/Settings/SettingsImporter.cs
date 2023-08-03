@@ -6,7 +6,11 @@ public class SettingsImporter : MonoBehaviour
     [SerializeField] AdminSettings adminSettings;
     private void Awake()
     {
-        if(Settings.Balance == null) Settings.Balance = devProfile;
+        if (Settings.Balance == null)
+        {
+            Debug.LogWarning("imported default balance settings");
+            Settings.Balance = devProfile;
+        }
         if (Settings.Admin == null) Settings.Admin = adminSettings;
         Settings.LoadPlayerSettings();
     }

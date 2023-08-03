@@ -8,6 +8,8 @@ public class RunData : ScriptableObject
     //world map data
     public UnitStats playerStats;
     public Deck playerDeck;
+
+
     [HideInInspector] public string[,] worldMap;
     [HideInInspector] public Dictionary<Vector2Int, string> eventMap;
     [HideInInspector] public bool[,] exploredChunks;
@@ -17,14 +19,14 @@ public class RunData : ScriptableObject
 
     public List<Item> itemInventory;
     public List<Deck> essenceInventory;
-
     public ItemPool itemPool;
 
     public int KeyStock;
     public int RemoveStock;
     
     public int worldSteps;
-    public int runDifficulty { get { return worldSteps / Settings.Balance.StepsPerThreat - Settings.Balance.ThreatHandicap; } }
+    public int ThreatLevel { get { return worldSteps / Settings.Balance.StepsPerThreat - Settings.Balance.ThreatHandicap; } }
+    public int difficultyTier;
 
     public int currentHealth;
 

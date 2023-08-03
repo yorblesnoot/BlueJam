@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: CurseSelfDmg
+  m_Name: Hesitation
   m_EditorClassIdentifier: 
-  Id: ca7d5856-c86f-4d6d-afc0-592ff8fb631b
-  displayName: Affliction
-  art: {fileID: 21300000, guid: 8a94ca56fa5d0485ab678593da84d890, type: 3}
-  cost: 2
+  Id: 98720ea4-5ba8-49e7-bf14-a67dff5ccbf3
+  displayName: Hesitation
+  art: {fileID: 21300000, guid: 636d0e7efb0b743ac8d69aecea8bc7c1, type: 3}
+  cost: 3
   description: 
   keywords: 
   targetShape: 0
@@ -24,7 +24,7 @@ MonoBehaviour:
   needsPath: 0
   isCurse: 1
   cardClass: 
-  consumed: 1
+  consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: 4a90f222882288d4e949d658b643bd82, type: 2}
+  - {fileID: 11400000, guid: 20388f65135e10d44babca26b27e54e1, type: 2}

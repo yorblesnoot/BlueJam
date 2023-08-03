@@ -17,6 +17,8 @@ public class BalanceSettings : ScriptableObject
 
     [field: SerializeField] public int MinimumDeckSize { get; private set; }
 
+    [field: SerializeField] public int HesitationCurses { get; private set; }
+
 
 
 

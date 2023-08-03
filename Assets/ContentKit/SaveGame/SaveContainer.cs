@@ -8,18 +8,21 @@ public class SaveContainer
     RunData RunData;
     string saveJSON;
     LoadLibrary loadLibrary;
+    DifficultySelector difficultySelector;
 
     public SaveContainer( RunData data )
     {
         RunData = data;
     }
 
-    public SaveContainer(RunData data, LoadLibrary load)
+    public SaveContainer(RunData data, LoadLibrary load, DifficultySelector difficultySelector)
     {
         RunData = data;
         loadLibrary = load;
+        this.difficultySelector = difficultySelector;
     }
 
+    public int difficulty;
     public List<string> playerDeck;
     public List<string> items;
     public List<string> essenceInventory;
@@ -56,7 +59,7 @@ public class SaveContainer
     {
 
         SaveNums();
-        SaveCollectibles();
+        SaveGUIDs();
         SaveGrids();
         SaveEvents();
         saveJSON = JsonUtility.ToJson(this, false);
@@ -82,8 +85,10 @@ public class SaveContainer
         turnSpeed = RunData.playerStats.turnSpeed;
     }
 
-    void SaveCollectibles()
+    void SaveGUIDs()
     {
+        difficulty = RunData.difficultyTier;
+
         playerDeck = RunData.playerDeck.deckContents.Select(x => x.Id).ToList();
         items = RunData.itemInventory.Select(x => x.Id).ToList();
         essenceInventory = RunData.essenceInventory.Select(x => x.Id).ToList();
@@ -119,7 +124,7 @@ public class SaveContainer
 
         LoadNums();
         LoadGrids();
-        LoadCollectibles();
+        LoadGUIDs();
         LoadEvents();
         LoadDerived();
 
@@ -139,6 +144,7 @@ public class SaveContainer
 
     void LoadNums()
     {
+        Settings.Balance = difficultySelector.GetDifficultyFromTier(difficulty);
         RunData.currentHealth = currentHealth;
         RunData.playerWorldX = playerX;
         RunData.playerWorldY = playerY;
@@ -161,7 +167,7 @@ public class SaveContainer
         RunData.exploredChunks = chunks.Unflatten();
     }
 
-    void LoadCollectibles()
+    void LoadGUIDs()
     {
         loadLibrary.Initialize();
         RunData.playerDeck.deckContents = playerDeck.Select(x => loadLibrary.cards[x]).ToList();
