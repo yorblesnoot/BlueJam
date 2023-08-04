@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: TurtleShell
   m_EditorClassIdentifier: 
   Id: 383f42a7-2e41-4a21-9cba-baa1bd862e97
-  thumbnail: {fileID: 0}
+  thumbnail: {fileID: 21300000, guid: 5e2805d1479227b499602a8f62f9a0e7, type: 3}
   thumbnailColor:
     serializedVersion: 2
-    rgba: 4294967295
-  description: 
+    rgba: 4282777344
+  description: Your barriers and heals are stronger, but your max health is halved.
   mods:
   - {fileID: 11400000, guid: 1cafcb06a10890e4e92d4d1eca445182, type: 2}
   - {fileID: 11400000, guid: 29ade034689ad024d87e8649da359bd6, type: 2}

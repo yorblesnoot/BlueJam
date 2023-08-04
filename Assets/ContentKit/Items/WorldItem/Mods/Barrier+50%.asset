@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8f14964c9c679c445b97033c1505aea4, type: 3}
   m_Name: Barrier+50%
   m_EditorClassIdentifier: 
-  scaler: 30
+  scaler: 50
   statType: 6

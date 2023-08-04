@@ -15,7 +15,7 @@ MonoBehaviour:
   <BossSpawnDistance>k__BackingField: 40
   <StepsPerThreat>k__BackingField: 14
   <ThreatHandicap>k__BackingField: 7
-  <BaseFoeBudget>k__BackingField: 7
+  <BaseFoeBudget>k__BackingField: 6
   <ThreatPerBudgetUp>k__BackingField: 5
   <StatPerThreat>k__BackingField: 0.08
   <HealthPerThreat>k__BackingField: 0.03

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: MaxHealth-50%
   m_EditorClassIdentifier: 
   scaler: -50
-  statType: 6
+  statType: 0

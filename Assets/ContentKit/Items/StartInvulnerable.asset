@@ -17,6 +17,6 @@ MonoBehaviour:
   thumbnailColor:
     serializedVersion: 2
     rgba: 4294933248
-  description: Gain a huge deflect at the start of battle..
+  description: Gain a huge deflect at the start of battle.
   effects:
   - {fileID: 11400000, guid: de5eaa8739987a442a879ad617cc5886, type: 2}
