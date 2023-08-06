@@ -62,7 +62,7 @@ public class WorldEventHandler : MonoBehaviour
         {
             Tutorial.CompleteStage(TutorialFor.WORLDBOSS, 1, true);
             sceneRelay.bossEncounter = true;
-            LaunchCombat(cellEnemy);
+            StartCoroutine(LaunchCombat(cellEnemy));
             yield break;
         }
 
@@ -75,14 +75,14 @@ public class WorldEventHandler : MonoBehaviour
             WorldEventHandler eventHandler = tile.GetComponent<WorldEventHandler>();
             if (eventHandler.cellEnemy == null || eventHandler.cellEnemy.GetType() == typeof(WorldBoss)) continue;
             Tutorial.CompleteStage(TutorialFor.WORLDBATTLE, 1, true);
-            LaunchCombat(eventHandler.cellEnemy);
+            StartCoroutine(LaunchCombat(eventHandler.cellEnemy));
             yield break;
             
         }
         EventManager.updateWorldCounters.Invoke();
     }
 
-    void LaunchCombat(WorldEnemy cellEnemy)
+    IEnumerator LaunchCombat(WorldEnemy cellEnemy)
     {
         sceneRelay.spawnPool = cellEnemy.spawnPool;
         WorldEncounterBuilder builder = new(sceneRelay, runData);
@@ -93,8 +93,40 @@ public class WorldEventHandler : MonoBehaviour
         //modify encounters-- extra map generation parameters
         builder.ModifyMapGeneration(biomeMaps);
 
+        yield return StartCoroutine(AnimatePlayerToBattle());
         //start combat
         builder.LaunchEncounter();
+    }
+
+    readonly static float descentTime = .4f;
+    readonly static float randomDistanceWithinTile = .3f;
+    IEnumerator AnimatePlayerToBattle()
+    {
+        GameObject player = WorldPlayerControl.player.gameObject;
+        Vector3 risePosition = player.transform.position;
+        Vector3 dropPosition = transform.position;
+        dropPosition.x += Random.Range(-randomDistanceWithinTile, randomDistanceWithinTile);
+        dropPosition.z += Random.Range(-randomDistanceWithinTile, randomDistanceWithinTile);
+        dropPosition.y += .2f;
+        float timeElapsed = 0;
+        player.GetComponent<UnitAnimator>().Animate(AnimType.JUMP);
+        yield return new WaitForSeconds(.6f);
+        while (timeElapsed < descentTime)
+        {
+            Vector3 step = Vector3.Lerp(risePosition, dropPosition, timeElapsed / descentTime);
+            player.transform.position = step;
+
+            Vector3 shrink = Vector3.Lerp(Vector3.one, Vector3.zero, timeElapsed / descentTime);
+            player.transform.localScale = shrink;
+            timeElapsed += Time.deltaTime;
+            
+            yield return null;
+        }
+        player.transform.position = Vector3.zero;
+        Vector3 sparklePosition = dropPosition;
+        sparklePosition.y += .1f;
+        VFXMachine.PlayAtLocation("DistanceSparkle", sparklePosition);
+        yield return new WaitForSeconds(1f);
     }
 
     public void ConfirmItemPicked() { pickedItem = true; }

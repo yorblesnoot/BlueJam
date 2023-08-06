@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class BattleUnitSpawner
 {
@@ -60,11 +61,25 @@ public class BattleUnitSpawner
         }
     }
 
-    public void PlacePlayer(GameObject player)
+    static readonly float duration = .3f;
+    public IEnumerator PlacePlayer(GameObject player)
     {
         int placementIndex = Random.Range(0, playerSpots.Count);
         Vector3 tilePosition = playerSpots[placementIndex].unitPosition;
+        Vector3 highPosition = tilePosition;
+        highPosition.y += 5f;
+        player.transform.position = highPosition;
+        float timeElapsed = 0;
+        while (timeElapsed < duration)
+        {
+            Vector3 step = Vector3.Lerp(highPosition, tilePosition, timeElapsed / duration);
+            timeElapsed += Time.deltaTime;
+            player.transform.position = step;
+            yield return null;
+        }
         player.transform.position = tilePosition;
+        VFXMachine.PlayAtLocation("RoundGust", player.transform.position);
+        SoundManager.PlaySound(SoundType.SLIMESTEP);
     }
 
     public void PlaceEnemy(GameObject unit)
