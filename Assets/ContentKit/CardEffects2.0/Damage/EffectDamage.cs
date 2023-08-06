@@ -19,7 +19,6 @@ public class EffectDamage : CardEffectPlus
         foreach (BattleUnit target in targets) Normal(actor, scalingMultiplier, target);
         yield return null;
     }
-        //VFXMachine.PlayToLocation(effect, TurnManager.activeTurn.transform.position, targetCell.GetComponent<BattleTileController>().unitPosition);
 
     void Normal(BattleUnit owner, float damageMult, BattleUnit target)
     {

@@ -13,7 +13,7 @@ public class EffectBloodPrice : CardEffectPlus
 
     public override string GetEffectDescription(Unit player)
     {
-        return $"pay <color=red>{Mathf.RoundToInt(scalingMultiplier / 100 * player.currentHealth)}</color> life";
+        return $"pay {scalingMultiplier}% (<color=red>{Mathf.RoundToInt(scalingMultiplier / 100 * player.currentHealth)}</color>) of your current life";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {

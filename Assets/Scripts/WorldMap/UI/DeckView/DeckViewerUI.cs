@@ -63,6 +63,12 @@ public class DeckViewerUI : MonoBehaviour
         runData.RemoveStock--;
         EventManager.updateWorldCounters?.Invoke();
         runData.playerDeck.deckContents.Remove(card);
-        cardObject.SetActive(false);
+        StartCoroutine(RemoveWithAnimation(cardObject));
+    }
+
+    IEnumerator RemoveWithAnimation(GameObject card)
+    {
+        yield return StartCoroutine(card.GetComponent<WrldCardDisplay>().FadeAllComponents());
+        card.SetActive(false);
     }
 }
