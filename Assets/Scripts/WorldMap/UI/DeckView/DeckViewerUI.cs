@@ -68,7 +68,9 @@ public class DeckViewerUI : MonoBehaviour
 
     IEnumerator RemoveWithAnimation(GameObject card)
     {
-        yield return StartCoroutine(card.GetComponent<WrldCardDisplay>().FadeAllComponents());
+        WrldCardDisplay display = card.GetComponent<WrldCardDisplay>();
+        yield return StartCoroutine(display.FadeAllComponents());
         card.SetActive(false);
+        display.ResetColors();
     }
 }

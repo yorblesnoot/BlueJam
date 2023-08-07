@@ -9,7 +9,37 @@ public class WrldCardDisplay : PlayerCardDisplay, IPointerClickHandler
 {
     [SerializeField] List<Image> imageComponents;
     [SerializeField] List<TMP_Text> textComponents;
+    class ColorImage
+    {
+        public Image image;
+        public Color startColor;
+    }
+
+    class ColorText
+    {
+        public TMP_Text text;
+        public Color startColor;
+    }
+
+    List<ColorImage> images;
+    List<ColorText> texts;
+
     bool fading;
+
+    private void Awake()
+    {
+        images = new();
+        texts = new();
+        foreach (var image in imageComponents)
+        {
+            images.Add(new ColorImage { image = image, startColor = image.color });
+        }
+
+        foreach (var text in textComponents)
+        {
+            texts.Add(new ColorText { text = text, startColor = text.color });
+        }
+    }
     public void OnPointerClick(PointerEventData eventData)
     {
         if (fading) return;
@@ -25,17 +55,29 @@ public class WrldCardDisplay : PlayerCardDisplay, IPointerClickHandler
         float timeElapsed = 0;
         while(timeElapsed < fadeDuration)
         {
-            foreach(var component in imageComponents)
+            foreach(var component in images)
             {
-                component.color = Color32.Lerp(Color.white, fadeColor, timeElapsed / fadeDuration);
+                component.image.color = Color32.Lerp(component.startColor, fadeColor, timeElapsed / fadeDuration);
             }
-            foreach (var component in textComponents)
+            foreach (var component in texts)
             {
-                component.color = Color32.Lerp(Color.white, fadeColor, timeElapsed / fadeDuration);
+                component.text.color = Color32.Lerp(component.startColor, fadeColor, timeElapsed / fadeDuration);
             }
             timeElapsed += Time.deltaTime;
             yield return null;
         }
         fading = false;
+    }
+
+    public void ResetColors()
+    {
+        foreach (var component in images)
+        {
+            component.image.color = component.startColor;
+        }
+        foreach (var component in texts)
+        {
+            component.text.color = component.startColor;
+        }
     }
 }
