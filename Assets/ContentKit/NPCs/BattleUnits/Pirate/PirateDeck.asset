@@ -10,19 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
-  m_Name: PlayerDeck
+  m_Name: PirateDeck
   m_EditorClassIdentifier: 
-  Id: 0693ae95-75b7-40b1-9447-577095d1a2f7
+  Id: 455da239-e91d-4537-a34a-8f68ed75910d
   deckContents:
-  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
-  - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: f46fa62b93d2cd64a9ecd81aff50a289, type: 2}
   - {fileID: 11400000, guid: f6aec5b3d1a15f24f9034b614786464d, type: 2}
   - {fileID: 11400000, guid: 02afcde8e8faab1429c351f74b342416, type: 2}
-  symbol: ??
-  hat: {fileID: 7861371688408044556, guid: 3e6bf70ee875fba4d99acdd7fea73422, type: 3}
-  essenceDescription: 'Essence of the Player. Contains:'
-  unitName: Player
+  symbol: P
+  hat: {fileID: 7804365442147670791, guid: 4fc419215f6a96949aa4b41afe6ab025, type: 3}
+  essenceDescription: 
+  unitName: 

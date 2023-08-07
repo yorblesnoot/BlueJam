@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: CurseStrike
+  m_EditorClassIdentifier: 
+  Id: 42ef91f0-6d18-430a-b32a-e5da9b6b535e
+  displayName: Ransom
+  art: {fileID: 21300000, guid: 6c4394cb378784f759f57663d1ba1a62, type: 3}
+  cost: 3
+  description: 
+  keywords: 
+  targetShape: 1
+  targetSize: 1
+  targetGap: 1
+  needsPath: 0
+  isCurse: 0
+  cardClass: 
+  consumed: 0
+  animType: 0
+  effects:
+  - {fileID: 11400000, guid: fe2ba378fb32feb488203a7dae5620bd, type: 2}
+  - {fileID: 11400000, guid: ea77b7a3df72b204ab0ca68aa76f83a4, type: 2}
+  - {fileID: 11400000, guid: 7b36c26e9a87f4b478c132ab14899bbc, type: 2}

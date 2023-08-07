@@ -20,10 +20,10 @@ MonoBehaviour:
   essenceInventory: []
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
-  RemoveStock: 7
+  RemoveStock: 1
   worldSteps: 0
   difficultyTier: 4
   currentHealth: 100
   score: 45
-  bossSequence: 02000000000000000300000001000000
+  bossSequence: 03000000000000000200000001000000
   endless: 0

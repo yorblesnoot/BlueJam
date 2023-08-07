@@ -26,22 +26,14 @@ public class EffectDiscard : CardEffectPlus
 
     public ICardDisplay Discard(BattleUnit target)
     {
-        ICardDisplay toDiscard;
         List<ICardDisplay> hand = target.myHand.handCards;
-        switch (discardType)
+        ICardDisplay toDiscard = discardType switch
         {
-            case DiscardType.leftmost:
-                toDiscard = hand[0];
-                break;
-            case DiscardType.rightmost:
-                toDiscard = hand.Last();
-                break;
-            case DiscardType.random:
-                toDiscard = hand[Random.Range(0, hand.Count)];
-                break;
-            default: toDiscard = null; break;
-        }
-
+            DiscardType.leftmost => hand[0],
+            DiscardType.rightmost => hand.Last(),
+            DiscardType.random => hand[Random.Range(0, hand.Count)],
+            _ => null,
+        };
         target.StartCoroutine(target.myHand.DiscardCard(toDiscard, false));
         return toDiscard;
     }

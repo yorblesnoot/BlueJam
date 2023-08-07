@@ -9,21 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba3d1643db261cb4d945ce4b8bd7c06f, type: 3}
-  m_Name: Walk
+  m_Script: {fileID: 11500000, guid: c5f3e3af7a7e16e49a9410794f718e52, type: 3}
+  m_Name: InjectHesitateAlly
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   targetNotRequired: 0
-  effectClass: 1
-  vfxStyleBefore: 3
-  vfxNameBefore: MoveTrail
-  vfxStyleAfter: 0
+  effectClass: 2
+  vfxStyleBefore: 0
+  vfxNameBefore: none
+  vfxStyleAfter: 5
   vfxNameAfter: none
-  effectSound: 11
-  scalingMultiplier: 0
+  effectSound: 5
+  scalingMultiplier: 1
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  walkDuration: 0.435
+  location: 2
+  toInject: {fileID: 11400000, guid: 87a956000dddd6048be7a6ee8c188023, type: 2}
+  forceConsume: 1
