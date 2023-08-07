@@ -47,7 +47,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DissolveAmount: 0.5
+    - _DissolveAmount: 0.53
     - _Edge: -0.03
     - _FlatShade: 0
     - _FresnelPower: 3.5
@@ -60,8 +60,8 @@ Material:
     - _ShieldFill: 0.112
     m_Colors:
     - _BaseColor: {r: 0, g: 0.9752011, b: 1, a: 0}
-    - _Color: {r: 0.27358484, g: 0.27358484, b: 0.27358484, a: 0.5254902}
-    - _EdgeColor: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 0.3529412}
+    - _EdgeColor: {r: 0.1273585, g: 0.8069534, b: 1, a: 1}
     - _Emission: {r: 0, g: 5.215937, b: 7.906699, a: 0}
     - _MainColour: {r: 0, g: 0.9752011, b: 1, a: 0}
   m_BuildTextureStacks: []
