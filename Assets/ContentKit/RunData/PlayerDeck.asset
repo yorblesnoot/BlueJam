@@ -22,6 +22,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f46fa62b93d2cd64a9ecd81aff50a289, type: 2}
   - {fileID: 11400000, guid: f6aec5b3d1a15f24f9034b614786464d, type: 2}
   - {fileID: 11400000, guid: 02afcde8e8faab1429c351f74b342416, type: 2}
+  - {fileID: 11400000, guid: 7d33733f2fd7c2542a1cbd4a67e1010a, type: 2}
+  - {fileID: 11400000, guid: 7d33733f2fd7c2542a1cbd4a67e1010a, type: 2}
+  - {fileID: 11400000, guid: 7d33733f2fd7c2542a1cbd4a67e1010a, type: 2}
   symbol: ??
   hat: {fileID: 7861371688408044556, guid: 3e6bf70ee875fba4d99acdd7fea73422, type: 3}
   essenceDescription: 'Essence of the Player. Contains:'

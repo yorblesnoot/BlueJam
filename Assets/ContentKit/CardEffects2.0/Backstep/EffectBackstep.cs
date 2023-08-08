@@ -5,15 +5,13 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "EffectBackstep", menuName = "ScriptableObjects/CardEffects/Backstep")]
-public class EffectBackstep : CardEffectPlus
+public class EffectBackstep : EffectMove
 {
     private void Reset()
     {
         effectSound = SoundTypeEffect.PUSH;
         effectClass = CardClass.ATTACK;
-        duration = .3f;
     }
-    [Range(.1f, 1f)] public float duration;
     public override string GetEffectDescription(Unit player)
     {
         return $"slide {Mathf.Abs(Mathf.RoundToInt(scalingMultiplier))} cells back from target";
@@ -21,7 +19,7 @@ public class EffectBackstep : CardEffectPlus
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
         int distance = Mathf.RoundToInt(scalingMultiplier);
-        yield return actor.StartCoroutine(Backstep(actor, targetCell, distance, duration));
+        yield return actor.StartCoroutine(Backstep(actor, targetCell, distance, moveDuration));
     }
 
     IEnumerator Backstep(BattleUnit actor, BattleTileController targetCell, int distance, float duration)
@@ -49,8 +47,7 @@ public class EffectBackstep : CardEffectPlus
             break;
         }
         BattleTileController destinationTile = MapTools.VectorToTile(destination).GetComponent<BattleTileController>();
-        MapTools.ReportPositionChange(actor, destinationTile);
-        yield return actor.StartCoroutine(actor.gameObject.LerpTo(destinationTile.unitPosition, duration));
+        yield return actor.StartCoroutine(Move(actor, destinationTile));
     }
 }
 

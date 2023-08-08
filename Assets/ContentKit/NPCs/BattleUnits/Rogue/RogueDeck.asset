@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
+  m_Name: RogueDeck
+  m_EditorClassIdentifier: 
+  Id: 8a12597f-2dcc-47d3-a1bf-48055a49b936
+  deckContents:
+  - {fileID: 11400000, guid: b5fa50316aaf4d043bc2bd9f3c315bb2, type: 2}
+  - {fileID: 11400000, guid: e33f01c766f209c408df95e58ab81297, type: 2}
+  - {fileID: 11400000, guid: 7d33733f2fd7c2542a1cbd4a67e1010a, type: 2}
+  symbol: R
+  hat: {fileID: 4522198104636518438, guid: fe8f6d0fae61fe747af6352426f138b3, type: 3}
+  essenceDescription: 
+  unitName: 

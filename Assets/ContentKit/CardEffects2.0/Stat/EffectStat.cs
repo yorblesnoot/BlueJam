@@ -22,7 +22,7 @@ public class EffectStat : CardEffectPlus
         else if (scalingMultiplier < 0) changeDirection = "decrease";
         else changeDirection = "(SCALING SET TO 0)";
         string finalDescription = $"{changeDirection} {statNames[entityStat]} by {scalingMultiplier}{statModSymbol[entityStat]}";
-        if (duration > 0) finalDescription += $" for {duration} actions";
+        if (duration > 0) finalDescription += $" for {duration-1} actions";
         return finalDescription;
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)

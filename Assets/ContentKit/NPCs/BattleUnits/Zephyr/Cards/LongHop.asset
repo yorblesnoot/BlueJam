@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: ed0595d0-11f7-4b01-95cb-19a308d060cd
   displayName: Long Hop
   art: {fileID: 21300000, guid: aded89c3cc39746f0b06cc98bf2ae990, type: 3}
-  cost: 4
+  cost: 2
   description: 
   keywords: 
   targetShape: 2

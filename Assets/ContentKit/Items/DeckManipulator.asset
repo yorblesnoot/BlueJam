@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf01b78a6872684ab53675f17ed6943, type: 3}
+  m_Name: DeckManipulator
+  m_EditorClassIdentifier: 
+  Id: d8200884-ece2-49f3-bd62-071b90627fdf
+  thumbnail: {fileID: 21300000, guid: 325d33c6d266f0e448f60efb34dde7b1, type: 3}
+  thumbnailColor:
+    serializedVersion: 2
+    rgba: 4294901883
+  description: Gain shield whenever you conjure a card.
+  effects:
+  - {fileID: 11400000, guid: 6dddaddaa8826984da66e42d14c4ef6b, type: 2}

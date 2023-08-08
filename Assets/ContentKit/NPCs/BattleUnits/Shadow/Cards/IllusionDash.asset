@@ -27,5 +27,5 @@ MonoBehaviour:
   consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: 4abaa66012dc62f4eb688fdd82943336, type: 2}
+  - {fileID: 11400000, guid: 158d92eff1b9c134aae782aa9c992d5e, type: 2}
   - {fileID: 11400000, guid: f4f64ab4be002e84691b05c978a9c09a, type: 2}
