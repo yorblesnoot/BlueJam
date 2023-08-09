@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e47b3aa25f922944ca02e4d68bc62625, type: 3}
-  m_Name: FragileSpeed
+  m_Name: LightFeet
   m_EditorClassIdentifier: 
-  Id: 1320bbcb-6a34-45aa-923a-876ee182a9f1
+  Id: caaa7855-1cf6-4a34-9408-ce40c98da5ee
   thumbnail: {fileID: 21300000, guid: ed8ef41e0593c444f89985400bb18768, type: 3}
   thumbnailColor:
     serializedVersion: 2
-    rgba: 4279248895
-  description: You are faster, but your max health is reduced.
+    rgba: 4278243327
+  description: You are faster, but your damage is reduced.
   mods:
-  - {fileID: 11400000, guid: 8d496e7b716e32d478496e6e77da9054, type: 2}
   - {fileID: 11400000, guid: 6850ef645c8bd9d4da9f307ed59280e3, type: 2}
+  - {fileID: 11400000, guid: 80b8b2a3aa2241a4c89fc68649fabf52, type: 2}

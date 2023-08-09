@@ -62,7 +62,7 @@ public class WorldEventHandler : MonoBehaviour
         {
             Tutorial.CompleteStage(TutorialFor.WORLDBOSS, 1, true);
             sceneRelay.bossEncounter = true;
-            StartCoroutine(LaunchCombat(cellEnemy));
+            yield return StartCoroutine(LaunchCombat(cellEnemy));
             yield break;
         }
 
@@ -75,7 +75,7 @@ public class WorldEventHandler : MonoBehaviour
             WorldEventHandler eventHandler = tile.GetComponent<WorldEventHandler>();
             if (eventHandler.cellEnemy == null || eventHandler.cellEnemy.GetType() == typeof(WorldBoss)) continue;
             Tutorial.CompleteStage(TutorialFor.WORLDBATTLE, 1, true);
-            StartCoroutine(LaunchCombat(eventHandler.cellEnemy));
+            yield return StartCoroutine(LaunchCombat(eventHandler.cellEnemy));
             yield break;
             
         }

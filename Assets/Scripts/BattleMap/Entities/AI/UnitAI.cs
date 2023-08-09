@@ -121,7 +121,9 @@ public class UnitAI : MonoBehaviour
                 List<BattleUnit> targetables;
                 if(effect.forceTargetSelf) targetables = CellTargeting.AreaTargets(MapTools.VectorToTile(transform.position), gameObject.tag, effect.effectClass, effect.aoe);
                 else targetables = CellTargeting.AreaTargets(moveTile.gameObject, gameObject.tag, effect.effectClass, effect.aoe);
-                
+
+                if (targetables.FirstOrDefault(x => x.gameObject.CompareTag("Player")) != null) favor += .1f;
+
                 if (effect.effectClass == CardClass.ATTACK)
                     favor += targetables.Count * personality.interestAttack;
                 else if (effect.effectClass == CardClass.BUFF)

@@ -22,7 +22,7 @@ public class EssenceCrafting : MonoBehaviour
     [SerializeField] WorldMenuControl worldMenuControl;
 
     readonly int hatTiltAngle = -10;
-    readonly int hatProjectionDistance = 20;
+    readonly int hatProjectionDistance = 30;
     private void Awake()
     {
         runData.essenceInventory = runData.essenceInventory.OrderBy(x => x.symbol).ToList();
