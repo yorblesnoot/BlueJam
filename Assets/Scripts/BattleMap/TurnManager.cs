@@ -95,7 +95,6 @@ public class TurnManager : MonoBehaviour
         owner.loadedStats[StatType.BEATS] -= beats;
         EntityUI npUI = owner.myUI;
         npUI.UpdateBeats(beats);
-        FinalizeTurn(owner);
     }
 
     public static void PlayerSpendBeats(int beats)
@@ -112,10 +111,9 @@ public class TurnManager : MonoBehaviour
             EntityUI npUI = turnTaker.myUI;
             npUI.UpdateBeats(-beatChange);
         }
-        FinalizeTurn(playerUnit);
     }
 
-    static void FinalizeTurn(BattleUnit owner)
+    public static void FinalizeTurn(BattleUnit owner)
     {
         owner.buffTracker.DurationProc();
         deathPhase?.Invoke();

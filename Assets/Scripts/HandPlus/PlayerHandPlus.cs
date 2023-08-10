@@ -247,6 +247,7 @@ class CardSlot
         EmphasizeCard emphasis = reference.gameObject.GetComponent<EmphasizeCard>();
         emphasis.originalPosition = cardPosition;
         emphasis.originalScale = cardScale;
+        reference.cardBack.SetActive(false);
         emphasis.readyEmphasis = true;
     }
 

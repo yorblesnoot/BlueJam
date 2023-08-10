@@ -18,7 +18,7 @@ MonoBehaviour:
   vfxStyleBefore: 6
   vfxNameBefore: Blink
   vfxStyleAfter: 0
-  vfxNameAfter: ShadowDrop
+  vfxNameAfter: Blink
   effectSound: 11
   scalingMultiplier: 0
   aoeShape: 0

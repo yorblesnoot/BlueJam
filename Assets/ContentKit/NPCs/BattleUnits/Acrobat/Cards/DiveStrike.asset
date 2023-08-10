@@ -13,17 +13,21 @@ MonoBehaviour:
   m_Name: DiveStrike
   m_EditorClassIdentifier: 
   Id: 1eb689e8-2e11-4185-a01d-55e5b1b28df1
-  displayName: 
-  art: {fileID: 0}
-  cost: 0
-  description: 
-  keywords: 
+  displayName: Vaulting Strike
+  art: {fileID: 21300000, guid: bcc4e92fe2b1d4c87a04d811eec79e7e, type: 3}
+  cost: 3
+  description: 'Move in front of the target unit in a <color=red>1<color=blue>O</color></color>
+    AOE. Deal <color=#FF4E2B>5</color> damage. Push target 1 cells. '
+  keywords: 'Range: 2-5 <color=blue>O</color>.'
   targetShape: 0
-  targetSize: 0
-  targetGap: 0
+  targetSize: 5
+  targetGap: 2
   needsPath: 0
   isCurse: 0
-  cardClass: 
+  cardClass: 00000000
   consumed: 0
-  animType: 0
-  effects: []
+  animType: 3
+  effects:
+  - {fileID: 11400000, guid: 0509ed7bf9d8f8748ba10ed66ed9a5ab, type: 2}
+  - {fileID: 11400000, guid: fe2ba378fb32feb488203a7dae5620bd, type: 2}
+  - {fileID: 11400000, guid: 4580fb93ec7d9154e8a731002f8a2b6c, type: 2}

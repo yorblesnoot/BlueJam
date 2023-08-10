@@ -60,7 +60,7 @@ public class CardPlus : SOWithGUID
 
     public IEnumerator PlaySequence(BattleUnit actor, BattleTileController targetCell)
     {
-        
+        actor.SpendBeats(cost);
         actor.transform.LookAt(new Vector3(targetCell.unitPosition.x, actor.transform.position.y, targetCell.unitPosition.z));
         actor.unitAnimator.Animate(animType);
         BattleTileController userOriginalTile = MapTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>();
@@ -70,7 +70,7 @@ public class CardPlus : SOWithGUID
             effects[i].userOriginalTile = userOriginalTile;
             yield return actor.StartCoroutine(effects[i].Execute(actor, targetCell));          
         }
-        actor.SpendBeats(cost);
+        TurnManager.FinalizeTurn(actor);
     }
     public void AssembleDescription()
     {
