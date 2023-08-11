@@ -56,6 +56,7 @@ public class PlayerUnit : BattleUnit
     public IEnumerator ChainPath(List<GameObject> path)
     {
         playerState = PlayerBattleState.PERFORMING_ACTION;
+        SpendBeats(path.Count * costPerGenericMove);
         VFXMachine.AttachTrail("MoveTrail", gameObject);
         MapTools.ReportPositionChange(this, path.Last().GetComponent<BattleTileController>());
         foreach (GameObject tile in path)
@@ -64,6 +65,6 @@ public class PlayerUnit : BattleUnit
             transform.LookAt(tileController.unitPosition);
             yield return StartCoroutine(gameObject.LerpTo(tileController.unitPosition, moveDuration));
         }
-        SpendBeats(path.Count * costPerGenericMove);
+        TurnManager.FinalizeTurn(this);
     }
 }

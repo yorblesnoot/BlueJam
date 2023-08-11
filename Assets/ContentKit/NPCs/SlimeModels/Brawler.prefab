@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5400218939786926180
+--- !u!1001 &683538793581966626
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -59,23 +59,27 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 64023645e71e3f742a4cc4e7904510da, type: 2}
+    - target: {fileID: 6461501033567675490, guid: df1bc6e49bf6da548a9a1764d86083b9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7889757526151499255, guid: df1bc6e49bf6da548a9a1764d86083b9, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: f59c418d9a1e4e04e9a7c0d8df6e34cf, type: 2}
+      objectReference: {fileID: 2100000, guid: 9dbfc57113396484cbc6cfab3bd4d14d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: df1bc6e49bf6da548a9a1764d86083b9, type: 3}
---- !u!4 &5740954709317682414 stripped
+--- !u!4 &875654972850334120 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 385789388827303050, guid: df1bc6e49bf6da548a9a1764d86083b9, type: 3}
-  m_PrefabInstance: {fileID: 5400218939786926180}
+  m_PrefabInstance: {fileID: 683538793581966626}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &7037014602660447770
+--- !u!1001 &2517583623640268829
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5740954709317682414}
+    m_TransformParent: {fileID: 875654972850334120}
     m_Modifications:
     - target: {fileID: 359252048845107813, guid: 26520729d52fa6e42a349fe54ff75b19, type: 3}
       propertyPath: m_RootOrder
@@ -83,15 +87,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 359252048845107813, guid: 26520729d52fa6e42a349fe54ff75b19, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.00241665
+      value: 0.0023606038
       objectReference: {fileID: 0}
     - target: {fileID: 359252048845107813, guid: 26520729d52fa6e42a349fe54ff75b19, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.0024166505
+      value: 0.0023606045
       objectReference: {fileID: 0}
     - target: {fileID: 359252048845107813, guid: 26520729d52fa6e42a349fe54ff75b19, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.0024166505
+      value: 0.0023606045
       objectReference: {fileID: 0}
     - target: {fileID: 359252048845107813, guid: 26520729d52fa6e42a349fe54ff75b19, type: 3}
       propertyPath: m_LocalPosition.x
@@ -99,19 +103,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 359252048845107813, guid: 26520729d52fa6e42a349fe54ff75b19, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0015
+      value: -0.00122
       objectReference: {fileID: 0}
     - target: {fileID: 359252048845107813, guid: 26520729d52fa6e42a349fe54ff75b19, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.00128
+      value: -0.00087
       objectReference: {fileID: 0}
     - target: {fileID: 359252048845107813, guid: 26520729d52fa6e42a349fe54ff75b19, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9962037
+      value: 0.9946598
       objectReference: {fileID: 0}
     - target: {fileID: 359252048845107813, guid: 26520729d52fa6e42a349fe54ff75b19, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.08705279
+      value: -0.10320835
       objectReference: {fileID: 0}
     - target: {fileID: 359252048845107813, guid: 26520729d52fa6e42a349fe54ff75b19, type: 3}
       propertyPath: m_LocalRotation.y
@@ -123,7 +127,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 359252048845107813, guid: 26520729d52fa6e42a349fe54ff75b19, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -9.988
+      value: -11.848
       objectReference: {fileID: 0}
     - target: {fileID: 359252048845107813, guid: 26520729d52fa6e42a349fe54ff75b19, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
