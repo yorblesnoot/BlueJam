@@ -25,7 +25,7 @@ public class EssenceCrafting : MonoBehaviour
     readonly int hatProjectionDistance = 30;
     private void Awake()
     {
-        runData.essenceInventory = runData.essenceInventory.OrderBy(x => x.symbol).ToList();
+        runData.essenceInventory = runData.essenceInventory.OrderBy(x => x.name).ToList();
         for( int i = 0; i < dragItems.Count; i++ )
         {
             dragItems[i].transform.SetParent(inventorySlots[i].transform, false);
@@ -37,7 +37,6 @@ public class EssenceCrafting : MonoBehaviour
 
                 //associate a draggable with a specific deck
                 dragItems[i].essence = runData.essenceInventory[i];
-                dragItems[i].mySymbol.text = runData.essenceInventory[i].symbol;
 
                 GameObject hat = Instantiate(runData.essenceInventory[i].hat);
                 hat.transform.SetParent(dragItems[i].transform, false);
