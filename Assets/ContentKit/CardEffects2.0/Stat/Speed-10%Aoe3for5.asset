@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bd8a4e2b936a4b343b05d5accc717910, type: 3}
-  m_Name: Speed+80%for2
+  m_Name: Speed-10%Aoe3for5
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   targetNotRequired: 0
-  effectClass: 2
+  effectClass: 0
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
-  vfxNameAfter: SpinRiseBlue
-  effectSound: 8
-  scalingMultiplier: 80
+  vfxNameAfter: DrownAura
+  effectSound: 9
+  scalingMultiplier: -10
   aoeShape: 0
-  aoeSize: 0
-  aoeGap: 0
+  aoeSize: 3
+  aoeGap: 1
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
   entityStat: 2
-  duration: 2
+  duration: 5

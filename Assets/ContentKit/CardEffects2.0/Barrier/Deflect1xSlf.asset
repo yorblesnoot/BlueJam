@@ -20,7 +20,7 @@ MonoBehaviour:
   vfxStyleAfter: 0
   vfxNameAfter: BarrierLines
   effectSound: 1
-  scalingMultiplier: 1.5
+  scalingMultiplier: 1
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
