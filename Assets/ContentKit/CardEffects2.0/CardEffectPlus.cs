@@ -42,7 +42,7 @@ public class CardEffectPlus : ScriptableObject
 
     public IEnumerator Execute(BattleUnit actor, BattleTileController targetCell)
     {
-        if (forceTargetSelf == true) targetCell = userOriginalTile;
+        if (forceTargetSelf) targetCell = userOriginalTile;
         List<BattleUnit> targets = AcquireTargets(actor, targetCell, aoe);
 
         SoundManager.PlaySound(effectSound);

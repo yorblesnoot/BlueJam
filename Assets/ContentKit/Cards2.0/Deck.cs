@@ -7,7 +7,6 @@ using UnityEngine;
 public class Deck : SOWithGUID
 {
     public List<CardPlus> deckContents;
-    public string symbol;
 
     public GameObject hat;
 

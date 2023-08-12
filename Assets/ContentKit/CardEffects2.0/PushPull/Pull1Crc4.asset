@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 96366642e9149f8489220c87d4a50286, type: 3}
-  m_Name: Push3SqrGust
+  m_Name: Pull1Crc4
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   targetNotRequired: 0
   effectClass: 0
   vfxStyleBefore: 0
-  vfxNameBefore: RoundGust
+  vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: none
   effectSound: 6
-  scalingMultiplier: 3
-  aoeShape: 1
-  aoeSize: 2
+  scalingMultiplier: -1
+  aoeShape: 0
+  aoeSize: 4
   aoeGap: 1
   userOriginalTile: {fileID: 0}
   blockTrigger: 0

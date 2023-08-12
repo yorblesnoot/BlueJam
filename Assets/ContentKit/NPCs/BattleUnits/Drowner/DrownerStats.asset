@@ -9,14 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6856cce20993b2b43b6b389f2802db86, type: 3}
-  m_Name: TEMPLATE_AI
+  m_Script: {fileID: 11500000, guid: f91c23a3e06a55c4c853ecd822414ace, type: 3}
+  m_Name: DrownerStats
   m_EditorClassIdentifier: 
-  interestAttack: 0
-  interestBuff: 0
-  interestFriendly: 0
-  interestHostile: 0
-  proximityFriendly: 0
-  proximityHostile: 0
-  summonProximityHostile: 0
-  summonProximityFriendly: 0
+  unitName: Drowner
+  maxHealth: 30
+  handSize: 2
+  startBeats: 1
+  damageScaling: 10
+  barrierScaling: 10
+  healScaling: 10
+  turnSpeed: 0.4
