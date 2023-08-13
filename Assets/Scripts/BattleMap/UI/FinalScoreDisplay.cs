@@ -9,6 +9,7 @@ public class FinalScoreDisplay : MonoBehaviour
     [SerializeField] RunData runData;
     void OnEnable()
     {
-        thisText.text = $"Your score was: {runData.score}!";
+        float difficultyMod = 1 + runData.difficultyTier / 5;
+        thisText.text = $"Your score was: {runData.score * difficultyMod}!";
     }
 }

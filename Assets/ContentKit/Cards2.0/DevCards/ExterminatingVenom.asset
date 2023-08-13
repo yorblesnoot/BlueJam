@@ -10,22 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: Abscond
+  m_Name: ExterminatingVenom
   m_EditorClassIdentifier: 
-  Id: 531a289b-4ec4-4247-91b8-1e4b90591a0d
-  displayName: Abscond
-  art: {fileID: 21300000, guid: 68c34f794ff824595866971c55a8fe2e, type: 3}
-  cost: 2
+  Id: 1f848a87-f009-4591-a457-9f390596d1ea
+  displayName: DEV TOXIN
+  art: {fileID: 0}
+  cost: 1
   description: 
   keywords: 
-  targetShape: 1
-  targetSize: 1
+  targetShape: 0
+  targetSize: 10
   targetGap: 1
   needsPath: 0
   isCurse: 0
   cardClass: 
   consumed: 0
   animType: 0
-  effects:
-  - {fileID: 11400000, guid: f111fd945c1e2314b8cc1b68ef11a2c6, type: 2}
-  - {fileID: 11400000, guid: 88ac3d4a5f826c541b906f219357c18f, type: 2}
+  effects: []

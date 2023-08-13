@@ -89,7 +89,6 @@ public class TurnManager : MonoBehaviour
 
     public static void NPCSpendBeats(NonplayerUnit owner, int beats)
     {
-        owner.myHand.DrawPhase();
         PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
 
         owner.loadedStats[StatType.BEATS] -= beats;
@@ -99,7 +98,6 @@ public class TurnManager : MonoBehaviour
 
     public static void PlayerSpendBeats(int beats)
     {
-        playerUnit.myHand.DrawPhase();
         PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
 
         Tutorial.CompleteStage(TutorialFor.BATTLEDAMAGE, 1, true);
@@ -115,6 +113,7 @@ public class TurnManager : MonoBehaviour
 
     public static void FinalizeTurn(BattleUnit owner)
     {
+        owner.myHand.DrawPhase();
         owner.buffTracker.DurationProc();
         deathPhase?.Invoke();
         Main.StartCoroutine(WaitForTurn());

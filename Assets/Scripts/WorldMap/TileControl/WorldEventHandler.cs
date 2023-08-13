@@ -122,7 +122,7 @@ public class WorldEventHandler : MonoBehaviour
             
             yield return null;
         }
-        player.transform.position = Vector3.zero;
+        player.gameObject.SetActive(false);
         Vector3 sparklePosition = dropPosition;
         sparklePosition.y += .1f;
         VFXMachine.PlayAtLocation("DistanceSparkle", sparklePosition);

@@ -14,10 +14,10 @@ public class DynamicEventPlacer
     readonly Dictionary<int, string> eventsAndOdds = new()
     {
         { 1, "i"}, //item
-        { 3, "r" }, //removal
-        { 6, "h" }, //heal
-        { 16, "e" }, //enemy
-        { 300, "" }, //nothing
+        { 4, "r" }, //removal
+        { 8, "h" }, //heal
+        { 18, "e" }, //enemy
+        { 350, "" }, //nothing
     };
     public DynamicEventPlacer(RunData data)
     {
