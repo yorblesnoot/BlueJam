@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class WorldLauncher : MapLauncher
@@ -8,11 +9,29 @@ public class WorldLauncher : MapLauncher
 
     [SerializeField] SpawnPool bossPool;
 
+    [SerializeField] GameObject playerModel;
+    [SerializeField] GameObject joinBeams;
+    [SerializeField] float introDelay;
+
     private void Start() 
     {
         mapRenderer.Initialize();
         playerControl.InitializePlayer();
+        if(runData.bossSequence.Count == 0 && runData.endless == false) StartCoroutine(PlayIntro());
+        else InitializeWorld();
+    }
 
+    IEnumerator PlayIntro()
+    {
+        playerModel.SetActive(false);
+        joinBeams.SetActive(true);
+        yield return new WaitForSeconds(introDelay);
+        playerModel.SetActive(true);
+        InitializeWorld();
+    }
+
+    void InitializeWorld()
+    {
         Tutorial.Initiate(TutorialFor.WORLDMOVE, TutorialFor.MAIN);
         Tutorial.EnterStage(TutorialFor.WORLDMOVE, 1, "Welcome to the world map! My objective is the boss, towards the red arrow. But to beat it, I'll need to become stronger. Click on a tile to move to it. ");
         Tutorial.Initiate(TutorialFor.WORLDCRAFTING, TutorialFor.WORLDBATTLE);
@@ -20,13 +39,14 @@ public class WorldLauncher : MapLauncher
         Tutorial.EnterStage(TutorialFor.WORLDBOSS, 2, "Wow, you did it! Now you can craft a boss card for my deck... but a new, stronger foe has arisen! Looks like you've got the basics down; let's see how far you can go!");
 
         DynamicEventPlacer placer = new(runData);
-        if(PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1)
+        if (PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1)
             placer.CheckToPopulateChunks(MapTools.VectorToMap(WorldPlayerControl.player.transform.position) + WorldMapRenderer.spotlightGlobalOffset);
-        if(runData.bossSequence.Count == 0) GenerateBossSequence();
+        if (runData.bossSequence.Count == 0) GenerateBossSequence();
         if (!runData.eventMap.ContainsValue("b")) placer.PlaceBoss();
 
-        mapRenderer.RenderFullWindow(runData.worldMap);
 
+
+        mapRenderer.RenderFullWindow(runData.worldMap);
         playerControl.compassMaster.DeployCompass("b", Color.red);
 
         new SaveContainer(runData).SaveGame();

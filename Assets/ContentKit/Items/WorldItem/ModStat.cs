@@ -21,7 +21,7 @@ public class ModStat : ItemMod
                 player.handSize += Mathf.RoundToInt(scale);
                 break;
             case (StatType.MAXHEALTH):
-                player.maxHealth = Mathf.RoundToInt(player.maxHealth * scaleMult);
+                player.maxHealth = Mathf.CeilToInt(player.maxHealth * scaleMult);
                 runData.currentHealth = Mathf.Clamp(runData.currentHealth, 0, player.maxHealth);
                 EventManager.updateWorldHealth.Invoke();
                 break;

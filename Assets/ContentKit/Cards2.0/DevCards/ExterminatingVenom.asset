@@ -16,14 +16,16 @@ MonoBehaviour:
   displayName: DEV TOXIN
   art: {fileID: 0}
   cost: 1
-  description: 
-  keywords: 
+  description: 'On target: deal <color=#FF4E2B>100</color> damage each action for
+    <color=blue>4</color> actions. '
+  keywords: 'Range: 1-10 <color=blue>O</color>.'
   targetShape: 0
   targetSize: 10
   targetGap: 1
   needsPath: 0
   isCurse: 0
-  cardClass: 
+  cardClass: 00000000
   consumed: 0
   animType: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: 80d7f201b7096eb41ae14bbe5f651105, type: 2}
