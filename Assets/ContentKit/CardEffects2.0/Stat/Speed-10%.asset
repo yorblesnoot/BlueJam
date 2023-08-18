@@ -9,21 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 96366642e9149f8489220c87d4a50286, type: 3}
-  m_Name: Push3SqrGust
+  m_Script: {fileID: 11500000, guid: bd8a4e2b936a4b343b05d5accc717910, type: 3}
+  m_Name: Speed-10%
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   targetNotRequired: 0
   effectClass: 0
   vfxStyleBefore: 0
-  vfxNameBefore: RoundGust
+  vfxNameBefore: none
   vfxStyleAfter: 0
-  vfxNameAfter: none
-  effectSound: 6
-  scalingMultiplier: 3
+  vfxNameAfter: DescendingVibes
+  effectSound: 9
+  scalingMultiplier: -10
   aoeShape: 1
-  aoeSize: 2
-  aoeGap: 1
+  aoeSize: 0
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  duration: 0.25
+  entityStat: 2
+  duration: 0
