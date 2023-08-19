@@ -10,20 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: SummonGuardian
+  m_Name: ToxicArrow
   m_EditorClassIdentifier: 
-  Id: c13f887e-062d-4510-bf1e-432ca0abbfea
+  Id: 64bb891f-022c-4b17-ba36-e9b3ae45577f
   displayName: 
   art: {fileID: 0}
-  cost: 5
+  cost: 3
   description: 
   keywords: 
   targetShape: 0
-  targetSize: 1
-  targetGap: 1
+  targetSize: 5
+  targetGap: 3
   needsPath: 0
   isCurse: 0
   cardClass: 
-  consumed: 1
+  consumed: 0
   animType: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: f5f3b6dff8a5714479b4274722254b0e, type: 2}
+  - {fileID: 0}

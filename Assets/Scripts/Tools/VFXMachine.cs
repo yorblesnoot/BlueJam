@@ -3,7 +3,7 @@ using UnityEngine;
 public enum VFXStyle
 {
     UNIT,
-    CELL,
+    ATTRACT,
     DIRECTION,
     TRAIL,
     AURA,
@@ -19,7 +19,7 @@ public static class VFXMachine
         switch (vfxStyle)
         {
             case (VFXStyle.UNIT): PlayAtLocation(vfxName, targetCell.unitPosition); break;
-            case (VFXStyle.CELL): PlayAtLocation(vfxName, targetCell.unitPosition); break;
+            case (VFXStyle.ATTRACT): ShootToLocation(vfxName, actor.gameObject.transform.position, targetCell.unitPosition); break;
             case (VFXStyle.DIRECTION): PlayToLocation(vfxName, actor.gameObject.transform.position, targetCell.unitPosition); break;
             case (VFXStyle.TRAIL): AttachTrail(vfxName, actor.gameObject); break;
             case (VFXStyle.DROP): PlayAboveLocation(vfxName, targetCell.unitPosition); break;
@@ -46,8 +46,9 @@ public static class VFXMachine
         PlayAtLocation(effect, above);
     }
 
-    public static void ShootToLocation()
+    public static void ShootToLocation(string effect, Vector3 origin, Vector3 target)
     {
+
 
     }
 

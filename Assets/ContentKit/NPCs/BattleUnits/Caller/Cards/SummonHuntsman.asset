@@ -15,15 +15,15 @@ MonoBehaviour:
   Id: 0ff3758a-a5a4-44e8-9fc6-d3028a811d26
   displayName: 
   art: {fileID: 0}
-  cost: 0
+  cost: 5
   description: 
   keywords: 
   targetShape: 0
-  targetSize: 0
-  targetGap: 0
+  targetSize: 1
+  targetGap: 1
   needsPath: 0
   isCurse: 0
   cardClass: 
-  consumed: 0
+  consumed: 1
   animType: 0
   effects: []

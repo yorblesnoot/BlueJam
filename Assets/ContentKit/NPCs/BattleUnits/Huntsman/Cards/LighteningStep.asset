@@ -10,22 +10,23 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: RiddlingShot
+  m_Name: LighteningStep
   m_EditorClassIdentifier: 
-  Id: 64bb891f-022c-4b17-ba36-e9b3ae45577f
-  displayName: 
+  Id: a9702470-96e8-40a2-99a7-7a2a7ba9b508
+  displayName: Offload
   art: {fileID: 0}
   cost: 3
   description: 
   keywords: 
   targetShape: 0
-  targetSize: 5
-  targetGap: 3
+  targetSize: 2
+  targetGap: 1
   needsPath: 0
   isCurse: 0
   cardClass: 
   consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: dc2de04ab11bb034fbae588815743ec6, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: 90ddc04e2a5688b4abe8d9258a2f8c6c, type: 2}
+  - {fileID: 11400000, guid: eb1c6558d461e1c44805b6843779b6e9, type: 2}
