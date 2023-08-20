@@ -9,18 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9789a7f2f7e397b43a33f81643e5097f, type: 3}
-  m_Name: MeteorStall
+  m_Script: {fileID: 11500000, guid: fe4d7e4cd232b3843afe9d9f6eba80fb, type: 3}
+  m_Name: Damage.5xArrow
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
-  targetNotRequired: 1
+  targetNotRequired: 0
   effectClass: 0
-  vfxStyleBefore: 0
-  vfxNameBefore: MeteorStrike
+  vfxStyleBefore: 1
+  vfxNameBefore: GreenArrow
   vfxStyleAfter: 0
   vfxNameAfter: none
-  effectSound: 0
-  scalingMultiplier: 1.2
+  effectSound: 13
+  scalingMultiplier: 0.5
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0

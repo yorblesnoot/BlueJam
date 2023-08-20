@@ -3,7 +3,7 @@ using UnityEngine;
 public enum VFXStyle
 {
     UNIT,
-    ATTRACT,
+    ARC,
     DIRECTION,
     TRAIL,
     AURA,
@@ -19,7 +19,7 @@ public static class VFXMachine
         switch (vfxStyle)
         {
             case (VFXStyle.UNIT): PlayAtLocation(vfxName, targetCell.unitPosition); break;
-            case (VFXStyle.ATTRACT): ShootToLocation(vfxName, actor.gameObject.transform.position, targetCell.unitPosition); break;
+            case (VFXStyle.ARC): ShootToLocation(vfxName, actor.gameObject.transform.position, targetCell.unitPosition); break;
             case (VFXStyle.DIRECTION): PlayToLocation(vfxName, actor.gameObject.transform.position, targetCell.unitPosition); break;
             case (VFXStyle.TRAIL): AttachTrail(vfxName, actor.gameObject); break;
             case (VFXStyle.DROP): PlayAboveLocation(vfxName, targetCell.unitPosition); break;
@@ -46,10 +46,13 @@ public static class VFXMachine
         PlayAtLocation(effect, above);
     }
 
+    readonly static float shootTime = 1f;
     public static void ShootToLocation(string effect, Vector3 origin, Vector3 target)
     {
-
-
+        GameObject particle = GameObject.Instantiate(PrepareAsset(effect), origin, Quaternion.identity);
+        target.y += .1f;
+        particle.ParabolicProjectile(target, shootTime);
+        GameObject.Destroy(particle, particleKillDelay);
     }
 
     public static void AttachTrail(string effect, GameObject attached)

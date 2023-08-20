@@ -18,9 +18,9 @@ MonoBehaviour:
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
-  vfxNameAfter: BuffCharge
-  effectSound: 8
-  scalingMultiplier: 30
+  vfxNameAfter: DescendingVibes
+  effectSound: 9
+  scalingMultiplier: -10
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0

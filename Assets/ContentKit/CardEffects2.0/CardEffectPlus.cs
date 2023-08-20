@@ -16,6 +16,7 @@ public class CardEffectPlus : ScriptableObject
     [StringInList(typeof(VFXHelper), "AllVFXNames")] public string vfxNameAfter;
 
     public SoundTypeEffect effectSound;
+    public SoundTypeEffect effectSoundAfterHit;
 
     public float scalingMultiplier;
 
@@ -50,6 +51,8 @@ public class CardEffectPlus : ScriptableObject
         VFXMachine.PlayVFX(vfxNameBefore, vfxStyleBefore, actor, targetCell);
         yield return targetCell.StartCoroutine(ActivateEffect(actor, targetCell, aoe, targets));
         VFXMachine.PlayVFX(vfxNameAfter, vfxStyleAfter, actor, targetCell);
+
+        SoundManager.PlaySound(effectSoundAfterHit);
 
         if (targets.Count > 0) foreach(BattleUnit target in targets) EventManager.checkForTriggers.Invoke(this, actor, target);
         else EventManager.checkForTriggers.Invoke(this, actor, null);
