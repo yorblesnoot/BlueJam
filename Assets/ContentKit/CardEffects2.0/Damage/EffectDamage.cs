@@ -17,8 +17,9 @@ public class EffectDamage : CardEffectPlus
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        yield return new WaitForSeconds(particleDelay);
+        if(particleDelay > 0) yield return new WaitForSeconds(particleDelay);
         foreach (BattleUnit target in targets) Normal(actor, scalingMultiplier, target);
+        yield return null;
     }
 
     void Normal(BattleUnit owner, float damageMult, BattleUnit target)

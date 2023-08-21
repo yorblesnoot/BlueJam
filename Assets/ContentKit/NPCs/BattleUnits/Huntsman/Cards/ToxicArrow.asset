@@ -16,16 +16,17 @@ MonoBehaviour:
   displayName: Toxic Arrow
   art: {fileID: 21300000, guid: 961c83116b5884f3ca38ce56ab894a40, type: 3}
   cost: 3
-  description: 
-  keywords: 
+  description: 'Deal <color=#FF4E2B>5</color> damage. On target: deal <color=#FF4E2B>2</color>
+    damage each action for <color=blue>4</color> actions. '
+  keywords: 'Range: 3-5 <color=blue>O</color>.'
   targetShape: 0
   targetSize: 5
   targetGap: 3
   needsPath: 0
   isCurse: 0
-  cardClass: 
+  cardClass: 00000000
   consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: f5f3b6dff8a5714479b4274722254b0e, type: 2}
   - {fileID: 11400000, guid: 3f77e298fa8edb646be071b0ff920fef, type: 2}
+  - {fileID: 11400000, guid: f5f3b6dff8a5714479b4274722254b0e, type: 2}

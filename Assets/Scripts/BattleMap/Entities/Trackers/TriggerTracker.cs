@@ -39,7 +39,7 @@ public class TriggerTracker : MonoBehaviour
             foreach (TrackedTrigger tracked in activeTriggers)
             {
                 //check if the effect matches the trigger condition and that the trigger hasnt happened yet this round
-                if (tracked.availableForTrigger == true && effect.GetType() == tracked.trigger.triggeringEffect.GetType())
+                if (tracked.availableForTrigger == true && tracked.trigger.triggeringEffect.GetType().IsAssignableFrom(effect.GetType()))
                 {
                     CheckForTrigger(tracked, origin, target);
                 }

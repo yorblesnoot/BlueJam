@@ -16,10 +16,10 @@ MonoBehaviour:
   displayName: Igniting Meteor
   art: {fileID: 21300000, guid: 39b1bec1379a64baba2bdbb54a917c68, type: 3}
   cost: 5
-  description: 'Deal <color=#FF4E2B>10</color> damage in a <color=red>2<color=blue>O</color></color>
-    AOE. Deal <color=#FF4E2B>2</color> damage to target each action for <color=blue>4</color>
+  description: 'Deal <color=#FF4E2B>15</color> damage in a <color=red>2<color=blue>O</color></color>
+    AOE. On target: deal <color=#FF4E2B>2</color> damage each action for <color=blue>4</color>
     actions in a <color=red>2<color=blue>O</color></color> AOE. '
-  keywords: 'Range: 2-6 <color=blue>O</color>'
+  keywords: 'Range: 3-6 <color=blue>O</color>.'
   targetShape: 0
   targetSize: 6
   targetGap: 3
@@ -29,6 +29,5 @@ MonoBehaviour:
   consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: 08d566a4f2e98a545b1dce0e687480a2, type: 2}
   - {fileID: 11400000, guid: 1b03a6a40ca76dd4cace031e60919df5, type: 2}
   - {fileID: 11400000, guid: 2983916d13746b441a733f0cb3ee9f98, type: 2}

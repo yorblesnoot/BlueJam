@@ -9,22 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4d7e4cd232b3843afe9d9f6eba80fb, type: 3}
-  m_Name: Damage1.5xCrc2Meteor
+  m_Script: {fileID: 11500000, guid: d63e6e4550640c647bd6b18ddc08f297, type: 3}
+  m_Name: RandomHuntsman
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   targetNotRequired: 0
-  effectClass: 0
+  effectClass: 3
   vfxStyleBefore: 0
-  vfxNameBefore: MeteorStrike
+  vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: none
-  effectSound: 0
-  effectSoundAfterHit: 15
-  scalingMultiplier: 1.5
+  effectSound: 10
+  effectSoundAfterHit: 0
+  scalingMultiplier: 0
   aoeShape: 0
-  aoeSize: 2
-  aoeGap: 0
+  aoeSize: 3
+  aoeGap: 3
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  particleDelay: 1.2
+  entityToSummon: {fileID: 4039637195503505460, guid: 3c87a4f0508293244832a4004aeac41b, type: 3}

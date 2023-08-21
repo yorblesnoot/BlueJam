@@ -7,6 +7,7 @@ public class AIProfile : ScriptableObject
 {
     [Range(1f, 20f)] public float interestAttack;
     [Range(1f, 20f)] public float interestBuff;
+    [Range(0f, 20f)] public float interestSummon;
 
     [Range(0f, 2f)] public float interestFriendly;
     [Range(0f, 2f)] public float interestHostile;

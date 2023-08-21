@@ -10,13 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6856cce20993b2b43b6b389f2802db86, type: 3}
-  m_Name: TEMPLATE_AI
+  m_Name: CallerAI
   m_EditorClassIdentifier: 
-  interestAttack: 0
-  interestBuff: 0
-  interestFriendly: 0
-  interestHostile: 0
+  interestAttack: 1
+  interestBuff: 1
+  interestSummon: 4.85
+  interestFriendly: 0.59
+  interestHostile: 0.27
   proximityFriendly: 0
-  proximityHostile: 0
+  proximityHostile: 4.44
   summonProximityHostile: 0
   summonProximityFriendly: 0

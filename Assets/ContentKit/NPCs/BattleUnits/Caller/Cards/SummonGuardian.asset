@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SummonGuardian
   m_EditorClassIdentifier: 
   Id: c13f887e-062d-4510-bf1e-432ca0abbfea
-  displayName: 
-  art: {fileID: 0}
+  displayName: Call Guardian
+  art: {fileID: 21300000, guid: d50ba2527cf084bd9a23196a21e185ca, type: 3}
   cost: 5
   description: 
   keywords: 
@@ -26,4 +26,5 @@ MonoBehaviour:
   cardClass: 
   consumed: 1
   animType: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: 1cc5db3bd83b60b4baf994ca64fed45a, type: 2}

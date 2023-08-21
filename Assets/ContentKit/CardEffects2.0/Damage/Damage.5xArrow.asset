@@ -19,10 +19,12 @@ MonoBehaviour:
   vfxNameBefore: GreenArrow
   vfxStyleAfter: 0
   vfxNameAfter: none
-  effectSound: 13
+  effectSound: 0
+  effectSoundAfterHit: 13
   scalingMultiplier: 0.5
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
+  particleDelay: 1

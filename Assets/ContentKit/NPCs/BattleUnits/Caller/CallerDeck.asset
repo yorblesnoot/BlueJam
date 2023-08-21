@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
+  m_Name: CallerDeck
+  m_EditorClassIdentifier: 
+  Id: bfaf41e4-c660-4434-abe6-f115fd8b87ec
+  deckContents:
+  - {fileID: 11400000, guid: 67ded7d525ca7d746922ffd9353ee485, type: 2}
+  - {fileID: 11400000, guid: b5f1b1bfa28fb4c4dbab0b3f2976183a, type: 2}
+  - {fileID: 11400000, guid: 2bcd03f5f8cdd3f4c93cb78736b80a21, type: 2}
+  hat: {fileID: 2785549851095321696, guid: f49af6a98b5f7454c8271b5bd65e8362, type: 3}
+  essenceDescription: 
+  unitName: 

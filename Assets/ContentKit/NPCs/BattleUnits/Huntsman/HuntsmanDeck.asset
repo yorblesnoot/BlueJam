@@ -10,18 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
-  m_Name: PlayerDeck
+  m_Name: HuntsmanDeck
   m_EditorClassIdentifier: 
-  Id: 0693ae95-75b7-40b1-9447-577095d1a2f7
+  Id: 6d99ee65-48ea-482f-a9d4-57f6a69e3003
   deckContents:
   - {fileID: 11400000, guid: 69e47fa7f51692e46a1eb807899d944a, type: 2}
   - {fileID: 11400000, guid: fb6976c8704260843a321b279e7b33cb, type: 2}
   - {fileID: 11400000, guid: 6b6333af32be7944ba81beeeff7e2158, type: 2}
-  - {fileID: 11400000, guid: 69e47fa7f51692e46a1eb807899d944a, type: 2}
-  - {fileID: 11400000, guid: fb6976c8704260843a321b279e7b33cb, type: 2}
-  - {fileID: 11400000, guid: 6b6333af32be7944ba81beeeff7e2158, type: 2}
-  - {fileID: 11400000, guid: 5e4107459127c2541995f457ef82abcb, type: 2}
-  - {fileID: 11400000, guid: 5e4107459127c2541995f457ef82abcb, type: 2}
-  hat: {fileID: 7861371688408044556, guid: 3e6bf70ee875fba4d99acdd7fea73422, type: 3}
-  essenceDescription: 'Essence of the Player. Contains:'
-  unitName: Player
+  hat: {fileID: 2838503475408718453, guid: 2a3d63bf47fdcda44bf98893792c338c, type: 3}
+  essenceDescription: 
+  unitName: 

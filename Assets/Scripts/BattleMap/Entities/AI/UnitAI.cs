@@ -115,6 +115,7 @@ public class UnitAI : MonoBehaviour
             else if (effect.effectClass == CardClass.SUMMON)
             {
                 favor += EntityScan(moveVect, personality.interestHostile, personality.interestFriendly, personality.summonProximityHostile, personality.summonProximityFriendly);
+                favor += personality.interestSummon;
             }
             else
             {

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: SummonHuntsman
   m_EditorClassIdentifier: 
   Id: 0ff3758a-a5a4-44e8-9fc6-d3028a811d26
-  displayName: 
-  art: {fileID: 0}
+  displayName: Call Huntsman
+  art: {fileID: 21300000, guid: d6bf9fd619ff24ce58267141ada9bbaa, type: 3}
   cost: 5
   description: 
   keywords: 
@@ -26,4 +26,5 @@ MonoBehaviour:
   cardClass: 
   consumed: 1
   animType: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: 558ad64652fa4c74293e9205679cb43e, type: 2}

@@ -69,6 +69,11 @@ public class WrldCardDisplay : PlayerCardDisplay, IPointerClickHandler
         fading = false;
     }
 
+    private void OnDisable()
+    {
+        ResetColors();
+    }
+
     public void ResetColors()
     {
         foreach (var component in images)

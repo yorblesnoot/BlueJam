@@ -21,7 +21,7 @@ public class EffectStat : CardEffectPlus
         if (scalingMultiplier > 0) changeDirection = "increase";
         else if (scalingMultiplier < 0) changeDirection = "decrease";
         else changeDirection = "(SCALING SET TO 0)";
-        string finalDescription = $"{changeDirection} {statNames[entityStat]} by {scalingMultiplier}{statModSymbol[entityStat]}";
+        string finalDescription = $"{changeDirection} {statNames[entityStat]} by {Mathf.Abs(scalingMultiplier)}{statModSymbol[entityStat]}";
         if (duration > 0) finalDescription += $" for {duration-1} actions";
         return finalDescription;
     }
