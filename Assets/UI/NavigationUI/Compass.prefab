@@ -54,13 +54,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2579882676241295565}
     m_Modifications:
+    - target: {fileID: 3016924496630956531, guid: 406157928943b4a49ace04f5517bc7ff, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3665570179786694694, guid: 406157928943b4a49ace04f5517bc7ff, type: 3}
       propertyPath: m_Name
       value: Proto_Symbol_Arrow_Straight_01
       objectReference: {fileID: 0}
+    - target: {fileID: 3665570179786694694, guid: 406157928943b4a49ace04f5517bc7ff, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4149337001499507356, guid: 406157928943b4a49ace04f5517bc7ff, type: 3}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149337001499507356, guid: 406157928943b4a49ace04f5517bc7ff, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.8409
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149337001499507356, guid: 406157928943b4a49ace04f5517bc7ff, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3736032
+      objectReference: {fileID: 0}
+    - target: {fileID: 4149337001499507356, guid: 406157928943b4a49ace04f5517bc7ff, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.8409
       objectReference: {fileID: 0}
     - target: {fileID: 4149337001499507356, guid: 406157928943b4a49ace04f5517bc7ff, type: 3}
       propertyPath: m_LocalPosition.x

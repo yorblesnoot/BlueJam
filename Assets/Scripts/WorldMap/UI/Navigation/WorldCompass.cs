@@ -48,7 +48,5 @@ public class WorldCompass : MonoBehaviour
             timeElapsed += Time.deltaTime;
             yield return null;
         }
-        pointer.transform.localPosition = pointerToPosition;
-        transform.SetPositionAndRotation(endLocation, toRotation);
     }
 }
