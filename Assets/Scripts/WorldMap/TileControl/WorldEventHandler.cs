@@ -49,6 +49,7 @@ public class WorldEventHandler : MonoBehaviour
             //if the event is an item, hold battle until an item is selected
             if(cellEvent.GetType() == typeof(ItemEvent))
             {
+                WorldPlayerControl.playerState = WorldPlayerState.SELECTION;
                 EventManager.updateItemUI.AddListener(ConfirmItemPicked);
                 yield return new WaitUntil(() => pickedItem == true);
                 new SaveContainer(runData).SaveGame();

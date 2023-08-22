@@ -73,10 +73,12 @@ public class NonplayerHandPlus : HandPlus
             handCards.TransferItemTo(discardCards, discarded);
             discarded.gameObject.SetActive(false);
         }
+        PositionCards();
         yield break;
     }
     void PositionCards()
     {
+        StopAllCoroutines();
         //find the length and width of the camera to render cards at a set interval
         RectTransform canvasRect = unitCanvas.GetComponent<RectTransform>();
         float width = canvasRect.rect.width;

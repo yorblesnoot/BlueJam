@@ -14,7 +14,7 @@ public class DynamicEventPlacer
     readonly Dictionary<int, string> eventsAndOdds = new()
     {
         { 1, "i"}, //item
-        { 4, "r" }, //removal
+        { 3, "r" }, //removal
         { 8, "h" }, //heal
         { 18, "e" }, //enemy
         { 350, "" }, //nothing

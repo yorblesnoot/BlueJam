@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: CallerStats
   m_EditorClassIdentifier: 
   unitName: Caller
-  maxHealth: 20
+  maxHealth: 18
   handSize: 2
   startBeats: 0
   damageScaling: 10

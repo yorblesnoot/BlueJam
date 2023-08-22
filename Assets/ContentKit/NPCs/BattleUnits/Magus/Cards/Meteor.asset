@@ -22,7 +22,7 @@ MonoBehaviour:
   keywords: 'Range: 3-6 <color=blue>O</color>.'
   targetShape: 0
   targetSize: 6
-  targetGap: 3
+  targetGap: 5
   needsPath: 0
   isCurse: 0
   cardClass: 00000000

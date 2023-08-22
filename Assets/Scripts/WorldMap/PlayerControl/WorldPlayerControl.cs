@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-public enum WorldPlayerState { IDLE, PATHING, MENUS}
+public enum WorldPlayerState { IDLE, PATHING, MENUS, SELECTION}
 
 public class WorldPlayerControl : MonoBehaviour
 {
@@ -18,7 +18,7 @@ public class WorldPlayerControl : MonoBehaviour
 
     public static List<string> badTiles;
     readonly int tileDamage = 2;
-    readonly float moveTime = .5f;
+    readonly public static float moveTime = .5f;
     public void InitializePlayer()
     {
         player = this;
@@ -37,9 +37,9 @@ public class WorldPlayerControl : MonoBehaviour
         Tutorial.CompleteStage(TutorialFor.WORLDHEAL, 1, true);
         Tutorial.CompleteStage(TutorialFor.WORLDITEM, 1, true);
         Tutorial.CompleteStage(TutorialFor.WORLDREMOVE, 1, true);
-        playerState = WorldPlayerState.PATHING;
         foreach (GameObject tile in path)
         {
+            playerState = WorldPlayerState.PATHING;
             runData.score -= 1;
             WorldMovementController tileController = tile.GetComponent<WorldMovementController>();
             transform.LookAt(tileController.unitPosition);
@@ -79,7 +79,8 @@ public class WorldPlayerControl : MonoBehaviour
                 yield return new WaitForSeconds(.4f);
             }
             yield return StartCoroutine(tileController.myEventHandler.TriggerWorldEvents());
+            playerState = WorldPlayerState.IDLE;
         }
-        playerState = WorldPlayerState.IDLE;
+        
     }
 }

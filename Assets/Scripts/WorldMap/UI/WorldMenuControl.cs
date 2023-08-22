@@ -32,8 +32,11 @@ public class WorldMenuControl : MonoBehaviour
         Tutorial.CompleteStage(TutorialFor.WORLDDECK, 2, true);
         ToggleWindow(lastOpened, false);
     }
+
+    WorldPlayerState priorState;
     public void ToggleWindow(GameObject window, bool value)
     {
+        if (WorldPlayerControl.playerState == WorldPlayerState.PATHING) return;
         SoundManager.PlaySound(SoundType.BUTTONPRESS);
         //if (WorldPlayerControl.playerState != WorldPlayerState.IDLE && WorldPlayerControl.playerState != WorldPlayerState.MENUS) return;
         lastOpened = window;
@@ -45,8 +48,15 @@ public class WorldMenuControl : MonoBehaviour
         }
         close.gameObject.SetActive(value);
 
-        if (value == true) WorldPlayerControl.playerState = WorldPlayerState.MENUS;
-        else WorldPlayerControl.playerState = WorldPlayerState.IDLE;
+        if (WorldPlayerControl.playerState != WorldPlayerState.MENUS)
+        {
+            priorState = WorldPlayerControl.playerState;
+            WorldPlayerControl.playerState = WorldPlayerState.MENUS;
+        }
+        else
+        {
+            WorldPlayerControl.playerState = priorState;
+        }
     }
 
 }

@@ -18,7 +18,7 @@ MonoBehaviour:
     serializedVersion: 2
     rgba: 4278210559
   description: Boost your damage whenever you deal damage, but reduce your damage
-    whenever you barrier or heal.
+    whenever you play a barrier or heal card.
   effects:
   - {fileID: 11400000, guid: 0d4d53fef3e7f394db430d7dd581cdc3, type: 2}
   - {fileID: 11400000, guid: c433c84b1510b584ab4f110747e84bf6, type: 2}

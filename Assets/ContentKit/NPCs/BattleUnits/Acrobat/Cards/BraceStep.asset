@@ -16,16 +16,16 @@ MonoBehaviour:
   displayName: Build Momentum
   art: {fileID: 21300000, guid: 281a946ab0b1b496896813c70c9c31f7, type: 3}
   cost: 2
-  description: 
-  keywords: 
+  description: 'Move to target. Increase speed by 80% for 1 actions. '
+  keywords: 'Range: 2-2 <color=blue>O</color>.'
   targetShape: 0
   targetSize: 2
   targetGap: 2
   needsPath: 0
   isCurse: 0
-  cardClass: 
+  cardClass: 0100000002000000
   consumed: 0
-  animType: 0
+  animType: 3
   effects:
   - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
   - {fileID: 11400000, guid: 355d280a8ab1dc741a8cc213d1123d12, type: 2}
