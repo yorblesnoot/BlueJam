@@ -15137,6 +15137,18 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2883077493151076421, guid: 66a3f01bf0844214d9a12133268d6448, type: 3}
+      propertyPath: m_Color.b
+      value: 0.7688679
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883077493151076421, guid: 66a3f01bf0844214d9a12133268d6448, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9207338
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883077493151076421, guid: 66a3f01bf0844214d9a12133268d6448, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2883077493151076421, guid: 66a3f01bf0844214d9a12133268d6448, type: 3}
       propertyPath: m_Intensity
       value: 0.5
       objectReference: {fileID: 0}
@@ -32072,6 +32084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+    - target: {fileID: 7381905322391779668, guid: 02e0f8dcc28bd22419cba68a418f98b0, type: 3}
+      propertyPath: m_Antialiasing
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 7381905322391779669, guid: 02e0f8dcc28bd22419cba68a418f98b0, type: 3}
       propertyPath: sceneRelay
       value: 
@@ -32275,6 +32291,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7956702824008932433, guid: d92717f314ae78741880ccd773f3ab74, type: 3}
+      propertyPath: sharedProfile
+      value: 
+      objectReference: {fileID: 11400000, guid: fed3b03ad140f2a4d9c923817d2040c0, type: 2}
     - target: {fileID: 7956702824008932434, guid: d92717f314ae78741880ccd773f3ab74, type: 3}
       propertyPath: m_Name
       value: Global Volume

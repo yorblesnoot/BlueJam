@@ -11,7 +11,7 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: ac93f09986111dc478b098e605e8bc2b, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -38,8 +38,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Chop: 0.173
-    - _EmissionDulling: 2.17
+    - _Chop: 0.157
+    - _EmissionDulling: 2.47
     - _FlatShade: 0
     - _FoamAmount: 0.3
     - _FoamCutoff: 1
@@ -57,17 +57,17 @@ Material:
     - _StaticTexture: 0
     - _TextureMultiply: 0
     - _TextureSize: 50
-    - _TintTextureAlpha: 0
+    - _TintTextureAlpha: 1
     - _UseTextureOverlay: 1
-    - _WaterAlpha: 0.448
-    - _WaterDepth: 1
+    - _WaterAlpha: 0.433
+    - _WaterDepth: 0.5
     m_Colors:
     - _Color: {r: 0, g: 0.67058825, b: 1, a: 0.07843138}
-    - _DeepWater: {r: 0, g: 0.67058825, b: 1, a: 0.07843138}
+    - _DeepWater: {r: 0.17452827, g: 0.72984546, b: 1, a: 0.3882353}
     - _FoamColour: {r: 1, g: 1, b: 1, a: 0.5490196}
-    - _ShallowWater: {r: 0.6078432, g: 0.9176471, b: 1, a: 0.07843138}
+    - _ShallowWater: {r: 0.6078432, g: 0.9176471, b: 1, a: 0.48235294}
     - _TextureColour1: {r: 1, g: 1, b: 1, a: 0.5882353}
-    - _TextureColour2: {r: 0, g: 0.7254902, b: 1, a: 0.5882353}
+    - _TextureColour2: {r: 0, g: 0.7254901, b: 1, a: 0.5803922}
     - _TextureWaterTint: {r: 0, g: 0.737255, b: 0.5019608, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &4581545503388329930

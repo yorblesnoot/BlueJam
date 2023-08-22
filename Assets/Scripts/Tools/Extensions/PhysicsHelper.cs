@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 public static class PhysicsHelper
@@ -28,9 +29,9 @@ public static class PhysicsHelper
     public static void ParabolicProjectile(this GameObject particleHolder, Vector3 targetPosition, float timeToHit)
     {
         Transform transform = particleHolder.transform;
-        ParticleSystem projectile = particleHolder.GetComponentInChildren<ParticleSystem>();
-        ParticleSystem.MainModule mainModule = projectile.main;
-        float gravity = projectile.main.gravityModifierMultiplier * 9.8f;
+        ParticleSystem[] projectiles = particleHolder.GetComponentsInChildren<ParticleSystem>();
+        ParticleSystem.MainModule[] mainModules = projectiles.Select(x => x.main).ToArray();
+        float gravity = projectiles[0].main.gravityModifierMultiplier * 9.8f;
 
         Vector3 localCoords = targetPosition - transform.position;
         Vector2 flatLocal = new(localCoords.x, localCoords.z);
@@ -46,7 +47,10 @@ public static class PhysicsHelper
         float compAngle = Mathf.Atan(verticalVelocity / horizontalVelocity);
         compAngle = Mathf.Rad2Deg * compAngle;
         Quaternion firingAngle = Quaternion.Euler(-Mathf.Abs(compAngle), 0, 0);
-        transform.rotation = transform.rotation * firingAngle;
-        mainModule.startSpeed = combinedVelocity;
+        transform.rotation *= firingAngle;
+        for (int i = 0; i < mainModules.Length; i++)
+        {
+            mainModules[i].startSpeed = combinedVelocity;
+        }
     }
 }
