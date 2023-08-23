@@ -17,12 +17,9 @@ public class EffectStat : CardEffectPlus
 
     public override string GetEffectDescription(Unit player)
     {
-        string changeDirection;
-        if (scalingMultiplier > 0) changeDirection = "increase";
-        else if (scalingMultiplier < 0) changeDirection = "decrease";
-        else changeDirection = "(SCALING SET TO 0)";
-        string finalDescription = $"{changeDirection} {statNames[entityStat]} by {Mathf.Abs(scalingMultiplier)}{statModSymbol[entityStat]}";
-        if (duration > 0) finalDescription += $" for {duration-1} actions";
+        string finalDescription = $"{(scalingMultiplier > 0 ? "increase" : "decrease")} {statNames[entityStat]}"
+            + $"by {Mathf.Abs(scalingMultiplier)}{statModSymbol[entityStat]}";
+        if (duration > 0) finalDescription += $" for {duration - 1} {(duration > 2 ? "actions" : "action")}";
         return finalDescription;
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
