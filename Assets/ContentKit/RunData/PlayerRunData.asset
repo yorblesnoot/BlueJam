@@ -14,30 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
-  playerWorldX: 286
-  playerWorldY: 245
-  itemInventory:
-  - {fileID: 11400000, guid: f5fac138ae4ee264ebff2ebcec6179a3, type: 2}
-  - {fileID: 11400000, guid: c4ff6f9b4f07d664b944c53614dd61d8, type: 2}
-  - {fileID: 11400000, guid: dec479f9c49bab44bab2bf2e833a1bd9, type: 2}
-  - {fileID: 11400000, guid: 9d04ddd68fcdea449abcb5e464429e80, type: 2}
-  - {fileID: 11400000, guid: 3d64909f256302f4daab9908ca069e48, type: 2}
-  - {fileID: 11400000, guid: 63293e63e2cb9744a8aad96510846be8, type: 2}
-  essenceInventory:
-  - {fileID: 11400000, guid: b7d92abc3a4e66341b5ff302a6108ec2, type: 2}
-  - {fileID: 11400000, guid: bc383f7e798b47a499e6c953ebc08bb9, type: 2}
-  - {fileID: 11400000, guid: 164bedcad331e5a4c833a091680664b6, type: 2}
-  - {fileID: 11400000, guid: 6d76f4513f26c36408e9a6c5006e26c7, type: 2}
-  - {fileID: 11400000, guid: 2fe649ad6042cc14fa54b3d8bb13e8ee, type: 2}
-  - {fileID: 11400000, guid: 181250ee96f164443b29bb942a118a84, type: 2}
-  - {fileID: 11400000, guid: ceeb1002e3f590a47ac6f7fd26ac13b0, type: 2}
-  - {fileID: 11400000, guid: 3f2bd8d335ead924e8b5f8d44224ade8, type: 2}
+  playerWorldX: 246
+  playerWorldY: 251
+  itemInventory: []
+  essenceInventory: []
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
-  RemoveStock: 2
-  worldSteps: 73
-  difficultyTier: 4
-  currentHealth: 36
-  score: 1707
-  bossSequence: 00000000010000000300000002000000
+  RemoveStock: 0
+  worldSteps: 5
+  difficultyTier: 5
+  currentHealth: 98
+  score: 60
+  bossSequence: 03000000020000000100000000000000
   endless: 0
