@@ -57,6 +57,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 076d56fe4e3f9c443a223c8e3496d9ce, type: 3}
+--- !u!1 &6187504635038010884 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 076d56fe4e3f9c443a223c8e3496d9ce, type: 3}
+  m_PrefabInstance: {fileID: 6421859836459955029}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6421859837607383735
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,6 +123,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6381d5eb9939e5b4396ed2aed2e1870e, type: 3}
+--- !u!198 &1777497862738247896 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4734962832777941615, guid: 6381d5eb9939e5b4396ed2aed2e1870e, type: 3}
+  m_PrefabInstance: {fileID: 6421859837607383735}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3596592848071969258 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7563423237932440413, guid: 6381d5eb9939e5b4396ed2aed2e1870e, type: 3}
@@ -143,3 +153,5 @@ MonoBehaviour:
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   tutorialText: Picking up a bomb gives you charges to remove cards from my deck!
   tutorialType: 5
+  model: {fileID: 6187504635038010884}
+  glow: {fileID: 1777497862738247896}

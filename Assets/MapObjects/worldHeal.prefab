@@ -78,9 +78,16 @@ MonoBehaviour:
   tutorialText: Picking up a heart restores my health if I'm damaged and slightly
     increases my maximum health!
   tutorialType: 3
+  model: {fileID: 3676267597444580281}
+  glow: {fileID: 7433080885925680895}
 --- !u!4 &5648852518316629965 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7563423237932440413, guid: 6381d5eb9939e5b4396ed2aed2e1870e, type: 3}
+  m_PrefabInstance: {fileID: 2779402886477546640}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &7433080885925680895 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4734962832777941615, guid: 6381d5eb9939e5b4396ed2aed2e1870e, type: 3}
   m_PrefabInstance: {fileID: 2779402886477546640}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4595307929728171752
@@ -140,3 +147,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b731ad0b83694754295df1bf7bbac31f, type: 3}
+--- !u!1 &3676267597444580281 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b731ad0b83694754295df1bf7bbac31f, type: 3}
+  m_PrefabInstance: {fileID: 4595307929728171752}
+  m_PrefabAsset: {fileID: 0}

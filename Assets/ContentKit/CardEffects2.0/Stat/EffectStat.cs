@@ -18,7 +18,7 @@ public class EffectStat : CardEffectPlus
     public override string GetEffectDescription(Unit player)
     {
         string finalDescription = $"{(scalingMultiplier > 0 ? "increase" : "decrease")} {statNames[entityStat]}"
-            + $"by {Mathf.Abs(scalingMultiplier)}{statModSymbol[entityStat]}";
+            + $" by {Mathf.Abs(scalingMultiplier)}{statModSymbol[entityStat]}";
         if (duration > 0) finalDescription += $" for {duration - 1} {(duration > 2 ? "actions" : "action")}";
         return finalDescription;
     }
