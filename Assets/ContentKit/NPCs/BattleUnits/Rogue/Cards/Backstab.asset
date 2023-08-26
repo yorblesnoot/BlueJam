@@ -16,15 +16,17 @@ MonoBehaviour:
   displayName: Backstab
   art: {fileID: 21300000, guid: cf8fbf2de1b1b4d2dabcb7682d8ba460, type: 3}
   cost: 5
-  description: 
-  keywords: 
+  description: 'Deal <color=#FF4E2B>30</color> damage. '
+  keywords: 'Range: 1-1 <color=blue>+</color>.'
   targetShape: 2
   targetSize: 1
   targetGap: 1
   needsPath: 0
   isCurse: 0
-  cardClass: 
+  cardClass: 00000000
   consumed: 0
-  animType: 0
+  animType: 3
   effects:
+  - {fileID: 11400000, guid: 20388f65135e10d44babca26b27e54e1, type: 2}
+  - {fileID: 11400000, guid: f0086a0d4a4ec1f4ab0fa7aa4c4afb0f, type: 2}
   - {fileID: 11400000, guid: 1754e1df374831f458bad769b3eb4395, type: 2}
