@@ -15,7 +15,7 @@ public class EffectSummon : CardEffectPlus
     {
         string entityName = entityToSummon.name;
         entityName = entityName.Replace("NPC", "");
-        return $"summon a {entityName}";
+        return $"summon a{(entityName.CharacterIsVowel(0) ? "n" : "")} <color=orange>{entityName}</color>";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {

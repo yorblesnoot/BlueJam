@@ -18,11 +18,13 @@ MonoBehaviour:
   vfxStyleBefore: 2
   vfxNameBefore: GreenDiagSlash
   vfxStyleAfter: 0
-  vfxNameAfter: ImpactSmall
-  effectSound: 14
+  vfxNameAfter: none
+  effectSound: 0
+  effectSoundAfterHit: 14
   scalingMultiplier: 0.5
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
+  particleDelay: 0.2

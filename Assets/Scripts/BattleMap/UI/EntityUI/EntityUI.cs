@@ -56,13 +56,13 @@ public class EntityUI : MonoBehaviour
             slider.value -= sliderChange / changeSteps;
             yield return null;
         }
-        if(vanish && slider.value <= 0) slider.gameObject.SetActive(false);
+        if(vanish && slider.value <= .02) slider.gameObject.SetActive(false);
     }
 
     public void SetBar(float current, float max, Slider slider, bool vanish = true)
     {
         slider.value = current / max;
-        if (slider.value <= 0 && vanish == true)
+        if (slider.value <= .02 && vanish == true)
         {
             slider.gameObject.SetActive(false);
         }

@@ -11,7 +11,7 @@ public class MiniCardDisplay : MonoBehaviour, ICardDisplay, IPointerEnterHandler
 
     [SerializeField] TMP_Text nameText;
 
-    [SerializeField] WrldCardDisplay bigCard;
+    [HideInInspector] public WrldCardDisplay bigCard;
 
     public bool forceConsume { get; set; } = false;
 

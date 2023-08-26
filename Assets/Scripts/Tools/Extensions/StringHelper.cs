@@ -12,4 +12,11 @@ public static class StringHelper
         // Return char and concat substring.
         return char.ToUpper(s[0]) + s.Substring(1);
     }
+
+    public static bool CharacterIsVowel(this string s, int index)
+    {
+        var chars = s.ToCharArray();
+        if ("aeiouAEIOU".Contains(chars[index])) return true;
+        else return false;
+    }
 }

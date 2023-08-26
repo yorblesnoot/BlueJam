@@ -21,10 +21,16 @@ public class EssenceCrafting : MonoBehaviour
 
     [SerializeField] WorldMenuControl worldMenuControl;
 
+    [SerializeField] WrldCardDisplay bigCardDisplay;
+
     readonly int hatTiltAngle = -10;
     readonly int hatProjectionDistance = 30;
     private void Awake()
     {
+        foreach(var card in miniCards)
+        {
+            card.bigCard = bigCardDisplay;
+        }
         runData.essenceInventory = runData.essenceInventory.OrderBy(x => x.name).ToList();
         for( int i = 0; i < dragItems.Count; i++ )
         {
