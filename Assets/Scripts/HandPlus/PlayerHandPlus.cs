@@ -20,6 +20,28 @@ public class PlayerHandPlus : HandPlus
         cardFlyDelay = .1f;
     }
 
+    private KeyCode[] keyCodes = {
+        KeyCode.Alpha1,
+        KeyCode.Alpha2,
+        KeyCode.Alpha3,
+        KeyCode.Alpha4,
+        KeyCode.Alpha5,
+        KeyCode.Alpha6,
+        KeyCode.Alpha7,
+    };
+
+    private void Update()
+    {
+        for (int i = 0; i < keyCodes.Length; i++)
+        {
+            KeyCode code = keyCodes[i];
+            if (Input.GetKeyDown(code) && i < handCards.Count)
+            {
+                BtlCardDisplay card = (BtlCardDisplay)handCards[i];
+                card.ActivateCard();
+            }
+        }
+    }
     internal override void BuildVisualDeck()
     {
         GenerateHandSlots(Mathf.RoundToInt(thisUnit.loadedStats[StatType.HANDSIZE]));

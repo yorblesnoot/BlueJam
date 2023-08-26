@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -17,6 +18,7 @@ public class BtlCardDisplay : PlayerCardDisplay, IPointerEnterHandler, IPointerE
         // activate targeting
         ActivateCard();
     }
+
     public void ActivateCard()
     {
         if (activated == true) return;
