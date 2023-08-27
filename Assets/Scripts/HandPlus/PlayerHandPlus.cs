@@ -39,7 +39,7 @@ public class PlayerHandPlus : HandPlus
             {
                 BtlCardDisplay card = (BtlCardDisplay)handCards[i];
                 card.ActivateCard();
-            }
+            }                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
         }
     }
     internal override void BuildVisualDeck()
