@@ -2214,6 +2214,7 @@ GameObject:
   - component: {fileID: 388095516}
   - component: {fileID: 388095518}
   - component: {fileID: 388095520}
+  - component: {fileID: 388095521}
   m_Layer: 0
   m_Name: BattleMaster
   m_TagString: GameController
@@ -2305,6 +2306,23 @@ MonoBehaviour:
   - {fileID: 517542004}
   - {fileID: 517542004}
   blackScreen: {fileID: 167643142}
+--- !u!114 &388095521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388095515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e223a4dab8bf6844b06023385844696, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hudElements:
+  - {fileID: 1206556544}
+  - {fileID: 1582030611}
+  - {fileID: 567692965}
+  control: {fileID: 0}
 --- !u!1001 &394582959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3163,6 +3181,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 559064136}
   m_CullTransparentMesh: 1
+--- !u!1 &567692965 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 486431070345700726, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
+  m_PrefabInstance: {fileID: 1167083731}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &571321138
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5492,7 +5515,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -72.3, y: 34}
+  m_AnchoredPosition: {x: -72.3, y: -16}
   m_SizeDelta: {x: 110, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1206556546
@@ -6728,6 +6751,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1511662521}
   m_CullTransparentMesh: 0
+--- !u!1 &1582030611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5657739058423302559, guid: afe3bc56997412845b5a55eb08885007, type: 3}
+  m_PrefabInstance: {fileID: 3451738}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1608324691
 GameObject:
   m_ObjectHideFlags: 0
@@ -8314,7 +8342,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3099704558935501439, guid: afe3bc56997412845b5a55eb08885007, type: 3}
   m_PrefabInstance: {fileID: 3451738}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1582030611}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ca371816f4eabad418d2b3d9ec521395, type: 3}

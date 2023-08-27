@@ -10,8 +10,6 @@ public class WorldMenuControl : MonoBehaviour
 
     GameObject lastOpened;
 
-    [SerializeField] List<GameObject> hudComponents;
-
     public Button close;
 
     public void OpenCrafting()
@@ -41,11 +39,6 @@ public class WorldMenuControl : MonoBehaviour
         //if (WorldPlayerControl.playerState != WorldPlayerState.IDLE && WorldPlayerControl.playerState != WorldPlayerState.MENUS) return;
         lastOpened = window;
         window.SetActive(value);
-
-        foreach (var component in hudComponents)
-        {
-            component.SetActive(!value);
-        }
         close.gameObject.SetActive(value);
 
         if (WorldPlayerControl.playerState != WorldPlayerState.MENUS)
