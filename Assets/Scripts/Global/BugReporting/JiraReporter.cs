@@ -1,9 +1,9 @@
 using System.Net.Http;
 using TMPro;
 using UnityEngine;
-using Palmmedia.ReportGenerator.Core.Common;
 using System.Text;
 using System.Collections;
+using System.Collections.Generic;
 
 public class JiraReporter : MonoBehaviour
 {
@@ -34,7 +34,7 @@ public class JiraReporter : MonoBehaviour
         StartCoroutine(FadeSuccess(successAlert));
     }
 
-    readonly float fadeDuration;
+    readonly float fadeDuration = 3f;
     readonly Color32 invisWhite = new(255,255, 255, 0);
     IEnumerator FadeSuccess(TMP_Text words)
     {
@@ -50,7 +50,7 @@ public class JiraReporter : MonoBehaviour
         words.color = Color.white;
     }
 
-    HttpContent GenerateJSONPayload(string summary, string body)
+    HttpContent GenerateJSONPayload(string sum, string body)
     {
         var obj = new
         {
@@ -60,7 +60,7 @@ public class JiraReporter : MonoBehaviour
                 {
                     key = "JBLU"
                 },
-                summary = summary,
+                summary = sum,
                 issuetype = new
                 {
                     name = "Task"
@@ -87,7 +87,87 @@ public class JiraReporter : MonoBehaviour
                 }
             }
         };
-        string json = JsonSerializer.ToJsonString(obj);
+
+        Root root = new()
+        {
+            fields = new()
+            {
+                project = new()
+                {
+                    key = "JBLU"
+                },
+                summary = sum,
+                issuetype = new()
+                {
+                    name = "Task"
+                },
+                description = new()
+                {
+                    version = 1,
+                    type = "doc",
+                    content = new List<Content1>()
+                    {
+                        new()
+                        {
+                            type = "paragraph",
+                            content = new List<Content2>()
+                            {
+                                new()
+                                {
+                                    type = "text",
+                                    text = body
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        };
+        string json = JsonUtility.ToJson(root);
+        Debug.Log(json);
         return new StringContent(json, Encoding.UTF8, "application/json");
+    }
+
+    [System.Serializable]
+    public class Root
+    {
+        public Fields fields;
+    }
+    [System.Serializable]
+    public class Fields
+    {
+        public Project project;
+        public string summary;
+        public IssueType issuetype;
+        public Description description;
+    }
+    [System.Serializable]
+    public class Project
+    {
+        public string key;
+    }
+    [System.Serializable]
+    public class IssueType
+    {
+        public string name;
+    }
+    [System.Serializable]
+    public class Description
+    {
+        public int version;
+        public string type;
+        public List<Content1> content;
+    }
+    [System.Serializable]
+    public class Content1
+    {
+        public string type;
+        public List<Content2> content;
+    }
+    [System.Serializable]
+    public class Content2
+    {
+        public string type;
+        public string text;
     }
 }
