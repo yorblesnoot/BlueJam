@@ -25,9 +25,7 @@ public class EntityUI : MonoBehaviour
     public void UpdateDeflect(int amount)
     {
         if(unitActions.deflectHealth > visualDeflectMax) visualDeflectMax = unitActions.deflectHealth;
-        Debug.Log(sliderDeflect.value + " initial for " + gameObject.name);
         StartCoroutine(UpdateBar(amount, visualDeflectMax, sliderDeflect));
-        Debug.Log(sliderDeflect.value + " final for " + gameObject.name);
     }
 
     public void UpdateShield(int amount)
