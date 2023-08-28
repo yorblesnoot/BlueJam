@@ -2323,6 +2323,7 @@ MonoBehaviour:
   - {fileID: 1582030611}
   - {fileID: 567692965}
   control: {fileID: 0}
+  recordMode: 1
 --- !u!1001 &394582959
 PrefabInstance:
   m_ObjectHideFlags: 0

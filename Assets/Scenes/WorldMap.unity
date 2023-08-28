@@ -6193,12 +6193,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   essenceCrafting: {fileID: 1558374503}
   deckView: {fileID: 1804632157}
-  hudComponents:
-  - {fileID: 779091093}
-  - {fileID: 1065617354}
-  - {fileID: 634649995}
-  - {fileID: 617775868}
-  - {fileID: 1665007201}
   close: {fileID: 1069133797417840126}
 --- !u!225 &573176810
 CanvasGroup:
@@ -6561,11 +6555,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 617775868}
   m_CullTransparentMesh: 1
---- !u!1 &634649995 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3406134658459511775, guid: 4db3ef8958354bf4ba352ee997ccfdd9, type: 3}
-  m_PrefabInstance: {fileID: 3406134658854577993}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &639740747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9395,6 +9384,7 @@ MonoBehaviour:
   - {fileID: 112235713}
   - {fileID: 1065617354}
   control: {fileID: 573176809}
+  recordMode: 1
 --- !u!114 &841480958 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6221452705481964520, guid: b678fc027cca7974b94bfd1819149153, type: 3}

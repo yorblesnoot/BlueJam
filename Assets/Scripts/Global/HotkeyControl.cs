@@ -7,6 +7,12 @@ public class HotkeyControl : MonoBehaviour
 {
     [SerializeField] List<GameObject> hudElements;
     [SerializeField] WorldMenuControl control;
+    [SerializeField] bool recordMode;
+
+    private void Awake()
+    {
+        if (recordMode) ToggleHUD();
+    }
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.T)) ToggleHUD();
