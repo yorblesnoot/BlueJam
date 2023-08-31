@@ -31,7 +31,7 @@ public class WorldCompass : MonoBehaviour
         proximityToTarget = Mathf.Clamp(proximityToTarget, 0.1f, 5f);
         Vector3 pointerStartPosition = pointer.transform.localPosition;
         Vector3 pointerToPosition = pointerStartPosition;
-        pointerToPosition.z = proximityToTarget - 1f;
+        pointerToPosition.z = proximityToTarget - 2f;
         
         Vector3 direction = targetV3 - endLocation;
         Quaternion startRotation = transform.rotation;

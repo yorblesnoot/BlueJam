@@ -20,9 +20,11 @@ MonoBehaviour:
   vfxStyleAfter: 0
   vfxNameAfter: none
   effectSound: 17
+  effectSoundAfterHit: 0
   scalingMultiplier: 1.5
   aoeShape: 2
   aoeSize: 10
   aoeGap: 1
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
+  particleDelay: 0.3

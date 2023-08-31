@@ -2323,7 +2323,7 @@ MonoBehaviour:
   - {fileID: 1582030611}
   - {fileID: 567692965}
   control: {fileID: 0}
-  recordMode: 1
+  recordMode: 0
 --- !u!1001 &394582959
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5101,6 +5101,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1091208986}
     m_Modifications:
+    - target: {fileID: 486431070345700727, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 557
+      objectReference: {fileID: 0}
     - target: {fileID: 5348928275365090824, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
       propertyPath: m_Name
       value: BugReportContainer

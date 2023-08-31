@@ -16,13 +16,15 @@ MonoBehaviour:
   targetNotRequired: 0
   effectClass: 0
   vfxStyleBefore: 0
-  vfxNameBefore: none
+  vfxNameBefore: CrossSlash
   vfxStyleAfter: 0
-  vfxNameAfter: CrossSlash
+  vfxNameAfter: none
   effectSound: 14
+  effectSoundAfterHit: 0
   scalingMultiplier: 1.5
   aoeShape: 2
   aoeSize: 2
   aoeGap: 1
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
+  particleDelay: 0.2

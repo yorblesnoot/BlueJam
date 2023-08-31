@@ -16,13 +16,15 @@ MonoBehaviour:
   targetNotRequired: 0
   effectClass: 0
   vfxStyleBefore: 0
-  vfxNameBefore: none
+  vfxNameBefore: EnergyLoop
   vfxStyleAfter: 0
-  vfxNameAfter: EnergyLoop
+  vfxNameAfter: none
   effectSound: 17
+  effectSoundAfterHit: 0
   scalingMultiplier: 1.5
   aoeShape: 0
   aoeSize: 2
   aoeGap: 2
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
+  particleDelay: 0.3

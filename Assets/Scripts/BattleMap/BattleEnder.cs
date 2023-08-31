@@ -33,6 +33,10 @@ public class BattleEnder : MonoBehaviour
     }*/
     readonly int bossesForCredits = 3;
     bool returnToMap;
+    private void Awake()
+    {
+        deckDrops.Clear();
+    }
     public IEnumerator VictorySequence()
     {
         SoundManager.PlayMusic(SoundType.MUSICVICTORY);
