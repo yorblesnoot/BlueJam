@@ -46,7 +46,7 @@ public class DeckViewerUI : MonoBehaviour
     {
         if (!removal.isOn)
         {
-            status.text = "Press the button above to toggle card removal.";
+            status.text = "Press the button on the left to toggle card removal.";
             return;
         }
         if(runData.RemoveStock == 0)
