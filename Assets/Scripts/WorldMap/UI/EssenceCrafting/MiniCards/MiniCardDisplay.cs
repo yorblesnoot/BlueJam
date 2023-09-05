@@ -31,7 +31,6 @@ public class MiniCardDisplay : MonoBehaviour, ICardDisplay, IPointerEnterHandler
         bigCard.gameObject.SetActive(true);
         thisCard.Initialize();
         bigCard.PopulateCard(thisCard);
-        transform.SetAsLastSibling();
     }
 
     public void OnPointerExit(PointerEventData eventData)

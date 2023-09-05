@@ -105,10 +105,8 @@ public class EssenceCrafting : MonoBehaviour
     {
         if (operation) craftingSlotContents.Add(item);
         else craftingSlotContents.Remove(item);
-        string color = "<color=#FF4E2B>";
-        if (craftingSlotContents.Count == 0) craftStatus.text = "Insufficient materials for crafting.";
-        else if(craftingSlotContents.Count == 1) craftStatus.text = $"The current craft will offer {color}{craftingSlotContents.Count}</color> option from the essence above.";
-        else craftStatus.text = $"{color}{craftingSlotContents.Count}</color> {item.essence.unitName} Card{(craftingSlotContents.Count > 1 ? "s" : "")}";
+        if (craftingSlotContents.Count == 0) craftStatus.text = "Insufficient materials!";
+        else craftStatus.text = $"<color=#FF4E2B>{craftingSlotContents.Count}</color> {essenceSlotContents.essence.unitName} Card{(craftingSlotContents.Count > 1 ? "s" : "")}";
     }
 
     public void MergeButton()
@@ -170,11 +168,10 @@ public class EssenceCrafting : MonoBehaviour
     public void ShowEssenceDisplay(Deck essence)
     {
         essence.Initialize();
-        description.text = essence.essenceDescription;
         int requiredSlots = 0;
         if (essence == null)
         {
-            description.text = "";
+            description.text = "~";
         }
         else
         {

@@ -10,7 +10,6 @@ public class Deck : SOWithGUID
 
     public GameObject hat;
 
-    [HideInInspector] public string essenceDescription;
     [HideInInspector] public string unitName;
 
     public void Initialize()
@@ -18,6 +17,5 @@ public class Deck : SOWithGUID
         List<string> cardNames = deckContents.Select(x=> x.displayName).ToList();
         unitName = name;
         unitName = unitName.Replace("Deck", "");
-        essenceDescription = $"Essence of the {unitName}. Contains:";
     }
 }

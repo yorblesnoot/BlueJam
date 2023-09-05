@@ -33,6 +33,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         parentAfterDrag = transform.parent;
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
+        transform.localScale = Vector3.one;
         image.raycastTarget = false;
         if (essenceCrafting.craftingSlotContents.Contains(this))
         {
