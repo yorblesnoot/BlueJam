@@ -15,7 +15,7 @@ MonoBehaviour:
   unitName: Caller
   maxHealth: 18
   handSize: 2
-  startBeats: 0
+  startBeats: -1
   damageScaling: 10
   barrierScaling: 10
   healScaling: 10

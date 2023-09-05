@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Minor Heal
   art: {fileID: 21300000, guid: 41f765b960395416192f6fba79ab2dfe, type: 3}
   cost: 2
-  description: 'Heal for <color=#1EFA61>15</color>. '
+  description: 'Heal for <color=#1EFA61>10</color>. '
   keywords: 'Range: 0-4 <color=blue>O</color>.'
   targetShape: 0
   targetSize: 4
@@ -27,4 +27,4 @@ MonoBehaviour:
   consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: b964cccee85a4e6409be016a19e2ebe8, type: 2}
+  - {fileID: 11400000, guid: f7e8aea1b9758084bb2f8532ddf88c9a, type: 2}

@@ -108,7 +108,7 @@ public class EssenceCrafting : MonoBehaviour
         string color = "<color=#FF4E2B>";
         if (craftingSlotContents.Count == 0) craftStatus.text = "Insufficient materials for crafting.";
         else if(craftingSlotContents.Count == 1) craftStatus.text = $"The current craft will offer {color}{craftingSlotContents.Count}</color> option from the essence above.";
-        else craftStatus.text = $"The current craft will offer {color}{craftingSlotContents.Count}</color> options from the essence above.";
+        else craftStatus.text = $"{color}{craftingSlotContents.Count}</color> {item.essence.unitName} Card{(craftingSlotContents.Count > 1 ? "s" : "")}";
     }
 
     public void MergeButton()
@@ -150,7 +150,7 @@ public class EssenceCrafting : MonoBehaviour
         craftingSlotContents.Clear();
         essenceSlotContents = null;
         EssenceSlotFilled();
-        craftStatus.text = "Insufficient materials for crafting.";
+        craftStatus.text = "Insufficient materials!";
     }
 
     public void SpendEssence(DraggableItem essence)
@@ -178,7 +178,7 @@ public class EssenceCrafting : MonoBehaviour
         }
         else
         {
-            description.text = essence.essenceDescription;
+            description.text = essence.unitName;
             requiredSlots = miniCards.Count;
         }
         for (int i = 0; i < requiredSlots; i++)

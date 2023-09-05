@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 0c982a85b526d3343994f60c596ba141
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Naughty Monster
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 1847445208ff83f4c859521ba9648863, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

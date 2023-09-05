@@ -15,15 +15,18 @@ MonoBehaviour:
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
   playerWorldX: 249
-  playerWorldY: 234
-  itemInventory: []
+  playerWorldY: 250
+  itemInventory:
+  - {fileID: 11400000, guid: f5fac138ae4ee264ebff2ebcec6179a3, type: 2}
+  - {fileID: 11400000, guid: 050550f0a732dc449848cb4c8b703491, type: 2}
+  - {fileID: 11400000, guid: 97eec2e8537e5624a8e20b1b27cc39d8, type: 2}
   essenceInventory: []
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
   RemoveStock: 0
-  worldSteps: 15
+  worldSteps: 1
   difficultyTier: 5
-  currentHealth: 92
-  score: 50
-  bossSequence: 03000000010000000200000000000000
+  currentHealth: 67
+  score: 64
+  bossSequence: 03000000020000000100000000000000
   endless: 0

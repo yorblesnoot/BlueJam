@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: EngineerStats
   m_EditorClassIdentifier: 
   unitName: Engineer
-  maxHealth: 30
+  maxHealth: 25
   handSize: 2
   startBeats: 1
-  damageScaling: 0
-  barrierScaling: 8
+  damageScaling: 8
+  barrierScaling: 7
   healScaling: 0
   turnSpeed: 0.4
