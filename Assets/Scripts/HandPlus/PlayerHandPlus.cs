@@ -37,7 +37,7 @@ public class PlayerHandPlus : HandPlus
             KeyCode code = keyCodes[i];
             if (Input.GetKeyDown(code) && i < handCards.Count)
             {
-                BtlCardDisplay card = (BtlCardDisplay)handCards[i];
+                BtlCardDisplay card = (BtlCardDisplay)cardSlots[i].reference;
                 card.ActivateCard();
             }                                                                                                                                                                                                                                                                                                                                                                                                                                                                           
         }
