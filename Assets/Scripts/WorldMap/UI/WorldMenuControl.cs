@@ -38,7 +38,9 @@ public class WorldMenuControl : MonoBehaviour
         SoundManager.PlaySound(SoundType.BUTTONPRESS);
         //if (WorldPlayerControl.playerState != WorldPlayerState.IDLE && WorldPlayerControl.playerState != WorldPlayerState.MENUS) return;
         lastOpened = window;
-        window.SetActive(value);
+        //window.SetActive(value);
+        if(value) StartCoroutine(window.SlideIn(.2f, .1f));
+        else StartCoroutine(window.SlideOut(.2f));
         close.gameObject.SetActive(value);
 
         if (WorldPlayerControl.playerState != WorldPlayerState.MENUS)
