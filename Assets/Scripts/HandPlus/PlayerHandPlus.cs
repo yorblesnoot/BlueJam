@@ -12,7 +12,7 @@ public class PlayerHandPlus : HandPlus
 
     [SerializeField] CardPlus hesitationCurse;
 
-    readonly int pileDisplacementFactor = 3;
+    
     readonly float cardFlyTime = .2f;
     List<CardSlot> cardSlots = new();
     private void Awake()
@@ -150,6 +150,7 @@ public class PlayerHandPlus : HandPlus
         return cardDisplay;
     }
 
+    readonly int pileDisplacementFactor = 2;
     void FanPile(List<ICardDisplay> cards, int direction = 1)
     {
         for(int i = 0; i < cards.Count;i++)

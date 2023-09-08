@@ -23,7 +23,8 @@ public enum SoundType
     MUSICWORLD,
     MUSICBATTLE,
     MUSICBOSS,
-    MUSICVICTORY
+    MUSICVICTORY,
+    MUSICGAMEOVER
 
 }
 

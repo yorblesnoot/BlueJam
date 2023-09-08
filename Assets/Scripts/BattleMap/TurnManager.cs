@@ -24,11 +24,7 @@ public class TurnManager : MonoBehaviour
 
     private void Awake()
     {
-        //singleton pattern
-        if (Main != null && Main != this) 
-            Destroy(this); 
-        else 
-            Main = this; 
+        Main = this; 
 
         turnTakers = new();
         playerUnit = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerUnit>();

@@ -163,6 +163,7 @@ public class EssenceCrafting : MonoBehaviour
         Transform firstEmpty = inventorySlots.Where(x => x.ChildCountActive() == 0).First().transform;
         contents.parentAfterDrag = firstEmpty.transform;
         contents.transform.SetParent(firstEmpty.transform);
+        contents.transform.localScale = Vector3.one;
     }
 
     public void ShowEssenceDisplay(Deck essence)

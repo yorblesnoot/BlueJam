@@ -39,7 +39,7 @@ public class BattleEnder : MonoBehaviour
     }
     public IEnumerator VictorySequence()
     {
-        SoundManager.PlayMusic(SoundType.MUSICVICTORY);
+        SoundManager.PlayMusic(SoundType.MUSICVICTORY, false);
         if (sceneRelay.bossEncounter)
         {
             Tutorial.CompleteStage(TutorialFor.WORLDBOSS, 1);
@@ -108,6 +108,7 @@ public class BattleEnder : MonoBehaviour
     public IEnumerator DefeatSequence()
     {
         PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
+        SoundManager.PlayMusic(SoundType.MUSICGAMEOVER, false);
         System.IO.File.Delete(Application.persistentDataPath + "/runData.json");
         TurnManager.playerUnit.unitAnimator.Animate(AnimType.DIE);
         yield return new WaitForSeconds(1f);

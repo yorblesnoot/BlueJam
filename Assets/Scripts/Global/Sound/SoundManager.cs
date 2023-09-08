@@ -27,12 +27,12 @@ public static class SoundManager
             FXSource.PlayOneShot(clip);
     }
 
-    public static void PlayMusic(SoundType type)
+    public static void PlayMusic(SoundType type, bool loop = true)
     {
         SourceCheck();
         if (!Library.Cliptionary.TryGetValue(type, out AudioClip clip)) return;
         MusicSource.clip = clip;
-        MusicSource.loop = true;
+        MusicSource.loop = loop;
         MusicSource.Play();
     }
 

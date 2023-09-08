@@ -10,6 +10,8 @@ public class MenuButtonControl : MonoBehaviour, IPointerEnterHandler, IPointerEx
     [SerializeField] GameObject options;
     [SerializeField] GameObject optionsButton;
 
+    [SerializeField] RunData runData;
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         //SoundManager.PlaySound(SoundType.BUTTONPRESS);
@@ -25,6 +27,7 @@ public class MenuButtonControl : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public void MainMenuLinkClicked()
     {
         SoundManager.PlaySound(SoundType.BUTTONPRESS);
+        new SaveContainer(runData).SaveGame();
         SceneManager.LoadScene(0);
     }
 

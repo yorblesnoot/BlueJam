@@ -40,13 +40,17 @@ MonoBehaviour:
   - soundType: 12
     clip: {fileID: 8300000, guid: 9344526485a9c8f42b5ba1944cda130b, type: 3}
   - soundType: 14
-    clip: {fileID: 8300000, guid: 555196efe3d9e4a42bb745176cf4f30a, type: 3}
+    clip: {fileID: 8300000, guid: d585b178d20f2fb49aa056d208f18573, type: 3}
   - soundType: 15
-    clip: {fileID: 8300000, guid: 3de1402d37889ab4f9eb2c201001f640, type: 3}
+    clip: {fileID: 8300000, guid: 728713c8d3babba488f1caa5734833c9, type: 3}
   - soundType: 16
     clip: {fileID: 8300000, guid: 8b78fe3dfcb651a43af3a1af1f2d0f58, type: 3}
   - soundType: 17
     clip: {fileID: 8300000, guid: d49497dce989c0f4bb74fbaaa458bb69, type: 3}
+  - soundType: 18
+    clip: {fileID: 8300000, guid: d9e0a020549fe66439f37b11b3d3eefc, type: 3}
+  - soundType: 13
+    clip: {fileID: 8300000, guid: d69cb15f961a6d241a29ed021a28436b, type: 3}
   assignedEffectClips:
   - soundType: 1
     clip: {fileID: 8300000, guid: feaeda98a89077747b64f4797d646c54, type: 3}
