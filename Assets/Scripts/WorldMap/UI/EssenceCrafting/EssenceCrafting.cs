@@ -5,23 +5,25 @@ using UnityEngine;
 public class EssenceCrafting : MonoBehaviour
 {
     [SerializeField] RunData runData;
-
     public List<DraggableItem> dragItems;
+
     [SerializeField] List<InventorySlot> inventorySlots;
+    [SerializeField] List<CraftingSlot> craftingSlots;
+    [SerializeField] EssenceSlot essenceSlot;
+    [SerializeField] List<MiniCardDisplay> miniCards;
+    [SerializeField] WrldCardDisplay bigCardDisplay;
+
     [HideInInspector] public List<DraggableItem> craftingSlotContents;
     [HideInInspector] public DraggableItem essenceSlotContents;
-    [SerializeField] List<CraftingSlot> craftingSlots;
-    [SerializeField] TMP_Text craftStatus;
 
+    [SerializeField] TMP_Text craftStatus;
     [SerializeField] TMP_Text description;
     [SerializeField] Canvas mainCanvas;
-    [SerializeField] List<MiniCardDisplay> miniCards;
+    
 
     [SerializeField] CardAwardUI cardAwardUI;
-
     [SerializeField] WorldMenuControl worldMenuControl;
-
-    [SerializeField] WrldCardDisplay bigCardDisplay;
+    
 
     readonly int hatTiltAngle = -10;
     readonly int hatProjectionDistance = 30;
@@ -190,6 +192,38 @@ public class EssenceCrafting : MonoBehaviour
             {
                 miniCards[i].gameObject.SetActive(false);
             }
+        }
+    }
+
+    public void QuickCraft(DraggableItem item)
+    {
+        if (essenceSlotContents == item) 
+        {
+            EssenceSlotFilled();
+            PlaceStrayDraggable(item);
+            return;
+        }
+
+        if (craftingSlotContents.Contains(item))
+        {
+            ModifyCraftingSlotContents(item, false);
+            PlaceStrayDraggable(item);
+            return;
+        }
+
+        if(essenceSlotContents == null)
+        {
+            item.transform.SetParent(essenceSlot.transform, false);
+            item.transform.localScale = Vector3.one;
+            EssenceSlotFilled(item);
+            return;
+        }
+
+        if(craftingSlotContents.Count < (essenceSlotContents ? essenceSlotContents.essence.deckContents.Count : 0))
+        {
+            Transform firstEmpty = craftingSlots.Where(x => x.ChildCountActive() == 0).First().transform;
+            item.transform.SetParent(firstEmpty, false);
+            ModifyCraftingSlotContents(item, true);
         }
     }
 }

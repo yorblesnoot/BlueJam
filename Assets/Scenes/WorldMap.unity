@@ -20822,17 +20822,13 @@ MonoBehaviour:
   - {fileID: 1995611988}
   - {fileID: 1295328334}
   - {fileID: 1639964648}
-  craftingSlotContents: []
-  essenceSlotContents: {fileID: 0}
   craftingSlots:
   - {fileID: 9061801209130872736}
   - {fileID: 2046699369}
   - {fileID: 1721103988}
   - {fileID: 2094952129}
   - {fileID: 1065100205}
-  craftStatus: {fileID: 1880111882}
-  description: {fileID: 2024444142}
-  mainCanvas: {fileID: 573176807}
+  essenceSlot: {fileID: 8913720778311792597}
   miniCards:
   - {fileID: 1843205309}
   - {fileID: 7743781}
@@ -20840,9 +20836,14 @@ MonoBehaviour:
   - {fileID: 1944170350}
   - {fileID: 1433802115}
   - {fileID: 515043063}
+  bigCardDisplay: {fileID: 341142602}
+  craftingSlotContents: []
+  essenceSlotContents: {fileID: 0}
+  craftStatus: {fileID: 1880111882}
+  description: {fileID: 2024444142}
+  mainCanvas: {fileID: 573176807}
   cardAwardUI: {fileID: 1156863002}
   worldMenuControl: {fileID: 573176809}
-  bigCardDisplay: {fileID: 341142602}
 --- !u!114 &1558374508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33069,6 +33070,17 @@ MonoBehaviour:
   m_EffectColor: {r: 0.5686275, g: 0.81960785, b: 0.91764706, a: 1}
   m_EffectDistance: {x: -3, y: -3}
   m_UseGraphicAlpha: 1
+--- !u!114 &8913720778311792597 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3580379265370179268, guid: 6a907fc6a9d15804cbb1c986c90ccdae, type: 3}
+  m_PrefabInstance: {fileID: 4235576769534760251}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999120767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32794dd38a275fc4da66210228d69cff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &9061801209130872735 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2847876657808417582, guid: 417100e12efa0424a9b1a9dca020fdb0, type: 3}
