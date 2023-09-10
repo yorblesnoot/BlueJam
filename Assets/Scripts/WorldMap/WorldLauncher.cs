@@ -40,7 +40,10 @@ public class WorldLauncher : MapLauncher
 
         DynamicEventPlacer placer = new(runData);
         if (PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1)
+        {
             placer.CheckToPopulateChunks(MapTools.VectorToMap(WorldPlayerControl.player.transform.position) + WorldMapRenderer.spotlightGlobalOffset);
+            placer.FlagCurrentAsExplored();
+        }
         if (runData.bossSequence.Count == 0) GenerateBossSequence();
         if (!runData.eventMap.ContainsValue("b")) placer.PlaceBoss();
 

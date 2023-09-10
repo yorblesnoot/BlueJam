@@ -34,11 +34,15 @@ public class DynamicEventPlacer
     public void CheckToPopulateChunks(Vector2Int globalPosition)
     {
         Vector2Int chunkLocation = new(globalPosition.x/chunkSize, globalPosition.y/chunkSize);
-        if(chunkLocation != currentChunk)
-        {
-            PopulateNeighboringChunks(chunkLocation);
-            currentChunk = chunkLocation;
-        }
+        if (chunkLocation == currentChunk) return;
+
+        PopulateNeighboringChunks(chunkLocation);
+        currentChunk = chunkLocation;
+    }
+
+    public void FlagCurrentAsExplored()
+    {
+        runData.exploredChunks[currentChunk.x, currentChunk.y] = true;
     }
 
     private void PopulateNeighboringChunks(Vector2Int chunkLocation)
@@ -54,7 +58,6 @@ public class DynamicEventPlacer
     {
         bool? hasBeenPopulated = runData.exploredChunks.Safe2DFind(chunk.x, chunk.y);
         if (hasBeenPopulated != false) return;
-
         runData.score += 5;
         List<Vector2Int> validSpots = GetValidSpots(chunk);
         foreach (Vector2Int validSpot in validSpots)

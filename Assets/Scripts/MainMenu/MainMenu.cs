@@ -19,7 +19,6 @@ public class MainMenu : MonoBehaviour
     private void Start()
     {
         SoundManager.PlayMusic(SoundType.MUSICMENUS);
-        optionsWindow.SetActive(true);
         if (!System.IO.File.Exists(Application.persistentDataPath + "/runData.json"))
         {
             continueButton.SetActive(false);

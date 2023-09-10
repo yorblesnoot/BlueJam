@@ -29,6 +29,7 @@ public class DifficultySelector : MonoBehaviour, IPointerEnterHandler, IPointerE
     private void Awake()
     {
         currentDifficulty = PlayerPrefs.GetInt("UnlockedDifficulty", 2);
+        if (currentDifficulty == difficulties.Count) currentDifficulty--;
         UpdateDifficultyDisplay(currentDifficulty);
     }
 

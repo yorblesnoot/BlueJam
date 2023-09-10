@@ -18,6 +18,12 @@ public class BuffUI : MonoBehaviour
     public void DisplayBuff(int duration, Color32 iconColor, string description)
     {
         int buffLocation = timedBuffs.Count;
+        if(buffLocation >= buffTokens.Count)
+        {
+            var newToken = Instantiate(buffTokens[0].gameObject);
+            newToken.transform.SetParent(buffTokens[0].transform.parent, false);
+            buffTokens.Add(newToken.GetComponent<BuffToken>());
+        }
         TimedBuff timedBuff = new() { token = buffTokens[buffLocation], remainingDuration = duration };
         buffTokens[buffLocation].gameObject.SetActive(true);
         buffTokens[buffLocation].RenderBuff(iconColor, duration, description);
