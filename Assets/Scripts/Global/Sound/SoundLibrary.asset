@@ -50,7 +50,7 @@ MonoBehaviour:
   - soundType: 18
     clip: {fileID: 8300000, guid: d9e0a020549fe66439f37b11b3d3eefc, type: 3}
   - soundType: 13
-    clip: {fileID: 8300000, guid: d69cb15f961a6d241a29ed021a28436b, type: 3}
+    clip: {fileID: 8300000, guid: 9405c01c1cba7ef47b85792fea65af91, type: 3}
   assignedEffectClips:
   - soundType: 1
     clip: {fileID: 8300000, guid: feaeda98a89077747b64f4797d646c54, type: 3}

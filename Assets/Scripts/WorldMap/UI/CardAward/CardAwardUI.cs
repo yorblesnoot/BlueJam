@@ -21,6 +21,7 @@ public class CardAwardUI : MonoBehaviour
     }
     public void AwardCards(List<CardPlus> drops)
     {
+        WorldPlayerControl.playerState = WorldPlayerState.SELECTION;
         for (int i = 0; i < awardCards.Count; i++)
         {
             if (i < drops.Count)
@@ -47,5 +48,6 @@ public class CardAwardUI : MonoBehaviour
         Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 2);
         Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 3, "Nice! That card made me stronger! When you're done crafting, hit the X in the bottom right and click the scroll in the top right to see my current deck.");
         gameObject.SetActive(false);
+        WorldPlayerControl.playerState = WorldPlayerState.MENUS;
     }
 }

@@ -12,7 +12,6 @@ public class DifficultySelector : MonoBehaviour, IPointerEnterHandler, IPointerE
     {
         public string difficultyName;
         public BalanceSettings difficultyParams;
-        public string tooltip;
         public Color color;
     }
 
@@ -50,7 +49,7 @@ public class DifficultySelector : MonoBehaviour, IPointerEnterHandler, IPointerE
     void UpdateDifficultyDisplay(int level)
     {
         difficultyDisplay.text = difficulties[level].difficultyName;
-        tooltipText.text = difficulties[currentDifficulty].tooltip;
+        tooltipText.text = difficulties[currentDifficulty].difficultyParams.Tooltip;
         difficultyDisplay.color = difficulties[level].color;
         if (currentDifficulty == difficulties.Count - 1 || currentDifficulty == PlayerPrefs.GetInt("UnlockedDifficulty", 2)) arrowHarder.SetActive(false);
         else arrowHarder.SetActive(true);

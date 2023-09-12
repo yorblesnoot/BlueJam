@@ -10,18 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4e0c7db2d119bc409a226792cce5017, type: 3}
-  m_Name: Easy
+  m_Name: Plus4
   m_EditorClassIdentifier: 
-  <Tooltip>k__BackingField: Enemies are signficantly weaker at the start of the game;
-    threat accumulates more slowly and enhances enemies less; the minimum deck size
-    is reduced.
+  <Tooltip>k__BackingField: Enemies start stronger and are faster.
   <BossSpawnDistance>k__BackingField: 40
-  <StepsPerThreat>k__BackingField: 14
-  <ThreatHandicap>k__BackingField: 7
+  <StepsPerThreat>k__BackingField: 9
+  <ThreatHandicap>k__BackingField: 1
   <BaseFoeBudget>k__BackingField: 6
   <ThreatPerBudgetUp>k__BackingField: 5
-  <StatPerThreat>k__BackingField: 0.08
-  <HealthPerThreat>k__BackingField: 0.03
-  <SpeedPerThreat>k__BackingField: 0.01
-  <MinimumDeckSize>k__BackingField: 8
-  <HesitationCurses>k__BackingField: 0
+  <StatPerThreat>k__BackingField: 0.12
+  <HealthPerThreat>k__BackingField: 0.04
+  <SpeedPerThreat>k__BackingField: 0.012
+  <MinimumDeckSize>k__BackingField: 10
+  <HesitationCurses>k__BackingField: 1

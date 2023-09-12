@@ -10,15 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d4e0c7db2d119bc409a226792cce5017, type: 3}
-  m_Name: TrailerMode
+  m_Name: Plus7
   m_EditorClassIdentifier: 
-  <BossSpawnDistance>k__BackingField: 20
-  <StepsPerThreat>k__BackingField: 10
-  <ThreatHandicap>k__BackingField: 10
+  <Tooltip>k__BackingField: Threat starts higher. Enemies deal more damage, barrier,
+    and healing.
+  <BossSpawnDistance>k__BackingField: 40
+  <StepsPerThreat>k__BackingField: 8
+  <ThreatHandicap>k__BackingField: 1
   <BaseFoeBudget>k__BackingField: 7
   <ThreatPerBudgetUp>k__BackingField: 5
-  <StatPerThreat>k__BackingField: 0.12
+  <StatPerThreat>k__BackingField: 0.13
   <HealthPerThreat>k__BackingField: 0.05
   <SpeedPerThreat>k__BackingField: 0.012
-  <MinimumDeckSize>k__BackingField: 10
-  <HesitationCurses>k__BackingField: 0
+  <MinimumDeckSize>k__BackingField: 11
+  <HesitationCurses>k__BackingField: 2

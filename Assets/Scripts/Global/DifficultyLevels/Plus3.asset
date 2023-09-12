@@ -12,13 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e0c7db2d119bc409a226792cce5017, type: 3}
   m_Name: Plus3
   m_EditorClassIdentifier: 
+  <Tooltip>k__BackingField: The minimum deck size is raised; your deck contains unremovable
+    curses in battle.
   <BossSpawnDistance>k__BackingField: 40
-  <StepsPerThreat>k__BackingField: 8
-  <ThreatHandicap>k__BackingField: 1
-  <BaseFoeBudget>k__BackingField: 7
+  <StepsPerThreat>k__BackingField: 9
+  <ThreatHandicap>k__BackingField: 2
+  <BaseFoeBudget>k__BackingField: 6
   <ThreatPerBudgetUp>k__BackingField: 5
   <StatPerThreat>k__BackingField: 0.12
-  <HealthPerThreat>k__BackingField: 0.05
-  <SpeedPerThreat>k__BackingField: 0.012
-  <MinimumDeckSize>k__BackingField: 11
-  <HesitationCurses>k__BackingField: 2
+  <HealthPerThreat>k__BackingField: 0.04
+  <SpeedPerThreat>k__BackingField: 0.01
+  <MinimumDeckSize>k__BackingField: 10
+  <HesitationCurses>k__BackingField: 1

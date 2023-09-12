@@ -4031,30 +4031,33 @@ MonoBehaviour:
   difficulties:
   - difficultyName: Easy
     difficultyParams: {fileID: 11400000, guid: ba9fbcf888a2f334f8081ed8f9512889, type: 2}
-    tooltip: Enemies are signficantly weaker at the start of the game; threat accumulates
-      more slowly and enhances enemies less; the minimum deck size is reduced.
     color: {r: 0.13105197, g: 0.8962264, b: 0.2797078, a: 1}
   - difficultyName: Normal
     difficultyParams: {fileID: 11400000, guid: 22c32478a88a6d54f8cfbfccb2bc88b0, type: 2}
-    tooltip: Enemies start weaker and gain less power as threat increases.
     color: {r: 0, g: 0.7493696, b: 1, a: 1}
   - difficultyName: Hard
     difficultyParams: {fileID: 11400000, guid: c2ade6830de92ec469f4c8313f1e0b13, type: 2}
-    tooltip: The base experience.
     color: {r: 0.9433962, g: 0.38233492, b: 0.048949808, a: 1}
   - difficultyName: Slimy 1
     difficultyParams: {fileID: 11400000, guid: 741e767f45a30534b97ff92864e5ef63, type: 2}
-    tooltip: Threat accumulates more quickly and enemies gain more health from it.
     color: {r: 0.8584906, g: 0.104609475, b: 0.052643314, a: 1}
   - difficultyName: Slimy 2
-    difficultyParams: {fileID: 11400000, guid: 76d50f8f02c6f7d41bf8924466990cb2, type: 2}
-    tooltip: The minimum deck size is raised; your deck contains unremovable curses
-      in battle; enemies deal more damage.
+    difficultyParams: {fileID: 11400000, guid: 0f21aec1d3746a54f8303159cf2ed4a0, type: 2}
     color: {r: 0.85882354, g: 0.105882354, b: 0.050980393, a: 1}
   - difficultyName: Slimy 3
+    difficultyParams: {fileID: 11400000, guid: 76d50f8f02c6f7d41bf8924466990cb2, type: 2}
+    color: {r: 0.85882354, g: 0.105882354, b: 0.050980393, a: 1}
+  - difficultyName: Slimy 4
+    difficultyParams: {fileID: 11400000, guid: 90faa25b346c0cf43b28cca7d5a3263c, type: 2}
+    color: {r: 0.85882354, g: 0.105882354, b: 0.050980393, a: 1}
+  - difficultyName: Slimy 5
+    difficultyParams: {fileID: 11400000, guid: 1b55a9bccaa07e74799ce5ff3342ba52, type: 2}
+    color: {r: 0.85882354, g: 0.105882354, b: 0.050980393, a: 1}
+  - difficultyName: Slimy 6
     difficultyParams: {fileID: 11400000, guid: 1dfab8cc037cbcc46a4eba14fb678214, type: 2}
-    tooltip: Enemies start stronger and are faster. Minimum deck size and the number
-      of curses in your deck are further increased.
+    color: {r: 0.85882354, g: 0.105882354, b: 0.050980393, a: 1}
+  - difficultyName: Slimy 7
+    difficultyParams: {fileID: 11400000, guid: 1b4e79a8150da8246a745df29536098a, type: 2}
     color: {r: 0.85882354, g: 0.105882354, b: 0.050980393, a: 1}
   currentDifficulty: 0
 --- !u!1 &2117458087

@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "BalanceSettings", menuName = "ScriptableObjects/BalanceSettings")]
 public class BalanceSettings : ScriptableObject
 {
+    [field: SerializeField] public string Tooltip { get; private set; }
     [field: SerializeField] public int BossSpawnDistance { get; private set; }
     [field: SerializeField] public int StepsPerThreat { get; private set; }
     [field: SerializeField] public int ThreatHandicap { get; private set; }

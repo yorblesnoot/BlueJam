@@ -8,10 +8,11 @@ public class DifficultyCounter : MonoBehaviour
     private void Awake()
     {
         EventManager.updateWorldCounters.AddListener(UpdateCounter);
+        UpdateCounter();
     }
 
     public void UpdateCounter()
     {
-        counter.text = $"Threat: {runData.ThreatLevel + Settings.Balance.ThreatHandicap}";
+        counter.text = $"Threat: {runData.ThreatLevel}";
     }
 }
