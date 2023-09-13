@@ -8,6 +8,6 @@ public class UniversalCloseButton : MonoBehaviour
     public void CloseButton()
     {
         SoundManager.PlaySound(SoundType.BUTTONPRESS);
-        windowToClose.SetActive(false);
+        StartCoroutine(windowToClose.SlideOut(.2f));
     }
 }

@@ -30,12 +30,17 @@ public class Tutorial : MonoBehaviour
     public static GameObject TutorialBubble;
 
     public static TutorialFor activeTutorial;
+    public static Tutorial Master;
+
+    public static Vector3 BubblePosition;
 
 
     private void Awake()
     {
-        if(tutorialText != null) TutorialText = tutorialText;
-        if (tutorialBubble != null) TutorialBubble = tutorialBubble;
+        Master = this;
+        TutorialText = tutorialText;
+        TutorialBubble = tutorialBubble;
+        BubblePosition = TutorialBubble.transform.localPosition;
     }
 
     //tutorial states: 0 not activated, 1+ in progress, -1 complete
@@ -43,20 +48,26 @@ public class Tutorial : MonoBehaviour
     {
         if (PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1 || PlayerPrefs.GetInt(tutorial.ToString()) == -1) return;
         if (requirement != TutorialFor.MAIN && PlayerPrefs.GetInt(requirement.ToString()) != -1) return;
-        //if (activeTutorial != TutorialFor.MAIN) return;
         PlayerPrefs.SetInt(tutorial.ToString(), 1);
     }
 
     public static void EnterStage(TutorialFor tutorial, int stage, string dialogue)
     {
         if (PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1 || PlayerPrefs.GetInt(tutorial.ToString()) != stage) return;
-        TutorialBubble.SetActive(true);
-        TutorialText.text = dialogue;
+        if (activeTutorial != tutorial)
+        {
+            Master.StopAllCoroutines();
+            TutorialBubble.transform.localPosition = BubblePosition;
+            Master.StartCoroutine(TutorialBubble.SlideIn(.2f, .1f));
+            TutorialText.text = dialogue;
+        }
+        activeTutorial = tutorial;
     }
     public static void CompleteStage(TutorialFor tutorial, int stage, bool complete = false)
     {
         if (PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1 || PlayerPrefs.GetInt(tutorial.ToString()) != stage) return;
         TutorialBubble.SetActive(false);
+        activeTutorial = TutorialFor.MAIN;
         if (complete)
         {
             PlayerPrefs.SetInt(tutorial.ToString(), -1);

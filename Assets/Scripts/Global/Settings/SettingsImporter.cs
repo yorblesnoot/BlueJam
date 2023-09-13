@@ -13,5 +13,6 @@ public class SettingsImporter : MonoBehaviour
         }
         if (Settings.Admin == null) Settings.Admin = adminSettings;
         Settings.LoadPlayerSettings();
+        Settings.Graphics.ImplementSettings();
     }
 }

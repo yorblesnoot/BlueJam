@@ -26,10 +26,10 @@ public class ResolutionControl : MonoBehaviour
 
     void SetResolution()
     {
-        Debug.Log("set rest");
         Resolution selected = descendingRes[drop.value];
-        FullScreenMode mode = fsToggle.enabled ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
-        Screen.fullScreenMode = mode;
-        Screen.SetResolution(selected.width, selected.height, fsToggle.enabled);
+        PlayerPrefs.SetInt(GraphicSetting.ResolutionWidth.ToString(), selected.width);
+        PlayerPrefs.SetInt(GraphicSetting.ResolutionHeight.ToString(), selected.height);
+        PlayerPrefs.SetInt(GraphicSetting.Fullscreen.ToString(), fsToggle.enabled? 1 : 0);
+        Settings.Graphics.ImplementSettings();
     }
 }
