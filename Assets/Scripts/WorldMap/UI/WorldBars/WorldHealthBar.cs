@@ -1,32 +1,38 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class WorldHealthBar : MonoBehaviour
 {
     public Slider sliderHealth;
     [SerializeField] RunData RunData;
+    [SerializeField] TMP_Text healthDisplay;
     private void Awake()
     {
         EventManager.updateWorldHealth.AddListener(UpdateHealth);
+        UpdateHealth();
     }
 
     public void UpdateHealth()
     {
-        StartCoroutine(UpdateBar(RunData.currentHealth, RunData.playerStats.maxHealth, sliderHealth));
+        StartCoroutine(UpdateBar(RunData.currentHealth, sliderHealth));
     }
 
-    public virtual IEnumerator UpdateBar(float current, float max, Slider slider)
+    readonly float changeTime = .4f;
+    public virtual IEnumerator UpdateBar(float current, Slider slider)
     {
-        float changeInterval = 10;
-
-        float toValue = current / max;
-
-        float mod = (slider.value - toValue) / changeInterval;
-        for (int count = 0; count < changeInterval; count++)
+        slider.maxValue = RunData.playerStats.maxHealth;
+        float timeElapsed = 0;
+        float start = slider.value;
+        while (timeElapsed < changeTime)
         {
-            slider.value -= mod;
-            yield return new WaitForSeconds(.01f);
+            slider.value = Mathf.Lerp(start, current, timeElapsed/changeTime);
+            healthDisplay.text = $"{Mathf.RoundToInt(sliderHealth.value)}/{RunData.playerStats.maxHealth}";
+            timeElapsed += Time.deltaTime;
+            yield return null;
         }
+        healthDisplay.text = $"{Mathf.RoundToInt(sliderHealth.value)}/{RunData.playerStats.maxHealth}";
     }
 }

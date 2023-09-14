@@ -14,32 +14,45 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
-  playerWorldX: 249
-  playerWorldY: 248
-  itemInventory: []
-  essenceInventory:
-  - {fileID: 11400000, guid: b7d92abc3a4e66341b5ff302a6108ec2, type: 2}
-  - {fileID: 11400000, guid: b10da591c1e864f4c9ca1bab5f78c4f9, type: 2}
-  - {fileID: 11400000, guid: e6b3f4d1cbc3cce448ac60060393fd67, type: 2}
-  - {fileID: 11400000, guid: bc383f7e798b47a499e6c953ebc08bb9, type: 2}
-  - {fileID: 11400000, guid: 3f2bd8d335ead924e8b5f8d44224ade8, type: 2}
-  - {fileID: 11400000, guid: 7f2bb3195c233ca43abd1b943ca11a84, type: 2}
-  - {fileID: 11400000, guid: ec77dfd59f76ec142a04121fccebd4b4, type: 2}
-  - {fileID: 11400000, guid: 7d592c2fde476a94b879a9b5e522a95e, type: 2}
-  - {fileID: 11400000, guid: 549725213483a504586933c930800ae3, type: 2}
-  - {fileID: 11400000, guid: 4d9148ae688802f43b6f4ebe7caeaecd, type: 2}
-  - {fileID: 11400000, guid: 926849be8e54e5140b3bf8c098865f00, type: 2}
-  - {fileID: 11400000, guid: 164bedcad331e5a4c833a091680664b6, type: 2}
-  - {fileID: 11400000, guid: 6d76f4513f26c36408e9a6c5006e26c7, type: 2}
-  - {fileID: 11400000, guid: eaeca6a9ebc64974d92fc3cfb6d838e4, type: 2}
-  - {fileID: 11400000, guid: 7c7003a592b7b2644b8bfe70ec9c11e7, type: 2}
-  - {fileID: 11400000, guid: 6e797f389ea8a12488f3f55a292bc1f5, type: 2}
+  playerWorldX: 248
+  playerWorldY: 241
+  itemInventory:
+  - {fileID: 11400000, guid: 45ec6cc202f11e4439e9b0df257d67f9, type: 2}
+  - {fileID: 11400000, guid: 3d64909f256302f4daab9908ca069e48, type: 2}
+  - {fileID: 11400000, guid: d23e69694e699954da9b79e4896299ab, type: 2}
+  - {fileID: 11400000, guid: 9d04ddd68fcdea449abcb5e464429e80, type: 2}
+  - {fileID: 11400000, guid: 63293e63e2cb9744a8aad96510846be8, type: 2}
+  - {fileID: 11400000, guid: 2a0ea9b7580012f4598782413ea4459b, type: 2}
+  - {fileID: 11400000, guid: 7f846a58923b3eb449849a4b36cd32a5, type: 2}
+  - {fileID: 11400000, guid: 0cc2c6a566d86fd44b848e16736d6b51, type: 2}
+  - {fileID: 11400000, guid: 280be7b029f8ebf449bc6d48cc344ed1, type: 2}
+  - {fileID: 11400000, guid: c4ff6f9b4f07d664b944c53614dd61d8, type: 2}
+  - {fileID: 11400000, guid: 866e522ce7b7d19439bb1494395adb82, type: 2}
+  - {fileID: 11400000, guid: 1b364c3d76d80144e9c7331def457312, type: 2}
+  - {fileID: 11400000, guid: 277d2bf848eb9f44ca45a7097fd5b21e, type: 2}
+  - {fileID: 11400000, guid: 02e2e8e6e4579a84d8123ef387811f62, type: 2}
+  - {fileID: 11400000, guid: 050550f0a732dc449848cb4c8b703491, type: 2}
+  - {fileID: 11400000, guid: 75e36416871fbe94396a1a6bb7540cac, type: 2}
+  - {fileID: 11400000, guid: dec479f9c49bab44bab2bf2e833a1bd9, type: 2}
+  - {fileID: 11400000, guid: d5f7dc77352299f43b3d0c1d2a77d625, type: 2}
+  - {fileID: 11400000, guid: 1f6204a9a5dd893428d091f1566ce5a7, type: 2}
+  - {fileID: 11400000, guid: 0fbcb6afc3d3cb6438fdc8f58e1cd9a3, type: 2}
+  - {fileID: 11400000, guid: 0f56768351732184a95fef67ab69cdd8, type: 2}
+  - {fileID: 11400000, guid: efa025fd50dfab441a8051ab1276cf24, type: 2}
+  - {fileID: 11400000, guid: f5fac138ae4ee264ebff2ebcec6179a3, type: 2}
+  - {fileID: 11400000, guid: 9992cc926be25614195eb1a076bbdfc6, type: 2}
+  - {fileID: 11400000, guid: 437becdc0fafd7a4fa6f79a3a91ad66c, type: 2}
+  - {fileID: 11400000, guid: 97eec2e8537e5624a8e20b1b27cc39d8, type: 2}
+  - {fileID: 11400000, guid: eacbd84176cae5e4bb1e95d10ccbe7de, type: 2}
+  - {fileID: 11400000, guid: c81df8de3e166ad4792247fbb6a52f5c, type: 2}
+  - {fileID: 11400000, guid: 21f923c860f856341abb55236642c7be, type: 2}
+  essenceInventory: []
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
   RemoveStock: 0
-  worldSteps: 1
-  difficultyTier: 5
-  currentHealth: 100
-  score: 44
-  bossSequence: 00000000030000000200000001000000
+  worldSteps: 29
+  difficultyTier: 6
+  currentHealth: 106
+  score: 146
+  bossSequence: 03000000010000000000000002000000
   endless: 0

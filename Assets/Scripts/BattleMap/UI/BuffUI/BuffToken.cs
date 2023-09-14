@@ -38,7 +38,7 @@ public class BuffToken : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     }
     public void SetDuration(int buffStack) 
     {
-        tooltipText.text = description + $"for {buffStack} more actions";
+        tooltipText.text = description + $"for {buffStack} more action{(buffStack == 1 ? "" : "s")}.";
         stackDisplay.text = buffStack.ToString(); 
     }
 }
