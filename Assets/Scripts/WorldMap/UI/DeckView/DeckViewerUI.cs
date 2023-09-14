@@ -14,6 +14,10 @@ public class DeckViewerUI : MonoBehaviour
     [SerializeField] Unit player;
     private void OnEnable()
     {
+        Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 3, true);
+        Tutorial.Initiate(TutorialFor.WORLDDECK, TutorialFor.WORLDCRAFTING);
+        Tutorial.EnterStage(TutorialFor.WORLDDECK, 1,
+            "This is my current deck, which I draw cards from in battle. Click the button in the top left to toggle card removal.");
         player.LoadStats();
         foreach (var card in cardDisplays)
         {

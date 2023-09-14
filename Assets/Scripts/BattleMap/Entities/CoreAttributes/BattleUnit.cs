@@ -14,7 +14,7 @@ public class BattleUnit : Unit
 
     [HideInInspector] public bool isSummoned;
     [HideInInspector] public bool isDead;
-    [HideInInspector]public EntityUI myUI { get; set; }
+    [HideInInspector] public EntityUI myUI { get; set; }
 
     void Awake()
     {
@@ -51,8 +51,7 @@ public class BattleUnit : Unit
     public virtual void ModifyHealth(int reduction)
     {
         currentHealth -= reduction;
-        if (currentHealth > loadedStats[StatType.MAXHEALTH]) currentHealth = Mathf.RoundToInt(loadedStats[StatType.MAXHEALTH]);
-        myUI.UpdateHealth(reduction);
+        currentHealth = Mathf.Clamp(currentHealth, 0, Mathf.RoundToInt(loadedStats[StatType.MAXHEALTH]));
     }
 
     public void ReportCell()

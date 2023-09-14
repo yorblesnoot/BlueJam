@@ -33,9 +33,9 @@ public class WorldLauncher : MapLauncher
     void InitializeWorld()
     {
         Tutorial.Initiate(TutorialFor.WORLDMOVE, TutorialFor.MAIN);
-        Tutorial.EnterStage(TutorialFor.WORLDMOVE, 1, "Welcome to the world map! My objective is the boss, towards the red arrow. But to beat it, I'll need to become stronger. Click on a tile to move to it. ");
+        Tutorial.EnterStage(TutorialFor.WORLDMOVE, 1, "Welcome to the world map! My objective is the boss, towards the red arrow. But to beat it, I'll need to become stronger. Click on a tile to move to it.");
         Tutorial.Initiate(TutorialFor.WORLDCRAFTING, TutorialFor.WORLDBATTLE);
-        Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 1, "Well done! Defeating those enemies granted me their essences, which you can use to add their cards to my deck. Click the anvil in the top right to craft essences.");
+        Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 1, "Well done! Defeating those enemies granted me their essences, which you can use to add their cards to my deck. Click the anvil in the top right or press C to craft essences.");
         Tutorial.EnterStage(TutorialFor.WORLDBOSS, 2, "Wow, you did it! Now you can craft a boss card for my deck... but a new, stronger foe has arisen! Looks like you've got the basics down; let's see how far you can go!");
 
         DynamicEventPlacer placer = new(runData);

@@ -465,7 +465,7 @@ RectTransform:
   - {fileID: 312606944540490249}
   - {fileID: 4545896270824742166}
   m_Father: {fileID: 1394446990391870612}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -656,7 +656,6 @@ RectTransform:
   - {fileID: 1781702678691030130}
   - {fileID: 9024284370666310432}
   - {fileID: 9024284371554428697}
-  - {fileID: 2562443717425177490}
   - {fileID: 1485887750657764352}
   m_Father: {fileID: 9024284370559484643}
   m_RootOrder: 0
@@ -807,15 +806,15 @@ RectTransform:
   m_GameObject: {fileID: 7888314488036969191}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.21067177, y: 0.18010655, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1394446990391870612}
+  m_Father: {fileID: 9024284371554428697}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 208, y: 54.1}
+  m_AnchoredPosition: {x: 43.820282, y: -0.018623352}
   m_SizeDelta: {x: 30, y: 43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2647007569509858526
@@ -1068,7 +1067,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!114 &9024284370559484644
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1101,12 +1100,11 @@ MonoBehaviour:
   sliderHealth: {fileID: 9024284370666310433}
   sliderDeflect: {fileID: 7723881892703958458}
   sliderShield: {fileID: 5822452377339639697}
-  blankCard: {fileID: 8125039690481149630, guid: 0aa464d779125cc4f9307b253cd89fcf, type: 3}
-  unitCanvas: {fileID: 9024284370559484642}
   unitActions: {fileID: 0}
   <buffUI>k__BackingField: {fileID: 5034534223951127692}
   sliderBeats: {fileID: 9024284371554428698}
   sliderGhostBeats: {fileID: 4305476194834637129}
+  beatPip: {fileID: 7888314488036969191}
   pips: {fileID: 7564634238537135656}
 --- !u!114 &6124731560176699859
 MonoBehaviour:
@@ -1506,6 +1504,7 @@ RectTransform:
   - {fileID: 3892696447522678594}
   - {fileID: 9024284371450386089}
   - {fileID: 9024284371781930050}
+  - {fileID: 2562443717425177490}
   m_Father: {fileID: 1394446990391870612}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1561,7 +1560,7 @@ MonoBehaviour:
   m_MinValue: -1
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.012
+  m_Value: -1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

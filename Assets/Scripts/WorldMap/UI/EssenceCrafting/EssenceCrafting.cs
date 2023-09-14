@@ -69,6 +69,10 @@ public class EssenceCrafting : MonoBehaviour
 
     private void OnEnable()
     {
+        Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 1);
+        Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 2, 
+            "Drag an essence you want cards from into the top slot, then drag some essences you don't want into the bottom slots." +
+            "When you're ready, hit the hammer button.");
         EssenceSlotFilled();
         for (int i = 0; i < dragItems.Count; i++)
         {
