@@ -20,6 +20,7 @@ MonoBehaviour:
   vfxStyleAfter: 0
   vfxNameAfter: DrownAura
   effectSound: 9
+  effectSoundAfterHit: 0
   scalingMultiplier: -10
   aoeShape: 0
   aoeSize: 3
@@ -28,3 +29,7 @@ MonoBehaviour:
   blockTrigger: 0
   entityStat: 2
   duration: 5
+  iconColor:
+    serializedVersion: 2
+    rgba: 4294949888
+  iconImage: {fileID: 21300000, guid: ea4fcfc6c39de3047a90ef3617f5e431, type: 3}

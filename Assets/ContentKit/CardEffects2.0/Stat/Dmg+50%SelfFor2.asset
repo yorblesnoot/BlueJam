@@ -20,6 +20,7 @@ MonoBehaviour:
   vfxStyleAfter: 0
   vfxNameAfter: BuffCharge
   effectSound: 8
+  effectSoundAfterHit: 0
   scalingMultiplier: 50
   aoeShape: 0
   aoeSize: 0
@@ -28,3 +29,7 @@ MonoBehaviour:
   blockTrigger: 0
   entityStat: 4
   duration: 2
+  iconColor:
+    serializedVersion: 2
+    rgba: 4281216250
+  iconImage: {fileID: 21300000, guid: 5aa0d71d789c93a468898d8acfcf2a09, type: 3}

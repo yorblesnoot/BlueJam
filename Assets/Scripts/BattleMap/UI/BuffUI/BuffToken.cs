@@ -14,7 +14,6 @@ public class BuffToken : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     public void OnPointerEnter(PointerEventData eventData)
     {
         tooltip.SetActive(true);
-        tooltipText.text = description;
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -22,11 +21,24 @@ public class BuffToken : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
         tooltip.SetActive(false);
     }
 
-    public void RenderBuff(Color32 buffColor, int buffStack, string description)
+    public void RenderBuff(EffectRecurring buff, BattleUnit owner)
     {
-        myImage.color = buffColor;
-        SetDuration(buffStack);
-        this.description = description;
+        description = buff.turnLapseEffect.GenerateDescription(owner).FirstToUpper() + " after each action ";
+        myImage.sprite = buff.iconImage;
+        myImage.color = buff.iconColor;
+        SetDuration(buff.duration);
     }
-    public void SetDuration(int buffStack) { stackDisplay.text = buffStack.ToString(); }
+
+    public void RenderStat(EffectStat stat, BattleUnit owner)
+    {
+        description = stat.GenerateDescription(owner).FirstToUpper();
+        myImage.sprite = stat.iconImage;
+        myImage.color = stat.iconColor;
+        SetDuration(stat.duration);
+    }
+    public void SetDuration(int buffStack) 
+    {
+        tooltipText.text = description + $"for {buffStack} more actions";
+        stackDisplay.text = buffStack.ToString(); 
+    }
 }

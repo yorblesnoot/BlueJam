@@ -4,19 +4,21 @@ using UnityEngine;
 
 public static class PhysicsHelper
 {
-    public static IEnumerator LerpTo(this GameObject thing, Vector3 endPosition, float duration)
+    public static IEnumerator LerpTo(this GameObject thing, Vector3 endPosition, float duration, bool local = false)
     {
         UnityEngine.Transform transform = thing.transform;
         float timeElapsed = 0;
-        Vector3 startPosition = transform.position;
+        Vector3 startPosition = local ? transform.localPosition : transform.position;
         while (timeElapsed < duration)
         {
             Vector3 step = Vector3.Lerp(startPosition, endPosition, timeElapsed / duration);
             timeElapsed += Time.deltaTime;
-            transform.position = step;
+            if(local) transform.localPosition = step;
+            else transform.position = step;
             yield return null;
         }
-        transform.position = endPosition;
+        if (local) transform.localPosition = endPosition;
+        else transform.position = endPosition;
     }
 
     public static Quaternion RandomCardinalRotate()

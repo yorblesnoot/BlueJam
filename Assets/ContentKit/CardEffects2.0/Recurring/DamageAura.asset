@@ -13,11 +13,14 @@ MonoBehaviour:
   m_Name: DamageAura
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
+  targetNotRequired: 0
   effectClass: 2
   vfxStyleBefore: 0
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: BuffCharge
+  effectSound: 0
+  effectSoundAfterHit: 0
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0
@@ -29,6 +32,5 @@ MonoBehaviour:
   iconColor:
     serializedVersion: 2
     rgba: 4278217215
-  applicationEffect: {fileID: 0}
+  iconImage: {fileID: 21300000, guid: e32b8056f5f2eb741bec42f791c7f1b5, type: 3}
   turnLapseEffect: {fileID: 11400000, guid: 34d0eb95861aecc42896ece5d8e9ff14, type: 2}
-  removalEffect: {fileID: 0}

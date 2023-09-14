@@ -20,6 +20,7 @@ MonoBehaviour:
   vfxStyleAfter: 0
   vfxNameAfter: Howl
   effectSound: 9
+  effectSoundAfterHit: 0
   scalingMultiplier: -30
   aoeShape: 0
   aoeSize: 5
@@ -28,3 +29,7 @@ MonoBehaviour:
   blockTrigger: 0
   entityStat: 4
   duration: 5
+  iconColor:
+    serializedVersion: 2
+    rgba: 4278200575
+  iconImage: {fileID: 21300000, guid: 2f5ddc8f7d908a24eba2215be6500082, type: 3}

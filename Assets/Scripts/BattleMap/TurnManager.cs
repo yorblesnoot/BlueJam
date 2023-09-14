@@ -89,7 +89,7 @@ public class TurnManager : MonoBehaviour
 
         owner.loadedStats[StatType.BEATS] -= beats;
         EntityUI npUI = owner.myUI;
-        npUI.UpdateBeats(beats);
+        npUI.ReduceBeats(beats);
     }
 
     public static void PlayerSpendBeats(int beats)
@@ -103,7 +103,7 @@ public class TurnManager : MonoBehaviour
             float beatChange = GetBeatCost(beats, turnTaker, playerUnit);
             turnTaker.loadedStats[StatType.BEATS] += beatChange;
             EntityUI npUI = turnTaker.myUI;
-            npUI.UpdateBeats(-beatChange);
+            npUI.ReduceBeats(-beatChange);
         }
     }
 

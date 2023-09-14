@@ -20,6 +20,7 @@ MonoBehaviour:
   vfxStyleAfter: 0
   vfxNameAfter: Enrage
   effectSound: 8
+  effectSoundAfterHit: 0
   scalingMultiplier: 100
   aoeShape: 0
   aoeSize: 0
@@ -28,3 +29,7 @@ MonoBehaviour:
   blockTrigger: 0
   entityStat: 2
   duration: 4
+  iconColor:
+    serializedVersion: 2
+    rgba: 4278243327
+  iconImage: {fileID: 21300000, guid: ed8ef41e0593c444f89985400bb18768, type: 3}

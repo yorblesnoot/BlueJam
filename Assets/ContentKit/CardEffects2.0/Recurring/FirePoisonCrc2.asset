@@ -20,6 +20,7 @@ MonoBehaviour:
   vfxStyleAfter: 0
   vfxNameAfter: none
   effectSound: 0
+  effectSoundAfterHit: 0
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 2
@@ -31,4 +32,5 @@ MonoBehaviour:
   iconColor:
     serializedVersion: 2
     rgba: 4282606299
+  iconImage: {fileID: 21300000, guid: 062eeb9d5e8ba8f45a9ddfea52518f82, type: 3}
   turnLapseEffect: {fileID: 11400000, guid: 5466e07a909423243b2dc24efbf89328, type: 2}

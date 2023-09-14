@@ -12,6 +12,7 @@ public class NonplayerUI : EntityUI
     [SerializeField] NPCHealthPips pips;
 
     readonly int beatBarSpace = 2;
+    Coroutine beatUpdater;
     
     void Awake()
     {
@@ -27,22 +28,39 @@ public class NonplayerUI : EntityUI
         SetBeatMax();
     }
 
-    public override void UpdateBeats(float beatChange)
+    public override void UpdateDeflect()
     {
-        if (unitActions.isDead) return;
-
-        SetBeatMax(beatChange);
-        StartCoroutine(UpdateBeatBar(beatChange));
+        base.UpdateDeflect();
+        sliderDeflect.gameObject.SetActive(sliderDeflect.value > 1);
     }
 
-    readonly int changeSteps = 20;
-    public IEnumerator UpdateBeatBar(float change)
+    public override void UpdateShield()
     {
-        for (int i = 0; i < changeSteps; i++)
+        base.UpdateShield();
+        sliderShield.gameObject.SetActive(sliderShield.value > 1);
+    }
+
+    public override void ReduceBeats(float beatChange)
+    {
+        if (unitActions.isDead) return;
+        HideBeatGhost();
+        SetBeatMax(beatChange);
+        if(beatUpdater != null) StopCoroutine(beatUpdater);
+        beatUpdater = StartCoroutine(UpdateBeatBar());
+    }
+
+    readonly float beatTime = .3f;
+    public IEnumerator UpdateBeatBar()
+    {
+        float timeElapsed = 0;
+        float start = sliderBeats.value;
+        while (timeElapsed < beatTime)
         {
-            sliderBeats.value -= change / changeSteps;
+            sliderBeats.value = Mathf.Lerp(start, unitActions.loadedStats[StatType.BEATS], timeElapsed / beatTime);
+            timeElapsed += Time.deltaTime;
             yield return null;
         }
+        sliderBeats.value = unitActions.loadedStats[StatType.BEATS];
         sliderGhostBeats.value = sliderBeats.value;
     }
 
@@ -59,7 +77,8 @@ public class NonplayerUI : EntityUI
         float pipX = barWidth/-2 + (segmentSize * segmentCount);
         Vector3 finalPosition = beatPip.transform.localPosition;
         finalPosition.x = pipX;
-        beatPip.transform.localPosition = finalPosition; 
+        StartCoroutine(beatPip.LerpTo(finalPosition, .2f, true));
+        //beatPip.transform.localPosition = finalPosition; 
     }
 
     public void ShowBeatGhost(float beats)

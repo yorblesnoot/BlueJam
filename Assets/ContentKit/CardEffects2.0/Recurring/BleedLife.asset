@@ -19,6 +19,8 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: RedPuddle
+  effectSound: 0
+  effectSoundAfterHit: 0
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0
@@ -30,4 +32,5 @@ MonoBehaviour:
   iconColor:
     serializedVersion: 2
     rgba: 4279835094
+  iconImage: {fileID: 21300000, guid: 6f649aea2852e3b46a8c4386355a2c53, type: 3}
   turnLapseEffect: {fileID: 11400000, guid: 4003ccd8c3a284a44bed4b60b8ac2b86, type: 2}

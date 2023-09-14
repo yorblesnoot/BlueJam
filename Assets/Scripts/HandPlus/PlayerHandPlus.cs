@@ -150,10 +150,11 @@ public class PlayerHandPlus : HandPlus
         return cardDisplay;
     }
 
-    readonly int pileDisplacementFactor = 2;
+    readonly int totalPileDisplacement = 20;
     void FanPile(List<ICardDisplay> cards, int direction = 1)
     {
-        for(int i = 0; i < cards.Count;i++)
+        int pileDisplacementFactor = totalPileDisplacement / cards.Count;
+        for (int i = 0; i < cards.Count;i++)
         {
             Vector3 cardPosition = new(-i * pileDisplacementFactor * direction, i * pileDisplacementFactor, 0);
             cards[i].transform.localPosition = cardPosition;

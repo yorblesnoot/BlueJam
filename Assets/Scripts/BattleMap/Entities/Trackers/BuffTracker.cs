@@ -4,68 +4,114 @@ using UnityEngine;
 
 public class BuffTracker : MonoBehaviour
 {
-    public BuffUI buffDisplay;
+    public List<BuffToken> buffTokens;
 
     BattleTileController myTile;
-    List<TrackedBuff> buffs = new();
-    List<TrackedStat> statMods = new();
+    List<TrackedMod> mods = new();
 
-    class TrackedBuff
+    class TrackedMod
     {
-        public CardEffectPlus lapseEffect;
         public int remainingDuration;
         public BattleUnit owner;
-        public bool[,] aoe;
+        public BuffToken token;
+
+        public virtual void InitialRender()
+        {
+            token.gameObject.SetActive(true);
+        }
+
+        public BuffToken TickDown(BattleTileController tile)
+        {
+            remainingDuration--;
+            token.SetDuration(remainingDuration);
+            TickEffect(tile);
+            if (remainingDuration <= 0)
+            {
+                token.gameObject.SetActive(false);
+                return token;
+            }
+            return null;
+        }
+
+        public virtual void TickEffect(BattleTileController tile) { }
     }
 
-    class TrackedStat
+    class TrackedBuff : TrackedMod
     {
-        public EffectStat effectStat;
-        public int remainingDuration;
+        public EffectRecurring buff;
+        public override void InitialRender()
+        {
+            base.InitialRender();
+            token.RenderBuff(buff, owner);
+        }
+
+        public override void TickEffect(BattleTileController tile)
+        {
+            tile.unitContents.StartCoroutine(buff.turnLapseEffect.Execute(owner, tile));
+        }
+    }
+
+    class TrackedStat: TrackedMod
+    {
+        public EffectStat stat;
+        public override void InitialRender()
+        {
+            base.InitialRender();
+            token.RenderStat(stat, owner);
+        }
+
+        public override void TickEffect(BattleTileController tile)
+        {
+            if (remainingDuration <= 0)
+                stat.Unmodify(stat.scalingMultiplier, tile.unitContents);
+        }
+    }
+
+    public void AddTokenIfNeeded()
+    {
+        if (mods.Count >= buffTokens.Count)
+        {
+            var newToken = Instantiate(buffTokens[0].gameObject);
+            newToken.transform.SetParent(buffTokens[0].transform.parent, false);
+            buffTokens.Add(newToken.GetComponent<BuffToken>());
+        }
     }
 
     public void RegisterRecurring(BattleUnit ownerIn, EffectRecurring buff)
     {
+        AddTokenIfNeeded();
         TrackedBuff incomingBuff = new() {
-            lapseEffect = buff.turnLapseEffect,
+            buff = buff,
             remainingDuration = buff.duration,
             owner = ownerIn};
-        incomingBuff.lapseEffect.Initialize();
-        buffs.Add(incomingBuff);
-        buffDisplay.DisplayBuff(buff.duration, buff.iconColor, buff.turnLapseEffect.GenerateDescription(ownerIn).FirstToUpper() +" after each action.");
+        buff.turnLapseEffect.Initialize(); 
+        incomingBuff.token = buffTokens[0];
+        buffTokens.RemoveAt(0);
+        incomingBuff.InitialRender();
+        mods.Add(incomingBuff);
     }
 
-    public void RegisterTempStat(EffectStat stat)
+    public void RegisterTempStat(EffectStat stat, BattleUnit owner)
     {
-        statMods.Add(new TrackedStat
+        var trackedStat = new TrackedStat
         {
-            effectStat = stat,
-            remainingDuration = stat.duration
-        });
-        buffDisplay.DisplayBuff(stat.duration, Color.yellow, stat.GenerateDescription(GetComponent<Unit>()).FirstToUpper() + ".");
+            stat = stat,
+            remainingDuration = stat.duration,
+            owner = owner
+        };
+        trackedStat.InitialRender();
+        mods.Add(trackedStat);
     }
 
     public void DurationProc()
     {
         myTile = MapTools.VectorToTile(gameObject.transform.position).GetComponent<BattleTileController>();
-        for (int i = 0; i < buffs.Count; i++)
+        for (int i = 0; i < mods.Count; i++)
         {
-            buffs[i].remainingDuration--;
-            StartCoroutine(buffs[i].lapseEffect.Execute(buffs[i].owner, myTile));
+            BuffToken returning = mods[i].TickDown(myTile);
+            if(returning != null) buffTokens.Add(returning);
         }
-        buffs.RemoveAll(x => x.remainingDuration == 0);
-        buffDisplay.TickDownBuffTokens();
-
-        for (int i = 0; i < statMods.Count; i++)
-        {
-            statMods[i].remainingDuration--;
-            if (statMods[i].remainingDuration == 0)
-            {
-                EffectStat stat = statMods[i].effectStat;
-                stat.Unmodify(stat.scalingMultiplier, myTile.unitContents);
-            }
-        }
-        statMods.RemoveAll(x => x.remainingDuration == 0);
+        mods.RemoveAll(x => x.remainingDuration == 0);
     }
 }
 

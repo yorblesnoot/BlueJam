@@ -21,7 +21,8 @@ public class BarrierTracker : MonoBehaviour
         if (gameObject.CompareTag("Player"))
         {
             Tutorial.Initiate(TutorialFor.BATTLEBARRIER, TutorialFor.BATTLEACTIONS);
-            Tutorial.EnterStage(TutorialFor.BATTLEBARRIER, 1, "I've gained a barrier, which absorbs damage before it can reduce my health! Deflect is blue, and only lasts 2 actions. Shield is gray, and lasts til battle's end.");
+            Tutorial.EnterStage(TutorialFor.BATTLEBARRIER, 1, 
+                "I've gained a barrier, which absorbs damage before it can reduce my health! Block lasts for two turns, and shield lasts indefinitely. You can see my barriers in the bottom left.");
         }
         deflectInstances.Add(amount);
         deflectDurations.Add(deflectLength);

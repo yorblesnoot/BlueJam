@@ -10,6 +10,7 @@ public class EffectRecurring : CardEffectPlus
     public int duration;
 
     public Color32 iconColor;
+    public Sprite iconImage;
 
     public CardEffectPlus turnLapseEffect;
 

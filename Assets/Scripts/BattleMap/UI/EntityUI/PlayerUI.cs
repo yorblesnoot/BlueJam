@@ -17,18 +17,18 @@ public class PlayerUI : EntityUI
     public override void UpdateDeflect()
     {
         base.UpdateDeflect();
-        blockDisplay.text = $"{unitActions.deflectHealth}";
+        blockDisplay.text = $"{Mathf.RoundToInt(sliderDeflect.value)}";
     }
 
     public override void UpdateShield()
     {
         base.UpdateShield();
-        shieldDisplay.text = $"{unitActions.shieldHealth}";
+        shieldDisplay.text = $"{Mathf.RoundToInt(sliderShield.value)}";
     }
 
     public override void InitializeHealth()
     {
-        int barrierMax = Mathf.RoundToInt(unitActions.loadedStats[StatType.MAXHEALTH] * unitActions.loadedStats[StatType.BARRIER] / 20);
+        int barrierMax = Mathf.RoundToInt(unitActions.loadedStats[StatType.BARRIER] * 4);
         sliderHealth.maxValue = unitActions.loadedStats[StatType.MAXHEALTH];
         sliderHealth.value = unitActions.currentHealth;
         SetHealthDisplay();
@@ -44,7 +44,7 @@ public class PlayerUI : EntityUI
 
     void SetHealthDisplay()
     {
-        healthDisplay.text = $"{unitActions.currentHealth}/{Mathf.RoundToInt(unitActions.loadedStats[StatType.MAXHEALTH])}";
+        healthDisplay.text = $"{Mathf.RoundToInt(sliderHealth.value)}/{Mathf.RoundToInt(unitActions.loadedStats[StatType.MAXHEALTH])}";
     }
 
 }

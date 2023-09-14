@@ -39,7 +39,7 @@ public class PlayerUnit : BattleUnit
     {
         if (reduction == 0) return;
         Tutorial.Initiate(TutorialFor.BATTLEDAMAGE, TutorialFor.BATTLEACTIONS);
-        Tutorial.EnterStage(TutorialFor.BATTLEDAMAGE, 1, "Ouch, I've taken damage! You can see my health in the green bar on the right. If it empties fully, I'll die and lose all my progress!");
+        Tutorial.EnterStage(TutorialFor.BATTLEDAMAGE, 1, "Ouch, I've taken damage! You can see my current health in bottom left. If it reaches zero, I'll die and lose all my progress!");
         base.ModifyHealth(reduction);
         runData.currentHealth = currentHealth;
     }

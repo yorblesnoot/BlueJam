@@ -8,6 +8,9 @@ public class EffectStat : CardEffectPlus
     
     [SerializeField] StatType entityStat;
     public int duration;
+
+    public Color32 iconColor;
+    public Sprite iconImage;
     private void Reset()
     {
         effectSound = SoundTypeEffect.STATUP;
@@ -27,7 +30,7 @@ public class EffectStat : CardEffectPlus
         foreach (BattleUnit target in targets)
         {
             Modify(scalingMultiplier, target);
-            if (duration > 0) target.GetComponent<BuffTracker>().RegisterTempStat(this);
+            if (duration > 0) target.GetComponent<BuffTracker>().RegisterTempStat(this, actor);
         }
         yield return null;
     }
@@ -38,7 +41,7 @@ public class EffectStat : CardEffectPlus
             target.loadedStats[entityStat] += scale;
         else target.loadedStats[entityStat] *= 1 + scale / 100;
         if(target.gameObject.CompareTag("Player")) target.gameObject.GetComponent<PlayerHandPlus>().UpdateHand();
-        if (entityStat == StatType.BEATS) target.myUI.UpdateBeats(-scale);
+        if (entityStat == StatType.BEATS) target.myUI.ReduceBeats(-scale);
     }
 
     public void Unmodify(float scale, BattleUnit target)

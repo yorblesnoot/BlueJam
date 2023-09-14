@@ -19,6 +19,8 @@ MonoBehaviour:
   vfxNameBefore: none
   vfxStyleAfter: 5
   vfxNameAfter: GreenDropSplat
+  effectSound: 0
+  effectSoundAfterHit: 0
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0
@@ -30,4 +32,5 @@ MonoBehaviour:
   iconColor:
     serializedVersion: 2
     rgba: 4280140544
+  iconImage: {fileID: 21300000, guid: 8066e15c4e3df6e4f9806f9d5f71e70a, type: 3}
   turnLapseEffect: {fileID: 11400000, guid: 03a349d1b72eaf44386e617391f1d6ea, type: 2}

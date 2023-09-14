@@ -16,7 +16,7 @@ public class EffectBarrier : CardEffectPlus
 
     readonly Dictionary<BarrierType, string> barrierNames = new()
     {
-        {BarrierType.DEFLECT, "deflect" },
+        {BarrierType.DEFLECT, "block" },
         {BarrierType.SHIELD, "shield" }
     };
 

@@ -9,8 +9,6 @@ public class EntityUI : MonoBehaviour
     [SerializeField] internal Slider sliderShield;
 
     public BattleUnit unitActions;
-
-    [field: SerializeField] internal BuffUI buffUI { get; set; }
     private void Update()
     {
         UpdateHealth();
@@ -50,5 +48,5 @@ public class EntityUI : MonoBehaviour
         sliderShield.value = 0;
     }
 
-    public virtual void UpdateBeats(float beatChange) { }
+    public virtual void ReduceBeats(float beatChange) { }
 }
