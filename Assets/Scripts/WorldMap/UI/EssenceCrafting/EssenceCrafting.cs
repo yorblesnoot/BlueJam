@@ -22,7 +22,6 @@ public class EssenceCrafting : MonoBehaviour
     
 
     [SerializeField] CardAwardUI cardAwardUI;
-    [SerializeField] WorldMenuControl worldMenuControl;
     
 
     readonly int hatTiltAngle = -10;

@@ -17107,7 +17107,6 @@ MonoBehaviour:
   - {fileID: 767607204}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   essenceCrafting: {fileID: 1558374507}
-  worldMenuControl: {fileID: 0}
 --- !u!224 &1158584331 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8397634628322311802, guid: aa9de35aa9950f34695ab18e027c50b1, type: 3}
@@ -20546,7 +20545,6 @@ MonoBehaviour:
   description: {fileID: 2024444142}
   mainCanvas: {fileID: 573176807}
   cardAwardUI: {fileID: 1156863002}
-  worldMenuControl: {fileID: 0}
 --- !u!114 &1558374508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26223,6 +26221,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4762151525864183111, guid: 4a7805936d789824c9fd41f06ea2af23, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 779091097}
+    - target: {fileID: 4762151525864183111, guid: 4a7805936d789824c9fd41f06ea2af23, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseCurrent
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762151525864183111, guid: 4a7805936d789824c9fd41f06ea2af23, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WorldMenuPlus, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 9001840648332169932, guid: 4a7805936d789824c9fd41f06ea2af23, type: 3}
       propertyPath: windowToClose
       value: 
@@ -27250,6 +27260,18 @@ PrefabInstance:
     - target: {fileID: 4762151525864183105, guid: 4a7805936d789824c9fd41f06ea2af23, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762151525864183111, guid: 4a7805936d789824c9fd41f06ea2af23, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 779091097}
+    - target: {fileID: 4762151525864183111, guid: 4a7805936d789824c9fd41f06ea2af23, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseCurrent
+      objectReference: {fileID: 0}
+    - target: {fileID: 4762151525864183111, guid: 4a7805936d789824c9fd41f06ea2af23, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WorldMenuPlus, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 9001840648332169932, guid: 4a7805936d789824c9fd41f06ea2af23, type: 3}
       propertyPath: windowToClose
@@ -32260,6 +32282,18 @@ PrefabInstance:
     - target: {fileID: 486431070345700727, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 557
+      objectReference: {fileID: 0}
+    - target: {fileID: 589332157509557634, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 779091097}
+    - target: {fileID: 589332157509557634, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseCurrent
+      objectReference: {fileID: 0}
+    - target: {fileID: 589332157509557634, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: WorldMenuPlus, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 5348928274564715675, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
       propertyPath: m_Type

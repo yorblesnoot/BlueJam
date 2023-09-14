@@ -33,6 +33,7 @@ public class WorldHealthBar : MonoBehaviour
             timeElapsed += Time.deltaTime;
             yield return null;
         }
+        slider.value = current;
         healthDisplay.text = $"{Mathf.RoundToInt(sliderHealth.value)}/{RunData.playerStats.maxHealth}";
     }
 }

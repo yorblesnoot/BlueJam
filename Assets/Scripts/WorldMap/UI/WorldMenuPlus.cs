@@ -27,14 +27,16 @@ public class WorldMenuPlus : MonoBehaviour
         currentOpen = window;
         SoundManager.PlaySound(SoundType.BUTTONPRESS);
         StartCoroutine(window.SlideIn(.2f, .1f));
+        WorldPlayerControl.playerState = WorldPlayerState.MENUS;
     }
 
-    private void CloseCurrent()
+    public void CloseCurrent()
     {
         if (WorldPlayerControl.playerState != WorldPlayerState.MENUS && WorldPlayerControl.playerState != WorldPlayerState.IDLE) return;
         if (!currentOpen) return;
         StartCoroutine(currentOpen.SlideOut(.2f));
         currentOpen = null;
+        WorldPlayerControl.playerState = WorldPlayerState.IDLE;
     }
 
     private void Update()
