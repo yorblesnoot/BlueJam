@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class SettingSlider : MonoBehaviour
 {
-    [SerializeField] PlayerSetting thisSetting;
+    [SerializeField] SoundSetting thisSetting;
     [SerializeField] Slider slider;
     [SerializeField] TMP_Text settingValue;
     [SerializeField] TMP_Text settingName;
@@ -30,7 +30,7 @@ public class SettingSlider : MonoBehaviour
         PlayerPrefs.SetFloat(thisSetting.ToString(), slider.value);
         Settings.UpdateSetting(thisSetting, slider.value);
         settingValue.text = Mathf.RoundToInt(slider.value * 100).ToString() + "%";
-        if (thisSetting == PlayerSetting.master_volume || thisSetting == PlayerSetting.music_volume || thisSetting == PlayerSetting.fx_volume)
+        if (thisSetting == SoundSetting.master_volume || thisSetting == SoundSetting.music_volume || thisSetting == SoundSetting.fx_volume)
         {
             SoundManager.UpdateVolume();
         }

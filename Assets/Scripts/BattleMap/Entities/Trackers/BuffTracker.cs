@@ -99,6 +99,8 @@ public class BuffTracker : MonoBehaviour
             remainingDuration = stat.duration,
             owner = owner
         };
+        trackedStat.token = buffTokens[0];
+        buffTokens.RemoveAt(0);
         trackedStat.InitialRender();
         mods.Add(trackedStat);
     }

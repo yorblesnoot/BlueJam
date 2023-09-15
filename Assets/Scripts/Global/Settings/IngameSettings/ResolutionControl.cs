@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,15 +14,19 @@ public class ResolutionControl : MonoBehaviour
 
     private void Awake()
     {
-        fsToggle.isOn = Screen.fullScreen;
+        fsToggle.isOn = PlayerPrefs.GetInt(GraphicSetting.Fullscreen.ToString()) == 1;
         descendingRes = Screen.resolutions.Reverse().ToArray();
-        drop.onValueChanged.AddListener(delegate { SetResolution(); });
-        fsToggle.onValueChanged.AddListener(delegate { SetResolution(); });
+        descendingRes = descendingRes.Where(res => res.refreshRate == 60).ToArray();
+        
         foreach (var option in descendingRes)
         {
             string dropOutput = $"{option.width} x {option.height}";
             drop.options.Add(new TMP_Dropdown.OptionData(dropOutput));
         }
+        drop.value = Array.IndexOf(descendingRes, Screen.currentResolution);
+
+        drop.onValueChanged.AddListener(delegate { SetResolution(); });
+        fsToggle.onValueChanged.AddListener(delegate { SetResolution(); });
     }
 
     void SetResolution()
@@ -29,7 +34,7 @@ public class ResolutionControl : MonoBehaviour
         Resolution selected = descendingRes[drop.value];
         PlayerPrefs.SetInt(GraphicSetting.ResolutionWidth.ToString(), selected.width);
         PlayerPrefs.SetInt(GraphicSetting.ResolutionHeight.ToString(), selected.height);
-        PlayerPrefs.SetInt(GraphicSetting.Fullscreen.ToString(), fsToggle.enabled? 1 : 0);
+        PlayerPrefs.SetInt(GraphicSetting.Fullscreen.ToString(), fsToggle.isOn ? 1 : 0);
         Settings.Graphics.ImplementSettings();
     }
 }

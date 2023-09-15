@@ -27,7 +27,6 @@ public class MenuButtonControl : MonoBehaviour, IPointerEnterHandler, IPointerEx
     public void MainMenuLinkClicked()
     {
         SoundManager.PlaySound(SoundType.BUTTONPRESS);
-        new SaveContainer(runData).SaveGame();
         SceneManager.LoadScene(0);
     }
 

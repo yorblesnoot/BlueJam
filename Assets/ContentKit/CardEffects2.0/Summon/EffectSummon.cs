@@ -59,6 +59,7 @@ public class EffectSummon : CardEffectPlus
         toModify.isSummoned = true;
         toModify.loadedStats[StatType.MAXHEALTH] *= summonModifier;
         toModify.currentHealth = Mathf.RoundToInt(toModify.loadedStats[StatType.MAXHEALTH]);
+        toModify.GetComponentInChildren<NonplayerUI>().InitializeHealth();
 
         toModify.loadedStats[StatType.DAMAGE] *= summonModifier;
         toModify.loadedStats[StatType.HEAL] *= summonModifier;

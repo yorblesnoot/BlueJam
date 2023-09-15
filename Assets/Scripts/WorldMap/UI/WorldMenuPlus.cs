@@ -5,38 +5,47 @@ using UnityEngine.UI;
 public class WorldMenuPlus : MonoBehaviour
 {
     [SerializeField] List<ActivateableWindow> windowControls;
-    GameObject currentOpen;
+    ActivateableWindow currentOpen;
     private void Awake()
     {
         foreach (var window in windowControls)
         {
-            if(window.button) window.button.onClick.AddListener(() => OpenWindow(window.window));
+            if(window.button) window.button.onClick.AddListener(() => OpenWindow(window));
+            window.position = window.window.transform.localPosition;
         }
     }
 
-    private void OpenWindow(GameObject window)
+    private void OpenWindow(ActivateableWindow menu)
     {
         if (WorldPlayerControl.playerState != WorldPlayerState.MENUS && WorldPlayerControl.playerState != WorldPlayerState.IDLE) return;
         //check if player is in menu locked state: card display, item award
-        if (currentOpen == window)
+        if (currentOpen == menu)
         {
             CloseCurrent();
             return;
         }
         CloseCurrent();
-        currentOpen = window;
+        currentOpen = menu;
         SoundManager.PlaySound(SoundType.BUTTONPRESS);
-        StartCoroutine(window.SlideIn(.2f, .1f));
+        ResetWindow(menu);
+        StartCoroutine(menu.window.SlideIn(.2f, .1f));
         WorldPlayerControl.playerState = WorldPlayerState.MENUS;
     }
 
     public void CloseCurrent()
     {
         if (WorldPlayerControl.playerState != WorldPlayerState.MENUS && WorldPlayerControl.playerState != WorldPlayerState.IDLE) return;
-        if (!currentOpen) return;
-        StartCoroutine(currentOpen.SlideOut(.2f));
+        if (currentOpen == null) return;
+        ResetWindow(currentOpen);
+        StartCoroutine(currentOpen.window.SlideOut(.2f));
         currentOpen = null;
         WorldPlayerControl.playerState = WorldPlayerState.IDLE;
+    }
+
+    void ResetWindow(ActivateableWindow menu)
+    {
+        StopAllCoroutines();
+        menu.window.transform.localPosition = currentOpen.position;
     }
 
     private void Update()
@@ -45,7 +54,7 @@ public class WorldMenuPlus : MonoBehaviour
         {
             if(window.keyCode != KeyCode.None && Input.GetKeyDown(window.keyCode))
             {
-                OpenWindow(window.window);
+                OpenWindow(window);
             }
         }
         if(Input.GetKeyDown(KeyCode.Escape)) CloseCurrent();
@@ -57,5 +66,6 @@ public class WorldMenuPlus : MonoBehaviour
         public GameObject window;
         public KeyCode keyCode;
         public Button button;
+        [HideInInspector] public Vector3 position;
     }
 }

@@ -32,13 +32,11 @@ public class NonplayerUI : EntityUI
         base.UpdateDeflect();
         sliderDeflect.gameObject.SetActive(sliderDeflect.value > 1);
     }
-
     public override void UpdateShield()
     {
         base.UpdateShield();
         sliderShield.gameObject.SetActive(sliderShield.value > 1);
     }
-
     public override void ReduceBeats(float beatChange)
     {
         if (unitActions.isDead) return;
