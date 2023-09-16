@@ -7,15 +7,15 @@ public class EffectInject : CardEffectPlus
 {
 
     public enum InjectLocation { DECK, DISCARD, HAND }
-    [SerializeField] InjectLocation location;
-    readonly Dictionary<InjectLocation, string> locationNames = new()
+    [SerializeField] internal InjectLocation location;
+    internal readonly Dictionary<InjectLocation, string> locationNames = new()
     {
         {InjectLocation.DECK, "deck" },
         {InjectLocation.DISCARD, "discard"},
         {InjectLocation.HAND, "hand"},
     };
     [SerializeField] CardPlus toInject;
-    [SerializeField] bool forceConsume;
+    [SerializeField] internal bool forceConsume;
     private void Reset()
     {
         effectSound = SoundTypeEffect.INJECT;
@@ -37,7 +37,7 @@ public class EffectInject : CardEffectPlus
         yield break;
     }
 
-    void Inject(float scale, BattleUnit actor, BattleUnit target, CardPlus toInject)
+    internal void Inject(float scale, BattleUnit actor, BattleUnit target, CardPlus toInject)
     {
         HandPlus hand = target.myHand;
         int modifier = Mathf.RoundToInt(scale);

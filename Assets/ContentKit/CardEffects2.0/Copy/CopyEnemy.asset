@@ -9,22 +9,24 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe4d7e4cd232b3843afe9d9f6eba80fb, type: 3}
-  m_Name: Dmg1.5xRing
+  m_Script: {fileID: 11500000, guid: dccfd38d94053bb4f9a45e9f6832ec84, type: 3}
+  m_Name: CopyEnemy
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   targetNotRequired: 0
   effectClass: 0
   vfxStyleBefore: 0
-  vfxNameBefore: EnergyLoop
+  vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: none
-  effectSound: 17
+  effectSound: 5
   effectSoundAfterHit: 0
-  scalingMultiplier: 1.5
+  scalingMultiplier: 1
   aoeShape: 0
-  aoeSize: 2
-  aoeGap: 2
+  aoeSize: 0
+  aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  particleDelay: 0.2
+  location: 2
+  toInject: {fileID: 0}
+  forceConsume: 1

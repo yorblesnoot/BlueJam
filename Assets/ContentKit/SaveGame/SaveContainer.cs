@@ -1,7 +1,7 @@
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class SaveContainer
 {
@@ -10,9 +10,12 @@ public class SaveContainer
     LoadLibrary loadLibrary;
     DifficultySelector difficultySelector;
 
+    string savePath;
+
     public SaveContainer( RunData data )
     {
         RunData = data;
+        Initialize();
     }
 
     public SaveContainer(RunData data, LoadLibrary load, DifficultySelector difficultySelector)
@@ -20,6 +23,12 @@ public class SaveContainer
         RunData = data;
         loadLibrary = load;
         this.difficultySelector = difficultySelector;
+        Initialize();
+    }
+
+    void Initialize()
+    {
+        savePath = Application.persistentDataPath + Path.DirectorySeparatorChar + "runData.json";
     }
 
     public int difficulty;
@@ -63,7 +72,7 @@ public class SaveContainer
         SaveGrids();
         SaveEvents();
         saveJSON = JsonUtility.ToJson(this, false);
-        System.IO.File.WriteAllText(Application.persistentDataPath + "/runData.json", saveJSON);
+        File.WriteAllText(savePath, saveJSON);
         //Debug.Log(saveJSON);
     }
 
@@ -119,7 +128,7 @@ public class SaveContainer
     {
         EventManager.loadSceneWithScreen.Invoke(1);
         //get JSON from file or elsewhere
-        saveJSON = System.IO.File.ReadAllText(Application.persistentDataPath + "/runData.json");
+        saveJSON = File.ReadAllText(savePath);
         JsonUtility.FromJsonOverwrite(saveJSON, this);
 
         LoadNums();

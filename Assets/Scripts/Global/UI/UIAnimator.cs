@@ -11,7 +11,6 @@ public static class UIAnimator
         float timeElapsed = 0;
         Vector3 startPosition = new(-Screen.width, 0, 0);
         Vector3 endPosition = transform.localPosition;
-        Debug.Log(endPosition);
         window.transform.position = startPosition;
         window.SetActive(true);
         while (timeElapsed < enterTime)

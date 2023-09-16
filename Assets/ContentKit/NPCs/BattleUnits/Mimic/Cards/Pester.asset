@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: Pester
+  m_EditorClassIdentifier: 
+  Id: 092a8b28-25c0-40fc-9279-d1aa97dac4f4
+  displayName: Maintain Proximity
+  art: {fileID: 21300000, guid: fd27e3f6b435d4425a4e5034f96cdef3, type: 3}
+  cost: 2
+  description: 
+  keywords: 
+  targetShape: 0
+  targetSize: 5
+  targetGap: 4
+  needsPath: 0
+  isCurse: 0
+  cardClass: 
+  consumed: 0
+  animType: 0
+  effects:
+  - {fileID: 11400000, guid: 0509ed7bf9d8f8748ba10ed66ed9a5ab, type: 2}
+  - {fileID: 11400000, guid: 084d9ff0a9c8f7741937f0deca9bc558, type: 2}

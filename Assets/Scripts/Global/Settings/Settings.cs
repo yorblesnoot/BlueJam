@@ -43,7 +43,6 @@ public static class Settings
         public static void ImplementSettings()
         {
             bool fs = PlayerPrefs.GetInt(GraphicSetting.Fullscreen.ToString()) == 1;
-            Debug.Log("fullscreen " + fs);
             FullScreenMode mode = fs ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
             Screen.fullScreenMode = mode;
             Resolution maxRes = Screen.resolutions.Last();

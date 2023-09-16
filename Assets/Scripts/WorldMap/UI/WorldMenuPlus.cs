@@ -15,10 +15,16 @@ public class WorldMenuPlus : MonoBehaviour
         }
     }
 
+    bool PlayerInLegalState()
+    {
+        if(WorldPlayerControl.playerState == WorldPlayerState.PATHING) return false;
+        if (WorldPlayerControl.playerState == WorldPlayerState.IDLE) WorldPlayerControl.playerState = WorldPlayerState.MENUS;
+        return true;
+    }
+
     private void OpenWindow(ActivateableWindow menu)
     {
-        if (WorldPlayerControl.playerState != WorldPlayerState.MENUS && WorldPlayerControl.playerState != WorldPlayerState.IDLE) return;
-        //check if player is in menu locked state: card display, item award
+        if (!PlayerInLegalState()) return;
         if (currentOpen == menu)
         {
             CloseCurrent();
@@ -27,19 +33,17 @@ public class WorldMenuPlus : MonoBehaviour
         CloseCurrent();
         currentOpen = menu;
         SoundManager.PlaySound(SoundType.BUTTONPRESS);
-        ResetWindow(menu);
         StartCoroutine(menu.window.SlideIn(.2f, .1f));
-        WorldPlayerControl.playerState = WorldPlayerState.MENUS;
     }
 
     public void CloseCurrent()
     {
-        if (WorldPlayerControl.playerState != WorldPlayerState.MENUS && WorldPlayerControl.playerState != WorldPlayerState.IDLE) return;
         if (currentOpen == null) return;
         ResetWindow(currentOpen);
         StartCoroutine(currentOpen.window.SlideOut(.2f));
         currentOpen = null;
-        WorldPlayerControl.playerState = WorldPlayerState.IDLE;
+        if (WorldPlayerControl.playerState == WorldPlayerState.MENUS)
+            WorldPlayerControl.playerState = WorldPlayerState.IDLE;
     }
 
     void ResetWindow(ActivateableWindow menu)
