@@ -16,15 +16,15 @@ MonoBehaviour:
   targetNotRequired: 0
   effectClass: 0
   vfxStyleBefore: 0
-  vfxNameBefore: none
+  vfxNameBefore: LoopSlash
   vfxStyleAfter: 0
-  vfxNameAfter: GroundBurst
-  effectSound: 14
-  effectSoundAfterHit: 0
+  vfxNameAfter: none
+  effectSound: 0
+  effectSoundAfterHit: 14
   scalingMultiplier: 2
   aoeShape: 0
   aoeSize: 2
   aoeGap: 1
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  particleDelay: 0
+  particleDelay: 0.2
