@@ -10,22 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: GuardRush
+  m_Name: Unsheathe
   m_EditorClassIdentifier: 
-  Id: 87717cd3-c060-4af8-ab93-079b3973f167
-  displayName: Guarded Rush
-  art: {fileID: 21300000, guid: d50ba2527cf084bd9a23196a21e185ca, type: 3}
-  cost: 3
-  description: 'move to target. deflect for <color=#1ED5FA>10</color>. '
-  keywords: 'Range: 1-2 <color=blue>+</color>'
+  Id: 7ac87239-1393-46cd-9744-855ad8da56d3
+  displayName: Unleashed Slice
+  art: {fileID: 21300000, guid: 77fb1396afd204cba852e21347033826, type: 3}
+  cost: 1
+  description: 
+  keywords: 
   targetShape: 2
-  targetSize: 3
+  targetSize: 2
   targetGap: 1
   needsPath: 1
   isCurse: 0
-  cardClass: 0100000002000000
-  consumed: 0
-  animType: 2
+  cardClass: 
+  consumed: 1
+  animType: 0
   effects:
+  - {fileID: 11400000, guid: 594bbd2235d686b4bbf3e5265eafa9cf, type: 2}
   - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
-  - {fileID: 11400000, guid: 55319a3e1913e854bbe7a76f6314834a, type: 2}
+  - {fileID: 11400000, guid: d32e88daaf718cb44918640991313228, type: 2}
+  - {fileID: 11400000, guid: b02c9bffeab0e0d47bcbaec3ff9afa6d, type: 2}

@@ -153,6 +153,7 @@ public class PlayerHandPlus : HandPlus
     readonly int totalPileDisplacement = 20;
     void FanPile(List<ICardDisplay> cards, int direction = 1)
     {
+        if (cards.Count == 0) return;
         int pileDisplacementFactor = totalPileDisplacement / cards.Count;
         for (int i = 0; i < cards.Count;i++)
         {

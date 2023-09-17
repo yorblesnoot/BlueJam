@@ -8,12 +8,6 @@ public class EffectInject : CardEffectPlus
 
     public enum InjectLocation { DECK, DISCARD, HAND }
     [SerializeField] internal InjectLocation location;
-    internal readonly Dictionary<InjectLocation, string> locationNames = new()
-    {
-        {InjectLocation.DECK, "deck" },
-        {InjectLocation.DISCARD, "discard"},
-        {InjectLocation.HAND, "hand"},
-    };
     [SerializeField] CardPlus toInject;
     [SerializeField] internal bool forceConsume;
     private void Reset()
@@ -25,11 +19,7 @@ public class EffectInject : CardEffectPlus
 
     public override string GetEffectDescription(Unit player)
     {
-        string copyWord;
-        string consumedWord = "";
-        if (forceConsume == true) consumedWord = "temporary";
-        if (scalingMultiplier > 1) copyWord = "copies"; else copyWord = "copy";
-        return $"conjure {scalingMultiplier} {consumedWord} {copyWord} of <color=#FFA500>{toInject.displayName}</color> to target's {locationNames[location]}";
+        return $"conjure {scalingMultiplier} {(forceConsume? "temporary" : "")} {(scalingMultiplier > 1 ? "copies" : "copy")} of <color=#FFA500>{toInject.displayName}</color> to target's {location.ToString().ToLower()}";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {

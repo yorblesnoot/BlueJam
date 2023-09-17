@@ -20,10 +20,15 @@ public class EffectStat : CardEffectPlus
 
     public override string GetEffectDescription(Unit player)
     {
-        string finalDescription = $"{(scalingMultiplier > 0 ? "increase" : "decrease")} {statNames[entityStat]}"
-            + $" by {Mathf.Abs(scalingMultiplier)}{statModSymbol[entityStat]}";
-        if (duration > 0) finalDescription += $" for {duration - 1} {(duration > 2 ? "actions" : "action")}";
+        string finalDescription = GetSubDescription(player);
+        if (duration > 0) finalDescription += $" for {duration} {(duration > 1 ? "actions" : "action")}";
         return finalDescription;
+    }
+
+    public string GetSubDescription(Unit player)
+    {
+        return $"{(scalingMultiplier > 0 ? "increase" : "decrease")} {statNames[entityStat]}"
+            + $" by {Mathf.Abs(scalingMultiplier)}{statModSymbol[entityStat]}";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {

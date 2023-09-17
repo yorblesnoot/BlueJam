@@ -10,14 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
-  m_Name: PlayerDeck
+  m_Name: SamuraiDeck
   m_EditorClassIdentifier: 
-  Id: 0693ae95-75b7-40b1-9447-577095d1a2f7
+  Id: 66bcb338-b5f9-4d73-9d74-1dbbd32faece
   deckContents:
-  - {fileID: 11400000, guid: a74a01090134e694d85499c3d659ba52, type: 2}
-  - {fileID: 11400000, guid: a74a01090134e694d85499c3d659ba52, type: 2}
   - {fileID: 11400000, guid: 30c9dedaff4a10d41acf7d68bd1bb906, type: 2}
   - {fileID: 11400000, guid: a7c1dc32b40cb834a9ff93dbe7ea48ed, type: 2}
   - {fileID: 11400000, guid: 79ca8e0583141f7499e52f590f53bff8, type: 2}
-  hat: {fileID: 7861371688408044556, guid: 3e6bf70ee875fba4d99acdd7fea73422, type: 3}
-  unitName: Player
+  hat: {fileID: 3720005970781134792, guid: fbd88f8934a26cd40bf947807a6d4c7e, type: 3}
+  unitName: 

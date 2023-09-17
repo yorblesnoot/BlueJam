@@ -10,23 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: Revenge
+  m_Name: ParrySlice
   m_EditorClassIdentifier: 
-  Id: d0f05061-2aa1-47bb-a130-51d424ca63db
-  displayName: Brutal Vengeance
+  Id: 54f0f99e-dfea-4a6c-9451-3e268b0062fc
+  displayName: Parrying Slice
   art: {fileID: 21300000, guid: 0de4843180c7f47d58f676d3bdc27881, type: 3}
-  cost: 3
-  description: 'Deal <color=#FF4E2B>11</color> damage. If user''s health is below
-    50%, deal <color=#FF4E2B>11</color> damage. '
-  keywords: 'Range: 1-1 <color=blue>+</color>.'
+  cost: 2
+  description: 
+  keywords: 
   targetShape: 1
   targetSize: 1
   targetGap: 1
   needsPath: 0
   isCurse: 0
-  cardClass: 00000000
+  cardClass: 
   consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: f111fd945c1e2314b8cc1b68ef11a2c6, type: 2}
-  - {fileID: 11400000, guid: b9e46dce4698c154d9d11e7f422f392f, type: 2}
+  - {fileID: 11400000, guid: c5656fd05e2053f4ba96e5901032a5fa, type: 2}
+  - {fileID: 11400000, guid: 591ab3f8e140735438f4000e3afd032e, type: 2}
