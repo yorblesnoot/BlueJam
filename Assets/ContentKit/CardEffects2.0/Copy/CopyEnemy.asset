@@ -15,8 +15,8 @@ MonoBehaviour:
   forceTargetSelf: 0
   targetNotRequired: 0
   effectClass: 0
-  vfxStyleBefore: 0
-  vfxNameBefore: none
+  vfxStyleBefore: 2
+  vfxNameBefore: SparkleLook
   vfxStyleAfter: 0
   vfxNameAfter: none
   effectSound: 5

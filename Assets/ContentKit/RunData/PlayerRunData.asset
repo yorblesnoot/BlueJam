@@ -36,8 +36,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 926849be8e54e5140b3bf8c098865f00, type: 2}
   - {fileID: 11400000, guid: 7c7003a592b7b2644b8bfe70ec9c11e7, type: 2}
   - {fileID: 11400000, guid: 6e797f389ea8a12488f3f55a292bc1f5, type: 2}
-  - {fileID: 11400000, guid: fbf1c818b1064894783c8030b86b2eb9, type: 2}
-  - {fileID: 11400000, guid: f08086498393da540ba3619af269f3d6, type: 2}
   - {fileID: 11400000, guid: 2fe649ad6042cc14fa54b3d8bb13e8ee, type: 2}
   - {fileID: 11400000, guid: 181250ee96f164443b29bb942a118a84, type: 2}
   - {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
@@ -46,8 +44,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9d3a655d739ca7b4baea8ea3bad01dc2, type: 2}
   - {fileID: 11400000, guid: 41766d303dc303b4691aa79807aca71c, type: 2}
   - {fileID: 11400000, guid: 582ebe494422e244585c9d0d2564bd9f, type: 2}
-  - {fileID: 11400000, guid: 72f33dfed091aef42b20bca3e7927f4c, type: 2}
-  - {fileID: 11400000, guid: ceeb1002e3f590a47ac6f7fd26ac13b0, type: 2}
   - {fileID: 11400000, guid: 9e8b704ead6d47b4f851ee3827232b12, type: 2}
   - {fileID: 11400000, guid: 73ac707cb4f584f44b59fe411d4e8bc1, type: 2}
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
@@ -55,7 +51,7 @@ MonoBehaviour:
   RemoveStock: 0
   worldSteps: 29
   difficultyTier: 2
-  currentHealth: 100
+  currentHealth: 88
   score: 31
   bossSequence: 00000000020000000100000003000000
   endless: 0
