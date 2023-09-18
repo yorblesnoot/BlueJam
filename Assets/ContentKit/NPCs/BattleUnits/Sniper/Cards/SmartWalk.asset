@@ -16,8 +16,8 @@ MonoBehaviour:
   displayName: Withdraw
   art: {fileID: 21300000, guid: 1f393ce6e380249d39c1af7924bb6967, type: 3}
   cost: 4
-  description: 'move to target. increase intelligence by 1. '
-  keywords: 'Range: 1-1 <color=blue>+</color>'
+  description: 'Move to target. Increase hand size by 1. '
+  keywords: 'Range: 1-1 <color=blue>+</color>.'
   targetShape: 2
   targetSize: 1
   targetGap: 1
@@ -27,5 +27,5 @@ MonoBehaviour:
   consumed: 0
   animType: 2
   effects:
-  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: ebb994a0da47eb640a58fd5b38c7ab7b, type: 2}
   - {fileID: 11400000, guid: 2834426337460ae4c93df2bac8f2254b, type: 2}

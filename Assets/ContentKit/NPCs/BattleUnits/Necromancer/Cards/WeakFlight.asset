@@ -16,9 +16,9 @@ MonoBehaviour:
   displayName: Debilitating Flight
   art: {fileID: 21300000, guid: deb255acb3759467cbec577957a9403e, type: 3}
   cost: 4
-  description: 'decrease strength by -2% in a <color=red>1<color=blue>+</color></color>
-    AOE. move to target. '
-  keywords: 'Range: 1-2 <color=blue>O</color>'
+  description: 'Decrease damage by 20% in a <color=red>1<color=blue>+</color></color>
+    AOE around origin tile. Move to target. '
+  keywords: 'Range: 1-2 <color=blue>O</color>. Requires path.'
   targetShape: 0
   targetSize: 2
   targetGap: 1
@@ -29,4 +29,4 @@ MonoBehaviour:
   animType: 2
   effects:
   - {fileID: 11400000, guid: 77a4b1d92ac6d2645b05ebff38dab977, type: 2}
-  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: ebb994a0da47eb640a58fd5b38c7ab7b, type: 2}

@@ -101,6 +101,7 @@ public class WorldEventHandler : MonoBehaviour
 
     readonly static float descentTime = .4f;
     readonly static float randomDistanceWithinTile = .3f;
+    readonly static float sparkleElevation = .2f;
     IEnumerator AnimatePlayerToBattle()
     {
         GameObject player = WorldPlayerControl.player.gameObject;
@@ -125,7 +126,7 @@ public class WorldEventHandler : MonoBehaviour
         }
         player.gameObject.SetActive(false);
         Vector3 sparklePosition = dropPosition;
-        sparklePosition.y += .1f;
+        sparklePosition.y += sparkleElevation;
         VFXMachine.PlayAtLocation("DistanceSparkle", sparklePosition);
         yield return new WaitForSeconds(1f);
     }

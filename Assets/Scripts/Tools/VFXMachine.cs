@@ -55,10 +55,11 @@ public static class VFXMachine
         GameObject.Destroy(particle, particleKillDelay);
     }
 
+    readonly static float trailDelay = 1f;
     public static void AttachTrail(string effect, GameObject attached)
     {
         GameObject particle = GameObject.Instantiate(PrepareAsset(effect), attached.transform.position, Quaternion.identity , attached.transform);
-        GameObject.Destroy(particle, particleKillDelay);
+        GameObject.Destroy(particle, trailDelay);
     }
 
     static GameObject PrepareAsset(string effect)

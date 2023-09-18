@@ -16,18 +16,21 @@ MonoBehaviour:
   displayName: Unleashed Slice
   art: {fileID: 21300000, guid: 77fb1396afd204cba852e21347033826, type: 3}
   cost: 1
-  description: 
-  keywords: 
+  description: 'Increase damage by 20% on origin tile. Move to target. Deal <color=#FF4E2B>22</color>
+    damage in a <color=red>2<color=blue>O</color></color> AOE. Conjure 1 temporary
+    copy of <color=#FFA500>Sheathed Stance</color> to target''s hand. '
+  keywords: 'Range: 1-2 <color=blue>+</color>. <color=red>Consumed.</color> Requires
+    path.'
   targetShape: 2
   targetSize: 2
   targetGap: 1
   needsPath: 1
   isCurse: 0
-  cardClass: 
+  cardClass: 020000000100000000000000
   consumed: 1
   animType: 0
   effects:
   - {fileID: 11400000, guid: 594bbd2235d686b4bbf3e5265eafa9cf, type: 2}
-  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: a619262168739b245806e3453c348c32, type: 2}
   - {fileID: 11400000, guid: d32e88daaf718cb44918640991313228, type: 2}
   - {fileID: 11400000, guid: b02c9bffeab0e0d47bcbaec3ff9afa6d, type: 2}

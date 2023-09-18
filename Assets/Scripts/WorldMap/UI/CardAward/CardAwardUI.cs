@@ -6,6 +6,7 @@ public class CardAwardUI : MonoBehaviour
     [SerializeField] List<PlayerCardDisplay> awardCards;
     [SerializeField] RunData runData;
     [SerializeField] EssenceCrafting essenceCrafting;
+    [SerializeField] Unit player;
     private void OnEnable()
     {
         EventManager.clickedCard.AddListener(FinalizeAward);
@@ -16,6 +17,7 @@ public class CardAwardUI : MonoBehaviour
     }
     public void AwardCards(List<CardPlus> drops)
     {
+        player.LoadStats();
         WorldPlayerControl.playerState = WorldPlayerState.SELECTION;
         for (int i = 0; i < awardCards.Count; i++)
         {

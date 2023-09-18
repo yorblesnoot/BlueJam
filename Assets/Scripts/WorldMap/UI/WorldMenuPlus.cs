@@ -6,6 +6,7 @@ public class WorldMenuPlus : MonoBehaviour
 {
     [SerializeField] List<ActivateableWindow> windowControls;
     ActivateableWindow currentOpen;
+    [SerializeField] GameObject bugWindow;
     private void Awake()
     {
         foreach (var window in windowControls)
@@ -54,14 +55,16 @@ public class WorldMenuPlus : MonoBehaviour
 
     private void Update()
     {
-        foreach(var window in windowControls)
+        if (Input.GetKeyDown(KeyCode.Escape)) CloseCurrent();
+        if (bugWindow.activeSelf) return;
+        foreach (var window in windowControls)
         {
             if(window.keyCode != KeyCode.None && Input.GetKeyDown(window.keyCode))
             {
                 OpenWindow(window);
             }
         }
-        if(Input.GetKeyDown(KeyCode.Escape)) CloseCurrent();
+        
     }
 
     [System.Serializable]

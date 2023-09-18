@@ -16,16 +16,17 @@ MonoBehaviour:
   displayName: Repulsive Retreat
   art: {fileID: 21300000, guid: 657e61396de954dd58c72903864114bf, type: 3}
   cost: 3
-  description: 
-  keywords: 
+  description: 'Push target 1 cells in a <color=red>1<color=blue>+</color></color>
+    AOE around origin tile. Move to target. '
+  keywords: 'Range: 1-2 <color=blue>O</color>. Requires path.'
   targetShape: 0
   targetSize: 2
   targetGap: 1
   needsPath: 1
   isCurse: 0
-  cardClass: 
+  cardClass: 0000000001000000
   consumed: 0
   animType: 2
   effects:
   - {fileID: 11400000, guid: 69dff1dbee11a6e49b265d1e38a74ae0, type: 2}
-  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: ebb994a0da47eb640a58fd5b38c7ab7b, type: 2}

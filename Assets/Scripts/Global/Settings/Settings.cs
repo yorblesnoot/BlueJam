@@ -42,6 +42,9 @@ public static class Settings
     {
         public static void ImplementSettings()
         {
+#if UNITY_ANDROID
+            return;
+#endif
             bool fs = PlayerPrefs.GetInt(GraphicSetting.Fullscreen.ToString()) == 1;
             FullScreenMode mode = fs ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
             Screen.fullScreenMode = mode;

@@ -9,24 +9,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c5f3e3af7a7e16e49a9410794f718e52, type: 3}
-  m_Name: InjectIaido
+  m_Script: {fileID: 11500000, guid: ba3d1643db261cb4d945ce4b8bd7c06f, type: 3}
+  m_Name: FastWalk
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   targetNotRequired: 0
-  effectClass: 2
-  vfxStyleBefore: 0
-  vfxNameBefore: none
+  effectClass: 1
+  vfxStyleBefore: 3
+  vfxNameBefore: MoveTrail
   vfxStyleAfter: 0
   vfxNameAfter: none
-  effectSound: 5
+  effectSound: 11
   effectSoundAfterHit: 0
-  scalingMultiplier: 1
+  scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  location: 1
-  toInject: {fileID: 11400000, guid: a7c1dc32b40cb834a9ff93dbe7ea48ed, type: 2}
-  forceConsume: 1
+  blink: 0
+  moveDuration: 0.319

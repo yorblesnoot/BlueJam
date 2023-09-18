@@ -9517,6 +9517,7 @@ MonoBehaviour:
     keyCode: 0
     button: {fileID: 7313862755695387619}
     position: {x: 0, y: 0, z: 0}
+  bugWindow: {fileID: 5348928274589088435}
 --- !u!114 &802527913 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6221452705481964520, guid: b678fc027cca7974b94bfd1819149153, type: 3}
@@ -17114,6 +17115,7 @@ MonoBehaviour:
   - {fileID: 767607204}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   essenceCrafting: {fileID: 1558374507}
+  player: {fileID: 1773061060}
 --- !u!224 &1158584331 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8397634628322311802, guid: aa9de35aa9950f34695ab18e027c50b1, type: 3}
