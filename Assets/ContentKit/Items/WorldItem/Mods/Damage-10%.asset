@@ -9,14 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f91c23a3e06a55c4c853ecd822414ace, type: 3}
-  m_Name: PredatorStats
+  m_Script: {fileID: 11500000, guid: 8f14964c9c679c445b97033c1505aea4, type: 3}
+  m_Name: Damage-10%
   m_EditorClassIdentifier: 
-  unitName: Predator
-  maxHealth: 100
-  handSize: 3
-  startBeats: 1
-  damageScaling: 12
-  barrierScaling: 10
-  healScaling: 6
-  turnSpeed: 0.6
+  scaler: -20
+  statType: 4

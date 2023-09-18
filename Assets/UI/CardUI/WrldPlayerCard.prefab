@@ -128,6 +128,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &5197529042195118875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5373123285234831843, guid: 121702a924acfe348b01e8bb813e326b, type: 3}
+  m_PrefabInstance: {fileID: 193793359538399992}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &7017986737407203947 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7193545795001561235, guid: 121702a924acfe348b01e8bb813e326b, type: 3}
@@ -214,6 +219,7 @@ MonoBehaviour:
   - {fileID: 8397634629288013355}
   - {fileID: 8397634629155321178}
   - {fileID: 8397634629334998392}
+  - {fileID: 5197529042195118875}
   cardArt: {fileID: 8397634628840580513}
   targetPane: {fileID: 8397634627590977730}
   targetType: {fileID: 8397634627969370782}

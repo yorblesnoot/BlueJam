@@ -8,9 +8,8 @@ public class BattleUnitSpawner
 {
 
     Dictionary<Vector2Int, GameObject> battleMap;
-    List<BattleTileController> playerSpots;
-    List<BattleTileController> enemySpots;
-    List<BattleTileController> extraEnemySpots;
+    List<BattleTileController> enemySpots = new();
+    List<BattleTileController> otherSpots = new();
     SpawnPool spawnPool;
     MasterEnemyPool masterEnemyPool;
     public BattleUnitSpawner(SpawnPool pool, Dictionary<Vector2Int, GameObject> map, MasterEnemyPool master)
@@ -18,9 +17,6 @@ public class BattleUnitSpawner
         spawnPool = pool;
         battleMap = map;
         masterEnemyPool = master;
-        playerSpots = new();
-        enemySpots = new();
-        extraEnemySpots = new();
         //loop through every battle map spot and add it to a list of valid cell placements
         foreach(Vector2Int key in battleMap.Keys) CheckValidSpot(key);
     }
@@ -33,9 +29,8 @@ public class BattleUnitSpawner
             BattleTileController battleTileController = tile.GetComponent<BattleTileController>();
             if(battleTileController.spawns == BattleTileController.SpawnPermission.ENEMY)
                 enemySpots.Add(battleTileController);
-            else if(battleTileController.spawns == BattleTileController.SpawnPermission.PLAYER)
-                playerSpots.Add(battleTileController);  
-            else extraEnemySpots.Add(battleTileController);
+            else
+                otherSpots.Add(battleTileController);  
         }
     }
 
@@ -64,8 +59,9 @@ public class BattleUnitSpawner
     static readonly float duration = .3f;
     public IEnumerator PlacePlayer(GameObject player)
     {
-        int placementIndex = Random.Range(0, playerSpots.Count);
-        Vector3 tilePosition = playerSpots[placementIndex].unitPosition;
+        int placementIndex = Random.Range(0, otherSpots.Count);
+        Vector3 tilePosition = otherSpots[placementIndex].unitPosition;
+        otherSpots.RemoveAt(placementIndex);
         Vector3 highPosition = tilePosition;
         highPosition.y += 5f;
         player.transform.position = highPosition;
@@ -93,9 +89,9 @@ public class BattleUnitSpawner
         }
         else
         {
-            int placementIndex = Random.Range(0, extraEnemySpots.Count);
-            tilePosition = extraEnemySpots[placementIndex].unitPosition;
-            extraEnemySpots.RemoveAt(placementIndex);
+            int placementIndex = Random.Range(0, otherSpots.Count);
+            tilePosition = otherSpots[placementIndex].unitPosition;
+            otherSpots.RemoveAt(placementIndex);
         }
         GameObject.Instantiate(unit, tilePosition, PhysicsHelper.RandomCardinalRotate());
         

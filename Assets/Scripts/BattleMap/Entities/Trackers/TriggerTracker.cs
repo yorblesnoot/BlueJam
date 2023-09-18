@@ -33,7 +33,6 @@ public class TriggerTracker : MonoBehaviour
     }
     public void ExecutedEffect(CardEffectPlus effect, BattleUnit origin, BattleUnit target)
     {
-        //check this: triggers going the wrong way~~~~~~~~~~~~~~~~~~~~~~~~
         if (effect.blockTrigger != true && activeTriggers.Count > 0)
         {
             foreach (TrackedTrigger tracked in activeTriggers)

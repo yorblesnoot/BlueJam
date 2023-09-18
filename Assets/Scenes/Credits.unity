@@ -759,7 +759,7 @@ GameObject:
   - component: {fileID: 490921272}
   - component: {fileID: 490921271}
   m_Layer: 5
-  m_Name: Explanation
+  m_Name: Congratulations
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -805,8 +805,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You''ve unlocked the next difficulty! Would you like to <u>return to the
-    main menu</u> and bring this run to an end? '
+  m_text: 'You have triumphed!
+
+    Would you like to <u>return to the main menu</u>
+    and bring this run to an end? '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -2212,7 +2214,7 @@ GameObject:
   - component: {fileID: 1681077904}
   - component: {fileID: 1681077903}
   m_Layer: 5
-  m_Name: Explanation (1)
+  m_Name: Explanation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2258,8 +2260,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Or would you like to <u>continue the run</u>, and hunt bosses until death
-    claims you?
+  m_text: "\nOr would you like to <u>continue the run</u>, \nand hunt bosses until
+    death claims you?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}

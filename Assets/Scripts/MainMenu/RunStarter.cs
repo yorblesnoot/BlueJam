@@ -47,6 +47,7 @@ public class RunStarter : MonoBehaviour
         runData.eventMap = new();
         runData.bossSequence = new();
         runData.exploredChunks = new bool[mapSize / DynamicEventPlacer.chunkSize, mapSize / DynamicEventPlacer.chunkSize];
+        runData.endless = false;
 
         //send the player to the world map
         EventManager.loadSceneWithScreen.Invoke(-1);

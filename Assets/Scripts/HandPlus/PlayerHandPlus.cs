@@ -168,21 +168,31 @@ public class PlayerHandPlus : HandPlus
         PlayerCardDisplay drawn;
         if (display == null) drawn = (PlayerCardDisplay)deckCards.Last();
         else drawn = (PlayerCardDisplay)display;
-        drawn.transform.SetParent(handSpot.transform, true);
-        drawn.transform.SetAsFirstSibling();
+        
 
         if(cardSlots.Count != handCards.Count) RegenerateHandSlots();
         CardSlot slot = cardSlots.FirstOrDefault(x => x.reference == null);
         slot.reference = drawn;
-        if(display == null) deckCards.TransferItemTo(handCards, drawn);
+        drawn.transform.SetParent(handSpot.transform, true);
+        if (display == null) deckCards.TransferItemTo(handCards, drawn);
         else handCards.Add(drawn);
         yield return StartCoroutine(slot.FlipToCardPosition());
         if (deckCards.Count == 0)
         {
             StartCoroutine(RecycleDeck());
         }
+        if(handCards.Count == cardSlots.Count) OrderCardSlots();
     }
 
+    void OrderCardSlots()
+    {
+        foreach (CardSlot slot in cardSlots)
+        {
+            int sibIndex = (cardSlots.Count - cardSlots.IndexOf(slot)) - 1;
+            slot.reference.transform.SetSiblingIndex(sibIndex);
+            slot.reference.GetComponent<EmphasizeCard>().siblingIndex = sibIndex;
+        }
+    }
     public override IEnumerator DiscardCard(ICardDisplay Idiscarded, bool played)
     {
         PlayerCardDisplay discarded = (PlayerCardDisplay)Idiscarded;

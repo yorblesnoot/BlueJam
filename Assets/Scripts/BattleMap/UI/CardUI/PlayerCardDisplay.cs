@@ -40,13 +40,12 @@ public class PlayerCardDisplay : MonoBehaviour, ICardDisplay
         }
         else if(card.cardClass.Contains(CardClass.ATTACK))
         {
-            if (card.aoePoint.GetLength(0) > 1) targetType.text = "AOE Enemy";
-            else targetType.text = "Target Enemy";
+            targetType.text = "Target Enemy";
             targetPane.color = new Color32(241, 124, 124, 255);
         }
         else if (card.cardClass.Contains(CardClass.BUFF))
         {
-            if (card.aoePoint.GetLength(0) > 1) targetType.text = "AOE Ally";
+            if(card.targetRules.Length == 1) targetType.text = "Target Self";
             else targetType.text = "Target Ally";
             targetPane.color = new Color32(47, 231, 122, 255);
         }

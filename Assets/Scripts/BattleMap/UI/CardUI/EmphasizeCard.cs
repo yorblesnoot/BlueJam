@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
@@ -11,6 +9,8 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
 
     [HideInInspector]
     public Vector3 originalScale;
+
+    [HideInInspector] public int siblingIndex;
 
     bool emphasis = false;
 
@@ -71,6 +71,7 @@ public class EmphasizeCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHa
         {
             if (screenHeightFactor > 0f) transform.localPosition = originalPosition;
             transform.localScale = originalScale;
+            if(screenHeightFactor > 0f) transform.SetSiblingIndex(siblingIndex);
             emphasis = false;
         }
     }

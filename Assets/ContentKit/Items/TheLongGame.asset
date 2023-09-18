@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: faf01b78a6872684ab53675f17ed6943, type: 3}
+  m_Name: TheLongGame
+  m_EditorClassIdentifier: 
+  Id: 543d4e44-dd93-414f-97c7-b209843b01f9
+  thumbnail: {fileID: 21300000, guid: b6795c96fef3b01439d1de6a75d33651, type: 3}
+  thumbnailColor:
+    serializedVersion: 2
+    rgba: 4294927124
+  description: Applying a recurring effect such as poison or regen grants block.
+  effects:
+  - {fileID: 11400000, guid: 3fb8b44adf4d0b541b334e2fef903570, type: 2}

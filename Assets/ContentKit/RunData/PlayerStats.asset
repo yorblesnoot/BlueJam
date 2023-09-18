@@ -14,11 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Player
   maxHealth: 100
-  handSize: 5
-  playerAllied: 1
+  handSize: 7
   startBeats: 0
-  myTurn: 0
   damageScaling: 10
   barrierScaling: 10
   healScaling: 10
-  turnSpeed: 1
+  turnSpeed: 1.573
