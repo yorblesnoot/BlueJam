@@ -20,6 +20,7 @@ MonoBehaviour:
   vfxStyleAfter: 0
   vfxNameAfter: none
   effectSound: 5
+  effectSoundAfterHit: 0
   scalingMultiplier: 1
   aoeShape: 0
   aoeSize: 0
@@ -27,5 +28,5 @@ MonoBehaviour:
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
   location: 2
-  toInject: {fileID: 11400000, guid: 14e1c741942f644498c99955ab5c1198, type: 2}
+  toInject: {fileID: 11400000, guid: 03a0a4a4f8bcec04c8aef994b873aa7d, type: 2}
   forceConsume: 1

@@ -32312,6 +32312,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d80d1ee7cf76a504989829e2d6a777cc, type: 3}
+    - target: {fileID: 5348928274720664263, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5348928274794209555, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
       propertyPath: m_fontColor.b
       value: 1
@@ -32419,6 +32423,26 @@ PrefabInstance:
     - target: {fileID: 5348928275438672329, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348928275829829700, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
+      propertyPath: m_LineType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348928275829829700, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
+      propertyPath: m_LineLimit
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348928275849923143, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348928276342633607, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
+      propertyPath: m_LineType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5348928276342633607, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}
+      propertyPath: m_LineLimit
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fee2200f1b5d54c47a8e506e9fbd414e, type: 3}

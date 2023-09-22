@@ -14,7 +14,7 @@ public class DeckViewerUI : MonoBehaviour
     [SerializeField] Unit player;
     private void OnEnable()
     {
-        Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 3, true);
+        Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 4, true);
         Tutorial.Initiate(TutorialFor.WORLDDECK, TutorialFor.WORLDCRAFTING);
         Tutorial.EnterStage(TutorialFor.WORLDDECK, 1,
             "This is my current deck, which I draw cards from in battle. Click the button on the left to toggle card removal.");
@@ -43,7 +43,7 @@ public class DeckViewerUI : MonoBehaviour
     public void BombToggleTutorial()
     {
         Tutorial.CompleteStage(TutorialFor.WORLDDECK, 1);
-        Tutorial.EnterStage(TutorialFor.WORLDDECK, 2, "While the icon is red and I have bombs, clicking a card will permanently remove it from my deck. Click X to return to the map.");
+        Tutorial.EnterStage(TutorialFor.WORLDDECK, 2, "While the icon is red and I have bombs, clicking a card will permanently remove it from my deck. Click the X or hit ESC to return to the map.");
     }
 
     public void RemoveCard(CardPlus card, GameObject cardObject)

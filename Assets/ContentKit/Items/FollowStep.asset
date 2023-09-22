@@ -17,6 +17,7 @@ MonoBehaviour:
   thumbnailColor:
     serializedVersion: 2
     rgba: 4278250495
+  description: Whenever you push or pull an enemy, conjure a 0-cost Flash Step into
+    your hand.
   effects:
   - {fileID: 11400000, guid: 8dc0142034796ae4d988bb0183dcd468, type: 2}
-  description: Whenever you push or pull an enemy, conjure a Sidestep into your hand.

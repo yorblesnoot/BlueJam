@@ -17,7 +17,7 @@ MonoBehaviour:
   thumbnailColor:
     serializedVersion: 2
     rgba: 4279248895
-  description: You are faster, but your max health is reduced.
+  description: You are faster, but your max health is halved.
   mods:
   - {fileID: 11400000, guid: 8d496e7b716e32d478496e6e77da9054, type: 2}
   - {fileID: 11400000, guid: 6850ef645c8bd9d4da9f307ed59280e3, type: 2}

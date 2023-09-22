@@ -29,7 +29,6 @@ public class SaveContainer
     void Initialize()
     {
         savePath = Application.persistentDataPath + Path.DirectorySeparatorChar + "runData.json";
-        Debug.Log(savePath);
     }
 
     public int difficulty;

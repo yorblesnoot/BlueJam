@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class DynamicEventPlacer
 {
-    readonly public static int chunkSize = 10;
+    readonly public static int chunkSize = 15;
     Vector2Int currentChunk;
     readonly int totalChance;
     readonly List<int> probabilities;
@@ -29,15 +29,17 @@ public class DynamicEventPlacer
             totalChance += item;
             probabilities.Add(item);
         }
-        EventManager.playerAtWorldLocation.AddListener(CheckToPopulateChunks);
+        EventManager.playerAtWorldLocation.AddListener((Vector2Int position) => CheckToPopulateChunks(position));
     }
-    public void CheckToPopulateChunks(Vector2Int globalPosition)
+    public void CheckToPopulateChunks(Vector2Int globalPosition, bool checkCurrent = false)
     {
         Vector2Int chunkLocation = new(globalPosition.x/chunkSize, globalPosition.y/chunkSize);
         if (chunkLocation == currentChunk) return;
-
+        
         PopulateNeighboringChunks(chunkLocation);
         currentChunk = chunkLocation;
+        if (checkCurrent) PopulateChunk(chunkLocation);
+        else FlagCurrentAsExplored();
     }
 
     public void FlagCurrentAsExplored()

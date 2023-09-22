@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Player
   maxHealth: 100
-  handSize: 7
+  handSize: 4
   startBeats: 0
   damageScaling: 10
   barrierScaling: 10

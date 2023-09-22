@@ -85,7 +85,8 @@ public class WorldEventHandler : MonoBehaviour
 
     IEnumerator LaunchCombat(WorldEnemy cellEnemy)
     {
-        sceneRelay.spawnPool = cellEnemy.spawnPool;
+        if (cellEnemy.GetType() == typeof(WorldBoss)) sceneRelay.spawnPool = cellEnemy.spawnPool;
+        else sceneRelay.spawnPool = tileEnemyPreset;
         WorldEncounterBuilder builder = new(sceneRelay, runData);
 
         //remove activated enemies from the enemy map in rundata

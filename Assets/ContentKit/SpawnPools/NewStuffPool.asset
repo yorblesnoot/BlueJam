@@ -14,6 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnUnits: []
   staticSpawns:
-  - {fileID: 4039637195503505460, guid: a83172ca8dcf0744e8df77587d86a960, type: 3}
-  - {fileID: 8660871373512753979, guid: 8a367e4fabeb017439ca523912929127, type: 3}
-  - {fileID: 3893931155832554969, guid: 672eca6008d533943b9c4856f9b7cd78, type: 3}
+  - {fileID: 1461540883103785981, guid: cf8a6d2a8c37101428219d2b6e930f97, type: 3}

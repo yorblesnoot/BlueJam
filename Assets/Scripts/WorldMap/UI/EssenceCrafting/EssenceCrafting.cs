@@ -70,8 +70,7 @@ public class EssenceCrafting : MonoBehaviour
     {
         Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 1);
         Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 2, 
-            "Drag an essence you want cards from into the top slot, then drag some essences you don't want into the bottom slots." +
-            "When you're ready, hit the hammer button.");
+            "Drag an essence you want cards from into the top slot, then drag some essences you don't want into the bottom slots.");
         EssenceSlotFilled();
         for (int i = 0; i < dragItems.Count; i++)
         {
@@ -108,6 +107,9 @@ public class EssenceCrafting : MonoBehaviour
 
     public void ModifyCraftingSlotContents(DraggableItem item, bool operation)
     {
+        Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 2);
+        Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 3,
+            "You can see the cards available from an essence in the bottom right. For each essence you add to the craft, you'll be offered an additional option to choose from. Press the hammer button when you're ready.");
         if (operation) craftingSlotContents.Add(item);
         else craftingSlotContents.Remove(item);
         if (craftingSlotContents.Count == 0) craftStatus.text = "Insufficient materials!";

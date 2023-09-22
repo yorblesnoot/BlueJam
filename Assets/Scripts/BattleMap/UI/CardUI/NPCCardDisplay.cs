@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,6 +31,7 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
     //fill the details of a blank card
     public void PopulateCard(CardPlus card)
     {
+        List<CardClass> cardClass = card.effects.Select(x => x.effectClass).ToList();
         thisCard = card;
         forceConsume = thisCard.consumed;
         if (card.isCurse)
@@ -36,14 +39,14 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
             image.sprite = curse.sprite;
             image.color = curse.color;
         }
-        else if (card.cardClass.Contains(CardClass.SUMMON))
+        else if (cardClass.Contains(CardClass.SUMMON))
         {
             image.sprite = summon.sprite;
             image.color = summon.color;
         }
-        else if (card.cardClass.Contains(CardClass.MOVE))
+        else if (cardClass.Contains(CardClass.MOVE))
         {
-            if (card.cardClass.Contains(CardClass.ATTACK))
+            if (cardClass.Contains(CardClass.ATTACK))
             {
                 image.sprite = jumpAttack.sprite;
                 image.color = jumpAttack.color;
@@ -52,7 +55,7 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
             image.sprite = move.sprite;
             image.color = move.color;
         }
-        else if (card.cardClass.Contains(CardClass.ATTACK))
+        else if (cardClass.Contains(CardClass.ATTACK))
         {
             int range = card.targetRules.GetLength(0);
             foreach(CardEffectPlus effect in card.effects)
@@ -67,11 +70,10 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
             image.sprite = meleeAttack.sprite;
             image.color = meleeAttack.color;
         }
-        else if (card.cardClass.Contains(CardClass.BUFF))
+        else if (cardClass.Contains(CardClass.BUFF))
         {
             image.sprite = heal.sprite;
             image.color = heal.color;
         }
-
     }
 }

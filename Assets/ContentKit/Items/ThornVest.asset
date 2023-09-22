@@ -17,6 +17,6 @@ MonoBehaviour:
   thumbnailColor:
     serializedVersion: 2
     rgba: 4284374627
+  description: Deal damage to any enemy that deals direct damage to you.
   effects:
   - {fileID: 11400000, guid: e61f1b73341c205448036c453b006d84, type: 2}
-  description: Reflects damage when attacked.

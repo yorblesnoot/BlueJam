@@ -25,7 +25,6 @@ public class CardPlus : SOWithGUID
     [HideInInspector] public bool[,] aoePoint;
     [HideInInspector] public bool[,] aoeSelf;
 
-    [HideInInspector] public List<CardClass> cardClass;
     public bool consumed;
 
     public AnimType animType;
@@ -38,18 +37,13 @@ public class CardPlus : SOWithGUID
     {
         targetRules = MapRulesGenerator.Convert(targetShape, targetSize, targetGap);
         if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<Unit>();
-        foreach (CardEffectPlus effect in effects)
-        {
-            CardClass _class = effect.effectClass;
-            effect.Initialize();
-            if(!cardClass.Contains(_class)) cardClass.Add(_class);
-        }
 
         List<bool[,]> selfs = new();
         List<bool[,]> points = new();
         foreach (var effect in effects)
         {
-            if(effect.forceTargetSelf == true) selfs.Add(effect.aoe);
+            effect.Initialize();
+            if (effect.forceTargetSelf == true) selfs.Add(effect.aoe);
             else points.Add(effect.aoe);
         }
         if(selfs.Count > 0) aoeSelf = CellTargeting.CombineAOEIndicators(selfs);
