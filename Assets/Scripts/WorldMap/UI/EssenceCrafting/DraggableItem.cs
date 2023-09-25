@@ -9,7 +9,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     [HideInInspector] public Transform parentAfterDrag;
     public Image image;
-    public TMP_Text mySymbol;
     [HideInInspector]public EssenceCrafting essenceCrafting;
 
     [HideInInspector] public Deck essence;

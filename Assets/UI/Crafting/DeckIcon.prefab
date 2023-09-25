@@ -227,7 +227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parentAfterDrag: {fileID: 0}
   image: {fileID: 4666443776312707097}
-  mySymbol: {fileID: 8458822438699052271}
   essenceCrafting: {fileID: 0}
   essence: {fileID: 0}
   mainCanvas: {fileID: 0}

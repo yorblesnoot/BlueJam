@@ -17,13 +17,17 @@ MonoBehaviour:
   playerWorldX: 249
   playerWorldY: 249
   itemInventory: []
-  essenceInventory: []
+  essenceInventory:
+  - {fileID: 11400000, guid: 9d3a655d739ca7b4baea8ea3bad01dc2, type: 2}
+  - {fileID: 11400000, guid: 8f78b9e3a85afd44cb7c8856a5c9318c, type: 2}
+  - {fileID: 11400000, guid: 8f78b9e3a85afd44cb7c8856a5c9318c, type: 2}
+  - {fileID: 11400000, guid: 8f78b9e3a85afd44cb7c8856a5c9318c, type: 2}
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
   RemoveStock: 0
   worldSteps: 0
   difficultyTier: 3
-  currentHealth: 100
+  currentHealth: 91
   score: 50
   bossSequence: 02000000010000000000000003000000
   endless: 0

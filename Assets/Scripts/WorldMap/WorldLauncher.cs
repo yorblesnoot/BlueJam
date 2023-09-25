@@ -38,6 +38,12 @@ public class WorldLauncher : MapLauncher
         Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 1, "Well done! Defeating those enemies granted me their essences, which you can use to add their cards to my deck. Click the anvil in the top right or press C to craft essences.");
         Tutorial.EnterStage(TutorialFor.WORLDBOSS, 2, "Wow, you did it! Now you can craft a boss card for my deck... but a new, stronger foe has arisen! Looks like you've got the basics down; let's see how far you can go!");
 
+        if(runData.essenceInventory.Count > 10)
+        {
+            Tutorial.Initiate(TutorialFor.WORLDCRAFTREMINDER, TutorialFor.WORLDCRAFTING);
+            Tutorial.EnterStage(TutorialFor.WORLDCRAFTREMINDER, 1, "My essence inventory is starting to fill up. Don't forget to check back on the crafting screen between battles to add cards to your deck.");
+        }
+
         DynamicEventPlacer placer = new(runData);
         Vector2Int startPos = MapTools.VectorToMap(WorldPlayerControl.player.transform.position) + WorldMapRenderer.spotlightGlobalOffset;
         if (PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1)
@@ -45,7 +51,7 @@ public class WorldLauncher : MapLauncher
         else placer.CheckToPopulateChunks(startPos);
         if (runData.bossSequence.Count == 0) GenerateBossSequence();
         if (!runData.eventMap.ContainsValue("b")) placer.PlaceBoss();
-
+        runData.eventMap.Remove(startPos);
 
 
         mapRenderer.RenderFullWindow(runData.worldMap);

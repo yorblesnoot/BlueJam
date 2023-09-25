@@ -17,7 +17,8 @@ public enum TutorialFor
     BATTLEBARRIER,
     BATTLEDODAMAGE,
     WORLDCRAFTING,
-    WORLDDECK
+    WORLDDECK,
+    WORLDCRAFTREMINDER
     //others
 }
 

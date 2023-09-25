@@ -15,8 +15,8 @@ public class DynamicEventPlacer
     {
         { 1, "i"}, //item
         { 3, "r" }, //removal
-        { 8, "h" }, //heal
-        { 18, "e" }, //enemy
+        { 7, "h" }, //heal
+        { 16, "e" }, //enemy
         { 350, "" }, //nothing
     };
     public DynamicEventPlacer(RunData data)

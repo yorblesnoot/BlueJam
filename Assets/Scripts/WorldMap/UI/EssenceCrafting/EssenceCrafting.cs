@@ -45,6 +45,11 @@ public class EssenceCrafting : MonoBehaviour
                 //associate a draggable with a specific deck
                 dragItems[i].essence = runData.essenceInventory[i];
 
+                Color colorFromHex;
+                ColorUtility.TryParseHtmlString("#F8B63C", out colorFromHex);
+                if (runData.essenceInventory[i].deckContents.Count >= 5) dragItems[i].image.color = colorFromHex;
+                else dragItems[i].image.color = Color.white;
+
                 GameObject hat = Instantiate(runData.essenceInventory[i].hat);
                 hat.transform.SetParent(dragItems[i].transform, false);
                 
@@ -69,6 +74,7 @@ public class EssenceCrafting : MonoBehaviour
     private void OnEnable()
     {
         Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 1);
+        Tutorial.CompleteStage(TutorialFor.WORLDCRAFTREMINDER, 1);
         Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 2, 
             "Drag an essence you want cards from into the top slot, then drag some essences you don't want into the bottom slots.");
         EssenceSlotFilled();

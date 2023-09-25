@@ -25,7 +25,7 @@ public class PlayerUnit : BattleUnit
     {
         base.TakeTurn();
         Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 2, "It's my turn again! The cards in my hand, below, give me access to powerful actions for defeating my enemies. Click one to select it!");
-        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 4, "See the blue bar above each enemy? That tells you how soon they'll take their turn! Their bars will fill up based on your actions.");
+        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 4, "The blue bar above each enemy tells you how soon they'll take their turn. Their bars will fill up based on the number of pips on the top right of each card you use, or the number of tiles you move when clicking on the map.");
         Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 5, "When hovering over a card or move, the orange zones by enemys' blue bars show how much their bars will fill when you act. White sparks mean the enemy will take a turn!");
         playerState = PlayerBattleState.IDLE;
     }
