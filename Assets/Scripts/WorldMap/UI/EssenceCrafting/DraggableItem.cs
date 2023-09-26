@@ -34,6 +34,13 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         transform.SetAsLastSibling();
         transform.localScale = Vector3.one;
         image.raycastTarget = false;
+        RemoveFromCraftSlot();
+
+        essenceCrafting.ShowEssenceDisplay(essence);
+    }
+
+    public void RemoveFromCraftSlot()
+    {
         if (essenceCrafting.craftingSlotContents.Contains(this))
         {
             essenceCrafting.ModifyCraftingSlotContents(this, false);
@@ -42,7 +49,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             essenceCrafting.EssenceSlotFilled();
         }
-        essenceCrafting.ShowEssenceDisplay(essence);
     }
 
     public void OnDrag(PointerEventData eventData)

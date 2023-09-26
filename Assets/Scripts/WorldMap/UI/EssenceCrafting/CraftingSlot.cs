@@ -1,13 +1,9 @@
-using System;
-using UnityEngine;
-using UnityEngine.EventSystems;
-
 public class CraftingSlot : InventorySlot
 {
-    public EssenceCrafting essenceCrafting;
-    public override void OnDrop(PointerEventData eventData)
+    public override void ReceiveDraggable(DraggableItem item)
     {
-        essenceCrafting.ModifyCraftingSlotContents(ConfirmDrop(eventData), true);
+        base.ReceiveDraggable(item);
+        essenceCrafting.ModifyCraftingSlotContents(item, true);
     }
     public void EvictChildren()
     {

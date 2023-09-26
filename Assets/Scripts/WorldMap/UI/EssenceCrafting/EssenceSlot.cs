@@ -1,13 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.EventSystems;
-
 public class EssenceSlot : InventorySlot
 {
-    [SerializeField] EssenceCrafting essenceCrafting;
-    public override void OnDrop(PointerEventData eventData)
+    public override void ReceiveDraggable(DraggableItem item)
     {
-        essenceCrafting.EssenceSlotFilled(ConfirmDrop(eventData));
+        base.ReceiveDraggable(item);
+        essenceCrafting.EssenceSlotFilled(item);
     }
 }

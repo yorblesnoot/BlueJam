@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: 0cb195e1-a675-4e2a-9284-772455f10c52
   displayName: Rallying Stride
   art: {fileID: 21300000, guid: 9fe8739e0746b466b81b26e843c94460, type: 3}
-  cost: 4
+  cost: 3
   description: 
   keywords: 
   targetShape: 0
@@ -23,9 +23,8 @@ MonoBehaviour:
   targetGap: 1
   needsPath: 1
   isCurse: 0
-  cardClass: 
   consumed: 0
   animType: 2
   effects:
   - {fileID: 11400000, guid: ebb994a0da47eb640a58fd5b38c7ab7b, type: 2}
-  - {fileID: 11400000, guid: 1b436ceeb25ba774a93a6d6d994b6de0, type: 2}
+  - {fileID: 11400000, guid: 3f453ac23a9928b4e8a3bace66e2e932, type: 2}

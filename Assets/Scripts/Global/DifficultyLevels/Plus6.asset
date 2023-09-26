@@ -16,8 +16,8 @@ MonoBehaviour:
     hesitation curse.
   <BossSpawnDistance>k__BackingField: 40
   <StepsPerThreat>k__BackingField: 8
-  <ThreatHandicap>k__BackingField: 1
-  <BaseFoeBudget>k__BackingField: 7
+  <ThreatHandicap>k__BackingField: 0
+  <BaseFoeBudget>k__BackingField: 8
   <ThreatPerBudgetUp>k__BackingField: 5
   <StatPerThreat>k__BackingField: 0.12
   <HealthPerThreat>k__BackingField: 0.05

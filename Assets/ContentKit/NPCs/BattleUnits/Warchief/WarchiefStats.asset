@@ -15,10 +15,8 @@ MonoBehaviour:
   unitName: 
   maxHealth: 100
   handSize: 3
-  playerAllied: 0
   startBeats: 1
-  myTurn: 0
   damageScaling: 15
-  barrierScaling: 15
-  healScaling: 15
+  barrierScaling: 10
+  healScaling: 10
   turnSpeed: 0.5

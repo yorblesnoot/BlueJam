@@ -1,12 +1,33 @@
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class InventorySlot : MonoBehaviour, IDropHandler
 {
+    [HideInInspector] public EssenceCrafting essenceCrafting;
     public virtual void OnDrop(PointerEventData eventData)
     {
         SoundManager.PlaySound(SoundType.INVENTORYDROP);
-        ConfirmDrop(eventData);
+        
+        GameObject dropped = eventData.pointerDrag;
+        DraggableItem droppedItem = dropped.GetComponent<DraggableItem>();
+        int children = ChildCountActive();
+        if (children >= 1)
+        {
+            //get the parent of the incoming object
+            Transform otherParent = droppedItem.parentAfterDrag;
+            Transform childDraggable = transform.GetChild(0);
+            childDraggable.SetParent(otherParent);
+            childDraggable.localScale = Vector3.one;
+            otherParent.gameObject.GetComponent<InventorySlot>().ReceiveDraggable(childDraggable.gameObject.GetComponent<DraggableItem>());
+        }
+        droppedItem.parentAfterDrag = transform;
+        ReceiveDraggable(droppedItem);
+    }
+
+    public virtual void ReceiveDraggable(DraggableItem item)
+    {
+        item.RemoveFromCraftSlot();
     }
 
     public int ChildCountActive()
@@ -18,19 +39,5 @@ public class InventorySlot : MonoBehaviour, IDropHandler
                 k++;
         }
         return k;
-    }
-    public DraggableItem ConfirmDrop(PointerEventData eventData)
-    {
-        int children = ChildCountActive();
-        GameObject dropped = eventData.pointerDrag;
-        DraggableItem droppedItem = dropped.GetComponent<DraggableItem>();
-        if (children >= 1)
-        {
-            //get the parent of the incoming object
-            Transform otherParent = droppedItem.parentAfterDrag;
-            transform.GetChild(0).SetParent(otherParent);
-        }
-        droppedItem.parentAfterDrag = transform;       
-        return droppedItem;
     }
 }

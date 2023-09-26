@@ -28,10 +28,14 @@ public class EssenceCrafting : MonoBehaviour
     readonly int hatProjectionDistance = 30;
     private void Awake()
     {
-        foreach(var card in miniCards)
-        {
-            card.bigCard = bigCardDisplay;
-        }
+        List<InventorySlot> slots = new();
+        slots.AddRange(inventorySlots);
+        slots.AddRange(craftingSlots);
+        slots.Add(essenceSlot);
+
+        foreach(var slot in slots) slot.essenceCrafting = this;
+        foreach(var card in miniCards) card.bigCard = bigCardDisplay;
+
         runData.essenceInventory = runData.essenceInventory.OrderBy(x => x.name).ToList();
         for( int i = 0; i < dragItems.Count; i++ )
         {
@@ -45,8 +49,7 @@ public class EssenceCrafting : MonoBehaviour
                 //associate a draggable with a specific deck
                 dragItems[i].essence = runData.essenceInventory[i];
 
-                Color colorFromHex;
-                ColorUtility.TryParseHtmlString("#F8B63C", out colorFromHex);
+                ColorUtility.TryParseHtmlString("#F8B63C", out Color colorFromHex);
                 if (runData.essenceInventory[i].deckContents.Count >= 5) dragItems[i].image.color = colorFromHex;
                 else dragItems[i].image.color = Color.white;
 
@@ -118,7 +121,7 @@ public class EssenceCrafting : MonoBehaviour
             "You can see the cards available from an essence in the bottom right. For each essence you add to the craft, you'll be offered an additional option to choose from. Press the hammer button when you're ready.");
         if (operation) craftingSlotContents.Add(item);
         else craftingSlotContents.Remove(item);
-        if (craftingSlotContents.Count == 0) craftStatus.text = "Insufficient materials!";
+        if (craftingSlotContents.Count == 0 || essenceSlotContents == null) craftStatus.text = "Insufficient materials!";
         else craftStatus.text = $"<color=#FF4E2B>{craftingSlotContents.Count}</color> {essenceSlotContents.essence.unitName} Card{(craftingSlotContents.Count > 1 ? "s" : "")}";
     }
 

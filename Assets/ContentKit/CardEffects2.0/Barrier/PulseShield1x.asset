@@ -20,10 +20,11 @@ MonoBehaviour:
   vfxStyleAfter: 0
   vfxNameAfter: PulseShield
   effectSound: 1
-  scalingMultiplier: 0.7
+  effectSoundAfterHit: 0
+  scalingMultiplier: 1
   aoeShape: 0
   aoeSize: 3
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  barrierType: 0
+  barrierType: 1
