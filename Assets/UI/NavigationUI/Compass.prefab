@@ -58,6 +58,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3016924496630956531, guid: 406157928943b4a49ace04f5517bc7ff, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 0b2d806d040e8d24797e86a48d9ab4bf, type: 2}
     - target: {fileID: 3665570179786694694, guid: 406157928943b4a49ace04f5517bc7ff, type: 3}
       propertyPath: m_Name
       value: Proto_Symbol_Arrow_Straight_01
