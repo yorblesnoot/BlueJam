@@ -14,22 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
-  playerWorldX: 251
-  playerWorldY: 249
+  playerWorldX: 244
+  playerWorldY: 248
   itemInventory: []
-  essenceInventory:
-  - {fileID: 11400000, guid: b7d92abc3a4e66341b5ff302a6108ec2, type: 2}
-  - {fileID: 11400000, guid: b7d92abc3a4e66341b5ff302a6108ec2, type: 2}
-  - {fileID: 11400000, guid: b7d92abc3a4e66341b5ff302a6108ec2, type: 2}
-  - {fileID: 11400000, guid: b7d92abc3a4e66341b5ff302a6108ec2, type: 2}
-  - {fileID: 11400000, guid: b7d92abc3a4e66341b5ff302a6108ec2, type: 2}
-  - {fileID: 11400000, guid: b7d92abc3a4e66341b5ff302a6108ec2, type: 2}
+  essenceInventory: []
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
-  RemoveStock: 0
-  worldSteps: 0
+  RemoveStock: 1
+  worldSteps: 22
   difficultyTier: 3
   currentHealth: 100
-  score: 50
-  bossSequence: 00000000010000000300000002000000
+  score: 78
+  bossSequence: 02000000030000000000000001000000
   endless: 0

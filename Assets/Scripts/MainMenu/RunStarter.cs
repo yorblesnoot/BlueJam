@@ -8,6 +8,8 @@ public class RunStarter : MonoBehaviour
     [SerializeField] Deck playerDeck;
     [SerializeField] GenerationParameters generationParameters;
     [SerializeField] DifficultySelector difficultySelector;
+
+    [HideInInspector] public static readonly TerrainType[] unpathable = { TerrainType.WATER, TerrainType.DEEPWATER, TerrainType.MOUNTAIN };
     public void NewGame()
     {
         EventManager.loadSceneWithScreen.Invoke(1);
@@ -29,8 +31,7 @@ public class RunStarter : MonoBehaviour
         int mapSize = runData.worldMap.GetLength(0);
 
         //starting position on world map; ~~~~~~~~~~add randomization and legality check
-        TerrainType[] badTiles = new TerrainType[] {TerrainType.WATER, TerrainType.DEEPWATER};
-        Vector2Int startPosition = runData.worldMap.SpiralSearch(badTiles, new Vector2Int(mapSize / 2, mapSize / 2), false);
+        Vector2Int startPosition = runData.worldMap.SpiralSearch(unpathable, new Vector2Int(mapSize / 2, mapSize / 2), false);
 
         runData.playerWorldX = startPosition.x;
         runData.playerWorldY = startPosition.y;

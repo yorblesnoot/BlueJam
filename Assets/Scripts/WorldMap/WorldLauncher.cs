@@ -52,13 +52,15 @@ public class WorldLauncher : MapLauncher
         else placer.CheckToPopulateChunks(startPos);
         if (runData.bossSequence.Count == 0) GenerateBossSequence();
         if (!runData.eventMap.ContainsValue(EventType.BOSS)) placer.PlaceBoss();
-        runData.eventMap.Remove(startPos);
-
 
         mapRenderer.RenderFullWindow(runData.worldMap);
 
         WorldEvent worldEvent = MapTools.MapToTile(localPlayer).GetComponent<WorldEventHandler>().cellEvent;
-        if (worldEvent != null) worldEvent.Activate();
+        if (worldEvent != null)
+        {
+            worldEvent.PreAnimate();
+            worldEvent.Activate();
+        }
 
         playerControl.compassMaster.DeployCompass(EventType.BOSS, Color.red);
 

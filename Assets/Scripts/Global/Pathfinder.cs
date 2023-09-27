@@ -7,7 +7,7 @@ using UnityEngine;
 public class Pathfinder 
 {
     Dictionary<Vector2Int, Node> nodeMap = new();
-    TerrainType[] unpathables = { TerrainType.WATER, TerrainType.DEEPWATER, TerrainType.MOUNTAIN };
+    
     public Pathfinder(bool occupiedIsUnpathable = true)
     {
         foreach (Vector2Int key in MapTools.gameMap.Keys)
@@ -31,7 +31,7 @@ public class Pathfinder
         {
             Vector2Int globalKey = localKey + globalOffset;
             bool unpathable = false;
-            if (unpathables.Contains(worldMap[globalKey.x, globalKey.y]))
+            if (RunStarter.unpathable.Contains(worldMap[globalKey.x, globalKey.y]))
             {
                 unpathable = true;
                 if(WorldPlayerControl.CurrentVehicle != null 

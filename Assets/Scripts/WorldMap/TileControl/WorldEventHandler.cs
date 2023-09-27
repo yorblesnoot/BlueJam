@@ -90,7 +90,9 @@ public class WorldEventHandler : MonoBehaviour
         WorldEncounterBuilder builder = new(sceneRelay, runData);
 
         //remove activated enemies from the enemy map in rundata
-        runData.eventMap.Remove(MapTools.VectorToMap(cellEnemy.transform.position) + WorldMapRenderer.spotlightGlobalOffset);
+        Vector2Int enemyCoords = MapTools.VectorToMap(cellEnemy.transform.position) + WorldMapRenderer.spotlightGlobalOffset;
+        runData.eventMap.Remove(enemyCoords);
+        WorldEventRenderer.spawnedEvents.Remove(enemyCoords);
 
         //modify encounters-- extra map generation parameters
         builder.ModifyMapGeneration(biomeMaps);

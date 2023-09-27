@@ -38,10 +38,18 @@ public class VehicleEvent : WorldEvent
     IEnumerator HopToVehicle()
     {
         WorldPlayerControl.player.GetComponent<UnitAnimator>().Animate(AnimType.JUMP);
-        yield return new WaitForSeconds(WorldPlayerControl.moveTime);
-        transform.SetParent(WorldPlayerControl.player.playerVisual.transform, true);
-        transform.localRotation = Quaternion.Euler(0, 90, 0);
         float timeElapsed = 0;
+        Quaternion targetRotation = WorldPlayerControl.player.playerVisual.transform.rotation;
+        Quaternion startRotiation = transform.rotation;
+        while (timeElapsed < WorldPlayerControl.moveTime)
+        {
+            transform.rotation = Quaternion.Lerp(startRotiation, targetRotation, timeElapsed / WorldPlayerControl.moveTime);
+            timeElapsed += Time.deltaTime;
+            yield return null;
+        }
+        transform.rotation = targetRotation;
+        transform.SetParent(WorldPlayerControl.player.playerVisual.transform, true);
+        timeElapsed = 0;
         Transform playerModel = WorldPlayerControl.player.playerModel.transform;
         attachmentPoint.transform.SetParent(WorldPlayerControl.player.playerVisual.transform, true);
         Vector3 startPosition = playerModel.localPosition;

@@ -73,7 +73,7 @@ public class DynamicEventPlacer
         runData.exploredChunks[chunk.x, chunk.y] = true;
     }
     readonly int boatChance = 9;
-    readonly int balloonChance = 5;
+    readonly int balloonChance = 12;
     private void EvaluateSpecialPlacements(Vector2Int globalPoint)
     {
         PlaceVehicle(globalPoint, EventType.BOAT, new TerrainType[] { TerrainType.WATER, TerrainType.DEEPWATER }, boatChance);

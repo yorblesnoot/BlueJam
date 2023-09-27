@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 public enum WorldPlayerState { IDLE, PATHING, MENUS, SELECTION}
 public enum VehicleMode
@@ -43,6 +44,11 @@ public class WorldPlayerControl : MonoBehaviour
         Tutorial.CompleteStage(TutorialFor.WORLDREMOVE, 1, true);
         foreach (GameObject tile in path)
         {
+            Vector2Int globalCoords = MapTools.VectorToMap(tile.transform.position) + WorldMapRenderer.spotlightGlobalOffset;
+            if (RunStarter.unpathable.Contains(runData.worldMap[globalCoords.x, globalCoords.y]) 
+                && CurrentVehicle == null)
+                if(!(runData.eventMap.TryGetValue(globalCoords, out var value) && (value == EventType.BOAT || value == EventType.BALLOON))) 
+                    yield break;
             playerState = WorldPlayerState.PATHING;
             runData.score -= 1;
             WorldMovementController tileController = tile.GetComponent<WorldMovementController>();
@@ -53,8 +59,6 @@ public class WorldPlayerControl : MonoBehaviour
 
             //modify player's world position and run difficulty in run data
             Vector2Int oldCoords = MapTools.VectorToMap(transform.position) + WorldMapRenderer.spotlightGlobalOffset;
-
-            Vector2Int globalCoords = MapTools.VectorToMap(tile.transform.position) + WorldMapRenderer.spotlightGlobalOffset;
 
             runData.playerWorldX = globalCoords.x;
             runData.playerWorldY = globalCoords.y;
