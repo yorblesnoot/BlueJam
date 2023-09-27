@@ -36,9 +36,9 @@ public class SaveContainer
     public List<string> items;
     public List<string> essenceInventory;
 
-    public List<string> worldMap;
+    public List<TerrainType> worldMap;
 
-    public List<string> eventsOnMap;
+    public List<EventType> eventsOnMap;
     public List<int> eventsX;
     public List<int> eventsY;
     public List<bool> chunks;

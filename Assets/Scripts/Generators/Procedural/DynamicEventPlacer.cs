@@ -11,13 +11,13 @@ public class DynamicEventPlacer
     readonly List<int> probabilities;
     RunData runData;
 
-    readonly Dictionary<int, string> eventsAndOdds = new()
+    readonly Dictionary<int, EventType> eventsAndOdds = new()
     {
-        { 1, "i"}, //item
-        { 3, "r" }, //removal
-        { 7, "h" }, //heal
-        { 16, "e" }, //enemy
-        { 350, "" }, //nothing
+        { 1, EventType.ITEM}, //item
+        { 3, EventType.REMOVE }, //removal
+        { 7, EventType.HEAL }, //heal
+        { 16, EventType.ENEMY }, //enemy
+        { 350, EventType.NONE }, //nothing
     };
     public DynamicEventPlacer(RunData data)
     {
@@ -64,14 +64,35 @@ public class DynamicEventPlacer
         List<Vector2Int> validSpots = GetValidSpots(chunk);
         foreach (Vector2Int validSpot in validSpots)
         {
-            string output = RandomEvent(eventsAndOdds, totalChance);
-            if (!string.IsNullOrEmpty(output)) 
+            EventType output = RandomEvent(eventsAndOdds, totalChance);
+            if (output != EventType.NONE) 
                 runData.eventMap.Add(validSpot, output);
+            else EvaluateSpecialPlacements(validSpot);
         }
         runData.exploredChunks[chunk.x, chunk.y] = true;
     }
 
-    private string RandomEvent(Dictionary<int, string> options, int total)
+    private void EvaluateSpecialPlacements(Vector2Int globalPoint)
+    {
+        PlaceBoat(globalPoint);
+    }
+
+    readonly int boatChance = 5;
+    private void PlaceBoat(Vector2Int globalPoint)
+    {
+        if (runData.worldMap[globalPoint.x, globalPoint.y] != TerrainType.WATER && runData.worldMap[globalPoint.x, globalPoint.y] != TerrainType.DEEPWATER) return;
+        List<Vector2Int> surrounding = globalPoint.GetAdjacentCoordinates();
+        foreach(var point in surrounding)
+        {
+            if (runData.worldMap[point.x, point.y] != TerrainType.WATER && runData.worldMap[point.x, point.y] != TerrainType.DEEPWATER)
+            {
+                if (UnityEngine.Random.Range(0, boatChance) == 0) runData.eventMap.Add(globalPoint, EventType.BOAT);
+                return;
+            }
+        }
+    }
+
+    private EventType RandomEvent(Dictionary<int, EventType> options, int total)
     {
         int selection = UnityEngine.Random.Range(0, total);
         int currentThreshold = 0;
@@ -112,6 +133,6 @@ public class DynamicEventPlacer
         Vector2Int chunkLocation = intLocation/chunkSize;
         PopulateChunk(chunkLocation);
         runData.eventMap.Remove(intLocation);
-        runData.eventMap.Add(intLocation,"b");
+        runData.eventMap.Add(intLocation, EventType.BOSS);
     }
 }

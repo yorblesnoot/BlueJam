@@ -7,7 +7,7 @@ public class CompassMaster : MonoBehaviour
 {
     [SerializeField] List<WorldCompass> compasses;
     [SerializeField] RunData runData;
-    public void DeployCompass(string searchKey, Color32 color)
+    public void DeployCompass(EventType searchKey, Color32 color)
     {
         Vector2Int targetLocation = runData.eventMap.FirstOrDefault(x => x.Value == searchKey).Key;
         WorldCompass compass = compasses.FirstOrDefault(x => x.gameObject.activeSelf == false);

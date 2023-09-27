@@ -16,13 +16,13 @@ public class WorldPlayerControl : MonoBehaviour
     public CompassMaster compassMaster;
     public static WorldPlayerControl player;
 
-    public static List<string> badTiles;
+    public static List<TerrainType> badTiles;
     readonly int tileDamage = 2;
     readonly public static float moveTime = .5f;
     public void InitializePlayer()
     {
         player = this;
-        badTiles = new() {"w", "u"};
+        badTiles = new() {TerrainType.WATER, TerrainType.DEEPWATER };
         playerState = WorldPlayerState.IDLE;
         Vector2Int worldMapCoords = new(runData.playerWorldX, runData.playerWorldY);
         worldMapCoords -= WorldMapRenderer.spotlightGlobalOffset;

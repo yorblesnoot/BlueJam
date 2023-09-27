@@ -24,15 +24,22 @@ public class Pathfinder
         }
     }
 
-    public Pathfinder(string[,] worldMap, List<string> badTiles, Vector2Int globalOffset)
+    public Pathfinder(TerrainType[,] worldMap, Dictionary<Vector2Int, EventType> eventMap, List<TerrainType> badTiles, Vector2Int globalOffset)
     {
         foreach (Vector2Int localKey in MapTools.gameMap.Keys)
         {
             Vector2Int globalKey = localKey + globalOffset;
-            int penalty = 0;
-            if (badTiles.Contains(worldMap[globalKey.x,globalKey.y]))
-                penalty+=2;
-            nodeMap.Add(localKey, new Node { location = localKey, reference = MapTools.gameMap[localKey], blocked = false, P = penalty });
+            bool unpathable = false;
+            if (badTiles.Contains(worldMap[globalKey.x, globalKey.y]))
+            {
+                if (!eventMap.TryGetValue(globalKey, out var eventType) || eventType != EventType.BOAT)
+                {
+                    unpathable = true;
+                }
+            } 
+                
+                
+            nodeMap.Add(localKey, new Node { location = localKey, reference = MapTools.gameMap[localKey], blocked = unpathable });
         }
     }
     public List<GameObject> FindObjectPath(Vector2Int start, Vector2Int end)

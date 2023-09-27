@@ -30,7 +30,7 @@ public class WorldEventHandler : MonoBehaviour
         adjacents.Add(myPosition);
         foreach (var adjacent in adjacents)
         {
-            if (runData.eventMap.ContainsKey(adjacent) && runData.eventMap[adjacent] == "e")
+            if (runData.eventMap.ContainsKey(adjacent) && runData.eventMap[adjacent] == EventType.ENEMY)
             { 
                 redGlow.SetActive(true);
                 Tutorial.Initiate(TutorialFor.WORLDBATTLE, TutorialFor.WORLDPICKUPS);

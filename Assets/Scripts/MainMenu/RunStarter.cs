@@ -29,7 +29,7 @@ public class RunStarter : MonoBehaviour
         int mapSize = runData.worldMap.GetLength(0);
 
         //starting position on world map; ~~~~~~~~~~add randomization and legality check
-        string[] badTiles = new string[] {"w", "u"};
+        TerrainType[] badTiles = new TerrainType[] {TerrainType.WATER, TerrainType.DEEPWATER};
         Vector2Int startPosition = runData.worldMap.SpiralSearch(badTiles, new Vector2Int(mapSize / 2, mapSize / 2), false);
 
         runData.playerWorldX = startPosition.x;

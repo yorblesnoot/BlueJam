@@ -14,12 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapSize: 500
   noiseFrequency: 1.5
-  symbolThresholds:
-  - u
-  - w
-  - w
-  - f
-  - d
-  - t
-  - m
-  - m
+  symbolThresholds: 0200000001000000010000000400000006000000050000000300000003000000

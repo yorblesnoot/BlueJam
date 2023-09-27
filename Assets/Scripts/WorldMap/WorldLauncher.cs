@@ -50,12 +50,12 @@ public class WorldLauncher : MapLauncher
             placer.CheckToPopulateChunks(startPos, true);
         else placer.CheckToPopulateChunks(startPos);
         if (runData.bossSequence.Count == 0) GenerateBossSequence();
-        if (!runData.eventMap.ContainsValue("b")) placer.PlaceBoss();
+        if (!runData.eventMap.ContainsValue(EventType.BOSS)) placer.PlaceBoss();
         runData.eventMap.Remove(startPos);
 
 
         mapRenderer.RenderFullWindow(runData.worldMap);
-        playerControl.compassMaster.DeployCompass("b", Color.red);
+        playerControl.compassMaster.DeployCompass(EventType.BOSS, Color.red);
 
         new SaveContainer(runData).SaveGame();
 

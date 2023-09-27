@@ -5,10 +5,10 @@ using Random = UnityEngine.Random;
 
 public class ProceduralMapGenerator
 {
-    public string[,] Generate(GenerationParameters genParam)
+    public TerrainType[,] Generate(GenerationParameters genParam)
     {
         int mapSize = genParam.mapSize;
-        string[,] noiseMap = new string[mapSize, mapSize];
+        TerrainType[,] noiseMap = new TerrainType[mapSize, mapSize];
 
         //sampling point, number might need to be higher
         int randMax = 999999;
@@ -36,9 +36,9 @@ public class ProceduralMapGenerator
         return noiseMap;
     }
 
-    public string TranslateNoise(float noise, GenerationParameters genParam)
+    public TerrainType TranslateNoise(float noise, GenerationParameters genParam)
     {
-        List<string> symbolThresholds = genParam.symbolThresholds;
+        List<TerrainType> symbolThresholds = genParam.symbolThresholds;
         int numSymbols = symbolThresholds.Count;
         for(int entry = 0; entry < numSymbols; entry++)
         {

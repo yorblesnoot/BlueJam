@@ -10,8 +10,8 @@ public class RunData : ScriptableObject
     public Deck playerDeck;
 
 
-    [HideInInspector] public string[,] worldMap;
-    [HideInInspector] public Dictionary<Vector2Int, string> eventMap;
+    [HideInInspector] public TerrainType[,] worldMap;
+    [HideInInspector] public Dictionary<Vector2Int, EventType> eventMap;
     [HideInInspector] public bool[,] exploredChunks;
 
     public int playerWorldX;

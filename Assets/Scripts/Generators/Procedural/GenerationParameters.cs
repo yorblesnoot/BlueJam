@@ -10,5 +10,5 @@ public class GenerationParameters : ScriptableObject
     [Range(1f, 10f)]
     public float noiseFrequency;
 
-    public List<string> symbolThresholds;
+    public List<TerrainType> symbolThresholds;
 }

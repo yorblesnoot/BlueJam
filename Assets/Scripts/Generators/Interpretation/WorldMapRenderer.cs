@@ -15,7 +15,7 @@ public class WorldMapRenderer : MonoBehaviour
     readonly int windowRadius = 4;
     static bool[,] windowShape;
 
-    Dictionary<string, ObjectPool> tilePools;
+    Dictionary<TerrainType, ObjectPool> tilePools;
 
     public void Initialize()
     {
@@ -51,11 +51,11 @@ public class WorldMapRenderer : MonoBehaviour
         return circleContents;
     }
 
-    public static string[,] GetLocalMapFromWindow(string[,] globalMap)
+    public static TerrainType[,] GetLocalMapFromWindow(TerrainType[,] globalMap)
     {
         //project a boolean grid onto a larger string grid
         int localSize = windowShape.GetLength(0);
-        string[,] localMap = new string[localSize,localSize];
+        TerrainType[,] localMap = new TerrainType[localSize,localSize];
         for (int x = 0; x < localSize; x++)
         {
             for (int y = 0; y < localSize; y++)
@@ -71,9 +71,9 @@ public class WorldMapRenderer : MonoBehaviour
         return localMap;
     }
 
-    public void RenderFullWindow(string[,] globalMap)
+    public void RenderFullWindow(TerrainType[,] globalMap)
     {
-        string[,] localMap = GetLocalMapFromWindow(globalMap);
+        TerrainType[,] localMap = GetLocalMapFromWindow(globalMap);
         //project a boolean grid onto a larger string grid, then render from the string grid based on the overlap
         int localSize = localMap.GetLength(0);
         mapKey.Initialize();
@@ -84,14 +84,14 @@ public class WorldMapRenderer : MonoBehaviour
         {
             for (int y = 0; y < localSize; y++)
             {
-                string tileKey = localMap[x, y];
-                if (tileKey == null) continue;
+                TerrainType tileKey = localMap[x, y];
+                if (tileKey == TerrainType.EMPTY) continue;
                 RenderCell(tileKey, new Vector2Int(x,y));
             }
         }
     }
 
-    void RenderCell(string tileKey, Vector2Int cellCoords)
+    void RenderCell(TerrainType tileKey, Vector2Int cellCoords)
     {
         GameObject tile = tilePools[tileKey].InstantiateFromPool(MapTools.MapToVector(cellCoords, 0), PhysicsHelper.RandomCardinalRotate());
         MapTools.gameMap.Add(cellCoords, tile);
