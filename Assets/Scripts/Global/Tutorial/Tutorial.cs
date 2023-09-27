@@ -18,7 +18,8 @@ public enum TutorialFor
     BATTLEDODAMAGE,
     WORLDCRAFTING,
     WORLDDECK,
-    WORLDCRAFTREMINDER
+    WORLDCRAFTREMINDER,
+    WORLDVEHICLE
     //others
 }
 

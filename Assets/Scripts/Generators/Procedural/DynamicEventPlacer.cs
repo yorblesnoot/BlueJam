@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class DynamicEventPlacer
@@ -71,22 +72,23 @@ public class DynamicEventPlacer
         }
         runData.exploredChunks[chunk.x, chunk.y] = true;
     }
-
+    readonly int boatChance = 9;
+    readonly int balloonChance = 5;
     private void EvaluateSpecialPlacements(Vector2Int globalPoint)
     {
-        PlaceBoat(globalPoint);
+        PlaceVehicle(globalPoint, EventType.BOAT, new TerrainType[] { TerrainType.WATER, TerrainType.DEEPWATER }, boatChance);
+        PlaceVehicle(globalPoint, EventType.BALLOON, new TerrainType[] { TerrainType.MOUNTAIN }, balloonChance);
     }
 
-    readonly int boatChance = 5;
-    private void PlaceBoat(Vector2Int globalPoint)
+    private void PlaceVehicle(Vector2Int globalPoint, EventType vehicle, TerrainType[] impassables, int probability)
     {
-        if (runData.worldMap[globalPoint.x, globalPoint.y] != TerrainType.WATER && runData.worldMap[globalPoint.x, globalPoint.y] != TerrainType.DEEPWATER) return;
+        if (!impassables.Contains(runData.worldMap[globalPoint.x, globalPoint.y])) return;
         List<Vector2Int> surrounding = globalPoint.GetAdjacentCoordinates();
         foreach(var point in surrounding)
         {
-            if (runData.worldMap[point.x, point.y] != TerrainType.WATER && runData.worldMap[point.x, point.y] != TerrainType.DEEPWATER)
+            if (!impassables.Contains(runData.worldMap[point.x, point.y]))
             {
-                if (UnityEngine.Random.Range(0, boatChance) == 0) runData.eventMap.Add(globalPoint, EventType.BOAT);
+                if (UnityEngine.Random.Range(0, probability) == 0) runData.eventMap.Add(globalPoint, vehicle);
                 return;
             }
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,15 +14,17 @@ public class WorldEventRenderer : MonoBehaviour
     }
 
     [SerializeField] List<EventPool> pools;
-    [SerializeField] RunData runData;
+    [SerializeField] RunData _runData;
+    static RunData runData;
 
     readonly float eventHeight = .7f;
 
-    Dictionary<EventType, ObjectPool> eventTable;
-    Dictionary<Vector2Int, GameObject> spawnedEvents;
+    static Dictionary<EventType, ObjectPool> eventTable;
+    public static Dictionary<Vector2Int, GameObject> spawnedEvents;
 
     private void Awake()
     {
+        runData = _runData;
         spawnedEvents = new();
         eventTable = new();
         foreach (EventPool pool in pools)
@@ -36,12 +39,12 @@ public class WorldEventRenderer : MonoBehaviour
         if (!runData.eventMap.ContainsKey(globalCoordinates)) return null;
         EventType cellKey = runData.eventMap[globalCoordinates];
         Vector3 spawnLocation = MapTools.MapToVector(localCoordinates, eventHeight);
-        GameObject cellEvent = eventTable[cellKey].InstantiateFromPool(spawnLocation, Quaternion.identity);
+        GameObject cellEvent = eventTable[cellKey].InstantiateFromPool(spawnLocation, PhysicsHelper.RandomCardinalRotate());
         spawnedEvents.Add(globalCoordinates,cellEvent);
         return cellEvent;
     }
 
-    public void UnrenderCellEvent(Vector2Int globalCoordinates)
+    public static void UnrenderCellEvent(Vector2Int globalCoordinates)
     {
         if (runData.eventMap.TryGetValue(globalCoordinates, out EventType eventType)
             && eventTable.TryGetValue(eventType, out ObjectPool pool)
@@ -52,4 +55,11 @@ public class WorldEventRenderer : MonoBehaviour
         }
     }
 
+    public static void MoveEvent(Vector2Int newPosition, Vector2Int oldPosition, EventType eventType, GameObject eventObject)
+    {
+        runData.eventMap.Remove(oldPosition);
+        runData.eventMap.Add(newPosition, eventType);
+        spawnedEvents.Remove(oldPosition);
+        spawnedEvents.Add(newPosition, eventObject);
+    }
 }

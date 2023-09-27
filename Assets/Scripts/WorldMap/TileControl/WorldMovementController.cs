@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+
 public class WorldMovementController : MonoBehaviour
 {
     [SerializeField] CellHighlight mySelector;
@@ -14,8 +15,6 @@ public class WorldMovementController : MonoBehaviour
     public static readonly float heightAdjust = .5f;
     public Vector3 unitPosition;
     
-    public bool dangerTile;
-
     void OnEnable()
     {
         myPath = new();
@@ -24,10 +23,6 @@ public class WorldMovementController : MonoBehaviour
         EventManager.clearWorldDestination.AddListener(ClearHighlight);
         EventManager.requestMapReferences.AddListener(launcher => { launcher.SubmitMapReference(gameObject); });
         Vector2Int globalCoords = MapTools.VectorToMap(myPosition) + WorldMapRenderer.spotlightGlobalOffset;
-        if (WorldPlayerControl.badTiles.Contains(runData.worldMap[globalCoords.x, globalCoords.y]))
-        {
-            dangerTile = true;
-        }
     }
 
     public void OnMouseDown()
@@ -52,7 +47,7 @@ public class WorldMovementController : MonoBehaviour
     private void OnMouseEnter()
     {
         if (WorldPlayerControl.playerState != WorldPlayerState.IDLE || EventSystem.current.IsPointerOverGameObject()) return;
-        Pathfinder pather = new(runData.worldMap, runData.eventMap, WorldPlayerControl.badTiles, WorldMapRenderer.spotlightGlobalOffset);
+        Pathfinder pather = new(runData.worldMap, runData.eventMap, WorldMapRenderer.spotlightGlobalOffset);
         myPath = pather.FindObjectPath(MapTools.VectorToMap(WorldPlayerControl.player.transform.position), MapTools.VectorToMap(unitPosition));
         if (myPath != null)
             foreach (GameObject cell in myPath)
@@ -65,12 +60,7 @@ public class WorldMovementController : MonoBehaviour
     }
     public void HighlightRoute()
     {
-        if (dangerTile)
-        {
-            mySelector.ChangeHighlightMode(HighlightMode.ILLEGAL);
-        }
-        else
-            mySelector.ChangeHighlightMode(HighlightMode.AOE);
+        mySelector.ChangeHighlightMode(HighlightMode.AOE);
     }
     public void ClearHighlight() { mySelector.ChangeHighlightMode(HighlightMode.OFF); }
 }

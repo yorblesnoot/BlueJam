@@ -7,6 +7,7 @@ using UnityEngine;
 public class Pathfinder 
 {
     Dictionary<Vector2Int, Node> nodeMap = new();
+    TerrainType[] unpathables = { TerrainType.WATER, TerrainType.DEEPWATER, TerrainType.MOUNTAIN };
     public Pathfinder(bool occupiedIsUnpathable = true)
     {
         foreach (Vector2Int key in MapTools.gameMap.Keys)
@@ -24,21 +25,25 @@ public class Pathfinder
         }
     }
 
-    public Pathfinder(TerrainType[,] worldMap, Dictionary<Vector2Int, EventType> eventMap, List<TerrainType> badTiles, Vector2Int globalOffset)
+    public Pathfinder(TerrainType[,] worldMap, Dictionary<Vector2Int, EventType> eventMap, Vector2Int globalOffset)
     {
         foreach (Vector2Int localKey in MapTools.gameMap.Keys)
         {
             Vector2Int globalKey = localKey + globalOffset;
             bool unpathable = false;
-            if (badTiles.Contains(worldMap[globalKey.x, globalKey.y]))
+            if (unpathables.Contains(worldMap[globalKey.x, globalKey.y]))
             {
-                if (!eventMap.TryGetValue(globalKey, out var eventType) || eventType != EventType.BOAT)
+                unpathable = true;
+                if(WorldPlayerControl.CurrentVehicle != null 
+                    && WorldPlayerControl.CurrentVehicle.compatibleTerrains.Contains(worldMap[globalKey.x, globalKey.y]))
                 {
-                    unpathable = true;
+                    unpathable = false;
+                }
+                if (eventMap.TryGetValue(globalKey, out var eventType) && (eventType == EventType.BOAT || eventType == EventType.BALLOON))
+                {
+                    unpathable = false;
                 }
             } 
-                
-                
             nodeMap.Add(localKey, new Node { location = localKey, reference = MapTools.gameMap[localKey], blocked = unpathable });
         }
     }

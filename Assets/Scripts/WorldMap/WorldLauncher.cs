@@ -45,7 +45,8 @@ public class WorldLauncher : MapLauncher
         }
 
         DynamicEventPlacer placer = new(runData);
-        Vector2Int startPos = MapTools.VectorToMap(WorldPlayerControl.player.transform.position) + WorldMapRenderer.spotlightGlobalOffset;
+        Vector2Int localPlayer = MapTools.VectorToMap(WorldPlayerControl.player.transform.position);
+        Vector2Int startPos = localPlayer + WorldMapRenderer.spotlightGlobalOffset;
         if (PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1)
             placer.CheckToPopulateChunks(startPos, true);
         else placer.CheckToPopulateChunks(startPos);
@@ -55,6 +56,10 @@ public class WorldLauncher : MapLauncher
 
 
         mapRenderer.RenderFullWindow(runData.worldMap);
+
+        WorldEvent worldEvent = MapTools.MapToTile(localPlayer).GetComponent<WorldEventHandler>().cellEvent;
+        if (worldEvent != null) worldEvent.Activate();
+
         playerControl.compassMaster.DeployCompass(EventType.BOSS, Color.red);
 
         new SaveContainer(runData).SaveGame();

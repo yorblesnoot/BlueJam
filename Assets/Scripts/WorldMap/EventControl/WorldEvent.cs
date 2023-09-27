@@ -16,10 +16,15 @@ public class WorldEvent : MonoBehaviour
         RegisterWithCell();
     }
 
-    void RegisterWithCell()
+    internal void RegisterWithCell()
     {
         tile = MapTools.VectorToTile(transform.position);
         tile.GetComponent<WorldEventHandler>().RegisterEvent(this);
+    }
+
+    public virtual void PreAnimate()
+    {
+        StartCoroutine(ShrinkAway());
     }
 
     public virtual void Activate()
@@ -36,19 +41,20 @@ public class WorldEvent : MonoBehaviour
         Vector2Int coords = MapTools.VectorToMap(transform.position);
         coords += WorldMapRenderer.spotlightGlobalOffset;
         runData.eventMap.Remove(coords);
-        StartCoroutine(ShrinkAway());
+        WorldEventRenderer.spawnedEvents.Remove(coords);
     }
 
-    readonly float shrinkDuration = .5f;
+    readonly float shrinkDuration = .7f;
     IEnumerator ShrinkAway()
     {
         glow.Stop();
         float timeElapsed = 0;
+        Vector3 startPosition = transform.position;
         while (timeElapsed < shrinkDuration)
         {
-            Vector3 step = Vector3.Lerp(Vector3.one, Vector3.zero, timeElapsed / shrinkDuration);
+            model.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timeElapsed / shrinkDuration);
+            model.transform.position = Vector3.Lerp(startPosition, WorldPlayerControl.player.playerModel.transform.position, timeElapsed / shrinkDuration);
             timeElapsed += Time.deltaTime;
-            model.transform.localScale = step;
             yield return null;
         }
         yield return new WaitForSeconds(1F);

@@ -21,5 +21,6 @@ public enum EventType
     REMOVE,
     ITEM,
     BOSS,
-    BOAT
+    BOAT,
+    BALLOON
 }

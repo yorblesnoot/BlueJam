@@ -6,7 +6,7 @@ using UnityEngine;
 public class WorldMapRenderer : MonoBehaviour
 {
     [SerializeField] MapKey mapKey;
-    [SerializeField] WorldEventRenderer eventRenderer;
+    public WorldEventRenderer eventRenderer;
     [SerializeField] RunData runData;
     public static Vector2Int spotlightGlobalOffset;
     public static Vector2Int spotlightLocalOffset;
@@ -108,7 +108,7 @@ public class WorldMapRenderer : MonoBehaviour
         yield return StartCoroutine(StaggeredMoveIn(toUnrender, 0f, -5f));
         Vector2Int globalCoords = coords + spotlightGlobalOffset;
         if (runData.eventMap.ContainsKey(globalCoords))
-            eventRenderer.UnrenderCellEvent(globalCoords);
+            WorldEventRenderer.UnrenderCellEvent(globalCoords);
         if (toUnrender != null)
         {
             tilePools[runData.worldMap[globalCoords.x, globalCoords.y]].ReturnToPool(toUnrender);

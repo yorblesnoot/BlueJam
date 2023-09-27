@@ -105,21 +105,22 @@ public class WorldEventHandler : MonoBehaviour
     readonly static float sparkleElevation = .2f;
     IEnumerator AnimatePlayerToBattle()
     {
-        GameObject player = WorldPlayerControl.player.gameObject;
+        GameObject player = WorldPlayerControl.player.playerModel;
         Vector3 risePosition = player.transform.position;
         Vector3 dropPosition = transform.position;
         dropPosition.x += Random.Range(-randomDistanceWithinTile, randomDistanceWithinTile);
         dropPosition.z += Random.Range(-randomDistanceWithinTile, randomDistanceWithinTile);
         dropPosition.y += .2f;
         float timeElapsed = 0;
-        player.GetComponent<UnitAnimator>().Animate(AnimType.JUMP);
+        WorldPlayerControl.player.GetComponent<UnitAnimator>().Animate(AnimType.JUMP);
         yield return new WaitForSeconds(.6f);
+        Vector3 startScale = player.transform.localScale;
         while (timeElapsed < descentTime)
         {
             Vector3 step = Vector3.Lerp(risePosition, dropPosition, timeElapsed / descentTime);
             player.transform.position = step;
 
-            Vector3 shrink = Vector3.Lerp(Vector3.one, Vector3.zero, timeElapsed / descentTime);
+            Vector3 shrink = Vector3.Lerp(startScale, Vector3.zero, timeElapsed / descentTime);
             player.transform.localScale = shrink;
             timeElapsed += Time.deltaTime;
             
