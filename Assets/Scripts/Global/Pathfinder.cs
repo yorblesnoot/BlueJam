@@ -57,6 +57,16 @@ public class Pathfinder
         return null;
     }
 
+    public List<Vector2Int> FindVectorPath(Vector2Int start, Vector2Int end)
+    {
+        List<Node> path = FindPath(nodeMap[start], nodeMap[end]);
+        if (path.Count > 0)
+        {
+            return path.Select(x => x.location).ToList();
+        }
+        return null;
+    }
+
     public int GetPathLength(Vector2Int start, Vector2Int end)
     {
         List<Node> path = FindPath(nodeMap[start], nodeMap[end]);

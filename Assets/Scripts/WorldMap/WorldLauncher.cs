@@ -32,17 +32,7 @@ public class WorldLauncher : MapLauncher
 
     void InitializeWorld()
     {
-        Tutorial.Initiate(TutorialFor.WORLDMOVE, TutorialFor.MAIN);
-        Tutorial.EnterStage(TutorialFor.WORLDMOVE, 1, "Welcome to Slime Alchemist! This is the world map. My objective is the boss, towards the red arrow. But to beat it, I'll need to become stronger. Click on a tile to move to it.");
-        Tutorial.Initiate(TutorialFor.WORLDCRAFTING, TutorialFor.WORLDBATTLE);
-        Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 1, "Well done! Defeating those enemies granted me their essences, which you can use to add their cards to my deck. Click the anvil in the top right or press C to craft essences.");
-        Tutorial.EnterStage(TutorialFor.WORLDBOSS, 2, "Wow, you did it! Now you can craft a boss card for my deck... but a new, stronger foe has arisen! Looks like you've got the basics down; let's see how far you can go!");
-
-        if(runData.essenceInventory.Count > 10)
-        {
-            Tutorial.Initiate(TutorialFor.WORLDCRAFTREMINDER, TutorialFor.WORLDCRAFTING);
-            Tutorial.EnterStage(TutorialFor.WORLDCRAFTREMINDER, 1, "My essence inventory is starting to fill up. Don't forget to check back on the crafting screen between battles to add cards to your deck.");
-        }
+        RunTutorials();
 
         DynamicEventPlacer placer = new(runData);
         Vector2Int localPlayer = MapTools.VectorToMap(WorldPlayerControl.player.transform.position);
@@ -50,8 +40,8 @@ public class WorldLauncher : MapLauncher
         if (PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1)
             placer.CheckToPopulateChunks(startPos, true);
         else placer.CheckToPopulateChunks(startPos);
-        if (runData.bossSequence.Count == 0) GenerateBossSequence();
-        if (!runData.eventMap.ContainsValue(EventType.BOSS)) placer.PlaceBoss();
+
+        GenerateBoss(placer);
 
         mapRenderer.RenderFullWindow(runData.worldMap);
 
@@ -70,6 +60,27 @@ public class WorldLauncher : MapLauncher
         EventManager.updateWorldHealth.Invoke();
 
         SoundManager.PlayMusic(SoundType.MUSICWORLD);
+    }
+
+    private void RunTutorials()
+    {
+        Tutorial.Initiate(TutorialFor.WORLDMOVE, TutorialFor.MAIN);
+        Tutorial.EnterStage(TutorialFor.WORLDMOVE, 1, "Welcome to Slime Alchemist! This is the world map. My objective is the boss, towards the red arrow. But to beat it, I'll need to become stronger. Click on a tile to move to it.");
+        Tutorial.Initiate(TutorialFor.WORLDCRAFTING, TutorialFor.WORLDBATTLE);
+        Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 1, "Well done! Defeating those enemies granted me their essences, which you can use to add their cards to my deck. Click the anvil in the top right or press C to craft essences.");
+        Tutorial.EnterStage(TutorialFor.WORLDBOSS, 2, "Wow, you did it! Now you can craft a boss card for my deck... but a new, stronger foe has arisen! Looks like you've got the basics down; let's see how far you can go!");
+
+        if (runData.essenceInventory.Count > 10)
+        {
+            Tutorial.Initiate(TutorialFor.WORLDCRAFTREMINDER, TutorialFor.WORLDCRAFTING);
+            Tutorial.EnterStage(TutorialFor.WORLDCRAFTREMINDER, 1, "My essence inventory is starting to fill up. Don't forget to check back on the crafting screen between battles to add cards to your deck.");
+        }
+    }
+
+    private void GenerateBoss(DynamicEventPlacer placer)
+    {
+        if (runData.bossSequence.Count == 0) GenerateBossSequence();
+        if (!runData.eventMap.ContainsValue(EventType.BOSS)) placer.PlaceBoss();
     }
 
     void GenerateBossSequence()

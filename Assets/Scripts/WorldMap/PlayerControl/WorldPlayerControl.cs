@@ -37,21 +37,21 @@ public class WorldPlayerControl : MonoBehaviour
         gameObject.transform.position = myPosition;
     }
 
-    public IEnumerator ChainPath(List<GameObject> path)
+    public IEnumerator ChainPath(List<Vector2Int> path)
     {
         Tutorial.CompleteStage(TutorialFor.WORLDHEAL, 1, true);
         Tutorial.CompleteStage(TutorialFor.WORLDITEM, 1, true);
         Tutorial.CompleteStage(TutorialFor.WORLDREMOVE, 1, true);
-        foreach (GameObject tile in path)
+        foreach (var tile in path)
         {
-            Vector2Int globalCoords = MapTools.VectorToMap(tile.transform.position) + WorldMapRenderer.spotlightGlobalOffset;
+            Vector2Int globalCoords = tile + WorldMapRenderer.spotlightGlobalOffset;
             if (RunStarter.unpathable.Contains(runData.worldMap[globalCoords.x, globalCoords.y]) 
                 && CurrentVehicle == null)
                 if(!(runData.eventMap.TryGetValue(globalCoords, out var value) && (value == EventType.BOAT || value == EventType.BALLOON))) 
                     yield break;
             playerState = WorldPlayerState.PATHING;
             runData.score -= 1;
-            WorldMovementController tileController = tile.GetComponent<WorldMovementController>();
+            WorldMovementController tileController = MapTools.MapToTile(tile).GetComponent<WorldMovementController>();
             playerVisual.transform.LookAt(tileController.unitPosition);
             if (tileController.myEventHandler.cellEvent != null) tileController.myEventHandler.cellEvent.PreAnimate();
 

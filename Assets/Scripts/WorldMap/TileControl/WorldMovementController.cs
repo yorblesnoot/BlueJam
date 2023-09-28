@@ -10,7 +10,7 @@ public class WorldMovementController : MonoBehaviour
 
     [SerializeField] RunData runData;
 
-    List<GameObject> myPath;
+    List<Vector2Int> myPath;
 
     public static readonly float heightAdjust = .5f;
     public Vector3 unitPosition;
@@ -37,7 +37,7 @@ public class WorldMovementController : MonoBehaviour
 
             Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 4, true);
             Tutorial.CompleteStage(TutorialFor.WORLDBOSS, 2, true);
-            StartCoroutine(WorldPlayerControl.player.ChainPath(myPath));
+            WorldPlayerControl.player.StartCoroutine(WorldPlayerControl.player.ChainPath(myPath));
             
             //deactivate pathfinding displays
             EventManager.clearWorldDestination?.Invoke();
@@ -48,10 +48,10 @@ public class WorldMovementController : MonoBehaviour
     {
         if (WorldPlayerControl.playerState != WorldPlayerState.IDLE || EventSystem.current.IsPointerOverGameObject()) return;
         Pathfinder pather = new(runData.worldMap, runData.eventMap, WorldMapRenderer.spotlightGlobalOffset);
-        myPath = pather.FindObjectPath(MapTools.VectorToMap(WorldPlayerControl.player.transform.position), MapTools.VectorToMap(unitPosition));
+        myPath = pather.FindVectorPath(MapTools.VectorToMap(WorldPlayerControl.player.transform.position), MapTools.VectorToMap(unitPosition));
         if (myPath != null)
-            foreach (GameObject cell in myPath)
-                cell.GetComponent<WorldMovementController>().HighlightRoute();
+            foreach (var cell in myPath)
+                MapTools.MapToTile(cell).GetComponent<WorldMovementController>().HighlightRoute();
     }
     private void OnMouseExit()
     {

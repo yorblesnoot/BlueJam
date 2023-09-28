@@ -15,7 +15,7 @@ MonoBehaviour:
   unitName: Sleeper
   maxHealth: 35
   handSize: 3
-  startBeats: -4
+  startBeats: -2
   damageScaling: 12
   barrierScaling: 10
   healScaling: 10

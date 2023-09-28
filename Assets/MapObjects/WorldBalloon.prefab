@@ -219,6 +219,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 133064767880471135}
     m_Modifications:
+    - target: {fileID: 4677830535173148235, guid: 94debf9159b12dc44ae9fa3a6e3520c9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 842dfb1ffacd75b4e92dc73e191dace9, type: 2}
     - target: {fileID: 5810156762604991780, guid: 94debf9159b12dc44ae9fa3a6e3520c9, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -279,7 +283,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tribal_Plains_Basket_Woven_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 436787913341568685, guid: 94debf9159b12dc44ae9fa3a6e3520c9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 94debf9159b12dc44ae9fa3a6e3520c9, type: 3}
 --- !u!4 &6964424049243749514 stripped
 Transform:

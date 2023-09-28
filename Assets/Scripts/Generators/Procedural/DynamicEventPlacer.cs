@@ -18,7 +18,7 @@ public class DynamicEventPlacer
         { 3, EventType.REMOVE }, //removal
         { 7, EventType.HEAL }, //heal
         { 16, EventType.ENEMY }, //enemy
-        { 350, EventType.NONE }, //nothing
+        { 400, EventType.NONE }, //nothing
     };
     public DynamicEventPlacer(RunData data)
     {
@@ -72,7 +72,7 @@ public class DynamicEventPlacer
         }
         runData.exploredChunks[chunk.x, chunk.y] = true;
     }
-    readonly int boatChance = 9;
+    readonly int boatChance = 11;
     readonly int balloonChance = 12;
     private void EvaluateSpecialPlacements(Vector2Int globalPoint)
     {
@@ -136,5 +136,18 @@ public class DynamicEventPlacer
         PopulateChunk(chunkLocation);
         runData.eventMap.Remove(intLocation);
         runData.eventMap.Add(intLocation, EventType.BOSS);
+
+        TerrainType bossTile = runData.worldMap[intLocation.x, intLocation.y];
+        if (!RunStarter.unpathable.Contains(bossTile)) return;
+        
+        Vector2Int vehicleLocation = runData.worldMap.LineSearch(RunStarter.unpathable, intLocation, GridHelper.RandomCardinalDirection());
+        if (vehicleLocation == intLocation)
+        {
+            runData.worldMap[intLocation.x, intLocation.y] = TerrainType.DESERT;
+            return;
+        }
+        runData.eventMap.Remove(vehicleLocation);
+        if (bossTile == TerrainType.WATER || bossTile == TerrainType.DEEPWATER) runData.eventMap.Add(vehicleLocation, EventType.BOAT);
+        else if (bossTile == TerrainType.MOUNTAIN) runData.eventMap.Add(vehicleLocation, EventType.BALLOON);
     }
 }
