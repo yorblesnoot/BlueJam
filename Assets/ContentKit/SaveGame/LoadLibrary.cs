@@ -8,7 +8,7 @@ public class LoadLibrary : ScriptableObject
 {
     [SerializeField] List<CardPlus> cardsPool;
     [SerializeField] ItemPool itemPool;
-    [SerializeField] List<Deck> decksPool;
+    public List<Deck> decksPool;
 
     public Dictionary<string, CardPlus> cards = new();
     public Dictionary<string, Item> items = new();

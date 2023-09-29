@@ -8,10 +8,10 @@ public class ModStat : ItemMod
     [SerializeField] StatType statType;
     public override void ModifyPlayer(RunData player)
     {
-        Stat(scaler, player);
+        Stat(statType, scaler, player);
     }
 
-    void Stat(float scale, RunData runData)
+    public static void Stat(StatType statType, float scale, RunData runData)
     {
         UnitStats player = runData.playerStats;
         float scaleMult = 1 + scale / 100;

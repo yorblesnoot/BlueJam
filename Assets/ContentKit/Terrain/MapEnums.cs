@@ -22,5 +22,8 @@ public enum EventType
     ITEM,
     BOSS,
     BOAT,
-    BALLOON
+    BALLOON,
+    ORBCLONE,
+    ORBCONSUME,
+    ORBGAMBLE
 }

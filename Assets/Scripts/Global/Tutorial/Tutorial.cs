@@ -19,7 +19,8 @@ public enum TutorialFor
     WORLDCRAFTING,
     WORLDDECK,
     WORLDCRAFTREMINDER,
-    WORLDVEHICLE
+    WORLDVEHICLE,
+    WORLDORB
     //others
 }
 

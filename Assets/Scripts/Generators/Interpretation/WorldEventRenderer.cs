@@ -4,17 +4,8 @@ using UnityEngine;
 
 public class WorldEventRenderer : MonoBehaviour
 {
-    [System.Serializable]
-    class EventPool
-    {
-        public EventType eventType;
-        [SerializeField] GameObject obj;
-        [HideInInspector] public ObjectPool pool 
-        { get { return new ObjectPool(obj); } }
-    }
-
-    [SerializeField] List<EventPool> pools;
     [SerializeField] RunData _runData;
+    [SerializeField] EventSpawnRates _eventSpawnRates;
     static RunData runData;
 
     readonly float eventHeight = .7f;
@@ -26,11 +17,7 @@ public class WorldEventRenderer : MonoBehaviour
     {
         runData = _runData;
         spawnedEvents = new();
-        eventTable = new();
-        foreach (EventPool pool in pools)
-        {
-            eventTable.Add(pool.eventType, pool.pool);
-        }
+        eventTable = _eventSpawnRates.GetEventTable();
     }
 
     public GameObject RenderCellEvent(Vector2Int localCoordinates, Vector2Int offset)

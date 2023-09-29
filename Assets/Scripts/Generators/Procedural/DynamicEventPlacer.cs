@@ -8,29 +8,15 @@ public class DynamicEventPlacer
 {
     readonly public static int chunkSize = 15;
     Vector2Int currentChunk;
-    readonly int totalChance;
-    readonly List<int> probabilities;
+    
     RunData runData;
+    EventSpawnRates eventRates;
 
-    readonly Dictionary<int, EventType> eventsAndOdds = new()
-    {
-        { 1, EventType.ITEM}, //item
-        { 3, EventType.REMOVE }, //removal
-        { 7, EventType.HEAL }, //heal
-        { 16, EventType.ENEMY }, //enemy
-        { 400, EventType.NONE }, //nothing
-    };
-    public DynamicEventPlacer(RunData data)
+    public DynamicEventPlacer(RunData data, EventSpawnRates eventRates)
     {
         runData = data;
-        totalChance = 0;
-        probabilities = new();
-        foreach (var item in eventsAndOdds.Keys)
-        {
-            totalChance += item;
-            probabilities.Add(item);
-        }
         EventManager.playerAtWorldLocation.AddListener((Vector2Int position) => CheckToPopulateChunks(position));
+        this.eventRates = eventRates;
     }
     public void CheckToPopulateChunks(Vector2Int globalPosition, bool checkCurrent = false)
     {
@@ -65,7 +51,7 @@ public class DynamicEventPlacer
         List<Vector2Int> validSpots = GetValidSpots(chunk);
         foreach (Vector2Int validSpot in validSpots)
         {
-            EventType output = RandomEvent(eventsAndOdds, totalChance);
+            EventType output = eventRates.RandomEvent();
             if (output != EventType.NONE) 
                 runData.eventMap.Add(validSpot, output);
             else EvaluateSpecialPlacements(validSpot);
@@ -94,21 +80,7 @@ public class DynamicEventPlacer
         }
     }
 
-    private EventType RandomEvent(Dictionary<int, EventType> options, int total)
-    {
-        int selection = UnityEngine.Random.Range(0, total);
-        int currentThreshold = 0;
-        foreach(int threshold in options.Keys)
-        {
-            currentThreshold += threshold;
-            if(selection <= currentThreshold)
-            {
-                selection = threshold;
-                break;
-            }
-        }
-        return options[selection];
-    }
+    
 
     List<Vector2Int> GetValidSpots(Vector2Int chunkLocation)
     {

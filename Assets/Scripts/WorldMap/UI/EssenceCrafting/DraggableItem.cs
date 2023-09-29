@@ -16,6 +16,8 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 
     [SerializeField] InventorySlot originalSlot;
 
+    GameObject hat;
+
     readonly int thrustDistance = 50;
     public void OnPointerEnter(PointerEventData eventData)
     {
@@ -76,5 +78,25 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             essenceCrafting.QuickCraft(this);
         }
+    }
+
+    readonly static int hatTiltAngle = -10;
+    readonly static int hatProjectionDistance = 30;
+    public void DeployHat()
+    {
+        if(hat != null) Destroy(hat);
+        hat = Instantiate(essence.hat);
+        hat.transform.SetParent(transform, false);
+
+
+        Transform scalingCube = hat.transform.GetChild(0);
+        scalingCube.transform.SetParent(transform, true);
+        hat.transform.SetParent(scalingCube, true);
+
+        scalingCube.transform.localScale = Vector3.one * 50;
+        Vector3 position = new(0, 0, -hatProjectionDistance);
+        scalingCube.transform.localPosition = position;
+        scalingCube.transform.localRotation = Quaternion.identity;
+        hat.transform.localRotation = Quaternion.Euler(hatTiltAngle, 0, 0);
     }
 }

@@ -1,12 +1,17 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class WorldMenuPlus : MonoBehaviour
 {
     [SerializeField] List<ActivateableWindow> windowControls;
+    [SerializeField] ActivateableWindow craftWindow;
+
     ActivateableWindow currentOpen;
     [SerializeField] GameObject bugWindow;
+
+    public static UnityEvent openAltCraft;
     private void Awake()
     {
         foreach (var window in windowControls)
@@ -14,6 +19,8 @@ public class WorldMenuPlus : MonoBehaviour
             if(window.button) window.button.onClick.AddListener(() => OpenWindow(window));
             window.position = window.window.transform.localPosition;
         }
+        craftWindow.position = craftWindow.window.transform.localPosition;
+        openAltCraft.AddListener(() => OpenWindow(craftWindow));
     }
 
     bool PlayerInLegalState()

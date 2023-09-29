@@ -1,46 +1,69 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+public enum CraftType
+{
+    BASE,
+    CLONE,
+    CONSUME,
+    GAMBLE
+}
 public class EssenceCrafting : MonoBehaviour
 {
+    [System.Serializable]
+    class CraftPackage
+    {
+        public CraftType type;
+        public CraftModule module;
+    }
+    [SerializeField] List<CraftPackage> packages;
+    Dictionary<CraftType, CraftModule> modules;
+    public static CraftType craftType;
+
     [SerializeField] RunData runData;
     public List<DraggableItem> dragItems;
 
     [SerializeField] List<InventorySlot> inventorySlots;
-    [SerializeField] List<CraftingSlot> craftingSlots;
-    [SerializeField] EssenceSlot essenceSlot;
+
+
     [SerializeField] List<MiniCardDisplay> miniCards;
     [SerializeField] WrldCardDisplay bigCardDisplay;
 
     [HideInInspector] public List<DraggableItem> craftingSlotContents;
     [HideInInspector] public DraggableItem essenceSlotContents;
 
-    [SerializeField] TMP_Text craftStatus;
-    [SerializeField] TMP_Text description;
     [SerializeField] Canvas mainCanvas;
     
-
-    [SerializeField] CardAwardUI cardAwardUI;
     
-
-    readonly int hatTiltAngle = -10;
-    readonly int hatProjectionDistance = 30;
     private void Awake()
     {
+        modules = new();
+        foreach (var item in packages)
+        {
+            modules.Add(item.type, item.module);
+        }
+    }
+    private void OnEnable()
+    {
+        modules[craftType].craftButton.onClick.AddListener(MergeButton);
+        modules[CraftType.BASE].gameObject.SetActive(false);
+        modules[craftType].gameObject.SetActive(true);
+
         List<InventorySlot> slots = new();
         slots.AddRange(inventorySlots);
-        slots.AddRange(craftingSlots);
-        slots.Add(essenceSlot);
+        slots.AddRange(modules[craftType].craftingSlots);
+        slots.Add(modules[craftType].essenceSlot);
 
-        foreach(var slot in slots) slot.essenceCrafting = this;
-        foreach(var card in miniCards) card.bigCard = bigCardDisplay;
+        foreach (var slot in slots) slot.essenceCrafting = this;
+        foreach (var card in miniCards) card.bigCard = bigCardDisplay;
 
         runData.essenceInventory = runData.essenceInventory.OrderBy(x => x.name).ToList();
-        for( int i = 0; i < dragItems.Count; i++ )
+        for (int i = 0; i < dragItems.Count; i++)
         {
             dragItems[i].transform.SetParent(inventorySlots[i].transform, false);
-            if(i < runData.essenceInventory.Count)
+            if (i < runData.essenceInventory.Count)
             {
                 dragItems[i].gameObject.SetActive(true);
                 dragItems[i].essenceCrafting = this;
@@ -53,29 +76,13 @@ public class EssenceCrafting : MonoBehaviour
                 if (runData.essenceInventory[i].deckContents.Count >= 5) dragItems[i].image.color = colorFromHex;
                 else dragItems[i].image.color = Color.white;
 
-                GameObject hat = Instantiate(runData.essenceInventory[i].hat);
-                hat.transform.SetParent(dragItems[i].transform, false);
-                
-
-                Transform scalingCube = hat.transform.GetChild(0);
-                scalingCube.transform.SetParent(dragItems[i].transform, true);
-                hat.transform.SetParent(scalingCube, true);
-
-                scalingCube.transform.localScale = Vector3.one * 50;
-                Vector3 position = new(0, 0, -hatProjectionDistance);
-                scalingCube.transform.localPosition = position;
-                scalingCube.transform.localRotation = Quaternion.identity;
-                hat.transform.localRotation = Quaternion.Euler(hatTiltAngle,0,0);
+                dragItems[i].DeployHat();
             }
             else
             {
                 dragItems[i].gameObject.SetActive(false);
             }
         }
-    }
-
-    private void OnEnable()
-    {
         Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 1);
         Tutorial.CompleteStage(TutorialFor.WORLDCRAFTREMINDER, 1);
         Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 2, 
@@ -85,6 +92,11 @@ public class EssenceCrafting : MonoBehaviour
         {
             dragItems[i].transform.SetParent(inventorySlots[i].transform, false);
         }
+    }
+
+    private void OnDisable()
+    {
+        craftType = CraftType.BASE;
     }
 
     public void EssenceSlotFilled(DraggableItem draggable = null)
@@ -98,17 +110,18 @@ public class EssenceCrafting : MonoBehaviour
         }
         essenceSlotContents = draggable;
 
-        for (int i = 0; i < craftingSlots.Count; i++ )
+        if (!modules[craftType].FlexCraftSlots()) return;
+        for (int i = 0; i < modules[craftType].craftingSlots.Count; i++ )
         {
             if (i < requiredSlots)
             {
-                craftingSlots[i].gameObject.SetActive(true);
-                craftingSlots[i].essenceCrafting = this;
+                modules[craftType].craftingSlots[i].gameObject.SetActive(true);
+                modules[craftType].craftingSlots[i].essenceCrafting = this;
             }
             else
             {
-                craftingSlots[i].EvictChildren();
-                craftingSlots[i].gameObject.SetActive(false);
+                modules[craftType].craftingSlots[i].EvictChildren();
+                modules[craftType].craftingSlots[i].gameObject.SetActive(false);
             }
         }
         
@@ -121,50 +134,25 @@ public class EssenceCrafting : MonoBehaviour
             "You can see the cards available from an essence in the bottom right. For each essence you add to the craft, you'll be offered an additional option to choose from. Press the hammer button when you're ready.");
         if (operation) craftingSlotContents.Add(item);
         else craftingSlotContents.Remove(item);
-        if (craftingSlotContents.Count == 0 || essenceSlotContents == null) craftStatus.text = "Insufficient materials!";
-        else craftStatus.text = $"<color=#FF4E2B>{craftingSlotContents.Count}</color> {essenceSlotContents.essence.unitName} Card{(craftingSlotContents.Count > 1 ? "s" : "")}";
+
+        modules[craftType].craftStatus.text = modules[craftType].GetCraftStatus(essenceSlotContents, craftingSlotContents);
     }
 
     public void MergeButton()
     {
-        //count the cards we're going to drop
-        int dropCount = craftingSlotContents.Count;
-        if (essenceSlotContents == null || dropCount == 0 || WorldPlayerControl.playerState == WorldPlayerState.SELECTION) return;
-        SoundManager.PlaySound(SoundType.CRAFTCONFIRMED);
-        //create list of cards we'll drop
-        List<CardPlus> actualDrops = new();
-
-        //we are dropping from the deck in the essence slot
-        Deck toDrop = essenceSlotContents.essence;
-
-        //grab the list of possible card drops
-        List<CardPlus> potentialDrops = new(toDrop.deckContents);
-
-        //clamp the dropcount at the number of cards in the deck
-        dropCount = Mathf.Clamp(dropCount, 0, potentialDrops.Count);
-
-        for (int dropped = 0; dropped < dropCount; dropped++)
-        {
-            //pick a random card out of the potential drops and put it in the final drops
-            int dropIndex = Random.Range(0, potentialDrops.Count);
-            actualDrops.Add(potentialDrops[dropIndex]);
-            potentialDrops.RemoveAt(dropIndex);
-        }
-
-        new SaveContainer(runData).SaveGame();
-        cardAwardUI.gameObject.SetActive(true);
-        cardAwardUI.AwardCards(actualDrops);
+        modules[craftType].ExecuteCraft(craftingSlotContents, essenceSlotContents, runData);
 
         PlaceStrayDraggable(essenceSlotContents);
         SpendEssence(essenceSlotContents);
         for (int i = 0; i < craftingSlotContents.Count; i++)
         {
-            SpendEssence(craftingSlotContents[i]);    
+            SpendEssence(craftingSlotContents[i]);
         }
         craftingSlotContents.Clear();
         essenceSlotContents = null;
         EssenceSlotFilled();
-        craftStatus.text = "Insufficient materials!";
+        modules[craftType].craftStatus.text = "Craft Complete!";
+        modules[craftType].FinalizeCraft(this);
     }
 
     public void SpendEssence(DraggableItem essence)
@@ -188,11 +176,11 @@ public class EssenceCrafting : MonoBehaviour
         int requiredSlots = 0;
         if (essence == null)
         {
-            description.text = "~";
+            modules[craftType].essenceName.text = "~";
         }
         else
         {
-            description.text = essence.unitName;
+            modules[craftType].essenceName.text = essence.unitName;
             requiredSlots = miniCards.Count;
         }
         for (int i = 0; i < requiredSlots; i++)
@@ -227,7 +215,7 @@ public class EssenceCrafting : MonoBehaviour
 
         if(essenceSlotContents == null)
         {
-            item.transform.SetParent(essenceSlot.transform, false);
+            item.transform.SetParent(modules[craftType].essenceSlot.transform, false);
             item.transform.localScale = Vector3.one;
             EssenceSlotFilled(item);
             return;
@@ -235,7 +223,7 @@ public class EssenceCrafting : MonoBehaviour
 
         if(craftingSlotContents.Count < (essenceSlotContents ? essenceSlotContents.essence.deckContents.Count : 0))
         {
-            Transform firstEmpty = craftingSlots.Where(x => x.ChildCountActive() == 0).First().transform;
+            Transform firstEmpty = modules[craftType].craftingSlots.Where(x => x.ChildCountActive() == 0).First().transform;
             item.transform.SetParent(firstEmpty, false);
             ModifyCraftingSlotContents(item, true);
         }

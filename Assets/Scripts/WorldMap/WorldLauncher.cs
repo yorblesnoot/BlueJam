@@ -6,6 +6,7 @@ public class WorldLauncher : MapLauncher
     [SerializeField] RunData runData;
     [SerializeField] WorldMapRenderer mapRenderer;
     [SerializeField] WorldPlayerControl playerControl;
+    [SerializeField] EventSpawnRates rates;
 
     [SerializeField] SpawnPool bossPool;
 
@@ -34,7 +35,7 @@ public class WorldLauncher : MapLauncher
     {
         RunTutorials();
 
-        DynamicEventPlacer placer = new(runData);
+        DynamicEventPlacer placer = new(runData, rates);
         Vector2Int localPlayer = MapTools.VectorToMap(WorldPlayerControl.player.transform.position);
         Vector2Int startPos = localPlayer + WorldMapRenderer.spotlightGlobalOffset;
         if (PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1)
