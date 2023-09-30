@@ -17,9 +17,9 @@ public class CraftModule : MonoBehaviour
 
     public virtual void ExecuteCraft(List<DraggableItem> craftingSlotContents, DraggableItem essenceSlotContents, RunData runData) { }
 
-    public virtual bool FlexCraftSlots()
+    public virtual void GetCraftSlotLimit(DraggableItem item)
     {
-        return true;
+        
     }
 
     public virtual string GetCraftStatus(DraggableItem essenceSlotContents, List<DraggableItem> craftingSlotContents)

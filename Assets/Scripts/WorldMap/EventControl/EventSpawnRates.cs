@@ -8,7 +8,7 @@ public class EventSpawnRates : ScriptableObject
     [SerializeField] List<EventKey> events;
     int totalChance;
     readonly List<int> probabilities;
-    void Initialize()
+    public void Initialize()
     {
         if (totalChance != 0) return;
         totalChance = 0;

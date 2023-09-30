@@ -36,6 +36,23 @@ public class BaseCraft : CraftModule
         cardAwardUI.AwardCards(actualDrops);
     }
 
+    public override void GetCraftSlotLimit(DraggableItem item)
+    {
+        int requiredSlots = item ? item.essence.deckContents.Count : 0;
+        for (int i = 0; i < craftingSlots.Count; i++)
+        {
+            if (i < requiredSlots)
+            {
+                craftingSlots[i].gameObject.SetActive(true);
+            }
+            else
+            {
+                craftingSlots[i].EvictChildren();
+                craftingSlots[i].gameObject.SetActive(false);
+            }
+        }
+    }
+
     public override string GetCraftStatus(DraggableItem essenceSlotContents, List<DraggableItem> craftingSlotContents)
     {
         if (craftingSlotContents.Count == 0 || essenceSlotContents == null) return "Insufficient materials!";

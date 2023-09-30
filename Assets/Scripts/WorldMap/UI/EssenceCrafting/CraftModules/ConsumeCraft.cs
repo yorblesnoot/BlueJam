@@ -13,11 +13,6 @@ public class ConsumeCraft : CraftModule
         ModStat.Stat(StatType.HEAL, statFactor * 3, runData);
     }
 
-    public override bool FlexCraftSlots()
-    {
-        return false;
-    }
-
     public override string GetCraftStatus(DraggableItem essenceSlotContents, List<DraggableItem> craftingSlotContents)
     {
         if (essenceSlotContents == null) return "Insufficient materials!";

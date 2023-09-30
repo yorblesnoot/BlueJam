@@ -96,35 +96,22 @@ public class EssenceCrafting : MonoBehaviour
 
     private void OnDisable()
     {
+        essenceSlotContents = null;
+        craftingSlotContents.Clear();
+        modules[craftType].gameObject.SetActive(false);
         craftType = CraftType.BASE;
     }
 
     public void EssenceSlotFilled(DraggableItem draggable = null)
     {
-        int requiredSlots = 0;
         if(draggable != null)
         {
             //if an essence is in the main slot, set the default description to that essence
-            requiredSlots = draggable.essence.deckContents.Count;
             ShowEssenceDisplay(draggable.essence);
         }
         essenceSlotContents = draggable;
-
-        if (!modules[craftType].FlexCraftSlots()) return;
-        for (int i = 0; i < modules[craftType].craftingSlots.Count; i++ )
-        {
-            if (i < requiredSlots)
-            {
-                modules[craftType].craftingSlots[i].gameObject.SetActive(true);
-                modules[craftType].craftingSlots[i].essenceCrafting = this;
-            }
-            else
-            {
-                modules[craftType].craftingSlots[i].EvictChildren();
-                modules[craftType].craftingSlots[i].gameObject.SetActive(false);
-            }
-        }
-        
+        modules[craftType].GetCraftSlotLimit(essenceSlotContents);
+        modules[craftType].craftStatus.text = modules[craftType].GetCraftStatus(essenceSlotContents, craftingSlotContents);
     }
 
     public void ModifyCraftingSlotContents(DraggableItem item, bool operation)
@@ -221,7 +208,7 @@ public class EssenceCrafting : MonoBehaviour
             return;
         }
 
-        if(craftingSlotContents.Count < (essenceSlotContents ? essenceSlotContents.essence.deckContents.Count : 0))
+        if(craftingSlotContents.Count < modules[craftType].craftingSlots.Where(x => x.gameObject.activeSelf).Count())
         {
             Transform firstEmpty = modules[craftType].craftingSlots.Where(x => x.ChildCountActive() == 0).First().transform;
             item.transform.SetParent(firstEmpty, false);

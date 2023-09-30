@@ -12,14 +12,16 @@ public class OrbEvent : WorldEvent
     string emissiveColor = "_EmissionColor";
     [SerializeField] int emissiveIntensity;
 
-    private void OnEnable()
+    internal override void OnEnable()
     {
         Material material = core.GetComponent<Renderer>().material;
         material.SetColor(baseColor, color);
         material.SetColor(emissiveColor, color * emissiveIntensity);
+        RegisterWithCell();
     }
     public override void Activate()
     {
+        Debug.Log("activated");
         SoundManager.PlaySound(SoundType.GOTCHEST);
         EssenceCrafting.craftType = type;
         WorldMenuPlus.openAltCraft.Invoke();

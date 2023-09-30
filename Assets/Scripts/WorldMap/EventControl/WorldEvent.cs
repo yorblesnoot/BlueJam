@@ -11,7 +11,7 @@ public class WorldEvent : MonoBehaviour
 
     [SerializeField] GameObject model;
     [SerializeField] ParticleSystem glow;
-    private void OnEnable()
+    internal virtual void OnEnable()
     {
         RegisterWithCell();
     }
@@ -49,10 +49,11 @@ public class WorldEvent : MonoBehaviour
     {
         glow.Stop();
         float timeElapsed = 0;
-        Vector3 startPosition = transform.position;
+        Vector3 startPosition = model.transform.position;
+        Vector3 startScale = model.transform.localScale;
         while (timeElapsed < shrinkDuration)
         {
-            model.transform.localScale = Vector3.Lerp(Vector3.one, Vector3.zero, timeElapsed / shrinkDuration);
+            model.transform.localScale = Vector3.Lerp(startScale, Vector3.zero, timeElapsed / shrinkDuration);
             model.transform.position = Vector3.Lerp(startPosition, WorldPlayerControl.player.playerModel.transform.position, timeElapsed / shrinkDuration);
             timeElapsed += Time.deltaTime;
             yield return null;

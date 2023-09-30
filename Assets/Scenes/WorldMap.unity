@@ -7296,6 +7296,7 @@ MonoBehaviour:
   craftStatus: {fileID: 733808688}
   essenceName: {fileID: 1506013623}
   craftButton: {fileID: 1393231809}
+  loadLibrary: {fileID: 11400000, guid: a8044de9b62eda64f85989b0d54144d7, type: 2}
 --- !u!224 &604799434 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8397634628322311802, guid: aa9de35aa9950f34695ab18e027c50b1, type: 3}
@@ -10645,7 +10646,7 @@ MonoBehaviour:
     button: {fileID: 7313862755695387619}
     position: {x: 0, y: 0, z: 0}
   craftWindow:
-    window: {fileID: 0}
+    window: {fileID: 1558374503}
     keyCode: 0
     button: {fileID: 0}
     position: {x: 0, y: 0, z: 0}
@@ -11063,6 +11064,7 @@ MonoBehaviour:
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   mapRenderer: {fileID: 835403972}
   playerControl: {fileID: 1773061057}
+  rates: {fileID: 11400000, guid: c7de30539a853cc4b8f13453c1eb19a9, type: 2}
   bossPool: {fileID: 11400000, guid: 8cbd4e0fa500bd240906fc665a6a79b3, type: 2}
   playerModel: {fileID: 190867751}
   joinBeams: {fileID: 1939407703}
@@ -11094,30 +11096,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2290e2397b4ea8e459eade39b12cb32d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools:
-  - eventType: 0
-    obj: {fileID: 0}
-  - eventType: 1
-    obj: {fileID: 757166517744906979, guid: d3d80019a0df8cf4c8a0387c094d97f9, type: 3}
-  - eventType: 5
-    obj: {fileID: 7924231913854942665, guid: 7d28bb5931146704cb64c51f15495f6e, type: 3}
-  - eventType: 2
-    obj: {fileID: 4988517733454850341, guid: e560e395bd4ea8842bf3fb7219a23eb7, type: 3}
-  - eventType: 3
-    obj: {fileID: 4231040859884175106, guid: 62aadb42b0f6da944a7b3991e6375681, type: 3}
-  - eventType: 4
-    obj: {fileID: 5646597843019752695, guid: 8bd5f0c365b934f478952de64c369a9f, type: 3}
-  - eventType: 6
-    obj: {fileID: 4513233365106999063, guid: 9d5613f38bbe6924b9d685a0425ead70, type: 3}
-  - eventType: 7
-    obj: {fileID: 8453122907334574164, guid: 6b8a4ac290ae52546b34d7322f1af3c2, type: 3}
-  - eventType: 8
-    obj: {fileID: 5859586719978738082, guid: 27a9cf0d7431ea14d929cf2a4bf6cd95, type: 3}
-  - eventType: 9
-    obj: {fileID: 5859586719978738082, guid: 9a7bd43b807c92a46be28ec3adf94d6f, type: 3}
-  - eventType: 10
-    obj: {fileID: 5859586719978738082, guid: 85b4e73185271004ea64ca8cbe77ef25, type: 3}
   _runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
+  _eventSpawnRates: {fileID: 11400000, guid: c7de30539a853cc4b8f13453c1eb19a9, type: 2}
 --- !u!114 &841480958 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6221452705481964520, guid: b678fc027cca7974b94bfd1819149153, type: 3}

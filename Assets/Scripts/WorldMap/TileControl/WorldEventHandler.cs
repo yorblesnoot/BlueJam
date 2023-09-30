@@ -50,7 +50,7 @@ public class WorldEventHandler : MonoBehaviour
             if(cellEvent.GetType() == typeof(ItemEvent))
             {
                 WorldPlayerControl.playerState = WorldPlayerState.SELECTION;
-                EventManager.updateItemUI.AddListener(ConfirmItemPicked);
+                EventManager.updateItemUI.AddListener(() => pickedItem = true);
                 yield return new WaitUntil(() => pickedItem == true);
                 new SaveContainer(runData).SaveGame();
             }
@@ -134,8 +134,6 @@ public class WorldEventHandler : MonoBehaviour
         VFXMachine.PlayAtLocation("DistanceSparkle", sparklePosition);
         yield return new WaitForSeconds(1f);
     }
-
-    public void ConfirmItemPicked() { pickedItem = true; }
 
     public void RegisterEnemy(WorldEnemy enemy)
     {

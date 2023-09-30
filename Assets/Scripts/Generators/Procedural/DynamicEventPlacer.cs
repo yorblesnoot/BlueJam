@@ -14,6 +14,7 @@ public class DynamicEventPlacer
 
     public DynamicEventPlacer(RunData data, EventSpawnRates eventRates)
     {
+        eventRates.Initialize();
         runData = data;
         EventManager.playerAtWorldLocation.AddListener((Vector2Int position) => CheckToPopulateChunks(position));
         this.eventRates = eventRates;

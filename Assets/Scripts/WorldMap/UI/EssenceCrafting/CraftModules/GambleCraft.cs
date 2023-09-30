@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GambleCraft : CraftModule
 {
-    LoadLibrary loadLibrary;
+    [SerializeField] LoadLibrary loadLibrary;
     public override void ExecuteCraft(List<DraggableItem> craftingSlotContents, DraggableItem essenceSlotContents, RunData runData)
     {
         if (essenceSlotContents == null) return;
@@ -16,11 +16,6 @@ public class GambleCraft : CraftModule
 
         int deckChoice = Random.Range(0, finalPool.Count);
         runData.essenceInventory.Add(finalPool[deckChoice]);
-    }
-
-    public override bool FlexCraftSlots()
-    {
-        return false;
     }
 
     public override string GetCraftStatus(DraggableItem essenceSlotContents, List<DraggableItem> craftingSlotContents)

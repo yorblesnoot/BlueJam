@@ -11,7 +11,7 @@ public class WorldMenuPlus : MonoBehaviour
     ActivateableWindow currentOpen;
     [SerializeField] GameObject bugWindow;
 
-    public static UnityEvent openAltCraft;
+    public static UnityEvent openAltCraft = new();
     private void Awake()
     {
         foreach (var window in windowControls)
@@ -20,7 +20,7 @@ public class WorldMenuPlus : MonoBehaviour
             window.position = window.window.transform.localPosition;
         }
         craftWindow.position = craftWindow.window.transform.localPosition;
-        openAltCraft.AddListener(() => OpenWindow(craftWindow));
+        openAltCraft.AddListener(() => ForceMenu(craftWindow));
     }
 
     bool PlayerInLegalState()
@@ -28,6 +28,14 @@ public class WorldMenuPlus : MonoBehaviour
         if(WorldPlayerControl.playerState == WorldPlayerState.PATHING) return false;
         if (WorldPlayerControl.playerState == WorldPlayerState.IDLE) WorldPlayerControl.playerState = WorldPlayerState.MENUS;
         return true;
+    }
+
+    private void ForceMenu(ActivateableWindow menu)
+    {
+        CloseCurrent();
+        currentOpen = menu;
+        SoundManager.PlaySound(SoundType.BUTTONPRESS);
+        StartCoroutine(menu.window.SlideIn(.2f, .1f));
     }
 
     private void OpenWindow(ActivateableWindow menu)
@@ -38,10 +46,7 @@ public class WorldMenuPlus : MonoBehaviour
             CloseCurrent();
             return;
         }
-        CloseCurrent();
-        currentOpen = menu;
-        SoundManager.PlaySound(SoundType.BUTTONPRESS);
-        StartCoroutine(menu.window.SlideIn(.2f, .1f));
+        ForceMenu(menu);
     }
 
     public void CloseCurrent()

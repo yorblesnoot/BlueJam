@@ -10,11 +10,6 @@ public class CloneCraft : CraftModule
         for(int i = 0; i < 2; i++) runData.essenceInventory.Add(essenceSlotContents.essence);
     }
 
-    public override bool FlexCraftSlots()
-    {
-        return false;
-    }
-
     public override string GetCraftStatus(DraggableItem essenceSlotContents, List<DraggableItem> craftingSlotContents)
     {
         if (craftingSlotContents.Count < 2 || essenceSlotContents == null) return "Insufficient materials!";
