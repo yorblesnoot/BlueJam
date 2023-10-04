@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class RemovalEvent : WorldEvent
 {
-    public override void Activate()
+    public override void Activate(WorldEventHandler eventHandler)
     {
         SoundManager.PlaySound(SoundType.GOTBOMB);
         runData.RemoveStock++;
-        base.Activate();
+        base.Activate(eventHandler);
+        eventHandler.eventComplete = true;
     }
 }

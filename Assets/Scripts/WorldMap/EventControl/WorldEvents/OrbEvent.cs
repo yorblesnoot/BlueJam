@@ -19,12 +19,19 @@ public class OrbEvent : WorldEvent
         material.SetColor(emissiveColor, color * emissiveIntensity);
         RegisterWithCell();
     }
-    public override void Activate()
+    public override void Activate(WorldEventHandler eventHandler)
     {
         Debug.Log("activated");
         SoundManager.PlaySound(SoundType.GOTCHEST);
         EssenceCrafting.craftType = type;
         WorldMenuPlus.openAltCraft.Invoke();
-        base.Activate();
+        base.Activate(eventHandler);
+        EssenceCrafting.craftWindowClosed.AddListener(() => ConfirmCraftComplete(eventHandler));
+    }
+
+    void ConfirmCraftComplete(WorldEventHandler eventHandler)
+    {
+        eventHandler.eventComplete = true;
+        EssenceCrafting.craftWindowClosed.RemoveListener(() => ConfirmCraftComplete(eventHandler));
     }
 }

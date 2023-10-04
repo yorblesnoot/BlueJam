@@ -7,13 +7,14 @@ public class HealEvent : WorldEvent
     readonly float healFactor = .25f;
     readonly int maxFactor = 5;
     
-    public override void Activate()
+    public override void Activate(WorldEventHandler eventHandler)
     {
         SoundManager.PlaySound(SoundType.GOTHEART);
         runData.playerStats.maxHealth += maxFactor;
         runData.currentHealth += Mathf.RoundToInt(healFactor * runData.playerStats.maxHealth);
         runData.currentHealth = Mathf.Clamp(runData.currentHealth, 0, runData.playerStats.maxHealth);
         EventManager.updateWorldHealth.Invoke();
-        base.Activate();
+        base.Activate(eventHandler);
+        eventHandler.eventComplete = true;
     }
 }

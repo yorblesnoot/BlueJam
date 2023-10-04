@@ -46,12 +46,8 @@ public class WorldLauncher : MapLauncher
 
         mapRenderer.RenderFullWindow(runData.worldMap);
 
-        WorldEvent worldEvent = MapTools.MapToTile(localPlayer).GetComponent<WorldEventHandler>().cellEvent;
-        if (worldEvent != null)
-        {
-            worldEvent.PreAnimate();
-            worldEvent.Activate();
-        }
+        WorldEventHandler handler = MapTools.MapToTile(localPlayer).GetComponent<WorldEventHandler>();
+        StartCoroutine(handler.TriggerWorldEvents());
 
         playerControl.compassMaster.DeployCompass(EventType.BOSS, Color.red);
 

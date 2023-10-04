@@ -13,7 +13,7 @@ public class WorldEventHandler : MonoBehaviour
     [HideInInspector] public WorldEvent cellEvent;
     [HideInInspector] public WorldEnemy cellEnemy;
 
-    bool pickedItem = false;
+    public bool eventComplete;
     [SerializeField] GameObject redGlow;
 
     private void OnEnable()
@@ -45,15 +45,12 @@ public class WorldEventHandler : MonoBehaviour
         //give the player whatever items
         if(cellEvent != null)
         {
-            cellEvent.Activate();
-            //if the event is an item, hold battle until an item is selected
-            if(cellEvent.GetType() == typeof(ItemEvent))
-            {
-                WorldPlayerControl.playerState = WorldPlayerState.SELECTION;
-                EventManager.updateItemUI.AddListener(() => pickedItem = true);
-                yield return new WaitUntil(() => pickedItem == true);
-                new SaveContainer(runData).SaveGame();
-            }
+            eventComplete = false;
+            cellEvent.Activate(this);
+            WorldPlayerControl.playerState = WorldPlayerState.SELECTION;
+            yield return new WaitUntil(() => eventComplete == true);
+
+            new SaveContainer(runData).SaveGame();
             yield return new WaitForSeconds(.3f);
             cellEvent = null;
         }

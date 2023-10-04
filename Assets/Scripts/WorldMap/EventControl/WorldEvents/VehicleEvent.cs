@@ -8,9 +8,10 @@ public class VehicleEvent : WorldEvent
     [SerializeField] GameObject attachmentPoint;
     [SerializeField] EventType vehicleEvent;
     public List<TerrainType> compatibleTerrains;
-    public override void Activate()
+    public override void Activate(WorldEventHandler eventHandler)
     {
         WorldPlayerControl.CurrentVehicle = this;
+        eventHandler.eventComplete = true;
     }
 
     public void CheckForDismount(Vector2Int newPosition)

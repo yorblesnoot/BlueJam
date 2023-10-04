@@ -27,7 +27,7 @@ public class WorldEvent : MonoBehaviour
         StartCoroutine(ShrinkAway());
     }
 
-    public virtual void Activate()
+    public virtual void Activate(WorldEventHandler eventHandler)
     {
         //do whatever when the player enters the cell
         RemoveEvent();

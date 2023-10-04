@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
+
 public enum CraftType
 {
     BASE,
@@ -35,8 +37,9 @@ public class EssenceCrafting : MonoBehaviour
     [HideInInspector] public DraggableItem essenceSlotContents;
 
     [SerializeField] Canvas mainCanvas;
-    
-    
+
+    public static UnityEvent craftWindowClosed = new();
+
     private void Awake()
     {
         modules = new();
@@ -99,6 +102,7 @@ public class EssenceCrafting : MonoBehaviour
         essenceSlotContents = null;
         craftingSlotContents.Clear();
         modules[craftType].gameObject.SetActive(false);
+        modules[craftType].craftButton.onClick.RemoveAllListeners();
         craftType = CraftType.BASE;
         craftWindowClosed?.Invoke();
     }
