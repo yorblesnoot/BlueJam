@@ -100,6 +100,7 @@ public class EssenceCrafting : MonoBehaviour
         craftingSlotContents.Clear();
         modules[craftType].gameObject.SetActive(false);
         craftType = CraftType.BASE;
+        craftWindowClosed?.Invoke();
     }
 
     public void EssenceSlotFilled(DraggableItem draggable = null)
