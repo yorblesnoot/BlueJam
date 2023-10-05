@@ -21,7 +21,7 @@ MonoBehaviour:
   vfxNameAfter: DrownAura
   effectSound: 9
   effectSoundAfterHit: 0
-  scalingMultiplier: -10
+  scalingMultiplier: -15
   aoeShape: 0
   aoeSize: 3
   aoeGap: 1

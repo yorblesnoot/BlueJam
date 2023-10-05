@@ -71,5 +71,11 @@ PrefabInstance:
       propertyPath: color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8309842252705880633, guid: 27a9cf0d7431ea14d929cf2a4bf6cd95, type: 3}
+      propertyPath: tutorialText
+      value: You've picked up an orb, which unlocks a one-time use of a special crafting
+        action. After you perform a craft or close the craft screen, the orb's effect
+        will be lost.
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27a9cf0d7431ea14d929cf2a4bf6cd95, type: 3}

@@ -39,9 +39,8 @@ public class WorldPlayerControl : MonoBehaviour
 
     public IEnumerator ChainPath(List<Vector2Int> path)
     {
-        Tutorial.CompleteStage(TutorialFor.WORLDHEAL, 1, true);
-        Tutorial.CompleteStage(TutorialFor.WORLDITEM, 1, true);
-        Tutorial.CompleteStage(TutorialFor.WORLDREMOVE, 1, true);
+        Tutorial.CompleteStage(WorldEventHandler.lastTutorial, 1, true);
+
         foreach (var tile in path)
         {
             Vector2Int globalCoords = tile + WorldMapRenderer.spotlightGlobalOffset;
@@ -49,6 +48,7 @@ public class WorldPlayerControl : MonoBehaviour
                 && CurrentVehicle == null)
                 if(!(runData.eventMap.TryGetValue(globalCoords, out var value) && (value == EventType.BOAT || value == EventType.BALLOON))) 
                     yield break;
+
             playerState = WorldPlayerState.PATHING;
             runData.score -= 1;
             WorldMovementController tileController = MapTools.MapToTile(tile).GetComponent<WorldMovementController>();
@@ -82,10 +82,9 @@ public class WorldPlayerControl : MonoBehaviour
             if (CurrentVehicle != null) onVehicle = true;
             yield return StartCoroutine(tileController.myEventHandler.TriggerWorldEvents());
             if (onVehicle) CurrentVehicle.RelocateVehicle(globalCoords, oldCoords);
-
-
-            playerState = WorldPlayerState.IDLE;
+            
         }
-        
+        WorldMovementController.pathingComplete.Invoke();
+        new SaveContainer(runData).SaveGame();
     }
 }

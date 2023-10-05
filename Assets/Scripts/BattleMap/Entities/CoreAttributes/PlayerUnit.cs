@@ -25,8 +25,8 @@ public class PlayerUnit : BattleUnit
     {
         base.TakeTurn();
         Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 2, "It's my turn again! The cards in my hand, below, give me access to powerful actions for defeating my enemies. Click one to select it!");
-        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 4, "The blue bar above each enemy tells you how soon they'll take their turn. Their bars will fill up based on the number of pips on the top right of each card you use, or the number of tiles you move when clicking on the map.");
-        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 5, "When hovering over a card or move, the orange zones by enemys' blue bars show how much their bars will fill when you act. White sparks mean the enemy will take a turn!");
+        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 4, "The <color=blue>blue bar</color> above each enemy tells you how soon they'll take their turn. Their bars will fill up based on the <color=orange>number of pips</color> on the <color=orange>top right</color> of each card you use, or the <color=orange>number of tiles</color> you move when clicking on the map.");
+        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 5, "When hovering over a card or move, the <color=orange>orange zones</color> by enemys' blue bars show how much their bars will fill when you act. <color=#00ffffff>White</color> sparks mean the enemy will take a turn!");
         playerState = PlayerBattleState.IDLE;
     }
 
@@ -39,7 +39,7 @@ public class PlayerUnit : BattleUnit
     {
         if (reduction == 0) return;
         Tutorial.Initiate(TutorialFor.BATTLEDAMAGE, TutorialFor.BATTLEACTIONS);
-        Tutorial.EnterStage(TutorialFor.BATTLEDAMAGE, 1, "Ouch, I've taken damage! You can see my current health in bottom left. If it reaches zero, I'll die and lose all my progress!");
+        Tutorial.EnterStage(TutorialFor.BATTLEDAMAGE, 1, "Ouch, I've taken damage! You can see my <color=red>current health</color> in bottom left. If it reaches zero, I'll die and lose all my progress!");
         base.ModifyHealth(reduction);
         runData.currentHealth = currentHealth;
     }

@@ -119,9 +119,7 @@ public class UnitAI : MonoBehaviour
             }
             else
             {
-                List<BattleUnit> targetables;
-                if(effect.forceTargetSelf) targetables = CellTargeting.AreaTargets(MapTools.VectorToTile(transform.position), gameObject.tag, effect.effectClass, effect.aoe);
-                else targetables = CellTargeting.AreaTargets(moveTile.gameObject, gameObject.tag, effect.effectClass, effect.aoe);
+                List<BattleUnit> targetables = CellTargeting.AreaTargets(effect.forceTargetSelf ? MapTools.VectorToTile(transform.position) : moveTile.gameObject, gameObject.tag, effect.effectClass, effect.aoe).Select(x => x.unitContents).ToList();
 
                 if (targetables.FirstOrDefault(x => x.gameObject.CompareTag("Player")) != null) favor += .1f;
 

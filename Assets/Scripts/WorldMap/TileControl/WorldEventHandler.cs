@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class WorldEventHandler : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class WorldEventHandler : MonoBehaviour
 
     public bool eventComplete;
     [SerializeField] GameObject redGlow;
+
+    public static TutorialFor lastTutorial;
 
     private void OnEnable()
     {
@@ -34,7 +37,7 @@ public class WorldEventHandler : MonoBehaviour
             { 
                 redGlow.SetActive(true);
                 Tutorial.Initiate(TutorialFor.WORLDBATTLE, TutorialFor.WORLDPICKUPS);
-                Tutorial.EnterStage(TutorialFor.WORLDBATTLE, 1, "Red energy over a tile means that there's an enemy there! If I walk over one of those tiles, I'll go into battle!");
+                Tutorial.EnterStage(TutorialFor.WORLDBATTLE, 1, "Red energy over a tile means that there's an <color=red>enemy</color> there! If I walk over one of those tiles, I'll go into <color=red>battle</color>!");
                 return;
             }
         }
@@ -47,10 +50,11 @@ public class WorldEventHandler : MonoBehaviour
         {
             eventComplete = false;
             cellEvent.Activate(this);
+            new SaveContainer(runData).SaveGame();
             WorldPlayerControl.playerState = WorldPlayerState.SELECTION;
             yield return new WaitUntil(() => eventComplete == true);
 
-            new SaveContainer(runData).SaveGame();
+            
             yield return new WaitForSeconds(.3f);
             cellEvent = null;
         }
@@ -68,6 +72,12 @@ public class WorldEventHandler : MonoBehaviour
         adjacentPositions.Add(MapTools.VectorToMap(transform.position));
         foreach(Vector2Int position in adjacentPositions)
         {
+            Vector2Int global = position + WorldMapRenderer.spotlightGlobalOffset;
+            if (RunStarter.unpathable.Contains(runData.worldMap[global.x, global.y]))
+            {
+                Tutorial.Initiate(TutorialFor.WORLDIMPASSABLE, TutorialFor.WORLDMOVE);
+                Tutorial.EnterStage(TutorialFor.WORLDIMPASSABLE, 1, "Water and mountains are <color=red>impassable terrain</color>! But with a little exploration, you might find <color=green>vehicles</color> that will allow me to cross.");
+            }
             GameObject tile = MapTools.MapToTile(position);
             if(tile == null) continue;
             WorldEventHandler eventHandler = tile.GetComponent<WorldEventHandler>();
@@ -78,6 +88,7 @@ public class WorldEventHandler : MonoBehaviour
             
         }
         EventManager.updateWorldCounters.Invoke();
+        WorldPlayerControl.playerState = WorldPlayerState.IDLE;
     }
 
     IEnumerator LaunchCombat(WorldEnemy cellEnemy)

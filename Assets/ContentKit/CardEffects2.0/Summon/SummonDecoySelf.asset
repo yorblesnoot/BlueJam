@@ -10,16 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d63e6e4550640c647bd6b18ddc08f297, type: 3}
-  m_Name: SummonDecoy
+  m_Name: SummonDecoySelf
   m_EditorClassIdentifier: 
   forceTargetSelf: 1
-  targetNotRequired: 0
+  targetNotRequired: 1
   effectClass: 3
   vfxStyleBefore: 5
   vfxNameBefore: ShadowDrop
   vfxStyleAfter: 0
   vfxNameAfter: none
   effectSound: 10
+  effectSoundAfterHit: 0
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 0

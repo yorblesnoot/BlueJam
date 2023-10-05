@@ -16,10 +16,6 @@ MonoBehaviour:
   deckContents:
   - {fileID: 11400000, guid: 0aefb7d311c918e478b83a5147fbb508, type: 2}
   - {fileID: 11400000, guid: 0aefb7d311c918e478b83a5147fbb508, type: 2}
-  symbol: d
-  iconColor:
-    serializedVersion: 2
-    rgba: 0
   hat: {fileID: 1884767912242196385, guid: 3cc7094a726dbe64fa666bead312416f, type: 3}
-  essenceDescription: 
-  unitName: 
+  uncollectible: 1
+  unitName: Illusion

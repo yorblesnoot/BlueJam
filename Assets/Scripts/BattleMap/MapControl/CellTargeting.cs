@@ -106,41 +106,30 @@ public static class CellTargeting
     {
         string tSource = source.gameObject.tag;
         List<CardClass> classes = card.effects.Select(x => x.effectClass).ToList();
-        if (classes.Contains(CardClass.MOVE) || classes.Contains(CardClass.SUMMON))
-        {
-            if (!TileIsValidTarget(tile, tSource, CardClass.MOVE)) return false;
-            else return true;
-        }
         foreach (var effect in card.effects)
         {
             BattleTileController effectTile = tile;
+            if (effect.effectClass == CardClass.MOVE && effectTile.unitContents == null) return true;
             if (effect.targetNotRequired) continue;
             if (effect.forceTargetSelf) effectTile = MapTools.VectorToTile(source.transform.position).GetComponent<BattleTileController>();
-            if (effect.effectClass == CardClass.ATTACK && AreaTargets(effectTile.gameObject, tSource, CardClass.ATTACK, effect.aoe).Count == 0)
-            {
-                return false;
-            }
-            if (effect.effectClass == CardClass.BUFF && AreaTargets(effectTile.gameObject, tSource, CardClass.BUFF, effect.aoe).Count == 0)
-            {
-                return false;
-            }
+            int validTargets = AreaTargets(effectTile.gameObject, tSource, effect.effectClass, effect.aoe).Count;
+            if (validTargets == 0) return false;
         }
         return true;
     }
 
     //return all valid targets in an aoe target based on the class, aoe size, and owner
-    public static List<BattleUnit> AreaTargets(GameObject tile, string tSource, CardClass cardClass, bool[,] aoeRule)
+    public static List<BattleTileController> AreaTargets(GameObject tile, string tSource, CardClass cardClass, bool[,] aoeRule)
     {
         List<GameObject> checkCells = ConvertMapRuleToTiles(aoeRule, tile.transform.position);
-        List<BattleUnit> aoeTargets = new();
+        List<BattleTileController> aoeTargets = new();
         if (checkCells.Count == 0) return aoeTargets;
         for (int i = 0; i < checkCells.Count; i++)
         {
             BattleTileController tileController = checkCells[i].GetComponent<BattleTileController>();
             if (TileIsValidTarget(tileController, tSource, cardClass))
             {
-                BattleUnit cellContents = tileController.unitContents;
-                if(cellContents != null) aoeTargets.Add(cellContents);
+                aoeTargets.Add(tileController);
             }
         }
         return aoeTargets;

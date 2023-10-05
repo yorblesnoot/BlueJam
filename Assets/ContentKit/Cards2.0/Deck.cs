@@ -10,6 +10,8 @@ public class Deck : SOWithGUID
 
     public GameObject hat;
 
+    public bool uncollectible;
+
     [HideInInspector] public string unitName;
 
     public void Initialize()

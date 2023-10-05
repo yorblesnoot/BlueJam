@@ -106,7 +106,7 @@ public static class GridHelper
 
     public static Vector2Int RandomCardinalDirection()
     {
-        int searchVal = UnityEngine.Random.Range(-1, 2);
+        int searchVal = UnityEngine.Random.Range(0, 2) * 2 - 1;
         int direction = UnityEngine.Random.Range(0, 2);
         return new Vector2Int(direction == 0 ? searchVal : 0, direction == 1 ? searchVal : 0);
     }

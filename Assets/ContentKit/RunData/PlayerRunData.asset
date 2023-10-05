@@ -14,36 +14,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
-  playerWorldX: 251
-  playerWorldY: 251
+  playerWorldX: 287
+  playerWorldY: 264
   itemInventory: []
   essenceInventory:
+  - {fileID: 11400000, guid: 7e1a7e8ac9049e0498ff8912298368f0, type: 2}
   - {fileID: 11400000, guid: e9d6f90f24f0b0d4f841e9584099afdf, type: 2}
   - {fileID: 11400000, guid: ac8da426af411204f90b7cd3fd6a8528, type: 2}
   - {fileID: 11400000, guid: d40c66bd0600ac347816231fcbd80ca4, type: 2}
-  - {fileID: 11400000, guid: 1dd53e68859f17c43b90e4fe4c49decd, type: 2}
-  - {fileID: 11400000, guid: 178f7021088474a45a0f4a8855015c62, type: 2}
-  - {fileID: 11400000, guid: b7d92abc3a4e66341b5ff302a6108ec2, type: 2}
-  - {fileID: 11400000, guid: b10da591c1e864f4c9ca1bab5f78c4f9, type: 2}
-  - {fileID: 11400000, guid: e6b3f4d1cbc3cce448ac60060393fd67, type: 2}
-  - {fileID: 11400000, guid: bc383f7e798b47a499e6c953ebc08bb9, type: 2}
-  - {fileID: 11400000, guid: 3f2bd8d335ead924e8b5f8d44224ade8, type: 2}
-  - {fileID: 11400000, guid: 7f2bb3195c233ca43abd1b943ca11a84, type: 2}
-  - {fileID: 11400000, guid: ec77dfd59f76ec142a04121fccebd4b4, type: 2}
-  - {fileID: 11400000, guid: 7d592c2fde476a94b879a9b5e522a95e, type: 2}
-  - {fileID: 11400000, guid: 549725213483a504586933c930800ae3, type: 2}
-  - {fileID: 11400000, guid: 4d9148ae688802f43b6f4ebe7caeaecd, type: 2}
   - {fileID: 11400000, guid: 926849be8e54e5140b3bf8c098865f00, type: 2}
-  - {fileID: 11400000, guid: 164bedcad331e5a4c833a091680664b6, type: 2}
-  - {fileID: 11400000, guid: eaeca6a9ebc64974d92fc3cfb6d838e4, type: 2}
-  - {fileID: 11400000, guid: 7c7003a592b7b2644b8bfe70ec9c11e7, type: 2}
-  - {fileID: 11400000, guid: 6e797f389ea8a12488f3f55a292bc1f5, type: 2}
+  - {fileID: 11400000, guid: 9e8b704ead6d47b4f851ee3827232b12, type: 2}
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
-  RemoveStock: 0
-  worldSteps: 0
+  RemoveStock: 1
+  worldSteps: 77
   difficultyTier: 4
   currentHealth: 100
-  score: 50
-  bossSequence: 00000000030000000100000002000000
+  score: 278
+  bossSequence: 00000000010000000300000002000000
   endless: 0

@@ -15,15 +15,15 @@ MonoBehaviour:
   Id: 0447456b-b7aa-46ff-8b2f-01327b4ca3a8
   displayName: Suffocating Presence
   art: {fileID: 21300000, guid: 487560fc8eccb458dbd04d3af6dd1e68, type: 3}
-  cost: 4
-  description: 
-  keywords: 
+  cost: 3
+  description: 'Apply a buff to decrease speed by 10% for 5 actions in a <color=red>3<color=blue>O</color></color>
+    AOE each action for <color=blue>5</color> actions. '
+  keywords: 'Range: 0-0 <color=blue>O</color>.'
   targetShape: 0
   targetSize: 0
   targetGap: 0
   needsPath: 0
   isCurse: 0
-  cardClass: 
   consumed: 0
   animType: 0
   effects:

@@ -9,28 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d2e09cbe6c9746489b5a70c6a1e13ff, type: 3}
-  m_Name: DrownAura
+  m_Script: {fileID: 11500000, guid: d63e6e4550640c647bd6b18ddc08f297, type: 3}
+  m_Name: RandomIllusion
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
   targetNotRequired: 0
-  effectClass: 2
+  effectClass: 3
   vfxStyleBefore: 0
-  vfxNameBefore: BuffCharge
+  vfxNameBefore: none
   vfxStyleAfter: 0
   vfxNameAfter: none
-  effectSound: 0
+  effectSound: 10
   effectSoundAfterHit: 0
   scalingMultiplier: 0
   aoeShape: 0
-  aoeSize: 0
-  aoeGap: 0
+  aoeSize: 4
+  aoeGap: 3
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  purgeable: 0
-  duration: 3
-  iconColor:
-    serializedVersion: 2
-    rgba: 4285748224
-  iconImage: {fileID: 21300000, guid: f4e49bb7005427c4fac854d6d05fcb4e, type: 3}
-  turnLapseEffect: {fileID: 11400000, guid: 580c83858252333459c3f9d8861d6a87, type: 2}
+  entityToSummon: {fileID: 4501265695111202860, guid: b79dd893bce76284e993e6f01a42cd2d, type: 3}

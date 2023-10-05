@@ -6,8 +6,8 @@ public class WorldEvent : MonoBehaviour
 {
     public RunData runData;
     GameObject tile;
-    [SerializeField] string tutorialText;
-    [SerializeField] TutorialFor tutorialType;
+    [SerializeField] internal string tutorialText;
+    [SerializeField] internal TutorialFor tutorialType;
 
     [SerializeField] GameObject model;
     [SerializeField] ParticleSystem glow;
@@ -32,8 +32,14 @@ public class WorldEvent : MonoBehaviour
         //do whatever when the player enters the cell
         RemoveEvent();
         runData.score += 50;
+        
+    }
+
+    internal void RunTutorials()
+    {
         Tutorial.Initiate(tutorialType, TutorialFor.WORLDMOVE);
         Tutorial.EnterStage(tutorialType, 1, tutorialText);
+        WorldEventHandler.lastTutorial = tutorialType;
     }
 
     void RemoveEvent()

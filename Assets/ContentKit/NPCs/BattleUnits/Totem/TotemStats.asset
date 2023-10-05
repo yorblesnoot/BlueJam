@@ -15,10 +15,8 @@ MonoBehaviour:
   unitName: Totem
   maxHealth: 8
   handSize: 2
-  playerAllied: 0
   startBeats: 1
-  myTurn: 0
   damageScaling: 10
   barrierScaling: 10
   healScaling: 10
-  turnSpeed: 0.5
+  turnSpeed: 0.4

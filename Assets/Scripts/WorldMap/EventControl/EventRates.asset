@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   events:
   - obj: {fileID: 0}
-    spawnChance: 500
+    spawnChance: 450
     type: 0
   - obj: {fileID: 757166517744906979, guid: d3d80019a0df8cf4c8a0387c094d97f9, type: 3}
     spawnChance: 18
@@ -26,13 +26,13 @@ MonoBehaviour:
     spawnChance: 3
     type: 3
   - obj: {fileID: 4211756741890753891, guid: a7072a92d189b2341a80481a718ed4d3, type: 3}
-    spawnChance: 10
+    spawnChance: 1
     type: 8
   - obj: {fileID: 4211756741890753891, guid: c31472a659fdb80458c7433e41b8a7f4, type: 3}
-    spawnChance: 10
+    spawnChance: 1
     type: 9
   - obj: {fileID: 4211756741890753891, guid: 638039dff68c79e4baf19b18fc401a0f, type: 3}
-    spawnChance: 10
+    spawnChance: 1
     type: 10
   - obj: {fileID: 5646597843019752695, guid: 8bd5f0c365b934f478952de64c369a9f, type: 3}
     spawnChance: 1

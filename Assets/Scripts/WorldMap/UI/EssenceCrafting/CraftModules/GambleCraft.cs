@@ -12,8 +12,9 @@ public class GambleCraft : CraftModule
         int poolChoice = Random.Range(0, 5 - craftingSlotContents.Count);
         List<Deck> finalPool = new();
         if(poolChoice == 0) finalPool = loadLibrary.decksPool.Where(x => x.deckContents.Count >= 5 && x.deckContents.Count <= 6).ToList();
-        else finalPool = loadLibrary.decksPool.Where(x => x.deckContents.Count <= 4).ToList();
+        else finalPool = loadLibrary.decksPool.Where(x => !x.uncollectible && x.deckContents.Count <= 4).ToList();
 
+        Debug.Log(finalPool.Count);
         int deckChoice = Random.Range(0, finalPool.Count);
         runData.essenceInventory.Add(finalPool[deckChoice]);
     }

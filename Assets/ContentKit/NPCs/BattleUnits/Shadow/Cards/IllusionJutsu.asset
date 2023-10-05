@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: PulseDeflect
+  m_Name: IllusionJutsu
   m_EditorClassIdentifier: 
-  Id: 2fc0a21d-3fd3-4015-92fd-44fabf6eb7d1
-  displayName: Ward Pulse
-  art: {fileID: 21300000, guid: 9345211fd172c4e75985765a853af697, type: 3}
-  cost: 4
-  description: 'deflect for <color=#1ED5FA>7</color> in a <color=red>3<color=blue>O</color></color>
-    AOE. '
-  keywords: 'Range: 0-0 <color=blue>O</color>'
+  Id: 77fe0f51-0abb-4170-9043-400b14308711
+  displayName: Illusion Burst
+  art: {fileID: 21300000, guid: ae810be1fcb5d4c1c9cc702c5cd72a4f, type: 3}
+  cost: 2
+  description: 
+  keywords: 
   targetShape: 0
   targetSize: 0
   targetGap: 0
@@ -27,4 +26,5 @@ MonoBehaviour:
   consumed: 0
   animType: 0
   effects:
-  - {fileID: 11400000, guid: 1b436ceeb25ba774a93a6d6d994b6de0, type: 2}
+  - {fileID: 11400000, guid: e7eabd209695dad45b90630815adef52, type: 2}
+  - {fileID: 11400000, guid: e7eabd209695dad45b90630815adef52, type: 2}

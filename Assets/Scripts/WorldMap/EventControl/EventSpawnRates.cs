@@ -20,7 +20,7 @@ public class EventSpawnRates : ScriptableObject
 
     public EventType RandomEvent()
     {
-        int selection = Random.Range(0, totalChance);
+        int selection = Random.Range(0, totalChance + 1);
         int currentThreshold = 0;
         foreach (var e in events)
         {

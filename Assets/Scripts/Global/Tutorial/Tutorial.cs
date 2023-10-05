@@ -20,7 +20,8 @@ public enum TutorialFor
     WORLDDECK,
     WORLDCRAFTREMINDER,
     WORLDVEHICLE,
-    WORLDORB
+    WORLDORB,
+    WORLDIMPASSABLE
     //others
 }
 

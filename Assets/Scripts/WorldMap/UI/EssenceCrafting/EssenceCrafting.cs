@@ -88,8 +88,8 @@ public class EssenceCrafting : MonoBehaviour
         }
         Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 1);
         Tutorial.CompleteStage(TutorialFor.WORLDCRAFTREMINDER, 1);
-        Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 2, 
-            "Drag an essence you want cards from into the top slot, then drag some essences you don't want into the bottom slots.");
+        Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 2,
+            "Drag an essence you want cards from into the <color=blue>top slot</color>, then drag some essences you don't want into the <color=blue>bottom slots.</color>");
         EssenceSlotFilled();
         for (int i = 0; i < dragItems.Count; i++)
         {
@@ -123,7 +123,7 @@ public class EssenceCrafting : MonoBehaviour
     {
         Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 2);
         Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 3,
-            "You can see the cards available from an essence in the bottom right. For each essence you add to the craft, you'll be offered an additional option to choose from. Press the hammer button when you're ready.");
+            "You can see the cards available from an essence in the bottom right. <color=blue>For each essence</color> you add to the craft, you'll be <color=green>offered an additional option</color> to choose from. Press the hammer button when you're ready.");
         if (operation) craftingSlotContents.Add(item);
         else craftingSlotContents.Remove(item);
 

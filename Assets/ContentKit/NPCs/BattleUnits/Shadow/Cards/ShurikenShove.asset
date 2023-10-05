@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: 1bf127e1-9742-4c26-bf22-995e2ddb488b
   displayName: Shuriken Barrage
   art: {fileID: 21300000, guid: 8f78f97a2d8e7498388d20b064d09528, type: 3}
-  cost: 3
+  cost: 2
   description: 
   keywords: 
   targetShape: 0
@@ -23,7 +23,6 @@ MonoBehaviour:
   targetGap: 2
   needsPath: 0
   isCurse: 0
-  cardClass: 
   consumed: 0
   animType: 0
   effects:

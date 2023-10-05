@@ -21,7 +21,6 @@ public class OrbEvent : WorldEvent
     }
     public override void Activate(WorldEventHandler eventHandler)
     {
-        Debug.Log("activated");
         SoundManager.PlaySound(SoundType.GOTCHEST);
         EssenceCrafting.craftType = type;
         WorldMenuPlus.openAltCraft.Invoke();

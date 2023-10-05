@@ -52,7 +52,6 @@ public class WorldMenuPlus : MonoBehaviour
     public void CloseCurrent()
     {
         if (currentOpen == null) return;
-        Tutorial.CompleteStage(TutorialFor.WORLDDECK, 2);
         ResetWindow(currentOpen);
         StartCoroutine(currentOpen.window.SlideOut(.2f));
         currentOpen = null;

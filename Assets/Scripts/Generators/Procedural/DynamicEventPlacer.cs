@@ -16,7 +16,6 @@ public class DynamicEventPlacer
     {
         eventRates.Initialize();
         runData = data;
-        EventManager.playerAtWorldLocation.AddListener((Vector2Int position) => CheckToPopulateChunks(position));
         this.eventRates = eventRates;
     }
     public void CheckToPopulateChunks(Vector2Int globalPosition, bool checkCurrent = false)

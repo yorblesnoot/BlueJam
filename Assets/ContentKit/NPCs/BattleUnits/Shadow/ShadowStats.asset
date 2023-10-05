@@ -15,10 +15,8 @@ MonoBehaviour:
   unitName: Ninja
   maxHealth: 80
   handSize: 3
-  playerAllied: 0
   startBeats: 2
-  myTurn: 0
   damageScaling: 15
   barrierScaling: 10
   healScaling: 10
-  turnSpeed: 0.6
+  turnSpeed: 0.5

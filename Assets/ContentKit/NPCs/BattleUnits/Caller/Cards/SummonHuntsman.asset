@@ -19,11 +19,10 @@ MonoBehaviour:
   description: 
   keywords: 
   targetShape: 0
-  targetSize: 1
-  targetGap: 1
+  targetSize: 0
+  targetGap: 0
   needsPath: 0
   isCurse: 0
-  cardClass: 
   consumed: 1
   animType: 0
   effects:

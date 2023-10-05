@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: 69cb4f28-3e87-40a6-8e1c-c29d8a07935b
   displayName: Mend Pulse
   art: {fileID: 21300000, guid: 256de729486824db797be63853a04773, type: 3}
-  cost: 5
+  cost: 4
   description: 'heal for <color=#1EFA61>5</color> in a <color=red>3<color=blue>O</color></color>
     AOE. '
   keywords: 'Range: 0-0 <color=blue>O</color>'
@@ -24,7 +24,6 @@ MonoBehaviour:
   targetGap: 0
   needsPath: 0
   isCurse: 0
-  cardClass: 02000000
   consumed: 0
   animType: 0
   effects:

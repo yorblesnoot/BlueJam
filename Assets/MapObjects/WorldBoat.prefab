@@ -244,7 +244,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
-  tutorialText: 
+  tutorialText: You've entered a boat, which allows you to traverse water tiles!
+    You can ride the boat as long as you like, but leaving the water will leave it
+    behind.
   tutorialType: 15
   model: {fileID: 0}
   glow: {fileID: 0}

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class RunStarter : MonoBehaviour
@@ -8,6 +9,7 @@ public class RunStarter : MonoBehaviour
     [SerializeField] Deck playerDeck;
     [SerializeField] GenerationParameters generationParameters;
     [SerializeField] DifficultySelector difficultySelector;
+    [SerializeField] EventSpawnRates rates;
 
     [HideInInspector] public static readonly TerrainType[] unpathable = { TerrainType.WATER, TerrainType.DEEPWATER, TerrainType.MOUNTAIN };
     public void NewGame()
@@ -25,16 +27,9 @@ public class RunStarter : MonoBehaviour
         runData.currentHealth = playerClass.basemaxHealth;
 
         //build a world map for the run and set the player's position on it
-        ProceduralMapGenerator proceduralGenerator = new();
-        runData.worldMap = proceduralGenerator.Generate(generationParameters);
+        int mapSize = BuildWorldMap();
 
-        int mapSize = runData.worldMap.GetLength(0);
-
-        //starting position on world map; ~~~~~~~~~~add randomization and legality check
-        Vector2Int startPosition = runData.worldMap.SpiralSearch(unpathable, new Vector2Int(mapSize / 2, mapSize / 2), false);
-
-        runData.playerWorldX = startPosition.x;
-        runData.playerWorldY = startPosition.y;
+        
 
         //initalize gameplay lists
         runData.itemPool.awardableItems = new();
@@ -50,7 +45,34 @@ public class RunStarter : MonoBehaviour
         runData.exploredChunks = new bool[mapSize / DynamicEventPlacer.chunkSize, mapSize / DynamicEventPlacer.chunkSize];
         runData.endless = false;
 
+        BuildStartingPosition(mapSize);
+
         //send the player to the world map
         EventManager.loadSceneWithScreen.Invoke(-1);
+    }
+
+    private int BuildWorldMap()
+    {
+        ProceduralMapGenerator proceduralGenerator = new();
+        runData.worldMap = proceduralGenerator.Generate(generationParameters);
+        int mapSize = runData.worldMap.GetLength(0);
+        return mapSize;
+    }
+
+    private void BuildStartingPosition(int mapSize)
+    {
+        Vector2Int startPosition = runData.worldMap.SpiralSearch(unpathable, new Vector2Int(mapSize / 2, mapSize / 2), false);
+
+        runData.playerWorldX = startPosition.x;
+        runData.playerWorldY = startPosition.y;
+
+        DynamicEventPlacer placer = new(runData, rates);
+        placer.CheckToPopulateChunks(startPosition, PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1);
+        List<Vector2Int> adjacents = startPosition.GetAdjacentCoordinates();
+        adjacents.Add(startPosition);
+        foreach (var adjacent in adjacents)
+        {
+            runData.eventMap.Remove(adjacent);
+        }
     }
 }

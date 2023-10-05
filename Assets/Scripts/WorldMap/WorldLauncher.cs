@@ -34,20 +34,26 @@ public class WorldLauncher : MapLauncher
     void InitializeWorld()
     {
         RunTutorials();
-
+        Debug.Log("tutorials run");
         DynamicEventPlacer placer = new(runData, rates);
+        EventManager.playerAtWorldLocation.AddListener((Vector2Int position) => placer.CheckToPopulateChunks(position));
+
+        Debug.Log("placer initialized");
+
         Vector2Int localPlayer = MapTools.VectorToMap(WorldPlayerControl.player.transform.position);
-        Vector2Int startPos = localPlayer + WorldMapRenderer.spotlightGlobalOffset;
-        if (PlayerPrefs.GetInt(nameof(TutorialFor.MAIN)) == -1)
-            placer.CheckToPopulateChunks(startPos, true);
-        else placer.CheckToPopulateChunks(startPos);
+
+        Debug.Log("got local player pos");
 
         GenerateBoss(placer);
 
-        mapRenderer.RenderFullWindow(runData.worldMap);
+        Debug.Log("boss generated");
 
-        WorldEventHandler handler = MapTools.MapToTile(localPlayer).GetComponent<WorldEventHandler>();
-        StartCoroutine(handler.TriggerWorldEvents());
+        mapRenderer.RenderFullWindow(runData.worldMap);
+        Debug.Log("window rendered");
+        TriggerEventsOnOrigin(localPlayer);
+
+        //isue is above here
+        Debug.Log("passed event trigger");
 
         playerControl.compassMaster.DeployCompass(EventType.BOSS, Color.red);
 
@@ -59,18 +65,28 @@ public class WorldLauncher : MapLauncher
         SoundManager.PlayMusic(SoundType.MUSICWORLD);
     }
 
+    private static void TriggerEventsOnOrigin(Vector2Int localPlayer)
+    {
+        WorldEventHandler handler = MapTools.MapToTile(localPlayer).GetComponent<WorldEventHandler>();
+        if (handler.cellEvent != null)
+        {
+            handler.cellEvent.PreAnimate();
+            handler.StartCoroutine(handler.TriggerWorldEvents());
+        }
+    }
+
     private void RunTutorials()
     {
         Tutorial.Initiate(TutorialFor.WORLDMOVE, TutorialFor.MAIN);
-        Tutorial.EnterStage(TutorialFor.WORLDMOVE, 1, "Welcome to Slime Alchemist! This is the world map. My objective is the boss, towards the red arrow. But to beat it, I'll need to become stronger. Click on a tile to move to it.");
+        Tutorial.EnterStage(TutorialFor.WORLDMOVE, 1, $"Welcome to <b>{"Slime Alchemist".GenerateRainbowText()}</b>! This is the world map. My objective is the boss, towards the red arrow. But to beat it, I'll need to become stronger. Click on a tile to move to it.");
         Tutorial.Initiate(TutorialFor.WORLDCRAFTING, TutorialFor.WORLDBATTLE);
-        Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 1, "Well done! Defeating those enemies granted me their essences, which you can use to add their cards to my deck. Click the anvil in the top right or press C to craft essences.");
+        Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 1, "Well done! Defeating those enemies granted me their <color=blue>essences</color>, which you can use to <color=blue>add their cards to my deck</color>. Click the anvil in the top right or press C to craft essences.");
         Tutorial.EnterStage(TutorialFor.WORLDBOSS, 2, "Wow, you did it! Now you can craft a boss card for my deck... but a new, stronger foe has arisen! Looks like you've got the basics down; let's see how far you can go!");
 
         if (runData.essenceInventory.Count > 10)
         {
             Tutorial.Initiate(TutorialFor.WORLDCRAFTREMINDER, TutorialFor.WORLDCRAFTING);
-            Tutorial.EnterStage(TutorialFor.WORLDCRAFTREMINDER, 1, "My essence inventory is starting to fill up. Don't forget to check back on the crafting screen between battles to add cards to your deck.");
+            Tutorial.EnterStage(TutorialFor.WORLDCRAFTREMINDER, 1, "My essence inventory is starting to fill up. Don't forget to check back on the crafting screen between battles to add cards to your deck!");
         }
     }
 
