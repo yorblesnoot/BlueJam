@@ -6,6 +6,7 @@ using UnityEngine;
 public class UnitStats : ScriptableObject
 {
     public string unitName;
+    public string unitDescription;
 
     public int maxHealth;
     public int handSize;

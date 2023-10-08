@@ -6,7 +6,6 @@ using UnityEngine;
 public class PlayerHandPlus : HandPlus
 {
     [SerializeField] GameObject deckSpot;
-    [SerializeField] GameObject handSpot;
     [SerializeField] GameObject discardSpot;
     [SerializeField] GameObject conjureSpot;
 
@@ -198,8 +197,10 @@ public class PlayerHandPlus : HandPlus
         PlayerCardDisplay discarded = (PlayerCardDisplay)Idiscarded;
         discarded.gameObject.GetComponent<EmphasizeCard>().readyEmphasis = false;
         CardSlot slot = cardSlots.FirstOrDefault(x => x.reference == discarded);
+        Debug.Log(Idiscarded.forceConsume);
         if (Idiscarded.forceConsume == true && played == true)
         {
+            Debug.Log("consumed");
             discarded.transform.SetParent(conjureSpot.transform, true);
             handCards.Remove(discarded);
             yield return StartCoroutine(slot.FlipToSpot());

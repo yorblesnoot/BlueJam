@@ -38,10 +38,15 @@ public class BattleTileController : MonoBehaviour
 
     void OnMouseDown()
     {
+        InfoTagControl.hideTags?.Invoke();
         if (availableForPlay == true)
         {
             EventManager.targetConfirmed?.Invoke(this);
             availableForPlay = false;
+        }
+        else if (unitContents != null)
+        {
+            unitContents.ShowInfoTag();
         }
         else if (loadedCard == null && myPath != null && myPath.Count > 0 && myPath.Count <= 3
             && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
@@ -49,7 +54,10 @@ public class BattleTileController : MonoBehaviour
             Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 1);
             StartCoroutine(TurnManager.playerUnit.ChainPath(myPath));
         }
-        else EventManager.clearActivation?.Invoke();
+        else
+        {
+            EventManager.clearActivation?.Invoke();
+        }
     }
 
     private void OnMouseEnter()

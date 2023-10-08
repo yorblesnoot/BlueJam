@@ -110,8 +110,7 @@ public static class CellTargeting
         {
             BattleTileController effectTile = tile;
             if (effect.effectClass == CardClass.MOVE && effectTile.unitContents == null) return true;
-            if (effect.targetNotRequired) continue;
-            if (effect.forceTargetSelf) effectTile = MapTools.VectorToTile(source.transform.position).GetComponent<BattleTileController>();
+            if (effect.targetNotRequired || effect.forceTargetSelf) continue;
             int validTargets = AreaTargets(effectTile.gameObject, tSource, effect.effectClass, effect.aoe).Count;
             if (validTargets == 0) return false;
         }

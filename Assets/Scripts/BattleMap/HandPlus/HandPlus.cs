@@ -11,6 +11,7 @@ public class HandPlus : MonoBehaviour
     protected List<ICardDisplay> deckCards = new();
     protected List<ICardDisplay> discardCards = new();
     internal readonly int cardSize = 1;
+    [SerializeField] protected GameObject handSpot;
 
     public Deck deckRecord;
 

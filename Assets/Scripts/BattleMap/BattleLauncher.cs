@@ -6,7 +6,6 @@ public class BattleLauncher : MapLauncher
 {
     public GameObject player;
     public SceneRelay sceneRelay;
-    public RunData runData;
 
     [SerializeField] CameraLock camLock;
     [SerializeField] MasterEnemyPool masterEnemyPool;

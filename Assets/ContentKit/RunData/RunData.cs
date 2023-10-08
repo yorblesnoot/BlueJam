@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "RunData", menuName = "ScriptableObjects/Singletons/RunData")]
 public class RunData : ScriptableObject
 {
+    public int randomSeed;
     //world map data
     public UnitStats playerStats;
     public Deck playerDeck;

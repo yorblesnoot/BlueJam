@@ -73,4 +73,6 @@ public class BattleUnit : Unit
     }
 
     public virtual void SpendBeats(int beats) { }
+
+    public virtual void ShowInfoTag() { }
 }

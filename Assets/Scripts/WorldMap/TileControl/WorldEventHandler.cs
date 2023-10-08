@@ -50,7 +50,6 @@ public class WorldEventHandler : MonoBehaviour
         {
             eventComplete = false;
             cellEvent.Activate(this);
-            new SaveContainer(runData).SaveGame();
             WorldPlayerControl.playerState = WorldPlayerState.SELECTION;
             yield return new WaitUntil(() => eventComplete == true);
 
@@ -83,6 +82,7 @@ public class WorldEventHandler : MonoBehaviour
             WorldEventHandler eventHandler = tile.GetComponent<WorldEventHandler>();
             if (eventHandler.cellEnemy == null || eventHandler.cellEnemy.GetType() == typeof(WorldBoss)) continue;
             Tutorial.CompleteStage(TutorialFor.WORLDBATTLE, 1, true);
+            //dont save game after events if we are entering combat; save should reload us on the previous tile
             yield return StartCoroutine(LaunchCombat(eventHandler.cellEnemy));
             yield break;
             

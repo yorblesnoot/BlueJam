@@ -184,6 +184,7 @@ public class UnitAI : MonoBehaviour
             
             float potentialPathDistance = pathfinder.GetPathLength(moveVect, MapTools.VectorToMap(entity.transform.position));
             float currentPathDistance = pathfinder.GetPathLength(MapTools.VectorToMap(transform.position), MapTools.VectorToMap(entity.transform.position));
+            if (potentialPathDistance == -1 || currentPathDistance == -1) continue;
             if (!WeAreFriends(gameObject, entity))
             {
                 hostileScore += interestHostile * DistanceProcessing(proximityHostile, potentialPathDistance, currentPathDistance);

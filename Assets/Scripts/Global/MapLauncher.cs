@@ -4,6 +4,12 @@ using UnityEngine;
 public class MapLauncher : MonoBehaviour
 {
     public Dictionary<Vector2Int, GameObject> map = new();
+    [SerializeField] internal RunData runData;
+
+    private void Awake()
+    {
+        Random.InitState(runData.randomSeed);
+    }
     public virtual void RequestMapReferences()
     {
         EventManager.requestMapReferences.Invoke(this);

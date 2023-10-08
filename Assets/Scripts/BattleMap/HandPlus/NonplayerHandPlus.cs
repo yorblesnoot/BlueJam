@@ -24,7 +24,7 @@ public class NonplayerHandPlus : HandPlus
     {
         //scale and rotation for cards 
         GameObject newCard = Instantiate(blankCard, new Vector3(0, -20, 0), Quaternion.identity);
-        newCard.transform.SetParent(unitCanvas.transform, false);
+        newCard.transform.SetParent(handSpot.transform, false);
         newCard.transform.localScale = new Vector3(cardSize, cardSize, cardSize);
         ICardDisplay cardDisplay = newCard.GetComponent<NPCCardDisplay>();
         cardDisplay.owner = thisUnit;

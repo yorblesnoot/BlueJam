@@ -65,6 +65,7 @@ MonoBehaviour:
   isDead: 0
   turnShow: {fileID: 9213481635271868737}
   unitAI: {fileID: 7599744135600204344}
+  tagControl: {fileID: 379576486746722368}
 --- !u!114 &7599744135600204344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -168,6 +169,7 @@ MonoBehaviour:
   blankCard: {fileID: 8125039690481149630, guid: 0aa464d779125cc4f9307b253cd89fcf, type: 3}
   unitCanvas: {fileID: 6232642773605584462}
   thisUnit: {fileID: 8320433818775275716}
+  handSpot: {fileID: 522609764172447533}
   deckRecord: {fileID: 0}
 --- !u!1001 &2764897499231579358
 PrefabInstance:
@@ -616,6 +618,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 062cde42fd2725945be1743875e3f817, type: 3}
+--- !u!114 &379576486746722368 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3316619150725831912, guid: 062cde42fd2725945be1743875e3f817, type: 3}
+  m_PrefabInstance: {fileID: 3117187234317749416}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bc78a732b7bfbc41bb7814074fbb86c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &522609764172447533 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3171334074828747653, guid: 062cde42fd2725945be1743875e3f817, type: 3}
+  m_PrefabInstance: {fileID: 3117187234317749416}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1769594370302333019 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3732540650411957491, guid: 062cde42fd2725945be1743875e3f817, type: 3}

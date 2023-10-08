@@ -39,6 +39,7 @@ public class WorldPlayerControl : MonoBehaviour
 
     public IEnumerator ChainPath(List<Vector2Int> path)
     {
+        new SaveContainer(runData).SaveGame();
         Tutorial.CompleteStage(WorldEventHandler.lastTutorial, 1, true);
 
         foreach (var tile in path)
@@ -85,6 +86,6 @@ public class WorldPlayerControl : MonoBehaviour
             
         }
         WorldMovementController.pathingComplete.Invoke();
-        new SaveContainer(runData).SaveGame();
+        
     }
 }

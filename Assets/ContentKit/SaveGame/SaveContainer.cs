@@ -32,6 +32,7 @@ public class SaveContainer
     }
 
     public int difficulty;
+    public int randomSeed;
     public List<string> playerDeck;
     public List<string> items;
     public List<string> essenceInventory;
@@ -78,6 +79,7 @@ public class SaveContainer
 
     void SaveNums()
     {
+        randomSeed = RunData.randomSeed;
         difficulty = RunData.difficultyTier;
         currentHealth = RunData.currentHealth;
         playerX = RunData.playerWorldX;
@@ -153,8 +155,12 @@ public class SaveContainer
 
     void LoadNums()
     {
+        RunData.randomSeed = randomSeed;
+        Random.InitState(RunData.randomSeed);
+
         Settings.Balance = difficultySelector.GetDifficultyFromTier(difficulty);
         RunData.difficultyTier = difficulty;
+
         RunData.currentHealth = currentHealth;
         RunData.playerWorldX = playerX;
         RunData.playerWorldY = playerY;

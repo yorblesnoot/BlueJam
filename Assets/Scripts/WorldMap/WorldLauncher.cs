@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class WorldLauncher : MapLauncher
 {
-    [SerializeField] RunData runData;
     [SerializeField] WorldMapRenderer mapRenderer;
     [SerializeField] WorldPlayerControl playerControl;
     [SerializeField] EventSpawnRates rates;
@@ -34,26 +33,15 @@ public class WorldLauncher : MapLauncher
     void InitializeWorld()
     {
         RunTutorials();
-        Debug.Log("tutorials run");
         DynamicEventPlacer placer = new(runData, rates);
         EventManager.playerAtWorldLocation.AddListener((Vector2Int position) => placer.CheckToPopulateChunks(position));
 
-        Debug.Log("placer initialized");
-
         Vector2Int localPlayer = MapTools.VectorToMap(WorldPlayerControl.player.transform.position);
-
-        Debug.Log("got local player pos");
 
         GenerateBoss(placer);
 
-        Debug.Log("boss generated");
-
         mapRenderer.RenderFullWindow(runData.worldMap);
-        Debug.Log("window rendered");
         TriggerEventsOnOrigin(localPlayer);
-
-        //isue is above here
-        Debug.Log("passed event trigger");
 
         playerControl.compassMaster.DeployCompass(EventType.BOSS, Color.red);
 

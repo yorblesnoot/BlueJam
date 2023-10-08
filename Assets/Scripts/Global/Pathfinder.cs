@@ -64,7 +64,8 @@ public class Pathfinder
     public int GetPathLength(Vector2Int start, Vector2Int end)
     {
         List<Node> path = FindPath(nodeMap[start], nodeMap[end]);
-        return path.Count;
+        if (path != null) return path.Count;
+        else return -1;
     }
     List<Node> FindPath(Node start, Node end)
     {

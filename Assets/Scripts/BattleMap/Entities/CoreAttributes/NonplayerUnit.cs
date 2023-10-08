@@ -4,6 +4,7 @@ public class NonplayerUnit : BattleUnit
 {
     [SerializeField] GameObject turnShow;
     [SerializeField] UnitAI unitAI;
+    [SerializeField] InfoTagControl tagControl;
     public override void Initialize()
     {
         base.Initialize();
@@ -72,5 +73,11 @@ public class NonplayerUnit : BattleUnit
         isDead = true;
         VFXMachine.PlayAtLocation("Explosion", transform.position);
         gameObject.SetActive(false);
+    }
+
+    public override void ShowInfoTag()
+    {
+        transform.SetAsLastSibling();
+        tagControl.ShowTag(this, unitStats);
     }
 }
