@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: SamuraiStats
   m_EditorClassIdentifier: 
   unitName: Samurai
+  unitDescription: Enters a defensive stance; fail to pierce it, and fall to a lightning-fast
+    blade.
   maxHealth: 22
   handSize: 2
   startBeats: 1

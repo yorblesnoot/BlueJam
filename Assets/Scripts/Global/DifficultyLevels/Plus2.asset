@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Tooltip>k__BackingField: Threat accumulates more quickly and enemies gain more
     damage, healing, and barrier from it.
-  <BossSpawnDistance>k__BackingField: 10
+  <BossSpawnDistance>k__BackingField: 40
   <StepsPerThreat>k__BackingField: 9
   <ThreatHandicap>k__BackingField: 1
   <BaseFoeBudget>k__BackingField: 7

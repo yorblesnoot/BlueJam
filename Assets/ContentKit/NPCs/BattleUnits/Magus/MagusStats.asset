@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: MagusStats
   m_EditorClassIdentifier: 
   unitName: Magus
+  unitDescription: Teleports around the battlefield while unleashing a magical assault
+    at long range.
   maxHealth: 80
   handSize: 3
   startBeats: 1

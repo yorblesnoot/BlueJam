@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: RogueStats
   m_EditorClassIdentifier: 
   unitName: Rogue
+  unitDescription: Stalks the battlefield, then teleports into melee range to set
+    up a lethal strike.
   maxHealth: 20
   handSize: 2
   startBeats: 1

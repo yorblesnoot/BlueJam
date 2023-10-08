@@ -10,7 +10,6 @@ public class VehicleEvent : WorldEvent
     public List<TerrainType> compatibleTerrains;
     public override void Activate(WorldEventHandler eventHandler)
     {
-        Debug.Log("activated");
         WorldPlayerControl.CurrentVehicle = this;
         eventHandler.eventComplete = true;
         RunTutorials();

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: MimicStats
   m_EditorClassIdentifier: 
   unitName: Mimic
+  unitDescription: Seemingly harmless, but can copy cards from foes' hands to unpredictable
+    effect.
   maxHealth: 20
   handSize: 2
   startBeats: 1

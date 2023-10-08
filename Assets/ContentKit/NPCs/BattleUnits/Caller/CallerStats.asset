@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: CallerStats
   m_EditorClassIdentifier: 
   unitName: Caller
+  unitDescription: Fragile and slow to act, but will summon powerful allies if allowed
+    to act freely.
   maxHealth: 18
   handSize: 2
   startBeats: -1

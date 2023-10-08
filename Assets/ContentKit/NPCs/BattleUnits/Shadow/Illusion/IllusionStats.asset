@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: IllusionStats
   m_EditorClassIdentifier: 
   unitName: Illusion
+  unitDescription: A Shadow's remnant. Will sacrifice itself to deal high damage
+    at long range if not destroyed.
   maxHealth: 3
   handSize: 1
-  playerAllied: 0
   startBeats: 0
-  myTurn: 0
   damageScaling: 10
   barrierScaling: 0
   healScaling: 0

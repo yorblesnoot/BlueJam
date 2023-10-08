@@ -15,8 +15,7 @@ public class RunStarter : MonoBehaviour
     public void NewGame()
     {
         EventManager.loadSceneWithScreen.Invoke(1);
-        runData.randomSeed = Random.Range(int.MinValue, int.MaxValue);
-        Random.InitState(runData.randomSeed);
+        Random.InitState(Random.Range(int.MinValue, int.MaxValue));
         runData.difficultyTier = difficultySelector.currentDifficulty;
         Settings.Balance = difficultySelector.GetDifficultyFromTier(runData.difficultyTier);
 

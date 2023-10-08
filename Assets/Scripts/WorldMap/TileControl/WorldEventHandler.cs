@@ -95,19 +95,25 @@ public class WorldEventHandler : MonoBehaviour
     {
         if (cellEnemy.GetType() == typeof(WorldBoss)) sceneRelay.spawnPool = cellEnemy.spawnPool;
         else sceneRelay.spawnPool = tileEnemyPreset;
-        WorldEncounterBuilder builder = new(sceneRelay, runData);
 
         //remove activated enemies from the enemy map in rundata
         Vector2Int enemyCoords = MapTools.VectorToMap(cellEnemy.transform.position) + WorldMapRenderer.spotlightGlobalOffset;
         runData.eventMap.Remove(enemyCoords);
         WorldEventRenderer.spawnedEvents.Remove(enemyCoords);
 
-        //modify encounters-- extra map generation parameters
-        builder.ModifyMapGeneration(biomeMaps);
-
         yield return StartCoroutine(AnimatePlayerToBattle());
         //start combat
-        builder.LaunchEncounter();
+        LaunchEncounter();
+    }
+
+    void LaunchEncounter()
+    {
+        //save the biome generation data to runData, then send us into the battlemap
+        sceneRelay.availableMaps = biomeMaps;
+        sceneRelay.enemyBudget = Settings.Balance.BaseFoeBudget + runData.ThreatLevel / Settings.Balance.ThreatPerBudgetUp;
+        EventManager.prepareForBattle.Invoke();
+        EventManager.loadSceneWithScreen.Invoke(2);
+        EventManager.loadSceneWithScreen.Invoke(-1);
     }
 
     readonly static float descentTime = .4f;

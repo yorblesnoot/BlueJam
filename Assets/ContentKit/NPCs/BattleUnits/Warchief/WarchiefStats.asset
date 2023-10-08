@@ -12,7 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91c23a3e06a55c4c853ecd822414ace, type: 3}
   m_Name: WarchiefStats
   m_EditorClassIdentifier: 
-  unitName: 
+  unitName: Warchief
+  unitDescription: Calls forth and bolsters an army of totems while charging and
+    shoving foes.
   maxHealth: 100
   handSize: 3
   startBeats: 1

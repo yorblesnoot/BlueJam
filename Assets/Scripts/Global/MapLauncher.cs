@@ -8,7 +8,7 @@ public class MapLauncher : MonoBehaviour
 
     private void Awake()
     {
-        Random.InitState(runData.randomSeed);
+        Random.state = runData.randomState;
     }
     public virtual void RequestMapReferences()
     {

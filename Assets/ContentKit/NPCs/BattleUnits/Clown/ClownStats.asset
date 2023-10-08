@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ClownStats
   m_EditorClassIdentifier: 
   unitName: Clown
+  unitDescription: A disruptive nuisance that swaps places with foes and adds curses
+    to their decks up close.
   maxHealth: 25
   handSize: 2
   startBeats: 1

@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: HarrierStats
   m_EditorClassIdentifier: 
   unitName: Harrier
+  unitDescription: Leaps nimbly around the battlefield, peppering foes with increasingly
+    quick ranged attacks.
   maxHealth: 18
   handSize: 2
-  playerAllied: 0
   startBeats: 1
-  myTurn: 0
   damageScaling: 8
   barrierScaling: 10
   healScaling: 10

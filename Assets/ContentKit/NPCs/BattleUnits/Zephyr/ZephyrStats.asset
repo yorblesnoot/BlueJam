@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ZephyrStats
   m_EditorClassIdentifier: 
   unitName: Zephyr
+  unitDescription: Strikes and displaces foes at range, then leaps long distances
+    to avoid danger.
   maxHealth: 20
   handSize: 2
   startBeats: 1

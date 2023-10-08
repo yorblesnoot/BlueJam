@@ -63,6 +63,8 @@ public class BattleEnder : MonoBehaviour
             sceneTarget = 3;
         }
         else sceneTarget = 1;
+
+        runData.randomState = Random.state;
         yield return new WaitUntil(() => returnToMap == true);
         EventManager.loadSceneWithScreen.Invoke(sceneTarget);
         EventManager.loadSceneWithScreen.Invoke(-1);

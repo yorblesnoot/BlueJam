@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: MartyrStats
   m_EditorClassIdentifier: 
   unitName: Martyr
+  unitDescription: Sacrifices its own blood to shield itself and allies, then unleashes
+    powerful melee attacks when its health dwindles.
   maxHealth: 30
   handSize: 2
   startBeats: 1

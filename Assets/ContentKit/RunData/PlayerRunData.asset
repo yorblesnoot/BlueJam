@@ -12,24 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f5aeb1988ece3549a5a360d921e9235, type: 3}
   m_Name: PlayerRunData
   m_EditorClassIdentifier: 
+  randomState:
+    s0: 1418579036
+    s1: -1567820487
+    s2: 1038732098
+    s3: -1532282304
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
-  playerWorldX: 287
-  playerWorldY: 264
+  playerWorldX: 211
+  playerWorldY: 240
   itemInventory: []
   essenceInventory:
-  - {fileID: 11400000, guid: 7e1a7e8ac9049e0498ff8912298368f0, type: 2}
-  - {fileID: 11400000, guid: e9d6f90f24f0b0d4f841e9584099afdf, type: 2}
-  - {fileID: 11400000, guid: ac8da426af411204f90b7cd3fd6a8528, type: 2}
   - {fileID: 11400000, guid: d40c66bd0600ac347816231fcbd80ca4, type: 2}
-  - {fileID: 11400000, guid: 926849be8e54e5140b3bf8c098865f00, type: 2}
-  - {fileID: 11400000, guid: 9e8b704ead6d47b4f851ee3827232b12, type: 2}
+  - {fileID: 11400000, guid: 178f7021088474a45a0f4a8855015c62, type: 2}
+  - {fileID: 11400000, guid: fbf1c818b1064894783c8030b86b2eb9, type: 2}
+  - {fileID: 11400000, guid: 41766d303dc303b4691aa79807aca71c, type: 2}
+  - {fileID: 11400000, guid: 9d3a655d739ca7b4baea8ea3bad01dc2, type: 2}
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
-  RemoveStock: 1
-  worldSteps: 77
+  RemoveStock: 0
+  worldSteps: 73
   difficultyTier: 4
-  currentHealth: 100
-  score: 278
-  bossSequence: 00000000010000000300000002000000
+  currentHealth: 71
+  score: 2072
+  bossSequence: 020000000300000001000000
   endless: 0

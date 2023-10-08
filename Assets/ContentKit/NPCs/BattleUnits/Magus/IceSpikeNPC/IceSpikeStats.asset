@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f91c23a3e06a55c4c853ecd822414ace, type: 3}
   m_Name: IceSpikeStats
   m_EditorClassIdentifier: 
-  unitName: IceSpike
+  unitName: Ice Spike
+  unitDescription: A frozen spike left behind by the Magus' invocations.
   maxHealth: 10
   handSize: 0
   startBeats: -5

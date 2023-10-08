@@ -17,13 +17,12 @@ MonoBehaviour:
   art: {fileID: 21300000, guid: 6a79e8c8609884a3cb201e9bbd37f9cd, type: 3}
   cost: 4
   description: 'Move to target. Increase speed by 10%. '
-  keywords: 'Range: 1-1 <color=blue>[  ]</color>.'
-  targetShape: 1
-  targetSize: 1
+  keywords: 'Range: 1-2 <color=blue>O</color>. Requires path.'
+  targetShape: 0
+  targetSize: 2
   targetGap: 1
-  needsPath: 0
+  needsPath: 1
   isCurse: 0
-  cardClass: 0100000002000000
   consumed: 0
   animType: 0
   effects:

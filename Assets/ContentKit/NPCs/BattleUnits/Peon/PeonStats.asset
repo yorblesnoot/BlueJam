@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: PeonStats
   m_EditorClassIdentifier: 
   unitName: Peon
+  unitDescription: Fragile but relentless, it strikes from behind its allies.
   maxHealth: 7
   handSize: 2
-  playerAllied: 0
   startBeats: 1
-  myTurn: 0
   damageScaling: 8
   barrierScaling: 10
   healScaling: 10

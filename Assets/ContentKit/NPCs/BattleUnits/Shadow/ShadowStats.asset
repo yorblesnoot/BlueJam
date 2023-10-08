@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: ShadowStats
   m_EditorClassIdentifier: 
   unitName: Ninja
+  unitDescription: Summons illusions of itself, then trades places with them in a
+    storm of steel. Illusions left unattended deal high damage with a shadowy attack.
   maxHealth: 80
   handSize: 3
   startBeats: 2

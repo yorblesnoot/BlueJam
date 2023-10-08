@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: AcrobatStats
   m_EditorClassIdentifier: 
   unitName: Acrobat
+  unitDescription: Pushes foes back as it leaps into melee, then vaults over their
+    heads while dealing damage.
   maxHealth: 25
   handSize: 2
   startBeats: 1

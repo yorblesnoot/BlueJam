@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TotemStats
   m_EditorClassIdentifier: 
   unitName: Totem
+  unitDescription: Releases pulses that bolster allies and harm foes.
   maxHealth: 8
   handSize: 2
   startBeats: 1

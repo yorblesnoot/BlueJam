@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: BrawlerStats
   m_EditorClassIdentifier: 
   unitName: Brawler
+  unitDescription: Pulls and pushes foes from unpredictable angles and gets the upper
+    hand in close combat with a shielding strike.
   maxHealth: 20
   handSize: 2
   startBeats: 1

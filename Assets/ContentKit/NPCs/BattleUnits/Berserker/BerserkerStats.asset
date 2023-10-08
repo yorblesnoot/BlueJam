@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: BerserkerStats
   m_EditorClassIdentifier: 
   unitName: Berserker
+  unitDescription: Leaps towards foes, attacking relentlessly while increasing its
+    damage.
   maxHealth: 25
   handSize: 2
   startBeats: 1

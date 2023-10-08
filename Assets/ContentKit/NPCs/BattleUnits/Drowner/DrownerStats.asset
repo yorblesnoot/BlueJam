@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: DrownerStats
   m_EditorClassIdentifier: 
   unitName: Drowner
+  unitDescription: Pulls foes in at mid range, then latches on and drags them down
+    with its slowing aura.
   maxHealth: 30
   handSize: 2
   startBeats: 1

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: GuardianStats
   m_EditorClassIdentifier: 
   unitName: Guardian
+  unitDescription: Rescues its allies from danger by trading places with them, then
+    reduces foes' damage with its melee attack.
   maxHealth: 25
   handSize: 2
   startBeats: 1

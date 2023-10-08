@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MenderStats
   m_EditorClassIdentifier: 
   unitName: Mender
+  unitDescription: Delivers increasingly powerful healing and regeneration to allies.
   maxHealth: 20
   handSize: 2
   startBeats: 1

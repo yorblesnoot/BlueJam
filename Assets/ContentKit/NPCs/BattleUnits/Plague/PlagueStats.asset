@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: PlagueStats
   m_EditorClassIdentifier: 
   unitName: Plague
+  unitDescription: Debilitates and curses foes at long range, then flees in a cloud
+    of toxic gas when approached.
   maxHealth: 20
   handSize: 2
   startBeats: 1

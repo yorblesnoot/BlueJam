@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: SpookStats
   m_EditorClassIdentifier: 
   unitName: Spook
+  unitDescription: Vanishes and reappears in a damaging burst, then drains the health
+    of adjacent foes.
   maxHealth: 25
   handSize: 2
-  playerAllied: 0
   startBeats: 1
-  myTurn: 0
   damageScaling: 8
   barrierScaling: 8
   healScaling: 8

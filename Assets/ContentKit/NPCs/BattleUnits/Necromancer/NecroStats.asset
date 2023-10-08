@@ -13,11 +13,10 @@ MonoBehaviour:
   m_Name: NecroStats
   m_EditorClassIdentifier: 
   unitName: Necromancer
+  unitDescription: Summons minions and applies a powerful poison at mid range.
   maxHealth: 25
   handSize: 2
-  playerAllied: 0
   startBeats: 1
-  myTurn: 0
   damageScaling: 6
   barrierScaling: 0
   healScaling: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class WorldMapRenderer : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class WorldMapRenderer : MonoBehaviour
     static bool[,] windowShape;
 
     Dictionary<TerrainType, ObjectPool> tilePools;
+
+    System.Random rand = new();
 
     public void Initialize()
     {
@@ -128,7 +131,7 @@ public class WorldMapRenderer : MonoBehaviour
         riser.transform.position = startPosition;
 
         //use a random final travel time to get a staggered effect
-        float travelTime = Random.Range(.2f, .35f);
+        float travelTime = (float)(rand.NextDouble() + .25) * .35f;
         yield return StartCoroutine(riser.LerpTo(finalPosition, travelTime));
     }
 
@@ -171,5 +174,4 @@ public class WorldMapRenderer : MonoBehaviour
             StartCoroutine(UnrenderCell(newPosition));
         }
     }
-
 }

@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: HuntsmanStats
   m_EditorClassIdentifier: 
   unitName: Huntsman
+  unitDescription: Fires poisonous arrows at long range and attacks while fleeing
+    in mid range.
   maxHealth: 20
   handSize: 2
   startBeats: 1

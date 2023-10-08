@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: MinionStats
   m_EditorClassIdentifier: 
   unitName: Minion
+  unitDescription: Fragile but relentless, it runs towards foes to attack in close
+    range.
   maxHealth: 8
   handSize: 2
-  playerAllied: 0
   startBeats: 1
-  myTurn: 0
   damageScaling: 8
   barrierScaling: 0
   healScaling: 0

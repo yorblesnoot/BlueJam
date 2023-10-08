@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SleeperStats
   m_EditorClassIdentifier: 
   unitName: Sleeper
+  unitDescription: Defeat it before it wakes, or it will go on a devastating rampage.
   maxHealth: 35
   handSize: 3
   startBeats: -2
