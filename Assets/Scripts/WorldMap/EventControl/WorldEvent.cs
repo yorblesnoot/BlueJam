@@ -32,7 +32,7 @@ public class WorldEvent : MonoBehaviour
         //do whatever when the player enters the cell
         RemoveEvent();
         runData.score += 50;
-        
+        RunTutorials();
     }
 
     internal void RunTutorials()

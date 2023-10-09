@@ -16,10 +16,11 @@ MonoBehaviour:
   targetNotRequired: 0
   effectClass: 0
   vfxStyleBefore: 2
-  vfxNameBefore: RoundGust
+  vfxNameBefore: LineGust
   vfxStyleAfter: 0
   vfxNameAfter: none
   effectSound: 6
+  effectSoundAfterHit: 0
   scalingMultiplier: 1
   aoeShape: 2
   aoeSize: 1

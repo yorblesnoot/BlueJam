@@ -8,5 +8,6 @@ public class BGDeselector : MonoBehaviour
     void OnMouseDown()
     {
         EventManager.clearActivation?.Invoke();
+        InfoTagControl.hideTags?.Invoke();
     }
 }

@@ -24,9 +24,10 @@ public class PlayerUnit : BattleUnit
     public override void TakeTurn()
     {
         base.TakeTurn();
-        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 2, "It's my turn again! The cards in my hand, below, give me access to powerful actions for defeating my enemies. Click one to select it!");
-        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 4, "The <color=blue>blue bar</color> above each enemy tells you how soon they'll take their turn. Their bars will fill up based on the <color=orange>number of pips</color> on the <color=orange>top right</color> of each card you use, or the <color=orange>number of tiles</color> you move when clicking on the map.");
-        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 5, "When hovering over a card or move, the <color=orange>orange zones</color> by enemys' blue bars show how much their bars will fill when you act. <color=#00ffffff>White</color> sparks mean the enemy will take a turn!");
+        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 2, "See those other slimes? They're my enemies! You can click on them to learn about them and what they're likely to do.");
+        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 3, "It's my turn again! The cards in my hand, below, give me access to powerful actions for defeating my enemies. Click one to select it!");
+        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 5, "The <color=blue>blue bar</color> above each enemy tells you how soon they'll take their turn. Their bars will fill up based on the <color=orange>number of pips</color> on the <color=orange>top right</color> of each card you use, or the <color=orange>number of tiles</color> you move when clicking on the map.");
+        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 6, "When hovering over a card or move, the <color=orange>orange zones</color> by enemys' blue bars show how much their bars will fill when you act. <color=#00ffffff>White</color> sparks mean the enemy will take a turn!");
         playerState = PlayerBattleState.IDLE;
     }
 

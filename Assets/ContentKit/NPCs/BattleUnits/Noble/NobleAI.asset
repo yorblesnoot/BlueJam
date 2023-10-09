@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: NobleAI
   m_EditorClassIdentifier: 
   interestAttack: 3.7
-  interestBuff: 4.4
+  interestBuff: 12.6
+  interestSummon: 8.5
   interestFriendly: 1.54
   interestHostile: 2
   proximityFriendly: 1.95

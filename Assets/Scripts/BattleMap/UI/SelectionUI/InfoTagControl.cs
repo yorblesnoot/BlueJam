@@ -23,6 +23,7 @@ public class InfoTagControl : MonoBehaviour
     }
     public void ShowTag(BattleUnit unit, UnitStats stats)
     {
+        Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 2);
         gameObject.SetActive(true);
         healthText.text = $"{unit.currentHealth} / {Mathf.RoundToInt(unit.loadedStats[StatType.MAXHEALTH])}";
         timeText.text = $"{Math.Round(unit.loadedStats[StatType.BEATS], 1)} / {TurnManager.beatThreshold}";
