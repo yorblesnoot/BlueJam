@@ -297,9 +297,9 @@ MonoBehaviour:
   blankCard: {fileID: 8519150486060143747, guid: 121702a924acfe348b01e8bb813e326b, type: 3}
   unitCanvas: {fileID: 1091208985}
   thisUnit: {fileID: 25600}
+  handSpot: {fileID: 762882978}
   deckRecord: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
   deckSpot: {fileID: 1664134003}
-  handSpot: {fileID: 762882978}
   discardSpot: {fileID: 1729500621}
   conjureSpot: {fileID: 1063679271}
   hesitationCurse: {fileID: 11400000, guid: 87a956000dddd6048be7a6ee8c188023, type: 2}
@@ -2327,9 +2327,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58aa6b2e1f4682439e32032ed9467e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   player: {fileID: 25594}
   sceneRelay: {fileID: 11400000, guid: 560180093c409b041b59db9d69699861, type: 2}
-  runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   camLock: {fileID: 1678473390}
   masterEnemyPool: {fileID: 11400000, guid: fdfcfaa337bce144d8e682a23350c8d2, type: 2}
 --- !u!4 &388095517

@@ -76,16 +76,13 @@ public class NonplayerHandPlus : HandPlus
         PositionCards();
         yield break;
     }
+
     void PositionCards()
     {
         StopAllCoroutines();
         //find the length and width of the camera to render cards at a set interval
         RectTransform canvasRect = unitCanvas.GetComponent<RectTransform>();
         float width = canvasRect.rect.width;
-
-        //distance and height at which to render cards
-        int cardDistance = -170;
-        int cardHeight = 200;
 
         //maths to find the middle of the first card interval
 
@@ -98,25 +95,20 @@ public class NonplayerHandPlus : HandPlus
             float cardX;
             cardX = initialX + (count * width / handSize);
 
-            cardSlots[count] = new Vector3(cardX, cardHeight, cardDistance);
+            cardSlots[count] = new Vector3(cardX, handSpot.transform.localPosition.y, handSpot.transform.localPosition.z);
         }
         StartCoroutine(ArrangeCards());
     }
 
+    [SerializeField] float cardMoveDuration;
+    
     public IEnumerator ArrangeCards()
     {
-
-        int stepCount = 50;
-        float relocateDelta = 20f;
-
-        for (int step = 0; step < stepCount; step++)
+        for (int card = 0; card < handCards.Count; card++)
         {
-            for (int card = 0; card < handCards.Count; card++)
-            {
-                GameObject cardObj = handCards[card].gameObject;
-                cardObj.transform.localPosition = Vector3.MoveTowards(cardObj.transform.localPosition, cardSlots[card], relocateDelta);
-            }
-            yield return new WaitForSeconds(.01f);
+            GameObject cardObj = handCards[card].gameObject;
+            StartCoroutine(cardObj.LerpTo(cardSlots[card], cardMoveDuration, true));
+            yield return new WaitForSeconds(cardMoveDuration/2);
         }
     }
 }

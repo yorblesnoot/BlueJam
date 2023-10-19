@@ -171,6 +171,7 @@ MonoBehaviour:
   thisUnit: {fileID: 8320433818775275716}
   handSpot: {fileID: 522609764172447533}
   deckRecord: {fileID: 0}
+  cardMoveDuration: 0.2
 --- !u!1001 &2764897499231579358
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -322,10 +323,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2644992027936478694, guid: 062cde42fd2725945be1743875e3f817, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2919552736741368706, guid: 062cde42fd2725945be1743875e3f817, type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3217319038778575990, guid: 062cde42fd2725945be1743875e3f817, type: 3}
@@ -542,15 +539,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9024284370559484643, guid: 062cde42fd2725945be1743875e3f817, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: -0.08715578
       objectReference: {fileID: 0}
     - target: {fileID: 9024284370559484643, guid: 062cde42fd2725945be1743875e3f817, type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024284370559484643, guid: 062cde42fd2725945be1743875e3f817, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0.9961947
       objectReference: {fileID: 0}
     - target: {fileID: 9024284370559484643, guid: 062cde42fd2725945be1743875e3f817, type: 3}
       propertyPath: m_LocalRotation.z
@@ -562,7 +559,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9024284370559484643, guid: 062cde42fd2725945be1743875e3f817, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.21
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9024284370559484643, guid: 062cde42fd2725945be1743875e3f817, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -570,7 +567,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9024284370559484643, guid: 062cde42fd2725945be1743875e3f817, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 190
       objectReference: {fileID: 0}
     - target: {fileID: 9024284370559484643, guid: 062cde42fd2725945be1743875e3f817, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
