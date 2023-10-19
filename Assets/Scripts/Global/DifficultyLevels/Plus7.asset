@@ -16,10 +16,10 @@ MonoBehaviour:
     and healing.
   <BossSpawnDistance>k__BackingField: 40
   <StepsPerThreat>k__BackingField: 8
-  <ThreatHandicap>k__BackingField: -1
+  <ThreatHandicap>k__BackingField: -4
   <BaseFoeBudget>k__BackingField: 8
   <ThreatPerBudgetUp>k__BackingField: 5
-  <StatPerThreat>k__BackingField: 0.13
+  <StatPerThreat>k__BackingField: 0.11
   <HealthPerThreat>k__BackingField: 0.05
   <SpeedPerThreat>k__BackingField: 0.012
   <MinimumDeckSize>k__BackingField: 11

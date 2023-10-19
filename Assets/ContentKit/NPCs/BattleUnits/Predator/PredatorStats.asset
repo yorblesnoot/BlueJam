@@ -18,7 +18,7 @@ MonoBehaviour:
   maxHealth: 100
   handSize: 3
   startBeats: 1
-  damageScaling: 12
+  damageScaling: 11
   barrierScaling: 10
   healScaling: 6
   turnSpeed: 0.6

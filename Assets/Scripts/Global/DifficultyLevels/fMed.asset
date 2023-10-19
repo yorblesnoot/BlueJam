@@ -15,10 +15,10 @@ MonoBehaviour:
   <Tooltip>k__BackingField: Enemies start weaker and gain less power as threat increases.
   <BossSpawnDistance>k__BackingField: 40
   <StepsPerThreat>k__BackingField: 12
-  <ThreatHandicap>k__BackingField: 4
+  <ThreatHandicap>k__BackingField: 1
   <BaseFoeBudget>k__BackingField: 7
   <ThreatPerBudgetUp>k__BackingField: 5
-  <StatPerThreat>k__BackingField: 0.09
+  <StatPerThreat>k__BackingField: 0.07
   <HealthPerThreat>k__BackingField: 0.04
   <SpeedPerThreat>k__BackingField: 0.01
   <MinimumDeckSize>k__BackingField: 9

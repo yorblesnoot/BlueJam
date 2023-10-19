@@ -17,10 +17,10 @@ MonoBehaviour:
     is reduced.
   <BossSpawnDistance>k__BackingField: 40
   <StepsPerThreat>k__BackingField: 14
-  <ThreatHandicap>k__BackingField: 6
+  <ThreatHandicap>k__BackingField: 3
   <BaseFoeBudget>k__BackingField: 7
   <ThreatPerBudgetUp>k__BackingField: 5
-  <StatPerThreat>k__BackingField: 0.08
+  <StatPerThreat>k__BackingField: 0.06
   <HealthPerThreat>k__BackingField: 0.03
   <SpeedPerThreat>k__BackingField: 0.01
   <MinimumDeckSize>k__BackingField: 8

@@ -16,10 +16,10 @@ MonoBehaviour:
     deck size is further increased.
   <BossSpawnDistance>k__BackingField: 40
   <StepsPerThreat>k__BackingField: 9
-  <ThreatHandicap>k__BackingField: 0
+  <ThreatHandicap>k__BackingField: -3
   <BaseFoeBudget>k__BackingField: 8
   <ThreatPerBudgetUp>k__BackingField: 5
-  <StatPerThreat>k__BackingField: 0.12
+  <StatPerThreat>k__BackingField: 0.1
   <HealthPerThreat>k__BackingField: 0.05
   <SpeedPerThreat>k__BackingField: 0.012
   <MinimumDeckSize>k__BackingField: 11

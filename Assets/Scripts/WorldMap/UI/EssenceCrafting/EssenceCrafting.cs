@@ -132,7 +132,7 @@ public class EssenceCrafting : MonoBehaviour
 
     public void MergeButton()
     {
-        modules[craftType].ExecuteCraft(craftingSlotContents, essenceSlotContents, runData);
+        if(!modules[craftType].ExecuteCraft(craftingSlotContents, essenceSlotContents, runData)) return;
 
         PlaceStrayDraggable(essenceSlotContents);
         SpendEssence(essenceSlotContents);

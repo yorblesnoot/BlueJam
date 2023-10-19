@@ -15,7 +15,7 @@ public class CraftModule : MonoBehaviour
 
     public Button craftButton;
 
-    public virtual void ExecuteCraft(List<DraggableItem> craftingSlotContents, DraggableItem essenceSlotContents, RunData runData) { }
+    public virtual bool ExecuteCraft(List<DraggableItem> craftingSlotContents, DraggableItem essenceSlotContents, RunData runData) { return false; }
 
     public virtual void GetCraftSlotLimit(DraggableItem item)
     {

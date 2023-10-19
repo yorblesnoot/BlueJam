@@ -5,11 +5,11 @@ using UnityEngine;
 public class BaseCraft : CraftModule
 {
     [SerializeField] CardAwardUI cardAwardUI;
-    public override void ExecuteCraft(List<DraggableItem> craftingSlotContents, DraggableItem essenceSlotContents, RunData runData)
+    public override bool ExecuteCraft(List<DraggableItem> craftingSlotContents, DraggableItem essenceSlotContents, RunData runData)
     {
         //count the cards we're going to drop
         int dropCount = craftingSlotContents.Count;
-        if (essenceSlotContents == null || dropCount == 0 || WorldPlayerControl.playerState == WorldPlayerState.SELECTION) return;
+        if (essenceSlotContents == null || dropCount == 0 || WorldPlayerControl.playerState == WorldPlayerState.SELECTION) return false;
         SoundManager.PlaySound(SoundType.CRAFTCONFIRMED);
         //create list of cards we'll drop
         List<CardPlus> actualDrops = new();
@@ -34,6 +34,7 @@ public class BaseCraft : CraftModule
         new SaveContainer(runData).SaveGame();
         cardAwardUI.gameObject.SetActive(true);
         cardAwardUI.AwardCards(actualDrops);
+        return true;
     }
 
     public override void GetCraftSlotLimit(DraggableItem item)

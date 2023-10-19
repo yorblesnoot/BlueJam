@@ -16,10 +16,10 @@ MonoBehaviour:
     damage, healing, and barrier from it.
   <BossSpawnDistance>k__BackingField: 40
   <StepsPerThreat>k__BackingField: 9
-  <ThreatHandicap>k__BackingField: 1
+  <ThreatHandicap>k__BackingField: -2
   <BaseFoeBudget>k__BackingField: 7
   <ThreatPerBudgetUp>k__BackingField: 5
-  <StatPerThreat>k__BackingField: 0.12
+  <StatPerThreat>k__BackingField: 0.1
   <HealthPerThreat>k__BackingField: 0.04
   <SpeedPerThreat>k__BackingField: 0.01
   <MinimumDeckSize>k__BackingField: 9
