@@ -140,6 +140,7 @@ GameObject:
   - component: {fileID: 25605}
   - component: {fileID: 25606}
   - component: {fileID: 25607}
+  - component: {fileID: 25608}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -180,6 +181,7 @@ MonoBehaviour:
   <unitStats>k__BackingField: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   barrierTracker: {fileID: 25603}
+  stateFeedback: {fileID: 25608}
   buffTracker: {fileID: 25602}
   myHand: {fileID: 25607}
   unitAnimator: {fileID: 25605}
@@ -303,6 +305,18 @@ MonoBehaviour:
   discardSpot: {fileID: 1729500621}
   conjureSpot: {fileID: 1063679271}
   hesitationCurse: {fileID: 11400000, guid: 87a956000dddd6048be7a6ee8c188023, type: 2}
+--- !u!114 &25608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 25594}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e1c14795ac85243877bdff036c9ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3451738
 PrefabInstance:
   m_ObjectHideFlags: 0

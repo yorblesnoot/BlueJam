@@ -5,6 +5,8 @@ using UnityEngine;
 public class BattleUnit : Unit
 {
     [SerializeField] BarrierTracker barrierTracker;
+    [SerializeField] StateFeedback stateFeedback;
+
     public BuffTracker buffTracker;
     public HandPlus myHand;
     public UnitAnimator unitAnimator;
@@ -16,17 +18,10 @@ public class BattleUnit : Unit
     [HideInInspector] public bool isDead;
     [HideInInspector] public EntityUI myUI { get; set; }
 
-    int hitLayer;
-    int baseLayer;
-    GameObject model;
+    
 
     void Awake()
     {
-        string modelName = gameObject.name.Replace("NPC(Clone)", "");
-        model = transform.Find(modelName).gameObject;
-        hitLayer = LayerMask.NameToLayer("HitFlash");
-        baseLayer = LayerMask.NameToLayer("Default");
-        Debug.Log(hitLayer);
         Initialize(); 
     }
 
@@ -45,26 +40,16 @@ public class BattleUnit : Unit
 
     public void ReceiveDamage(int damage)
     {
-        //abstract this out and add details~~~~~~~~~~~
-        SetChildrenLayer(model, hitLayer);
-
-
         if (deflectHealth > 0) damage = barrierTracker.ReceiveDeflectDamage(damage);
         if (shieldHealth > 0) damage = barrierTracker.ReceiveShieldDamage(damage);
+        if (damage <= 0) return;
+        stateFeedback.DamagedState(damage);
 
         ModifyHealth(damage);
         unitAnimator.Animate(AnimType.DAMAGED);
     }
 
-    void SetChildrenLayer(GameObject target, int layer)
-    {
-        target.layer = layer;
-        if (target.transform.childCount == 0) return;
-        foreach(Transform child in target.transform)
-        {
-            SetChildrenLayer(child.gameObject, layer);
-        }
-    }
+    
 
     public void CheckForDeath()
     {

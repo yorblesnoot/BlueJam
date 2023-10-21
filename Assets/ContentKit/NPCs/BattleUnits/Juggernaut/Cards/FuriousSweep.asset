@@ -16,16 +16,16 @@ MonoBehaviour:
   displayName: Destructive Sweep
   art: {fileID: 21300000, guid: 12c482f80b554437a9b0e3c179b2618f, type: 3}
   cost: 5
-  description: 'deal <color=#FF4E2B>20</color> damage in a <color=red>1<color=blue>[ 
+  description: 'Deal <color=#FF4E2B>20</color> damage in a <color=red>1<color=blue>[ 
     ]</color></color> AOE. '
-  keywords: 'Range: 0-0 <color=blue>[  ]</color>'
+  keywords: 'Range: 0-0 <color=blue>[  ]</color>.'
   targetShape: 1
   targetSize: 0
   targetGap: 0
   needsPath: 0
   isCurse: 0
-  cardClass: 00000000
   consumed: 0
-  animType: 0
+  animType: 3
+  delayBeforeEffects: 0.8
   effects:
   - {fileID: 11400000, guid: 05ee792fef60109438e4338ab71391ce, type: 2}

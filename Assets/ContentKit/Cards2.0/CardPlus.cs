@@ -28,6 +28,7 @@ public class CardPlus : SOWithGUID
     public bool consumed;
 
     public AnimType animType;
+    [SerializeField] float delayBeforeEffects;
 
     public List<CardEffectPlus> effects;
 
@@ -57,6 +58,7 @@ public class CardPlus : SOWithGUID
         actor.SpendBeats(cost);
         actor.transform.LookAt(new Vector3(targetCell.unitPosition.x, actor.transform.position.y, targetCell.unitPosition.z));
         actor.unitAnimator.Animate(animType);
+        yield return new WaitForSeconds(delayBeforeEffects);
         BattleTileController userOriginalTile = MapTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>();
         EventManager.allowTriggers.Invoke();
         for (int i = 0; i < effects.Count; i++)

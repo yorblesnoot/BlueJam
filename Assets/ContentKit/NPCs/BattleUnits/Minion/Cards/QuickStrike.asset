@@ -23,8 +23,8 @@ MonoBehaviour:
   targetGap: 1
   needsPath: 0
   isCurse: 0
-  cardClass: 00000000
   consumed: 0
-  animType: 0
+  animType: 6
+  delayBeforeEffects: 0.6
   effects:
   - {fileID: 11400000, guid: f111fd945c1e2314b8cc1b68ef11a2c6, type: 2}

@@ -20,9 +20,11 @@ MonoBehaviour:
   vfxStyleAfter: 0
   vfxNameAfter: GroundBurst
   effectSound: 15
+  effectSoundAfterHit: 0
   scalingMultiplier: 2
   aoeShape: 1
   aoeSize: 1
   aoeGap: 1
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
+  particleDelay: 0.2

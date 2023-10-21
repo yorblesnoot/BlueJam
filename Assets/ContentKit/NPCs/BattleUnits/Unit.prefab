@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 7119020024479498164}
   - component: {fileID: 1608632011047246402}
   - component: {fileID: 6958123189531368188}
+  - component: {fileID: 6367599638106656771}
   m_Layer: 0
   m_Name: Unit
   m_TagString: Enemy
@@ -58,6 +59,7 @@ MonoBehaviour:
   <unitStats>k__BackingField: {fileID: 0}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   barrierTracker: {fileID: 1117014247259313703}
+  stateFeedback: {fileID: 6367599638106656771}
   buffTracker: {fileID: 8464405472856945552}
   myHand: {fileID: 6958123189531368188}
   unitAnimator: {fileID: 7119020024479498164}
@@ -172,6 +174,18 @@ MonoBehaviour:
   handSpot: {fileID: 522609764172447533}
   deckRecord: {fileID: 0}
   cardMoveDuration: 0.2
+--- !u!114 &6367599638106656771
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7073732932440425903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96e1c14795ac85243877bdff036c9ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2764897499231579358
 PrefabInstance:
   m_ObjectHideFlags: 0
