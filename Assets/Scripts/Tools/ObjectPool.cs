@@ -19,6 +19,11 @@ public class ObjectPool
         else
         {
             GameObject output = inactivePool[0];
+            if(output == null)
+            {
+                inactivePool.Clear();
+                return InstantiateFromPool(position, rotation);
+            }
             output.transform.SetPositionAndRotation(position, rotation);
             output.SetActive(true);
             

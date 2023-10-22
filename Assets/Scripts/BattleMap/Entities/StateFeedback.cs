@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -11,8 +12,10 @@ public class StateFeedback : MonoBehaviour
     Vector3 baseScale;
 
     [SerializeField] GameObject floatNumber;
+    public static ObjectPool numberPool;
     private void Awake()
     {
+        if (numberPool == null) numberPool = new(floatNumber);
         string modelName = gameObject.name.Replace("NPC(Clone)", "");
         model = transform.Find(modelName).gameObject;
         baseScale = model.transform.localScale;
@@ -20,9 +23,13 @@ public class StateFeedback : MonoBehaviour
         baseLayer = LayerMask.NameToLayer("Default");
     }
 
-    public void DamagedState(int damage)
+    public IEnumerator DamageFlash()
     {
-        StartCoroutine(SingleFlash());
+        SetChildrenLayer(model, hitLayer);
+        model.transform.localScale = baseScale * damagedScale;
+        yield return new WaitForSeconds(flashDuration);
+        SetChildrenLayer(model, baseLayer);
+        model.transform.localScale = baseScale;
     }
 
     void SetChildrenLayer(GameObject target, int layer)
@@ -37,19 +44,45 @@ public class StateFeedback : MonoBehaviour
 
     static readonly float flashDuration = .2f;
     static readonly float damagedScale = 1.1f;
-    IEnumerator SingleFlash()
-    {
-        SetChildrenLayer(model, hitLayer);
-        model.transform.localScale = baseScale * damagedScale;
-        yield return new WaitForSeconds(flashDuration);
-        SetChildrenLayer(model, baseLayer);
-        model.transform.localScale = baseScale;
-    }
+    static readonly float displacementFactor = .7f;
 
-    public void PopupFloatingNumber(int number, Color color)
+    void PopupFloatingNumber(int number, Color color, int displacement)
     {
-        TMP_Text floatText = Instantiate(floatNumber, transform.localPosition, Quaternion.identity).GetComponentInChildren<TMP_Text>();
+        Vector3 popPosition = transform.localPosition;
+        popPosition.x += displacementFactor * (displacement);
+        TMP_Text floatText = numberPool.InstantiateFromPool(popPosition, Quaternion.identity).GetComponentInChildren<TMP_Text>();
         floatText.text = number.ToString();
         floatText.color = color;
+    }
+
+    class Popup
+    {
+        public int number;
+        public Color color;
+    }
+
+    Queue<Popup> popupQueue;
+
+    public void QueuePopup(int number, Color color)
+    {
+        if (popupQueue == null || popupQueue.Count == 0)
+        {
+            popupQueue = new();
+            StartCoroutine(SequencePopups());
+        }
+        popupQueue.Enqueue(new Popup {  number = number, color = color });
+    }
+
+    static float popDelay = .2f;
+    private IEnumerator SequencePopups()
+    {
+        yield return null;
+        while(popupQueue.Count > 0)
+        {
+            yield return new WaitForSeconds(popDelay);
+            Popup newpop = popupQueue.Dequeue();
+            Debug.Log(popupQueue.Count);
+            PopupFloatingNumber(newpop.number, newpop.color, popupQueue.Count);
+        }
     }
 }

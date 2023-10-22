@@ -25,6 +25,6 @@ public class EffectDamage : CardEffectPlus
     void Normal(BattleUnit owner, float damageMult, BattleUnit target)
     {
         int damage = Mathf.RoundToInt(owner.loadedStats[StatType.DAMAGE] * damageMult);
-        target.ReceiveDamage(damage);
+        target.ReceiveDamage(damage, owner.gameObject);
     }
 }

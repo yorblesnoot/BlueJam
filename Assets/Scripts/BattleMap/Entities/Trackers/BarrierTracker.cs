@@ -54,7 +54,7 @@ public class BarrierTracker : MonoBehaviour
     public int ReceiveDeflectDamage(int incomingDamage)
     {
         if(incomingDamage <= 0) return 0;
-        unitActions.stateFeedback.PopupFloatingNumber(incomingDamage, Color.blue);
+        unitActions.stateFeedback.QueuePopup(Mathf.Clamp(incomingDamage, 0, unitActions.deflectHealth), Color.cyan);
         while (incomingDamage > 0 && deflectInstances.Count > 0)
         {
             deflectInstances[0] -= incomingDamage;
@@ -72,7 +72,7 @@ public class BarrierTracker : MonoBehaviour
     public int ReceiveShieldDamage(int incomingDamage)
     {
         if(incomingDamage <= 0) return 0; 
-        unitActions.stateFeedback.PopupFloatingNumber(incomingDamage, Color.gray);
+        unitActions.stateFeedback.QueuePopup(Mathf.Clamp(incomingDamage, 0, unitActions.shieldHealth), Color.gray);
         unitActions.shieldHealth -= incomingDamage;
         if (unitActions.shieldHealth <= 0)
         {

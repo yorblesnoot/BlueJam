@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Player
   unitDescription: 
-  maxHealth: 130
+  maxHealth: 1000
   handSize: 4
   startBeats: 0
-  damageScaling: 20
+  damageScaling: 10
   barrierScaling: 10
   healScaling: 10
   turnSpeed: 1.7995119

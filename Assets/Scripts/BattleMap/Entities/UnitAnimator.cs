@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 
@@ -23,12 +24,20 @@ public class UnitAnimator : MonoBehaviour
         { AnimType.ATTACKCLOSE, "Attack_02" },
         { AnimType.ATTACKFAR, "Attack_03"}
     };
-    public void Animate(AnimType anim)
+    public void Animate(AnimType anim, GameObject source = null)
     {
+        if (anim == AnimType.WALK) animator.SetFloat("xVelocity", 1f);
+        else if (anim == AnimType.DAMAGED && source != null)
+        {
+            Vector3 direction = (source.transform.position - transform.position).normalized;
+            direction = transform.rotation * direction;
+            animator.SetFloat("damageX", direction.x);
+            animator.SetFloat("damageY", direction.z);
+        }
         try
         {
             animator.Play(animateFor[anim]);
         }
-        catch { }
+        catch { Debug.LogWarning($"Animation {anim} not found on animator."); }
     }
 }

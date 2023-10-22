@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,18 +39,19 @@ public class BattleUnit : Unit
         myUI = GetComponentInChildren<EntityUI>();
     }
 
-    public void ReceiveDamage(int damage)
+    public void ReceiveDamage(int damage, GameObject source = null)
     {
-        
         if (deflectHealth > 0) damage = barrierTracker.ReceiveDeflectDamage(damage);
         if (shieldHealth > 0) damage = barrierTracker.ReceiveShieldDamage(damage);
-        stateFeedback.PopupFloatingNumber(damage, Color.red);
+        stateFeedback.QueuePopup(damage, Color.red);
         if (damage <= 0) return;
-        stateFeedback.DamagedState(damage);
+
+        
+        StartCoroutine(stateFeedback.DamageFlash());
         
 
         ModifyHealth(damage);
-        unitAnimator.Animate(AnimType.DAMAGED);
+        unitAnimator.Animate(AnimType.DAMAGED, source);
     }
 
     
@@ -86,4 +88,10 @@ public class BattleUnit : Unit
     public virtual void SpendBeats(int beats) { }
 
     public virtual void ShowInfoTag() { }
+
+    internal void HealHealth(int heal)
+    {
+        ModifyHealth(-heal);
+        stateFeedback.QueuePopup(heal, Color.green);
+    }
 }

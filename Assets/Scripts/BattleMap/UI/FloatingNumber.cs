@@ -9,7 +9,8 @@ public class FloatingNumber : MonoBehaviour
 {
     [SerializeField] float startLift;
     [SerializeField] float rotationRange;
-    private void Awake()
+
+    private void OnEnable()
     {
         Vector3 newPosition = transform.position;
         newPosition.y += startLift;
@@ -18,7 +19,6 @@ public class FloatingNumber : MonoBehaviour
 
         Quaternion rotationMod = Quaternion.Euler(0, 0, Random.Range(-rotationRange * 2, rotationRange));
         transform.rotation = transform.rotation * rotationMod;
-
         StartCoroutine(AnimateFloatingNumber());
     }
 
@@ -26,6 +26,6 @@ public class FloatingNumber : MonoBehaviour
     private IEnumerator AnimateFloatingNumber()
     {
         yield return new WaitForSeconds(lifespan);
-        gameObject.SetActive(false);
+        StateFeedback.numberPool.ReturnToPool(gameObject);
     }
 }
