@@ -5,7 +5,7 @@ using UnityEngine;
 public class BattleUnit : Unit
 {
     [SerializeField] BarrierTracker barrierTracker;
-    [SerializeField] StateFeedback stateFeedback;
+    public StateFeedback stateFeedback;
 
     public BuffTracker buffTracker;
     public HandPlus myHand;
@@ -40,9 +40,10 @@ public class BattleUnit : Unit
 
     public void ReceiveDamage(int damage)
     {
-        stateFeedback.PopupFloatingNumber(damage, Color.red);
+        
         if (deflectHealth > 0) damage = barrierTracker.ReceiveDeflectDamage(damage);
         if (shieldHealth > 0) damage = barrierTracker.ReceiveShieldDamage(damage);
+        stateFeedback.PopupFloatingNumber(damage, Color.red);
         if (damage <= 0) return;
         stateFeedback.DamagedState(damage);
         

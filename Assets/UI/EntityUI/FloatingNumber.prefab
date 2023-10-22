@@ -245,4 +245,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startLift: 1
+  displacementRange: 0.1
+  rotationRange: 10
   lifespan: 2
