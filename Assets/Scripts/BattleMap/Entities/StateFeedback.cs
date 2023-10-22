@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class StateFeedback : MonoBehaviour
@@ -8,6 +9,8 @@ public class StateFeedback : MonoBehaviour
     int baseLayer;
     GameObject model;
     Vector3 baseScale;
+
+    [SerializeField] GameObject floatNumber;
     private void Awake()
     {
         string modelName = gameObject.name.Replace("NPC(Clone)", "");
@@ -41,5 +44,12 @@ public class StateFeedback : MonoBehaviour
         yield return new WaitForSeconds(flashDuration);
         SetChildrenLayer(model, baseLayer);
         model.transform.localScale = baseScale;
+    }
+
+    public void PopupFloatingNumber(int number, Color color)
+    {
+        TMP_Text floatText = Instantiate(floatNumber, transform.localPosition, Quaternion.identity).GetComponentInChildren<TMP_Text>();
+        floatText.text = number.ToString();
+        floatText.color = color;
     }
 }

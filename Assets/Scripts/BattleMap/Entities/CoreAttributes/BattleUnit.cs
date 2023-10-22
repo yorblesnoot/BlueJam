@@ -40,10 +40,12 @@ public class BattleUnit : Unit
 
     public void ReceiveDamage(int damage)
     {
+        stateFeedback.PopupFloatingNumber(damage, Color.red);
         if (deflectHealth > 0) damage = barrierTracker.ReceiveDeflectDamage(damage);
         if (shieldHealth > 0) damage = barrierTracker.ReceiveShieldDamage(damage);
         if (damage <= 0) return;
         stateFeedback.DamagedState(damage);
+        
 
         ModifyHealth(damage);
         unitAnimator.Animate(AnimType.DAMAGED);
