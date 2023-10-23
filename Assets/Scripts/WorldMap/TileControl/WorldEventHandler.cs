@@ -17,6 +17,8 @@ public class WorldEventHandler : MonoBehaviour
     public bool eventComplete;
     [SerializeField] GameObject redGlow;
 
+    [SerializeField] GameObject dropPoint;
+
     public static TutorialFor lastTutorial;
 
     private void OnEnable()
@@ -117,16 +119,12 @@ public class WorldEventHandler : MonoBehaviour
     }
 
     readonly static float descentTime = .4f;
-    readonly static float randomDistanceWithinTile = .3f;
     readonly static float sparkleElevation = .2f;
     IEnumerator AnimatePlayerToBattle()
     {
         GameObject player = WorldPlayerControl.player.playerModel;
         Vector3 risePosition = player.transform.position;
-        Vector3 dropPosition = transform.position;
-        dropPosition.x += Random.Range(-randomDistanceWithinTile, randomDistanceWithinTile);
-        dropPosition.z += Random.Range(-randomDistanceWithinTile, randomDistanceWithinTile);
-        dropPosition.y += .2f;
+        Vector3 dropPosition = dropPoint.transform.position;
         float timeElapsed = 0;
         WorldPlayerControl.player.GetComponent<UnitAnimator>().Animate(AnimType.JUMP);
         yield return new WaitForSeconds(.6f);

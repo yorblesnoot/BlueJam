@@ -23,8 +23,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: dffaba21e454c2a4eb030abee740e28c, type: 2}
   - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  - {fileID: 11400000, guid: 47a8870fde6867943987e44904d97519, type: 2}
-  - {fileID: 11400000, guid: 47a8870fde6867943987e44904d97519, type: 2}
+  - {fileID: 11400000, guid: 5e4107459127c2541995f457ef82abcb, type: 2}
+  - {fileID: 11400000, guid: 5e4107459127c2541995f457ef82abcb, type: 2}
+  - {fileID: 11400000, guid: 5e4107459127c2541995f457ef82abcb, type: 2}
   hat: {fileID: 7861371688408044556, guid: 3e6bf70ee875fba4d99acdd7fea73422, type: 3}
   uncollectible: 1
   unitName: Player

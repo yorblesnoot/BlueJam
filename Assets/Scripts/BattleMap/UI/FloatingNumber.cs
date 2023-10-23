@@ -17,7 +17,7 @@ public class FloatingNumber : MonoBehaviour
         transform.position = newPosition;
         transform.LookAt(Camera.main.transform);
 
-        Quaternion rotationMod = Quaternion.Euler(0, 0, Random.Range(-rotationRange * 2, rotationRange));
+        Quaternion rotationMod = Quaternion.identity; //Quaternion.Euler(0, 0, Random.Range(-rotationRange * 2, rotationRange));
         transform.rotation = transform.rotation * rotationMod;
         StartCoroutine(AnimateFloatingNumber());
     }

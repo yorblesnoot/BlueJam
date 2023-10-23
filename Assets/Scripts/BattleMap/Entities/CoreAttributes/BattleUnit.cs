@@ -41,17 +41,15 @@ public class BattleUnit : Unit
 
     public void ReceiveDamage(int damage, GameObject source = null)
     {
+        unitAnimator.Animate(AnimType.DAMAGED, source);
         if (deflectHealth > 0) damage = barrierTracker.ReceiveDeflectDamage(damage);
         if (shieldHealth > 0) damage = barrierTracker.ReceiveShieldDamage(damage);
-        stateFeedback.QueuePopup(damage, Color.red);
         if (damage <= 0) return;
 
-        
+        stateFeedback.QueuePopup(damage, Color.red);
         StartCoroutine(stateFeedback.DamageFlash());
         
-
         ModifyHealth(damage);
-        unitAnimator.Animate(AnimType.DAMAGED, source);
     }
 
     
@@ -82,6 +80,7 @@ public class BattleUnit : Unit
 
     public virtual void Die()
     {
+        unitAnimator.Animate(AnimType.DIE);
         SoundManager.PlaySound(SoundTypeEffect.DIE);
     }
 

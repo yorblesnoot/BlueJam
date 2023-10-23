@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class NonplayerUnit : BattleUnit
@@ -71,6 +72,13 @@ public class NonplayerUnit : BattleUnit
         UnreportCell();
         TurnManager.deathPhase.RemoveListener(CheckForDeath);
         isDead = true;
+        StartCoroutine(SlowDeath());
+    }
+
+    static readonly float deathPause = .5f;
+    IEnumerator SlowDeath()
+    {
+        yield return new WaitForSeconds(deathPause);
         VFXMachine.PlayAtLocation("Explosion", transform.position);
         gameObject.SetActive(false);
     }

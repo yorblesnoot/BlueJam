@@ -112,7 +112,6 @@ public class BattleEnder : MonoBehaviour
         PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
         SoundManager.PlayMusic(SoundType.MUSICGAMEOVER, false);
         System.IO.File.Delete(Application.persistentDataPath + "/runData.json");
-        TurnManager.playerUnit.unitAnimator.Animate(AnimType.DIE);
         yield return new WaitForSeconds(1f);
         StartCoroutine(FadeScreenToBlack(blackScreen));
         loseSign.SetActive(true);
