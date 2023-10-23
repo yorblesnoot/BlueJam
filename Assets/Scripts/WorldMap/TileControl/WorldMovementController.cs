@@ -74,8 +74,9 @@ public class WorldMovementController : MonoBehaviour
     public void RerenderPath()
     {
         if (activeTile != this) return;
-        Pathfinder pather = new(runData.worldMap, runData.eventMap, WorldMapRenderer.spotlightGlobalOffset);
-        myPath = pather.FindVectorPath(MapTools.VectorToMap(WorldPlayerControl.player.transform.position), MapTools.VectorToMap(unitPosition));
+        Vector2Int myPosition = MapTools.VectorToMap(unitPosition);
+        Pathfinder pather = new(runData.worldMap, runData.eventMap, WorldMapRenderer.spotlightGlobalOffset, myPosition);
+        myPath = pather.FindVectorPath(MapTools.VectorToMap(WorldPlayerControl.player.transform.position), myPosition);
         if(myPath == null) return;
         foreach (var cell in myPath)
             MapTools.MapToTile(cell).GetComponent<WorldMovementController>().HighlightRoute();

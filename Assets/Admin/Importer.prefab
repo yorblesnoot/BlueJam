@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   devProfile: {fileID: 11400000, guid: 741e767f45a30534b97ff92864e5ef63, type: 2}
   adminSettings: {fileID: 11400000, guid: d786c20eee59d53479f91133840bd44e, type: 2}
+  gameplaySettings: {fileID: 11400000, guid: 1fa11fc100eb3ed48b36a6d3081fd360, type: 2}
 --- !u!114 &4844742982269326863
 MonoBehaviour:
   m_ObjectHideFlags: 0

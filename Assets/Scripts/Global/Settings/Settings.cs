@@ -22,20 +22,30 @@ public static class Settings
 {
     public static BalanceSettings Balance;
     public static AdminSettings Admin;
-    public static Dictionary<SoundSetting, float> Player;
+    public static GameplaySettings Gameplay;
+
+    public static Dictionary<SoundSetting, float> Sound;
 
     public static void LoadPlayerSettings()
     {
-        Player = new();
+        Gameplay.Initialize();
+        Sound = new();
         foreach (SoundSetting value in Enum.GetValues(typeof(SoundSetting)))
         {
-            Player.Add(value, PlayerPrefs.GetFloat(value.ToString(), 1f));
+            Sound.Add(value, PlayerPrefs.GetFloat(value.ToString(), 1f));
         }
     }
 
     public static void UpdateSetting(SoundSetting setting, float value)
     {
-        Player[setting] = value;
+        PlayerPrefs.SetFloat(setting.ToString(), value);
+        Sound[setting] = value;
+    }
+
+    public static void UpdateSetting(GameplaySetting setting, float value)
+    {
+        PlayerPrefs.SetFloat(setting.ToString(), value);
+        Gameplay[setting] = value;
     }
 
     public static class Graphics

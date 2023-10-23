@@ -25,26 +25,47 @@ public class Pathfinder
         }
     }
 
-    public Pathfinder(TerrainType[,] worldMap, Dictionary<Vector2Int, EventType> eventMap, Vector2Int globalOffset)
+    public Pathfinder(TerrainType[,] worldMap, Dictionary<Vector2Int, EventType> eventMap, Vector2Int globalOffset, Vector2Int selectedCellCoords)
     {
+        Vector2Int selectCoords = selectedCellCoords + globalOffset;
         foreach (Vector2Int localKey in MapTools.gameMap.Keys)
         {
             Vector2Int globalKey = localKey + globalOffset;
             bool unpathable = false;
-            if (RunStarter.unpathable.Contains(worldMap[globalKey.x, globalKey.y]))
+            int penalty = 0;
+
+            bool inVehicle = WorldPlayerControl.CurrentVehicle != null;
+            bool mouseOverCompatible = inVehicle && WorldPlayerControl.CurrentVehicle.compatibleTerrains.Contains(worldMap[selectCoords.x, selectCoords.y]);
+            bool nodeIsCompatibleWithVehicle = inVehicle && WorldPlayerControl.CurrentVehicle.compatibleTerrains.Contains(worldMap[globalKey.x, globalKey.y]);
+            bool nodeIsBlocking = RunStarter.unpathable.Contains(worldMap[globalKey.x, globalKey.y]);
+            bool nodeContainsVehicle = eventMap.TryGetValue(globalKey, out var eventType) && (eventType == EventType.BOAT || eventType == EventType.BALLOON);
+
+            //if im not in the right vehicle, blocking terrain is unpathable and non blocking is pathable
+            //if i am in a vehicle and im mousing over compatible blocking terrain, non-blocking terrain is unpathable
+            //if i am in a vehicle and not mousing over blocking terrain, compatible terrain and non-blocking terrain is pathable
+            if (!inVehicle)
             {
-                unpathable = true;
-                if(WorldPlayerControl.CurrentVehicle != null 
-                    && WorldPlayerControl.CurrentVehicle.compatibleTerrains.Contains(worldMap[globalKey.x, globalKey.y]))
+                if (nodeIsBlocking && !nodeContainsVehicle)
                 {
-                    unpathable = false;
+                    unpathable = true;
                 }
-                if (eventMap.TryGetValue(globalKey, out var eventType) && (eventType == EventType.BOAT || eventType == EventType.BALLOON))
+            }
+            else if (inVehicle)
+            {
+                if (!nodeIsCompatibleWithVehicle)
                 {
-                    unpathable = false;
+                    if (mouseOverCompatible && !nodeIsBlocking)
+                    {
+                        unpathable = true;
+                    }
+                    if (!mouseOverCompatible && nodeIsBlocking)
+                    {
+                        unpathable = true;
+                    }
                 }
-            } 
-            nodeMap.Add(localKey, new Node { location = localKey, reference = MapTools.gameMap[localKey], blocked = unpathable });
+            }
+
+            nodeMap.Add(localKey, new Node { location = localKey, reference = MapTools.gameMap[localKey], blocked = unpathable, P = penalty });
         }
     }
     public List<GameObject> FindObjectPath(Vector2Int start, Vector2Int end)

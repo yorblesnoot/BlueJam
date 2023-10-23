@@ -90,19 +90,7 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4265018987618126095}
-        m_TargetAssemblyTypeName: SettingSlider, Assembly-CSharp
-        m_MethodName: OnSliderChange
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1256002545588928326
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,7 +755,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6475b7dead1018d4fb019279996a4b23, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thisSetting: 0
   slider: {fileID: 1256002545398353491}
   settingValue: {fileID: 8982142378929045674}
   settingName: {fileID: 8735947448906505195}
+  thisSetting: 0

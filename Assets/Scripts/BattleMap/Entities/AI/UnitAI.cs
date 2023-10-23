@@ -13,8 +13,6 @@ public class UnitAI : MonoBehaviour
     [SerializeField] HandPlus myHand;
     [SerializeField] BattleUnit thisUnit;
 
-    readonly float playDelay = .3f;
-
     Pathfinder pathfinder;
 
     //get information from cards: legal targets, card class, target requirements, object reference
@@ -78,10 +76,10 @@ public class UnitAI : MonoBehaviour
     IEnumerator AIPlayCard(ICardDisplay cardReference, BattleTileController targetTile)
     {
         ShowAITargeting(cardReference.thisCard.targetRules, transform.position, cardReference.thisCard);
-        yield return new WaitForSeconds(playDelay);
+        yield return new WaitForSeconds(Settings.Gameplay[GameplaySetting.NPC_card_highlight_duration]);
         ShowAITargeting(cardReference.thisCard.aoePoint, targetTile.transform.position);
         if(cardReference.thisCard.aoeSelf != null) ShowAITargeting(cardReference.thisCard.aoeSelf, transform.position);
-        yield return new WaitForSeconds(playDelay);
+        yield return new WaitForSeconds(Settings.Gameplay[GameplaySetting.NPC_card_highlight_duration]);
 
         //clear the range display and take the action
         EventManager.clearActivation.Invoke();
