@@ -16,6 +16,7 @@ public class GambleCraft : CraftModule
 
         int deckChoice = Random.Range(0, finalPool.Count);
         runData.essenceInventory.Add(finalPool[deckChoice]);
+        EssenceCrafting.flagList.Add(finalPool[deckChoice]);
         return true;
     }
 

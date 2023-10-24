@@ -40,8 +40,11 @@ public class EssenceCrafting : MonoBehaviour
 
     public static UnityEvent craftWindowClosed = new();
 
+    public static List<Deck> flagList;
+
     private void Awake()
     {
+        flagList = new();
         modules = new();
         foreach (var item in packages)
         {
@@ -73,7 +76,13 @@ public class EssenceCrafting : MonoBehaviour
                 dragItems[i].mainCanvas = mainCanvas;
 
                 //associate a draggable with a specific deck
-                dragItems[i].essence = runData.essenceInventory[i];
+                Deck deck = runData.essenceInventory[i];
+                dragItems[i].essence = deck;
+                if (flagList.Contains(deck))
+                {
+                    dragItems[i].HighlightAsNew();
+                    flagList.Remove(deck);
+                }
 
                 ColorUtility.TryParseHtmlString("#F8B63C", out Color colorFromHex);
                 if (runData.essenceInventory[i].deckContents.Count >= 5) dragItems[i].image.color = colorFromHex;

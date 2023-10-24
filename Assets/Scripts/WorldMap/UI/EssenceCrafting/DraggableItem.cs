@@ -14,14 +14,15 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     [HideInInspector] public Deck essence;
     [HideInInspector] public Canvas mainCanvas;
 
-    [SerializeField] InventorySlot originalSlot;
+    [SerializeField] ParticleSystem newFire;
 
     GameObject hat;
 
     readonly int thrustDistance = 50;
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if(essenceCrafting.essenceSlotContents == null)
+        newFire.Stop();
+        if (essenceCrafting.essenceSlotContents == null)
         {
             essence.Initialize();
             essenceCrafting.ShowEssenceDisplay(essence);
@@ -88,7 +89,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         hat = Instantiate(essence.hat);
         hat.transform.SetParent(transform, false);
 
-
         Transform scalingCube = hat.transform.GetChild(0);
         scalingCube.transform.SetParent(transform, true);
         hat.transform.SetParent(scalingCube, true);
@@ -98,5 +98,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         scalingCube.transform.localPosition = position;
         scalingCube.transform.localRotation = Quaternion.identity;
         hat.transform.localRotation = Quaternion.Euler(hatTiltAngle, 0, 0);
+    }
+
+    public void HighlightAsNew()
+    {
+        newFire.Play();
     }
 }

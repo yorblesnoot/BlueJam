@@ -7,7 +7,11 @@ public class CloneCraft : CraftModule
     public override bool ExecuteCraft(List<DraggableItem> craftingSlotContents, DraggableItem essenceSlotContents, RunData runData) 
     {
         if (essenceSlotContents == null || craftingSlotContents.Count < 2) return false;
-        for(int i = 0; i < 2; i++) runData.essenceInventory.Add(essenceSlotContents.essence);
+        for (int i = 0; i < 2; i++)
+        {
+            runData.essenceInventory.Add(essenceSlotContents.essence);
+            EssenceCrafting.flagList.Add(essenceSlotContents.essence);
+        }
         return true;
     }
 
