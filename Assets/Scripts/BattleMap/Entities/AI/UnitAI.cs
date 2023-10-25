@@ -76,10 +76,10 @@ public class UnitAI : MonoBehaviour
     IEnumerator AIPlayCard(ICardDisplay cardReference, BattleTileController targetTile)
     {
         ShowAITargeting(cardReference.thisCard.targetRules, transform.position, cardReference.thisCard);
-        yield return new WaitForSeconds(Settings.Gameplay[GameplaySetting.NPC_card_highlight_duration]);
+        yield return new WaitForSeconds(Settings.Gameplay[GameplaySetting.NPC_cast_preview]);
         ShowAITargeting(cardReference.thisCard.aoePoint, targetTile.transform.position);
         if(cardReference.thisCard.aoeSelf != null) ShowAITargeting(cardReference.thisCard.aoeSelf, transform.position);
-        yield return new WaitForSeconds(Settings.Gameplay[GameplaySetting.NPC_card_highlight_duration]);
+        yield return new WaitForSeconds(Settings.Gameplay[GameplaySetting.NPC_cast_preview]);
 
         //clear the range display and take the action
         EventManager.clearActivation.Invoke();

@@ -10,7 +10,7 @@ public class BattleUnit : Unit
 
     public BuffTracker buffTracker;
     public HandPlus myHand;
-    public UnitAnimator unitAnimator;
+    public SlimeAnimator unitAnimator;
 
     public int deflectHealth { get; set; }
     public int shieldHealth { get; set; }

@@ -15,7 +15,7 @@ public class WorldMovementController : MonoBehaviour
 
     List<Vector2Int> myPath;
 
-    public static readonly float heightAdjust = .5f;
+    public static readonly float heightAdjust = .3f;
     public Vector3 unitPosition;
 
     public static UnityEvent pathingComplete = new();

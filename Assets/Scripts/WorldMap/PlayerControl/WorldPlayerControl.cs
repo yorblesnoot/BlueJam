@@ -20,11 +20,11 @@ public class WorldPlayerControl : MonoBehaviour
     public GameObject playerVisual;
     public GameObject playerModel;
     [SerializeField] WorldMapRenderer worldRenderer;
-    [SerializeField] UnitAnimator unitAnimator;
+    [SerializeField] SlimeAnimator unitAnimator;
     public CompassMaster compassMaster;
     public static WorldPlayerControl player;
 
-    readonly public static float moveTime = .5f;
+    
     public static Vector3 playerBaseScale;
     public void InitializePlayer()
     {
@@ -36,14 +36,17 @@ public class WorldPlayerControl : MonoBehaviour
         Vector3 myPosition = MapTools.MapToVector(worldMapCoords, WorldMovementController.heightAdjust);
         gameObject.transform.position = myPosition;
     }
-
+    readonly public static float moveTime = .5f;
     public IEnumerator ChainPath(List<Vector2Int> path)
     {
         new SaveContainer(runData).SaveGame();
         Tutorial.CompleteStage(WorldEventHandler.lastTutorial, 1, true);
 
-        foreach (var tile in path)
+        if(CurrentVehicle == null) unitAnimator.Animate(AnimType.WALK);
+        for (int i = 0; i < path.Count; i++)
         {
+            if(CurrentVehicle == null && i == path.Count - 1) StartCoroutine(unitAnimator.EndWalk(moveTime));
+            Vector2Int tile = path[i];
             Vector2Int globalCoords = tile + WorldMapRenderer.spotlightGlobalOffset;
             if (RunStarter.unpathable.Contains(runData.worldMap[globalCoords.x, globalCoords.y]) 
                 && CurrentVehicle == null)
@@ -83,9 +86,7 @@ public class WorldPlayerControl : MonoBehaviour
             if (CurrentVehicle != null) onVehicle = true;
             yield return StartCoroutine(tileController.myEventHandler.TriggerWorldEvents());
             if (onVehicle) CurrentVehicle.RelocateVehicle(globalCoords, oldCoords);
-            
         }
         WorldMovementController.pathingComplete.Invoke();
-        
     }
 }

@@ -47,8 +47,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _DissolveAmount: 0.53
-    - _Edge: -0.03
+    - _DissolveAmount: 1
+    - _Edge: -0.09
     - _FlatShade: 0
     - _FresnelPower: 3.5
     - _Offset: 0.72

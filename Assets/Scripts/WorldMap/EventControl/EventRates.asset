@@ -17,7 +17,7 @@ MonoBehaviour:
     spawnChance: 420
     type: 0
   - obj: {fileID: 757166517744906979, guid: d3d80019a0df8cf4c8a0387c094d97f9, type: 3}
-    spawnChance: 16
+    spawnChance: 15
     type: 1
   - obj: {fileID: 4988517733454850341, guid: e560e395bd4ea8842bf3fb7219a23eb7, type: 3}
     spawnChance: 8
@@ -37,12 +37,15 @@ MonoBehaviour:
   - obj: {fileID: 5646597843019752695, guid: 8bd5f0c365b934f478952de64c369a9f, type: 3}
     spawnChance: 1
     type: 4
-  - obj: {fileID: 8453122907334574164, guid: 6b8a4ac290ae52546b34d7322f1af3c2, type: 3}
-    spawnChance: 0
-    type: 7
-  - obj: {fileID: 4513233365106999063, guid: 9d5613f38bbe6924b9d685a0425ead70, type: 3}
-    spawnChance: 0
-    type: 6
   - obj: {fileID: 7924231913854942665, guid: 7d28bb5931146704cb64c51f15495f6e, type: 3}
     spawnChance: 0
     type: 5
+  vehicles:
+  - obj: {fileID: 4513233365106999063, guid: 9d5613f38bbe6924b9d685a0425ead70, type: 3}
+    spawnChance: 10
+    type: 6
+    compatibleTerrain: 0100000002000000
+  - obj: {fileID: 8453122907334574164, guid: 6b8a4ac290ae52546b34d7322f1af3c2, type: 3}
+    spawnChance: 13
+    type: 7
+    compatibleTerrain: 03000000

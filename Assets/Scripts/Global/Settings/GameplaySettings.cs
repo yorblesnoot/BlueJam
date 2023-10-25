@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum GameplaySetting
 {
-    NPC_card_highlight_duration,
+    NPC_cast_preview,
 }
 
 [CreateAssetMenu(fileName = "GameplaySettings", menuName = "ScriptableObjects/GameplaySettings")]

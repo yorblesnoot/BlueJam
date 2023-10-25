@@ -6,8 +6,8 @@ using UnityEngine;
 public class EventSpawnRates : ScriptableObject
 {
     [SerializeField] List<EventKey> events;
+    public List<VehicleKey> vehicles;
     int totalChance;
-    readonly List<int> probabilities;
     public void Initialize()
     {
         if (totalChance != 0) return;
@@ -36,7 +36,9 @@ public class EventSpawnRates : ScriptableObject
     public Dictionary<EventType, ObjectPool> GetEventTable()
     {
         Dictionary<EventType, ObjectPool> eventTable = new();
-        foreach (var e in events)
+        List<EventKey> combined = new(events);
+        combined.AddRange(vehicles);
+        foreach (var e in combined)
         {
             eventTable.Add(e.type, new ObjectPool(e.obj));
         }
@@ -45,9 +47,15 @@ public class EventSpawnRates : ScriptableObject
 }
 
 [System.Serializable]
-class EventKey
+public class EventKey
 {
     public GameObject obj;
     public int spawnChance;
     public EventType type;
+}
+
+[System.Serializable]
+public class VehicleKey : EventKey
+{
+    public TerrainType[] compatibleTerrain;
 }

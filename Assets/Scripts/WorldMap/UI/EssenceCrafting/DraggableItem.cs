@@ -9,14 +9,14 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     [HideInInspector] public Transform parentAfterDrag;
     public Image image;
-    [HideInInspector]public EssenceCrafting essenceCrafting;
+    [HideInInspector] public EssenceCrafting essenceCrafting;
 
     [HideInInspector] public Deck essence;
     [HideInInspector] public Canvas mainCanvas;
 
     [SerializeField] ParticleSystem newFire;
 
-    GameObject hat;
+    [HideInInspector] public GameObject hat;
 
     readonly int thrustDistance = 50;
     public void OnPointerEnter(PointerEventData eventData)
@@ -87,10 +87,10 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         if(hat != null) Destroy(hat);
         hat = Instantiate(essence.hat);
-        hat.transform.SetParent(transform, false);
+        hat.transform.SetParent(image.transform, false);
 
         Transform scalingCube = hat.transform.GetChild(0);
-        scalingCube.transform.SetParent(transform, true);
+        scalingCube.transform.SetParent(image.transform, true);
         hat.transform.SetParent(scalingCube, true);
 
         scalingCube.transform.localScale = Vector3.one * 50;

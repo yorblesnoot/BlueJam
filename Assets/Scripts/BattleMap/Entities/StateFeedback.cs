@@ -17,6 +17,7 @@ public class StateFeedback : MonoBehaviour
     {
         if (numberPool == null) numberPool = new(floatNumber);
         string modelName = gameObject.name.Replace("NPC(Clone)", "");
+        Debug.Log(modelName);
         model = transform.Find(modelName).gameObject;
         baseScale = model.transform.localScale;
         hitLayer = LayerMask.NameToLayer("HitFlash");

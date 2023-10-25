@@ -37,6 +37,7 @@ public class EffectMove : CardEffectPlus
     {
         yield return new WaitForSeconds(.1f);
         yield return actor.StartCoroutine(actor.gameObject.LerpTo(targetCell.unitPosition, moveDuration));
+        actor.StartCoroutine(actor.unitAnimator.EndWalk(moveDuration));
     }
 
     public IEnumerator Blink(BattleUnit actor, BattleTileController targetCell)

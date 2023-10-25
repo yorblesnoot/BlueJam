@@ -58,12 +58,12 @@ public class DynamicEventPlacer
         }
         runData.exploredChunks[chunk.x, chunk.y] = true;
     }
-    readonly int boatChance = 11;
-    readonly int balloonChance = 12;
     private void EvaluateSpecialPlacements(Vector2Int globalPoint)
     {
-        PlaceVehicle(globalPoint, EventType.BOAT, new TerrainType[] { TerrainType.WATER, TerrainType.DEEPWATER }, boatChance);
-        PlaceVehicle(globalPoint, EventType.BALLOON, new TerrainType[] { TerrainType.MOUNTAIN }, balloonChance);
+        foreach(var vehicle in eventRates.vehicles)
+        {
+            PlaceVehicle(globalPoint, vehicle.type, vehicle.compatibleTerrain, vehicle.spawnChance);
+        }
     }
 
     private void PlaceVehicle(Vector2Int globalPoint, EventType vehicle, TerrainType[] impassables, int probability)
