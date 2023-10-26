@@ -1610,7 +1610,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 1757514743}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.99989474
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2009,7 +2009,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 062eeb9d5e8ba8f45a9ddfea52518f82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c0f37f239471d84281b2cb317289273, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5208,7 +5208,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 255.06818}
+  m_AnchoredPosition: {x: 0, y: 255.19702}
   m_SizeDelta: {x: 0, y: 20}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &409284561
@@ -7324,6 +7324,7 @@ GameObject:
   - component: {fileID: 616302506}
   - component: {fileID: 616302505}
   - component: {fileID: 616302504}
+  - component: {fileID: 616302507}
   m_Layer: 5
   m_Name: RemoveStatus
   m_TagString: Untagged
@@ -7353,8 +7354,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Press the button on the left to toggle card removal.
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 62f891b2e20e9ba46b5f5131d6343f4d, type: 2}
+  m_sharedMaterial: {fileID: 2232939817225801632, guid: 62f891b2e20e9ba46b5f5131d6343f4d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -7378,7 +7379,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 35.8
+  m_fontSize: 62.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -7386,7 +7387,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -7394,7 +7395,7 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_enableWordWrapping: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
@@ -7448,6 +7449,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: -40, y: -10}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &616302507
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 616302503}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 17f4c979ae1071e4cae6a94dba2bc078, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &625961916
 GameObject:
   m_ObjectHideFlags: 0
@@ -17244,7 +17266,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 062eeb9d5e8ba8f45a9ddfea52518f82, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c0f37f239471d84281b2cb317289273, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -21013,7 +21035,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -148, y: -12}
+  m_AnchoredPosition: {x: -148.00003, y: -12}
   m_SizeDelta: {x: -406, y: -120}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1374728088
@@ -29269,7 +29291,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 0.99989474}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 40, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -29748,6 +29770,7 @@ MonoBehaviour:
   - {fileID: 2079597944}
   removal: {fileID: 506452294}
   status: {fileID: 616302504}
+  statusAnimator: {fileID: 616302507}
   player: {fileID: 1773061060}
 --- !u!1 &1815097406
 GameObject:
@@ -32215,7 +32238,7 @@ PrefabInstance:
     - target: {fileID: 6082687575404921551, guid: c570f572286c12842a99e7c2c394a79d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 062eeb9d5e8ba8f45a9ddfea52518f82, type: 3}
+      objectReference: {fileID: 21300000, guid: 0c0f37f239471d84281b2cb317289273, type: 3}
     - target: {fileID: 6082687575404921585, guid: c570f572286c12842a99e7c2c394a79d, type: 3}
       propertyPath: m_IsActive
       value: 0
@@ -35483,7 +35506,7 @@ PrefabInstance:
     - target: {fileID: 6082687575404921551, guid: c570f572286c12842a99e7c2c394a79d, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 062eeb9d5e8ba8f45a9ddfea52518f82, type: 3}
+      objectReference: {fileID: 21300000, guid: 0c0f37f239471d84281b2cb317289273, type: 3}
     - target: {fileID: 6082687575404921584, guid: c570f572286c12842a99e7c2c394a79d, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0

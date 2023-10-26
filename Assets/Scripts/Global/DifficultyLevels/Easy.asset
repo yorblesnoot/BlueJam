@@ -21,7 +21,7 @@ MonoBehaviour:
   <BaseFoeBudget>k__BackingField: 7
   <ThreatPerBudgetUp>k__BackingField: 5
   <StatPerThreat>k__BackingField: 0.06
-  <HealthPerThreat>k__BackingField: 0.03
+  <HealthPerThreat>k__BackingField: 0.02
   <SpeedPerThreat>k__BackingField: 0.01
   <MinimumDeckSize>k__BackingField: 8
   <HesitationCurses>k__BackingField: 0

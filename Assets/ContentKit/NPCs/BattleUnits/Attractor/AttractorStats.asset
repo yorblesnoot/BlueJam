@@ -15,7 +15,7 @@ MonoBehaviour:
   unitName: Attractor
   unitDescription: Stacks a damaging aura, then pulls foes into melee range and blasts
     them repeatedly.
-  maxHealth: 35
+  maxHealth: 30
   handSize: 2
   startBeats: 1
   damageScaling: 10

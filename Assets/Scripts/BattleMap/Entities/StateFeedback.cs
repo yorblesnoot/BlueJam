@@ -46,11 +46,12 @@ public class StateFeedback : MonoBehaviour
     static readonly float flashDuration = .2f;
     static readonly float damagedScale = 1.1f;
     static readonly float displacementFactor = .7f;
-
+    static readonly float thrustLength = 3000;
     void PopupFloatingNumber(int number, Color color, int displacement)
     {
         Vector3 popPosition = transform.localPosition;
         popPosition.x += displacementFactor * (displacement);
+        popPosition.z -= thrustLength;
         TMP_Text floatText = numberPool.InstantiateFromPool(popPosition, Quaternion.identity).GetComponentInChildren<TMP_Text>();
         floatText.text = number.ToString();
         floatText.color = color;

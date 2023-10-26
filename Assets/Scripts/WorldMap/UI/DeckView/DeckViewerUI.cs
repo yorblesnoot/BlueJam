@@ -10,6 +10,7 @@ public class DeckViewerUI : MonoBehaviour
     [SerializeField] List<PlayerCardDisplay> cardDisplays;
     [SerializeField] Toggle removal;
     [SerializeField] TMP_Text status;
+    [SerializeField] Animator statusAnimator;
 
     [SerializeField] Unit player;
     private void OnEnable()
@@ -47,23 +48,28 @@ public class DeckViewerUI : MonoBehaviour
         Tutorial.EnterStage(TutorialFor.WORLDDECK, 2, "While the icon is red and I have bombs, clicking a card will <color=red>permanently remove it</color> from my deck. Click the X or hit ESC to return to the map.");
     }
 
+    readonly static string redFlash = "FlashRed";
     public void RemoveCard(CardPlus card, GameObject cardObject)
     {
         if (!removal.isOn)
-        {
+        {        
             status.text = "Press the button on the left to toggle card removal.";
+            statusAnimator.Play(redFlash);
             return;
         }
-        if(runData.RemoveStock == 0)
+        else if (runData.RemoveStock == 0)
         {
             status.text = "Gather bombs in the overworld to remove cards from your deck.";
+            statusAnimator.Play(redFlash);
             return;
         }
-        if(runData.playerDeck.deckContents.Count <= Settings.Balance.MinimumDeckSize)
+        else if (runData.playerDeck.deckContents.Count <= Settings.Balance.MinimumDeckSize)
         {
             status.text = $"Removing a card would put you below the minimum deck size of {Settings.Balance.MinimumDeckSize}...";
+            statusAnimator.Play(redFlash);
             return;
         }
+        else status.text = "";
         SoundManager.PlaySound(SoundType.CARDREMOVED);
         runData.RemoveStock--;
         EventManager.updateWorldCounters?.Invoke();
