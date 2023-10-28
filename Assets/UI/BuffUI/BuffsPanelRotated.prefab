@@ -26,7 +26,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1022254280743802577}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -40,7 +40,7 @@ RectTransform:
   - {fileID: 8017923381374019510}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -102,10 +102,10 @@ MonoBehaviour:
     m_Top: 5
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_StartCorner: 0
+  m_StartCorner: 2
   m_StartAxis: 0
-  m_CellSize: {x: 140, y: 140}
-  m_Spacing: {x: 5, y: 5}
+  m_CellSize: {x: 180, y: 180}
+  m_Spacing: {x: 20, y: 20}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1001 &648902116730723306
@@ -118,6 +118,10 @@ PrefabInstance:
     - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Name
       value: BuffSlotJumbo (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Pivot.x
@@ -169,7 +173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.x
@@ -181,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -201,7 +205,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6850791220fdba449acfa68275c85b01, type: 3}
@@ -220,6 +224,10 @@ PrefabInstance:
     - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Name
       value: BuffSlotJumbo (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Pivot.x
@@ -271,7 +279,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.x
@@ -283,7 +291,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -303,7 +311,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6850791220fdba449acfa68275c85b01, type: 3}
@@ -319,9 +327,17 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1022254280743802576}
     m_Modifications:
+    - target: {fileID: 6074134703990368388, guid: 6850791220fdba449acfa68275c85b01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Name
       value: BuffSlotJumbo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Pivot.x
@@ -373,7 +389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.x
@@ -385,7 +401,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -405,7 +421,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6850791220fdba449acfa68275c85b01, type: 3}
@@ -424,6 +440,10 @@ PrefabInstance:
     - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Name
       value: BuffSlotJumbo (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Pivot.x
@@ -475,7 +495,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.x
@@ -487,7 +507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -507,7 +527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6850791220fdba449acfa68275c85b01, type: 3}
@@ -526,6 +546,10 @@ PrefabInstance:
     - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Name
       value: BuffSlotJumbo (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Pivot.x
@@ -577,7 +601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.x
@@ -589,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -609,7 +633,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6850791220fdba449acfa68275c85b01, type: 3}
@@ -628,6 +652,10 @@ PrefabInstance:
     - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Name
       value: BuffSlotJumbo (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Pivot.x
@@ -679,7 +707,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.x
@@ -691,7 +719,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -711,7 +739,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6850791220fdba449acfa68275c85b01, type: 3}
@@ -730,6 +758,10 @@ PrefabInstance:
     - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Name
       value: BuffSlotJumbo (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8780211848196814098, guid: 6850791220fdba449acfa68275c85b01, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_Pivot.x
@@ -781,7 +813,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071068
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.x
@@ -793,7 +825,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.7071068
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -813,7 +845,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8780211848196814099, guid: 6850791220fdba449acfa68275c85b01, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -90
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6850791220fdba449acfa68275c85b01, type: 3}

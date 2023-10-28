@@ -69,10 +69,11 @@ public class BarrierTracker : MonoBehaviour
         return incomingDamage;
     }
 
+    Color shieldColor = new(0.05f, 0.05f, 0.05f, 1);
     public int ReceiveShieldDamage(int incomingDamage)
     {
         if(incomingDamage <= 0) return 0; 
-        unitActions.stateFeedback.QueuePopup(Mathf.Clamp(incomingDamage, 0, unitActions.shieldHealth), Color.gray);
+        unitActions.stateFeedback.QueuePopup(Mathf.Clamp(incomingDamage, 0, unitActions.shieldHealth), shieldColor);
         unitActions.shieldHealth -= incomingDamage;
         if (unitActions.shieldHealth <= 0)
         {

@@ -17,7 +17,6 @@ public class StateFeedback : MonoBehaviour
     {
         if (numberPool == null) numberPool = new(floatNumber);
         string modelName = gameObject.name.Replace("NPC(Clone)", "");
-        Debug.Log(modelName);
         model = transform.Find(modelName).gameObject;
         baseScale = model.transform.localScale;
         hitLayer = LayerMask.NameToLayer("HitFlash");
@@ -46,12 +45,10 @@ public class StateFeedback : MonoBehaviour
     static readonly float flashDuration = .2f;
     static readonly float damagedScale = 1.1f;
     static readonly float displacementFactor = .7f;
-    static readonly float thrustLength = 3000;
     void PopupFloatingNumber(int number, Color color, int displacement)
     {
-        Vector3 popPosition = transform.localPosition;
+        Vector3 popPosition = transform.position;
         popPosition.x += displacementFactor * (displacement);
-        popPosition.z -= thrustLength;
         TMP_Text floatText = numberPool.InstantiateFromPool(popPosition, Quaternion.identity).GetComponentInChildren<TMP_Text>();
         floatText.text = number.ToString();
         floatText.color = color;

@@ -29,26 +29,39 @@ public class SlimeAnimator : MonoBehaviour
 
     readonly string yVelocity = "yVelocity";
     readonly string secondIdle = "idle02";
+    readonly string damageX = "damageX";
+    readonly string damageY = "damageY";
     public void Animate(AnimType anim, GameObject source = null)
     {
         if (animator == null) return;
-        animator.SetBool("idle02", false);
+        //animator.SetBool("idle02", false);
         if (anim == AnimType.WALK) { StartCoroutine(LerpVelocity(0, 1)); }
-        else if (anim == AnimType.DAMAGED && source != null)
+        else if (anim == AnimType.DAMAGED)
         {
-            Vector3 direction = (source.transform.position - transform.position).normalized;
-            direction = transform.rotation * direction;
-            animator.SetFloat("damageX", direction.x);
-            animator.SetFloat("damageY", direction.z);
+            TakeDamage(source);
         }
         else animator.Play(animateFor[anim]);
     }
 
-    readonly public static float accelTime = .25f;
+    void TakeDamage(GameObject source)
+    {
+        if(source != null)
+        {
+            Vector3 direction = (source.transform.position - transform.position).normalized;
+            direction = transform.rotation * direction;
+            animator.SetFloat(damageX, direction.x);
+            animator.SetFloat(damageY, direction.z);
+        }
+        animator.Play(animateFor[AnimType.DAMAGED]);
+    }
+
+    readonly public static float accelTime = .24f;
     public IEnumerator EndWalk(float moveLength)
     {
+        if(animator.GetFloat(yVelocity) == 0) yield break;
         yield return new WaitForSeconds(moveLength - accelTime);
 
+        
         StartCoroutine(LerpVelocity(1, 0));
     }
 
@@ -57,8 +70,8 @@ public class SlimeAnimator : MonoBehaviour
         float timeElapsed = 0;
         while (timeElapsed < accelTime)
         {
-            animator.SetFloat(yVelocity, Mathf.Lerp(start, end, timeElapsed / accelTime));
             timeElapsed += Time.deltaTime;
+            animator.SetFloat(yVelocity, Mathf.Lerp(start, end, timeElapsed / accelTime));
             yield return null;
         }
     }

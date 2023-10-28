@@ -45,7 +45,7 @@ public class WorldPlayerControl : MonoBehaviour
         if(CurrentVehicle == null) unitAnimator.Animate(AnimType.WALK);
         for (int i = 0; i < path.Count; i++)
         {
-            if(CurrentVehicle == null && i == path.Count - 1) StartCoroutine(unitAnimator.EndWalk(moveTime));
+            if (CurrentVehicle == null && i == path.Count - 1) { unitAnimator.StartCoroutine(unitAnimator.EndWalk(moveTime)); }
             Vector2Int tile = path[i];
             Vector2Int globalCoords = tile + WorldMapRenderer.spotlightGlobalOffset;
             if (RunStarter.unpathable.Contains(runData.worldMap[globalCoords.x, globalCoords.y]) 
