@@ -48,12 +48,12 @@ public class EffectSummon : CardEffectPlus
     void ModifyStats(BattleUnit owner, NonplayerUnit toModify)
     {
         float summonModifier = .6f;
-        if(owner.CompareTag("Player"))
+        if(owner.Allegiance == AllegianceType.PLAYER)
         {
-            toModify.tag = "Ally";
+            toModify.Allegiance = AllegianceType.ALLY;
             toModify.transform.Find("PlayerAllyHalo").gameObject.SetActive(true);
         }
-        else toModify.tag = owner.tag;
+        else toModify.Allegiance = owner.Allegiance;
         toModify.transform.localScale -= new Vector3(.3f, .3f, .3f);
 
         toModify.isSummoned = true;

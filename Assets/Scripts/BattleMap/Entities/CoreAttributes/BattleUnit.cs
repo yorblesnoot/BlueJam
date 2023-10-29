@@ -18,7 +18,7 @@ public class BattleUnit : Unit
     [HideInInspector] public bool isDead;
     [HideInInspector] public EntityUI myUI { get; set; }
 
-    public AllegianceType Allegiance { get; set; }
+    [field: SerializeField] public AllegianceType Allegiance { get; set; }
 
     void Awake()
     {

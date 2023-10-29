@@ -63,8 +63,8 @@ MonoBehaviour:
   buffTracker: {fileID: 8464405472856945552}
   myHand: {fileID: 6958123189531368188}
   unitAnimator: {fileID: 7119020024479498164}
-  isSummoned: 0
   isDead: 0
+  <Allegiance>k__BackingField: 3
   turnShow: {fileID: 9213481635271868737}
   unitAI: {fileID: 7599744135600204344}
   tagControl: {fileID: 379576486746722368}

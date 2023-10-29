@@ -185,8 +185,8 @@ MonoBehaviour:
   buffTracker: {fileID: 25602}
   myHand: {fileID: 25607}
   unitAnimator: {fileID: 25605}
-  isSummoned: 0
   isDead: 0
+  <Allegiance>k__BackingField: 1
   turnIndicator: {fileID: 3617255582815159431}
   ender: {fileID: 388095520}
 --- !u!114 &25601
@@ -2323,6 +2323,7 @@ GameObject:
   - component: {fileID: 388095516}
   - component: {fileID: 388095518}
   - component: {fileID: 388095520}
+  - component: {fileID: 388095521}
   m_Layer: 0
   m_Name: BattleMaster
   m_TagString: GameController
@@ -2414,6 +2415,19 @@ MonoBehaviour:
   - {fileID: 517542004}
   - {fileID: 517542004}
   blackScreen: {fileID: 167643142}
+--- !u!114 &388095521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388095515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0c7fa8b4df52594d88dad294d4b2890, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _tracker: {fileID: 7041260999172645529, guid: 2f598ef42cb0ca94bad559b1fb3b6f9b, type: 3}
 --- !u!1001 &394582959
 PrefabInstance:
   m_ObjectHideFlags: 0
