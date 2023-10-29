@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class BattleUnit : Unit
 {
     [SerializeField] BarrierTracker barrierTracker;
@@ -15,15 +14,22 @@ public class BattleUnit : Unit
     public int deflectHealth { get; set; }
     public int shieldHealth { get; set; }
 
-    [HideInInspector] public bool isSummoned;
+    [HideInInspector] public bool isSummoned { get; set; }
     [HideInInspector] public bool isDead;
     [HideInInspector] public EntityUI myUI { get; set; }
 
-    
+    public AllegianceType Allegiance { get; set; }
 
     void Awake()
     {
+        TurnManager.initializeDecks.AddListener(InitializeDecks);
         Initialize(); 
+    }
+
+    void InitializeDecks()
+    {
+        myHand.BuildVisualDeck();
+        myHand.DrawPhase();
     }
 
     public virtual void TakeTurn()

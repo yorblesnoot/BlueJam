@@ -15,18 +15,18 @@ MonoBehaviour:
   Id: 74841243-08b5-4bf9-9cc4-0cd69a7d6957
   displayName: Fight for Me!
   art: {fileID: 21300000, guid: a59472258ed0e44a1a03c13b03d5bc04, type: 3}
-  cost: 2
-  description: 'conjure 1 temporary copy of <color=#FFA500>Bullrush</color> to target''s
-    hand. increase time by 1. '
-  keywords: 'Range: 1-4 <color=blue>O</color>'
+  cost: 1
+  description: 'Conjure 1 temporary copy of <color=#FFA500>Bullrush</color> to target''s
+    hand. Increase time by 1. Block for <color=#1ED5FA>10</color>. '
+  keywords: 'Range: 1-4 <color=blue>O</color>.'
   targetShape: 0
   targetSize: 4
   targetGap: 1
   needsPath: 0
   isCurse: 0
-  cardClass: 02000000
   consumed: 0
   animType: 0
+  delayBeforeEffects: 0
   effects:
   - {fileID: 11400000, guid: c52aa0f5903465a479644dbf70162773, type: 2}
   - {fileID: 11400000, guid: cd9ee01480501f1428ba14bea4c381e4, type: 2}

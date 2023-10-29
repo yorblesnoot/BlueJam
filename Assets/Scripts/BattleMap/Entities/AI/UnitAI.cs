@@ -8,7 +8,7 @@ public class UnitAI : MonoBehaviour
 {
     [SerializeField] AIProfile personality;
 
-    private List<BattleUnit> entities;
+    private List<GameObject> entities;
 
     [SerializeField] HandPlus myHand;
     [SerializeField] BattleUnit thisUnit;
@@ -32,10 +32,9 @@ public class UnitAI : MonoBehaviour
     {
         //1. put all possible moves with their respective cards in one place
         //checklegal on every targetRules
-        entities = new(TurnManager.turnTakers);
-        entities = entities.Where(t => !(t.isSummoned && t.CompareTag("Ally"))).ToList();
-        entities.Add(TurnManager.playerUnit);
-        entities.Remove(thisUnit);
+        entities = TurnManager.turnTakers.Select(t => t.Allegiance != AllegianceType.ALLY ? t.gameObject : null).Where(t => t != null).ToList();
+        entities.Add(TurnManager.playerUnit.gameObject);
+        entities.Remove(gameObject);
 
         List<PossiblePlay> possiblePlays = new();
         for(int rule = 0; rule < myHand.handCards.Count; rule++)
@@ -178,7 +177,7 @@ public class UnitAI : MonoBehaviour
         float hostileScore = 0;
         for (int i = 0; i < entities.Count; i++)
         {
-            GameObject entity = entities[i].gameObject;
+            GameObject entity = entities[i];
             
             float potentialPathDistance = pathfinder.GetPathLength(moveVect, MapTools.VectorToMap(entity.transform.position));
             float currentPathDistance = pathfinder.GetPathLength(MapTools.VectorToMap(transform.position), MapTools.VectorToMap(entity.transform.position));

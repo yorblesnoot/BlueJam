@@ -1,11 +1,14 @@
 using System.Collections;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
-public class NonplayerUnit : BattleUnit
+public class NonplayerUnit : BattleUnit, ITurnTaker
 {
     [SerializeField] GameObject turnShow;
     [SerializeField] UnitAI unitAI;
     [SerializeField] InfoTagControl tagControl;
+
+    public float TurnThreshold => TurnManager.beatThreshold;
     public override void Initialize()
     {
         base.Initialize();
@@ -14,8 +17,8 @@ public class NonplayerUnit : BattleUnit
         currentHealth = Mathf.RoundToInt(loadedStats[StatType.MAXHEALTH]);
         myUI.InitializeHealth();
         TurnManager.unitsReport.AddListener(RegisterTurn);
-        EventManager.hideTurnDisplay.AddListener(HideTurnPossibility);
-        EventManager.clearActivation.AddListener(HideTurnPossibility);
+        EventManager.hideTurnDisplay.AddListener(() => ShowBeatPreview(0));
+        EventManager.clearActivation.AddListener(() => ShowBeatPreview(0));
     }
     public void ScaleWithDifficulty(int difficultyFactor)
     {
@@ -32,6 +35,25 @@ public class NonplayerUnit : BattleUnit
         unitAI.AITakeTurn();
     }
 
+    public void ReceiveBeatsFromPlayer(int beats, PlayerUnit player)
+    {
+        float beatChange = GetBeatChange(beats, player);
+        loadedStats[StatType.BEATS] += beatChange;
+        myUI.ReduceBeats(-beatChange);
+    }
+
+    public float BeatCount => loadedStats[StatType.BEATS];
+
+    public string GetAllegiance()
+    {
+        return gameObject.tag;
+    }
+
+    float GetBeatChange(int beats, PlayerUnit player)
+    {
+        return loadedStats[StatType.SPEED] * beats / player.loadedStats[StatType.SPEED];
+    }
+
     public void RegisterTurn()
     {
         TurnManager.ReportTurn(this);
@@ -42,14 +64,12 @@ public class NonplayerUnit : BattleUnit
         TurnManager.NPCSpendBeats(this, beats);
     }
 
-    public void ShowTurnPossibility()
+    public void ShowBeatPreview(int beats)
     {
-        turnShow.SetActive(true);
-    }
-
-    public void HideTurnPossibility()
-    {
-        turnShow.SetActive(false);
+        float expenditure = GetBeatChange(beats, TurnManager.playerUnit);
+        turnShow.SetActive(loadedStats[StatType.BEATS] + expenditure >= TurnManager.beatThreshold);
+        NonplayerUI npUI = (NonplayerUI)myUI;
+        npUI.ShowBeatGhost(expenditure);
     }
 
     public override void ModifyHealth(int reduction)

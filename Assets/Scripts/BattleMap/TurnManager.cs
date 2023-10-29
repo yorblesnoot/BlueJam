@@ -4,20 +4,19 @@ using UnityEngine;
 using System.Linq;
 using UnityEngine.Events;
 
-public class BeatUpdate : UnityEvent<float> { }
 public class TurnManager : MonoBehaviour
 {
     public static TurnManager Main { get; private set; }
 
-    public static List<NonplayerUnit> turnTakers;
+    public static List<ITurnTaker> turnTakers;
 
     public static PlayerUnit playerUnit;
 
     public static UnityEvent unitsReport = new();
     public static UnityEvent deathPhase = new();
 
-    public static BeatUpdate updateBeatCounts = new();
     public static UnityEvent initialPositionReport = new();
+    public static UnityEvent initializeDecks = new();
 
     public static readonly int beatThreshold = 2;
     readonly static float turnDelay = .2f;
@@ -39,28 +38,18 @@ public class TurnManager : MonoBehaviour
 
     public static void InitializeTurns()
     {
-        InitializeDecks(playerUnit);
-        foreach (var unit in turnTakers)
-        {
-            InitializeDecks(unit);
-        }
+        initializeDecks?.Invoke();
         Main.StartCoroutine(WaitForTurn());
-
-        static void InitializeDecks(BattleUnit unit)
-        {
-            unit.myHand.BuildVisualDeck();
-            unit.myHand.DrawPhase();
-        }
     }
 
-    public static void ReportTurn(NonplayerUnit actor)
+    public static void ReportTurn(ITurnTaker actor)
     { turnTakers.Add(actor); }
-    public static void UnreportTurn(NonplayerUnit actor)
+    public static void UnreportTurn(ITurnTaker actor)
     { turnTakers.Remove(actor); }
 
     static bool PlayerHasWon()
     {
-        if (turnTakers.Where(x => x.gameObject.CompareTag("Enemy") && x.isSummoned != true).Count() == 0)
+        if (turnTakers.Where(x => x.Allegiance == AllegianceType.ENEMY && x.isSummoned != true).Count() == 0)
         {
             BattleEnder battleEnder = GameObject.FindGameObjectWithTag("GameController").GetComponent<BattleEnder>();
             battleEnder.StartCoroutine(battleEnder.VictorySequence());
@@ -71,16 +60,8 @@ public class TurnManager : MonoBehaviour
 
     public static void ShowPossibleTurnTakers(int beatCost)
     {
-        foreach(NonplayerUnit turnTaker in turnTakers)
-        {
-            float expenditure = GetBeatCost(beatCost, turnTaker, playerUnit);
-            if (turnTaker.loadedStats[StatType.BEATS] + expenditure >= beatThreshold)
-            {
-                turnTaker.ShowTurnPossibility();
-            }
-            NonplayerUI npUI = (NonplayerUI)turnTaker.myUI;
-            npUI.ShowBeatGhost(expenditure);
-        }
+        foreach(var turnTaker in turnTakers)
+            turnTaker.ShowBeatPreview(beatCost);
     }
 
     public static void NPCSpendBeats(NonplayerUnit owner, int beats)
@@ -95,15 +76,11 @@ public class TurnManager : MonoBehaviour
     public static void PlayerSpendBeats(int beats)
     {
         PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
-
         Tutorial.CompleteStage(TutorialFor.BATTLEDAMAGE, 1, true);
         //distribute beats to all units based on their individual speeds when the player acts
-        foreach (NonplayerUnit turnTaker in turnTakers)
+        foreach (var turnTaker in turnTakers)
         {
-            float beatChange = GetBeatCost(beats, turnTaker, playerUnit);
-            turnTaker.loadedStats[StatType.BEATS] += beatChange;
-            EntityUI npUI = turnTaker.myUI;
-            npUI.ReduceBeats(-beatChange);
+            turnTaker.ReceiveBeatsFromPlayer(beats, playerUnit);
         }
     }
 
@@ -115,11 +92,6 @@ public class TurnManager : MonoBehaviour
         Main.StartCoroutine(WaitForTurn());
     }
 
-    static float GetBeatCost(int beats, BattleUnit unit, PlayerUnit player)
-    {
-        return unit.loadedStats[StatType.SPEED] * beats / player.loadedStats[StatType.SPEED]; 
-    }
-
     private static IEnumerator WaitForTurn()
     {
         yield return new WaitForSeconds(turnDelay);
@@ -129,8 +101,8 @@ public class TurnManager : MonoBehaviour
     public static void AssignTurn()
     {
         if (PlayerHasWon() || playerUnit.isDead) return;
-        turnTakers = turnTakers.OrderByDescending(x => x.loadedStats[StatType.BEATS]).ToList();
-        if (turnTakers.Count == 0 || turnTakers[0].loadedStats[StatType.BEATS] < beatThreshold)
+        turnTakers = turnTakers.OrderByDescending(x =>  x.BeatCount - x.TurnThreshold).ToList();
+        if (turnTakers.Count == 0 || turnTakers[0].BeatCount < turnTakers[0].TurnThreshold)
         {
             playerUnit.StartCoroutine(playerUnit.turnIndicator.ShowTurnExclamation());
             PlayerUnit.playerState = PlayerBattleState.IDLE;
