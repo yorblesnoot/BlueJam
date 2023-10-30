@@ -10,21 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: Prognosticate
+  m_Name: EscalatingAttack
   m_EditorClassIdentifier: 
-  Id: 5dc78185-ed74-498a-83db-47647f4dfac2
-  displayName: Prognosticate
-  art: {fileID: 21300000, guid: 10ad1bdc2a30a4737b692e1196cf8413, type: 3}
-  cost: 4
+  Id: 8e9db083-3f3c-4976-9022-a21732c3cde5
+  displayName: 
+  art: {fileID: 0}
+  cost: 0
   description: 
   keywords: 
   targetShape: 0
-  targetSize: 5
-  targetGap: 2
+  targetSize: 0
+  targetGap: 0
   needsPath: 0
   isCurse: 0
   consumed: 0
   animType: 0
   delayBeforeEffects: 0
-  effects:
-  - {fileID: 11400000, guid: 7ce999302fab0474386c988c0a37e8b1, type: 2}
+  effects: []

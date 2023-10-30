@@ -80,7 +80,6 @@ public class StateFeedback : MonoBehaviour
         {
             yield return new WaitForSeconds(popDelay);
             Popup newpop = popupQueue.Dequeue();
-            Debug.Log(popupQueue.Count);
             PopupFloatingNumber(newpop.number, newpop.color, popupQueue.Count);
         }
     }

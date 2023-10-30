@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 095a6fe426d45484c859eb273f007cc8, type: 3}
+  m_Name: RuinPool
+  m_EditorClassIdentifier: 
+  spawnUnits:
+  - {fileID: 4039637195503505460, guid: 6134145365ec5f643a95902a6265c342, type: 3}
+  - {fileID: 4039637195503505460, guid: c49a34612d5b7134697c71856e8aad33, type: 3}
+  - {fileID: 4039637195503505460, guid: e3e2f26d948ef9e4db3692f950b5b29a, type: 3}
+  staticSpawns: []

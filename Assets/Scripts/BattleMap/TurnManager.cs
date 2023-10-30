@@ -105,6 +105,7 @@ public class TurnManager : MonoBehaviour
     {
         if (PlayerHasWon() || playerUnit.isDead) return;
         turnTakers = turnTakers.OrderByDescending(x =>  x.BeatCount - x.TurnThreshold).ToList();
+        //low speed for units means delayed always goes first~~~~
         if (turnTakers.Count == 0 || turnTakers[0].BeatCount < turnTakers[0].TurnThreshold)
         {
             playerUnit.StartCoroutine(playerUnit.turnIndicator.ShowTurnExclamation());
