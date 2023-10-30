@@ -60,7 +60,7 @@ public class PlayerCardDisplay : MonoBehaviour, ICardDisplay
         foreach(var effect in card.effects)
         {
             if (effect.effectClass == CardClass.MOVE || effect.effectClass == CardClass.SUMMON) return effect.effectClass;
-            if (effect.targetNotRequired || effect.forceTargetSelf) continue;
+            if ((effect.targetNotRequired || effect.forceTargetSelf) && effect.GetType() != typeof(EffectDelayed)) continue;
             outputEffect = effect.effectClass;
         }
         return outputEffect;

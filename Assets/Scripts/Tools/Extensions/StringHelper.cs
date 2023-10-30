@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using UnityEngine;
 
@@ -31,6 +32,31 @@ public static class StringHelper
         {
             output += $"<color={colors[position % colors.Length]}>{chars[position]}</color>";
             position++;
+        }
+        return output;
+    }
+
+    public static string GenerateOxfordList(this List<string> list)
+    {
+        if (list.Count == 0) return null;
+        if(list.Count == 1)
+        {
+            return list[0];
+        }
+        if(list.Count == 2)
+        {
+            return $"{list[0]} and {list[1]}";
+        }
+        string output = "";
+        int minusList = list.Count - 1;
+        for (int i = 0; i < list.Count; i++)
+        {
+            if (i == minusList)
+            {
+                output += $" and {list[minusList]}";
+            }
+            else
+                output += $"{list[i]},";
         }
         return output;
     }

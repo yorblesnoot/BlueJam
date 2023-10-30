@@ -32,12 +32,12 @@ public class CardEffectPlus : ScriptableObject
 
     public static readonly Dictionary<TileMapShape, string> aoeShapeName = new()
     {
-        {TileMapShape.CROSS, "<color=blue>+</color>" },
+        { TileMapShape.CROSS, "<color=blue>+</color>" },
         { TileMapShape.CIRCLE, "<color=blue>O</color>" },
         { TileMapShape.DIAGONALCROSS, "<color=blue>X</color>"},
         { TileMapShape.SQUARE, "<color=blue>[  ]</color>"}
     };
-    public void Initialize()
+    public virtual void Initialize()
     {
         aoe = MapRulesGenerator.Convert(aoeShape, aoeSize, aoeGap);
     }
