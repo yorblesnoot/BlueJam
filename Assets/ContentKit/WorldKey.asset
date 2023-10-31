@@ -27,3 +27,5 @@ MonoBehaviour:
     obj: {fileID: 4671775211526639747, guid: a442adf7f43ab7d4eaae8590e73fcc1f, type: 3}
   - terrain: 6
     obj: {fileID: 7992829498405007665, guid: 4279202d78a8e284ab942f657d7a8561, type: 3}
+  - terrain: 7
+    obj: {fileID: 8127776800105888079, guid: c5e56c43a0b0c9745a3bb60378fddbe4, type: 3}

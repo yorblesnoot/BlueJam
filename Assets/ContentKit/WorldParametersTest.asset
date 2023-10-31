@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92ada100808ed53408334a296bf7b617, type: 3}
-  m_Name: WorldParameters
+  m_Name: WorldParametersTest
   m_EditorClassIdentifier: 
   mapSize: 500
   noiseFrequency: 1.5
-  symbolThresholds: 020000000100000001000000040000000600000005000000070000000300000003000000
+  symbolThresholds: 0200000001000000010000000100000004000000040000000600000006000000050000000500000007000000030000000300000003000000

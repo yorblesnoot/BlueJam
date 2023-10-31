@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: 17b46057-5a38-4993-bea7-12c910390764
   displayName: 
   art: {fileID: 0}
-  cost: 0
+  cost: 4
   description: 
   keywords: 
   targetShape: 0

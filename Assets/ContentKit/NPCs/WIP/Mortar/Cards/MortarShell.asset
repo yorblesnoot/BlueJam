@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: f472fbf6-701b-490f-b74d-0440889e1148
   displayName: 
   art: {fileID: 0}
-  cost: 0
+  cost: 2
   description: 
   keywords: 
   targetShape: 0
