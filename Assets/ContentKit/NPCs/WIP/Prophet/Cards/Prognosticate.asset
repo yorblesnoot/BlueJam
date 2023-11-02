@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 5dc78185-ed74-498a-83db-47647f4dfac2
   displayName: Prognosticate
-  art: {fileID: 21300000, guid: 10ad1bdc2a30a4737b692e1196cf8413, type: 3}
+  art: {fileID: 21300000, guid: ad7a20c7735894b7a8db5e31894d1144, type: 3}
   cost: 4
   description: 'Deal <color=#FF4E2B>20</color> damage in a <color=red>1<color=blue>[ 
     ]</color></color> AOE on the target tile after player spends <color=blue>5</color>

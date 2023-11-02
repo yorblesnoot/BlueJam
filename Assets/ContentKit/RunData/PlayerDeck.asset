@@ -16,10 +16,11 @@ MonoBehaviour:
   deckContents:
   - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
   - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
-  - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
-  - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
-  - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
-  - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
+  - {fileID: 11400000, guid: dd4840c533073c84ebfc7d72c972c970, type: 2}
+  - {fileID: 11400000, guid: 0639780c754214b43910da2e96acf90e, type: 2}
+  - {fileID: 11400000, guid: 0639780c754214b43910da2e96acf90e, type: 2}
+  - {fileID: 11400000, guid: 88bfd3bd71444c34892d4643bd5af07a, type: 2}
+  - {fileID: 11400000, guid: 88bfd3bd71444c34892d4643bd5af07a, type: 2}
   hat: {fileID: 7861371688408044556, guid: 3e6bf70ee875fba4d99acdd7fea73422, type: 3}
   uncollectible: 1
   unitName: Player

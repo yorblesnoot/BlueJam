@@ -65,6 +65,12 @@ public class PlayerHandPlus : HandPlus
         cardDisplay.transform.SetParent(deckSpot.transform, false);
     }
 
+    public override void DrawPhase()
+    {
+        base.DrawPhase();
+        if (handCards.Count < cardSlots.Count) RegenerateHandSlots();
+    }
+
     public override ICardDisplay ConjureCard(CardPlus card, Vector3 location, EffectInject.InjectLocation injectLocation)
     {
         PlayerCardDisplay cardDisplay = RenderCard(card, location);
@@ -125,7 +131,7 @@ public class PlayerHandPlus : HandPlus
     public void RegenerateHandSlots()
     {
         List<CardSlot> oldSlots = new(cardSlots);
-        GenerateHandSlots(Mathf.RoundToInt(thisUnit.loadedStats[StatType.HANDSIZE]));
+        GenerateHandSlots(handCards.Count);
         for (int i = 0; i < oldSlots.Count; i++)
         {
             if (oldSlots[i].reference != null)
@@ -167,14 +173,16 @@ public class PlayerHandPlus : HandPlus
         PlayerCardDisplay drawn;
         if (display == null) drawn = (PlayerCardDisplay)deckCards.Last();
         else drawn = (PlayerCardDisplay)display;
-        
 
-        if(cardSlots.Count != handCards.Count) RegenerateHandSlots();
+        if (display == null) deckCards.TransferItemTo(handCards, drawn);
+        else handCards.Add(drawn);
+
+        if (cardSlots.Count < handCards.Count) RegenerateHandSlots();
+
         CardSlot slot = cardSlots.FirstOrDefault(x => x.reference == null);
         slot.reference = drawn;
         drawn.transform.SetParent(handSpot.transform, true);
-        if (display == null) deckCards.TransferItemTo(handCards, drawn);
-        else handCards.Add(drawn);
+        
         yield return StartCoroutine(slot.FlipToCardPosition());
         if (deckCards.Count == 0)
         {
@@ -199,7 +207,6 @@ public class PlayerHandPlus : HandPlus
         CardSlot slot = cardSlots.FirstOrDefault(x => x.reference == discarded);
         if (Idiscarded.forceConsume == true && played == true)
         {
-            Debug.Log("consumed");
             discarded.transform.SetParent(conjureSpot.transform, true);
             handCards.Remove(discarded);
             yield return StartCoroutine(slot.FlipToSpot());

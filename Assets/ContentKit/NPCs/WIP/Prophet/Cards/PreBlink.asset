@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: PreBlink
+  m_EditorClassIdentifier: 
+  Id: da9f273e-432e-46fe-89d2-7d1f9e81d9c5
+  displayName: Precognitive Preparation
+  art: {fileID: 21300000, guid: a348aa04f846046b8b5ce0cc85878da9, type: 3}
+  cost: 3
+  description: 
+  keywords: 
+  targetShape: 0
+  targetSize: 0
+  targetGap: 0
+  needsPath: 0
+  isCurse: 0
+  consumed: 0
+  animType: 0
+  delayBeforeEffects: 0
+  effects:
+  - {fileID: 11400000, guid: 84a8375dd58a18349aefa0d3fa1cf10f, type: 2}

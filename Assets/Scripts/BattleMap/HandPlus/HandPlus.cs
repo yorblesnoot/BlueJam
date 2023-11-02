@@ -17,7 +17,7 @@ public class HandPlus : MonoBehaviour
 
     protected float cardFlyDelay = 0f;
 
-    public void DrawPhase()
+    public virtual void DrawPhase()
     {
         while (handCards.Count < thisUnit.loadedStats[StatType.HANDSIZE])
         {

@@ -13,11 +13,13 @@ MonoBehaviour:
   m_Name: ShiftingTides
   m_EditorClassIdentifier: 
   Id: a658e735-7962-4086-928c-bf36349a041d
-  displayName: 
-  art: {fileID: 0}
-  cost: 0
-  description: 
-  keywords: 
+  displayName: Fate Manipulation
+  art: {fileID: 21300000, guid: 10ad1bdc2a30a4737b692e1196cf8413, type: 3}
+  cost: 3
+  description: 'Deal <color=#FF4E2B>3</color> damage in a <color=red>10<color=blue>[ 
+    ]</color></color> AOE. Heal for <color=#1EFA61>3</color> in a <color=red>10<color=blue>[ 
+    ]</color></color> AOE. '
+  keywords: 'Range: 0-0 <color=blue>O</color>.'
   targetShape: 0
   targetSize: 0
   targetGap: 0
@@ -26,4 +28,6 @@ MonoBehaviour:
   consumed: 0
   animType: 0
   delayBeforeEffects: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: c278a7d45b25a1545bab61419012ae53, type: 2}
+  - {fileID: 11400000, guid: d642fd9ce8798ea48bf0ef8b04d64629, type: 2}

@@ -16,15 +16,16 @@ MonoBehaviour:
   displayName: Blastback
   art: {fileID: 21300000, guid: 4460493b17a0e4beaaeaa6ba43c37f4e, type: 3}
   cost: 3
-  description: 
-  keywords: 
+  description: 'Deal <color=#FF4E2B>10</color> damage in a <color=red>1<color=blue>+</color></color>
+    AOE. Slide 1 cells back from target. '
+  keywords: 'Range: 1-1 <color=blue>O</color>.'
   targetShape: 0
   targetSize: 1
   targetGap: 1
   needsPath: 0
   isCurse: 0
   consumed: 0
-  animType: 3
+  animType: 0
   delayBeforeEffects: 0
   effects:
   - {fileID: 11400000, guid: 94338799a6b8062438d898d89ee83943, type: 2}
