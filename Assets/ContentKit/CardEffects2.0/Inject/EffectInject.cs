@@ -12,6 +12,7 @@ public class EffectInject : CardEffectPlus
     [SerializeField] internal bool forceConsume;
     private void Reset()
     {
+        scalingMultiplier = 1;
         effectSound = SoundTypeEffect.INJECT;
         effectClass = CardClass.BUFF;
         forceConsume = true;

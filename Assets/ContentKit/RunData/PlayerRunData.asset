@@ -13,22 +13,22 @@ MonoBehaviour:
   m_Name: PlayerRunData
   m_EditorClassIdentifier: 
   randomState:
-    s0: 482568937
-    s1: 1453714788
-    s2: -870286380
-    s3: -1856798153
+    s0: -454152554
+    s1: 1059775173
+    s2: 1811955738
+    s3: 1804546454
   playerStats: {fileID: 11400000, guid: ae1a4f2fc6083b84c9def0c37cb0dedb, type: 2}
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
-  playerWorldX: 252
-  playerWorldY: 250
+  playerWorldX: 239
+  playerWorldY: 273
   itemInventory: []
   essenceInventory: []
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
   RemoveStock: 0
-  worldSteps: 62
-  difficultyTier: 3
-  currentHealth: 72
-  score: -12
-  bossSequence: 01000000020000000300000000000000
+  worldSteps: 148
+  difficultyTier: 6
+  currentHealth: 86
+  score: -28
+  bossSequence: 02000000000000000300000001000000
   endless: 0
