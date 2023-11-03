@@ -16,7 +16,7 @@ MonoBehaviour:
   targetNotRequired: 1
   effectClass: 0
   vfxStyleBefore: 0
-  vfxNameBefore: none
+  vfxNameBefore: MortarUp
   vfxStyleAfter: 0
   vfxNameAfter: none
   effectSound: 17

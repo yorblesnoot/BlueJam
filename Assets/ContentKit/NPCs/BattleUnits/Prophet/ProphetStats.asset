@@ -10,9 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f91c23a3e06a55c4c853ecd822414ace, type: 3}
-  m_Name: TEMPLATE_Stats
+  m_Name: ProphetStats
   m_EditorClassIdentifier: 
-  unitName: 
+  unitName: Prophet
+  unitDescription: Predicts devastating rockfalls and shifts the balance of power
+    across the whole battle.
   maxHealth: 20
   handSize: 2
   startBeats: 1
