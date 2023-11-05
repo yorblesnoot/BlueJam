@@ -50,21 +50,17 @@ public static class CellTargeting
 
     public static List<GameObject> EliminateUnpathable(this List<GameObject> legalCells, GameObject targetSource)
     {
-        int rangeSize = 20;
-        List<Vector2Int> reducedLegals = legalCells.Select(a => MapTools.VectorToMap(a.transform.position)).ToList();
-        bool[,] legalGrid = new bool[rangeSize,rangeSize];
-        foreach (Vector2Int legalCell in reducedLegals)
+        Pathfinder pathfinder = new();
+        foreach(GameObject cell in legalCells)
         {
-            if (TileIsValidTarget(MapTools.MapToTile(legalCell).GetComponent<BattleTileController>(), targetSource.tag, CardClass.MOVE))
-            {
-                legalGrid[legalCell.x, legalCell.y] = true;
-            }
+            Vector2Int start = targetSource.transform.position.VectorToMap();
+            Vector2Int end = cell.transform.position.VectorToMap();
+            var path = pathfinder.FindObjectPath(start, end);
+            int pathLength = path != null ? path.Count : 0;
+            Vector2Int displacement = end - start;
+            int taxiLength = displacement.x + displacement.y;
+            //if(pathLength)
         }
-        Vector2Int sourcePosition = MapTools.VectorToMap(targetSource.transform.position);
-
-        reducedLegals = reducedLegals.Where(x => DoesPathExist(legalGrid, sourcePosition, x, true) == true).ToList();
-
-        legalCells = reducedLegals.Select(a => MapTools.MapToTile(a)).ToList();
         return legalCells;
     }
 

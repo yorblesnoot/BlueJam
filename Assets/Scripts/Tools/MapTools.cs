@@ -10,7 +10,7 @@ public static class MapTools
         gameMap = map;
     }
 
-    public static Vector2Int VectorToMap (Vector3 toConvert)
+    public static Vector2Int VectorToMap (this Vector3 toConvert)
     {
         Vector2Int output = new()
         {
@@ -20,7 +20,7 @@ public static class MapTools
         return output;
     }
 
-    public static Vector3 MapToVector (Vector2Int coords, float height)
+    public static Vector3 MapToVector (this Vector2Int coords, float height)
     {
         Vector3 newVector = new()
         {
@@ -31,13 +31,13 @@ public static class MapTools
         return newVector;
     }
 
-    public static GameObject VectorToTile(Vector3 toConvert)
+    public static GameObject VectorToTile(this Vector3 toConvert)
     {
         Vector2Int coords = VectorToMap(toConvert);
         return MapToTile(coords);
     }
 
-    public static GameObject MapToTile(Vector2Int coords)
+    public static GameObject MapToTile(this Vector2Int coords)
     {
         if (!gameMap.ContainsKey(coords)) return null;
         GameObject tile = gameMap[coords];

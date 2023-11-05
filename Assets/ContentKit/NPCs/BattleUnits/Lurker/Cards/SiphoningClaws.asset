@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: SiphoningClaws
+  m_EditorClassIdentifier: 
+  Id: 63fc7428-e691-4b6b-9777-653ae2494b4e
+  displayName: Vigor Confiscation
+  art: {fileID: 21300000, guid: 2b0a4df3dbba1408bb9f322d40c4e86a, type: 3}
+  cost: 2
+  description: 'Deal <color=#FF4E2B>6</color> damage. Decrease damage by 10%. Increase
+    damage by 10% on origin tile. '
+  keywords: 'Range: 1-1 <color=blue>+</color>.'
+  targetShape: 2
+  targetSize: 1
+  targetGap: 1
+  needsPath: 0
+  isCurse: 0
+  consumed: 0
+  animType: 0
+  delayBeforeEffects: 0.1
+  effects:
+  - {fileID: 11400000, guid: c5656fd05e2053f4ba96e5901032a5fa, type: 2}
+  - {fileID: 11400000, guid: c7ab23fce7348f345bc0a72aaf3be5e8, type: 2}
+  - {fileID: 11400000, guid: d9d514309b62934488baa6038e022e10, type: 2}

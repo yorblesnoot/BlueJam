@@ -10,22 +10,25 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: EmpoweringStrike
+  m_Name: Abduction
   m_EditorClassIdentifier: 
-  Id: c6009d58-4cca-454f-abec-6978b2cf14c1
-  displayName: Empowering Strike
-  art: {fileID: 21300000, guid: 32a876727f5564e62b50da0c88234cfe, type: 3}
-  cost: 3
+  Id: 2ff6f5cc-5a1c-43a0-97a2-7ff9749efc93
+  displayName: Abduct
+  art: {fileID: 21300000, guid: 5f64e1f39058141bca9230e4bdd31aa3, type: 3}
+  cost: 4
   description: 
   keywords: 
-  targetShape: 1
+  targetShape: 2
   targetSize: 1
   targetGap: 1
   needsPath: 0
   isCurse: 0
   consumed: 0
   animType: 6
-  delayBeforeEffects: 0.6
+  delayBeforeEffects: 0.1
   effects:
+  - {fileID: 11400000, guid: 017e0146f100d35469a11a181c3bbaf2, type: 2}
+  - {fileID: 11400000, guid: 20388f65135e10d44babca26b27e54e1, type: 2}
   - {fileID: 11400000, guid: f111fd945c1e2314b8cc1b68ef11a2c6, type: 2}
-  - {fileID: 11400000, guid: 594bbd2235d686b4bbf3e5265eafa9cf, type: 2}
+  - {fileID: 11400000, guid: 405759af1c947f541979f74481c7fb19, type: 2}
+  - {fileID: 11400000, guid: 161e56ac6b803b940b44879ad3f4b773, type: 2}

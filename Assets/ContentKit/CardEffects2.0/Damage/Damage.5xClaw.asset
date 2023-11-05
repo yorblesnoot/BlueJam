@@ -9,24 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dd7efde352b458141b4abad4bd704757, type: 3}
-  m_Name: DelayedCollapse
+  m_Script: {fileID: 11500000, guid: fe4d7e4cd232b3843afe9d9f6eba80fb, type: 3}
+  m_Name: Damage.5xClaw
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
-  targetNotRequired: 1
+  targetNotRequired: 0
   effectClass: 0
   vfxStyleBefore: 2
-  vfxNameBefore: SparkleLook
+  vfxNameBefore: GreenDiagClaw
   vfxStyleAfter: 0
   vfxNameAfter: none
-  effectSound: 17
-  effectSoundAfterHit: 0
-  scalingMultiplier: 0
+  effectSound: 0
+  effectSoundAfterHit: 14
+  scalingMultiplier: 0.5
   aoeShape: 0
   aoeSize: 0
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
-  delay: 5
-  delayedEffects:
-  - {fileID: 11400000, guid: 05ee792fef60109438e4338ab71391ce, type: 2}
+  particleDelay: 0.2

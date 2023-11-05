@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
+  m_Name: WickedLunge
+  m_EditorClassIdentifier: 
+  Id: 189b5963-1c00-4333-a2c0-e2cc4eb1fb7e
+  displayName: Sudden Ambush
+  art: {fileID: 21300000, guid: 3519c3c0b82d14d4d9769f1dc86904db, type: 3}
+  cost: 1
+  description: 'Pay 10% (<color=red>4</color>) of your current life. Move in front
+    of the target unit in a <color=red>1<color=blue>O</color></color> AOE. '
+  keywords: 'Range: 3-6 <color=blue>O</color>.'
+  targetShape: 0
+  targetSize: 6
+  targetGap: 3
+  needsPath: 0
+  isCurse: 0
+  consumed: 0
+  animType: 6
+  delayBeforeEffects: 0
+  effects:
+  - {fileID: 11400000, guid: 4a90f222882288d4e949d658b643bd82, type: 2}
+  - {fileID: 11400000, guid: 0509ed7bf9d8f8748ba10ed66ed9a5ab, type: 2}

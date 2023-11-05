@@ -15,7 +15,7 @@ MonoBehaviour:
   forceTargetSelf: 0
   targetNotRequired: 1
   effectClass: 0
-  vfxStyleBefore: 0
+  vfxStyleBefore: 6
   vfxNameBefore: MortarUp
   vfxStyleAfter: 0
   vfxNameAfter: none
