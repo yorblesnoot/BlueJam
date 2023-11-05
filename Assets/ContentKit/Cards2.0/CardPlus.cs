@@ -83,6 +83,6 @@ public class CardPlus : SOWithGUID
         }
         keywords += $"Range: {targetGap}-{targetSize} {CardEffectPlus.aoeShapeName[targetShape]}.";
         if (consumed) keywords += " <color=red>Consumed.</color>";
-        if (needsPath) keywords += " Requires path.";
+        if (needsPath) keywords += " Requires LoS.";
     }
 }

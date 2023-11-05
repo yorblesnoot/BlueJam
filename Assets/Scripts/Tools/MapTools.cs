@@ -10,6 +10,16 @@ public static class MapTools
         gameMap = map;
     }
 
+    public static Vector2Int ObjectToMap(this GameObject obj)
+    {
+        return obj.transform.position.VectorToMap();
+    }
+
+    public static Vector2Int ObjectToMap(this BattleUnit obj)
+    {
+        return obj.transform.position.VectorToMap();
+    }
+
     public static Vector2Int VectorToMap (this Vector3 toConvert)
     {
         Vector2Int output = new()

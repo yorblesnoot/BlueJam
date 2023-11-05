@@ -116,9 +116,9 @@ public class UnitAI : MonoBehaviour
             }
             else
             {
-                List<BattleUnit> targetables = CellTargeting.AreaTargets(effect.forceTargetSelf ? MapTools.VectorToTile(transform.position) : moveTile.gameObject, gameObject.tag, effect.effectClass, effect.aoe).Select(x => x.unitContents).ToList();
-
-                if (targetables.FirstOrDefault(x => x.gameObject.CompareTag("Player")) != null) favor += .1f;
+                List<BattleUnit> targetables = CellTargeting.AreaTargets(effect.forceTargetSelf ? MapTools.VectorToTile(transform.position) : moveTile.gameObject, thisUnit.Allegiance, effect.effectClass, effect.aoe).Select(x => x.unitContents).ToList();
+                Debug.Log(targetables.Count);
+                if (targetables.FirstOrDefault(x => x.Allegiance == AllegianceType.PLAYER) != null) favor += .1f;
 
                 if (effect.effectClass == CardClass.ATTACK)
                     favor += targetables.Count * personality.interestAttack;

@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: Sudden Ambush
   art: {fileID: 21300000, guid: 3519c3c0b82d14d4d9769f1dc86904db, type: 3}
   cost: 1
-  description: 'Pay 10% (<color=red>4</color>) of your current life. Move in front
+  description: 'Pay 10% (<color=red>7</color>) of your current life. Move in front
     of the target unit in a <color=red>1<color=blue>O</color></color> AOE. '
   keywords: 'Range: 3-6 <color=blue>O</color>.'
   targetShape: 0
@@ -25,8 +25,9 @@ MonoBehaviour:
   needsPath: 0
   isCurse: 0
   consumed: 0
-  animType: 6
-  delayBeforeEffects: 0
+  animType: 3
+  delayBeforeEffects: 0.1
   effects:
+  - {fileID: 11400000, guid: c32cb4704fd8f26469b6916c3ed576c9, type: 2}
   - {fileID: 11400000, guid: 4a90f222882288d4e949d658b643bd82, type: 2}
   - {fileID: 11400000, guid: 0509ed7bf9d8f8748ba10ed66ed9a5ab, type: 2}

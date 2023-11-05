@@ -27,7 +27,7 @@ public class EffectSummon : CardEffectPlus
             {
                 int cellIndex = Random.Range(0, cells.Count);
                 BattleTileController cell = cells[cellIndex].GetComponent<BattleTileController>();
-                if (CellTargeting.TileIsValidTarget(cell, actor.gameObject.tag, CardClass.SUMMON))
+                if (CellTargeting.TileIsValidTarget(cell, actor.Allegiance, CardClass.SUMMON))
                 {
                     location = cell.GetComponent<BattleTileController>().unitPosition;
                     break;

@@ -8,5 +8,6 @@ public enum AllegianceType
     PLAYER,
     ALLY,
     ENEMY,
-    NEUTRAL
+    NEUTRAL,
+    EMPTY
 }

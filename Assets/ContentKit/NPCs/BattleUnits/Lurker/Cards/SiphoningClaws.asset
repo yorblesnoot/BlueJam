@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 63fc7428-e691-4b6b-9777-653ae2494b4e
   displayName: Vigor Confiscation
-  art: {fileID: 21300000, guid: 2b0a4df3dbba1408bb9f322d40c4e86a, type: 3}
+  art: {fileID: 21300000, guid: c8de558d1809a431b853143ea7327b0d, type: 3}
   cost: 2
-  description: 'Deal <color=#FF4E2B>6</color> damage. Decrease damage by 10%. Increase
+  description: 'Deal <color=#FF4E2B>5</color> damage. Decrease damage by 10%. Increase
     damage by 10% on origin tile. '
   keywords: 'Range: 1-1 <color=blue>+</color>.'
   targetShape: 2
@@ -28,6 +28,6 @@ MonoBehaviour:
   animType: 0
   delayBeforeEffects: 0.1
   effects:
-  - {fileID: 11400000, guid: c5656fd05e2053f4ba96e5901032a5fa, type: 2}
+  - {fileID: 11400000, guid: 1eaab07c823ace246b5223a68ef688ff, type: 2}
   - {fileID: 11400000, guid: c7ab23fce7348f345bc0a72aaf3be5e8, type: 2}
   - {fileID: 11400000, guid: d9d514309b62934488baa6038e022e10, type: 2}

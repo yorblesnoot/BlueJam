@@ -17,10 +17,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 67b4c31eec0a415468d0ce598fefe66a, type: 2}
   - {fileID: 11400000, guid: b4b499345c1341d4a9f46bc6baab5e46, type: 2}
   - {fileID: 11400000, guid: ce153f21a765da24e811f88d0b55bd91, type: 2}
-  symbol: t
-  iconColor:
-    serializedVersion: 2
-    rgba: 4278286562
-  hat: {fileID: 7861371688408044556, guid: 3e6bf70ee875fba4d99acdd7fea73422, type: 3}
-  essenceDescription: 
+  hat: {fileID: 105756, guid: 6cd0c7b3308fc7544ad2a49e762470f0, type: 3}
+  uncollectible: 0
   unitName: Totem

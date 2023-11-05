@@ -53,68 +53,35 @@ public static class CellTargeting
         Pathfinder pathfinder = new();
         foreach(GameObject cell in legalCells)
         {
-            Vector2Int start = targetSource.transform.position.VectorToMap();
-            Vector2Int end = cell.transform.position.VectorToMap();
+            Vector2Int start = targetSource.ObjectToMap();
+            Vector2Int end = cell.ObjectToMap();
             var path = pathfinder.FindObjectPath(start, end);
-            int pathLength = path != null ? path.Count : 0;
+            int pathLength = path != null ? path.Count : 100;
             Vector2Int displacement = end - start;
-            int taxiLength = displacement.x + displacement.y;
-            //if(pathLength)
+            int taxiLength = Mathf.Abs(displacement.x) + Mathf.Abs(displacement.y);
+            if(pathLength > taxiLength) legalCells.Remove(cell);
         }
         return legalCells;
-    }
-
-    static bool DoesPathExist(bool[,] grid, Vector2Int current, Vector2Int destination, bool firstRun)
-    {
-        //if we are at the destination, return path
-        if (current[0] == destination[0] && current[1] == destination[1])
-        {
-            if (grid[destination[0], destination[1]] == true) return true;
-            else return false;
-
-        }
-        //if we've hit a blocked cell, return no path
-        else if (firstRun == false && grid.Safe2DFind(current[0], current[1]) != true) return false;
-        //if we are on an available cell, check for path on adjacents
-        else
-        {
-            int directionX = Mathf.Clamp(destination[0] - current[0], -1, 1);
-            if (directionX != 0)
-            {
-                //Debug.Log($"branch 1 to {destination[0]}, {destination[1]}");
-                bool first = DoesPathExist(grid, new Vector2Int(current[0] + directionX, current[1]), destination, false);
-                if (first == true) return true;
-            }
-            int directionY = Mathf.Clamp(destination[1] - current[1], -1, 1);
-            if (directionY != 0)
-            {
-                //Debug.Log($"branch 2 to {destination[0]}, {destination[1]}");
-                bool second = DoesPathExist(grid, new Vector2Int(current[0], current[1] + directionY), destination, false);
-                if (second == true) return true;
-            }
-            //Debug.Log($"Child paths blocked {destination[0]}, {destination[1]}");
-            return false;
-        }
     }
 
     //return true if areatargets found valid plays
     public static bool ValidPlay(BattleTileController tile, BattleUnit source, CardPlus card)
     {
-        string tSource = source.gameObject.tag;
+        AllegianceType sourceAllegiance = source.Allegiance;
         List<CardClass> classes = card.effects.Select(x => x.effectClass).ToList();
         foreach (var effect in card.effects)
         {
             BattleTileController effectTile = tile;
             if (effect.effectClass == CardClass.MOVE && effectTile.unitContents == null) return true;
             if (effect.targetNotRequired || effect.forceTargetSelf) continue;
-            int validTargets = AreaTargets(effectTile.gameObject, tSource, effect.effectClass, effect.aoe).Count;
+            int validTargets = AreaTargets(effectTile.gameObject, sourceAllegiance, effect.effectClass, effect.aoe).Count;
             if (validTargets == 0) return false;
         }
         return true;
     }
 
     //return all valid targets in an aoe target based on the class, aoe size, and owner
-    public static List<BattleTileController> AreaTargets(GameObject tile, string tSource, CardClass cardClass, bool[,] aoeRule)
+    public static List<BattleTileController> AreaTargets(GameObject tile, AllegianceType sourceAllegiance, CardClass cardClass, bool[,] aoeRule)
     {
         List<GameObject> checkCells = ConvertMapRuleToTiles(aoeRule, tile.transform.position);
         List<BattleTileController> aoeTargets = new();
@@ -122,7 +89,7 @@ public static class CellTargeting
         for (int i = 0; i < checkCells.Count; i++)
         {
             BattleTileController tileController = checkCells[i].GetComponent<BattleTileController>();
-            if (TileIsValidTarget(tileController, tSource, cardClass))
+            if (TileIsValidTarget(tileController, sourceAllegiance, cardClass))
             {
                 aoeTargets.Add(tileController);
             }
@@ -157,51 +124,49 @@ public static class CellTargeting
         return output;
     }
 
-    public static bool TileIsValidTarget(BattleTileController tile, string tagOfSource, CardClass cardClass)
+    public static bool TileIsValidTarget(BattleTileController tile, AllegianceType sourceAllegiance, CardClass cardClass)
     {
         //logic to determine whether unit occupation makes the cell invalid
-        #nullable enable
-        BattleUnit? objTarget = tile.unitContents;
-        #nullable disable
+        BattleUnit objTarget = tile.unitContents;
 
-        string tagOfTarget;
-        if (objTarget != null) tagOfTarget = objTarget.gameObject.tag;
-        else tagOfTarget = "Empty";
+        AllegianceType targetAllegiance;
+        if (objTarget != null) targetAllegiance = objTarget.Allegiance;
+        else targetAllegiance = AllegianceType.EMPTY;
         
         if(cardClass == CardClass.ATTACK)
         {
             //if theyre both allies or enemies, invalid
-            if(tagOfSource == tagOfTarget) return false;
+            if(sourceAllegiance == targetAllegiance) return false;
             //ally cant target player
-            else if(tagOfSource == "Ally" && tagOfTarget == "Player") return false;
+            else if(sourceAllegiance == AllegianceType.ALLY && targetAllegiance == AllegianceType.PLAYER) return false;
             //player cant target ally
-            else if(tagOfSource == "Player" && tagOfTarget == "Ally") return false;
+            else if(sourceAllegiance == AllegianceType.PLAYER && targetAllegiance == AllegianceType.ALLY) return false;
             //attack can't target empty
-            else if(tagOfTarget == "Empty") return false;
+            else if(targetAllegiance == AllegianceType.EMPTY) return false;
             else return true;
         }
         else if(cardClass == CardClass.MOVE)
         {
             //move can only target empty
-            if(tagOfTarget == "Empty") return true;
+            if(targetAllegiance == AllegianceType.EMPTY) return true;
             else return false;
         }
 
         else if(cardClass == CardClass.SUMMON)
         {
             //summon can only target empty
-            if(tagOfTarget == "Empty") return true;
+            if(targetAllegiance == AllegianceType.EMPTY) return true;
             else return false;
         }
 
         else if(cardClass == CardClass.BUFF)
         {
             //buff can only target similar
-            if(tagOfSource == tagOfTarget) return true;
+            if(sourceAllegiance == targetAllegiance) return true;
             //empty is no good
-            else if(tagOfTarget == "Empty") return false;
-            else if(tagOfSource == "Ally" && tagOfTarget == "Player") return true;
-            else if(tagOfSource == "Player" && tagOfTarget == "Ally") return true;
+            else if(targetAllegiance == AllegianceType.EMPTY) return false;
+            else if(sourceAllegiance == AllegianceType.ALLY && targetAllegiance == AllegianceType.PLAYER) return true;
+            else if(sourceAllegiance == AllegianceType.PLAYER && targetAllegiance == AllegianceType.ALLY) return true;
             else return false;
         }
         else return false;        

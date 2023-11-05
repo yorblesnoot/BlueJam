@@ -61,7 +61,7 @@ public class CardEffectPlus : ScriptableObject
 
     public List<BattleUnit> AcquireTargets(BattleUnit actor, BattleTileController targetCell, bool[,] aoe)
     {
-        return CellTargeting.AreaTargets(targetCell.gameObject, actor.gameObject.tag, effectClass, aoe).Select(x => x.unitContents).ToList();
+        return CellTargeting.AreaTargets(targetCell.gameObject, actor.Allegiance, effectClass, aoe).Select(x => x.unitContents).ToList();
     }
 
     public virtual IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null) { yield return null; }
