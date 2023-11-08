@@ -11,7 +11,7 @@ public class BarItemDisplay : ItemDisplay, IPointerEnterHandler, IPointerExitHan
         if (tooltip)
             tooltip.SetActive(true);
         //tooltip.transform.SetParent(null, true);
-        tooltipText.text = battleItem.description;
+        tooltipText.text = battleItem.GetDescription();
     }
 
     public void OnPointerExit(PointerEventData eventData)

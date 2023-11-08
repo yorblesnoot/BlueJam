@@ -22,6 +22,11 @@ public static class StringHelper
         else return false;
     }
 
+    public static string SplitCamelCase(this string input)
+    {
+        return System.Text.RegularExpressions.Regex.Replace(input, "([A-Z])", " $1", System.Text.RegularExpressions.RegexOptions.Compiled).Trim();
+    }
+
     static string[] colors = { "red", "orange", "yellow", "green", "blue", "purple", "#4B0082" };
     public static string GenerateRainbowText(this string text)
     {

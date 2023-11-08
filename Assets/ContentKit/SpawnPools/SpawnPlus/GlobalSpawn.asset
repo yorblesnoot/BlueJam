@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 0}
+  m_Name: GlobalSpawn
+  m_EditorClassIdentifier: Assembly-CSharp::GlobalSpawn
+  spawns:
+  - spawnableUnit: {fileID: 4039637195503505460, guid: c03e86a953bdccb43878b2fc6e098fe2, type: 3}
+    type: 0
+    biomes: 0600000003000000
+  - spawnableUnit: {fileID: 3335494700087549770, guid: c1d0cbd6239697241b44bbf40f228071, type: 3}
+    type: 0
+    biomes: 0600000005000000
+  - spawnableUnit: {fileID: 7566552127858462820, guid: 6a8ba7e5c56784d46beed0129c7aa960, type: 3}
+    type: 0
+    biomes: 0400000005000000
+  - spawnableUnit: {fileID: 4679250314591635210, guid: c0aba7a6cdf919a4ea88d29db6c5d877, type: 3}
+    type: 0
+    biomes: 06000000
+  - spawnableUnit: {fileID: 4039637195503505460, guid: ca09524db9e6a5645bb13469f3e32f8f, type: 3}
+    type: 0
+    biomes: 0500000001000000
+  - spawnableUnit: {fileID: 4039637195503505460, guid: a83172ca8dcf0744e8df77587d86a960, type: 3}
+    type: 0
+    biomes: 03000000
+  - spawnableUnit: {fileID: 3893931155832554969, guid: 672eca6008d533943b9c4856f9b7cd78, type: 3}
+    type: 0
+    biomes: 0100000004000000
+  - spawnableUnit: {fileID: 4039637195503505460, guid: dc33938cc4a369a44856336b94cf52e7, type: 3}
+    type: 0
+    biomes: 01000000
+  - spawnableUnit: {fileID: 3133330526298665950, guid: 3bba7746011c99a45b1c9111fa289616, type: 3}
+    type: 0
+    biomes: 05000000
+  - spawnableUnit: {fileID: 4039637195503505460, guid: 7db4e0a7f63e9dc4b90e0e0e3d325cd9, type: 3}
+    type: 1
+    biomes: 050000000600000007000000
+  - spawnableUnit: {fileID: 4039637195503505460, guid: 41c8a05faa5e5b54893e09489e38b398, type: 3}
+    type: 0
+    biomes: 0500000003000000
+  - spawnableUnit: {fileID: 1325030485822884939, guid: fba31002c5e2b9649aa8343bd5fc3adb, type: 3}
+    type: 0
+    biomes: 0400000005000000
+  - spawnableUnit: {fileID: 4039637195503505460, guid: 3c87a4f0508293244832a4004aeac41b, type: 3}
+    type: 0
+    biomes: 0400000005000000
+  - spawnableUnit: {fileID: 869028331013816921, guid: 67a715d2fdeb9964a8544bc2c121fb6a, type: 3}
+    type: 0
+    biomes: 0600000007000000
+  - spawnableUnit: {fileID: 4039637195503505460, guid: afcef0a3cb242ba45ae23469f081570d, type: 3}
+    type: 0
+    biomes: 07000000
+  - spawnableUnit: {fileID: 4039637195503505460, guid: fc1c3bf114e914b4fa7eae1b01b43320, type: 3}
+    type: 2
+    biomes: 
+  - spawnableUnit: {fileID: 7691484748960845761, guid: 152c131cb44ee1347a5af43903fc8362, type: 3}
+    type: 0
+    biomes: 06000000
+  - spawnableUnit: {fileID: 7143469114425514057, guid: 2da3941d4f46e774d8de606a5a195bfe, type: 3}
+    type: 0
+    biomes: 0400000001000000
+  - spawnableUnit: {fileID: 4039637195503505460, guid: e9d7676549ebc44488e3800bb6613c52, type: 3}
+    type: 0
+    biomes: 0400000007000000
+  - spawnableUnit: {fileID: 1248187907569993784, guid: 8e33d67d04e8ea543803e55066e7f41a, type: 3}
+    type: 1
+    biomes: 060000000500000001000000
+  - spawnableUnit: {fileID: 4039637195503505460, guid: 6134145365ec5f643a95902a6265c342, type: 3}
+    type: 0
+    biomes: 0300000007000000
+  - spawnableUnit: {fileID: 803027305507735190, guid: d653113a69b79cc44a93fc1c8b9adb6d, type: 3}
+    type: 0
+    biomes: 0600000004000000
+  - spawnableUnit: {fileID: 4039637195503505460, guid: 7b06bd1145bb3b44689e1fead537e570, type: 3}
+    type: 0
+    biomes: 0100000005000000
+  - spawnableUnit: {fileID: 8660871373512753979, guid: 8a367e4fabeb017439ca523912929127, type: 3}
+    type: 0
+    biomes: 
+  - spawnableUnit: {fileID: 8820218125386000028, guid: 5e3d9bdb651335e4d8f7b51cd2f02b9c, type: 3}
+    type: 1
+    biomes: 
+  - spawnableUnit: {fileID: 4039637195503505460, guid: 7423a418421d6f84d950b75df90ca380, type: 3}
+    type: 0
+    biomes: 
+  - spawnableUnit: {fileID: 4039637195503505460, guid: 404ca3c3ac65ec8459c7a230c405a26f, type: 3}
+    type: 0
+    biomes: 
+  - spawnableUnit: {fileID: 1461540883103785981, guid: cf8a6d2a8c37101428219d2b6e930f97, type: 3}
+    type: 2
+    biomes: 
+  - spawnableUnit: {fileID: 4039637195503505460, guid: c49a34612d5b7134697c71856e8aad33, type: 3}
+    type: 0
+    biomes: 
+  - spawnableUnit: {fileID: 4039637195503505460, guid: 354271e73f9aaec4eb268b9c4fe8b5d9, type: 3}
+    type: 0
+    biomes: 
+  - spawnableUnit: {fileID: 4039637195503505460, guid: afffc0670f5143e4da427c4baae47d0e, type: 3}
+    type: 0
+    biomes: 
+  - spawnableUnit: {fileID: 2886879726939958382, guid: f761821ff0471564b8b9397c5263cabe, type: 3}
+    type: 2
+    biomes: 
+  - spawnableUnit: {fileID: 4039637195503505460, guid: e3e2f26d948ef9e4db3692f950b5b29a, type: 3}
+    type: 0
+    biomes: 
+  - spawnableUnit: {fileID: 8924668989500822478, guid: 896d1b0ee53923f478923947b43069f3, type: 3}
+    type: 0
+    biomes: 
+  - spawnableUnit: {fileID: 7888735582937761990, guid: 3f888ee8ade326c409518187bf5bab05, type: 3}
+    type: 0
+    biomes: 
+  - spawnableUnit: {fileID: 5721908823824948755, guid: 63c92e51d7e2acf44b90088b5d314507, type: 3}
+    type: 1
+    biomes: 
+  - spawnableUnit: {fileID: 308681686112875647, guid: 198614c91168c6648948ca2d6b1b72f9, type: 3}
+    type: 2
+    biomes: 
+  - spawnableUnit: {fileID: 7417294192327895783, guid: eb2c05d0b168de849b165e92c6dc08f2, type: 3}
+    type: 0
+    biomes: 

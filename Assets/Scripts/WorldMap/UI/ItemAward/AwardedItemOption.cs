@@ -23,6 +23,6 @@ public class AwardedItemOption : ItemDisplay
             return;
         }
         base.DisplayItem(item);
-        description.text = item.description;
+        description.text = item.GetDescription();
     }
 }

@@ -6,10 +6,15 @@ public class Item : SOWithGUID
 {
     public Sprite thumbnail;
     public Color32 thumbnailColor;
-    public string description;
+    [SerializeField] string description;
     private void Reset()
     {
         thumbnailColor = Color.white;
+    }
+
+    public string GetDescription()
+    {
+        return $"<b><i>{name.SplitCamelCase()}:</i></b> {description}";
     }
     
     public virtual void PlayerGetItem(RunData runData)
