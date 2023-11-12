@@ -13,17 +13,18 @@ MonoBehaviour:
   m_Name: MagneticMark
   m_EditorClassIdentifier: 
   Id: 461e29cd-d61a-484f-826a-3ded78b47ef6
-  displayName: 
-  art: {fileID: 0}
-  cost: 0
+  displayName: Magnetic Mark
+  art: {fileID: 21300000, guid: 07aa89d2416874192aa53a2e6356a068, type: 3}
+  cost: 1
   description: 
   keywords: 
   targetShape: 0
-  targetSize: 0
-  targetGap: 0
+  targetSize: 6
+  targetGap: 1
   needsPath: 0
   isCurse: 0
-  consumed: 0
+  consumed: 1
   animType: 0
   delayBeforeEffects: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: 666787bbfc0d0a044a24ef6e91448a66, type: 2}

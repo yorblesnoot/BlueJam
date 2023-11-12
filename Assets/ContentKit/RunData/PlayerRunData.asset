@@ -28,7 +28,7 @@ MonoBehaviour:
   RemoveStock: 0
   worldSteps: 148
   difficultyTier: 6
-  currentHealth: 62
+  currentHealth: 60
   score: -28
   bossSequence: 02000000000000000300000001000000
   endless: 0

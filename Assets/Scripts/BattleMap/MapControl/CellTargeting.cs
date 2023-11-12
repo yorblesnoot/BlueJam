@@ -51,6 +51,7 @@ public static class CellTargeting
     public static List<GameObject> EliminateUnpathable(this List<GameObject> legalCells, GameObject targetSource)
     {
         Pathfinder pathfinder = new();
+        List<GameObject> output = new();
         foreach(GameObject cell in legalCells)
         {
             Vector2Int start = targetSource.ObjectToMap();
@@ -59,9 +60,9 @@ public static class CellTargeting
             int pathLength = path != null ? path.Count : 100;
             Vector2Int displacement = end - start;
             int taxiLength = Mathf.Abs(displacement.x) + Mathf.Abs(displacement.y);
-            if(pathLength > taxiLength) legalCells.Remove(cell);
+            if(pathLength == taxiLength) output.Add(cell);
         }
-        return legalCells;
+        return output;
     }
 
     //return true if areatargets found valid plays
