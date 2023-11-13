@@ -13,17 +13,19 @@ MonoBehaviour:
   m_Name: XZapStep
   m_EditorClassIdentifier: 
   Id: 0671e01b-e116-4cfc-959e-faf2cb096796
-  displayName: 
-  art: {fileID: 0}
-  cost: 0
+  displayName: Rattling Discharge
+  art: {fileID: 21300000, guid: a65312b014ecf4b4b9b62bd2866a268c, type: 3}
+  cost: 2
   description: 
   keywords: 
   targetShape: 0
-  targetSize: 0
-  targetGap: 0
+  targetSize: 2
+  targetGap: 1
   needsPath: 0
   isCurse: 0
   consumed: 0
-  animType: 0
-  delayBeforeEffects: 0
-  effects: []
+  animType: 3
+  delayBeforeEffects: 0.1
+  effects:
+  - {fileID: 11400000, guid: 2fb8ebe6069d3ab4dafa25a02cdfee91, type: 2}
+  - {fileID: 11400000, guid: 4c697f406b61a2849a588370b56b753c, type: 2}

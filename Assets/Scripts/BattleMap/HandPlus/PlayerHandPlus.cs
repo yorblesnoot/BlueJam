@@ -136,7 +136,7 @@ public class PlayerHandPlus : HandPlus
         {
             if (oldSlots[i].reference != null)
             {
-                cardSlots[i].reference = oldSlots[i].reference;
+                cardSlots[i].reference = i < oldSlots.Count ? oldSlots[i].reference : null;
                 StartCoroutine(cardSlots[i].FlipToCardPosition());
             }
         }
@@ -269,6 +269,7 @@ class CardSlot
 
     public IEnumerator FlipToCardPosition()
     {
+        if (reference == null) yield break;
         SoundManager.PlaySound(SoundType.CARDDEALT);
         Vector3 startPosition = reference.transform.localPosition;
         Vector3 startScale = reference.transform.localScale;

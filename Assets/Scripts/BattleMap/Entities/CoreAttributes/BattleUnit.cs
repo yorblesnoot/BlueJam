@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BattleUnit : Unit
 {
-    BarrierTracker barrierTracker;
+    public BarrierTracker barrierTracker;
     public StateFeedback stateFeedback;
 
     public BuffTracker buffTracker;

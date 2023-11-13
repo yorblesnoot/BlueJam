@@ -13,7 +13,15 @@ MonoBehaviour:
   m_Name: RuinPool
   m_EditorClassIdentifier: 
   spawnUnits:
+  - {fileID: 1248187907569993784, guid: 8e33d67d04e8ea543803e55066e7f41a, type: 3}
+  - {fileID: 5721908823824948755, guid: 63c92e51d7e2acf44b90088b5d314507, type: 3}
+  - {fileID: 3335494700087549770, guid: c1d0cbd6239697241b44bbf40f228071, type: 3}
+  - {fileID: 4039637195503505460, guid: bcb2721674dae5a47bc1703b8f16b784, type: 3}
+  - {fileID: 4039637195503505460, guid: e9d7676549ebc44488e3800bb6613c52, type: 3}
+  - {fileID: 4039637195503505460, guid: afcef0a3cb242ba45ae23469f081570d, type: 3}
   - {fileID: 4039637195503505460, guid: 6134145365ec5f643a95902a6265c342, type: 3}
-  - {fileID: 4039637195503505460, guid: c49a34612d5b7134697c71856e8aad33, type: 3}
   - {fileID: 4039637195503505460, guid: e3e2f26d948ef9e4db3692f950b5b29a, type: 3}
+  - {fileID: 4039637195503505460, guid: 5b264cd43d07a2f409f6cab84dcb9f26, type: 3}
+  - {fileID: 4039637195503505460, guid: c49a34612d5b7134697c71856e8aad33, type: 3}
+  - {fileID: 3335494700087549770, guid: c1d0cbd6239697241b44bbf40f228071, type: 3}
   staticSpawns: []

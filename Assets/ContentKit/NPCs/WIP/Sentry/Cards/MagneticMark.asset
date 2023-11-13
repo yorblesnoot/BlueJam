@@ -16,11 +16,12 @@ MonoBehaviour:
   displayName: Magnetic Mark
   art: {fileID: 21300000, guid: 07aa89d2416874192aa53a2e6356a068, type: 3}
   cost: 1
-  description: 
-  keywords: 
+  description: 'Apply a buff to pull target 1 cells each action for <color=blue>6</color>
+    actions. '
+  keywords: 'Range: 3-6 <color=blue>O</color>. <color=red>Consumed.</color>'
   targetShape: 0
   targetSize: 6
-  targetGap: 1
+  targetGap: 3
   needsPath: 0
   isCurse: 0
   consumed: 1

@@ -54,7 +54,7 @@ public class EffectStat : CardEffectPlus
         if (entityStat == StatType.HANDSIZE || entityStat == StatType.BEATS)
             target.loadedStats[entityStat] -= scale;
         else target.loadedStats[entityStat] /= 1 + scale / 100;
-        if (target.gameObject.CompareTag("Player")) target.gameObject.GetComponent<PlayerHandPlus>().UpdateHand();
+        if (target.Allegiance == AllegianceType.PLAYER) ((PlayerHandPlus)target.myHand).UpdateHand();
     }
 
     readonly Dictionary<StatType, string> statNames = new()

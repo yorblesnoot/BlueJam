@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 
@@ -13,9 +14,11 @@ public class StateFeedback : MonoBehaviour
 
     [SerializeField] GameObject floatNumber;
     public static ObjectPool numberPool;
+    readonly AvailableDisplacements displacements = new();
+
     private void Awake()
     {
-        if (numberPool == null) numberPool = new(floatNumber);
+        numberPool ??= new(floatNumber);
         string modelName = gameObject.name.Replace("NPC(Clone)", "");
         model = transform.Find(modelName).gameObject;
         baseScale = model.transform.localScale;
@@ -44,11 +47,13 @@ public class StateFeedback : MonoBehaviour
 
     static readonly float flashDuration = .2f;
     static readonly float damagedScale = 1.1f;
-    static readonly float displacementFactor = .7f;
+    static readonly Vector3 displacementFactor = new(.5f, 0, 0);
+    static readonly float riseFactor = .2f;
     void PopupFloatingNumber(int number, Color color, int displacement)
     {
         Vector3 popPosition = transform.position;
-        popPosition.x += displacementFactor * (displacement);
+        popPosition += transform.rotation * displacementFactor * (displacement % 2);
+        popPosition.y += Mathf.Abs(displacement) * riseFactor;
         TMP_Text floatText = numberPool.InstantiateFromPool(popPosition, Quaternion.identity).GetComponentInChildren<TMP_Text>();
         floatText.text = number.ToString();
         floatText.color = color;
@@ -64,6 +69,7 @@ public class StateFeedback : MonoBehaviour
 
     public void QueuePopup(int number, Color color)
     {
+
         if (popupQueue == null || popupQueue.Count == 0)
         {
             popupQueue = new();
@@ -72,7 +78,7 @@ public class StateFeedback : MonoBehaviour
         popupQueue.Enqueue(new Popup {  number = number, color = color });
     }
 
-    static float popDelay = .2f;
+    static readonly float popDelay = .2f;
     private IEnumerator SequencePopups()
     {
         yield return null;
@@ -80,7 +86,38 @@ public class StateFeedback : MonoBehaviour
         {
             yield return new WaitForSeconds(popDelay);
             Popup newpop = popupQueue.Dequeue();
-            PopupFloatingNumber(newpop.number, newpop.color, popupQueue.Count);
+            int displace = displacements.CheckoutDisplacement();
+            StartCoroutine(displacements.CountdownToCheckIn(FloatingNumber.lifespan, displace));
+            PopupFloatingNumber(newpop.number, newpop.color, displace);
         }
+    }
+}
+
+class AvailableDisplacements
+{
+    Dictionary<int, bool> displacements = new();
+    public AvailableDisplacements()
+    {
+        displacements.Add(0, true);
+    }
+    public int CheckoutDisplacement()
+    {
+        int checkout = 0;
+        if(displacements.Where(x => x.Value == true).Count() == 0)
+        {
+            int max = displacements.Select(x => x.Key).Max();
+            max++;
+            displacements.Add(max, true);
+            displacements.Add(-max, true);
+        }
+        checkout = displacements.First(x => x.Value == true).Key;
+        displacements[checkout] = false;
+        return checkout;
+    }
+
+    public IEnumerator CountdownToCheckIn(float timer, int num)
+    {
+        yield return new WaitForSeconds(timer);
+        displacements[num] = true;
     }
 }

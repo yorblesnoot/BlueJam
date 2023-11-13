@@ -7,8 +7,6 @@ public class MasterEnemyPool : ScriptableObject
 {
     [SerializeField] List <GameObject> weight1Pool;
     [SerializeField] List <GameObject> weight2Pool;
-    [SerializeField] List <GameObject> weight3Pool;
-    [SerializeField] List <GameObject> weight4Pool;
 
     public Dictionary<GameObject, int> masterPool;
     public void Initialize()
@@ -16,8 +14,6 @@ public class MasterEnemyPool : ScriptableObject
         masterPool = new();
         AddToMaster(weight1Pool, 1);
         AddToMaster(weight2Pool, 2);
-        AddToMaster(weight3Pool, 3);
-        AddToMaster(weight4Pool, 4);
     }
 
     void AddToMaster(List<GameObject> pool, int value)

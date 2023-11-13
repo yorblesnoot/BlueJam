@@ -246,4 +246,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startLift: 1
   rotationRange: 10
-  lifespan: 2

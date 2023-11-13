@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 06788508-4dc3-465c-a84c-04521c670570
   displayName: Repetition
-  art: {fileID: 0}
+  art: {fileID: 21300000, guid: 8995cb6560cd446d994d7b26558d605e, type: 3}
   cost: 1
   description: 
   keywords: 

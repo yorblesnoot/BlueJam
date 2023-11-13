@@ -20,6 +20,7 @@ public class EffectRepeat : EffectInject
     {
         if (invertCopy) (actor, target) = (target, actor);
         CardPlus copied = target.lastPlayed;
+        if (copied == null) return;
         Inject(number, target, actor, copied);
     }
 }

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0693ae95-75b7-40b1-9447-577095d1a2f7
   deckContents:
-  - {fileID: 11400000, guid: 98e6969d6446101488fce47a39721e3d, type: 2}
-  - {fileID: 11400000, guid: f76752a0bc5d0104ba3ce79b8bcb1d67, type: 2}
-  - {fileID: 11400000, guid: f76752a0bc5d0104ba3ce79b8bcb1d67, type: 2}
-  - {fileID: 11400000, guid: 23bbc28c8541d6445a514acd8da5de8a, type: 2}
-  - {fileID: 11400000, guid: 23bbc28c8541d6445a514acd8da5de8a, type: 2}
+  - {fileID: 11400000, guid: 0208ccfd95023524cbd164b316a48f68, type: 2}
   - {fileID: 11400000, guid: ee610bd75f7b2c64fad91ff18dd4971a, type: 2}
-  - {fileID: 11400000, guid: ee610bd75f7b2c64fad91ff18dd4971a, type: 2}
+  - {fileID: 11400000, guid: 23bbc28c8541d6445a514acd8da5de8a, type: 2}
+  - {fileID: 11400000, guid: dd4840c533073c84ebfc7d72c972c970, type: 2}
+  - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
+  - {fileID: 11400000, guid: 3be6878a75c53b44cbcbc9a17e481712, type: 2}
+  - {fileID: 11400000, guid: 3be6878a75c53b44cbcbc9a17e481712, type: 2}
   hat: {fileID: 7861371688408044556, guid: 3e6bf70ee875fba4d99acdd7fea73422, type: 3}
   uncollectible: 1
   unitName: Player

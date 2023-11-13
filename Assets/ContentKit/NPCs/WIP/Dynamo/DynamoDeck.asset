@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1774f288a4dfda4da9956e8875b0a7e, type: 3}
+  m_Name: DynamoDeck
+  m_EditorClassIdentifier: 
+  Id: a0457ce5-221a-4b78-bb25-3950fa322025
+  deckContents:
+  - {fileID: 11400000, guid: 3be6878a75c53b44cbcbc9a17e481712, type: 2}
+  - {fileID: 11400000, guid: 0208ccfd95023524cbd164b316a48f68, type: 2}
+  - {fileID: 11400000, guid: 622f96d434587704ab6de130899cbf8a, type: 2}
+  hat: {fileID: 31260176200636729, guid: 01773c9ad7cb1e5489b573316c9a6ac0, type: 3}
+  uncollectible: 0
+  unitName: 

@@ -1,9 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class FloatingNumber : MonoBehaviour
 {
@@ -23,7 +19,7 @@ public class FloatingNumber : MonoBehaviour
         StartCoroutine(AnimateFloatingNumber());
     }
 
-    [SerializeField] float lifespan;
+    public static float lifespan = 2f;
     private IEnumerator AnimateFloatingNumber()
     {
         yield return new WaitForSeconds(lifespan);

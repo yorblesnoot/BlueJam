@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DelayedSlam
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
-  targetNotRequired: 0
+  targetNotRequired: 1
   effectClass: 0
   vfxStyleBefore: 0
   vfxNameBefore: none

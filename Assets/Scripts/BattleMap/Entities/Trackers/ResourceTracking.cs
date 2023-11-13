@@ -8,7 +8,7 @@ public class ResourceTracker
     public void AddResource(string resource)
     {
         resourceCount ??= new Dictionary<string, int>();
-        if(!resourceCount.ContainsKey(resource)) resourceCount.Add(resource, 0);
+        if(!resourceCount.ContainsKey(resource)) resourceCount.Add(resource, 1);
         else resourceCount[resource]++;
     }
 

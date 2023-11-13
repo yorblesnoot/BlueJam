@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: EscalatingAttack
   m_EditorClassIdentifier: 
   Id: 8e9db083-3f3c-4976-9022-a21732c3cde5
-  displayName: 
-  art: {fileID: 0}
-  cost: 0
+  displayName: Gathering Charge
+  art: {fileID: 21300000, guid: a5e67256a376c45b58888f8611060022, type: 3}
+  cost: 2
   description: 
   keywords: 
   targetShape: 0
-  targetSize: 0
-  targetGap: 0
+  targetSize: 1
+  targetGap: 1
   needsPath: 0
   isCurse: 0
   consumed: 0
   animType: 0
   delayBeforeEffects: 0
   effects:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: ebb994a0da47eb640a58fd5b38c7ab7b, type: 2}
+  - {fileID: 11400000, guid: 77cd9037e27ee0b48a0be3f878d187c0, type: 2}
