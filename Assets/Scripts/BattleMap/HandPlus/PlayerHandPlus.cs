@@ -130,15 +130,12 @@ public class PlayerHandPlus : HandPlus
 
     public void RegenerateHandSlots()
     {
-        List<CardSlot> oldSlots = new(cardSlots);
+        PlayerCardDisplay[] oldRefs = cardSlots.Where(slot => slot.reference != null).Select(slot => slot.reference).ToArray();
         GenerateHandSlots(handCards.Count);
-        for (int i = 0; i < oldSlots.Count; i++)
+        for (int i = 0; i < oldRefs.Count(); i++)
         {
-            if (oldSlots[i].reference != null)
-            {
-                cardSlots[i].reference = i < oldSlots.Count ? oldSlots[i].reference : null;
-                StartCoroutine(cardSlots[i].FlipToCardPosition());
-            }
+            cardSlots[i].reference = oldRefs[i];
+            StartCoroutine(cardSlots[i].FlipToCardPosition());
         }
     }
 

@@ -24,7 +24,7 @@ MonoBehaviour:
   scalingMultiplier: 0
   aoeShape: 0
   aoeSize: 4
-  aoeGap: 0
+  aoeGap: 2
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
   entityToSummon: {fileID: 4039637195503505460, guid: fc1c3bf114e914b4fa7eae1b01b43320, type: 3}
