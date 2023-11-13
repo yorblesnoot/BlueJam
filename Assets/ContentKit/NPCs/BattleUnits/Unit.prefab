@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2655328461386920498}
   - component: {fileID: 8320433818775275716}
   - component: {fileID: 7599744135600204344}
-  - component: {fileID: 1117014247259313703}
   - component: {fileID: 8464405472856945552}
   - component: {fileID: 5174895268556440282}
   - component: {fileID: 7119020024479498164}
@@ -58,12 +57,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <unitStats>k__BackingField: {fileID: 0}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
-  barrierTracker: {fileID: 1117014247259313703}
   stateFeedback: {fileID: 6367599638106656771}
   buffTracker: {fileID: 8464405472856945552}
   myHand: {fileID: 6958123189531368188}
   unitAnimator: {fileID: 7119020024479498164}
   isDead: 0
+  lastPlayed: {fileID: 0}
   <Allegiance>k__BackingField: 3
   turnShow: {fileID: 9213481635271868737}
   unitAI: {fileID: 7599744135600204344}
@@ -83,21 +82,6 @@ MonoBehaviour:
   personality: {fileID: 0}
   myHand: {fileID: 6958123189531368188}
   thisUnit: {fileID: 8320433818775275716}
---- !u!114 &1117014247259313703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7073732932440425903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93539629487fa7546b3331b040f5fb4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitActions: {fileID: 8320433818775275716}
-  deflectInstances: 
-  deflectDurations: 
 --- !u!114 &8464405472856945552
 MonoBehaviour:
   m_ObjectHideFlags: 0

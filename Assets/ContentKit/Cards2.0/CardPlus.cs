@@ -66,6 +66,7 @@ public class CardPlus : SOWithGUID
             effects[i].userOriginalTile = userOriginalTile;
             yield return actor.StartCoroutine(effects[i].Execute(actor, targetCell));          
         }
+        actor.lastPlayed = this;
         TurnManager.FinalizeTurn(actor);
     }
     public void AssembleDescription()

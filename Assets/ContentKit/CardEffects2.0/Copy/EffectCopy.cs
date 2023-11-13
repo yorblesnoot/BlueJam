@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "EffectCopy", menuName = "ScriptableObjects/CardEffects/Copy")]
 public class EffectCopy : EffectInject
 {
-    bool invertCopy;
+    [SerializeField] bool invertCopy;
     public override string GetEffectDescription(Unit player)
     {
         return $"copy a random card from {(invertCopy ? "user" : "target")}'s hand into {(invertCopy ? "target" : "user")}'s {location.ToString().ToLower()}";

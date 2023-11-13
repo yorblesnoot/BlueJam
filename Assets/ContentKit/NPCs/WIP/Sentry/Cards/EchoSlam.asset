@@ -16,8 +16,10 @@ MonoBehaviour:
   displayName: Echoing Slam
   art: {fileID: 21300000, guid: e8935d233693f4b48806cece1e461421, type: 3}
   cost: 4
-  description: 
-  keywords: 
+  description: 'Deal <color=#FF4E2B>10</color> damage. Deal <color=#FF4E2B>20</color>
+    damage in a <color=red>1<color=blue>+</color></color> AOE on the target tile
+    after player spends <color=blue>2</color> pips. '
+  keywords: 'Range: 1-1 <color=blue>[  ]</color>.'
   targetShape: 1
   targetSize: 1
   targetGap: 1
@@ -27,5 +29,5 @@ MonoBehaviour:
   animType: 6
   delayBeforeEffects: 0.6
   effects:
-  - {fileID: 11400000, guid: f111fd945c1e2314b8cc1b68ef11a2c6, type: 2}
+  - {fileID: 11400000, guid: d1e770c99e1d2634ea5fba9eaf55f075, type: 2}
   - {fileID: 11400000, guid: 6e9a27869da76ba43b6512a1c0ca6c21, type: 2}

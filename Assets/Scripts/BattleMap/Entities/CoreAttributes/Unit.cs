@@ -7,6 +7,9 @@ public class Unit : MonoBehaviour
     public Dictionary<StatType, float> loadedStats {  get; set; }
     public int currentHealth { get; set; }
     [field: SerializeField] public UnitStats unitStats { get; set; }
+
+    public ResourceTracker resourceTracker = new();
+
     public RunData runData;
 
     public void LoadStats()

@@ -2,23 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BarrierTracker : MonoBehaviour
+public class BarrierTracker
 {
     public BattleUnit unitActions;
 
-    [HideInInspector] public List<int> deflectInstances;
-    [HideInInspector] public List<int> deflectDurations;
+    [HideInInspector] public List<int> deflectInstances = new();
+    [HideInInspector] public List<int> deflectDurations = new();
 
-    int deflectLength = 2;
+    readonly int deflectLength = 2;
 
-    private void Awake()
+    public BarrierTracker(BattleUnit battleUnit)
     {
-        if (!gameObject.CompareTag("Player")) deflectLength = 1;
+        unitActions = battleUnit;
+        if (unitActions.Allegiance != AllegianceType.PLAYER) deflectLength = 1;
     }
 
     public void AddDeflect(int amount)
     {
-        if (gameObject.CompareTag("Player"))
+        if (unitActions.Allegiance == AllegianceType.PLAYER)
         {
             Tutorial.Initiate(TutorialFor.BATTLEBARRIER, TutorialFor.BATTLEACTIONS);
             Tutorial.EnterStage(TutorialFor.BATTLEBARRIER, 1, 

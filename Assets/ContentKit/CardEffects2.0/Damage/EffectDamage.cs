@@ -22,7 +22,7 @@ public class EffectDamage : CardEffectPlus
         yield return null;
     }
 
-    void Normal(BattleUnit owner, float damageMult, BattleUnit target)
+    public static void Normal(BattleUnit owner, float damageMult, BattleUnit target)
     {
         int damage = Mathf.RoundToInt(owner.loadedStats[StatType.DAMAGE] * damageMult);
         target.ReceiveDamage(damage, owner.gameObject);

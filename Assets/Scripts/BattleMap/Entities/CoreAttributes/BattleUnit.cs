@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BattleUnit : Unit
 {
-    [SerializeField] BarrierTracker barrierTracker;
+    BarrierTracker barrierTracker;
     public StateFeedback stateFeedback;
 
     public BuffTracker buffTracker;
@@ -17,11 +17,13 @@ public class BattleUnit : Unit
     [HideInInspector] public bool isSummoned { get; set; }
     [HideInInspector] public bool isDead;
     [HideInInspector] public EntityUI myUI { get; set; }
+    [HideInInspector] public CardPlus lastPlayed;
 
     [field: SerializeField] public AllegianceType Allegiance { get; set; }
 
     void Awake()
     {
+        barrierTracker = new BarrierTracker(this);
         TurnManager.initializeDecks.AddListener(InitializeDecks);
         Initialize(); 
     }

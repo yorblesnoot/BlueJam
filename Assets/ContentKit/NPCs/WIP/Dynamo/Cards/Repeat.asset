@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 90746862f68066248bfa4bc5f628dcaa, type: 3}
-  m_Name: EscalatingAttack
+  m_Name: Repeat
   m_EditorClassIdentifier: 
-  Id: 8e9db083-3f3c-4976-9022-a21732c3cde5
-  displayName: 
+  Id: 06788508-4dc3-465c-a84c-04521c670570
+  displayName: Repetition
   art: {fileID: 0}
-  cost: 0
+  cost: 1
   description: 
   keywords: 
   targetShape: 0
@@ -27,4 +27,4 @@ MonoBehaviour:
   animType: 0
   delayBeforeEffects: 0
   effects:
-  - {fileID: 0}
+  - {fileID: 11400000, guid: 63f4abf6032e26840b7df18c17cf6f21, type: 2}
