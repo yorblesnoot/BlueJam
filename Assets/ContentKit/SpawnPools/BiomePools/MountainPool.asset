@@ -24,4 +24,5 @@ MonoBehaviour:
   - {fileID: 3893931155832554969, guid: 672eca6008d533943b9c4856f9b7cd78, type: 3}
   - {fileID: 7143469114425514057, guid: 2da3941d4f46e774d8de606a5a195bfe, type: 3}
   - {fileID: 4039637195503505460, guid: afffc0670f5143e4da427c4baae47d0e, type: 3}
+  - {fileID: 7566552127858462820, guid: 6a8ba7e5c56784d46beed0129c7aa960, type: 3}
   staticSpawns: []

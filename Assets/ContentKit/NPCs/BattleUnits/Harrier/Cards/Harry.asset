@@ -15,16 +15,16 @@ MonoBehaviour:
   Id: b4becf35-4d35-4e2a-ba31-ec681769d6bb
   displayName: Harrying Shot
   art: {fileID: 21300000, guid: 73e20d521b16b46e2b9bbf45cb7bb985, type: 3}
-  cost: 3
-  description: 'deal <color=#FF4E2B>10</color> damage. '
-  keywords: 'Range: 2-3 <color=blue>O</color>'
+  cost: 2
+  description: 'Deal <color=#FF4E2B>10</color> damage. '
+  keywords: 'Range: 2-3 <color=blue>O</color>.'
   targetShape: 0
   targetSize: 3
   targetGap: 2
   needsPath: 0
   isCurse: 0
-  cardClass: 00000000
   consumed: 0
   animType: 0
+  delayBeforeEffects: 0
   effects:
   - {fileID: 11400000, guid: 8968a202145980840b9e6861fa538f22, type: 2}

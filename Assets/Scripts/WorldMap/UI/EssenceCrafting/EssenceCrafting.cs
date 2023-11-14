@@ -200,6 +200,7 @@ public class EssenceCrafting : MonoBehaviour
 
     public void QuickCraft(DraggableItem item)
     {
+        SoundManager.PlaySound(SoundType.INVENTORYGRAB);
         if (essenceSlotContents == item) 
         {
             EssenceSlotFilled();

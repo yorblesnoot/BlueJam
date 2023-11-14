@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: WorldParametersTest
   m_EditorClassIdentifier: 
   mapSize: 500
-  noiseFrequency: 1.5
+  noiseFrequency: 1.6
   symbolThresholds: 0200000001000000010000000100000004000000040000000600000006000000050000000500000007000000030000000300000003000000

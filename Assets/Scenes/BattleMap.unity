@@ -134,14 +134,12 @@ GameObject:
   - component: {fileID: 25599}
   - component: {fileID: 25600}
   - component: {fileID: 25601}
-  - component: {fileID: 25603}
   - component: {fileID: 25602}
   - component: {fileID: 25604}
   - component: {fileID: 25605}
   - component: {fileID: 25606}
   - component: {fileID: 25607}
   - component: {fileID: 25608}
-  - component: {fileID: 25609}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -232,27 +230,6 @@ MonoBehaviour:
   - {fileID: 530769241}
   - {fileID: 562111785}
   - {fileID: 100886500}
---- !u!114 &25603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 93539629487fa7546b3331b040f5fb4b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitActions: {fileID: 25600}
-  deflectInstances: 
-  deflectDurations: 
-  deflectLength: 2
-  shieldColor:
-    r: 0.05
-    g: 0.05
-    b: 0.05
-    a: 1
 --- !u!114 &25604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,18 +302,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   floatNumber: {fileID: 6650869779228163377, guid: c9e94e8bf2e2c6c4f90ed16da67baf03, type: 3}
---- !u!114 &25609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 25594}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4eac2579bd0f2a4b8d773a4f0f9797e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &3451738
 PrefabInstance:
   m_ObjectHideFlags: 0

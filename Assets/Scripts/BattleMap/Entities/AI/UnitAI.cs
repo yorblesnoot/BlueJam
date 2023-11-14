@@ -116,11 +116,22 @@ public class UnitAI : MonoBehaviour
             }
             else
             {
-                List<BattleUnit> targetables = CellTargeting.AreaTargets(effect.forceTargetSelf ? MapTools.VectorToTile(transform.position) : moveTile.gameObject, thisUnit.Allegiance, effect.effectClass, effect.aoe).Select(x => x.unitContents).ToList();
+                List<BattleUnit> targetables = CellTargeting.AreaTargets(effect.forceTargetSelf ? MapTools.VectorToTile(transform.position) : moveTile.gameObject,
+                                                                         thisUnit.Allegiance,
+                                                                         effect.effectClass,
+                                                                         effect.aoe).Select(x => x.unitContents).ToList();
                 if (targetables.FirstOrDefault(x => x.Allegiance == AllegianceType.PLAYER) != null) favor += .1f;
 
                 if (effect.effectClass == CardClass.ATTACK)
-                    favor += targetables.Count * personality.interestAttack;
+                {
+                    //hack for delayed effects; if we can't find a target, put it as close to an enemy as possible
+                    if(targetables.Count == 0 && effect.GetType() == typeof(EffectDelayed))
+                    {
+                        //weighting is minimal so near-delays are only favored compared to eachother
+                        favor += EntityScan(moveVect, personality.interestHostile, 0, 0, 0)/100000;
+                    }
+                    else favor += targetables.Count * personality.interestAttack;
+                }
                 else if (effect.effectClass == CardClass.BUFF)
                 {
                     if(effect.GetType() != typeof(EffectHeal))

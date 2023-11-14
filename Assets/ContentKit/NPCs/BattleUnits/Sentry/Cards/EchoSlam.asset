@@ -15,8 +15,8 @@ MonoBehaviour:
   Id: 70e31dba-9bcf-45eb-a243-f7ff3171edcb
   displayName: Echoing Slam
   art: {fileID: 21300000, guid: e8935d233693f4b48806cece1e461421, type: 3}
-  cost: 4
-  description: 'Deal <color=#FF4E2B>10</color> damage. Deal <color=#FF4E2B>20</color>
+  cost: 5
+  description: 'Deal <color=#FF4E2B>20</color> damage. Deal <color=#FF4E2B>39</color>
     damage in a <color=red>1<color=blue>+</color></color> AOE on the target tile
     after player spends <color=blue>2</color> pips. '
   keywords: 'Range: 1-1 <color=blue>[  ]</color>.'

@@ -26,6 +26,6 @@ MonoBehaviour:
   isCurse: 0
   consumed: 0
   animType: 3
-  delayBeforeEffects: 0.8
+  delayBeforeEffects: 0.9
   effects:
-  - {fileID: 11400000, guid: 05ee792fef60109438e4338ab71391ce, type: 2}
+  - {fileID: 11400000, guid: b498c84ff812b40428e7ed0b9791ef69, type: 2}

@@ -54,7 +54,6 @@ public class WorldEventHandler : MonoBehaviour
             cellEvent.Activate(this);
             WorldPlayerControl.playerState = WorldPlayerState.SELECTION;
             yield return new WaitUntil(() => eventComplete == true);
-
             
             yield return new WaitForSeconds(.3f);
             cellEvent = null;
@@ -90,7 +89,6 @@ public class WorldEventHandler : MonoBehaviour
             
         }
         EventManager.updateWorldCounters.Invoke();
-        WorldPlayerControl.playerState = WorldPlayerState.IDLE;
     }
 
     IEnumerator LaunchCombat(WorldEnemy cellEnemy)

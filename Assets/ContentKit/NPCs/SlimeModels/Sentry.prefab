@@ -17,15 +17,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 954977088001040360, guid: 8d008b3d79be01747a3bc76e502e76da, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.0030653854
+      value: 0.0033090834
       objectReference: {fileID: 0}
     - target: {fileID: 954977088001040360, guid: 8d008b3d79be01747a3bc76e502e76da, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.003065386
+      value: 0.003309084
       objectReference: {fileID: 0}
     - target: {fileID: 954977088001040360, guid: 8d008b3d79be01747a3bc76e502e76da, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.003065386
+      value: 0.003309084
       objectReference: {fileID: 0}
     - target: {fileID: 954977088001040360, guid: 8d008b3d79be01747a3bc76e502e76da, type: 3}
       propertyPath: m_LocalPosition.x
@@ -78,7 +78,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1324673641937048145, guid: df1bc6e49bf6da548a9a1764d86083b9, type: 3}
       propertyPath: m_Name
-      value: Slime
+      value: Sentry
       objectReference: {fileID: 0}
     - target: {fileID: 1813260718515636459, guid: df1bc6e49bf6da548a9a1764d86083b9, type: 3}
       propertyPath: m_RootOrder

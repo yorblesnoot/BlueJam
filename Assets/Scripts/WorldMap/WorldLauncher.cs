@@ -41,8 +41,7 @@ public class WorldLauncher : MapLauncher
         GenerateBoss(placer);
 
         mapRenderer.RenderFullWindow(runData.worldMap);
-        TriggerEventsOnOrigin(localPlayer);
-
+        StartCoroutine(TriggerEventsOnOrigin(localPlayer));
         playerControl.compassMaster.DeployCompass(EventType.BOSS, Color.red);
 
         new SaveContainer(runData).SaveGame();
@@ -53,13 +52,14 @@ public class WorldLauncher : MapLauncher
         SoundManager.PlayMusic(SoundType.MUSICWORLD);
     }
 
-    private static void TriggerEventsOnOrigin(Vector2Int localPlayer)
+    private IEnumerator TriggerEventsOnOrigin(Vector2Int localPlayer)
     {
         WorldEventHandler handler = MapTools.MapToTile(localPlayer).GetComponent<WorldEventHandler>();
         if (handler.cellEvent != null)
         {
             handler.cellEvent.PreAnimate();
-            handler.StartCoroutine(handler.TriggerWorldEvents());
+            yield return handler.StartCoroutine(handler.TriggerWorldEvents());
+            WorldPlayerControl.playerState = WorldPlayerState.IDLE;
         }
     }
 

@@ -46,9 +46,6 @@ public class WorldMovementController : MonoBehaviour
             //move the player to the cell
             TutorialProgression();
             WorldPlayerControl.player.StartCoroutine(WorldPlayerControl.player.ChainPath(myPath));
-
-            //deactivate pathfinding displays
-            EventManager.clearWorldDestination?.Invoke();
         }
     }
 
@@ -68,24 +65,29 @@ public class WorldMovementController : MonoBehaviour
     {
         if (EventSystem.current.IsPointerOverGameObject()) return;
         activeTile = this;
+        if (WorldPlayerControl.playerState == WorldPlayerState.PATHING) return;
         RerenderPath();
     }
 
     public void RerenderPath()
     {
         if (activeTile != this) return;
+        EventManager.clearWorldDestination.Invoke();
         Vector2Int myPosition = MapTools.VectorToMap(unitPosition);
         Pathfinder pather = new(runData.worldMap, runData.eventMap, WorldMapRenderer.spotlightGlobalOffset, myPosition);
-        myPath = pather.FindVectorPath(MapTools.VectorToMap(WorldPlayerControl.player.transform.position), myPosition);
+        Vector2Int playerPosition = new Vector2Int(runData.playerWorldX, runData.playerWorldY) - WorldMapRenderer.spotlightGlobalOffset;
+        myPath = pather.FindVectorPath(playerPosition, myPosition);
         if(myPath == null) return;
         foreach (var cell in myPath)
             MapTools.MapToTile(cell).GetComponent<WorldMovementController>().HighlightRoute();
     }
     private void OnMouseExit()
     {
-        EventManager.clearWorldDestination.Invoke();
+        
         myPath = null;
         activeTile = null;
+        if (WorldPlayerControl.playerState == WorldPlayerState.PATHING) return;
+        EventManager.clearWorldDestination.Invoke();
     }
     public void HighlightRoute()
     {

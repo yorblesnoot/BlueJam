@@ -59,8 +59,6 @@ public class WorldPlayerControl : MonoBehaviour
             playerVisual.transform.LookAt(tileController.unitPosition);
             if (tileController.myEventHandler.cellEvent != null) tileController.myEventHandler.cellEvent.PreAnimate();
 
-
-
             //modify player's world position and run difficulty in run data
             Vector2Int oldCoords = MapTools.VectorToMap(transform.position) + WorldMapRenderer.spotlightGlobalOffset;
 
@@ -84,8 +82,10 @@ public class WorldPlayerControl : MonoBehaviour
             SoundManager.PlaySound(SoundType.SLIMESTEP);
             bool onVehicle = false;
             if (CurrentVehicle != null) onVehicle = true;
+            tileController.ClearHighlight();
             yield return StartCoroutine(tileController.myEventHandler.TriggerWorldEvents());
             if (onVehicle) CurrentVehicle.RelocateVehicle(globalCoords, oldCoords);
+            playerState = WorldPlayerState.IDLE;
         }
         WorldMovementController.pathingComplete.Invoke();
     }

@@ -83,7 +83,7 @@ public class FutureEffect : MonoBehaviour, ITurnTaker
     {
         foreach (CardEffectPlus effect in effects)
         {
-            yield return actor.StartCoroutine(effect.Execute(actor, targetCell));
+            yield return StartCoroutine(effect.Execute(actor, targetCell));
         }
         TurnManager.UnreportTurn(this);
         TurnManager.FinalizeTurn();
@@ -114,6 +114,5 @@ public class FutureEffect : MonoBehaviour, ITurnTaker
             pips[i].color = beatColor;
             yield return new WaitForSeconds(colorDelay);
         }
-        
     }
 }
