@@ -29,4 +29,4 @@ MonoBehaviour:
   delayBeforeEffects: 0
   effects:
   - {fileID: 11400000, guid: 94338799a6b8062438d898d89ee83943, type: 2}
-  - {fileID: 11400000, guid: 084d9ff0a9c8f7741937f0deca9bc558, type: 2}
+  - {fileID: 11400000, guid: 91df711a1da7fa445bfb5f111a039147, type: 2}

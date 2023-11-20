@@ -21,10 +21,9 @@ public class PlayerCardDisplay : MonoBehaviour, ICardDisplay
     public bool forceConsume { get; set; } = false;
 
     //fill the details of a blank card
-    public void PopulateCard(CardPlus card)
+    public void PopulateCard(CardPlus card, bool limited = false)
     {
         thisCard = card;
-        forceConsume = thisCard.consumed;
         nameText.text = card.displayName;
         cardArt.sprite = card.art;
         foreach(GameObject pip in costPips) pip.SetActive(false);
@@ -52,6 +51,13 @@ public class PlayerCardDisplay : MonoBehaviour, ICardDisplay
             targetPane.color = new Color32(47, 231, 122, 255);
         }
         keywordPane.text = card.keywords;
+
+        if (!limited)
+        {
+            forceConsume = thisCard.consumed;
+        }
+
+        
     }
 
     public CardClass GetTargetClass(CardPlus card)

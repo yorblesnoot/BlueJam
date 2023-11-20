@@ -29,7 +29,7 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
     [SerializeField] ColoredSprite curse;
 
     //fill the details of a blank card
-    public void PopulateCard(CardPlus card)
+    public void PopulateCard(CardPlus card, bool limited = false)
     {
         List<CardClass> cardClass = card.effects.Select(x => x.effectClass).ToList();
         thisCard = card;

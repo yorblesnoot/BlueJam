@@ -17,9 +17,11 @@ MonoBehaviour:
   effectClass: 0
   vfxStyleBefore: 2
   vfxNameBefore: AttractShot
+  particleDelay: 0.4
   vfxStyleAfter: 0
   vfxNameAfter: none
   effectSound: 7
+  effectSoundAfterHit: 0
   scalingMultiplier: -4
   aoeShape: 0
   aoeSize: 0

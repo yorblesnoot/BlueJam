@@ -15,7 +15,7 @@ MonoBehaviour:
   unitName: Player
   unitDescription: 
   maxHealth: 1000
-  handSize: 4
+  handSize: 7
   startBeats: 0
   damageScaling: 10
   barrierScaling: 10

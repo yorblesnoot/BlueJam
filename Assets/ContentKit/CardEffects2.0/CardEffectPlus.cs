@@ -13,6 +13,8 @@ public class CardEffectPlus : ScriptableObject
     public VFXStyle vfxStyleBefore;
     [StringInList(typeof(VFXHelper), "AllVFXNames")] public string vfxNameBefore;
 
+    [SerializeField] float particleDelay;
+
     public VFXStyle vfxStyleAfter;
     [StringInList(typeof(VFXHelper), "AllVFXNames")] public string vfxNameAfter;
 
@@ -50,6 +52,7 @@ public class CardEffectPlus : ScriptableObject
         SoundManager.PlaySound(effectSound);
 
         VFXMachine.PlayVFX(vfxNameBefore, vfxStyleBefore, actor, targetCell);
+        if (particleDelay > 0) yield return new WaitForSeconds(particleDelay);
         yield return targetCell.StartCoroutine(ActivateEffect(actor, targetCell, aoe, targets));
         VFXMachine.PlayVFX(vfxNameAfter, vfxStyleAfter, actor, targetCell);
 

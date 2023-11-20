@@ -76,7 +76,7 @@ public class FutureEffect : MonoBehaviour, ITurnTaker
 
     public void TakeTurn()
     {
-        actor.StartCoroutine(ActivateEffects());
+        StartCoroutine(ActivateEffects());
     }
 
     IEnumerator ActivateEffects()

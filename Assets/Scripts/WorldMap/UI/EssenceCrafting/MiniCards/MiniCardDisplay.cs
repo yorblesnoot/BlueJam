@@ -15,7 +15,7 @@ public class MiniCardDisplay : MonoBehaviour, ICardDisplay, IPointerEnterHandler
 
     public bool forceConsume { get; set; } = false;
 
-    public void PopulateCard(CardPlus card)
+    public void PopulateCard(CardPlus card, bool limited = false)
     {
         thisCard = card;
         nameText.text = card.displayName;

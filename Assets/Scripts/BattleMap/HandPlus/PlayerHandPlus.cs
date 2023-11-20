@@ -192,7 +192,8 @@ public class PlayerHandPlus : HandPlus
     {
         foreach (CardSlot slot in cardSlots)
         {
-            int sibIndex = (cardSlots.Count - cardSlots.IndexOf(slot)) - 1;
+            //int sibIndex = (cardSlots.Count - cardSlots.IndexOf(slot)) - 1;
+            int sibIndex = cardSlots.IndexOf(slot);
             slot.reference.transform.SetSiblingIndex(sibIndex);
             slot.reference.GetComponent<EmphasizeCard>().siblingIndex = sibIndex;
         }
@@ -208,13 +209,15 @@ public class PlayerHandPlus : HandPlus
             handCards.Remove(discarded);
             yield return StartCoroutine(slot.FlipToSpot());
             discarded.gameObject.SetActive(false);
+        }
+        else
+        {
+            discarded.transform.SetParent(discardSpot.transform, true);
+            handCards.TransferItemTo(discardCards, discarded);
+            yield return StartCoroutine(slot.FlipToSpot());
+            FanPile(discardCards, -1);
             yield break;
         }
-        discarded.transform.SetParent(discardSpot.transform, true);
-        handCards.TransferItemTo(discardCards, discarded);
-        yield return StartCoroutine(slot.FlipToSpot());
-        FanPile(discardCards, -1);
-        yield break;
     }
 
     protected override void RecyleCard(ICardDisplay card)
@@ -249,7 +252,7 @@ public class PlayerHandPlus : HandPlus
         foreach(ICardDisplay card in cards)
         {
             card.thisCard.Initialize();
-            card.PopulateCard(card.thisCard);
+            card.PopulateCard(card.thisCard, true);
         }
     }
 }

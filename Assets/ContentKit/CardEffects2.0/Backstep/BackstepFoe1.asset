@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BackstepFoe1
   m_EditorClassIdentifier: 
   forceTargetSelf: 0
-  targetNotRequired: 1
+  targetNotRequired: 0
   effectClass: 0
   vfxStyleBefore: 3
   vfxNameBefore: MoveTrail

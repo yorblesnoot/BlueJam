@@ -262,8 +262,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2689162621398565090, guid: dd570fb420d25b54ba7b67e0c2421732, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2689162621398565090, guid: dd570fb420d25b54ba7b67e0c2421732, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 4281882255676255910, guid: dd570fb420d25b54ba7b67e0c2421732, type: 3}
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5082300416288169163, guid: dd570fb420d25b54ba7b67e0c2421732, type: 3}
       propertyPath: m_Pivot.x
@@ -323,7 +331,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5082300416288169163, guid: dd570fb420d25b54ba7b67e0c2421732, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -481
+      value: -3500
       objectReference: {fileID: 0}
     - target: {fileID: 5082300416288169163, guid: dd570fb420d25b54ba7b67e0c2421732, type: 3}
       propertyPath: m_LocalRotation.w
