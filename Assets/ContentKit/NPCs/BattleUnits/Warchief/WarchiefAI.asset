@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6856cce20993b2b43b6b389f2802db86, type: 3}
   m_Name: WarchiefAI
   m_EditorClassIdentifier: 
-  interestAttack: 11.45
-  interestBuff: 11.36
+  interestAttack: 9.3
+  interestBuff: 6
+  interestSummon: 11.6
   interestFriendly: 1
   interestHostile: 1
   proximityFriendly: 0.9

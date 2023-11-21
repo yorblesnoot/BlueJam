@@ -47,9 +47,9 @@ public class BattleUnit : Unit
         myUI = GetComponentInChildren<EntityUI>();
     }
 
-    public void ReceiveDamage(int damage, GameObject source = null)
+    public void ReceiveDamage(int damage, GameObject source = null, bool animate = true)
     {
-        unitAnimator.Animate(AnimType.DAMAGED, source);
+        if(animate) unitAnimator.Animate(AnimType.DAMAGED, source);
         if (deflectHealth > 0) damage = barrierTracker.ReceiveDeflectDamage(damage);
         if (shieldHealth > 0) damage = barrierTracker.ReceiveShieldDamage(damage);
         if (damage <= 0) return;

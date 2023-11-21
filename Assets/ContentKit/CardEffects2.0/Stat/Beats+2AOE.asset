@@ -17,9 +17,11 @@ MonoBehaviour:
   effectClass: 2
   vfxStyleBefore: 0
   vfxNameBefore: PulseDamage
+  particleDelay: 0
   vfxStyleAfter: 0
   vfxNameAfter: none
   effectSound: 8
+  effectSoundAfterHit: 0
   scalingMultiplier: 2
   aoeShape: 0
   aoeSize: 5
@@ -28,3 +30,7 @@ MonoBehaviour:
   blockTrigger: 0
   entityStat: 3
   duration: 0
+  iconColor:
+    serializedVersion: 2
+    rgba: 0
+  iconImage: {fileID: 0}

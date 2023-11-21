@@ -16,10 +16,10 @@ MonoBehaviour:
   targetNotRequired: 0
   effectClass: 2
   vfxStyleBefore: 0
-  vfxNameBefore: none
+  vfxNameBefore: PulseHeal
   particleDelay: 0.4
   vfxStyleAfter: 0
-  vfxNameAfter: PulseHeal
+  vfxNameAfter: none
   effectSound: 4
   effectSoundAfterHit: 0
   scalingMultiplier: 0.5

@@ -17,6 +17,7 @@ MonoBehaviour:
   effectClass: 0
   vfxStyleBefore: 2
   vfxNameBefore: SparkleLook
+  particleDelay: 0
   vfxStyleAfter: 0
   vfxNameAfter: none
   effectSound: 5
@@ -30,3 +31,4 @@ MonoBehaviour:
   location: 2
   toInject: {fileID: 0}
   forceConsume: 1
+  invertCopy: 0

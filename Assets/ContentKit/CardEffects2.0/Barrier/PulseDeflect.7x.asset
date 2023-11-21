@@ -16,10 +16,10 @@ MonoBehaviour:
   targetNotRequired: 0
   effectClass: 2
   vfxStyleBefore: 0
-  vfxNameBefore: none
+  vfxNameBefore: PulseShield
   particleDelay: 0.4
   vfxStyleAfter: 0
-  vfxNameAfter: PulseShield
+  vfxNameAfter: none
   effectSound: 1
   effectSoundAfterHit: 0
   scalingMultiplier: 0.7

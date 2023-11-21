@@ -21,7 +21,7 @@ public class UnitAI : MonoBehaviour
         pathfinder = new(false);
     }
 
-    class PossiblePlay
+    struct PossiblePlay
     {
         public ICardDisplay card;
         public BattleTileController target;
@@ -32,7 +32,7 @@ public class UnitAI : MonoBehaviour
     {
         //1. put all possible moves with their respective cards in one place
         //checklegal on every targetRules
-        entities = TurnManager.turnTakers.Select(t => t.Allegiance != AllegianceType.ALLY ? t.gameObject : null).Where(t => t != null).ToList();
+        entities = TurnManager.turnTakers.Where(t => t.Allegiance != AllegianceType.ALLY && t.GetType() == typeof(NonplayerUnit)).Select(t => t.gameObject).ToList();
         entities.Add(TurnManager.playerUnit.gameObject);
         entities.Remove(gameObject);
 
@@ -142,6 +142,7 @@ public class UnitAI : MonoBehaviour
                     foreach (var target in targetables)
                     {
                         if (target.currentHealth < target.loadedStats[StatType.MAXHEALTH]) favor += personality.interestBuff;
+                        else favor--;
                     }
                 }
                     
@@ -151,32 +152,31 @@ public class UnitAI : MonoBehaviour
         return favor;
     }
 
-    private bool WeAreFriends(GameObject me, GameObject you)
+    private bool WeAreFriends(GameObject meo, GameObject youo)
     {
-        if(me.CompareTag("Ally"))
+        BattleUnit me = meo.GetComponent<BattleUnit>();
+        BattleUnit you = youo.GetComponent<BattleUnit>();
+        if(me.Allegiance == AllegianceType.ALLY)
         {
-            if(you.CompareTag("Ally") || you.CompareTag("Player"))
+            if(you.Allegiance == AllegianceType.ALLY || you.Allegiance == AllegianceType.PLAYER)
                 return true;
             else
                 return false;
         }
-        else if(me.CompareTag("Enemy"))
+        else if(me.Allegiance == AllegianceType.ENEMY)
         {
-            if(you.CompareTag("Ally") || you.CompareTag("Player"))
+            if(you.Allegiance == AllegianceType.ALLY || you.Allegiance == AllegianceType.PLAYER)
                 return false;
             else
                 return true;
         }
-        else
-        {
-            Debug.LogError("Unrecognized tag checked.");
-            return false;
-        }
+        return false;
     }
 
     private float DistanceProcessing(float desiredProximity, float movePathDistance, float currentPathDistance)
     {
-        return Mathf.Abs(desiredProximity - currentPathDistance) - Mathf.Abs(desiredProximity - movePathDistance);
+        //divide by current path distance to make distant enemies less interesting when determining move priority
+        return Mathf.Abs(desiredProximity - currentPathDistance) - Mathf.Abs(desiredProximity - movePathDistance)/currentPathDistance;
     }
 
     private float EntityScan(Vector2Int moveVect, float interestHostile, float interestFriendly, float proximityHostile, float proximityFriendly)
@@ -189,8 +189,8 @@ public class UnitAI : MonoBehaviour
         {
             GameObject entity = entities[i];
             
-            float potentialPathDistance = pathfinder.GetPathLength(moveVect, MapTools.VectorToMap(entity.transform.position));
-            float currentPathDistance = pathfinder.GetPathLength(MapTools.VectorToMap(transform.position), MapTools.VectorToMap(entity.transform.position));
+            float potentialPathDistance = pathfinder.GetPathLength(moveVect, entity.transform.position.VectorToMap());
+            float currentPathDistance = pathfinder.GetPathLength(transform.position.VectorToMap(), entity.transform.position.VectorToMap());
             if (potentialPathDistance == -1 || currentPathDistance == -1) continue;
             if (!WeAreFriends(gameObject, entity))
             {

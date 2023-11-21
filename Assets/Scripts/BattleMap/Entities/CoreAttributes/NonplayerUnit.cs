@@ -32,6 +32,8 @@ public class NonplayerUnit : BattleUnit, ITurnTaker
     public override void TakeTurn()
     {
         base.TakeTurn();
+        NonplayerUI nyUI = (NonplayerUI)myUI;
+        nyUI.HideBeatGhost();
         unitAI.AITakeTurn();
     }
 
