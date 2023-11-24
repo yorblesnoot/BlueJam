@@ -24,9 +24,9 @@ public class PlayerUnit : BattleUnit
     public override void TakeTurn()
     {
         base.TakeTurn();
-        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 2, "See those other slimes? They're my enemies! You can click on them to learn about them and what they're likely to do.");
-        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 3, "It's my turn again! The cards in my hand, below, give me access to powerful actions for defeating my enemies. Click one to select it!");
-        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 5, "The <color=blue>blue bar</color> above each enemy tells you how soon they'll take their turn. Their bars will fill up based on the <color=orange>number of pips</color> on the <color=orange>top right</color> of each card you use, or the <color=orange>number of tiles</color> you move when clicking on the map.");
+        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 2, "Those other slimes are my enemies! Click them to see what they're likely to do.");
+        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 3, "It's my turn again! The cards in my hand, below, give me access to a variety of actions. Click one to select it!");
+        Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 5, "The <color=blue>blue bar</color> above each enemy shows how soon they'll take their turn. Their bars will fill up based on the <color=orange>number of pips</color> on the <color=orange>top right</color> of each card you use, or the <color=orange>number of tiles</color> you move when clicking on the map.");
         Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 6, "When hovering over a card or move, the <color=orange>orange zones</color> by enemys' blue bars show how much their bars will fill when you act. <color=#00ffffff>White sparks</color> mean the enemy will take a turn!");
         playerState = PlayerBattleState.IDLE;
     }
@@ -40,7 +40,7 @@ public class PlayerUnit : BattleUnit
     {
         if (reduction == 0) return;
         Tutorial.Initiate(TutorialFor.BATTLEDAMAGE, TutorialFor.BATTLEACTIONS);
-        Tutorial.EnterStage(TutorialFor.BATTLEDAMAGE, 1, "Ouch, I've taken damage! You can see my <color=red>current health</color> in bottom left. If it reaches zero, I'll die and lose all my progress!");
+        Tutorial.EnterStage(TutorialFor.BATTLEDAMAGE, 1, "Ouch, I've taken damage! You can see my <color=red>current health</color> in bottom left.");
         base.ModifyHealth(reduction);
         runData.currentHealth = currentHealth;
     }
@@ -66,6 +66,7 @@ public class PlayerUnit : BattleUnit
             transform.LookAt(tileController.unitPosition);
             yield return StartCoroutine(gameObject.LerpTo(tileController.unitPosition, moveDuration));
         }
-        TurnManager.FinalizeTurn(this);
+
+        TurnManager.Main.StartCoroutine(TurnManager.FinalizeTurn(this));
     }
 }

@@ -14,7 +14,7 @@ public class EffectBackstep : EffectMove
     }
     public override string GetEffectDescription(Unit player)
     {
-        return $"slide {Mathf.Abs(Mathf.RoundToInt(scalingMultiplier))} cells back from target";
+        return $"slide {Mathf.Abs(Mathf.RoundToInt(scalingMultiplier))} cell{(scalingMultiplier > 1 ? "s": "")} back from target";
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {

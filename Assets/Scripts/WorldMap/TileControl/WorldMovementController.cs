@@ -54,7 +54,7 @@ public class WorldMovementController : MonoBehaviour
         Tutorial.CompleteStage(TutorialFor.WORLDPICKUPS, 1, true);
         Tutorial.CompleteStage(TutorialFor.WORLDMOVE, 1, true);
         Tutorial.Initiate(TutorialFor.WORLDPICKUPS, TutorialFor.WORLDMOVE);
-        Tutorial.EnterStage(TutorialFor.WORLDPICKUPS, 1, "To grow, I'll need to explore, gather <color=blue>pickups</color> around the world map, and defeat <color=red>enemies</color> in battle. But I'll also need to proceed cautiously; with every step, my enemies gain power...");
+        Tutorial.EnterStage(TutorialFor.WORLDPICKUPS, 1, "To grow, I'll need to explore, gather <color=blue>pickups</color> around the world map, and defeat <color=red>enemies</color> in battle. However, my <color=red>threat</color> posed by my foes will increase as I travel.");
 
         Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 4, true);
         Tutorial.CompleteStage(TutorialFor.WORLDBOSS, 2, true);

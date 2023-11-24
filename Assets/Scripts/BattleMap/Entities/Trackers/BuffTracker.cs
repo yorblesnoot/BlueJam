@@ -24,7 +24,6 @@ public class BuffTracker : MonoBehaviour
         {
             remainingDuration--;
             token.SetDuration(remainingDuration);
-            TickEffect(tile);
             if (remainingDuration <= 0)
             {
                 token.gameObject.SetActive(false);
@@ -33,7 +32,7 @@ public class BuffTracker : MonoBehaviour
             return null;
         }
 
-        public virtual void TickEffect(BattleTileController tile) { }
+        public virtual IEnumerator TickEffect(BattleTileController tile) { yield break; }
     }
 
     class TrackedBuff : TrackedMod
@@ -45,9 +44,9 @@ public class BuffTracker : MonoBehaviour
             token.RenderBuff(buff, owner);
         }
 
-        public override void TickEffect(BattleTileController tile)
+        public override IEnumerator TickEffect(BattleTileController tile)
         {
-            tile.unitContents.StartCoroutine(buff.turnLapseEffect.Execute(owner, tile));
+            yield return tile.StartCoroutine(buff.turnLapseEffect.Execute(owner, tile));
         }
     }
 
@@ -60,10 +59,11 @@ public class BuffTracker : MonoBehaviour
             token.RenderStat(stat, owner);
         }
 
-        public override void TickEffect(BattleTileController tile)
+        public override IEnumerator TickEffect(BattleTileController tile)
         {
             if (remainingDuration <= 0)
                 stat.Unmodify(stat.scalingMultiplier, tile.unitContents);
+            yield break;
         }
     }
 
@@ -105,13 +105,14 @@ public class BuffTracker : MonoBehaviour
         mods.Add(trackedStat);
     }
 
-    public void DurationProc()
+    public IEnumerator DurationProc()
     {
-        myTile = MapTools.VectorToTile(gameObject.transform.position).GetComponent<BattleTileController>();
         for (int i = 0; i < mods.Count; i++)
         {
+            myTile = MapTools.VectorToTile(gameObject.transform.position).GetComponent<BattleTileController>();
             BuffToken returning = mods[i].TickDown(myTile);
-            if(returning != null) buffTokens.Add(returning);
+            yield return StartCoroutine(mods[i].TickEffect(myTile));
+            if (returning != null) buffTokens.Add(returning);
         }
         mods.RemoveAll(x => x.remainingDuration == 0);
     }

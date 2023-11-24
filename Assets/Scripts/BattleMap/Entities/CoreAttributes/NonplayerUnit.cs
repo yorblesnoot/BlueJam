@@ -79,7 +79,7 @@ public class NonplayerUnit : BattleUnit, ITurnTaker
         base.ModifyHealth(reduction);
         if (reduction <= 0) return;
         Tutorial.Initiate(TutorialFor.BATTLEDODAMAGE, TutorialFor.BATTLEACTIONS);
-        Tutorial.EnterStage(TutorialFor.BATTLEDODAMAGE, 1, "Good hit! Reduce the health of all non-summoned enemies to 0 to win the battle!");
+        Tutorial.EnterStage(TutorialFor.BATTLEDODAMAGE, 1, "Good hit! Reduce the health of all non-summoned enemies to 0 to win!");
     }
 
     public override void Die()

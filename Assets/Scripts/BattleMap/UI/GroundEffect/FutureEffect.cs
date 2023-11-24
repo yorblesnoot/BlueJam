@@ -86,7 +86,7 @@ public class FutureEffect : MonoBehaviour, ITurnTaker
             yield return StartCoroutine(effect.Execute(actor, targetCell));
         }
         TurnManager.UnreportTurn(this);
-        TurnManager.FinalizeTurn();
+        TurnManager.Main.StartCoroutine(TurnManager.FinalizeTurn());
         gameObject.SetActive(false);
     }
 

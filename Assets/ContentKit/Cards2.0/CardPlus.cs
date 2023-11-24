@@ -67,7 +67,7 @@ public class CardPlus : SOWithGUID
             yield return actor.StartCoroutine(effects[i].Execute(actor, targetCell));          
         }
         actor.lastPlayed = this;
-        TurnManager.FinalizeTurn(actor);
+        TurnManager.Main.StartCoroutine(TurnManager.FinalizeTurn(actor));
     }
     public void AssembleDescription()
     {

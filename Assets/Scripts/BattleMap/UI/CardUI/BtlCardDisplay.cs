@@ -25,7 +25,7 @@ public class BtlCardDisplay : PlayerCardDisplay, IPointerEnterHandler, IPointerE
         if (PlayerUnit.playerState == PlayerBattleState.IDLE || PlayerUnit.playerState == PlayerBattleState.TARGETING_CARD)
         {
             Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 3);
-            Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 4, "The <color=blue>blue</color> tiles on the map are where you can play the card, but only if the tile contains the type of target described on the card.");
+            Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 4, "You can play that card on a <color=blue>blue</color> highlighted tile. A <color=red>red</color> highlight means that cell is not a legal target.");
             
             //tell every active card to become inactive
             EventManager.clearActivation?.Invoke();

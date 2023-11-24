@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: 10b90f28-fea5-4c9e-a35e-fe58b56b8fe5
   displayName: Heavy Footfalls
   art: {fileID: 21300000, guid: e1975cbea357b484f99f95249a50d4db, type: 3}
-  cost: 4
+  cost: 5
   description: 'Move to target. Increase damage by 20%. Shield for <color=#1ED5FA>10</color>. '
   keywords: 'Range: 1-1 <color=blue>+</color>.'
   targetShape: 2
@@ -23,9 +23,9 @@ MonoBehaviour:
   targetGap: 1
   needsPath: 0
   isCurse: 0
-  cardClass: 0100000002000000
   consumed: 0
   animType: 2
+  delayBeforeEffects: 0
   effects:
   - {fileID: 11400000, guid: ebb994a0da47eb640a58fd5b38c7ab7b, type: 2}
   - {fileID: 11400000, guid: de0589b85a134db4fb23b49d78f4585a, type: 2}

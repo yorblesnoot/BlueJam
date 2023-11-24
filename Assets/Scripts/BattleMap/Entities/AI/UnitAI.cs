@@ -6,7 +6,7 @@ using System.Data;
 
 public class UnitAI : MonoBehaviour
 {
-    [SerializeField] AIProfile personality;
+    public AIProfile personality;
 
     private List<GameObject> entities;
 

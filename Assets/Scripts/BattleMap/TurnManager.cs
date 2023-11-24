@@ -84,15 +84,15 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    public static void FinalizeTurn(BattleUnit owner = null)
+    public static IEnumerator FinalizeTurn(BattleUnit owner = null)
     {
         if(owner != null)
         {
             owner.myHand.DrawPhase();
-            owner.buffTracker.DurationProc();
+            yield return owner.StartCoroutine(owner.buffTracker.DurationProc());
         }
-        deathPhase?.Invoke();
         Main.StartCoroutine(WaitForTurn());
+        deathPhase?.Invoke();
     }
 
     private static IEnumerator WaitForTurn()

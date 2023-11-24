@@ -39,7 +39,7 @@ public class WorldEventHandler : MonoBehaviour
             { 
                 redGlow.SetActive(true);
                 Tutorial.Initiate(TutorialFor.WORLDBATTLE, TutorialFor.WORLDPICKUPS);
-                Tutorial.EnterStage(TutorialFor.WORLDBATTLE, 1, "Red energy over a tile means that there's an <color=red>enemy</color> there! If I walk over one of those tiles, I'll go into <color=red>battle</color>!");
+                Tutorial.EnterStage(TutorialFor.WORLDBATTLE, 1, "Red energy over a tile means an <color=red>enemy</color> is there! If I walk over that tile, I'll enter <color=red>battle</color>!");
                 return;
             }
         }
@@ -76,7 +76,7 @@ public class WorldEventHandler : MonoBehaviour
             if (RunStarter.unpathable.Contains(runData.worldMap[global.x, global.y]))
             {
                 Tutorial.Initiate(TutorialFor.WORLDIMPASSABLE, TutorialFor.WORLDMOVE);
-                Tutorial.EnterStage(TutorialFor.WORLDIMPASSABLE, 1, "Water and mountains are <color=red>impassable terrain</color>! But with a little exploration, you might find <color=green>vehicles</color> that will allow me to cross.");
+                Tutorial.EnterStage(TutorialFor.WORLDIMPASSABLE, 1, "Water and mountains are <color=red>impassable terrain</color>, until I find <color=green>vehicles</color> to cross in.");
             }
             GameObject tile = MapTools.MapToTile(position);
             if(tile == null) continue;

@@ -45,7 +45,7 @@ public class DeckViewerUI : MonoBehaviour
     public void BombToggleTutorial()
     {
         Tutorial.CompleteStage(TutorialFor.WORLDDECK, 1);
-        Tutorial.EnterStage(TutorialFor.WORLDDECK, 2, "While the icon is red and I have bombs, clicking a card will <color=red>permanently remove it</color> from my deck. Click the X or hit ESC to return to the map.");
+        Tutorial.EnterStage(TutorialFor.WORLDDECK, 2, "While the icon is red and I have bombs, clicking a card will <color=red>permanently remove it</color> from my deck.");
     }
 
     readonly static string redFlash = "FlashRed";
