@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class HistoryEntry : MonoBehaviour
 {
-    [SerializeField] MiniCardDisplay display;
+    public HistoryMiniCardDisplay display;
     [SerializeField] Image token;
 
     HatControl hatControl;
@@ -18,14 +18,13 @@ public class HistoryEntry : MonoBehaviour
     }
     public void AssignToUnit(BattleUnit unit)
     {
+        gameObject.SetActive(true);
         asignee = unit;
         hatControl.DeployHat(unit.myHand.deckRecord.hat);
     }
 
     public void AssignCard(CardPlus card)
     {
-        gameObject.SetActive(true);
-        display.PopulateCard(card, asignee);
-        transform.SetAsFirstSibling();
+        display.PopulateMiniCard(card, asignee);
     }
 }

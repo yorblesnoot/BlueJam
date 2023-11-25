@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class MiniCardDisplay : MonoBehaviour, ICardDisplay, IPointerEnterHandler, IPointerExitHandler
+public class CraftingMiniCardDisplay : MonoBehaviour, ICardDisplay, IPointerEnterHandler, IPointerExitHandler
 {
     public BattleUnit owner { get; set; }
     public CardPlus thisCard { get; set; }

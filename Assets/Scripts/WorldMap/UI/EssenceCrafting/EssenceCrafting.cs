@@ -30,7 +30,7 @@ public class EssenceCrafting : MonoBehaviour
     [SerializeField] List<InventorySlot> inventorySlots;
 
 
-    [SerializeField] List<MiniCardDisplay> miniCards;
+    [SerializeField] List<CraftingMiniCardDisplay> miniCards;
     [SerializeField] WrldCardDisplay bigCardDisplay;
 
     [HideInInspector] public List<DraggableItem> craftingSlotContents;

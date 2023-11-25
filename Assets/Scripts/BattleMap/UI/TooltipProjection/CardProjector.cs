@@ -6,7 +6,6 @@ public class CardProjector : MonoBehaviour
 {
     [SerializeField] BtlCardDisplay _projectedCard;
     static BtlCardDisplay projectedCard;
-    static RectTransform cardRect;
 
     [SerializeField] Canvas _mainCanvas;
     static Canvas mainCanvas;
@@ -14,15 +13,19 @@ public class CardProjector : MonoBehaviour
     {
         projectedCard = _projectedCard;
         mainCanvas = _mainCanvas;
-        cardRect = projectedCard.GetComponent<RectTransform>();
     }
 
-    public static void ProjectCard(CardPlus card, BattleUnit owner, Vector3 worldLocation)
+    public static void ProjectCardFromWorld(CardPlus card, BattleUnit owner, Vector3 worldLocation, Vector3 canvasDisplacement)
+    {
+        Vector3 canvasPosition = worldLocation.WorldToCanvasPosition(mainCanvas, Camera.main);
+        canvasPosition += canvasDisplacement;
+        ProjectCardFromCanvas(card, owner, canvasPosition);
+    }
+
+    public static void ProjectCardFromCanvas(CardPlus card, BattleUnit owner, Vector3 canvasPosition)
     {
         projectedCard.gameObject.SetActive(true);
         projectedCard.PopulateCard(card, owner);
-        Vector3 canvasPosition = worldLocation.WorldToCanvasPosition(mainCanvas, Camera.main);
-        canvasPosition.x += cardRect.rect.width / 2;
         projectedCard.transform.position = canvasPosition;
     }
 
