@@ -15,7 +15,7 @@ public class MiniCardDisplay : MonoBehaviour, ICardDisplay, IPointerEnterHandler
 
     public bool forceConsume { get; set; } = false;
 
-    public void PopulateCard(CardPlus card, bool limited = false)
+    public void PopulateCard(CardPlus card, Unit owner, bool limited = false)
     {
         thisCard = card;
         nameText.text = card.displayName;
@@ -29,8 +29,8 @@ public class MiniCardDisplay : MonoBehaviour, ICardDisplay, IPointerEnterHandler
     void ActivateLargeDisplay()
     {
         bigCard.gameObject.SetActive(true);
-        thisCard.Initialize();
-        bigCard.PopulateCard(thisCard);
+        thisCard.InitializeEffects();
+        bigCard.PopulateCard(thisCard, owner);
     }
 
     public void OnPointerExit(PointerEventData eventData)

@@ -17,6 +17,7 @@ MonoBehaviour:
   <baseDamage>k__BackingField: 10
   <baseBarrier>k__BackingField: 10
   <baseHealing>k__BackingField: 10
+  <baseSpeed>k__BackingField: 1.5
   <basedeckContents>k__BackingField:
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
   - {fileID: 11400000, guid: d9c62e2911934fd4bb07f2d94a5a4c52, type: 2}
@@ -27,4 +28,3 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f864eed4848b206489685997343779f1, type: 2}
   - {fileID: 11400000, guid: dffaba21e454c2a4eb030abee740e28c, type: 2}
   - {fileID: 11400000, guid: cfb52269f0acbfc45a9cb40a6384d98f, type: 2}
-  <baseEnemies>k__BackingField: 7

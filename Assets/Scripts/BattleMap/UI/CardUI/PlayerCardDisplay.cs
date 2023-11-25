@@ -21,7 +21,7 @@ public class PlayerCardDisplay : MonoBehaviour, ICardDisplay
     public bool forceConsume { get; set; } = false;
 
     //fill the details of a blank card
-    public void PopulateCard(CardPlus card, bool limited = false)
+    public void PopulateCard(CardPlus card, Unit owner, bool limited = false)
     {
         thisCard = card;
         nameText.text = card.displayName;
@@ -31,7 +31,7 @@ public class PlayerCardDisplay : MonoBehaviour, ICardDisplay
         {
             costPips[pips].SetActive(true);
         }
-        effectText.text = card.description;
+        effectText.text = card.GetCardDescription(owner);
 
         CardClass cardClass = GetTargetClass(card);
         if(cardClass == CardClass.MOVE || cardClass == CardClass.SUMMON)
@@ -50,14 +50,12 @@ public class PlayerCardDisplay : MonoBehaviour, ICardDisplay
             else targetType.text = "Target Ally";
             targetPane.color = new Color32(47, 231, 122, 255);
         }
-        keywordPane.text = card.keywords;
+        keywordPane.text = card.GetCardKeywords();
 
         if (!limited)
         {
             forceConsume = thisCard.consumed;
-        }
-
-        
+        } 
     }
 
     public CardClass GetTargetClass(CardPlus card)

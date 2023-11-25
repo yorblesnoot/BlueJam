@@ -12,8 +12,6 @@ public class CardPlus : SOWithGUID
     public string displayName;
     public Sprite art;
     public int cost;
-    [HideInInspector] public string description;
-    [HideInInspector] public string keywords;
 
     [SerializeField]TileMapShape targetShape;
     [SerializeField] int targetSize;
@@ -32,12 +30,9 @@ public class CardPlus : SOWithGUID
 
     public List<CardEffectPlus> effects;
 
-    static Unit player;
-
-    public void Initialize()
+    public void InitializeEffects()
     {
         targetRules = MapRulesGenerator.Convert(targetShape, targetSize, targetGap);
-        if (player == null) player = GameObject.FindGameObjectWithTag("Player").GetComponent<Unit>();
 
         List<bool[,]> selfs = new();
         List<bool[,]> points = new();
@@ -49,8 +44,6 @@ public class CardPlus : SOWithGUID
         }
         if(selfs.Count > 0) aoeSelf = CellTargeting.CombineAOEIndicators(selfs);
         aoePoint = CellTargeting.CombineAOEIndicators(points);
-
-        AssembleDescription();
     }
 
     public IEnumerator PlaySequence(BattleUnit actor, BattleTileController targetCell)
@@ -69,21 +62,28 @@ public class CardPlus : SOWithGUID
         actor.lastPlayed = this;
         TurnManager.Main.StartCoroutine(TurnManager.FinalizeTurn(actor));
     }
-    public void AssembleDescription()
+    public string GetCardDescription(Unit owner)
     {
-        description = "";
+        string description = "";
         //for the purposes of generating a description, the owner should always be the player
-        keywords = "";
+        
         for (int i = 0; i < effects.Count; i++)
         {
-            string effectDescription = effects[i].GenerateDescription(player);
+            string effectDescription = effects[i].GenerateDescription(owner);
             if (effectDescription == "") continue;
             description += $"{effectDescription.FirstToUpper()}.";
             description += " ";
             //Environment.NewLine
         }
+        return description;
+    }
+
+    public string GetCardKeywords()
+    {
+        string keywords = "";
         keywords += $"Range: {targetGap}-{targetSize} {CardEffectPlus.aoeShapeName[targetShape]}.";
         if (consumed) keywords += " <color=red>Consumed.</color>";
         if (needsPath) keywords += " Requires LoS.";
+        return keywords;
     }
 }

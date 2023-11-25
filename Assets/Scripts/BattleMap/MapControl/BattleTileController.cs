@@ -15,8 +15,6 @@ public class BattleTileController : MonoBehaviour
     [SerializeField] CellHighlight cellHighlighter;
     HighlightMode baseHighlight = HighlightMode.OFF;
 
-    public enum SpawnPermission { NONE, PLAYER, ENEMY, OBJECT}
-    public SpawnPermission spawns;
     public bool activateUnitStencil;
 
     readonly float heightAdjust = .4f;

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnUnits: []
   staticSpawns:
-  - {fileID: 4039637195503505460, guid: 24908e04ec2eebd40b320cfd36c5c732, type: 3}
-  - {fileID: 4039637195503505460, guid: 24908e04ec2eebd40b320cfd36c5c732, type: 3}
-  - {fileID: 4039637195503505460, guid: 24908e04ec2eebd40b320cfd36c5c732, type: 3}
-  - {fileID: 4039637195503505460, guid: 24908e04ec2eebd40b320cfd36c5c732, type: 3}
-  - {fileID: 4039637195503505460, guid: 24908e04ec2eebd40b320cfd36c5c732, type: 3}
+  - {fileID: 4039637195503505460, guid: 5b264cd43d07a2f409f6cab84dcb9f26, type: 3}
+  - {fileID: 4039637195503505460, guid: 5b264cd43d07a2f409f6cab84dcb9f26, type: 3}
+  - {fileID: 4039637195503505460, guid: 5b264cd43d07a2f409f6cab84dcb9f26, type: 3}
+  - {fileID: 4039637195503505460, guid: 5b264cd43d07a2f409f6cab84dcb9f26, type: 3}
+  - {fileID: 4039637195503505460, guid: 5b264cd43d07a2f409f6cab84dcb9f26, type: 3}

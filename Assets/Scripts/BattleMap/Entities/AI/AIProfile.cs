@@ -12,8 +12,8 @@ public class AIProfile : ScriptableObject
     [Range(0f, 2f)] public float interestFriendly;
     [Range(0f, 2f)] public float interestHostile;
 
-    [Range(0f, 10f)] public float proximityFriendly;
-    [Range(0f, 10f)] public float proximityHostile;
+    [Range(1f, 10f)] public float proximityFriendly;
+    [Range(1f, 10f)] public float proximityHostile;
 
     [Range(0f, 10f)] public float summonProximityHostile;
     [Range(0f, 10f)] public float summonProximityFriendly;

@@ -23425,7 +23425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e71969174eb6c4e921303548eaa4cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  packages:
+  availableCrafts:
   - type: 0
     module: {fileID: 1897063936}
   - type: 1
@@ -23508,6 +23508,7 @@ MonoBehaviour:
   craftingSlotContents: []
   essenceSlotContents: {fileID: 0}
   mainCanvas: {fileID: 573176807}
+  player: {fileID: 1773061060}
 --- !u!114 &1558374508
 MonoBehaviour:
   m_ObjectHideFlags: 0

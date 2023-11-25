@@ -28,8 +28,8 @@ public class NonplayerHandPlus : HandPlus
         newCard.transform.localScale = new Vector3(cardSize, cardSize, cardSize);
         ICardDisplay cardDisplay = newCard.GetComponent<NPCCardDisplay>();
         cardDisplay.owner = thisUnit;
-        card.Initialize();
-        cardDisplay.PopulateCard(card);
+        card.InitializeEffects();
+        cardDisplay.PopulateCard(card, thisUnit);
         cardDisplay.gameObject.SetActive(false);
         return cardDisplay;
     }

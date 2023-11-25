@@ -84,6 +84,7 @@ public class UnitAI : MonoBehaviour
         EventManager.clearActivation.Invoke();
         StartCoroutine(myHand.DiscardCard(cardReference, true));
         StartCoroutine(cardReference.thisCard.PlaySequence(thisUnit,targetTile));
+        CardHistory.AddCardToHistory(cardReference.thisCard, thisUnit);
     }
 
     void ShowAITargeting(bool[,] targetRule, Vector3 source, CardPlus card = null)

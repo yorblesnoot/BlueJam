@@ -18,6 +18,6 @@ MonoBehaviour:
   interestFriendly: 0
   interestHostile: 1.03
   proximityFriendly: 0
-  proximityHostile: 1.27
+  proximityHostile: 1.43
   summonProximityHostile: 0
   summonProximityFriendly: 0

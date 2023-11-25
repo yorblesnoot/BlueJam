@@ -11,9 +11,12 @@ public class BattleUnitSpawner
     SpawnPool spawnPool;
     MasterEnemyPool masterEnemyPool;
 
+    List<GameObject> currentlySpawned;
+
     Vector3 playerSpawn;
     public BattleUnitSpawner(SpawnPool pool, Dictionary<Vector2Int, GameObject> map, MasterEnemyPool master)
     {
+        currentlySpawned = new();
         spawnPool = pool;
         battleMap = map;
         masterEnemyPool = master;
@@ -85,14 +88,17 @@ public class BattleUnitSpawner
         SoundManager.PlaySound(SoundType.SLIMESTEP);
     }
 
-    readonly int deviation = 10;
+    readonly int deviation = 5;
     public void PlaceEnemy(GameObject unit)
     {
         Vector3 tilePosition;
         GameObject spawned = GameObject.Instantiate(unit, Vector3.zero, PhysicsHelper.RandomCardinalRotate());
+        
         UnitAI unitAI = spawned.GetComponent<UnitAI>();
-
         otherSpots = otherSpots.OrderBy(x => GetPositionScore(unitAI, x)).ToList();
+
+        currentlySpawned.Add(spawned);
+
         int placementIndex = Random.Range(0, deviation);
         tilePosition = otherSpots[placementIndex].unitPosition;
         otherSpots.RemoveAt(placementIndex);
@@ -100,9 +106,19 @@ public class BattleUnitSpawner
     }
 
     readonly int graceDistance = 1;
+    readonly float allyPenalty = 3f;
     float GetPositionScore(UnitAI unit, BattleTileController tile)
     {
-        return Mathf.Abs((playerSpawn - tile.unitPosition).magnitude - (unit.personality.proximityHostile + graceDistance));
+        float playerScore = Mathf.Abs((playerSpawn - tile.unitPosition).magnitude - (unit.personality.proximityHostile + graceDistance));
+        float allyScore = 0;
+        if(currentlySpawned.Count > 0)
+        {
+            foreach(var spawn in currentlySpawned)
+            {
+                allyScore += Mathf.Clamp(allyPenalty - (spawn.transform.position - tile.unitPosition).magnitude, 0, allyPenalty);
+            }
+        }
+        return playerScore + allyScore;
     }
 
     internal void PlaceBoss(List<int> sequence)

@@ -9,16 +9,30 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
 {
     [HideInInspector] public Transform parentAfterDrag;
     public Image image;
-    [HideInInspector] public EssenceCrafting essenceCrafting;
-
+    EssenceCrafting essenceCrafting;
     [HideInInspector] public Deck essence;
-    [HideInInspector] public Canvas mainCanvas;
+    Canvas mainCanvas;
+
+    public HatControl hatControl;
 
     [SerializeField] ParticleSystem newFire;
 
-    [HideInInspector] public GameObject hat;
-
     readonly int thrustDistance = 50;
+    public void InitializeDraggable(EssenceCrafting crafter, Canvas canvas, Deck deck)
+    {
+        gameObject.SetActive(true);
+        essenceCrafting = crafter;
+        mainCanvas = canvas;
+        essence = deck;
+
+        ColorUtility.TryParseHtmlString("#F8B63C", out Color colorFromHex);
+        if (deck.deckContents.Count >= 5) image.color = colorFromHex;
+        else image.color = Color.white;
+
+        hatControl ??= new(image);
+        hatControl.DeployHat(deck.hat);
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         newFire.Stop();
@@ -79,25 +93,6 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         {
             essenceCrafting.QuickCraft(this);
         }
-    }
-
-    readonly static int hatTiltAngle = -10;
-    readonly static int hatProjectionDistance = 30;
-    public void DeployHat()
-    {
-        if(hat != null) Destroy(hat);
-        hat = Instantiate(essence.hat);
-        hat.transform.SetParent(image.transform, false);
-
-        Transform scalingCube = hat.transform.GetChild(0);
-        scalingCube.transform.SetParent(image.transform, true);
-        hat.transform.SetParent(scalingCube, true);
-
-        scalingCube.transform.localScale = Vector3.one * 50;
-        Vector3 position = new(0, 0, -hatProjectionDistance);
-        scalingCube.transform.localPosition = position;
-        scalingCube.transform.localRotation = Quaternion.identity;
-        hat.transform.localRotation = Quaternion.Euler(hatTiltAngle, 0, 0);
     }
 
     public void HighlightAsNew()

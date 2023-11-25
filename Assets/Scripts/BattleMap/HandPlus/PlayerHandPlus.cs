@@ -147,8 +147,8 @@ public class PlayerHandPlus : HandPlus
         PlayerCardDisplay cardDisplay = newCard.GetComponent<PlayerCardDisplay>();
         cardDisplay.cardBack.SetActive(true);
         cardDisplay.owner = thisUnit;
-        card.Initialize();
-        cardDisplay.PopulateCard(card);
+        card.InitializeEffects();
+        cardDisplay.PopulateCard(card, thisUnit);
         return cardDisplay;
     }
 
@@ -251,8 +251,8 @@ public class PlayerHandPlus : HandPlus
         cards.AddRange(handCards);
         foreach(ICardDisplay card in cards)
         {
-            card.thisCard.Initialize();
-            card.PopulateCard(card.thisCard, true);
+            card.thisCard.InitializeEffects();
+            card.PopulateCard(card.thisCard, thisUnit, true);
         }
     }
 }

@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interestAttack: 9.96
   interestBuff: 3.4
+  interestSummon: 0
   interestFriendly: 2
   interestHostile: 1.227
-  proximityFriendly: 0.98
+  proximityFriendly: 1
   proximityHostile: 4
   summonProximityHostile: 0
   summonProximityFriendly: 0

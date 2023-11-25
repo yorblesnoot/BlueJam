@@ -20,7 +20,7 @@ public class EssenceCrafting : MonoBehaviour
         public CraftType type;
         public CraftModule module;
     }
-    [SerializeField] List<CraftPackage> packages;
+    [SerializeField] List<CraftPackage> availableCrafts;
     Dictionary<CraftType, CraftModule> modules;
     public static CraftType craftType;
 
@@ -37,6 +37,7 @@ public class EssenceCrafting : MonoBehaviour
     [HideInInspector] public DraggableItem essenceSlotContents;
 
     [SerializeField] Canvas mainCanvas;
+    [SerializeField] Unit player;
 
     public static UnityEvent craftWindowClosed = new();
 
@@ -46,7 +47,7 @@ public class EssenceCrafting : MonoBehaviour
     {
         flagList = new();
         modules = new();
-        foreach (var item in packages)
+        foreach (var item in availableCrafts)
         {
             modules.Add(item.type, item.module);
         }
@@ -71,24 +72,14 @@ public class EssenceCrafting : MonoBehaviour
             dragItems[i].transform.SetParent(inventorySlots[i].transform, false);
             if (i < runData.essenceInventory.Count)
             {
-                dragItems[i].gameObject.SetActive(true);
-                dragItems[i].essenceCrafting = this;
-                dragItems[i].mainCanvas = mainCanvas;
-
-                //associate a draggable with a specific deck
                 Deck deck = runData.essenceInventory[i];
-                dragItems[i].essence = deck;
+
+                dragItems[i].InitializeDraggable(this, mainCanvas, deck);
                 if (flagList.Contains(deck))
                 {
                     dragItems[i].HighlightAsNew();
                     flagList.Remove(deck);
                 }
-
-                ColorUtility.TryParseHtmlString("#F8B63C", out Color colorFromHex);
-                if (runData.essenceInventory[i].deckContents.Count >= 5) dragItems[i].image.color = colorFromHex;
-                else dragItems[i].image.color = Color.white;
-
-                dragItems[i].DeployHat();
             }
             else
             {
@@ -189,7 +180,7 @@ public class EssenceCrafting : MonoBehaviour
             if (i < essence.deckContents.Count)
             {
                 miniCards[i].gameObject.SetActive(true);
-                miniCards[i].PopulateCard(essence.deckContents[i]);
+                miniCards[i].PopulateCard(essence.deckContents[i], player);
             }
             else
             {

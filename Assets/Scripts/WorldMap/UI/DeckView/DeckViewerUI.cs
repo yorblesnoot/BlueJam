@@ -28,8 +28,8 @@ public class DeckViewerUI : MonoBehaviour
         for(int c = 0; c < runData.playerDeck.deckContents.Count; c++)
         {
             cardDisplays[c].gameObject.SetActive(true);
-            runData.playerDeck.deckContents[c].Initialize();
-            cardDisplays[c].PopulateCard(runData.playerDeck.deckContents[c]);
+            runData.playerDeck.deckContents[c].InitializeEffects();
+            cardDisplays[c].PopulateCard(runData.playerDeck.deckContents[c], player);
             cardDisplays[c].emphasize.originalScale = cardDisplays[c].transform.localScale;
             cardDisplays[c].emphasize.readyEmphasis = true;
         }

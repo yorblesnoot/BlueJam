@@ -1,9 +1,11 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class NPCCardDisplay : MonoBehaviour, ICardDisplay
+public class NPCCardDisplay : MonoBehaviour, ICardDisplay //, IPointerEnterHandler, IPointerExitHandler
 {
     public BattleUnit owner { get; set; }
     public CardPlus thisCard { get; set; }
@@ -29,7 +31,7 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
     [SerializeField] ColoredSprite curse;
 
     //fill the details of a blank card
-    public void PopulateCard(CardPlus card, bool limited = false)
+    public void PopulateCard(CardPlus card, Unit owner, bool limited = false)
     {
         List<CardClass> cardClass = card.effects.Select(x => x.effectClass).ToList();
         thisCard = card;
@@ -76,4 +78,24 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay
             image.color = heal.color;
         }
     }
+
+    /*
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        StartCoroutine(CountToProject());
+    }
+
+    float projectDelay = .5f;
+    IEnumerator CountToProject()
+    {
+        yield return new WaitForSeconds(projectDelay);
+        CardProjector.ProjectCard(thisCard, owner, transform.position);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        StopAllCoroutines();
+        CardProjector.HideProjectedCard();
+    }
+    */
 }

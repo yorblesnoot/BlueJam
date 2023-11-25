@@ -12,6 +12,8 @@ public class PlayerClass : ScriptableObject
     [field: SerializeField] public int baseBarrier { get; private set; }
     [field: SerializeField] public int baseHealing { get; private set; }
 
+    [field: SerializeField] public float baseSpeed { get; private set; }
+
     [field: SerializeField] public List<CardPlus> basedeckContents { get; private set; }
 
     public void ResetAndInitialize(Deck deck)
@@ -27,5 +29,7 @@ public class PlayerClass : ScriptableObject
         stats.damageScaling = baseDamage;
         stats.barrierScaling = baseBarrier;
         stats.healScaling = baseHealing;
+
+        stats.turnSpeed = baseSpeed;
     }
 }
