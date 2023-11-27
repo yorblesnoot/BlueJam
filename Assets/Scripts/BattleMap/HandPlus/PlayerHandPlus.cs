@@ -49,7 +49,7 @@ public class PlayerHandPlus : HandPlus
             AddVisualCard(card);
         }
 
-        for(int i = 0; i < Settings.Balance.HesitationCurses; i++)
+        for(int i = 0; i < Settings.Balance[BalanceParameter.HesitationCurses]; i++)
         {
             AddVisualCard(hesitationCurse);
         }

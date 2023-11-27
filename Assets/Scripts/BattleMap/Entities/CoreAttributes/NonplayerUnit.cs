@@ -22,11 +22,11 @@ public class NonplayerUnit : BattleUnit, ITurnTaker
     }
     public void ScaleWithDifficulty(int difficultyFactor)
     {
-        loadedStats[StatType.MAXHEALTH] *= 1 + difficultyFactor * Settings.Balance.HealthPerThreat;
-        loadedStats[StatType.DAMAGE] *= 1 + difficultyFactor * Settings.Balance.StatPerThreat;
-        loadedStats[StatType.BARRIER] *= 1 + difficultyFactor * Settings.Balance.StatPerThreat;
-        loadedStats[StatType.HEAL] *= 1 + difficultyFactor * Settings.Balance.StatPerThreat;
-        loadedStats[StatType.SPEED] *= 1 + difficultyFactor * Settings.Balance.SpeedPerThreat;
+        loadedStats[StatType.MAXHEALTH] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemyHealthPerThreat];
+        loadedStats[StatType.DAMAGE] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemyStatsPerThreat];
+        loadedStats[StatType.BARRIER] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemyStatsPerThreat];
+        loadedStats[StatType.HEAL] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemyStatsPerThreat];
+        loadedStats[StatType.SPEED] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemySpeedPerThreat];
     }
 
     public override void TakeTurn()

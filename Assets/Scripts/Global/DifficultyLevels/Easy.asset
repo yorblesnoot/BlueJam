@@ -19,9 +19,31 @@ MonoBehaviour:
   <StepsPerThreat>k__BackingField: 14
   <ThreatHandicap>k__BackingField: 3
   <BaseFoeBudget>k__BackingField: 5
-  <ThreatPerBudgetUp>k__BackingField: 5
+  <ThreatPerBudgetUp>k__BackingField: 6
   <StatPerThreat>k__BackingField: 0.06
   <HealthPerThreat>k__BackingField: 0.02
   <SpeedPerThreat>k__BackingField: 0.01
   <MinimumDeckSize>k__BackingField: 8
   <HesitationCurses>k__BackingField: 0
+  baseSetting: {fileID: 0}
+  parameters:
+  - Parameter: 0
+    Value: 40
+  - Parameter: 1
+    Value: 14
+  - Parameter: 2
+    Value: 3
+  - Parameter: 3
+    Value: 5
+  - Parameter: 4
+    Value: 6
+  - Parameter: 5
+    Value: 0.06
+  - Parameter: 6
+    Value: 0.02
+  - Parameter: 7
+    Value: 0.01
+  - Parameter: 8
+    Value: 8
+  - Parameter: 9
+    Value: 0

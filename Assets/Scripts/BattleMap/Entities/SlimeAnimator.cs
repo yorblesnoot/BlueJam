@@ -58,7 +58,7 @@ public class SlimeAnimator : MonoBehaviour
     readonly public static float accelTime = .24f;
     public IEnumerator EndWalk(float moveLength)
     {
-        if(animator.GetFloat(yVelocity) == 0) yield break;
+        if(animator == null || animator.GetFloat(yVelocity) == 0) yield break;
         yield return new WaitForSeconds(moveLength - accelTime);
 
         

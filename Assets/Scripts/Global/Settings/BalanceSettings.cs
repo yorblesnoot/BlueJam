@@ -1,41 +1,82 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using UnityEngine;
+
+public enum BalanceParameter
+{
+    BossDistance,
+    StepsPerThreat,
+    ThreatHandicap,
+    BaseEncounterSize,
+    ThreatPerEncounterSizeUp,
+    EnemyStatsPerThreat,
+    EnemyHealthPerThreat,
+    EnemySpeedPerThreat,
+    MinimumDeckSize,
+    HesitationCurses
+}
 
 [CreateAssetMenu(fileName = "BalanceSettings", menuName = "ScriptableObjects/BalanceSettings")]
 public class BalanceSettings : ScriptableObject
 {
-    [field: SerializeField] public string Tooltip { get; private set; }
-    [field: SerializeField] public int BossSpawnDistance { get; private set; }
-    [field: SerializeField] public int StepsPerThreat { get; private set; }
-    [field: SerializeField] public int ThreatHandicap { get; private set; }
-    [field: SerializeField] public int BaseFoeBudget { get; private set; }
-    [field: SerializeField] public int ThreatPerBudgetUp { get; private set; }
-
-    [field: SerializeField] public float StatPerThreat { get; private set; }
-    [field: SerializeField] public float HealthPerThreat { get; private set; }
-    [field: SerializeField] public float SpeedPerThreat { get; private set; }
-
-    [field: SerializeField] public int MinimumDeckSize { get; private set; }
+    public float this[BalanceParameter i]
+    {
+        get { return loadedParameters[i]; }
+    }
 
     [field: SerializeField] public int HesitationCurses { get; private set; }
 
+    public Dictionary<BalanceParameter, float> loadedParameters;
+    [SerializeField] List<SerializedParameter> parameters;
 
-
-
-
-    private void Reset()
+    [System.Serializable]
+    class SerializedParameter
     {
-        BossSpawnDistance = 40;
-        StepsPerThreat = 10;
-        ThreatHandicap = 2;
-        BaseFoeBudget = 5;
-        ThreatPerBudgetUp = 5;
+        public BalanceParameter Parameter;
+        public float Value;
+    }
 
-        StatPerThreat = .1f;
-        HealthPerThreat = .04f;
-        SpeedPerThreat = .01f;
+    void LoadParameters()
+    {
+        loadedParameters = new();
+        foreach(var parameter in parameters)
+        {
+            loadedParameters.Add(parameter.Parameter, parameter.Value);
+        }
+    }
 
-        MinimumDeckSize = 9;
+    public void CombineDifficulties(List<BalanceSettings> settings)
+    {
+        foreach(var item in settings)
+        {
+            item.LoadParameters();
+            foreach(var key in item.loadedParameters.Keys)
+            {
+                if (loadedParameters.TryGetValue(key, out float val))
+                {
+                    loadedParameters[key] += val;
+                }
+                else
+                {
+                    loadedParameters.Add(key, val);
+                }
+            }
+            
+        }
+    }
+
+    public string GetDifferenceDescription()
+    {
+        string output = "";
+        foreach (var parameter in parameters)
+        {
+            float difference = parameter.Value;
+            output += $"{parameter.Parameter.ToString().SplitCamelCase()}" +
+            (difference > 0 ? "<color=green>+</color>" : "<color=red>-</color>") +
+            Environment.NewLine;
+        }
+        return output;
     }
 }

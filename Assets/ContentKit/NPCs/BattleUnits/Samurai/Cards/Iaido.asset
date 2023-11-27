@@ -15,18 +15,15 @@ MonoBehaviour:
   Id: 842cc3e9-8bb8-4019-8b3d-8479c6204128
   displayName: Sheathed Stance
   art: {fileID: 21300000, guid: 8663719f965b64614ae53948cf9eba34, type: 3}
-  cost: 4
-  description: 'Decrease damage by 10%. Increase barriers by 10%. Conjure 1 temporary
-    copy of <color=#FFA500>Unleashed Slice</color> to target''s discard. '
-  keywords: 'Range: 0-0 <color=blue>O</color>. <color=red>Consumed.</color>'
+  cost: 3
   targetShape: 0
   targetSize: 0
   targetGap: 0
   needsPath: 0
   isCurse: 0
-  cardClass: 02000000
   consumed: 1
   animType: 0
+  delayBeforeEffects: 0
   effects:
   - {fileID: 11400000, guid: 318362d4777809d47b6bea8ce38d68b7, type: 2}
   - {fileID: 11400000, guid: 235e2c83775c0144aab29fc303b741cf, type: 2}

@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -40,7 +39,7 @@ public class CardHistory : MonoBehaviour
     [SerializeField] float moveTime;
     [SerializeField] float enterTime;
     [SerializeField] float exitTime;
-    float exitDistance = 300;
+    readonly float exitDistance = 300;
     void CycleElements()
     {
         Vector3 startPosition = Vector3.zero;

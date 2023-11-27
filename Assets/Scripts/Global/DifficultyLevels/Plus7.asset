@@ -12,15 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e0c7db2d119bc409a226792cce5017, type: 3}
   m_Name: Plus7
   m_EditorClassIdentifier: 
-  <Tooltip>k__BackingField: Threat starts higher. Enemies deal more damage, barrier,
-    and healing.
   <BossSpawnDistance>k__BackingField: 40
   <StepsPerThreat>k__BackingField: 8
   <ThreatHandicap>k__BackingField: -4
   <BaseFoeBudget>k__BackingField: 7
-  <ThreatPerBudgetUp>k__BackingField: 5
+  <ThreatPerBudgetUp>k__BackingField: 6
   <StatPerThreat>k__BackingField: 0.11
   <HealthPerThreat>k__BackingField: 0.05
   <SpeedPerThreat>k__BackingField: 0.012
   <MinimumDeckSize>k__BackingField: 11
   <HesitationCurses>k__BackingField: 2
+  parameters:
+  - Parameter: 7
+    Value: 0.001
+  - Parameter: 9
+    Value: 1
+  - Parameter: 1
+    Value: -1

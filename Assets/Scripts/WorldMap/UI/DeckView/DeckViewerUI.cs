@@ -52,7 +52,7 @@ public class DeckViewerUI : MonoBehaviour
     public void RemoveCard(CardPlus card, GameObject cardObject)
     {
         if (!removal.isOn)
-        {        
+        {
             status.text = "Press the button on the left to toggle card removal.";
             statusAnimator.Play(redFlash);
             return;
@@ -63,9 +63,9 @@ public class DeckViewerUI : MonoBehaviour
             statusAnimator.Play(redFlash);
             return;
         }
-        else if (runData.playerDeck.deckContents.Count <= Settings.Balance.MinimumDeckSize)
+        else if (runData.playerDeck.deckContents.Count <= Mathf.RoundToInt(Settings.Balance[BalanceParameter.MinimumDeckSize]))
         {
-            status.text = $"Removing a card would put you below the minimum deck size of {Settings.Balance.MinimumDeckSize}...";
+            status.text = $"Removing a card would put you below the minimum deck size of {Mathf.RoundToInt(Settings.Balance[BalanceParameter.MinimumDeckSize])}...";
             statusAnimator.Play(redFlash);
             return;
         }

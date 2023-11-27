@@ -110,7 +110,7 @@ public class WorldEventHandler : MonoBehaviour
     {
         //save the biome generation data to runData, then send us into the battlemap
         sceneRelay.availableMaps = biomeMaps;
-        sceneRelay.enemyBudget = Settings.Balance.BaseFoeBudget + runData.ThreatLevel / Settings.Balance.ThreatPerBudgetUp;
+        sceneRelay.enemyBudget = Mathf.RoundToInt(Settings.Balance[BalanceParameter.BaseEncounterSize]) + runData.ThreatLevel / Mathf.RoundToInt(Settings.Balance[BalanceParameter.ThreatPerEncounterSizeUp]);
         EventManager.prepareForBattle.Invoke();
         EventManager.loadSceneWithScreen.Invoke(2);
         EventManager.loadSceneWithScreen.Invoke(-1);

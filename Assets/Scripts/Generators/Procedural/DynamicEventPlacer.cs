@@ -102,7 +102,7 @@ public class DynamicEventPlacer
     public void PlaceBoss()
     {
         Vector2 direction = UnityEngine.Random.insideUnitCircle.normalized;
-        direction *= Settings.Balance.BossSpawnDistance;
+        direction *= Settings.Balance[BalanceParameter.BossDistance];
         Vector2Int intLocation = new(Mathf.RoundToInt(direction.x) + runData.playerWorldX, Mathf.RoundToInt(direction.y) + runData.playerWorldY);
         Vector2Int chunkLocation = intLocation/chunkSize;
         PopulateChunk(chunkLocation);

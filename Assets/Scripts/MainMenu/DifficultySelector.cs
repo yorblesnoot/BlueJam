@@ -49,15 +49,17 @@ public class DifficultySelector : MonoBehaviour, IPointerEnterHandler, IPointerE
     void UpdateDifficultyDisplay(int level)
     {
         difficultyDisplay.text = difficulties[level].difficultyName;
-        tooltipText.text = difficulties[currentDifficulty].difficultyParams.Tooltip;
+        tooltipText.text = level == 0 ? "Too easy." : difficulties[currentDifficulty].difficultyParams.GetDifferenceDescription();
         difficultyDisplay.color = difficulties[level].color;
         if (currentDifficulty == difficulties.Count - 1 || currentDifficulty == PlayerPrefs.GetInt("UnlockedDifficulty", 2)) arrowHarder.SetActive(false);
         else arrowHarder.SetActive(true);
         if (currentDifficulty == 0) arrowEasier.SetActive(false);
         else arrowEasier.SetActive(true);
     }
+
     public BalanceSettings GetDifficultyFromTier(int tier)
     {
+        difficulties[tier].difficultyParams.CombineDifficulties(difficulties.Select(x => x.difficultyParams).Take(tier+1).ToList());
         return difficulties[tier].difficultyParams;
     }
 

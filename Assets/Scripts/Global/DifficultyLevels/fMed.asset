@@ -12,14 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4e0c7db2d119bc409a226792cce5017, type: 3}
   m_Name: fMed
   m_EditorClassIdentifier: 
-  <Tooltip>k__BackingField: Enemies start weaker and gain less power as threat increases.
   <BossSpawnDistance>k__BackingField: 40
-  <StepsPerThreat>k__BackingField: 12
-  <ThreatHandicap>k__BackingField: 1
+  <StepsPerThreat>k__BackingField: 14
+  <ThreatHandicap>k__BackingField: 3
   <BaseFoeBudget>k__BackingField: 5
-  <ThreatPerBudgetUp>k__BackingField: 5
-  <StatPerThreat>k__BackingField: 0.07
-  <HealthPerThreat>k__BackingField: 0.03
+  <ThreatPerBudgetUp>k__BackingField: 6
+  <StatPerThreat>k__BackingField: 0.06
+  <HealthPerThreat>k__BackingField: 0.02
   <SpeedPerThreat>k__BackingField: 0.01
-  <MinimumDeckSize>k__BackingField: 9
+  <MinimumDeckSize>k__BackingField: 8
   <HesitationCurses>k__BackingField: 0
+  parameters:
+  - Parameter: 1
+    Value: -2
+  - Parameter: 2
+    Value: -2
+  - Parameter: 8
+    Value: 1
