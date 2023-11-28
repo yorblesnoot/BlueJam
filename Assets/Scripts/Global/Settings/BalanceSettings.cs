@@ -8,7 +8,7 @@ public enum BalanceParameter
 {
     BossDistance,
     StepsPerThreat,
-    ThreatHandicap,
+    StartingThreat,
     BaseEncounterSize,
     ThreatPerEncounterSizeUp,
     EnemyStatsPerThreat,
@@ -49,33 +49,38 @@ public class BalanceSettings : ScriptableObject
 
     public void CombineDifficulties(List<BalanceSettings> settings)
     {
+        LoadParameters();
         foreach(var item in settings)
         {
             item.LoadParameters();
             foreach(var key in item.loadedParameters.Keys)
             {
-                if (loadedParameters.TryGetValue(key, out float val))
+                if (loadedParameters.ContainsKey(key))
                 {
-                    loadedParameters[key] += val;
+                    loadedParameters[key] += item.loadedParameters[key];
                 }
                 else
                 {
-                    loadedParameters.Add(key, val);
+                    loadedParameters.Add(key, item.loadedParameters[key]);
                 }
             }
             
+        }
+        foreach (var key in loadedParameters.Keys)
+        {
+            Debug.Log(key + ": " + loadedParameters[key]);
         }
     }
 
     public string GetDifferenceDescription()
     {
-        string output = "";
+        string output = "<b>Changes:</b>";
         foreach (var parameter in parameters)
         {
             float difference = parameter.Value;
-            output += $"{parameter.Parameter.ToString().SplitCamelCase()}" +
-            (difference > 0 ? "<color=green>+</color>" : "<color=red>-</color>") +
-            Environment.NewLine;
+            output += Environment.NewLine + (difference > 0 ? "<color=green>+</color>" : "<color=red>-</color>") +
+            $" {parameter.Parameter.ToString().SplitCamelCase()}";
+            
         }
         return output;
     }

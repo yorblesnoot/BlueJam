@@ -59,7 +59,7 @@ public class DifficultySelector : MonoBehaviour, IPointerEnterHandler, IPointerE
 
     public BalanceSettings GetDifficultyFromTier(int tier)
     {
-        difficulties[tier].difficultyParams.CombineDifficulties(difficulties.Select(x => x.difficultyParams).Take(tier+1).ToList());
+        difficulties[tier].difficultyParams.CombineDifficulties(difficulties.Select(x => x.difficultyParams).Take(tier).ToList());
         return difficulties[tier].difficultyParams;
     }
 

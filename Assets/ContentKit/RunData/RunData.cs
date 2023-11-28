@@ -27,7 +27,7 @@ public class RunData : ScriptableObject
     public int RemoveStock;
     
     public int worldSteps;
-    public int ThreatLevel { get { return worldSteps / Mathf.RoundToInt(Settings.Balance[BalanceParameter.StepsPerThreat]) - Mathf.RoundToInt(Settings.Balance[BalanceParameter.ThreatHandicap]); } }
+    public int ThreatLevel { get { return worldSteps / Mathf.RoundToInt(Settings.Balance[BalanceParameter.StepsPerThreat]) - Mathf.RoundToInt(Settings.Balance[BalanceParameter.StartingThreat]); } }
     public int difficultyTier;
 
     public int currentHealth;
