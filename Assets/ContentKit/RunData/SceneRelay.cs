@@ -9,6 +9,7 @@ public class SceneRelay : ScriptableObject
     public List<GameObject> availableMaps;
     public SpawnPool spawnPool;
     public int enemyBudget;
+    public int riftBudget;
     public bool bossEncounter;
 
     public Vector3 cameraPosition;

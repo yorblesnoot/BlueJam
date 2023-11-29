@@ -25,6 +25,9 @@ public class BattleLauncher : MapLauncher
 
     IEnumerator StartBattle()
     {
+        //create void rifts
+        riftMaker.PlaceRifts(map, sceneRelay.riftBudget);
+
         //place units onto the map
         BattleUnitSpawner encounterBuilder = new(sceneRelay.spawnPool, map, masterEnemyPool);
         
@@ -32,7 +35,7 @@ public class BattleLauncher : MapLauncher
         Tutorial.Initiate(TutorialFor.BATTLEACTIONS, TutorialFor.MAIN);
         Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 1, "The fight is on! An <color=orange>orange exclamation</color> over me means it's my turn. On my turn, you can click on a map tile and I'll move there.");
 
-        riftMaker.PlaceRifts(map, 5);
+        
         
         if (sceneRelay.bossEncounter == true) encounterBuilder.PlaceBoss(runData.bossSequence);
         else encounterBuilder.SmartSpawn(sceneRelay.enemyBudget);

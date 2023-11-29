@@ -20,3 +20,4 @@ MonoBehaviour:
     Value: 0.01
   - Parameter: 6
     Value: 0.01
+  baseSettings: {fileID: 11400000, guid: 033602ff9e7b807449234fe3da4cc373, type: 2}

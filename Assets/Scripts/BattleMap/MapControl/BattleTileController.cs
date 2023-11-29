@@ -12,6 +12,10 @@ public class BattleTileController : MonoBehaviour
     #nullable disable
     [HideInInspector] public Vector3 unitPosition;
 
+    public bool IsRift { get { return isRift; } }
+    bool isRift;
+
+    [SerializeField] GameObject mapGridElement;
     [SerializeField] CellHighlight cellHighlighter;
     HighlightMode baseHighlight = HighlightMode.OFF;
 
@@ -60,7 +64,7 @@ public class BattleTileController : MonoBehaviour
 
     private void OnMouseEnter()
     {
-        if(PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
+        if(!isRift && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
         {
             Pathfinder pather = new();
             myPath = pather.FindObjectPath(MapTools.VectorToMap(TurnManager.playerUnit.transform.position), MapTools.VectorToMap(unitPosition));
@@ -89,6 +93,12 @@ public class BattleTileController : MonoBehaviour
     private void OnMouseExit() { 
         EventManager.clearAOE?.Invoke();
         if(PlayerUnit.playerState == PlayerBattleState.IDLE) EventManager.hideTurnDisplay.Invoke();
+    }
+
+    public void BecomeRift()
+    {
+        isRift = true;
+        mapGridElement.SetActive(false);
     }
 
     public void HighlightCell(BattleUnit owner, CardPlus card) 

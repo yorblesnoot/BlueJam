@@ -23,13 +23,22 @@ public class BalanceSettings : ScriptableObject
 {
     public float this[BalanceParameter i]
     {
-        get { return loadedParameters[i]; }
+        get { 
+            if(loadedParameters == null)
+            {
+                Debug.LogWarning("Defaulted to Easy Difficulty.");
+                baseSettings.LoadParameters();
+                loadedParameters = baseSettings.loadedParameters;
+            }
+            return loadedParameters[i];
+        }
     }
 
     [field: SerializeField] public int HesitationCurses { get; private set; }
 
     public Dictionary<BalanceParameter, float> loadedParameters;
     [SerializeField] List<SerializedParameter> parameters;
+    [SerializeField] BalanceSettings baseSettings;
 
     [System.Serializable]
     class SerializedParameter

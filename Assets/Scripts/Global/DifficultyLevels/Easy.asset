@@ -34,3 +34,4 @@ MonoBehaviour:
     Value: 8
   - Parameter: 9
     Value: 0
+  baseSettings: {fileID: 11400000}

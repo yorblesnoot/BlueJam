@@ -73,7 +73,7 @@ public static class CellTargeting
         foreach (var effect in card.effects)
         {
             BattleTileController effectTile = tile;
-            if (effect.effectClass == CardClass.MOVE && effectTile.unitContents == null) return true;
+            if (effect.effectClass == CardClass.MOVE && effectTile.unitContents == null && !tile.IsRift) return true;
             if (effect.targetNotRequired || effect.forceTargetSelf) continue;
             int validTargets = AreaTargets(effectTile.gameObject, sourceAllegiance, effect.effectClass, effect.aoe).Count;
             if (validTargets == 0) return false;
@@ -149,6 +149,8 @@ public static class CellTargeting
         else if(cardClass == CardClass.MOVE)
         {
             //move can only target empty
+            Debug.Log(tile.IsRift);
+            if(tile.IsRift) return false;
             if(targetAllegiance == AllegianceType.EMPTY) return true;
             else return false;
         }

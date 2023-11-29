@@ -5,42 +5,98 @@ using UnityEngine;
 public class RiftMaker : MonoBehaviour
 {
     [SerializeField] List<RiftType> types;
-    [SerializeField] float riftHeight;
+    public static List<Vector2Int> riftedCells;
     public void PlaceRifts(Dictionary<Vector2Int, GameObject> map, int budget)
     {
-        List<Vector2Int> riftedCells = new();
+        riftedCells = new();
+        Dictionary<Vector2Int, GameObject> availableMap = new(map);
         while (budget > 0)
         {
             int riftSelect = Random.Range(0, types.Count);
             
             RiftType chosenRift = types[riftSelect];
 
-            List<Vector2Int> cellsToCheck = map.Keys.ToList();
+            List<Vector2Int> cellsToCheck = availableMap.Keys.ToList();
             while(cellsToCheck.Count > 0)
             {
                 int cellSelect = Random.Range(0, cellsToCheck.Count);
                 Vector2Int targetCell = cellsToCheck[cellSelect];
-                List<Vector2Int> occupiedCells = RiftFits(targetCell, chosenRift, map);
+                cellsToCheck.Remove(targetCell);
+                List<Vector2Int> occupiedCells = RiftBlueprint(targetCell, chosenRift, availableMap);
 
                 if (occupiedCells == null) continue;
+                if (RiftCrowdingOtherRifts(occupiedCells, riftedCells)) continue;
+                if (RiftWouldBlockPathing(occupiedCells, availableMap)) continue;
+                
 
+                RemoveCellsFromMap(occupiedCells, availableMap);
                 PlaceRift(chosenRift, targetCell);
-                riftedCells.AddRange(occupiedCells);
-                cellsToCheck.Remove(targetCell);
                 budget -= chosenRift.Cost;
+
+                riftedCells.AddRange(occupiedCells);
                 break;
             }
         }
 
         //do something with the list of rift cells
+        foreach(var cell in riftedCells)
+        {
+            cell.MapToTile().GetComponent<BattleTileController>().BecomeRift();
+        }
+    }
+
+    private bool RiftCrowdingOtherRifts(List<Vector2Int> occupiedCells, List<Vector2Int> riftedCells)
+    {
+        foreach(var cell in occupiedCells)
+        {
+            List<Vector2Int> adjacents = cell.GetAdjacentCoordinates();
+            foreach(var adjacent in adjacents)
+            {
+                if (riftedCells.Contains(adjacent)) return true;
+            }
+        }
+        return false;
+    }
+
+    private void RemoveCellsFromMap(List<Vector2Int> occupiedCells, Dictionary<Vector2Int, GameObject> availableMap)
+    {
+        foreach(var cell in occupiedCells)
+        {
+            availableMap.Remove(cell);
+        }
+    }
+
+    private bool RiftWouldBlockPathing(List<Vector2Int> occupiedCells, Dictionary<Vector2Int, GameObject> availableMap)
+    {
+        Dictionary<Vector2Int, GameObject> potentialMap = new(availableMap);
+        RemoveCellsFromMap(occupiedCells, potentialMap);
+
+        Vector2Int startPoint = potentialMap.Keys.First();
+        FloodRecursive(startPoint);
+
+        if (potentialMap.Count == 0) return false;
+        else return true;
+
+        void FloodRecursive(Vector2Int origin)
+        {
+            List<Vector2Int> surrounding = origin.GetAdjacentCoordinates();
+            potentialMap.Remove(origin);
+            foreach (Vector2Int x in surrounding)
+            {
+                if (potentialMap.ContainsKey(x))
+                {
+                    FloodRecursive(x);
+                }
+            }
+        }
     }
 
     private void PlaceRift(RiftType chosenRift, Vector2Int targetCell)
     {
-        Instantiate(chosenRift.rift, targetCell.MapToVector(riftHeight), Quaternion.identity);
+        Instantiate(chosenRift.rift, targetCell.MapToTile().transform.position, Quaternion.identity);
     }
 
-    private List<Vector2Int> RiftFits(Vector2Int targetCell, RiftType chosenRift, Dictionary<Vector2Int, GameObject> map)
+    private List<Vector2Int> RiftBlueprint(Vector2Int targetCell, RiftType chosenRift, Dictionary<Vector2Int, GameObject> map)
     {
         List<Vector2Int> output = new();
         for (int x =  0; x < chosenRift.dimensions.x; x++)

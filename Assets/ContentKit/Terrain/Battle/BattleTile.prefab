@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1144681784751436392}
   - component: {fileID: 7622080835598160891}
   m_Layer: 0
-  m_Name: BattleBlock
+  m_Name: BattleTile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,11 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bfc7e0f675479246a24137bd812ed9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  availableMove: 0
+  availableForPlay: 0
   unitContents: {fileID: 0}
   unitPosition: {x: 0, y: 0, z: 0}
+  mapGridElement: {fileID: 7485762697563411074}
   cellHighlighter: {fileID: 8375228703427349927}
-  spawns: 0
+  activateUnitStencil: 0
 --- !u!65 &7622080835598160891
 BoxCollider:
   m_ObjectHideFlags: 0
