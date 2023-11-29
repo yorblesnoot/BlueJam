@@ -10,6 +10,8 @@ public class BattleLauncher : MapLauncher
     [SerializeField] CameraLock camLock;
     [SerializeField] MasterEnemyPool masterEnemyPool;
 
+    [SerializeField] RiftMaker riftMaker;
+
     private void Start()
     {
         //instantiate a prefab map
@@ -29,6 +31,9 @@ public class BattleLauncher : MapLauncher
 
         Tutorial.Initiate(TutorialFor.BATTLEACTIONS, TutorialFor.MAIN);
         Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 1, "The fight is on! An <color=orange>orange exclamation</color> over me means it's my turn. On my turn, you can click on a map tile and I'll move there.");
+
+        riftMaker.PlaceRifts(map, 5);
+        
         if (sceneRelay.bossEncounter == true) encounterBuilder.PlaceBoss(runData.bossSequence);
         else encounterBuilder.SmartSpawn(sceneRelay.enemyBudget);
 

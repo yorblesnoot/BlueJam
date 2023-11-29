@@ -2425,6 +2425,7 @@ GameObject:
   - component: {fileID: 388095518}
   - component: {fileID: 388095520}
   - component: {fileID: 388095521}
+  - component: {fileID: 388095522}
   m_Layer: 0
   m_Name: BattleMaster
   m_TagString: GameController
@@ -2529,6 +2530,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tracker: {fileID: 7041260999172645529, guid: 2f598ef42cb0ca94bad559b1fb3b6f9b, type: 3}
+--- !u!114 &388095522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388095515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bdd45c1d1b3cc4b8160c1823f447e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  types:
+  - rift: {fileID: 1034145565283118504, guid: 6bf9917d4beb55f49916110299bb0cda, type: 3}
+    dimensions: {x: 1, y: 1}
+  - rift: {fileID: 8372680718998235774, guid: dc6206887ade9044ca0c11e9ec066e3c, type: 3}
+    dimensions: {x: 1, y: 2}
+  - rift: {fileID: 2664701646031636913, guid: af2b269706f8f4a4a843c35e0a7e46e0, type: 3}
+    dimensions: {x: 2, y: 1}
+  - rift: {fileID: 2361423128698814699, guid: cf59759f0ad29704790793082072ccb7, type: 3}
+    dimensions: {x: 2, y: 2}
+  riftHeight: 0
 --- !u!1001 &394582959
 PrefabInstance:
   m_ObjectHideFlags: 0
