@@ -7,7 +7,7 @@ public class BattleUnitSpawner
 {
 
     Dictionary<Vector2Int, GameObject> battleMap;
-    List<BattleTileController> otherSpots = new();
+    List<BattleTileController> validSpots = new();
     SpawnPool spawnPool;
     MasterEnemyPool masterEnemyPool;
 
@@ -50,9 +50,9 @@ public class BattleUnitSpawner
 
     private Vector3 DesignatePlayerSpawnLocation()
     {
-        int placementIndex = Random.Range(0, otherSpots.Count);
-        Vector3 tilePosition = otherSpots[placementIndex].unitPosition;
-        otherSpots.RemoveAt(placementIndex);
+        int placementIndex = Random.Range(0, validSpots.Count);
+        Vector3 tilePosition = validSpots[placementIndex].unitPosition;
+        validSpots.RemoveAt(placementIndex);
         return tilePosition;
     }
 
@@ -64,7 +64,8 @@ public class BattleUnitSpawner
             if (tile != null)
             {
                 BattleTileController battleTileController = tile.GetComponent<BattleTileController>();
-                otherSpots.Add(battleTileController);
+                if (battleTileController.IsRift) continue;
+                validSpots.Add(battleTileController);
             }
         }
     }
@@ -95,13 +96,13 @@ public class BattleUnitSpawner
         GameObject spawned = GameObject.Instantiate(unit, Vector3.zero, PhysicsHelper.RandomCardinalRotate());
         
         UnitAI unitAI = spawned.GetComponent<UnitAI>();
-        otherSpots = otherSpots.OrderBy(x => GetPositionScore(unitAI, x)).ToList();
+        validSpots = validSpots.OrderBy(x => GetPositionScore(unitAI, x)).ToList();
 
         currentlySpawned.Add(spawned);
 
         int placementIndex = Random.Range(0, deviation);
-        tilePosition = otherSpots[placementIndex].unitPosition;
-        otherSpots.RemoveAt(placementIndex);
+        tilePosition = validSpots[placementIndex].unitPosition;
+        validSpots.RemoveAt(placementIndex);
         spawned.transform.position = tilePosition;
     }
 
