@@ -79,7 +79,7 @@ Shader "Universal Render Pipeline/LitWithStencil"
 
         Stencil
         {
-            Ref 1
+            Ref 2
             Comp NotEqual
         }
 

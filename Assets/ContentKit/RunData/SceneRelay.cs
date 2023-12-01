@@ -6,7 +6,8 @@ using UnityEngine;
 public class SceneRelay : ScriptableObject
 {
     //enemy spawn info to convey from world to battle
-    public List<GameObject> availableMaps;
+    public TerrainType battleMap;
+
     public SpawnPool spawnPool;
     public int enemyBudget;
     public int riftBudget;

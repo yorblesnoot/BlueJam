@@ -75,27 +75,27 @@ public class Pathfinder
     }
     public List<GameObject> FindObjectPath(Vector2Int start, Vector2Int end)
     {
-        List<Node> path = FindPath(nodeMap[start], nodeMap[end]);
+        List<Node> path = FindPath(start, end);
         if (path == null || path.Count == 0) return null;
         return path.Select(x => x.reference).ToList();
     }
 
     public List<Vector2Int> FindVectorPath(Vector2Int start, Vector2Int end)
     {
-        List<Node> path = FindPath(nodeMap[start], nodeMap[end]);
+        List<Node> path = FindPath(start, end);
         if (path == null || path.Count == 0) return null;
         return path.Select(x => x.location).ToList();
     }
 
     public int GetPathLength(Vector2Int start, Vector2Int end)
     {
-        List<Node> path = FindPath(nodeMap[start], nodeMap[end]);
+        List<Node> path = FindPath(start, end);
         if (path != null) return path.Count;
         else return -1;
     }
-    List<Node> FindPath(Node start, Node end)
+    List<Node> FindPath(Vector2Int startCoords, Vector2Int endCoords)
     {
-        if(start == end) return null;
+        if(!nodeMap.TryGetValue(startCoords, out Node start) || !nodeMap.TryGetValue(endCoords, out Node end)) return null;
         List<Node> openList = new();
         List<Node> closeList = new();
 

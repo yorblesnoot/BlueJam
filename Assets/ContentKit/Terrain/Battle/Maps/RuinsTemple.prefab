@@ -10553,6 +10553,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Archway_Stone_Half_02_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 705777646599930538, guid: 72b0bbf2cb091034bb531a47c579d709, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 8208725923243029445, guid: 72b0bbf2cb091034bb531a47c579d709, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -10705,6 +10709,10 @@ PrefabInstance:
     - target: {fileID: 7216348725367296379, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
       propertyPath: m_Name
       value: Prop_Ruins_Column_Stone_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216348725367296379, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 8029441231365606337, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
       propertyPath: m_RootOrder
@@ -10917,7 +10925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5c55d785a54808046b0a5949e27c62bd, type: 3}
       propertyPath: m_Layer
-      value: 9
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c55d785a54808046b0a5949e27c62bd, type: 3}

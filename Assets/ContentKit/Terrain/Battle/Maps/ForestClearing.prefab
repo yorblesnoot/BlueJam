@@ -593,7 +593,7 @@ GameObject:
   - component: {fileID: 735598655322379097}
   - component: {fileID: 1782237745196705009}
   - component: {fileID: 6071808599449699675}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Vegetation_Tree_Trunk_Fallen_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12180,7 +12180,7 @@ GameObject:
   - component: {fileID: 2952712856087458188}
   - component: {fileID: 878153250807871735}
   - component: {fileID: 1433895144952574745}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Vegetation_Tree_Trunk_Fallen_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}

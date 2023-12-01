@@ -11,11 +11,12 @@ public class BattleLauncher : MapLauncher
     [SerializeField] MasterEnemyPool masterEnemyPool;
 
     [SerializeField] RiftMaker riftMaker;
+    [SerializeField] MapDispenser dispenser;
 
     private void Start()
     {
         //instantiate a prefab map
-        Instantiate(sceneRelay.availableMaps[0], new Vector3(0, 0, 0), Quaternion.identity);
+        Instantiate(dispenser[sceneRelay.battleMap], new Vector3(0, 0, 0), Quaternion.identity);
 
         //tell the camera to find the lockpoint on the battle map and lock onto it
         camLock.CameraLockOn();

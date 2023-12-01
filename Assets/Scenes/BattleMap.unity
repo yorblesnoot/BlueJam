@@ -2455,7 +2455,7 @@ MonoBehaviour:
   camLock: {fileID: 1678473390}
   masterEnemyPool: {fileID: 11400000, guid: fdfcfaa337bce144d8e682a23350c8d2, type: 2}
   riftMaker: {fileID: 388095522}
-  riftBudget: 10
+  dispenser: {fileID: 11400000, guid: 790c73ec56edba846b5897a51139d5cd, type: 2}
 --- !u!4 &388095517
 Transform:
   m_ObjectHideFlags: 0
@@ -2549,7 +2549,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   types:
-  - rift: {fileID: 1034145565283118504, guid: 6bf9917d4beb55f49916110299bb0cda, type: 3}
+  - rift: {fileID: 1155174008283945434, guid: 6bf9917d4beb55f49916110299bb0cda, type: 3}
     dimensions: {x: 1, y: 1}
   - rift: {fileID: 8372680718998235774, guid: dc6206887ade9044ca0c11e9ec066e3c, type: 3}
     dimensions: {x: 1, y: 2}
@@ -2557,7 +2557,6 @@ MonoBehaviour:
     dimensions: {x: 2, y: 1}
   - rift: {fileID: 2361423128698814699, guid: cf59759f0ad29704790793082072ccb7, type: 3}
     dimensions: {x: 2, y: 2}
-  riftHeight: 0
 --- !u!1001 &394582959
 PrefabInstance:
   m_ObjectHideFlags: 0

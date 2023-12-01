@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc4fe611e4fed0d42a663d94dc0bf6e9, type: 3}
+  m_Name: BattleDispenser
+  m_EditorClassIdentifier: 
+  entries:
+  - key: 1
+    value: {fileID: 7543938464709401897, guid: 2463823e6c8c60846bb3d9955a3bc04e, type: 3}
+  - key: 2
+    value: {fileID: 7543938464709401897, guid: 2463823e6c8c60846bb3d9955a3bc04e, type: 3}
+  - key: 3
+    value: {fileID: 698135778367879114, guid: 300d9306a3757904e8fcced422aebb4a, type: 3}
+  - key: 4
+    value: {fileID: 6579961044355922646, guid: 5ad2a5aabe284d44587b14a66d6d173c, type: 3}
+  - key: 5
+    value: {fileID: 5895761788891455872, guid: 5df2e96aa1cbc2440a16a02788e87c6e, type: 3}
+  - key: 6
+    value: {fileID: 8796646488429909966, guid: 81e82d0cfa83fea46a25f0b41fff1ecd, type: 3}
+  - key: 7
+    value: {fileID: 7075301954276970245, guid: 2fca42b059feb354780a7d3d979c3f0a, type: 3}

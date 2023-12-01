@@ -7,7 +7,6 @@ using UnityEngine.Playables;
 public class WorldEventHandler : MonoBehaviour
 {
     public SpawnPool tileEnemyPreset;
-    public List<GameObject> biomeMaps;
     public RunData runData;
     public SceneRelay sceneRelay;
 
@@ -109,7 +108,8 @@ public class WorldEventHandler : MonoBehaviour
     void LaunchEncounter()
     {
         //save the biome generation data to runData, then send us into the battlemap
-        sceneRelay.availableMaps = biomeMaps;
+        Vector2Int worldPosition = transform.position.VectorToMap() + WorldMapRenderer.spotlightGlobalOffset;
+        sceneRelay.battleMap = runData.worldMap[worldPosition.x, worldPosition.y];
         sceneRelay.enemyBudget = Mathf.RoundToInt(Settings.Balance[BalanceParameter.BaseEncounterSize]) + runData.ThreatLevel / Mathf.RoundToInt(Settings.Balance[BalanceParameter.ThreatPerEncounterSizeUp]);
         EventManager.prepareForBattle.Invoke();
         EventManager.loadSceneWithScreen.Invoke(2);

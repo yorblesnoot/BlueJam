@@ -6,7 +6,7 @@ using UnityEngine.XR;
 
 public class WorldMapRenderer : MonoBehaviour
 {
-    [SerializeField] MapKey mapKey;
+    [SerializeField] MapDispenser mapKey;
     public WorldEventRenderer eventRenderer;
     [SerializeField] RunData runData;
     public static Vector2Int spotlightGlobalOffset;
@@ -79,10 +79,9 @@ public class WorldMapRenderer : MonoBehaviour
         TerrainType[,] localMap = GetLocalMapFromWindow(globalMap);
         //project a boolean grid onto a larger string grid, then render from the string grid based on the overlap
         int localSize = localMap.GetLength(0);
-        mapKey.Initialize();
         tilePools = new();
-        foreach (var key in mapKey.hashKey.Keys)
-            tilePools.Add(key, new ObjectPool(mapKey.hashKey[key]));
+        foreach (var key in mapKey.Keys)
+            tilePools.Add(key, new ObjectPool(mapKey[key]));
         for (int x = 0; x < localSize; x++)
         {
             for (int y = 0; y < localSize; y++)

@@ -4315,7 +4315,7 @@ GameObject:
   - component: {fileID: 8987562778098025636}
   - component: {fileID: 6699090684279782388}
   - component: {fileID: 1541742581077406976}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Vegetation_Tree_Trunk_04 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
