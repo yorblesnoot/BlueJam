@@ -124,7 +124,7 @@ public class WorldEventHandler : MonoBehaviour
         Vector3 risePosition = player.transform.position;
         Vector3 dropPosition = dropPoint.transform.position;
         float timeElapsed = 0;
-        WorldPlayerControl.player.GetComponent<SlimeAnimator>().Animate(AnimType.JUMP);
+        WorldPlayerControl.player.GetComponent<Animatable>().Animate(AnimType.JUMP);
         yield return new WaitForSeconds(.6f);
         Vector3 startScale = player.transform.localScale;
         while (timeElapsed < descentTime)

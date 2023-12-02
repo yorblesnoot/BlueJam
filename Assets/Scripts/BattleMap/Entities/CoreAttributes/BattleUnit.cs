@@ -9,12 +9,13 @@ public class BattleUnit : Unit
 
     public BuffTracker buffTracker;
     public HandPlus myHand;
-    public SlimeAnimator unitAnimator;
+    [SerializeReference]
+    public Animatable unitAnimator;
 
     public int deflectHealth { get; set; }
     public int shieldHealth { get; set; }
 
-    [HideInInspector] public bool isSummoned { get; set; }
+    [field:SerializeField] public bool isSummoned { get; set; }
     [HideInInspector] public bool isDead;
     [HideInInspector] public EntityUI myUI { get; set; }
     [HideInInspector] public CardPlus lastPlayed;

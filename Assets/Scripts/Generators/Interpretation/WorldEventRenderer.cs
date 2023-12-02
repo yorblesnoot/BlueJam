@@ -37,6 +37,7 @@ public class WorldEventRenderer : MonoBehaviour
             && eventTable.TryGetValue(eventType, out ObjectPool pool)
             && spawnedEvents.TryGetValue(globalCoordinates, out GameObject eventObj))
         {
+            eventObj.transform.parent = null;
             pool.ReturnToPool(eventObj);
             spawnedEvents.Remove(globalCoordinates);
         }

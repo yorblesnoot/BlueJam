@@ -11148,6 +11148,9 @@ MonoBehaviour:
   mapKey: {fileID: 11400000, guid: bf7949bf71852cb46aa6e8ffa0a8f7dc, type: 2}
   eventRenderer: {fileID: 835403975}
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
+  tileSpeedMinimum: 0.5
+  speedRangeSize: 1
+  animationLength: 0.5
 --- !u!114 &835403973
 MonoBehaviour:
   m_ObjectHideFlags: 0

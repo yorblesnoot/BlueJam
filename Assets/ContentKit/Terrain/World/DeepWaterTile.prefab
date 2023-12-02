@@ -126,13 +126,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7588975120024702915}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
-  m_LocalScale: {x: 1, y: 0.2, z: 1}
+  m_LocalPosition: {x: 0, y: 0.14999998, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.1, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7588975119689607798}
-  m_Father: {fileID: 7688223119471486344}
-  m_RootOrder: 1
+  m_Father: {fileID: 8619721907361643531}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &7588975120024702912
 MeshFilter:
@@ -208,6 +208,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7543938464709401897, guid: 2463823e6c8c60846bb3d9955a3bc04e, type: 3}
     - target: {fileID: 4115814837248698893, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4115814837248698893, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.263
       objectReference: {fileID: 0}
@@ -267,6 +271,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7619238452621299549, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7913928217956033831, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
       propertyPath: m_Name
       value: DeepWaterTile
@@ -275,10 +283,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8914121416236836382, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
---- !u!4 &7688223119471486344 stripped
+--- !u!4 &8619721907361643531 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7392724090278510493, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8914121416236836382, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
   m_PrefabInstance: {fileID: 876571717698247189}
   m_PrefabAsset: {fileID: 0}

@@ -11,6 +11,7 @@ public class BattleLauncher : MapLauncher
     [SerializeField] MasterEnemyPool masterEnemyPool;
 
     [SerializeField] RiftMaker riftMaker;
+    [SerializeField] TentacleSpawner tentacleSpawner;
     [SerializeField] MapDispenser dispenser;
 
     private void Start()
@@ -28,6 +29,7 @@ public class BattleLauncher : MapLauncher
     {
         //create void rifts
         riftMaker.PlaceRifts(map, sceneRelay.riftBudget);
+        tentacleSpawner.PlaceTentacles(map, 3);
 
         //place units onto the map
         BattleUnitSpawner encounterBuilder = new(sceneRelay.spawnPool, map, masterEnemyPool);

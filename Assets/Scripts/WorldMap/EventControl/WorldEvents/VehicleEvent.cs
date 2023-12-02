@@ -39,7 +39,7 @@ public class VehicleEvent : WorldEvent
     readonly float sitDuration = .4f;
     IEnumerator HopToVehicle()
     {
-        WorldPlayerControl.player.GetComponent<SlimeAnimator>().Animate(AnimType.JUMP);
+        WorldPlayerControl.player.GetComponent<Animatable>().Animate(AnimType.JUMP);
         float timeElapsed = 0;
         Quaternion targetRotation = WorldPlayerControl.player.playerVisual.transform.rotation;
         Quaternion startRotiation = transform.rotation;
@@ -69,7 +69,7 @@ public class VehicleEvent : WorldEvent
 
     IEnumerator HopOffVehicle()
     {
-        WorldPlayerControl.player.GetComponent<SlimeAnimator>().Animate(AnimType.JUMP);
+        WorldPlayerControl.player.GetComponent<Animatable>().Animate(AnimType.JUMP);
         float timeElapsed = 0;
         Transform playerModel = WorldPlayerControl.player.playerModel.transform;
         attachmentPoint.transform.SetParent(transform, true);

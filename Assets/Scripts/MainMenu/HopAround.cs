@@ -6,7 +6,7 @@ public class HopAround : MonoBehaviour
 {
     [SerializeField] GameObject startLimit;
     [SerializeField] GameObject endLimit;
-    [SerializeField] SlimeAnimator animator;
+    [SerializeField] Animatable animator;
     Vector3 moveRange;
     static List<HopAround> bouncers = new();
     private void Awake()

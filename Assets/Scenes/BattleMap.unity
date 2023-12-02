@@ -183,6 +183,7 @@ MonoBehaviour:
   buffTracker: {fileID: 25602}
   myHand: {fileID: 25607}
   unitAnimator: {fileID: 25605}
+  <isSummoned>k__BackingField: 0
   isDead: 0
   lastPlayed: {fileID: 0}
   <Allegiance>k__BackingField: 1
@@ -2430,6 +2431,7 @@ GameObject:
   - component: {fileID: 388095520}
   - component: {fileID: 388095521}
   - component: {fileID: 388095522}
+  - component: {fileID: 388095523}
   m_Layer: 0
   m_Name: BattleMaster
   m_TagString: GameController
@@ -2455,6 +2457,7 @@ MonoBehaviour:
   camLock: {fileID: 1678473390}
   masterEnemyPool: {fileID: 11400000, guid: fdfcfaa337bce144d8e682a23350c8d2, type: 2}
   riftMaker: {fileID: 388095522}
+  tentacleSpawner: {fileID: 0}
   dispenser: {fileID: 11400000, guid: 790c73ec56edba846b5897a51139d5cd, type: 2}
 --- !u!4 &388095517
 Transform:
@@ -2557,6 +2560,19 @@ MonoBehaviour:
     dimensions: {x: 2, y: 1}
   - rift: {fileID: 2361423128698814699, guid: cf59759f0ad29704790793082072ccb7, type: 3}
     dimensions: {x: 2, y: 2}
+--- !u!114 &388095523
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388095515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487761c996908d743bce948799150b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tentacle: {fileID: 4039637195503505460, guid: 589a60a7d2840e646b3355f498b2775f, type: 3}
 --- !u!1001 &394582959
 PrefabInstance:
   m_ObjectHideFlags: 0

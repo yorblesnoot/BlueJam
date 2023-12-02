@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 public enum AnimType { CAST, DAMAGED, WALK, JUMP, DIE, CHEER, ATTACKCLOSE, ATTACKFAR, IDLE }
-public class SlimeAnimator : MonoBehaviour
+public class SlimeAnimator : Animatable
 {
     Animator animator;
     void Awake()
@@ -31,7 +31,7 @@ public class SlimeAnimator : MonoBehaviour
     readonly string secondIdle = "idle02";
     readonly string damageX = "damageX";
     readonly string damageY = "damageY";
-    public void Animate(AnimType anim, GameObject source = null)
+    public override void Animate(AnimType anim, GameObject source = null)
     {
         if (animator == null) return;
         //animator.SetBool("idle02", false);
@@ -56,7 +56,7 @@ public class SlimeAnimator : MonoBehaviour
     }
 
     readonly public static float accelTime = .24f;
-    public IEnumerator EndWalk(float moveLength)
+    public override IEnumerator EndWalk(float moveLength)
     {
         if(animator == null || animator.GetFloat(yVelocity) == 0) yield break;
         yield return new WaitForSeconds(moveLength - accelTime);

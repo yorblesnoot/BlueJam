@@ -1085,11 +1085,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: TundraTile
       objectReference: {fileID: 0}
+    - target: {fileID: 8914121416236836382, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
---- !u!4 &5448979933209889337 stripped
+--- !u!4 &6247551751831901114 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7392724090278510493, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8914121416236836382, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
   m_PrefabInstance: {fileID: 3244440033581659556}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3256031257771626029
@@ -1097,23 +1101,23 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5448979933209889337}
+    m_TransformParent: {fileID: 6247551751831901114}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.9
+      value: 0.71999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.9
+      value: 0.71999997
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}
       propertyPath: m_LocalPosition.x

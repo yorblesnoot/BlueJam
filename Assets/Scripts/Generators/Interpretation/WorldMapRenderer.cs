@@ -18,6 +18,8 @@ public class WorldMapRenderer : MonoBehaviour
 
     Dictionary<TerrainType, ObjectPool> tilePools;
 
+    Dictionary<GameObject, Animator> animatorCache;
+
     System.Random rand = new();
 
     public void Initialize()
@@ -93,21 +95,30 @@ public class WorldMapRenderer : MonoBehaviour
         }
     }
 
+    [SerializeField] float tileSpeedMinimum = 1;
+    [SerializeField] float speedRangeSize = 2;
     void RenderCell(TerrainType tileKey, Vector2Int cellCoords)
     {
         GameObject tile = tilePools[tileKey].InstantiateFromPool(MapTools.MapToVector(cellCoords, 0), PhysicsHelper.RandomCardinalRotate());
         MapTools.gameMap.Add(cellCoords, tile);
         GameObject cellEvent = eventRenderer.RenderCellEvent(cellCoords, spotlightGlobalOffset);
-        if(cellEvent != null) cellEvent.transform.SetParent(tile.transform, true);
-        StartCoroutine(StaggeredMoveIn(tile, -5f, 0f));
+        Animator cachedAnim = GetCachedAnimator(tile);
+        cachedAnim.Rebind();
+        cachedAnim.Update(0f);
+        if (cellEvent != null) cellEvent.transform.SetParent(tile.transform.Find("Model"), true);
+        cachedAnim.Play("RiseIn");
+        cachedAnim.speed = (float)rand.NextDouble() * speedRangeSize + tileSpeedMinimum;
     }
 
+    [SerializeField] float animationLength = .5f;
     IEnumerator UnrenderCell(Vector2Int coords)
     {
         GameObject toUnrender = MapTools.MapToTile(coords);
         MapTools.gameMap.Remove(coords);
         if (!toUnrender.activeSelf) yield break;
-        yield return StartCoroutine(StaggeredMoveIn(toUnrender, 0f, -5f));
+        Animator unrenderAnimator = GetCachedAnimator(toUnrender);
+        unrenderAnimator.Play("DropOut");
+        yield return new WaitForSeconds(animationLength / unrenderAnimator.speed);
         Vector2Int globalCoords = coords + spotlightGlobalOffset;
         if (runData.eventMap.ContainsKey(globalCoords))
             WorldEventRenderer.UnrenderCellEvent(globalCoords);
@@ -117,24 +128,14 @@ public class WorldMapRenderer : MonoBehaviour
         }
     }
 
-    IEnumerator StaggeredMoveIn(GameObject riser, float startElevation, float endElevation)
+    Animator GetCachedAnimator(GameObject spawned)
     {
-        if (riser == null) yield break;
-        //figure out where to put the object at the start
-        Vector3 startPosition = riser.transform.position;
-        startPosition.y = startElevation;
-        //find the target location
-        Vector3 finalPosition = riser.transform.position;
-        finalPosition.y = endElevation;
-
-        riser.transform.position = startPosition;
-
-        //use a random final travel time to get a staggered effect
-        float travelTime = (float)(rand.NextDouble() + .25) * .35f;
-        yield return StartCoroutine(riser.LerpTo(finalPosition, travelTime));
+        animatorCache ??= new();
+        if(animatorCache.TryGetValue(spawned, out Animator animator)) return animator;
+        Animator output = spawned.GetComponent<Animator>();
+        animatorCache.Add(spawned, output);
+        return output;
     }
-
-    
 
     public void ShiftWindow(Vector2Int playerGlobalPosition)
     {

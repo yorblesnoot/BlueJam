@@ -58,8 +58,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1500790085}
   m_LocalRotation: {x: -0, y: 1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.4, z: 0}
-  m_LocalScale: {x: 0.09361831, y: 0.1497893, z: 0.09361831}
+  m_LocalPosition: {x: 1.2883548, y: 1.1411874, z: -1.628278}
+  m_LocalScale: {x: 0.07489466, y: 0.07489465, z: 0.07489466}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7674355530693013835}
@@ -71,11 +71,10 @@ Transform:
   - {fileID: 4498069179433945414}
   - {fileID: 581691076}
   - {fileID: 6953642194955444481}
-  - {fileID: 2083655413}
-  m_Father: {fileID: 8879962154530391540}
+  m_Father: {fileID: 647062293685547266}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!1 &2083655412
+--- !u!1 &797789550282066012
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -83,29 +82,31 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2083655413}
+  - component: {fileID: 647062293685547266}
   m_Layer: 0
-  m_Name: Pile
+  m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &2083655413
+--- !u!4 &647062293685547266
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2083655412}
-  m_LocalRotation: {x: -0, y: -0.49907908, z: -0, w: 0.8665564}
-  m_LocalPosition: {x: -2.51, y: 0, z: 0.12}
+  m_GameObject: {fileID: 797789550282066012}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.2883548, y: -0.88218784, z: 1.6282784}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1500790086}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: -59.878, z: 0}
+  m_Children:
+  - {fileID: 1500790086}
+  - {fileID: 6922346925600685379}
+  m_Father: {fileID: 7398587449342098038}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2299028559352157530
 GameObject:
   m_ObjectHideFlags: 0
@@ -131,12 +132,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2299028559352157530}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -0.029, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.2883548, y: 0.9266875, z: -1.628278}
+  m_LocalScale: {x: 0.8, y: 0.5, z: 0.8}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8879962154530391540}
+  m_Father: {fileID: 647062293685547266}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &4371630208143664365
@@ -223,39 +224,6 @@ Transform:
   - {fileID: 3347361360193785027}
   m_Father: {fileID: 1500790086}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &8102017668200144718
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8879962154530391540}
-  m_Layer: 0
-  m_Name: VIsual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8879962154530391540
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8102017668200144718}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.118, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1500790086}
-  - {fileID: 6922346925600685379}
-  m_Father: {fileID: 8899246193650476021}
-  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2096498361926245480
 PrefabInstance:
@@ -348,11 +316,15 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8914121416236836382, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
---- !u!4 &8899246193650476021 stripped
+--- !u!4 &7398587449342098038 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 7392724090278510493, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
+  m_CorrespondingSourceObject: {fileID: 8914121416236836382, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
   m_PrefabInstance: {fileID: 2096498361926245480}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4172272153511234377
@@ -638,7 +610,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
 --- !u!4 &3347361362180703272 stripped
 Transform:
@@ -700,7 +673,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -7.72
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4554942561164858438, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
 --- !u!4 &7190758080727953531 stripped
 Transform:
@@ -774,7 +748,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 71.359
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4554942561164858438, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
 --- !u!4 &7190758080857550461 stripped
 Transform:
@@ -848,7 +823,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Building_Temple_Stone_01_Atlased
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4190095413818595012, guid: 21246b53add01354ca8cdb791830a4c6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 21246b53add01354ca8cdb791830a4c6, type: 3}
 --- !u!4 &7521613833217656660 stripped
 Transform:
@@ -1511,7 +1487,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 71.36
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4554942561164858438, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
 --- !u!4 &7190758079609043694 stripped
 Transform:
@@ -1573,7 +1550,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
 --- !u!4 &3347361360886643568 stripped
 Transform:
@@ -1864,7 +1842,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
 --- !u!4 &3347361360193785027 stripped
 Transform:
