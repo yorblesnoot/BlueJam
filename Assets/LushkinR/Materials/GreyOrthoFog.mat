@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OrthographicFogMaterial
+  m_Name: GreyOrthoFog
   m_Shader: {fileID: -6465566751694194690, guid: 79f0d16cfdf2fbf4293b8b61be9cb584, type: 3}
   m_ValidKeywords:
   - BOOLEAN_6C4164AC_ON

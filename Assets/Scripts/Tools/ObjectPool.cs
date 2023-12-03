@@ -40,7 +40,7 @@ public class ObjectPool
 
     public void ReturnToPool(GameObject obj)
     {
-        obj.transform.parent = null;
+        obj.transform.SetParent(null);
         obj.SetActive(false);
         inactivePool.Add(obj);
     }

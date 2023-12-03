@@ -53,8 +53,8 @@ MonoBehaviour:
   mapGridElement: {fileID: 7485762697563411074}
   cellHighlighter: {fileID: 8375228703427349927}
   activateUnitStencil: 0
-  positionAdjust: {x: 0, y: 0.4, z: 0}
-  tentacleModifier: {x: 0.2, y: 0, z: 0.2}
+  positionAdjust: {x: 0, y: 0.6, z: 0}
+  tentacleModifier: {x: 0, y: 0, z: 0}
 --- !u!65 &7622080835598160891
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -67,7 +67,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.2, z: 0}
 --- !u!1 &7485762697563411074
 GameObject:
   m_ObjectHideFlags: 0
