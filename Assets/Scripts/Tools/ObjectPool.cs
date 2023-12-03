@@ -32,8 +32,15 @@ public class ObjectPool
         }
     }
 
+    public IEnumerator DesignateForPool(GameObject obj, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        ReturnToPool(obj);
+    }
+
     public void ReturnToPool(GameObject obj)
     {
+        obj.transform.parent = null;
         obj.SetActive(false);
         inactivePool.Add(obj);
     }

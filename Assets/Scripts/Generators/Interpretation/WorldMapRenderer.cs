@@ -9,6 +9,8 @@ public class WorldMapRenderer : MonoBehaviour
     [SerializeField] MapDispenser mapKey;
     public WorldEventRenderer eventRenderer;
     [SerializeField] RunData runData;
+    [SerializeField] WorldEventRenderer WorldEventRenderer;
+
     public static Vector2Int spotlightGlobalOffset;
     public static Vector2Int spotlightLocalOffset;
     
@@ -118,10 +120,12 @@ public class WorldMapRenderer : MonoBehaviour
         if (!toUnrender.activeSelf) yield break;
         Animator unrenderAnimator = GetCachedAnimator(toUnrender);
         unrenderAnimator.Play("DropOut");
-        yield return new WaitForSeconds(animationLength / unrenderAnimator.speed);
+        float unrenderDelay = animationLength / unrenderAnimator.speed;
         Vector2Int globalCoords = coords + spotlightGlobalOffset;
         if (runData.eventMap.ContainsKey(globalCoords))
-            WorldEventRenderer.UnrenderCellEvent(globalCoords);
+            WorldEventRenderer.UnrenderCellEvent(globalCoords, unrenderDelay);
+        yield return new WaitForSeconds(unrenderDelay);
+        
         if (toUnrender != null)
         {
             tilePools[runData.worldMap[globalCoords.x, globalCoords.y]].ReturnToPool(toUnrender);

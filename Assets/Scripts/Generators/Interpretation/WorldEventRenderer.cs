@@ -31,7 +31,7 @@ public class WorldEventRenderer : MonoBehaviour
         return cellEvent;
     }
 
-    public static void UnrenderCellEvent(Vector2Int globalCoordinates)
+    public static void UnregisterCellEvent(Vector2Int globalCoordinates)
     {
         if (runData.eventMap.TryGetValue(globalCoordinates, out EventType eventType)
             && eventTable.TryGetValue(eventType, out ObjectPool pool)
@@ -39,6 +39,17 @@ public class WorldEventRenderer : MonoBehaviour
         {
             eventObj.transform.parent = null;
             pool.ReturnToPool(eventObj);
+            spawnedEvents.Remove(globalCoordinates);
+        }
+    }
+
+    public void UnrenderCellEvent(Vector2Int globalCoordinates, float delay)
+    {
+        if (runData.eventMap.TryGetValue(globalCoordinates, out EventType eventType)
+            && eventTable.TryGetValue(eventType, out ObjectPool pool)
+            && spawnedEvents.TryGetValue(globalCoordinates, out GameObject eventObj))
+        {
+            StartCoroutine(pool.DesignateForPool(eventObj, delay));
             spawnedEvents.Remove(globalCoordinates);
         }
     }

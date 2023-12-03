@@ -53,6 +53,8 @@ MonoBehaviour:
   mapGridElement: {fileID: 7485762697563411074}
   cellHighlighter: {fileID: 8375228703427349927}
   activateUnitStencil: 0
+  positionAdjust: {x: 0, y: 0.4, z: 0}
+  tentacleModifier: {x: 0.2, y: 0, z: 0.2}
 --- !u!65 &7622080835598160891
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -83,7 +85,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5980955017363780364
 Transform:
   m_ObjectHideFlags: 0
@@ -165,6 +167,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5572448313282067416}
     - target: {fileID: 1549023087981350385, guid: 4bdf83f81630ea249b821334fa638847, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 1549023087981350385, guid: 4bdf83f81630ea249b821334fa638847, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -190,11 +196,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3486812543001152212, guid: 4bdf83f81630ea249b821334fa638847, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.001
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3486812543001152212, guid: 4bdf83f81630ea249b821334fa638847, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.49
+      value: -0.599
       objectReference: {fileID: 0}
     - target: {fileID: 3486812543001152212, guid: 4bdf83f81630ea249b821334fa638847, type: 3}
       propertyPath: m_LocalRotation.w
@@ -225,12 +231,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3892805571515991684, guid: 4bdf83f81630ea249b821334fa638847, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3892805571515991684, guid: 4bdf83f81630ea249b821334fa638847, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8733871441685656045, guid: 4bdf83f81630ea249b821334fa638847, type: 3}
       propertyPath: m_Name
       value: CellSelectorPlus
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733871441685656045, guid: 4bdf83f81630ea249b821334fa638847, type: 3}
+      propertyPath: m_Layer
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733871441685656045, guid: 4bdf83f81630ea249b821334fa638847, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4bdf83f81630ea249b821334fa638847, type: 3}

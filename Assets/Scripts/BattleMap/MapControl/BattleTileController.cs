@@ -21,7 +21,8 @@ public class BattleTileController : MonoBehaviour
 
     public bool activateUnitStencil;
 
-    readonly float heightAdjust = .4f;
+    [SerializeField] Vector3 positionAdjust;
+    [SerializeField] Vector3 tentacleModifier;
 
     CardPlus loadedCard;
     List<GameObject> myPath;
@@ -34,8 +35,7 @@ public class BattleTileController : MonoBehaviour
         EventManager.clearAOE.AddListener(() => { cellHighlighter.ChangeHighlightMode(baseHighlight); });
         EventManager.requestMapReferences.AddListener(launcher => { launcher.SubmitMapReference(gameObject); });
 
-        Vector3 myPosition = gameObject.transform.position;
-        unitPosition = new Vector3(myPosition.x, myPosition.y + heightAdjust, myPosition.z);
+        unitPosition = transform.position + positionAdjust;
     }
 
     void OnMouseDown()
@@ -97,6 +97,7 @@ public class BattleTileController : MonoBehaviour
 
     public void BecomeRift()
     {
+        unitPosition = transform.position + positionAdjust + tentacleModifier;
         isRift = true;
         mapGridElement.SetActive(false);
     }

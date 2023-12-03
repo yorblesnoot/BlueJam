@@ -29,7 +29,7 @@ public class BattleLauncher : MapLauncher
     {
         //create void rifts
         riftMaker.PlaceRifts(map, sceneRelay.riftBudget);
-        tentacleSpawner.PlaceTentacles(map, 3);
+        tentacleSpawner.PlaceTentacles(map, 2);
 
         //place units onto the map
         BattleUnitSpawner encounterBuilder = new(sceneRelay.spawnPool, map, masterEnemyPool);

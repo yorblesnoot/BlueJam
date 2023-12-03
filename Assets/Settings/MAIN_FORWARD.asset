@@ -137,7 +137,8 @@ MonoBehaviour:
   - {fileID: -2572551463858247935}
   - {fileID: 3409520077527212394}
   - {fileID: -2037473396247987412}
-  m_RendererFeatureMap: 5767c81dba9ab22332931b71ffb3f097016751d612764cdc6a619233720c512f2c7b54b9bd70b9e3
+  - {fileID: 860773998819598419}
+  m_RendererFeatureMap: 5767c81dba9ab22332931b71ffb3f097016751d612764cdc6a619233720c512f2c7b54b9bd70b9e353e0882f6415f20b
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -175,6 +176,45 @@ MonoBehaviour:
   m_ClusteredRendering: 0
   m_TileSize: 32
   m_IntermediateTextureMode: 1
+--- !u!114 &860773998819598419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: SelectionOverGround
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: SelectionOverGround
+    Event: 500
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 16384
+      PassNames: []
+    overrideMaterial: {fileID: 0}
+    overrideMaterialPassIndex: 0
+    overrideDepthState: 1
+    depthCompareFunction: 5
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 2
+      stencilCompareFunction: 8
+      passOperation: 2
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
 --- !u!114 &2572288461336242007
 MonoBehaviour:
   m_ObjectHideFlags: 0

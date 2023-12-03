@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class TentacleAnimator : Animatable
 {
-    [SerializeField] Animation animator;
+    [SerializeField] Animator animator;
+    [SerializeField] float animSpeed;
 
     [System.Serializable]
     class TypeToClip
@@ -17,6 +18,7 @@ public class TentacleAnimator : Animatable
     Dictionary<AnimType, string> typeToClipDict;
     private void Awake()
     {
+        animator.speed = animSpeed;
         typeToClipDict = new();
         foreach(var equivalence in typeToClipList)
         {
@@ -25,7 +27,7 @@ public class TentacleAnimator : Animatable
     }
     public override void Animate(AnimType anim, GameObject source = null)
     {
-        animator.CrossFade(typeToClipDict[anim], .2f);
+        animator.Play(typeToClipDict[anim]);
     }
 
     public override IEnumerator EndWalk(float moveLength)

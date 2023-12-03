@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6928503436295085966}
   - component: {fileID: 6773779903219201609}
   - component: {fileID: 1201086502913015459}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_04 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 3328692699831437683}
   - component: {fileID: 5744749365344558012}
   - component: {fileID: 7150671986820211073}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_04 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 9158157808036626929}
   - component: {fileID: 61549592798083736}
   - component: {fileID: 5947655459051019738}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_05 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1123,7 +1123,7 @@ GameObject:
   - component: {fileID: 6420990015174924892}
   - component: {fileID: 7268042269778293897}
   - component: {fileID: 1541364274287267403}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_05
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1953,7 +1953,7 @@ GameObject:
   - component: {fileID: 199065335207254777}
   - component: {fileID: 5326355672283458387}
   - component: {fileID: 3945712495224513523}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_04 (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2618,7 +2618,7 @@ GameObject:
   - component: {fileID: 5458312684501513739}
   - component: {fileID: 2140388529478740889}
   - component: {fileID: 5778465350942096869}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_04 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3202,7 +3202,7 @@ GameObject:
   - component: {fileID: 340148350135772396}
   - component: {fileID: 6282497691489764982}
   - component: {fileID: 3437948793056417907}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_05 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3451,7 +3451,7 @@ GameObject:
   - component: {fileID: 2479983967487540252}
   - component: {fileID: 6047978142586759947}
   - component: {fileID: 2197766324917441234}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_04 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3951,7 +3951,7 @@ GameObject:
   - component: {fileID: 5319718150716369992}
   - component: {fileID: 3476197650997249050}
   - component: {fileID: 2630772293460334758}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_05 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4034,7 +4034,7 @@ GameObject:
   - component: {fileID: 638195222887050561}
   - component: {fileID: 6536221220634715063}
   - component: {fileID: 5844030292164875383}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_05 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5115,7 +5115,7 @@ GameObject:
   - component: {fileID: 6944829832507958311}
   - component: {fileID: 3589865070143801419}
   - component: {fileID: 4996773504069331819}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_05 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6486,7 +6486,7 @@ GameObject:
   - component: {fileID: 7519087995965934979}
   - component: {fileID: 8298768702752781647}
   - component: {fileID: 4774701808880245156}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_04 (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7352,7 +7352,7 @@ GameObject:
   - component: {fileID: 8649688538726420982}
   - component: {fileID: 4422689898591278096}
   - component: {fileID: 3229822112851686016}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Fern_04 (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7720,6 +7720,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7577177977837790304}
     m_Modifications:
+    - target: {fileID: 1338420285107728997, guid: 188d472c61e88664ba0e41a1cfaebae3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cb028e8b9c41b5c488ab5f639279fc8b, type: 2}
+    - target: {fileID: 3658400274049350778, guid: 188d472c61e88664ba0e41a1cfaebae3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cb028e8b9c41b5c488ab5f639279fc8b, type: 2}
     - target: {fileID: 5822112620709939700, guid: 188d472c61e88664ba0e41a1cfaebae3, type: 3}
       propertyPath: m_Name
       value: Pedestal
@@ -7772,6 +7780,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7585661738052509661, guid: 188d472c61e88664ba0e41a1cfaebae3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cb028e8b9c41b5c488ab5f639279fc8b, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 188d472c61e88664ba0e41a1cfaebae3, type: 3}
 --- !u!4 &5388036410960198442 stripped

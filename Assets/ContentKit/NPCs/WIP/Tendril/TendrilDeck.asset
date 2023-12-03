@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: TendrilDeck
   m_EditorClassIdentifier: 
   Id: 5e1b3afc-3232-406e-9988-ef787bbd9acd
-  deckContents: []
-  hat: {fileID: 0}
-  uncollectible: 0
+  deckContents:
+  - {fileID: 11400000, guid: c1520982c096edc478f6a437714fab70, type: 2}
+  hat: {fileID: 5272625108487282069, guid: 2746c3c6f3c1ee04eab45ac02102d1ac, type: 3}
+  uncollectible: 1
   unitName: 
