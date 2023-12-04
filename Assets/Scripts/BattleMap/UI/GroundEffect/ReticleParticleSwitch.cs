@@ -10,7 +10,7 @@ public class ReticleParticleSwitch : MonoBehaviour
     public void SetAllegiance(AllegianceType type)
     {
         Color32 chosen;
-        if(type == AllegianceType.ENEMY) chosen = enemy; else chosen = friendly;
+        if(type == AllegianceType.SLIME) chosen = enemy; else chosen = friendly;
         ParticleSystem.MainModule mainMod = particle.main;
         mainMod.startColor = new ParticleSystem.MinMaxGradient(chosen, chosen);
     }

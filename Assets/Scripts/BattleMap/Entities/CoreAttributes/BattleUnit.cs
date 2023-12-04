@@ -5,7 +5,7 @@ using UnityEngine;
 public class BattleUnit : Unit
 {
     public BarrierTracker barrierTracker;
-    public StateFeedback stateFeedback;
+    public UnitStateFeedback stateFeedback;
 
     public BuffTracker buffTracker;
     public HandPlus myHand;
@@ -14,6 +14,8 @@ public class BattleUnit : Unit
 
     public int deflectHealth { get; set; }
     public int shieldHealth { get; set; }
+
+    public bool immovable;
 
     [field:SerializeField] public bool isSummoned { get; set; }
     [HideInInspector] public bool isDead;

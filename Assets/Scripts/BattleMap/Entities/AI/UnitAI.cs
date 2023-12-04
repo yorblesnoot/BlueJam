@@ -157,21 +157,7 @@ public class UnitAI : MonoBehaviour
     {
         BattleUnit me = meo.GetComponent<BattleUnit>();
         BattleUnit you = youo.GetComponent<BattleUnit>();
-        if(me.Allegiance == AllegianceType.ALLY)
-        {
-            if(you.Allegiance == AllegianceType.ALLY || you.Allegiance == AllegianceType.PLAYER)
-                return true;
-            else
-                return false;
-        }
-        else if(me.Allegiance == AllegianceType.ENEMY)
-        {
-            if(you.Allegiance == AllegianceType.ALLY || you.Allegiance == AllegianceType.PLAYER)
-                return false;
-            else
-                return true;
-        }
-        return false;
+        return FactionLogic.CheckIfFriendly(me.Allegiance, you.Allegiance);
     }
 
     private float DistanceProcessing(float desiredProximity, float movePathDistance, float currentPathDistance)

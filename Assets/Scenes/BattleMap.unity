@@ -183,6 +183,7 @@ MonoBehaviour:
   buffTracker: {fileID: 25602}
   myHand: {fileID: 25607}
   unitAnimator: {fileID: 25605}
+  immovable: 0
   <isSummoned>k__BackingField: 0
   isDead: 0
   lastPlayed: {fileID: 0}
@@ -2432,6 +2433,7 @@ GameObject:
   - component: {fileID: 388095521}
   - component: {fileID: 388095522}
   - component: {fileID: 388095523}
+  - component: {fileID: 388095524}
   m_Layer: 0
   m_Name: BattleMaster
   m_TagString: GameController
@@ -2573,6 +2575,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tentacle: {fileID: 4039637195503505460, guid: 589a60a7d2840e646b3355f498b2775f, type: 3}
+--- !u!114 &388095524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 388095515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63cb5a0737fa1a340bcd380287949c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  relationships:
+  - entity1: 1
+    entity2: 2
+    friendly: 1
+  - entity1: 1
+    entity2: 3
+    friendly: 0
+  - entity1: 2
+    entity2: 3
+    friendly: 0
+  - entity1: 1
+    entity2: 4
+    friendly: 0
+  - entity1: 3
+    entity2: 4
+    friendly: 1
 --- !u!1001 &394582959
 PrefabInstance:
   m_ObjectHideFlags: 0

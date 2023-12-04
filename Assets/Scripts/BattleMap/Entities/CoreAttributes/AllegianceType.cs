@@ -7,7 +7,7 @@ public enum AllegianceType
     UNASSIGNED,
     PLAYER,
     ALLY,
-    ENEMY,
-    NEUTRAL,
+    SLIME,
+    VOID,
     EMPTY
 }

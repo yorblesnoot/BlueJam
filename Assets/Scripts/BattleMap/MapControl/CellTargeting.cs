@@ -129,49 +129,23 @@ public static class CellTargeting
     {
         //logic to determine whether unit occupation makes the cell invalid
         BattleUnit objTarget = tile.unitContents;
-
         AllegianceType targetAllegiance;
-        if (objTarget != null) targetAllegiance = objTarget.Allegiance;
-        else targetAllegiance = AllegianceType.EMPTY;
-        
-        if(cardClass == CardClass.ATTACK)
+        if (objTarget != null)
         {
-            //if theyre both allies or enemies, invalid
-            if(sourceAllegiance == targetAllegiance) return false;
-            //ally cant target player
-            else if(sourceAllegiance == AllegianceType.ALLY && targetAllegiance == AllegianceType.PLAYER) return false;
-            //player cant target ally
-            else if(sourceAllegiance == AllegianceType.PLAYER && targetAllegiance == AllegianceType.ALLY) return false;
-            //attack can't target empty
-            else if(targetAllegiance == AllegianceType.EMPTY) return false;
-            else return true;
+            targetAllegiance = objTarget.Allegiance;
+            bool friendly = FactionLogic.CheckIfFriendly(sourceAllegiance, targetAllegiance);
+            if (friendly && cardClass == CardClass.BUFF) return true;
+            if (!friendly && cardClass == CardClass.ATTACK) return true;
         }
-        else if(cardClass == CardClass.MOVE)
+        else
         {
-            //move can only target empty
-            Debug.Log(tile.IsRift);
-            if(tile.IsRift) return false;
-            if(targetAllegiance == AllegianceType.EMPTY) return true;
-            else return false;
+            if (cardClass == CardClass.MOVE || cardClass == CardClass.SUMMON)
+            {
+                //move can only target empty
+                if (tile.IsRift) return false;
+                else return true;
+            }
         }
-
-        else if(cardClass == CardClass.SUMMON)
-        {
-            //summon can only target empty
-            if(targetAllegiance == AllegianceType.EMPTY) return true;
-            else return false;
-        }
-
-        else if(cardClass == CardClass.BUFF)
-        {
-            //buff can only target similar
-            if(sourceAllegiance == targetAllegiance) return true;
-            //empty is no good
-            else if(targetAllegiance == AllegianceType.EMPTY) return false;
-            else if(sourceAllegiance == AllegianceType.ALLY && targetAllegiance == AllegianceType.PLAYER) return true;
-            else if(sourceAllegiance == AllegianceType.PLAYER && targetAllegiance == AllegianceType.ALLY) return true;
-            else return false;
-        }
-        else return false;        
+        return false;        
     }
 }

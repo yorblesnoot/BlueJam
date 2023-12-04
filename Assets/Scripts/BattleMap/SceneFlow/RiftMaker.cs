@@ -30,7 +30,7 @@ public class RiftMaker : MonoBehaviour
                 
 
                 RemoveCellsFromMap(occupiedCells, availableMap);
-                PlaceRift(chosenRift, targetCell);
+                PlaceRift(chosenRift, targetCell, occupiedCells);
                 budget -= chosenRift.Cost;
 
                 riftedCells.AddRange(occupiedCells);
@@ -91,8 +91,13 @@ public class RiftMaker : MonoBehaviour
         }
     }
 
-    private void PlaceRift(RiftType chosenRift, Vector2Int targetCell)
+    private void PlaceRift(RiftType chosenRift, Vector2Int targetCell, List<Vector2Int> occupiedCells)
     {
+        Vector3 placementPosition = targetCell.MapToTile().transform.position;
+
+        float targetZ = occupiedCells.Select(coord => coord.MapToTile().transform.position.z).Min();
+        placementPosition.z = targetZ;
+        
         Instantiate(chosenRift.rift, targetCell.MapToTile().transform.position, Quaternion.identity);
     }
 

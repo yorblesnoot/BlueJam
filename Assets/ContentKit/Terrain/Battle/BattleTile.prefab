@@ -54,7 +54,7 @@ MonoBehaviour:
   cellHighlighter: {fileID: 8375228703427349927}
   activateUnitStencil: 0
   positionAdjust: {x: 0, y: 0.6, z: 0}
-  tentacleModifier: {x: 0, y: 0, z: 0}
+  tentacleModifier: {x: 0.1, y: 0, z: 0.1}
 --- !u!65 &7622080835598160891
 BoxCollider:
   m_ObjectHideFlags: 0

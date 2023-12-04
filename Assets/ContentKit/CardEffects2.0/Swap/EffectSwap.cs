@@ -17,10 +17,10 @@ public class EffectSwap : CardEffectPlus
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
         BattleUnit target = targetCell.unitContents;
+        if (target.immovable) yield break;
         BattleTileController myCell = MapTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>();
         MapTools.ReportPositionSwap(actor, targetCell, target);
         actor.gameObject.transform.position = targetCell.unitPosition;
         target.gameObject.transform.position = myCell.unitPosition;
-        yield return null;
     }
 }

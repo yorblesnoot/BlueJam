@@ -49,7 +49,7 @@ public class TurnManager : MonoBehaviour
 
     static bool PlayerHasWon()
     {
-        if (turnTakers.Where(x => x.Allegiance == AllegianceType.ENEMY && x.isSummoned != true).Count() == 0)
+        if (turnTakers.Where(x => x.Allegiance == AllegianceType.SLIME && x.isSummoned != true).Count() == 0)
         {
             BattleEnder battleEnder = GameObject.FindGameObjectWithTag("GameController").GetComponent<BattleEnder>();
             battleEnder.StartCoroutine(battleEnder.VictorySequence());

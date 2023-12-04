@@ -5,7 +5,7 @@ using System.Linq;
 using TMPro;
 using UnityEngine;
 
-public class StateFeedback : MonoBehaviour
+public class UnitStateFeedback : MonoBehaviour
 {
     int hitLayer;
     int baseLayer;

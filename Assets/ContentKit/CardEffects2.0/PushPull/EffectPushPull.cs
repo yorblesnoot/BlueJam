@@ -28,6 +28,7 @@ public class EffectPushPull : CardEffectPlus
         if(pushDistance > 0) targets.Reverse();
         foreach (BattleUnit target in targets)
         {
+            if (target.immovable) continue;
             yield return target.StartCoroutine(Push(actor, target, pushDistance, duration));
         }
     }
