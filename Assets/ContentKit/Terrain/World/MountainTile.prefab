@@ -173,6 +173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain_Mountain_Dirt_01
       objectReference: {fileID: 0}
+    - target: {fileID: 6460518141297954820, guid: 17f051a654c6bf545900c9c115e22da9, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5806805754671355334, guid: 17f051a654c6bf545900c9c115e22da9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 17f051a654c6bf545900c9c115e22da9, type: 3}
@@ -239,9 +243,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -2065316327179487419, guid: 8d6cc0fbbe415cb45a1337c597f05731, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 8d6cc0fbbe415cb45a1337c597f05731, type: 3}
       propertyPath: m_Name
       value: blockRoundedLow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8d6cc0fbbe415cb45a1337c597f05731, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3800116773556270347, guid: 8d6cc0fbbe415cb45a1337c597f05731, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -264,6 +276,10 @@ PrefabInstance:
     - target: {fileID: 2774737556872165086, guid: 6db65efdd0f57ac479e8ae4563929605, type: 3}
       propertyPath: m_Name
       value: Terrain_Mountain_Rock_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 2774737556872165086, guid: 6db65efdd0f57ac479e8ae4563929605, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3299460362025086052, guid: 6db65efdd0f57ac479e8ae4563929605, type: 3}
       propertyPath: m_RootOrder

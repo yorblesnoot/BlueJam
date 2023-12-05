@@ -2,11 +2,11 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class RiftMaker : MonoBehaviour
+public class RiftMaker : CorruptionElement
 {
     [SerializeField] List<RiftType> types;
     public static List<Vector2Int> riftedCells;
-    public void PlaceRifts(Dictionary<Vector2Int, GameObject> map, int budget)
+    public override void Activate(Dictionary<Vector2Int, GameObject> map, int budget)
     {
         riftedCells = new();
         Dictionary<Vector2Int, GameObject> availableMap = new(map);

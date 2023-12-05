@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8830398365498949087}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 6420660973085321480}
   - component: {fileID: 3967874807341517782}
   - component: {fileID: 1916882450233265721}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: blockHalf
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4115814837248698893, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.237
+      value: 1.301
       objectReference: {fileID: 0}
     - target: {fileID: 4115814837248698893, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
       propertyPath: m_LocalPosition.z
@@ -213,7 +213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7619238452621299549, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.496
+      value: 0.56
       objectReference: {fileID: 0}
     - target: {fileID: 7913928217956033831, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
       propertyPath: m_Name
@@ -233,7 +233,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8914121416236836382, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.06400001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 833f793a0a8839c4e82ab5196c46d637, type: 3}
@@ -309,6 +309,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vegetation_Tree_Common_05
       objectReference: {fileID: 0}
+    - target: {fileID: 2136010922199217456, guid: bf006159d8e803f4183291532d36ca79, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf006159d8e803f4183291532d36ca79, type: 3}
 --- !u!4 &5687233504116661591 stripped
@@ -382,6 +386,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 44e4789385844be429122346c228bdc4, type: 3}
       propertyPath: m_Name
       value: Vegetation_Tree_Common_04 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 44e4789385844be429122346c228bdc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e4789385844be429122346c228bdc4, type: 3}
@@ -457,6 +465,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vegetation_Tree_Common_04
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 44e4789385844be429122346c228bdc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e4789385844be429122346c228bdc4, type: 3}
 --- !u!4 &7548543056986151171 stripped
@@ -530,6 +542,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 44e4789385844be429122346c228bdc4, type: 3}
       propertyPath: m_Name
       value: Vegetation_Tree_Common_04 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 44e4789385844be429122346c228bdc4, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e4789385844be429122346c228bdc4, type: 3}

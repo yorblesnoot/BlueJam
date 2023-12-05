@@ -7,7 +7,7 @@ using UnityEngine;
 public enum BalanceParameter
 {
     BossDistance,
-    StepsPerThreat,
+    CorruptionRate,
     StartingThreat,
     BaseEncounterSize,
     ThreatPerEncounterSizeUp,

@@ -39,6 +39,7 @@ public class FactionLogic : MonoBehaviour
 
     public static bool CheckIfFriendly(AllegianceType type1, AllegianceType type2)
     {
+        if(type1 == type2) return true;
         if (!relationshipBook.TryGetValue(AllegiancesToVector(type1, type2), out bool friendly))
             Debug.LogError("Unregistered allegiance interaction.");
         return friendly;

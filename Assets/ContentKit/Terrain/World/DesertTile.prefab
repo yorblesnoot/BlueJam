@@ -173,6 +173,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Terrain_Sand_Dune_Peak_01_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ed30808193566a344b8a8747744f9e5f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed30808193566a344b8a8747744f9e5f, type: 3}
 --- !u!1001 &4632116902873966477
@@ -241,6 +245,10 @@ PrefabInstance:
     - target: {fileID: 6938287153508550601, guid: d888e03cc99a0eb40ba316b16600f4b6, type: 3}
       propertyPath: m_Name
       value: Vegetation_Cactus_15_Atlased
+      objectReference: {fileID: 0}
+    - target: {fileID: 6938287153508550601, guid: d888e03cc99a0eb40ba316b16600f4b6, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1154171507932450577, guid: d888e03cc99a0eb40ba316b16600f4b6, type: 3}
@@ -312,6 +320,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DesertBlock
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 2622750253158307978, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -323,6 +335,10 @@ PrefabInstance:
     - target: {fileID: 5975010006360550258, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}
       propertyPath: m_Name
       value: blockDesert
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975010006360550258, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}

@@ -1,9 +1,7 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
-public class TentacleSpawner : MonoBehaviour
+public class TentacleSpawner : CorruptionElement
 {
     [SerializeField] GameObject tentacle;
     List<BattleTileController> validSpots;
@@ -13,7 +11,7 @@ public class TentacleSpawner : MonoBehaviour
         validSpots = new();
     }
 
-    public void PlaceTentacles(Dictionary<Vector2Int, GameObject> battleMap, int amount)
+    public override void Activate(Dictionary<Vector2Int, GameObject> battleMap, int amount)
     {
         foreach (Vector2Int key in battleMap.Keys)
         {

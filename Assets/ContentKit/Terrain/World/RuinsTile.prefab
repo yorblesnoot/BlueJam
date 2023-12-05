@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 581691076}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RubblePile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +43,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1500790086}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: RuinsTemple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   - component: {fileID: 6922346925600685379}
   - component: {fileID: 4371630208143664365}
   - component: {fileID: 5192076318616590100}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: blockRoundedLow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5469817486779633491}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6953642194955444481}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -342,6 +342,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Stone_01 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 7216348725367296379, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8029441231365606337, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -416,6 +420,10 @@ PrefabInstance:
     - target: {fileID: 7216348725367296379, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
       propertyPath: m_Name
       value: Prop_Ruins_Column_Stone_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216348725367296379, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8029441231365606337, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
       propertyPath: m_RootOrder
@@ -548,6 +556,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Gothic_Pillar_Marble_Base_02 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 7365023426530483833, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
 --- !u!4 &6904918333348341744 stripped
@@ -614,6 +626,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 6441690200538953531, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
@@ -632,6 +648,10 @@ PrefabInstance:
     - target: {fileID: 4587790689760330659, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_02_Atlased (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587790689760330659, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6497664068243510361, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
       propertyPath: m_RootOrder
@@ -695,6 +715,10 @@ PrefabInstance:
     - target: {fileID: 4587790689760330659, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_02_Atlased (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587790689760330659, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6497664068243510361, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
       propertyPath: m_RootOrder
@@ -827,6 +851,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Building_Temple_Stone_01_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 6287818356107402985, guid: 21246b53add01354ca8cdb791830a4c6, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 4190095413818595012, guid: 21246b53add01354ca8cdb791830a4c6, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 21246b53add01354ca8cdb791830a4c6, type: 3}
@@ -845,6 +873,10 @@ PrefabInstance:
     - target: {fileID: 7216348725367296379, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
       propertyPath: m_Name
       value: Prop_Ruins_Column_Stone_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7216348725367296379, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 8029441231365606337, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
       propertyPath: m_RootOrder
@@ -978,6 +1010,10 @@ PrefabInstance:
       value: Prop_Statue_Gothic_Justice_01
       objectReference: {fileID: 0}
     - target: {fileID: 6009537871954687868, guid: be819885ef8b78f4da62b1a884c6e1f4, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 6009537871954687868, guid: be819885ef8b78f4da62b1a884c6e1f4, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1060,6 +1096,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Gothic_Pillar_Marble_Base_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7365023426530483833, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
 --- !u!1001 &4172272154413348419
@@ -1072,6 +1112,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: d8f2fcdcb37bf384593615b6a0f6a6b0, type: 3}
       propertyPath: m_Name
       value: Vegetation_Modular_New_Plant_Creeper_Ivy_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: d8f2fcdcb37bf384593615b6a0f6a6b0, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d8f2fcdcb37bf384593615b6a0f6a6b0, type: 3}
       propertyPath: m_RootOrder
@@ -1202,6 +1246,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cave_Lair_Cave_Stone_Rock_Speleothem_Small_01_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8e803e95126ed904ea42b764ec60469f, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e803e95126ed904ea42b764ec60469f, type: 3}
 --- !u!1001 &4172272154613018285
@@ -1272,6 +1320,10 @@ PrefabInstance:
       value: Prop_Ruins_Archway_Stone_Half_01
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5c55d785a54808046b0a5949e27c62bd, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5c55d785a54808046b0a5949e27c62bd, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
@@ -1292,6 +1344,10 @@ PrefabInstance:
     - target: {fileID: 705777646599930538, guid: 72b0bbf2cb091034bb531a47c579d709, type: 3}
       propertyPath: m_Name
       value: Prop_Ruins_Archway_Stone_Half_02_Atlased
+      objectReference: {fileID: 0}
+    - target: {fileID: 705777646599930538, guid: 72b0bbf2cb091034bb531a47c579d709, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 705777646599930538, guid: 72b0bbf2cb091034bb531a47c579d709, type: 3}
       propertyPath: m_IsActive
@@ -1372,6 +1428,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Stone_01 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7216348725367296379, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 8029441231365606337, guid: 18c97a0a94df3644d842a195ec422f48, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1446,6 +1506,10 @@ PrefabInstance:
     - target: {fileID: 4587790689760330659, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_02_Atlased (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4587790689760330659, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 6497664068243510361, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
       propertyPath: m_RootOrder
@@ -1554,6 +1618,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased
       objectReference: {fileID: 0}
+    - target: {fileID: 6441690200538953531, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
@@ -1629,6 +1697,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Gothic_Pillar_Marble_Base_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7365023426530483833, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
 --- !u!4 &6904918332323552822 stripped
@@ -1703,6 +1775,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Gothic_Pillar_Marble_Base_02 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 7365023426530483833, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
 --- !u!1001 &4172272155400164614
@@ -1771,6 +1847,10 @@ PrefabInstance:
     - target: {fileID: 7365023426530483833, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
       propertyPath: m_Name
       value: Prop_Gothic_Pillar_Marble_Base_02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365023426530483833, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
@@ -1846,6 +1926,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 6441690200538953531, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
@@ -1920,6 +2004,10 @@ PrefabInstance:
     - target: {fileID: 7365023426530483833, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
       propertyPath: m_Name
       value: Prop_Gothic_Pillar_Marble_Base_02 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 7365023426530483833, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}

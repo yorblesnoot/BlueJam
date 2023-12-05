@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 789353210}
   - component: {fileID: 789353212}
   - component: {fileID: 789353211}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Terrain_Rock_Mound_01 (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1077133271}
   - component: {fileID: 1077133273}
   - component: {fileID: 1077133272}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Terrain_Rock_Mound_01 (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 5740694312615579091}
   - component: {fileID: 4805832355069903481}
   - component: {fileID: 3042501277772577294}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Tree_Alpine_Snow_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,7 +261,7 @@ GameObject:
   - component: {fileID: 7858612706134577445}
   - component: {fileID: 1997191482082011322}
   - component: {fileID: 2575071816751156611}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rock_Stalagmite_Ice_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - component: {fileID: 5296781532039043713}
   - component: {fileID: 2512375211920407162}
   - component: {fileID: 7209707519304485036}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Tree_Pine_Snow_06
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -428,7 +428,7 @@ GameObject:
   - component: {fileID: 8229177292478621844}
   - component: {fileID: 6615782673591577932}
   - component: {fileID: 1513175326308841280}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Terrain_Rock_Mound_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -511,7 +511,7 @@ GameObject:
   - component: {fileID: 7784570823291406156}
   - component: {fileID: 7352408728024223624}
   - component: {fileID: 1142097179624092603}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rock_Chunks_Large_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -594,7 +594,7 @@ GameObject:
   - component: {fileID: 6647393980720279551}
   - component: {fileID: 5287346848271430431}
   - component: {fileID: 2480328080025339004}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rock_Chunks_Large_01 (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -677,7 +677,7 @@ GameObject:
   - component: {fileID: 5327593376236381318}
   - component: {fileID: 3078399676530421389}
   - component: {fileID: 5295373417982782524}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rock_Stalagmite_Ice_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -760,7 +760,7 @@ GameObject:
   - component: {fileID: 2228241194180051169}
   - component: {fileID: 7150742181652266623}
   - component: {fileID: 2008172928569136619}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LowPolyWaterv2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -843,7 +843,7 @@ GameObject:
   - component: {fileID: 1278801136309020358}
   - component: {fileID: 1497098664134735533}
   - component: {fileID: 897912968912478153}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Vegetation_Tree_Trunk_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -926,7 +926,7 @@ GameObject:
   - component: {fileID: 6837918765640913168}
   - component: {fileID: 5566846486190059122}
   - component: {fileID: 4829789386959997245}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Rock_Stalagmite_Ice_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1162,6 +1162,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}
       propertyPath: m_Name
       value: blockSnow
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5975010006360550258, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa3d66781f36ec64fb29e48947ae53fa, type: 3}

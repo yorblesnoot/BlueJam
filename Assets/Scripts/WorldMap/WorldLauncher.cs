@@ -13,6 +13,8 @@ public class WorldLauncher : MapLauncher
     [SerializeField] GameObject joinBeams;
     [SerializeField] float introDelay;
 
+    [SerializeField] BreakWorldTiles breaker;
+
     private void Start() 
     {
         mapRenderer.Initialize();
@@ -50,6 +52,7 @@ public class WorldLauncher : MapLauncher
         EventManager.updateWorldHealth.Invoke();
 
         SoundManager.PlayMusic(SoundType.MUSICWORLD);
+        breaker.Activate(MapTools.gameMap, 3);
     }
 
     private IEnumerator TriggerEventsOnOrigin(Vector2Int localPlayer)
