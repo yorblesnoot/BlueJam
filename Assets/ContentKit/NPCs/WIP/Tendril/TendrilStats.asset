@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitName: Tendril
   unitDescription: An intruder from another realm, hostile to all.
-  maxHealth: 20
+  maxHealth: 5
   handSize: 2
   startBeats: 1
   damageScaling: 10

@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: 2db6e2644c46d4cc79d617d82e40ef36
 ModelImporter:
-  serializedVersion: 19301
+  serializedVersion: 21300
   internalIDToNameTable:
   - first:
       74: 5301141296399435472
@@ -37,6 +37,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -55,8 +56,8 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Tentacle|Attack
-      takeName: Tentacle|Attack
+      name: Tentacle|Tentacle|Tentacle|Attack
+      takeName: Tentacle|Tentacle|Tentacle|Attack
       internalID: 0
       firstFrame: 0
       lastFrame: 90
@@ -84,8 +85,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Tentacle|Idle01
-      takeName: Tentacle|Idle01
+      name: Tentacle|Tentacle|Tentacle|Idle01
+      takeName: Tentacle|Tentacle|Tentacle|Idle01
       internalID: 0
       firstFrame: 0
       lastFrame: 239
@@ -113,8 +114,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Tentacle|Idle02
-      takeName: Tentacle|Idle02
+      name: Tentacle|Tentacle|Tentacle|Idle02
+      takeName: Tentacle|Tentacle|Tentacle|Idle02
       internalID: 0
       firstFrame: 0
       lastFrame: 239
@@ -142,8 +143,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Tentacle|Idle03
-      takeName: Tentacle|Idle03
+      name: Tentacle|Tentacle|Tentacle|Idle03
+      takeName: Tentacle|Tentacle|Tentacle|Idle03
       internalID: 0
       firstFrame: 0
       lastFrame: 239
@@ -171,8 +172,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Tentacle|Idle04
-      takeName: Tentacle|Idle04
+      name: Tentacle|Tentacle|Tentacle|Idle04
+      takeName: Tentacle|Tentacle|Tentacle|Idle04
       internalID: 0
       firstFrame: 0
       lastFrame: 239
@@ -200,8 +201,8 @@ ModelImporter:
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
     - serializedVersion: 16
-      name: Tentacle|Idle05
-      takeName: Tentacle|Idle05
+      name: Tentacle|Tentacle|Tentacle|Idle05
+      takeName: Tentacle|Tentacle|Tentacle|Idle05
       internalID: 0
       firstFrame: 0
       lastFrame: 239
@@ -212,6 +213,35 @@ ModelImporter:
       loop: 0
       hasAdditiveReferencePose: 0
       loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Tentacle|Tentacle|Tentacle|Spawn
+      takeName: Tentacle|Tentacle|Tentacle|Spawn
+      internalID: 6190254417704441159
+      firstFrame: 0
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -240,21 +270,27 @@ ModelImporter:
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
+    optimizeBones: 1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -288,6 +324,8 @@ ModelImporter:
   animationType: 1
   humanoidOversampling: 1
   avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 
