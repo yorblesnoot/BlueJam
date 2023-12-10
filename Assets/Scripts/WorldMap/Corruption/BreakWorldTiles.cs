@@ -9,19 +9,20 @@ public class BreakWorldTiles : CorruptionElement
     [SerializeField] float maxDistance;
     [SerializeField] GameObject oneByOne;
 
+    [SerializeField] WorldMapRenderer worldMapRenderer;
+    [SerializeField] RunData runData;
+
     Dictionary<Vector2Int, GameObject> activeMap;
     int budget;
     public override void Activate(Dictionary<Vector2Int, GameObject> map, int budget)
     {
         activeMap = map;
-        Debug.Log(map.Count);
         this.budget = budget;
         EventManager.playerAtWorldLocation.AddListener((_) => CheckToBreak(activeMap, this.budget));
     }
 
     private void CheckToBreak(Dictionary<Vector2Int, GameObject> map, int budget)
     {
-        Debug.Log("check");
         int select = Random.Range(0, budget);
         if (select != 0) return;
         List<GameObject> availableTiles = new();
@@ -34,13 +35,17 @@ public class BreakWorldTiles : CorruptionElement
         }
 
         select = Random.Range(0, availableTiles.Count);
-        StartCoroutine(BreakTile(availableTiles[select]));
+       BreakTile(availableTiles[select]);
     }
 
-    private IEnumerator BreakTile(GameObject tile)
+    private void BreakTile(GameObject tile)
     {
+        //unrender is sending the unrendered tiles into the broken pool
         VFXMachine.PlayAtLocation("VoidBoom", tile.transform.position);
-        yield return new WaitForSeconds(.1f);
-        Instantiate(oneByOne, tile.transform.position, Quaternion.identity);
+        Vector2Int targetPos = tile.transform.position.VectorToMap();
+        Vector2Int globalPos = targetPos + WorldMapRenderer.spotlightGlobalOffset;
+        runData.worldMap[globalPos.x, globalPos.y] = TerrainType.BROKEN;
+        StartCoroutine(worldMapRenderer.UnrenderCell(targetPos));
+        worldMapRenderer.RenderCell(TerrainType.BROKEN, targetPos);
     }
 }

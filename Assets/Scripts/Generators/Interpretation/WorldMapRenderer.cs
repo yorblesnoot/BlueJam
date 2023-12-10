@@ -99,7 +99,7 @@ public class WorldMapRenderer : MonoBehaviour
 
     [SerializeField] float tileSpeedMinimum = 1;
     [SerializeField] float speedRangeSize = 2;
-    void RenderCell(TerrainType tileKey, Vector2Int cellCoords)
+    public void RenderCell(TerrainType tileKey, Vector2Int cellCoords)
     {
         GameObject tile = tilePools[tileKey].InstantiateFromPool(MapTools.MapToVector(cellCoords, 0), PhysicsHelper.RandomCardinalRotate());
         MapTools.gameMap.Add(cellCoords, tile);
@@ -113,7 +113,7 @@ public class WorldMapRenderer : MonoBehaviour
     }
 
     [SerializeField] float animationLength = .5f;
-    IEnumerator UnrenderCell(Vector2Int coords)
+    public IEnumerator UnrenderCell(Vector2Int coords)
     {
         GameObject toUnrender = MapTools.MapToTile(coords);
         MapTools.gameMap.Remove(coords);

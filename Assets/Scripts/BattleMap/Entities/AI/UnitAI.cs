@@ -106,6 +106,7 @@ public class UnitAI : MonoBehaviour
         Vector2Int moveVect = MapTools.VectorToMap(moveTile.transform.position);
         foreach (CardEffectPlus effect in card.effects)
         {
+            System.Type effectType = effect.GetType();
             if (effect.effectClass == CardClass.MOVE)
             {
                 favor += EntityScan(moveVect, personality.interestHostile, personality.interestFriendly, personality.proximityHostile, personality.proximityFriendly);
@@ -123,10 +124,12 @@ public class UnitAI : MonoBehaviour
                                                                          effect.aoe).Select(x => x.unitContents).ToList();
                 if (targetables.FirstOrDefault(x => x.Allegiance == AllegianceType.PLAYER) != null) favor += .1f;
 
+                if(effectType == typeof(EffectSwap)) favor += EntityScan(moveVect, personality.interestHostile, personality.interestFriendly, personality.proximityHostile, personality.proximityFriendly)/2;
+
                 if (effect.effectClass == CardClass.ATTACK)
                 {
                     //hack for delayed effects; if we can't find a target, put it as close to an enemy as possible
-                    if(targetables.Count == 0 && effect.GetType() == typeof(EffectDelayed))
+                    if(targetables.Count == 0 && effectType == typeof(EffectDelayed))
                     {
                         //weighting is minimal so near-delays are only favored compared to eachother
                         favor += EntityScan(moveVect, personality.interestHostile, 0, 0, 0)/100000;
@@ -135,7 +138,7 @@ public class UnitAI : MonoBehaviour
                 }
                 else if (effect.effectClass == CardClass.BUFF)
                 {
-                    if(effect.GetType() != typeof(EffectHeal))
+                    if(effectType != typeof(EffectHeal))
                     {
                         favor += targetables.Count * personality.interestBuff;
                         continue;

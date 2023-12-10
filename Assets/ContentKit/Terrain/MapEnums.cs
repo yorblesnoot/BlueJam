@@ -11,7 +11,8 @@ public enum TerrainType
     FOREST,
     TUNDRA,
     DESERT,
-    RUINS
+    RUINS,
+    BROKEN
 }
 
 public enum EventType

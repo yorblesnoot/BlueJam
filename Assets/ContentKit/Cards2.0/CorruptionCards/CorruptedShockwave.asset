@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: fd907f03-2d05-4502-b177-9174b7747e25
   displayName: 
-  art: {fileID: 0}
+  art: {fileID: 21300000, guid: 9bc94ac83fc474d129af7e1942f50fe5, type: 3}
   cost: 0
   targetShape: 0
   targetSize: 0
