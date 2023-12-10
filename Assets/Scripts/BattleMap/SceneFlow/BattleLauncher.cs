@@ -10,8 +10,8 @@ public class BattleLauncher : MapLauncher
     [SerializeField] CameraLock camLock;
     [SerializeField] MasterEnemyPool masterEnemyPool;
 
-    [SerializeField] RiftMaker riftMaker;
-    [SerializeField] TentacleSpawner tentacleSpawner;
+    [SerializeField] CorruptionManager corruptionManager;
+
     [SerializeField] MapDispenser dispenser;
 
     private void Start()
@@ -27,24 +27,18 @@ public class BattleLauncher : MapLauncher
 
     IEnumerator StartBattle()
     {
-        //create void rifts
-        riftMaker.Activate(sceneRelay.riftBudget);
-        tentacleSpawner.Activate(2);
+        corruptionManager.CorruptScene();
 
         //place units onto the map
         BattleUnitSpawner encounterBuilder = new(sceneRelay.spawnPool, map, masterEnemyPool);
         
-
         Tutorial.Initiate(TutorialFor.BATTLEACTIONS, TutorialFor.MAIN);
         Tutorial.EnterStage(TutorialFor.BATTLEACTIONS, 1, "The fight is on! An <color=orange>orange exclamation</color> over me means it's my turn. On my turn, you can click on a map tile and I'll move there.");
-
-        
         
         if (sceneRelay.bossEncounter == true) encounterBuilder.PlaceBoss(runData.bossSequence);
         else encounterBuilder.SmartSpawn(sceneRelay.enemyBudget);
 
         yield return StartCoroutine(encounterBuilder.PlacePlayer(player));
-
 
         PlayerUnit playerUnit = player.GetComponent<PlayerUnit>();
         TurnManager.InitializePositions();

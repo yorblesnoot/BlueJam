@@ -1397,6 +1397,8 @@ MonoBehaviour:
     clip: 
   - type: 8
     clip: 
+  - type: 9
+    clip: 
 --- !u!4 &9150400839647143849 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2655328461386920498, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}

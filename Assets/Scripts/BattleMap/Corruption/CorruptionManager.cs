@@ -28,7 +28,7 @@ public class CorruptionManager : MonoBehaviour
             }
             else
             {
-                activeTiers[tier.corruptionElement] += tier.corruptionBudget;
+                activeTiers[tier.corruptionElement] = tier.corruptionBudget;
             }
         }
 

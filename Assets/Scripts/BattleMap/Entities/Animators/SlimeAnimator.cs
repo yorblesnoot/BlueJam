@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public enum AnimType { CAST, DAMAGED, WALK, JUMP, DIE, CHEER, ATTACKCLOSE, ATTACKFAR, IDLE }
+public enum AnimType { CAST, DAMAGED, WALK, JUMP, DIE, CHEER, ATTACKCLOSE, ATTACKFAR, IDLE, HOVER }
 public class SlimeAnimator : Animatable
 {
     Animator animator;
@@ -24,7 +24,8 @@ public class SlimeAnimator : Animatable
         { AnimType.CHEER, "Cheer" },
         { AnimType.ATTACKCLOSE, "Attack_02" },
         { AnimType.ATTACKFAR, "Attack_03" },
-        { AnimType.IDLE, "Idle_02" }
+        { AnimType.IDLE, "Idle_02" },
+        { AnimType.HOVER, "Hover" }
     };
 
     readonly string yVelocity = "yVelocity";

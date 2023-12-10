@@ -8,13 +8,15 @@ public class RiftMaker : CorruptionElement
     public static List<Vector2Int> riftedCells;
     public override void Activate(int budget)
     {
+        List<RiftType> loadedTypes = new(types);
         riftedCells = new();
         Dictionary<Vector2Int, GameObject> availableMap = new(MapTools.gameMap);
         while (budget > 0)
         {
-            int riftSelect = Random.Range(0, types.Count);
+            if (loadedTypes.Count == 0) { Debug.LogWarning("Ran out of rift space."); break; }
+            int riftSelect = Random.Range(0, loadedTypes.Count);
             
-            RiftType chosenRift = types[riftSelect];
+            RiftType chosenRift = loadedTypes[riftSelect];
 
             List<Vector2Int> cellsToCheck = availableMap.Keys.ToList();
             while(cellsToCheck.Count > 0)
@@ -36,6 +38,7 @@ public class RiftMaker : CorruptionElement
                 riftedCells.AddRange(occupiedCells);
                 break;
             }
+            if (cellsToCheck.Count == 0) loadedTypes.Remove(chosenRift);
         }
 
         //do something with the list of rift cells

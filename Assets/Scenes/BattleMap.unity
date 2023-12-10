@@ -2418,6 +2418,145 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &347414615
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 347414620}
+  - component: {fileID: 347414619}
+  - component: {fileID: 347414618}
+  - component: {fileID: 347414617}
+  - component: {fileID: 347414616}
+  m_Layer: 0
+  m_Name: VoidMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &347414616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347414615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8535cad5f3e3fc43b95eca13e836a34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  corruptionTiers:
+  - tierThreshold: 1
+    corruptionElement: {fileID: 347414618}
+    corruptionBudget: 2
+  - tierThreshold: 2
+    corruptionElement: {fileID: 347414617}
+    corruptionBudget: 1
+  - tierThreshold: 3
+    corruptionElement: {fileID: 347414618}
+    corruptionBudget: 4
+  - tierThreshold: 4
+    corruptionElement: {fileID: 347414619}
+    corruptionBudget: 1
+  - tierThreshold: 5
+    corruptionElement: {fileID: 347414618}
+    corruptionBudget: 6
+  - tierThreshold: 6
+    corruptionElement: {fileID: 347414617}
+    corruptionBudget: 2
+  - tierThreshold: 7
+    corruptionElement: {fileID: 347414618}
+    corruptionBudget: 8
+  - tierThreshold: 8
+    corruptionElement: {fileID: 347414619}
+    corruptionBudget: 2
+  - tierThreshold: 9
+    corruptionElement: {fileID: 347414618}
+    corruptionBudget: 10
+  - tierThreshold: 10
+    corruptionElement: {fileID: 347414617}
+    corruptionBudget: 3
+  - tierThreshold: 11
+    corruptionElement: {fileID: 347414618}
+    corruptionBudget: 12
+  - tierThreshold: 12
+    corruptionElement: {fileID: 347414619}
+    corruptionBudget: 3
+  runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
+--- !u!114 &347414617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347414615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13a30333b9e47a94389b4e20fb3e778b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RunData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
+  corruptionCards:
+  - {fileID: 11400000, guid: fb9b9692f1ee70740b6c7f2de0ff821b, type: 2}
+  - {fileID: 11400000, guid: 5273ff8496dc9834da41c4299d3a2701, type: 2}
+  - {fileID: 11400000, guid: fbc3ed73c6c33b14583f669fdde2998c, type: 2}
+  - {fileID: 11400000, guid: 7571b39800c58dc41948d93a1ca306f9, type: 2}
+  - {fileID: 11400000, guid: 5ed7744edfd84ce4f9fd16eb3556e398, type: 2}
+  staggerWait: 0.5
+--- !u!114 &347414618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347414615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3bdd45c1d1b3cc4b8160c1823f447e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  types:
+  - rift: {fileID: 1155174008283945434, guid: 6bf9917d4beb55f49916110299bb0cda, type: 3}
+    dimensions: {x: 1, y: 1}
+  - rift: {fileID: 8372680718998235774, guid: dc6206887ade9044ca0c11e9ec066e3c, type: 3}
+    dimensions: {x: 1, y: 2}
+  - rift: {fileID: 2664701646031636913, guid: af2b269706f8f4a4a843c35e0a7e46e0, type: 3}
+    dimensions: {x: 2, y: 1}
+  - rift: {fileID: 2361423128698814699, guid: cf59759f0ad29704790793082072ccb7, type: 3}
+    dimensions: {x: 2, y: 2}
+--- !u!114 &347414619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347414615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 487761c996908d743bce948799150b77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tentacle: {fileID: 4039637195503505460, guid: 589a60a7d2840e646b3355f498b2775f, type: 3}
+--- !u!4 &347414620
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 347414615}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 11.563496, y: -10.928671, z: 9.489599}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &388095515
 GameObject:
   m_ObjectHideFlags: 0
@@ -2431,8 +2570,6 @@ GameObject:
   - component: {fileID: 388095518}
   - component: {fileID: 388095520}
   - component: {fileID: 388095521}
-  - component: {fileID: 388095522}
-  - component: {fileID: 388095523}
   - component: {fileID: 388095524}
   m_Layer: 0
   m_Name: BattleMaster
@@ -2458,8 +2595,7 @@ MonoBehaviour:
   sceneRelay: {fileID: 11400000, guid: 560180093c409b041b59db9d69699861, type: 2}
   camLock: {fileID: 1678473390}
   masterEnemyPool: {fileID: 11400000, guid: fdfcfaa337bce144d8e682a23350c8d2, type: 2}
-  riftMaker: {fileID: 388095522}
-  tentacleSpawner: {fileID: 388095523}
+  corruptionManager: {fileID: 347414616}
   dispenser: {fileID: 11400000, guid: 790c73ec56edba846b5897a51139d5cd, type: 2}
 --- !u!4 &388095517
 Transform:
@@ -2541,40 +2677,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _tracker: {fileID: 7041260999172645529, guid: 2f598ef42cb0ca94bad559b1fb3b6f9b, type: 3}
---- !u!114 &388095522
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 388095515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3bdd45c1d1b3cc4b8160c1823f447e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  types:
-  - rift: {fileID: 1155174008283945434, guid: 6bf9917d4beb55f49916110299bb0cda, type: 3}
-    dimensions: {x: 1, y: 1}
-  - rift: {fileID: 8372680718998235774, guid: dc6206887ade9044ca0c11e9ec066e3c, type: 3}
-    dimensions: {x: 1, y: 2}
-  - rift: {fileID: 2664701646031636913, guid: af2b269706f8f4a4a843c35e0a7e46e0, type: 3}
-    dimensions: {x: 2, y: 1}
-  - rift: {fileID: 2361423128698814699, guid: cf59759f0ad29704790793082072ccb7, type: 3}
-    dimensions: {x: 2, y: 2}
---- !u!114 &388095523
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 388095515}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 487761c996908d743bce948799150b77, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tentacle: {fileID: 4039637195503505460, guid: 589a60a7d2840e646b3355f498b2775f, type: 3}
 --- !u!114 &388095524
 MonoBehaviour:
   m_ObjectHideFlags: 0
