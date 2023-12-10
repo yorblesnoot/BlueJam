@@ -4,5 +4,5 @@ using UnityEngine;
 
 public abstract class CorruptionElement : MonoBehaviour
 {
-    public abstract void Activate(Dictionary<Vector2Int, GameObject> map, int budget);
+    public abstract void Activate(int budget);
 }

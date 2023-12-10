@@ -6,10 +6,10 @@ public class RiftMaker : CorruptionElement
 {
     [SerializeField] List<RiftType> types;
     public static List<Vector2Int> riftedCells;
-    public override void Activate(Dictionary<Vector2Int, GameObject> map, int budget)
+    public override void Activate(int budget)
     {
         riftedCells = new();
-        Dictionary<Vector2Int, GameObject> availableMap = new(map);
+        Dictionary<Vector2Int, GameObject> availableMap = new(MapTools.gameMap);
         while (budget > 0)
         {
             int riftSelect = Random.Range(0, types.Count);

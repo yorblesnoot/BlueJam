@@ -14,9 +14,9 @@ public class BreakWorldTiles : CorruptionElement
 
     Dictionary<Vector2Int, GameObject> activeMap;
     int budget;
-    public override void Activate(Dictionary<Vector2Int, GameObject> map, int budget)
+    public override void Activate(int budget)
     {
-        activeMap = map;
+        activeMap = MapTools.gameMap;
         this.budget = budget;
         EventManager.playerAtWorldLocation.AddListener((_) => CheckToBreak(activeMap, this.budget));
     }

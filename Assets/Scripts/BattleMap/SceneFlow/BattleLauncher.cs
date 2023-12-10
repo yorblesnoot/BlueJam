@@ -28,8 +28,8 @@ public class BattleLauncher : MapLauncher
     IEnumerator StartBattle()
     {
         //create void rifts
-        riftMaker.Activate(map, sceneRelay.riftBudget);
-        tentacleSpawner.Activate(map, 2);
+        riftMaker.Activate(sceneRelay.riftBudget);
+        tentacleSpawner.Activate(2);
 
         //place units onto the map
         BattleUnitSpawner encounterBuilder = new(sceneRelay.spawnPool, map, masterEnemyPool);

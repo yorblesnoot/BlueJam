@@ -34,7 +34,7 @@ public class CorruptionManager : MonoBehaviour
 
         foreach(var element in activeTiers.Keys)
         {
-            element.Activate(MapTools.gameMap, activeTiers[element]);
+            element.Activate(activeTiers[element]);
         }
     }
 }

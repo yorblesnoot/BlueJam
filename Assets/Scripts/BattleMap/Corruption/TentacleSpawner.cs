@@ -11,8 +11,9 @@ public class TentacleSpawner : CorruptionElement
         validSpots = new();
     }
 
-    public override void Activate(Dictionary<Vector2Int, GameObject> battleMap, int amount)
+    public override void Activate(int amount)
     {
+        Dictionary<Vector2Int, GameObject> battleMap = MapTools.gameMap;
         foreach (Vector2Int key in battleMap.Keys)
         {
             GameObject tile = battleMap[key];

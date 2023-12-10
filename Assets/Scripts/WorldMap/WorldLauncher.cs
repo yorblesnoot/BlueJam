@@ -52,7 +52,7 @@ public class WorldLauncher : MapLauncher
         EventManager.updateWorldHealth.Invoke();
 
         SoundManager.PlayMusic(SoundType.MUSICWORLD);
-        breaker.Activate(MapTools.gameMap, 3);
+        breaker.Activate(3);
     }
 
     private IEnumerator TriggerEventsOnOrigin(Vector2Int localPlayer)
