@@ -8,14 +8,17 @@ public class CardCorrupts : CorruptionElement
 {
     [SerializeField] RunData RunData;
     [SerializeField] List<CardPlus> corruptionCards;
+    int budget;
 
     public override void Activate(int budget)
     {
-        TurnManager.initialPositionReport.AddListener(() => DistributeCorruptionCards(budget));
+        this.budget = budget;
+        TurnManager.initialPositionReport.AddListener(DistributeCorruptionCards);
     }
 
-    void DistributeCorruptionCards(int budget)
+    void DistributeCorruptionCards()
     {
+        unitsToAnimate = new();
         List<HandPlus> hands = TurnManager.turnTakers
             .Select(x => x.gameObject.GetComponent<HandPlus>())
             .Where(x => x.thisUnit.Allegiance == AllegianceType.SLIME).ToList();
@@ -23,19 +26,15 @@ public class CardCorrupts : CorruptionElement
         {
             int select = Random.Range(0, hands.Count);
             GiveCorruptionCard(hands[select]);
+            if (!unitsToAnimate.Contains(hands[select].thisUnit)) unitsToAnimate.Enqueue(hands[select].thisUnit);
             budget--;
         }
+        StartCoroutine(StaggerAnimations());
     }
 
-    Coroutine sequencer;
-    Queue<HandPlus> handsToAnimate;
+    Queue<BattleUnit> unitsToAnimate;
     private void GiveCorruptionCard(HandPlus handPlus)
     {
-        
-        handsToAnimate ??= new();
-        //vfx for corruption
-        handsToAnimate.Enqueue(handPlus);
-        sequencer ??= StartCoroutine(StaggerAnimations());
         
         CardPlus chosenCard = corruptionCards[Random.Range(0, corruptionCards.Count)];
         handPlus.ConjureCard(chosenCard, handPlus.transform.position, EffectInject.InjectLocation.DECK);
@@ -44,9 +43,11 @@ public class CardCorrupts : CorruptionElement
     [SerializeField] float staggerWait;
     IEnumerator StaggerAnimations()
     {
-        while (handsToAnimate.Count > 0)
+        while (unitsToAnimate.Count > 0)
         {
-            handsToAnimate.Dequeue().thisUnit.unitAnimator.Animate(AnimType.HOVER);
+            BattleUnit target = unitsToAnimate.Dequeue();
+            target.unitAnimator.Animate(AnimType.HOVER);
+            VFXMachine.PlayAtLocation("CorruptRise", target.transform.position);
             yield return new WaitForSeconds(staggerWait);
         }
     }

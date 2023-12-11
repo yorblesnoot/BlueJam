@@ -1349,6 +1349,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: c27e571462fd1dc4ba4cbba1531e565b, type: 2}
     - target: {fileID: 8320433818775275716, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
+      propertyPath: <Allegiance>k__BackingField
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8320433818775275716, guid: c9afe354781d07e4a98c62f482371ff2, type: 3}
       propertyPath: <isSummoned>k__BackingField
       value: 1
       objectReference: {fileID: 0}

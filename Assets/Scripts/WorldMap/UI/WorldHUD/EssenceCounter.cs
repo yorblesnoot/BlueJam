@@ -8,6 +8,11 @@ public class EssenceCounter : MonoBehaviour
     void Awake()
     {
         EssenceCrafting.craftWindowClosed.AddListener(UpdateCounter);
+        
+    }
+
+    private void Start()
+    {
         UpdateCounter();
     }
 

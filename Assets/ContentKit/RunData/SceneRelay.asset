@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2d15fa41baaeb459de80af45fe368b, type: 3}
   m_Name: SceneRelay
   m_EditorClassIdentifier: 
-  battleMap: 1
+  battleMap: 6
   spawnPool: {fileID: 11400000, guid: 4ffb91bd2f1b6714abc7e1f7ab005120, type: 2}
   enemyBudget: 11
   riftBudget: 8
