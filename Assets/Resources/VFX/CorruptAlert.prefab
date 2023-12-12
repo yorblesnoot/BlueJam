@@ -40,6 +40,10 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 1840949766026619271, guid: 98d1ea7e474625e4cbdfbfd9c6fe7d13, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840949766026619271, guid: 98d1ea7e474625e4cbdfbfd9c6fe7d13, type: 3}
       propertyPath: InitialModule.startSizeY.scalar
       value: 0.3
       objectReference: {fileID: 0}
@@ -49,7 +53,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1840949766026619271, guid: 98d1ea7e474625e4cbdfbfd9c6fe7d13, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 0.7
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: 1840949766026619271, guid: 98d1ea7e474625e4cbdfbfd9c6fe7d13, type: 3}
       propertyPath: InitialModule.startLifetime.scalar
@@ -74,6 +78,14 @@ PrefabInstance:
     - target: {fileID: 1840949766026619271, guid: 98d1ea7e474625e4cbdfbfd9c6fe7d13, type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840949766026619271, guid: 98d1ea7e474625e4cbdfbfd9c6fe7d13, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].cycleCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1840949766026619271, guid: 98d1ea7e474625e4cbdfbfd9c6fe7d13, type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].repeatInterval
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 1840949766026619271, guid: 98d1ea7e474625e4cbdfbfd9c6fe7d13, type: 3}
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
@@ -149,7 +161,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4703764300557540555, guid: 98d1ea7e474625e4cbdfbfd9c6fe7d13, type: 3}
       propertyPath: m_Name
-      value: CorruptRise
+      value: CorruptAlert
       objectReference: {fileID: 0}
     - target: {fileID: 7124311001975406245, guid: 98d1ea7e474625e4cbdfbfd9c6fe7d13, type: 3}
       propertyPath: m_RootOrder

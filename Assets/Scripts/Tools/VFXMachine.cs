@@ -12,7 +12,7 @@ public enum VFXStyle
 }
 public static class VFXMachine 
 {
-    static readonly float particleKillDelay = 4f;
+    static readonly float particleKillDelay = 6f;
     public static void PlayVFX(string vfxName, VFXStyle vfxStyle, BattleUnit actor, BattleTileController targetCell)
     {
         if (vfxName == "none" || string.IsNullOrEmpty(vfxName)) return;
@@ -30,6 +30,7 @@ public static class VFXMachine
     public static void PlayToLocation(string effect, Vector3 origin, Vector3 target)
     {
         GameObject particle = GameObject.Instantiate(PrepareAsset(effect), origin, Quaternion.identity);
+        StopParticlesFromLooping(particle);
         particle.transform.LookAt(target);
         GameObject.Destroy(particle, particleKillDelay);
     }
@@ -37,6 +38,7 @@ public static class VFXMachine
     public static void PlayAtLocation(string effect, Vector3 origin)
     {   
         GameObject particle = GameObject.Instantiate(PrepareAsset(effect), origin, Quaternion.identity);
+        StopParticlesFromLooping(particle);
         GameObject.Destroy(particle, particleKillDelay);
     }
 
@@ -51,6 +53,7 @@ public static class VFXMachine
     {
         GameObject particle = GameObject.Instantiate(PrepareAsset(effect), origin, Quaternion.identity);
         target.y += .1f;
+        StopParticlesFromLooping(particle);
         particle.ParabolicProjectile(target, shootTime);
         GameObject.Destroy(particle, particleKillDelay);
     }
@@ -68,5 +71,15 @@ public static class VFXMachine
         effect = assetFolder + effect;
         GameObject prefab = (GameObject)Resources.Load(effect, typeof(GameObject));
         return prefab;
+    }
+
+    static void StopParticlesFromLooping(GameObject parent)
+    {
+        ParticleSystem[] particles = parent.GetComponentsInChildren<ParticleSystem>();
+        foreach (ParticleSystem particle in particles)
+        {
+            ParticleSystem.MainModule main = particle.main;
+            main.loop = false;
+        }
     }
 }

@@ -27,9 +27,9 @@ MonoBehaviour:
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
   RemoveStock: 0
-  worldSteps: 129
+  worldSteps: 200
   difficultyTier: 7
-  currentHealth: 110
+  currentHealth: 89
   score: 106
   bossSequence: 03000000010000000200000000000000
   endless: 0

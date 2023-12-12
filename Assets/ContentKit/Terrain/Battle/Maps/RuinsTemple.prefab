@@ -297,7 +297,6 @@ Transform:
   - {fileID: 7075301955944468340}
   - {fileID: 5274380127154931295}
   - {fileID: 5274380126071325040}
-  - {fileID: 7330238246234316548}
   - {fileID: 7330238247200530007}
   - {fileID: 7330238247534859151}
   - {fileID: 7330238246353911213}
@@ -311,6 +310,7 @@ Transform:
   - {fileID: 7330238248073277242}
   - {fileID: 7330238246810607958}
   - {fileID: 7330238247730062827}
+  - {fileID: 7330238246234316548}
   - {fileID: 7075301955788520404}
   - {fileID: 7075301954975708690}
   - {fileID: 4149009349800871904}
@@ -319,12 +319,12 @@ Transform:
   - {fileID: 4149009349237692065}
   - {fileID: 8476427211170109639}
   - {fileID: 4516212665101106085}
-  - {fileID: 8476427210717263590}
   - {fileID: 4516212665138887345}
   - {fileID: 4516212665172546180}
   - {fileID: 4516212666250401706}
   - {fileID: 4516212665350131556}
   - {fileID: 8476427209540755020}
+  - {fileID: 8476427210717263590}
   - {fileID: 4149009348292943913}
   - {fileID: 7330238246496050437}
   - {fileID: 7330238246728230605}
@@ -10782,7 +10782,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7889739152512408050, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
 --- !u!4 &4516212666142151198 stripped
 Transform:
@@ -11096,7 +11097,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7559124761545898025, guid: b2dc6dfb41a1dc4458f17df766f78dd9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b2dc6dfb41a1dc4458f17df766f78dd9, type: 3}
 --- !u!4 &8751850158551442442 stripped
 Transform:
@@ -11236,7 +11238,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 16.783
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8086779354155637283, guid: 9a48cd3efb6da4b478617b3327abed3f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a48cd3efb6da4b478617b3327abed3f, type: 3}
 --- !u!4 &5274380127154931295 stripped
 Transform:
@@ -11302,7 +11305,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7889739152512408050, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
 --- !u!4 &4516212666000041205 stripped
 Transform:
@@ -11450,7 +11454,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7889739152512408050, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
 --- !u!4 &4516212665988687448 stripped
 Transform:
@@ -11701,7 +11706,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
 --- !u!4 &8476427211170109639 stripped
 Transform:
@@ -11779,7 +11785,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -24.751
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7308765939827276416, guid: 3d8cf673e39601545a6b6b358d04f4b9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3d8cf673e39601545a6b6b358d04f4b9, type: 3}
 --- !u!4 &8847140089206911216 stripped
 Transform:
@@ -12020,7 +12027,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 71.36
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4554942561164858438, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
 --- !u!4 &4043338215814732121 stripped
 Transform:
@@ -12225,7 +12233,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 48
+      value: 47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -12364,7 +12372,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 47
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -12577,7 +12585,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 43
+      value: 42
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -12717,7 +12725,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5621865248485337537, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
 --- !u!4 &4149009349237692065 stripped
 Transform:
@@ -12887,7 +12896,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6673291047734404228, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
       propertyPath: m_RootOrder
-      value: 62
+      value: 61
       objectReference: {fileID: 0}
     - target: {fileID: 6673291047734404228, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
       propertyPath: m_LocalScale.x
@@ -12941,7 +12950,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7889739152512408050, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
 --- !u!4 &4516212666250401706 stripped
 Transform:
@@ -13015,7 +13025,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7889739152512408050, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
 --- !u!4 &4516212666225168976 stripped
 Transform:
@@ -13365,7 +13376,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5621865248485337537, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
 --- !u!4 &4149009349894618750 stripped
 Transform:
@@ -13616,7 +13628,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 50
+      value: 49
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -13920,7 +13932,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1698653138083920183, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
       propertyPath: m_RootOrder
-      value: 59
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 1698653138083920183, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
       propertyPath: m_LocalScale.y
@@ -13970,7 +13982,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
 --- !u!4 &8476427210717263590 stripped
 Transform:
@@ -14044,7 +14057,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5621865248485337537, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
 --- !u!4 &4149009349800871904 stripped
 Transform:
@@ -14118,7 +14132,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5621865248485337537, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
 --- !u!4 &4149009349801341927 stripped
 Transform:
@@ -14196,7 +14211,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5621865248485337537, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
 --- !u!4 &4149009350048796084 stripped
 Transform:
@@ -14447,7 +14463,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Gothic_Pillar_Marble_Base_02 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4507168992539387090, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
 --- !u!1001 &7075301954813979616
 PrefabInstance:
@@ -14462,7 +14479,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6673291047734404228, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
       propertyPath: m_RootOrder
-      value: 63
+      value: 62
       objectReference: {fileID: 0}
     - target: {fileID: 6673291047734404228, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
       propertyPath: m_LocalScale.y
@@ -14508,7 +14525,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -16.437
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7889739152512408050, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
 --- !u!4 &4516212665350131556 stripped
 Transform:
@@ -14586,7 +14604,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cave_Lair_Cave_Stone_Rock_Bedrock_03
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2852278238879388392, guid: 5c22c42431661bb4e8039da07db4bdd4, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5c22c42431661bb4e8039da07db4bdd4, type: 3}
 --- !u!4 &3919329256199003440 stripped
 Transform:
@@ -14660,7 +14679,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Gothic_Pillar_Marble_Base_02 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4507168992539387090, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
 --- !u!1001 &7075301954852476483
 PrefabInstance:
@@ -14729,7 +14749,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased (5)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
 --- !u!4 &8476427210486706036 stripped
 Transform:
@@ -14745,7 +14766,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 39
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -15149,7 +15170,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5621865248485337537, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
 --- !u!4 &4149009349534373809 stripped
 Transform:
@@ -15227,7 +15249,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 46
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -15428,7 +15450,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5621865248485337537, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
 --- !u!4 &4149009349736799277 stripped
 Transform:
@@ -15589,7 +15612,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vegetation_Modular_New_Plant_Creeper_Ivy_01 (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4529280845830783789, guid: fd1a2ba7dddd8fa489d918477f669354, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd1a2ba7dddd8fa489d918477f669354, type: 3}
 --- !u!4 &3013895037169235949 stripped
 Transform:
@@ -15655,7 +15679,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased (4)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
 --- !u!4 &8476427210307761357 stripped
 Transform:
@@ -15721,7 +15746,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 44.477
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7889739152512408050, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
 --- !u!4 &4516212665044940617 stripped
 Transform:
@@ -15799,7 +15825,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5621865248485337537, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
 --- !u!4 &4149009348292943913 stripped
 Transform:
@@ -16021,7 +16048,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 38
+      value: 37
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -16300,7 +16327,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased (3)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
 --- !u!4 &8476427210178029471 stripped
 Transform:
@@ -16493,7 +16521,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7889739152512408050, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
 --- !u!4 &4516212664915256708 stripped
 Transform:
@@ -16629,7 +16658,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 16.945
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8086779354155637283, guid: 9a48cd3efb6da4b478617b3327abed3f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9a48cd3efb6da4b478617b3327abed3f, type: 3}
 --- !u!4 &5274380126071325040 stripped
 Transform:
@@ -16748,7 +16778,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -7.72
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4554942561164858438, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
 --- !u!4 &4043338214788092876 stripped
 Transform:
@@ -16822,7 +16853,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
 --- !u!4 &8476427210043338884 stripped
 Transform:
@@ -16973,7 +17005,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 41
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -17455,7 +17487,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 71.359
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4554942561164858438, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 19bcc8574a343724cbf3ab381f422b95, type: 3}
 --- !u!4 &4043338214934793674 stripped
 Transform:
@@ -17517,7 +17550,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Brick_Stone_Dungeon_01_Atlased (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -9136103199703561655, guid: 6638184adcc4bc145902442f3004cd3f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6638184adcc4bc145902442f3004cd3f, type: 3}
 --- !u!4 &7884393528635011381 stripped
 Transform:
@@ -17658,7 +17692,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vegetation_Modular_New_Plant_Creeper_Ivy_01
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4529280845830783789, guid: fd1a2ba7dddd8fa489d918477f669354, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd1a2ba7dddd8fa489d918477f669354, type: 3}
 --- !u!4 &3013895035645111512 stripped
 Transform:
@@ -17820,7 +17855,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 49
+      value: 48
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -17902,7 +17937,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6673291047734404228, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
       propertyPath: m_RootOrder
-      value: 61
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 6673291047734404228, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
       propertyPath: m_LocalScale.y
@@ -17948,7 +17983,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7889739152512408050, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
 --- !u!4 &4516212665172546180 stripped
 Transform:
@@ -18079,7 +18115,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -7.097
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7465285721654781351, guid: 8301ad8f907d0964b917950c8a64a488, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8301ad8f907d0964b917950c8a64a488, type: 3}
 --- !u!4 &4559715461369287728 stripped
 Transform:
@@ -18161,7 +18198,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4009062559570052544, guid: f868fa88256b1864a9fdcab0c658426f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f868fa88256b1864a9fdcab0c658426f, type: 3}
 --- !u!4 &5307887267693154437 stripped
 Transform:
@@ -18255,7 +18293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6673291047734404228, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
       propertyPath: m_RootOrder
-      value: 60
+      value: 59
       objectReference: {fileID: 0}
     - target: {fileID: 6673291047734404228, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
       propertyPath: m_LocalScale.y
@@ -18301,7 +18339,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7889739152512408050, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
 --- !u!4 &4516212665138887345 stripped
 Transform:
@@ -18317,7 +18356,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 10ac681ec59085b4780c550f7c16acc7, type: 3}
       propertyPath: m_RootOrder
-      value: 45
+      value: 44
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 10ac681ec59085b4780c550f7c16acc7, type: 3}
       propertyPath: m_LocalScale.x
@@ -18453,7 +18492,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased (6)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
 --- !u!4 &8476427209749818314 stripped
 Transform:
@@ -18519,7 +18559,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -7889739152512408050, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9788c986afce3e642b73979098a6c7e0, type: 3}
 --- !u!4 &4516212665101106085 stripped
 Transform:
@@ -18601,7 +18642,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 44
+      value: 43
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -18810,7 +18851,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 42
+      value: 41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -18946,7 +18987,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Gothic_Pillar_Marble_Base_02 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4507168992539387090, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: e9fb8cbbd1d153345952aff38cd4988a, type: 3}
 --- !u!1001 &7075301955697868839
 PrefabInstance:
@@ -19167,7 +19209,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5621865248485337537, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ef25472ffff91ec47b59db5af43e3d12, type: 3}
 --- !u!4 &4149009348761544616 stripped
 Transform:
@@ -19248,7 +19291,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1698653138083920183, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
       propertyPath: m_RootOrder
-      value: 64
+      value: 63
       objectReference: {fileID: 0}
     - target: {fileID: 1698653138083920183, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
       propertyPath: m_LocalScale.x
@@ -19306,7 +19349,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Ruins_Column_Square_Half_Stone_01_Atlased (2)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4389301950747345207, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6413cc0beca240c49b03668d67509e30, type: 3}
 --- !u!4 &8476427209540755020 stripped
 Transform:
@@ -19431,7 +19475,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Prop_Brick_Stone_Dungeon_01_Atlased
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -9136103199703561655, guid: 6638184adcc4bc145902442f3004cd3f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6638184adcc4bc145902442f3004cd3f, type: 3}
 --- !u!4 &7884393528932068590 stripped
 Transform:
@@ -19627,7 +19672,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4009062559570052544, guid: f868fa88256b1864a9fdcab0c658426f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: f868fa88256b1864a9fdcab0c658426f, type: 3}
 --- !u!4 &5307887266885827650 stripped
 Transform:
@@ -20396,7 +20442,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 40
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
@@ -20667,7 +20713,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Vegetation_Modular_New_Plant_Creeper_Ivy_01 (1)
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4529280845830783789, guid: fd1a2ba7dddd8fa489d918477f669354, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: fd1a2ba7dddd8fa489d918477f669354, type: 3}
 --- !u!4 &3013895036134690021 stripped
 Transform:
@@ -20683,7 +20730,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_RootOrder
-      value: 37
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ddc55eafd2d1f7344b5f3eecd8a530c8, type: 3}
       propertyPath: m_LocalScale.x
