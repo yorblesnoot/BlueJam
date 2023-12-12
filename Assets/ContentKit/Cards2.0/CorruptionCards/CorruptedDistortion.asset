@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: CorruptedDistortion
   m_EditorClassIdentifier: 
   Id: 127424cf-137b-4dc3-a671-1507fe39b155
-  displayName: 
-  art: {fileID: 0}
+  displayName: Corrupted Distort
+  art: {fileID: 21300000, guid: 9bc94ac83fc474d129af7e1942f50fe5, type: 3}
   cost: 0
   targetShape: 0
-  targetSize: 0
-  targetGap: 0
+  targetSize: 10
+  targetGap: 1
   needsPath: 0
   isCurse: 0
   consumed: 0
-  animType: 0
+  animType: 9
   delayBeforeEffects: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: 008813f577a3a3144af11bc3a7a1a5b6, type: 2}

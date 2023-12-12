@@ -47,7 +47,7 @@ public class CardCorrupts : CorruptionElement
         {
             BattleUnit target = unitsToAnimate.Dequeue();
             target.unitAnimator.Animate(AnimType.HOVER);
-            VFXMachine.PlayAtLocation("CorruptRise", target.transform.position);
+            VFXMachine.PlayAtLocation("CorruptAlert", target.transform.position);
             yield return new WaitForSeconds(staggerWait);
         }
     }

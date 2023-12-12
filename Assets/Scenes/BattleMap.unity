@@ -2696,10 +2696,13 @@ MonoBehaviour:
   - entity1: 1
     entity2: 3
     friendly: 0
+  - entity1: 1
+    entity2: 4
+    friendly: 0
   - entity1: 2
     entity2: 3
     friendly: 0
-  - entity1: 1
+  - entity1: 2
     entity2: 4
     friendly: 0
   - entity1: 3

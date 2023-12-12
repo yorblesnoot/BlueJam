@@ -41,7 +41,7 @@ public class FactionLogic : MonoBehaviour
     {
         if(type1 == type2) return true;
         if (!relationshipBook.TryGetValue(AllegiancesToVector(type1, type2), out bool friendly))
-            Debug.LogError("Unregistered allegiance interaction.");
+            Debug.LogError($"Unregistered allegiance interaction: {type1} - {type2}");
         return friendly;
 
     }

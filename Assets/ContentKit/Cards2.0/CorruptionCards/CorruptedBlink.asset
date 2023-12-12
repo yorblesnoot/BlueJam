@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: CorruptedBlink
   m_EditorClassIdentifier: 
   Id: 2bd4c7e2-e904-452e-baa2-2c89b422fdbb
-  displayName: 
-  art: {fileID: 0}
-  cost: 0
+  displayName: Corrupted Warp
+  art: {fileID: 21300000, guid: 9bc94ac83fc474d129af7e1942f50fe5, type: 3}
+  cost: 3
   targetShape: 0
-  targetSize: 0
-  targetGap: 0
+  targetSize: 5
+  targetGap: 2
   needsPath: 0
   isCurse: 0
   consumed: 0
-  animType: 0
+  animType: 9
   delayBeforeEffects: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: 008813f577a3a3144af11bc3a7a1a5b6, type: 2}

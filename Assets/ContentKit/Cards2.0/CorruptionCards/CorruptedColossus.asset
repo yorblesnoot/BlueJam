@@ -13,15 +13,16 @@ MonoBehaviour:
   m_Name: CorruptedColossus
   m_EditorClassIdentifier: 
   Id: 9f687da5-2273-4adc-a12d-db6a3461b09c
-  displayName: 
-  art: {fileID: 0}
-  cost: 0
+  displayName: Corrupted Gravitas
+  art: {fileID: 21300000, guid: 9bc94ac83fc474d129af7e1942f50fe5, type: 3}
+  cost: 4
   targetShape: 0
   targetSize: 0
   targetGap: 0
   needsPath: 0
   isCurse: 0
-  consumed: 0
-  animType: 0
+  consumed: 1
+  animType: 9
   delayBeforeEffects: 0
-  effects: []
+  effects:
+  - {fileID: 11400000, guid: 6eda06d0e6fb63846821baf682797512, type: 2}
