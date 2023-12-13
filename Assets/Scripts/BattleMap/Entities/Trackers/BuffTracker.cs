@@ -62,7 +62,7 @@ public class BuffTracker : MonoBehaviour
         public override IEnumerator TickEffect(BattleTileController tile)
         {
             if (remainingDuration <= 0)
-                stat.Unmodify(stat.scalingMultiplier, tile.unitContents);
+                stat.Unmodify(stat.scalingMultiplier, tile.OccupyingUnit());
             yield break;
         }
     }
@@ -109,7 +109,7 @@ public class BuffTracker : MonoBehaviour
     {
         for (int i = 0; i < mods.Count; i++)
         {
-            myTile = MapTools.VectorToTile(gameObject.transform.position).GetComponent<BattleTileController>();
+            myTile = gameObject.OccupiedTile();
             BuffToken returning = mods[i].TickDown(myTile);
             yield return StartCoroutine(mods[i].TickEffect(myTile));
             if (returning != null) buffTokens.Add(returning);

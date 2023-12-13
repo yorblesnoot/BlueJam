@@ -15,7 +15,7 @@ public class RiftMaker : CorruptionElement
     {
         
         riftedCells = new();
-        Dictionary<Vector2Int, GameObject> availableMap = new(MapTools.gameMap);
+        Dictionary<Vector2Int, GameObject> availableMap = new(MapTools.tileMap.forward);
         while (budget > 0)
         {
             if (loadedTypes.Count == 0) { Debug.LogWarning("Ran out of rift space."); break; }
@@ -49,7 +49,7 @@ public class RiftMaker : CorruptionElement
         //do something with the list of rift cells
         foreach(var cell in riftedCells)
         {
-            cell.MapToTile().GetComponent<BattleTileController>().BecomeRift();
+            cell.TileAtMapPosition().GetComponent<BattleTileController>().BecomeRift();
         }
     }
 
@@ -101,12 +101,12 @@ public class RiftMaker : CorruptionElement
 
     private void PlaceRift(RiftType chosenRift, Vector2Int targetCell, List<Vector2Int> occupiedCells)
     {
-        Vector3 placementPosition = targetCell.MapToTile().transform.position;
+        Vector3 placementPosition = targetCell.TileAtMapPosition().transform.position;
 
-        float targetZ = occupiedCells.Select(coord => coord.MapToTile().transform.position.z).Min();
+        float targetZ = occupiedCells.Select(coord => coord.TileAtMapPosition().transform.position.z).Min();
         placementPosition.z = targetZ;
         
-        Instantiate(chosenRift.rift, targetCell.MapToTile().transform.position, Quaternion.identity);
+        Instantiate(chosenRift.rift, targetCell.TileAtMapPosition().transform.position, Quaternion.identity);
     }
 
     private List<Vector2Int> RiftBlueprint(Vector2Int targetCell, RiftType chosenRift, Dictionary<Vector2Int, GameObject> map)

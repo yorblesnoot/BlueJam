@@ -25,4 +25,4 @@ MonoBehaviour:
   animType: 6
   delayBeforeEffects: 0.9
   effects:
-  - {fileID: 11400000, guid: a928d340492cb284cb2a0a333e9ae2fb, type: 2}
+  - {fileID: 11400000, guid: 3010f0f0b527e364aa2d0c2613686e1b, type: 2}

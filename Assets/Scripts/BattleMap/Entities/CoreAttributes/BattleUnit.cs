@@ -17,6 +17,8 @@ public class BattleUnit : Unit
 
     public bool immovable;
 
+    public Vector2Int mapPosition;
+
     [field:SerializeField] public bool isSummoned { get; set; }
     [HideInInspector] public bool isDead;
     [HideInInspector] public EntityUI myUI { get; set; }
@@ -46,7 +48,6 @@ public class BattleUnit : Unit
     {
         LoadStats();
         TurnManager.deathPhase.AddListener(CheckForDeath);
-        TurnManager.initialPositionReport.AddListener(ReportCell);
         myUI = GetComponentInChildren<EntityUI>();
     }
 
@@ -74,19 +75,6 @@ public class BattleUnit : Unit
     {
         currentHealth -= reduction;
         currentHealth = Mathf.Clamp(currentHealth, 0, Mathf.RoundToInt(loadedStats[StatType.MAXHEALTH]));
-    }
-
-    public void ReportCell()
-    {
-        BattleTileController myTile = MapTools.VectorToTile(gameObject.transform.position).GetComponent<BattleTileController>();
-        myTile.unitContents = this;
-        GetComponent<StencilControl>().ToggleStencil(myTile);
-    }
-
-    public void UnreportCell()
-    {
-        GameObject myTile = MapTools.VectorToTile(gameObject.transform.position);
-        myTile.GetComponent<BattleTileController>().unitContents = null;
     }
 
     public virtual void Die()

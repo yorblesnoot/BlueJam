@@ -13,7 +13,7 @@ public class TentacleSpawner : CorruptionElement
 
     public override void Activate(int amount)
     {
-        Dictionary<Vector2Int, GameObject> battleMap = MapTools.gameMap;
+        Dictionary<Vector2Int, GameObject> battleMap = MapTools.tileMap.forward;
         foreach (Vector2Int key in battleMap.Keys)
         {
             GameObject tile = battleMap[key];
@@ -26,7 +26,8 @@ public class TentacleSpawner : CorruptionElement
         while (amount > 0)
         {
             int selection = Random.Range(0, validSpots.Count);
-            Instantiate(tentacle, validSpots[selection].unitPosition, PhysicsHelper.RandomCardinalRotate());
+            GameObject spawned = Instantiate(tentacle, validSpots[selection].unitPosition, PhysicsHelper.RandomCardinalRotate());
+            MapTools.ReportPositionChange(spawned.GetComponent<BattleUnit>(), validSpots[selection]);
             validSpots.RemoveAt(selection);
             amount--;
         }

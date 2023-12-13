@@ -62,12 +62,12 @@ public class TriggerTracker : MonoBehaviour
             if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.USER)
             {
                 //Debug.Log($"..on {origin}");
-                targetCell = MapTools.VectorToTile(origin.transform.position).GetComponent<BattleTileController>();
+                targetCell = origin.OccupiedTile();
             }
             else if (tracked.trigger.effectRecipient == EffectTrigger.TriggerIdentity.RECEIVER && target != null)
             {
                 //Debug.Log($"..on {target}");
-                targetCell = MapTools.VectorToTile(target.transform.position).GetComponent<BattleTileController>();
+                targetCell = target.OccupiedTile();
             }
             else return;
             StartCoroutine(tracked.trigger.triggeredEffect.Execute(battleUnit, targetCell));

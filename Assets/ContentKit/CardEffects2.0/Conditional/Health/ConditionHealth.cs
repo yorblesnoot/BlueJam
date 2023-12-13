@@ -12,7 +12,7 @@ public class ConditionHealth : EffectConditional
     internal override bool ConditionIsMet(BattleUnit actor, BattleTileController targetCell)
     {
         BattleUnit target = actor;
-        if (evaluated == ConditionRecipient.target) target = targetCell.unitContents;
+        if (evaluated == ConditionRecipient.target) target = targetCell.OccupyingUnit();
         float percent = target.currentHealth / target.loadedStats[StatType.MAXHEALTH] * 100;
         if (comparison == ConditionDirection.above && percent >= scalingMultiplier) return true;
         if (comparison == ConditionDirection.below && percent <= scalingMultiplier) return true;

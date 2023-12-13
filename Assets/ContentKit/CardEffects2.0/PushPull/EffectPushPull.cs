@@ -35,24 +35,23 @@ public class EffectPushPull : CardEffectPlus
 
     IEnumerator Push(BattleUnit actor, BattleUnit target, int directedDistance, float duration)
     {
-        Vector3 direction;
-        direction = target.transform.position - actor.transform.position;
-        direction.y = 0f;
+        Vector2 direction;
+        direction = target.MapPosition() - actor.MapPosition();
         direction *= directedDistance;
         direction.Normalize();
         int distance = Mathf.Abs(directedDistance);
-        Vector3 startPosition = target.transform.position;
-        Vector3 destination = startPosition;
+        Vector2 startPosition = target.MapPosition();
+        Vector2 destination = startPosition;
         int collisionDamage = 0;
         for (int i = 0; i < distance; i++)
         {
             //evaluate each cell in turn as a push destination
-            Vector3 possibleDestination = destination + direction;
-            GameObject cellObj = MapTools.VectorToTile(possibleDestination);
-            if(cellObj != null)
+            Vector2 possibleDestination = destination + direction;
+            Vector2Int closestRealTile = possibleDestination.RoundToInt();
+            GameObject cellObj = closestRealTile.TileAtMapPosition();
+            if (cellObj != null)
             {
-                BattleTileController cell = cellObj.GetComponent<BattleTileController>();
-                if (cell.unitContents == null)
+                if (cellObj.OccupyingUnit() == null)
                 {
                     destination += direction;
                     continue;
@@ -61,16 +60,16 @@ public class EffectPushPull : CardEffectPlus
             collisionDamage = distance - i;
             break;
         }
-        BattleTileController destinationTile = MapTools.VectorToTile(destination).GetComponent<BattleTileController>();
+        BattleTileController destinationTile = destination.RoundToInt().TileAtMapPosition().GetComponent<BattleTileController>();
         MapTools.ReportPositionChange(target, destinationTile);
         yield return target.StartCoroutine(target.gameObject.LerpTo(destinationTile.unitPosition, duration));
 
         if (collisionDamage > 0 && directedDistance > 0)
         {
-            GameObject impactPlace = MapTools.VectorToTile(destination + direction);
+            GameObject impactPlace = (destination + direction).RoundToInt().TileAtMapPosition();
             if (impactPlace != null)
             {
-                BattleUnit contents = impactPlace.GetComponent<BattleTileController>().unitContents;
+                BattleUnit contents = impactPlace.OccupyingUnit();
                 if (contents != null)
                 {
                     Collide(contents, collisionDamage);

@@ -40,7 +40,7 @@ public class UnitAI : MonoBehaviour
         for(int rule = 0; rule < myHand.handCards.Count; rule++)
         {
             //use battlemap to find legal cells for every card in hand
-            List<GameObject> legalTiles = CellTargeting.ConvertMapRuleToTiles(myHand.handCards[rule].thisCard.targetRules, transform.position);
+            List<GameObject> legalTiles = CellTargeting.ConvertMapRuleToTiles(myHand.handCards[rule].thisCard.targetRules, gameObject.OccupiedTile().ToMap());
 
             if (myHand.handCards[rule].thisCard.needsPath == true) legalTiles = legalTiles.EliminateUnpathable(gameObject);
 
@@ -74,10 +74,10 @@ public class UnitAI : MonoBehaviour
 
     IEnumerator AIPlayCard(ICardDisplay cardReference, BattleTileController targetTile)
     {
-        ShowAITargeting(cardReference.thisCard.targetRules, transform.position, cardReference.thisCard);
+        ShowAITargeting(cardReference.thisCard.targetRules, gameObject.MapPosition(), cardReference.thisCard);
         yield return new WaitForSeconds(Settings.Gameplay[GameplaySetting.NPC_cast_preview]);
-        ShowAITargeting(cardReference.thisCard.aoePoint, targetTile.transform.position);
-        if(cardReference.thisCard.aoeSelf != null) ShowAITargeting(cardReference.thisCard.aoeSelf, transform.position);
+        ShowAITargeting(cardReference.thisCard.aoePoint, targetTile.ToMap());
+        if(cardReference.thisCard.aoeSelf != null) ShowAITargeting(cardReference.thisCard.aoeSelf, gameObject.MapPosition());
         yield return new WaitForSeconds(Settings.Gameplay[GameplaySetting.NPC_cast_preview]);
 
         //clear the range display and take the action
@@ -87,7 +87,7 @@ public class UnitAI : MonoBehaviour
         CardHistory.AddCardToHistory(cardReference.thisCard, thisUnit);
     }
 
-    void ShowAITargeting(bool[,] targetRule, Vector3 source, CardPlus card = null)
+    void ShowAITargeting(bool[,] targetRule, Vector2Int source, CardPlus card = null)
     {
         List<GameObject> displayCells = CellTargeting.ConvertMapRuleToTiles(targetRule, source);
         for (int i = 0; i < displayCells.Count; i++)
@@ -103,7 +103,7 @@ public class UnitAI : MonoBehaviour
     private float CalculateFavor(BattleTileController moveTile, CardPlus card)
     {
         float favor = 0f;
-        Vector2Int moveVect = MapTools.VectorToMap(moveTile.transform.position);
+        Vector2Int moveVect = moveTile.gameObject.ToMap();
         foreach (CardEffectPlus effect in card.effects)
         {
             System.Type effectType = effect.GetType();
@@ -118,10 +118,10 @@ public class UnitAI : MonoBehaviour
             }
             else
             {
-                List<BattleUnit> targetables = CellTargeting.AreaTargets(effect.forceTargetSelf ? MapTools.VectorToTile(transform.position) : moveTile.gameObject,
+                List<BattleUnit> targetables = CellTargeting.AreaTargets(effect.forceTargetSelf ? gameObject.OccupiedTile().gameObject : moveTile.gameObject,
                                                                          thisUnit.Allegiance,
                                                                          effect.effectClass,
-                                                                         effect.aoe).Select(x => x.unitContents).ToList();
+                                                                         effect.aoe).Select(x => x.OccupyingUnit()).ToList();
                 if (targetables.FirstOrDefault(x => x.Allegiance == AllegianceType.PLAYER) != null) favor += .1f;
 
                 if(effectType == typeof(EffectSwap)) favor += EntityScan(moveVect, personality.interestHostile, personality.interestFriendly, personality.proximityHostile, personality.proximityFriendly)/2;
@@ -178,9 +178,11 @@ public class UnitAI : MonoBehaviour
         for (int i = 0; i < entities.Count; i++)
         {
             GameObject entity = entities[i];
-            
-            float potentialPathDistance = pathfinder.GetPathLength(moveVect, entity.transform.position.VectorToMap());
-            float currentPathDistance = pathfinder.GetPathLength(transform.position.VectorToMap(), entity.transform.position.VectorToMap());
+            Vector2Int entityPosition = entity.OccupiedTile().gameObject.ToMap();
+
+
+            float potentialPathDistance = pathfinder.GetPathLength(moveVect, entityPosition);
+            float currentPathDistance = pathfinder.GetPathLength(gameObject.OccupiedTile().gameObject.ToMap(), entityPosition);
             if (potentialPathDistance == -1 || currentPathDistance == -1) continue;
             if (!WeAreFriends(gameObject, entity))
             {

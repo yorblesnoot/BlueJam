@@ -16,7 +16,7 @@ public class BreakWorldTiles : CorruptionElement
     int budget;
     public override void Activate(int budget)
     {
-        activeMap = MapTools.gameMap;
+        activeMap = MapTools.tileMap.forward;
         this.budget = budget;
         EventManager.playerAtWorldLocation.AddListener((_) => CheckToBreak(activeMap, this.budget));
     }

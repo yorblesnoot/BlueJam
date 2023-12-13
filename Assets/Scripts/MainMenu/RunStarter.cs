@@ -11,7 +11,7 @@ public class RunStarter : MonoBehaviour
     [SerializeField] DifficultySelector difficultySelector;
     [SerializeField] EventSpawnRates rates;
 
-    [HideInInspector] public static readonly TerrainType[] unpathable = { TerrainType.WATER, TerrainType.DEEPWATER, TerrainType.MOUNTAIN };
+    [HideInInspector] public static readonly TerrainType[] unpathable = { TerrainType.WATER, TerrainType.DEEPWATER, TerrainType.MOUNTAIN, TerrainType.BROKEN };
     public void NewGame()
     {
         EventManager.loadSceneWithScreen.Invoke(1);

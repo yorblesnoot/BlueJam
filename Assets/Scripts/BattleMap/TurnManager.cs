@@ -15,7 +15,7 @@ public class TurnManager : MonoBehaviour
     public static UnityEvent unitsReport = new();
     public static UnityEvent deathPhase = new();
 
-    public static UnityEvent initialPositionReport = new();
+    public static UnityEvent distributeCorruptCards = new();
     public static UnityEvent initializeDecks = new();
 
     public static readonly int beatThreshold = 2;
@@ -33,7 +33,7 @@ public class TurnManager : MonoBehaviour
     {
         //tell every unit on the map to report their turn
         unitsReport?.Invoke();
-        initialPositionReport?.Invoke();
+        distributeCorruptCards?.Invoke();
     }
 
     public static void InitializeTurns()

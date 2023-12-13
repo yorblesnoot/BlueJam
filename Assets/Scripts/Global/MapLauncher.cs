@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MapLauncher : MonoBehaviour
 {
-    public Dictionary<Vector2Int, GameObject> map = new();
+    public List<GameObject> map = new();
     [SerializeField] internal RunData runData;
 
     private void Awake()
@@ -18,7 +18,6 @@ public class MapLauncher : MonoBehaviour
 
     public void SubmitMapReference(GameObject reference)
     {
-        Vector2Int coords = MapTools.VectorToMap(reference.transform.position);
-        map.Add(coords,reference);
+        map.Add(reference);
     }
 }

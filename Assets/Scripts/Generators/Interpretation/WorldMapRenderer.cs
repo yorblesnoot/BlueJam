@@ -26,7 +26,7 @@ public class WorldMapRenderer : MonoBehaviour
 
     public void Initialize()
     {
-        MapTools.gameMap = new();
+        MapTools.tileMap = new();
         windowShape = GenerateWindowShape(windowRadius);
         SetKeyParameters(windowShape);
         EventManager.playerAtWorldLocation.AddListener(ShiftWindow);
@@ -102,7 +102,7 @@ public class WorldMapRenderer : MonoBehaviour
     public void RenderCell(TerrainType tileKey, Vector2Int cellCoords)
     {
         GameObject tile = tilePools[tileKey].InstantiateFromPool(MapTools.MapToVector(cellCoords, 0), PhysicsHelper.RandomCardinalRotate());
-        MapTools.gameMap.Add(cellCoords, tile);
+        MapTools.tileMap.Add(cellCoords, tile);
         GameObject cellEvent = eventRenderer.RenderCellEvent(cellCoords, spotlightGlobalOffset);
         Animator cachedAnim = GetCachedAnimator(tile);
         cachedAnim.Rebind();
@@ -115,8 +115,8 @@ public class WorldMapRenderer : MonoBehaviour
     [SerializeField] float animationLength = .5f;
     public IEnumerator UnrenderCell(Vector2Int coords)
     {
-        GameObject toUnrender = MapTools.MapToTile(coords);
-        MapTools.gameMap.Remove(coords);
+        GameObject toUnrender = MapTools.TileAtMapPosition(coords);
+        MapTools.tileMap.Remove(coords);
         if (!toUnrender.activeSelf) yield break;
         Animator unrenderAnimator = GetCachedAnimator(toUnrender);
         unrenderAnimator.Play("DropOut");

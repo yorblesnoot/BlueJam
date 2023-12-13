@@ -24,21 +24,22 @@ public class EffectBackstep : EffectMove
 
     IEnumerator Backstep(BattleUnit actor, BattleTileController targetCell, int distance, float duration)
     {
-        Vector3 direction;
-        direction = actor.transform.position - targetCell.transform.position;
-        direction.y = 0f;
+        Vector2 direction;
+        Vector2 startPosition = actor.MapPosition();
+        direction = startPosition - targetCell.ToMap();
         direction.Normalize();
-        Vector3 startPosition = actor.transform.position;
-        Vector3 destination = startPosition;
+        
+        Vector2 destination = startPosition;
         for (int i = 0; i < distance; i++)
         {
             //evaluate each cell in turn as a destination
-            Vector3 possibleDestination = destination + direction;
-            GameObject cellObj = MapTools.VectorToTile(possibleDestination);
+            Vector2 possibleDestination = destination + direction;
+            Vector2Int closestRealTile = possibleDestination.RoundToInt();
+            GameObject cellObj = closestRealTile.TileAtMapPosition();
             if(cellObj != null)
             {
                 BattleTileController cell = cellObj.GetComponent<BattleTileController>();
-                if (cell.unitContents == null)
+                if (cell.OccupyingUnit() == null && !cell.IsRift)
                 {
                     destination += direction;
                     continue;
@@ -46,7 +47,7 @@ public class EffectBackstep : EffectMove
             }
             break;
         }
-        BattleTileController destinationTile = MapTools.VectorToTile(destination).GetComponent<BattleTileController>();
+        BattleTileController destinationTile = destination.RoundToInt().TileAtMapPosition().GetComponent<BattleTileController>();
         yield return actor.StartCoroutine(Move(actor, destinationTile));
     }
 }

@@ -22,7 +22,7 @@ public class EffectSummon : CardEffectPlus
         Vector3 location = new();
         if (aoe.GetLength(0) > 1)
         {
-            List<GameObject> cells = CellTargeting.ConvertMapRuleToTiles(aoe, targetCell.transform.position);
+            List<GameObject> cells = CellTargeting.ConvertMapRuleToTiles(aoe, targetCell.ToMap());
             while (cells.Count > 0)
             {
                 int cellIndex = Random.Range(0, cells.Count);
@@ -37,6 +37,7 @@ public class EffectSummon : CardEffectPlus
         }
         else location = targetCell.unitPosition;
         GameObject summoned = Instantiate(entityToSummon, location, Quaternion.identity);
+        MapTools.ReportPositionChange(actor, targetCell);
         summoned.transform.LookAt(new Vector3(actor.transform.position.x, summoned.transform.position.y ,actor.transform.position.z));
         ModifyStats(actor, summoned.GetComponent<NonplayerUnit>());
         NonplayerHandPlus hand = summoned.GetComponent<NonplayerHandPlus>();
@@ -66,6 +67,5 @@ public class EffectSummon : CardEffectPlus
         toModify.loadedStats[StatType.BARRIER] *= summonModifier;
 
         toModify.RegisterTurn();
-        toModify.ReportCell();
     }
 }

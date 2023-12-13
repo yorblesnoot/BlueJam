@@ -55,7 +55,7 @@ public class WorldPlayerControl : MonoBehaviour
 
             playerState = WorldPlayerState.PATHING;
             runData.score -= 1;
-            WorldMovementController tileController = MapTools.MapToTile(tile).GetComponent<WorldMovementController>();
+            WorldMovementController tileController = MapTools.TileAtMapPosition(tile).GetComponent<WorldMovementController>();
             playerVisual.transform.LookAt(tileController.unitPosition);
             if (tileController.myEventHandler.cellEvent != null) tileController.myEventHandler.cellEvent.PreAnimate();
 

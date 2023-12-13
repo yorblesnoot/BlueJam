@@ -52,7 +52,7 @@ public class CardPlus : SOWithGUID
         actor.transform.LookAt(new Vector3(targetCell.unitPosition.x, actor.transform.position.y, targetCell.unitPosition.z));
         actor.unitAnimator.Animate(animType);
         yield return new WaitForSeconds(delayBeforeEffects);
-        BattleTileController userOriginalTile = MapTools.VectorToTile(actor.transform.position).GetComponent<BattleTileController>();
+        BattleTileController userOriginalTile = actor.OccupiedTile();
         EventManager.allowTriggers.Invoke();
         for (int i = 0; i < effects.Count; i++)
         {

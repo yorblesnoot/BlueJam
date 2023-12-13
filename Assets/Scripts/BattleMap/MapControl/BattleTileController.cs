@@ -6,10 +6,6 @@ using UnityEngine.EventSystems;
 public class BattleTileController : MonoBehaviour
 {
     [HideInInspector]public bool availableForPlay;
-
-    #nullable enable
-    [HideInInspector] public BattleUnit? unitContents;
-    #nullable disable
     [HideInInspector] public Vector3 unitPosition;
 
     public bool IsRift { get { return isRift; } }
@@ -46,9 +42,9 @@ public class BattleTileController : MonoBehaviour
             EventManager.targetConfirmed?.Invoke(this);
             availableForPlay = false;
         }
-        else if (unitContents != null)
+        else if (this.OccupyingUnit() != null)
         {
-            unitContents.ShowInfoTag();
+            this.OccupyingUnit().ShowInfoTag();
         }
         else if (loadedCard == null && myPath != null && myPath.Count > 0 && myPath.Count <= 3
             && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
@@ -67,7 +63,7 @@ public class BattleTileController : MonoBehaviour
         if(!isRift && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
         {
             Pathfinder pather = new();
-            myPath = pather.FindObjectPath(MapTools.VectorToMap(TurnManager.playerUnit.transform.position), MapTools.VectorToMap(unitPosition));
+            myPath = pather.FindObjectPath(TurnManager.playerUnit.MapPosition(), this.ToMap());
             if (myPath != null && myPath.Count <= 3)
             {
                 foreach (GameObject cell in myPath)
@@ -80,8 +76,8 @@ public class BattleTileController : MonoBehaviour
         else if(availableForPlay == true)
         {
             //find list of legal cell aoe targets
-            List<GameObject> legalCells = CellTargeting.ConvertMapRuleToTiles(loadedCard.aoePoint, transform.position);
-            if(loadedCard.aoeSelf != null) legalCells.AddRange(CellTargeting.ConvertMapRuleToTiles(loadedCard.aoeSelf, TurnManager.playerUnit.transform.position));
+            List<GameObject> legalCells = CellTargeting.ConvertMapRuleToTiles(loadedCard.aoePoint, this.ToMap());
+            if(loadedCard.aoeSelf != null) legalCells.AddRange(CellTargeting.ConvertMapRuleToTiles(loadedCard.aoeSelf, TurnManager.playerUnit.MapPosition()));
             //highlight on each legal cell
             for (int i = 0; i < legalCells.Count; i++)
             {

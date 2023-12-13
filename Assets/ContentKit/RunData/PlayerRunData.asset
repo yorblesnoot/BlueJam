@@ -21,14 +21,15 @@ MonoBehaviour:
   playerDeck: {fileID: 11400000, guid: cd9d9912c5f1a4d48a2d0bbf55ad4a43, type: 2}
   playerWorldX: 253
   playerWorldY: 244
-  itemInventory: []
+  itemInventory:
+  - {fileID: 11400000, guid: 97eec2e8537e5624a8e20b1b27cc39d8, type: 2}
   essenceInventory: []
   itemPool: {fileID: 11400000, guid: eccea0b9e4396bd41bc99c4f60f3cad3, type: 2}
   KeyStock: 0
   RemoveStock: 0
-  worldSteps: 0
+  worldSteps: 100
   difficultyTier: 7
-  currentHealth: 89
+  currentHealth: 65
   score: 106
   bossSequence: 03000000010000000200000000000000
   endless: 0

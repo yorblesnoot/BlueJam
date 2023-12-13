@@ -77,7 +77,7 @@ public class WorldEventHandler : MonoBehaviour
                 Tutorial.Initiate(TutorialFor.WORLDIMPASSABLE, TutorialFor.WORLDMOVE);
                 Tutorial.EnterStage(TutorialFor.WORLDIMPASSABLE, 1, "Water and mountains are <color=red>impassable terrain</color>, until I find <color=green>vehicles</color> to cross in.");
             }
-            GameObject tile = MapTools.MapToTile(position);
+            GameObject tile = MapTools.TileAtMapPosition(position);
             if(tile == null) continue;
             WorldEventHandler eventHandler = tile.GetComponent<WorldEventHandler>();
             if (eventHandler.cellEnemy == null || eventHandler.cellEnemy.GetType() == typeof(WorldBoss)) continue;

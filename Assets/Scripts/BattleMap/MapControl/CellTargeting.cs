@@ -5,7 +5,7 @@ using UnityEngine;
 
 public static class CellTargeting
 {
-    public static List<GameObject> ConvertMapRuleToTiles(bool[,] targetData, Vector3 targetSource)
+    public static List<GameObject> ConvertMapRuleToTiles(bool[,] targetData, Vector2Int mapSource)
     {
         bool terrainBlocked = false;
         //find size of target data array
@@ -18,9 +18,6 @@ public static class CellTargeting
         //centerpoint of target data in local coords
         int xCenterpoint = xLength/2;
         int yCenterpoint = yLength/2;
-
-        //global coordinates of the ability source
-        Vector2Int sourceMap = MapTools.VectorToMap(targetSource);
 
         for(int x = 0; x < xLength; x++)
         {
@@ -35,7 +32,7 @@ public static class CellTargeting
 
                     //get global coords for target cells
                     #nullable enable
-                    GameObject? tile = MapTools.MapToTile(new Vector2Int(sourceMap[0] + xOffset, sourceMap[1] + yOffset));
+                    GameObject? tile = MapTools.TileAtMapPosition(new Vector2Int(mapSource[0] + xOffset, mapSource[1] + yOffset));
                     #nullable disable
 
                     if(tile != null)
@@ -54,8 +51,8 @@ public static class CellTargeting
         List<GameObject> output = new();
         foreach(GameObject cell in legalCells)
         {
-            Vector2Int start = targetSource.ObjectToMap();
-            Vector2Int end = cell.ObjectToMap();
+            Vector2Int start = targetSource.MapPosition();
+            Vector2Int end = cell.ToMap();
             var path = pathfinder.FindObjectPath(start, end);
             int pathLength = path != null ? path.Count : 100;
             Vector2Int displacement = end - start;
@@ -73,7 +70,7 @@ public static class CellTargeting
         foreach (var effect in card.effects)
         {
             BattleTileController effectTile = tile;
-            if (effect.effectClass == CardClass.MOVE && effectTile.unitContents == null && !tile.IsRift) return true;
+            if (effect.effectClass == CardClass.MOVE && effectTile.OccupyingUnit() == null && !tile.IsRift) return true;
             if (effect.targetNotRequired || effect.forceTargetSelf) continue;
             int validTargets = AreaTargets(effectTile.gameObject, sourceAllegiance, effect.effectClass, effect.aoe).Count;
             if (validTargets == 0) return false;
@@ -84,7 +81,7 @@ public static class CellTargeting
     //return all valid targets in an aoe target based on the class, aoe size, and owner
     public static List<BattleTileController> AreaTargets(GameObject tile, AllegianceType sourceAllegiance, CardClass cardClass, bool[,] aoeRule)
     {
-        List<GameObject> checkCells = ConvertMapRuleToTiles(aoeRule, tile.transform.position);
+        List<GameObject> checkCells = ConvertMapRuleToTiles(aoeRule, tile.ToMap());
         List<BattleTileController> aoeTargets = new();
         if (checkCells.Count == 0) return aoeTargets;
         for (int i = 0; i < checkCells.Count; i++)
@@ -128,7 +125,7 @@ public static class CellTargeting
     public static bool TileIsValidTarget(BattleTileController tile, AllegianceType sourceAllegiance, CardClass cardClass)
     {
         //logic to determine whether unit occupation makes the cell invalid
-        BattleUnit objTarget = tile.unitContents;
+        BattleUnit objTarget = tile.OccupyingUnit();
         AllegianceType targetAllegiance;
         if (objTarget != null)
         {

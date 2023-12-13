@@ -110,4 +110,9 @@ public static class GridHelper
         int direction = UnityEngine.Random.Range(0, 2);
         return new Vector2Int(direction == 0 ? searchVal : 0, direction == 1 ? searchVal : 0);
     }
+
+    public static Vector2Int RoundToInt(this Vector2 v)
+    {
+        return new(Mathf.RoundToInt(v.x), Mathf.RoundToInt(v.y));
+    }
 }

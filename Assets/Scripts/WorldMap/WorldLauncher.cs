@@ -57,7 +57,7 @@ public class WorldLauncher : MapLauncher
 
     private IEnumerator TriggerEventsOnOrigin(Vector2Int localPlayer)
     {
-        WorldEventHandler handler = MapTools.MapToTile(localPlayer).GetComponent<WorldEventHandler>();
+        WorldEventHandler handler = MapTools.TileAtMapPosition(localPlayer).GetComponent<WorldEventHandler>();
         if (handler.cellEvent != null)
         {
             handler.cellEvent.PreAnimate();

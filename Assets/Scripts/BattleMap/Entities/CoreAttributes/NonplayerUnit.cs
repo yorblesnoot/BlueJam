@@ -91,7 +91,7 @@ public class NonplayerUnit : BattleUnit, ITurnTaker
             BattleEnder.deckDrops.Add(GetComponent<HandPlus>().deckRecord);
         }
         TurnManager.UnreportTurn(this);
-        UnreportCell();
+        MapTools.ReportDepartureFromMap(this);
         TurnManager.deathPhase.RemoveListener(CheckForDeath);
         isDead = true;
         StartCoroutine(SlowDeath());

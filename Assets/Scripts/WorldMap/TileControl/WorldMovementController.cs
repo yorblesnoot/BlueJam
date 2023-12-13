@@ -79,7 +79,7 @@ public class WorldMovementController : MonoBehaviour
         myPath = pather.FindVectorPath(playerPosition, myPosition);
         if(myPath == null) return;
         foreach (var cell in myPath)
-            MapTools.MapToTile(cell).GetComponent<WorldMovementController>().HighlightRoute();
+            MapTools.TileAtMapPosition(cell).GetComponent<WorldMovementController>().HighlightRoute();
     }
     private void OnMouseExit()
     {

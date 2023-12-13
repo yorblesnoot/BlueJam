@@ -13,16 +13,16 @@ public class BattleUnitSpawner
 
     List<GameObject> currentlySpawned;
 
-    Vector3 playerSpawn;
-    public BattleUnitSpawner(SpawnPool pool, Dictionary<Vector2Int, GameObject> map, MasterEnemyPool master)
+    BattleTileController playerSpawnTile;
+    public BattleUnitSpawner(SpawnPool pool, MasterEnemyPool master)
     {
         currentlySpawned = new();
         spawnPool = pool;
-        battleMap = map;
+        battleMap = MapTools.tileMap.forward;
         masterEnemyPool = master;
         //loop through every battle map spot and add it to a list of valid cell placements
         GetValidSpots();
-        playerSpawn = DesignatePlayerSpawnLocation();
+        DesignatePlayerSpawnLocation();
     }
 
     public void SmartSpawn(int budget)
@@ -48,12 +48,12 @@ public class BattleUnitSpawner
         }
     }
 
-    private Vector3 DesignatePlayerSpawnLocation()
+    private void DesignatePlayerSpawnLocation()
     {
         int placementIndex = Random.Range(0, validSpots.Count);
-        Vector3 tilePosition = validSpots[placementIndex].unitPosition;
+        playerSpawnTile = validSpots[placementIndex];
+        Vector3 tilePosition = playerSpawnTile.unitPosition;
         validSpots.RemoveAt(placementIndex);
-        return tilePosition;
     }
 
     void GetValidSpots()
@@ -73,18 +73,19 @@ public class BattleUnitSpawner
     static readonly float duration = .3f;
     public IEnumerator PlacePlayer(GameObject player)
     {
-        Vector3 highPosition = playerSpawn;
+        Vector3 highPosition = playerSpawnTile.unitPosition;
         highPosition.y += 5f;
         player.transform.position = highPosition;
         float timeElapsed = 0;
         while (timeElapsed < duration)
         {
-            Vector3 step = Vector3.Lerp(highPosition, playerSpawn, timeElapsed / duration);
+            Vector3 step = Vector3.Lerp(highPosition, playerSpawnTile.unitPosition, timeElapsed / duration);
             timeElapsed += Time.deltaTime;
             player.transform.position = step;
             yield return null;
         }
-        player.transform.position = playerSpawn;
+        player.transform.position = playerSpawnTile.unitPosition;
+        MapTools.ReportPositionChange(player.GetComponent<BattleUnit>(), playerSpawnTile);
         VFXMachine.PlayAtLocation("RoundGust", player.transform.position);
         SoundManager.PlaySound(SoundType.SLIMESTEP);
     }
@@ -102,6 +103,7 @@ public class BattleUnitSpawner
 
         int placementIndex = Random.Range(0, deviation);
         tilePosition = validSpots[placementIndex].unitPosition;
+        MapTools.ReportPositionChange(spawned.GetComponent<BattleUnit>(), validSpots[placementIndex]);
         validSpots.RemoveAt(placementIndex);
         spawned.transform.position = tilePosition;
     }
@@ -110,7 +112,7 @@ public class BattleUnitSpawner
     readonly float allyPenalty = 3f;
     float GetPositionScore(UnitAI unit, BattleTileController tile)
     {
-        float playerScore = Mathf.Abs((playerSpawn - tile.unitPosition).magnitude - (unit.personality.proximityHostile + graceDistance));
+        float playerScore = Mathf.Abs((playerSpawnTile.unitPosition - tile.unitPosition).magnitude - (unit.personality.proximityHostile + graceDistance));
         float allyScore = 0;
         if(currentlySpawned.Count > 0)
         {

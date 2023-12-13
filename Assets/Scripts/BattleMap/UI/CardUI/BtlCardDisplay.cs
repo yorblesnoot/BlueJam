@@ -31,7 +31,7 @@ public class BtlCardDisplay : PlayerCardDisplay, IPointerEnterHandler, IPointerE
             EventManager.clearActivation?.Invoke();
             PlayerUnit.playerState = PlayerBattleState.TARGETING_CARD;
             //find list of legal cell targets
-            List<GameObject> legalCells = CellTargeting.ConvertMapRuleToTiles(thisCard.targetRules, owner.transform.position);
+            List<GameObject> legalCells = CellTargeting.ConvertMapRuleToTiles(thisCard.targetRules, TurnManager.playerUnit.MapPosition());
 
             //LOS logic for move cards
             if (thisCard.needsPath == true) legalCells = legalCells.EliminateUnpathable(owner.gameObject);

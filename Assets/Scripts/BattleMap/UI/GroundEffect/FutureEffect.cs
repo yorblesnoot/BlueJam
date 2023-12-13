@@ -52,8 +52,8 @@ public class FutureEffect : MonoBehaviour, ITurnTaker
     private void GenerateReticle(CardEffectPlus[] effects)
     {
         bool[,] combinedArea = CellTargeting.CombineAOEIndicators(effects.Select(x => x.aoe).ToList());
-        List<GameObject> checkCells = CellTargeting.ConvertMapRuleToTiles(combinedArea, transform.position);
-        Dictionary<Vector2Int, GameObject> nodes = checkCells.ToDictionary( x => MapTools.VectorToMap(x.transform.position), x => x );
+        List<GameObject> checkCells = CellTargeting.ConvertMapRuleToTiles(combinedArea, targetCell.ToMap());
+        Dictionary<Vector2Int, GameObject> nodes = checkCells.ToDictionary( x => x.MapPosition(), x => x );
         foreach(var node in nodes.Keys )
         {
             List<Vector2Int> adjacents = node.GetAdjacentCoordinates();

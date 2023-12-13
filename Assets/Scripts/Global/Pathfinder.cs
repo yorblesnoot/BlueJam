@@ -10,7 +10,7 @@ public class Pathfinder
     
     public Pathfinder(bool occupiedIsUnpathable = true)
     {
-        Dictionary<Vector2Int, GameObject> pathingMap = new(MapTools.gameMap);
+        Dictionary<Vector2Int, GameObject> pathingMap = new(MapTools.tileMap.forward);
         if(RiftMaker.riftedCells != null && RiftMaker.riftedCells.Count > 0)
         {
             foreach (var cell in RiftMaker.riftedCells)
@@ -22,22 +22,22 @@ public class Pathfinder
         foreach (Vector2Int key in pathingMap.Keys)
         {
             bool isBlocked = false;
-            GameObject tile = MapTools.MapToTile(key);
+            GameObject tile = MapTools.TileAtMapPosition(key);
             if (occupiedIsUnpathable)
             {
-                if (tile == null || tile.GetComponent<BattleTileController>()?.unitContents != null)
+                if (tile == null || tile.OccupyingUnit() != null)
                 {
                     isBlocked = true;
                 }
             }
-            nodeMap.Add(key, new Node { location = key, reference = MapTools.gameMap[key], blocked = isBlocked });
+            nodeMap.Add(key, new Node { location = key, reference = MapTools.tileMap[key], blocked = isBlocked });
         }
     }
 
     public Pathfinder(TerrainType[,] worldMap, Dictionary<Vector2Int, EventType> eventMap, Vector2Int globalOffset, Vector2Int selectedCellCoords)
     {
         Vector2Int selectCoords = selectedCellCoords + globalOffset;
-        foreach (Vector2Int localKey in MapTools.gameMap.Keys)
+        foreach (Vector2Int localKey in MapTools.tileMap.forward.Keys)
         {
             Vector2Int globalKey = localKey + globalOffset;
             bool unpathable = false;
@@ -74,7 +74,7 @@ public class Pathfinder
                 }
             }
 
-            nodeMap.Add(localKey, new Node { location = localKey, reference = MapTools.gameMap[localKey], blocked = unpathable, P = penalty });
+            nodeMap.Add(localKey, new Node { location = localKey, reference = MapTools.tileMap[localKey], blocked = unpathable, P = penalty });
         }
     }
     public List<GameObject> FindObjectPath(Vector2Int start, Vector2Int end)
