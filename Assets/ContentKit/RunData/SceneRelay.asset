@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   battleMap: 5
   spawnPool: {fileID: 11400000, guid: 9bc361e335aaacf4aa8f245ac3d4a4e7, type: 2}
-  enemyBudget: 8
+  enemyBudget: 2
   riftBudget: 8
   bossEncounter: 0
   cameraPosition: {x: -12.320112, y: 16, z: -12.377581}

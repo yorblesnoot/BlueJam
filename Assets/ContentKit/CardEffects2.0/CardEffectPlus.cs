@@ -72,6 +72,7 @@ public class CardEffectPlus : ScriptableObject
     public string GenerateDescription(Unit unit)
     {
         string baseDescription = GetEffectDescription(unit);
+        if (baseDescription == "") return "";
         if(aoeSize > 0) baseDescription = AppendAOEInfo(baseDescription);
         if (forceTargetSelf) 
         {

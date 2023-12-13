@@ -11,10 +11,14 @@ public class Pathfinder
     public Pathfinder(bool occupiedIsUnpathable = true)
     {
         Dictionary<Vector2Int, GameObject> pathingMap = new(MapTools.gameMap);
-        foreach (var cell in RiftMaker.riftedCells)
+        if(RiftMaker.riftedCells != null && RiftMaker.riftedCells.Count > 0)
         {
-            pathingMap.Remove(cell);
+            foreach (var cell in RiftMaker.riftedCells)
+            {
+                pathingMap.Remove(cell);
+            }
         }
+        
         foreach (Vector2Int key in pathingMap.Keys)
         {
             bool isBlocked = false;

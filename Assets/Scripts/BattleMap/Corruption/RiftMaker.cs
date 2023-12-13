@@ -6,9 +6,14 @@ public class RiftMaker : CorruptionElement
 {
     [SerializeField] List<RiftType> types;
     public static List<Vector2Int> riftedCells;
+    List<RiftType> loadedTypes;
+    private void Awake()
+    {
+        loadedTypes = new(types);
+    }
     public override void Activate(int budget)
     {
-        List<RiftType> loadedTypes = new(types);
+        
         riftedCells = new();
         Dictionary<Vector2Int, GameObject> availableMap = new(MapTools.gameMap);
         while (budget > 0)

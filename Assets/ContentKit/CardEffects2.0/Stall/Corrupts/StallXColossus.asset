@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9789a7f2f7e397b43a33f81643e5097f, type: 3}
   m_Name: StallXColossus
   m_EditorClassIdentifier: 
-  forceTargetSelf: 0
+  forceTargetSelf: 1
   targetNotRequired: 1
-  effectClass: 0
+  effectClass: 2
   vfxStyleBefore: 6
   vfxNameBefore: CorruptBuff
   particleDelay: 1.1

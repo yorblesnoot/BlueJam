@@ -9,22 +9,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9789a7f2f7e397b43a33f81643e5097f, type: 3}
-  m_Name: StallXShock
+  m_Script: {fileID: 11500000, guid: fe4d7e4cd232b3843afe9d9f6eba80fb, type: 3}
+  m_Name: GlobalDmg1xSilent
   m_EditorClassIdentifier: 
-  forceTargetSelf: 1
-  targetNotRequired: 1
-  effectClass: 2
-  vfxStyleBefore: 6
-  vfxNameBefore: CorruptSlam
-  particleDelay: 2
+  forceTargetSelf: 0
+  targetNotRequired: 0
+  effectClass: 0
+  vfxStyleBefore: 0
+  vfxNameBefore: none
+  particleDelay: 0
   vfxStyleAfter: 0
   vfxNameAfter: none
-  effectSound: 0
+  effectSound: 17
   effectSoundAfterHit: 0
-  scalingMultiplier: 0
-  aoeShape: 0
-  aoeSize: 0
-  aoeGap: 0
+  scalingMultiplier: 1
+  aoeShape: 1
+  aoeSize: 10
+  aoeGap: 1
   userOriginalTile: {fileID: 0}
   blockTrigger: 0

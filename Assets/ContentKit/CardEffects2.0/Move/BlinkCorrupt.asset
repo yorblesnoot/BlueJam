@@ -9,18 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9789a7f2f7e397b43a33f81643e5097f, type: 3}
-  m_Name: StallXShock
+  m_Script: {fileID: 11500000, guid: ba3d1643db261cb4d945ce4b8bd7c06f, type: 3}
+  m_Name: BlinkCorrupt
   m_EditorClassIdentifier: 
-  forceTargetSelf: 1
-  targetNotRequired: 1
-  effectClass: 2
+  forceTargetSelf: 0
+  targetNotRequired: 0
+  effectClass: 1
   vfxStyleBefore: 6
-  vfxNameBefore: CorruptSlam
-  particleDelay: 2
+  vfxNameBefore: none
+  particleDelay: 0
   vfxStyleAfter: 0
-  vfxNameAfter: none
-  effectSound: 0
+  vfxNameAfter: VoidPop
+  effectSound: 2
   effectSoundAfterHit: 0
   scalingMultiplier: 0
   aoeShape: 0
@@ -28,3 +28,5 @@ MonoBehaviour:
   aoeGap: 0
   userOriginalTile: {fileID: 0}
   blockTrigger: 0
+  blink: 1
+  moveDuration: 0.5
