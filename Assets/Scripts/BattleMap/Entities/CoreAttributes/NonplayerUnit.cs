@@ -16,7 +16,7 @@ public class NonplayerUnit : BattleUnit, ITurnTaker
 
         currentHealth = Mathf.RoundToInt(loadedStats[StatType.MAXHEALTH]);
         myUI.InitializeHealth();
-        TurnManager.unitsReport.AddListener(RegisterTurn);
+        TurnManager.unitsReport.AddListener(() => TurnManager.ReportTurn(this));
         EventManager.hideTurnDisplay.AddListener(() => ShowBeatPreview(0));
         EventManager.clearActivation.AddListener(() => ShowBeatPreview(0));
     }
@@ -54,11 +54,6 @@ public class NonplayerUnit : BattleUnit, ITurnTaker
     float GetBeatChange(int beats, PlayerUnit player)
     {
         return loadedStats[StatType.SPEED] * beats / player.loadedStats[StatType.SPEED];
-    }
-
-    public void RegisterTurn()
-    {
-        TurnManager.ReportTurn(this);
     }
 
     public override void SpendBeats(int beats)

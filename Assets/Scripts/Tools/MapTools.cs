@@ -105,50 +105,32 @@ public static class MapTools
 
     readonly static float blockSize = 1f;
     readonly static float emptyFactor = .5f;
+
     static void BuildMap(List<GameObject> mapTiles)
     {
-        HashSet<Vector2Int> skipped = new();
         tileMap = new();
-        List<float> xRange = mapTiles.Select(coord => coord.transform.position.x).ToList();
-        xRange.Sort();
-        List<float> yRange = mapTiles.Select(coord => coord.transform.position.z).ToList();
-        yRange.Sort();
-
-        int xDif = Mathf.CeilToInt(xRange.Last() - xRange.First()) + 1;
-        int yDif = Mathf.CeilToInt(yRange.Last() - yRange.First()) + 1;
-        Debug.Log($"x{xDif} y{yDif}");
-        EvaluateTileRecursive(0, 0, xRange.First(), yRange.First());
-
+        Vector3 startTile = mapTiles.First().transform.position;
+        EvaluateTileRecursive(0, 0, startTile.x, startTile.z);
         void EvaluateTileRecursive(int mapX, int mapY, float worldX, float worldY)
         {
-            Debug.Log($"evaluating {mapX} {mapY} world coords {worldX} {worldY}");
-            if (mapX >= xDif || mapY >= yDif) { Debug.Log("Outcome: Reached edge"); return; }
+            //Debug.Log($"evaluating {mapX} {mapY} world coords {worldX} {worldY}");
             Vector2Int incoming = new(mapX, mapY);
-            if (tileMap.Contains(incoming) || skipped.Contains(incoming)) return;
             GameObject closestNode = mapTiles.Where(coord => (Mathf.Abs(worldX - coord.transform.position.x) < blockSize * emptyFactor)
             && (Mathf.Abs(worldY - coord.transform.position.z) < blockSize * emptyFactor)).FirstOrDefault();
 
-            float nextWorldX = worldX;
-            float nextWorldY = worldY;
-            if (closestNode != null)
-            {
-                Vector2Int inc = new(mapX, mapY);
-                tileMap.Add(inc, closestNode);
-                nextWorldX = closestNode.transform.position.x;
-                nextWorldY = closestNode.transform.position.z;
-                Debug.Log("Outcome: Found");
-            }
-            else
-            {
-                skipped.Add(new(mapX, mapY));
-                Debug.Log("Outcome: Skipped");
-            }
-            nextWorldX++;
-            nextWorldY++;
-            
-            EvaluateTileRecursive(mapX + 1, mapY, nextWorldX, worldY);
-            EvaluateTileRecursive(mapX, mapY + 1, worldX, nextWorldY);
-        }
+            if (closestNode == null) return;
+            if (tileMap.Contains(closestNode)) return;
 
+            Vector2Int inc = new(mapX, mapY);
+            tileMap.Add(inc, closestNode);
+            worldX = closestNode.transform.position.x;
+            worldY = closestNode.transform.position.z;
+            //Debug.Log("Outcome: Found");
+
+            EvaluateTileRecursive(mapX + 1, mapY, worldX + 1, worldY);
+            EvaluateTileRecursive(mapX, mapY + 1, worldX, worldY + 1);
+            EvaluateTileRecursive(mapX - 1, mapY, worldX - 1, worldY);
+            EvaluateTileRecursive(mapX, mapY - 1, worldX, worldY - 1);
+        }
     }
 }

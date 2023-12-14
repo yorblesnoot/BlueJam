@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8e2d15fa41baaeb459de80af45fe368b, type: 3}
   m_Name: SceneRelay
   m_EditorClassIdentifier: 
-  battleMap: 5
-  spawnPool: {fileID: 11400000, guid: 9bc361e335aaacf4aa8f245ac3d4a4e7, type: 2}
-  enemyBudget: 2
+  battleMap: 3
+  spawnPool: {fileID: 11400000, guid: 4ffb91bd2f1b6714abc7e1f7ab005120, type: 2}
+  enemyBudget: 1
   riftBudget: 8
   bossEncounter: 0
   cameraPosition: {x: -12.320112, y: 16, z: -12.377581}

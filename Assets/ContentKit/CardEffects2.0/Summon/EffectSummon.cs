@@ -37,7 +37,7 @@ public class EffectSummon : CardEffectPlus
         }
         else location = targetCell.unitPosition;
         GameObject summoned = Instantiate(entityToSummon, location, Quaternion.identity);
-        MapTools.ReportPositionChange(actor, targetCell);
+        MapTools.ReportPositionChange(summoned.GetComponent<BattleUnit>(), targetCell);
         summoned.transform.LookAt(new Vector3(actor.transform.position.x, summoned.transform.position.y ,actor.transform.position.z));
         ModifyStats(actor, summoned.GetComponent<NonplayerUnit>());
         NonplayerHandPlus hand = summoned.GetComponent<NonplayerHandPlus>();
@@ -66,6 +66,6 @@ public class EffectSummon : CardEffectPlus
         toModify.loadedStats[StatType.HEAL] *= summonModifier;
         toModify.loadedStats[StatType.BARRIER] *= summonModifier;
 
-        toModify.RegisterTurn();
+        TurnManager.ReportTurn(toModify);
     }
 }

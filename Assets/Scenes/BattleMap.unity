@@ -184,6 +184,7 @@ MonoBehaviour:
   myHand: {fileID: 25607}
   unitAnimator: {fileID: 25605}
   immovable: 0
+  mapPosition: {x: 0, y: 0}
   <isSummoned>k__BackingField: 0
   isDead: 0
   lastPlayed: {fileID: 0}
@@ -2451,40 +2452,40 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   corruptionTiers:
-  - tierThreshold: 1
-    corruptionElement: {fileID: 347414618}
-    corruptionBudget: 2
-  - tierThreshold: 2
-    corruptionElement: {fileID: 347414617}
-    corruptionBudget: 1
   - tierThreshold: 3
     corruptionElement: {fileID: 347414618}
-    corruptionBudget: 4
+    corruptionBudget: 1
   - tierThreshold: 4
-    corruptionElement: {fileID: 347414619}
+    corruptionElement: {fileID: 347414617}
     corruptionBudget: 1
   - tierThreshold: 5
     corruptionElement: {fileID: 347414618}
-    corruptionBudget: 6
-  - tierThreshold: 6
-    corruptionElement: {fileID: 347414617}
     corruptionBudget: 2
+  - tierThreshold: 6
+    corruptionElement: {fileID: 347414619}
+    corruptionBudget: 1
   - tierThreshold: 7
     corruptionElement: {fileID: 347414618}
-    corruptionBudget: 8
+    corruptionBudget: 4
   - tierThreshold: 8
-    corruptionElement: {fileID: 347414619}
+    corruptionElement: {fileID: 347414617}
     corruptionBudget: 2
   - tierThreshold: 9
     corruptionElement: {fileID: 347414618}
-    corruptionBudget: 10
+    corruptionBudget: 6
   - tierThreshold: 10
-    corruptionElement: {fileID: 347414617}
-    corruptionBudget: 3
+    corruptionElement: {fileID: 347414619}
+    corruptionBudget: 2
   - tierThreshold: 11
     corruptionElement: {fileID: 347414618}
-    corruptionBudget: 12
+    corruptionBudget: 8
   - tierThreshold: 12
+    corruptionElement: {fileID: 347414617}
+    corruptionBudget: 3
+  - tierThreshold: 13
+    corruptionElement: {fileID: 347414618}
+    corruptionBudget: 10
+  - tierThreshold: 14
     corruptionElement: {fileID: 347414619}
     corruptionBudget: 3
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
@@ -2590,6 +2591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d58aa6b2e1f4682439e32032ed9467e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  map: []
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
   player: {fileID: 25594}
   sceneRelay: {fileID: 11400000, guid: 560180093c409b041b59db9d69699861, type: 2}
@@ -3441,7 +3443,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4978932983198449629, guid: 10409dd6cf6a0b54590e058eee3225c9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -74.99997
+      value: -75
       objectReference: {fileID: 0}
     - target: {fileID: 4978932983198449629, guid: 10409dd6cf6a0b54590e058eee3225c9, type: 3}
       propertyPath: m_AnchoredPosition.y

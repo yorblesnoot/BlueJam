@@ -53,7 +53,7 @@ public class FutureEffect : MonoBehaviour, ITurnTaker
     {
         bool[,] combinedArea = CellTargeting.CombineAOEIndicators(effects.Select(x => x.aoe).ToList());
         List<GameObject> checkCells = CellTargeting.ConvertMapRuleToTiles(combinedArea, targetCell.ToMap());
-        Dictionary<Vector2Int, GameObject> nodes = checkCells.ToDictionary( x => x.MapPosition(), x => x );
+        Dictionary<Vector2Int, GameObject> nodes = checkCells.ToDictionary( x => x.ToMap(), x => x );
         foreach(var node in nodes.Keys )
         {
             List<Vector2Int> adjacents = node.GetAdjacentCoordinates();
