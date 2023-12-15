@@ -18,34 +18,37 @@ public class BreakWorldTiles : CorruptionElement
     {
         activeMap = MapTools.tileMap.forward;
         this.budget = budget;
-        EventManager.playerAtWorldLocation.AddListener((_) => CheckToBreak(activeMap, this.budget));
+        EventManager.playerAtWorldLocation.AddListener(CheckToBreak);
     }
 
-    private void CheckToBreak(Dictionary<Vector2Int, GameObject> map, int budget)
+    private void CheckToBreak(Vector2Int _)
     {
         int select = Random.Range(0, budget);
         if (select != 0) return;
         List<GameObject> availableTiles = new();
-        foreach (var position in map.Keys)
+        foreach (var position in activeMap.Keys)
         {
             float tileDistance = (position.MapToVector(0) - WorldPlayerControl.player.transform.position).magnitude;
-            Debug.Log(tileDistance);
+            //Debug.Log(tileDistance);
             if (tileDistance < minDistance || tileDistance > maxDistance) continue;
-            availableTiles.Add(map[position]);
+            availableTiles.Add(activeMap[position]);
         }
 
         select = Random.Range(0, availableTiles.Count);
-       BreakTile(availableTiles[select]);
+        StartCoroutine(BreakTile(availableTiles[select]));
     }
 
-    private void BreakTile(GameObject tile)
+    private IEnumerator BreakTile(GameObject tile)
     {
-        //unrender is sending the unrendered tiles into the broken pool
-        VFXMachine.PlayAtLocation("VoidBoom", tile.transform.position);
+        //why is the animation making the tile disappear..? ~~~~~
+        tile.GetComponent<Animator>().Play("Vibrate");
+        yield return new WaitForSeconds(.5f);
+        VFXMachine.PlayAtLocation("VoidUnderburst", tile.transform.position);
         Vector2Int targetPos = tile.transform.position.VectorToMap();
         Vector2Int globalPos = targetPos + WorldMapRenderer.spotlightGlobalOffset;
-        runData.worldMap[globalPos.x, globalPos.y] = TerrainType.BROKEN;
+        
         StartCoroutine(worldMapRenderer.UnrenderCell(targetPos));
+        runData.worldMap[globalPos.x, globalPos.y] = TerrainType.BROKEN;
         worldMapRenderer.RenderCell(TerrainType.BROKEN, targetPos);
     }
 }

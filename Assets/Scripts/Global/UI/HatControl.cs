@@ -28,5 +28,6 @@ public class HatControl
         scalingCube.transform.localPosition = position;
         scalingCube.transform.localRotation = Quaternion.identity;
         currentHat.transform.localRotation = Quaternion.Euler(hatTiltAngle, 0, 0);
+        currentHat.GetComponent<Renderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
     }
 }

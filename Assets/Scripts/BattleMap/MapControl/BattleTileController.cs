@@ -25,6 +25,7 @@ public class BattleTileController : MonoBehaviour
 
     void Awake()
     {
+        isRift = false;
         availableForPlay = false;
         EventManager.clearActivation.AddListener(ClearHighlight);
         EventManager.showAOE.AddListener(card => { loadedCard = card; });

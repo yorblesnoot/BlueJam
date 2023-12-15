@@ -124,12 +124,7 @@ public class WorldMapRenderer : MonoBehaviour
         Vector2Int globalCoords = coords + spotlightGlobalOffset;
         if (runData.eventMap.ContainsKey(globalCoords))
             WorldEventRenderer.UnrenderCellEvent(globalCoords, unrenderDelay);
-        yield return new WaitForSeconds(unrenderDelay);
-        
-        if (toUnrender != null)
-        {
-            tilePools[runData.worldMap[globalCoords.x, globalCoords.y]].ReturnToPool(toUnrender);
-        }
+        StartCoroutine(tilePools[runData.worldMap[globalCoords.x, globalCoords.y]].DesignateForPool(toUnrender, unrenderDelay));
     }
 
     Animator GetCachedAnimator(GameObject spawned)
