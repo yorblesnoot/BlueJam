@@ -9,18 +9,23 @@ public class UnitStateFeedback : MonoBehaviour
 {
     int hitLayer;
     int baseLayer;
-    GameObject model;
     Vector3 baseScale;
 
     [SerializeField] GameObject floatNumber;
+    [SerializeField] GameObject model;
+
     public static ObjectPool numberPool;
     readonly AvailableDisplacements displacements = new();
 
     private void Awake()
     {
         numberPool ??= new(floatNumber);
-        string modelName = gameObject.name.Replace("NPC(Clone)", "");
-        model = transform.Find(modelName).gameObject;
+        if(model == null)
+        {
+            string modelName = gameObject.name.Replace("NPC(Clone)", "");
+            model = transform.Find(modelName).gameObject;
+        }
+        
         baseScale = model.transform.localScale;
         hitLayer = LayerMask.NameToLayer("HitFlash");
         baseLayer = LayerMask.NameToLayer("Default");

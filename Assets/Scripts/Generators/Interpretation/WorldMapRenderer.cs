@@ -101,6 +101,7 @@ public class WorldMapRenderer : MonoBehaviour
     [SerializeField] float speedRangeSize = 2;
     public void RenderCell(TerrainType tileKey, Vector2Int cellCoords)
     {
+        if (MapTools.tileMap.Contains(cellCoords)) return;
         GameObject tile = tilePools[tileKey].InstantiateFromPool(MapTools.MapToVector(cellCoords, 0), PhysicsHelper.RandomCardinalRotate());
         MapTools.tileMap.Add(cellCoords, tile);
         GameObject cellEvent = eventRenderer.RenderCellEvent(cellCoords, spotlightGlobalOffset);

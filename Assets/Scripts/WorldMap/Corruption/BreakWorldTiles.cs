@@ -1,19 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class BreakWorldTiles : CorruptionElement
 {
     [SerializeField] float minDistance;
     [SerializeField] float maxDistance;
-    [SerializeField] GameObject oneByOne;
 
     [SerializeField] WorldMapRenderer worldMapRenderer;
     [SerializeField] RunData runData;
 
     Dictionary<Vector2Int, GameObject> activeMap;
-    int budget;
+    [Range(1, 100)][SerializeField] int budget;
     public override void Activate(int budget)
     {
         activeMap = MapTools.tileMap.forward;
@@ -23,8 +21,8 @@ public class BreakWorldTiles : CorruptionElement
 
     private void CheckToBreak(Vector2Int _)
     {
-        int select = Random.Range(0, budget);
-        if (select != 0) return;
+        int select = Random.Range(0, 100);
+        if (select > budget) return;
         List<GameObject> availableTiles = new();
         foreach (var position in activeMap.Keys)
         {
@@ -41,7 +39,8 @@ public class BreakWorldTiles : CorruptionElement
     private IEnumerator BreakTile(GameObject tile)
     {
         //why is the animation making the tile disappear..? ~~~~~
-        tile.GetComponent<Animator>().Play("Vibrate");
+        Animator tileAni = tile.GetComponent<Animator>();
+        tileAni.Play("Vibrate");
         yield return new WaitForSeconds(.5f);
         VFXMachine.PlayAtLocation("VoidUnderburst", tile.transform.position);
         Vector2Int targetPos = tile.transform.position.VectorToMap();

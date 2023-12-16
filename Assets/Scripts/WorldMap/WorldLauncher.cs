@@ -13,7 +13,7 @@ public class WorldLauncher : MapLauncher
     [SerializeField] GameObject joinBeams;
     [SerializeField] float introDelay;
 
-    [SerializeField] BreakWorldTiles breaker;
+    [SerializeField] CorruptionManager corruptionManager;
 
     private void Start() 
     {
@@ -52,7 +52,7 @@ public class WorldLauncher : MapLauncher
         EventManager.updateWorldHealth.Invoke();
 
         SoundManager.PlayMusic(SoundType.MUSICWORLD);
-        breaker.Activate(3);
+        corruptionManager.CorruptScene();
     }
 
     private IEnumerator TriggerEventsOnOrigin(Vector2Int localPlayer)
