@@ -10,17 +10,10 @@ public class BreakWorldTiles : CorruptionElement
     [SerializeField] WorldMapRenderer worldMapRenderer;
     [SerializeField] RunData runData;
 
-    Dictionary<Vector2Int, GameObject> activeMap;
     [Range(1, 100)][SerializeField] int budget;
     public override void Activate(int budget)
     {
-        activeMap = MapTools.tileMap.forward;
-        this.budget = budget;
-        EventManager.playerAtWorldLocation.AddListener(CheckToBreak);
-    }
-
-    private void CheckToBreak(Vector2Int _)
-    {
+        Dictionary<Vector2Int, GameObject>  activeMap = MapTools.tileMap.forward;
         int select = Random.Range(0, 100);
         if (select > budget) return;
         List<GameObject> availableTiles = new();

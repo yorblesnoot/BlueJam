@@ -12,21 +12,18 @@ public class WorldGradient : CorruptionElement
 
     string gradientProgression = "_GradientProgression";
 
-    public override void Activate(int _)
+    private void Awake()
     {
-        EventManager.playerAtWorldLocation.AddListener(UpdateFogGradient);
         fogRenderer.material.SetFloat(gradientProgression, GetProgression());
-        lastCorruptionLevel = runData.ThreatLevel;
         animationLength /= 2;
     }
 
-    void UpdateFogGradient(Vector2Int _)
+    public override void Activate(int _)
     {
         if (runData.ThreatLevel > lastCorruptionLevel)
         {
             StopAllCoroutines();
             StartCoroutine(AnimateFogChange());
-            Debug.Log("update");
         }
         lastCorruptionLevel = runData.ThreatLevel;
     }
@@ -37,6 +34,7 @@ public class WorldGradient : CorruptionElement
     {
         float timeElapsed = 0;
         float start = lastCorruptionLevel / maxCorruption;
+        Debug.Log(lastCorruptionLevel);
         float max = start + crestSize;
         while(timeElapsed < animationLength)
         {

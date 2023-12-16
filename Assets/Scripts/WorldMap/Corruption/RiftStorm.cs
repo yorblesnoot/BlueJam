@@ -8,16 +8,9 @@ public class RiftStorm : CorruptionElement
     [SerializeField] RunData runData;
     [SerializeField] UnitStateFeedback stateFeedback;
 
-    int budget;
     public override void Activate(int budget)
     {
-        this.budget = budget;
         stormFX.SetActive(true);
-        EventManager.playerAtWorldLocation.AddListener(DamagePlayerOnStep);
-    }
-
-    void DamagePlayerOnStep(Vector2Int _)
-    {
         runData.currentHealth -= budget;
         EventManager.updateWorldHealth.Invoke();
         StartCoroutine(stateFeedback.DamageFlash());

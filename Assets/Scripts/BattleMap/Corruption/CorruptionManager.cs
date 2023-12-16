@@ -15,6 +15,7 @@ public class CorruptionManager : MonoBehaviour
     [SerializeField] List<CorruptionTier> corruptionTiers;
     [SerializeField] RunData runData;
 
+    //need to figure out how to dynamically update corruption in world
     public void CorruptScene()
     {
         Dictionary<CorruptionElement, int> activeTiers = new();

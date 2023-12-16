@@ -52,6 +52,12 @@ public class WorldLauncher : MapLauncher
         EventManager.updateWorldHealth.Invoke();
 
         SoundManager.PlayMusic(SoundType.MUSICWORLD);
+        
+        EventManager.playerAtWorldLocation.AddListener(CorruptScene);
+    }
+
+    void CorruptScene(Vector2Int _)
+    {
         corruptionManager.CorruptScene();
     }
 
