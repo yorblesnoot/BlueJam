@@ -2,7 +2,7 @@ using System.Collections;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
-public class NonplayerUnit : BattleUnit, ITurnTaker
+public class NonplayerUnit : BattleUnit, ITurnTakingNonplayer
 {
     [SerializeField] GameObject turnShow;
     [SerializeField] UnitAI unitAI;
@@ -16,7 +16,7 @@ public class NonplayerUnit : BattleUnit, ITurnTaker
 
         currentHealth = Mathf.RoundToInt(loadedStats[StatType.MAXHEALTH]);
         myUI.InitializeHealth();
-        TurnManager.unitsReport.AddListener(() => TurnManager.ReportTurn(this));
+        TurnManager.allUnitsReportTurns.AddListener(() => TurnManager.ReportTurn(this));
         EventManager.hideTurnDisplay.AddListener(() => ShowBeatPreview(0));
         EventManager.clearActivation.AddListener(() => ShowBeatPreview(0));
     }
@@ -85,9 +85,9 @@ public class NonplayerUnit : BattleUnit, ITurnTaker
             //when an enemy dies, add its deck to the player's inventory for later use
             BattleEnder.deckDrops.Add(GetComponent<HandPlus>().deckRecord);
         }
-        TurnManager.UnreportTurn(this);
+        TurnManager.RemoveFromTurnOrder(this);
         MapTools.ReportDepartureFromMap(this);
-        TurnManager.deathPhase.RemoveListener(CheckForDeath);
+        TurnManager.globalDeathCheck.RemoveListener(CheckForDeath);
         isDead = true;
         StartCoroutine(SlowDeath());
     }

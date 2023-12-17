@@ -15,6 +15,7 @@ public class WorldGradient : CorruptionElement
     private void Awake()
     {
         fogRenderer.material.SetFloat(gradientProgression, GetProgression());
+        lastCorruptionLevel = runData.ThreatLevel;
         animationLength /= 2;
     }
 

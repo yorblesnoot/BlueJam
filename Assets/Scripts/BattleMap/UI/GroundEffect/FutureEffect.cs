@@ -5,7 +5,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FutureEffect : MonoBehaviour, ITurnTaker
+public class FutureEffect : MonoBehaviour, ITurnTakingNonplayer
 {
     BattleUnit actor;
     BattleTileController targetCell;
@@ -85,8 +85,8 @@ public class FutureEffect : MonoBehaviour, ITurnTaker
         {
             yield return StartCoroutine(effect.Execute(actor, targetCell));
         }
-        TurnManager.UnreportTurn(this);
-        TurnManager.Main.StartCoroutine(TurnManager.FinalizeTurn());
+        TurnManager.RemoveFromTurnOrder(this);
+        TurnManager.Main.StartCoroutine(TurnManager.EndTurn());
         gameObject.SetActive(false);
     }
 

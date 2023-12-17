@@ -8,14 +8,14 @@ public class TurnManager : MonoBehaviour
 {
     public static TurnManager Main { get; private set; }
 
-    public static List<ITurnTaker> turnTakers;
+    public static List<ITurnTakingNonplayer> turnTakers;
 
     public static PlayerUnit playerUnit;
 
-    public static UnityEvent unitsReport = new();
-    public static UnityEvent deathPhase = new();
+    public static UnityEvent allUnitsReportTurns = new();
+    public static UnityEvent globalDeathCheck = new();
 
-    public static UnityEvent distributeCorruptCards = new();
+    public static UnityEvent secondaryInitializationActivities = new();
     public static UnityEvent initializeDecks = new();
 
     public static readonly int beatThreshold = 2;
@@ -32,8 +32,8 @@ public class TurnManager : MonoBehaviour
     public static void InitializePositions()
     {
         //tell every unit on the map to report their turn
-        unitsReport?.Invoke();
-        distributeCorruptCards?.Invoke();
+        allUnitsReportTurns?.Invoke();
+        secondaryInitializationActivities?.Invoke();
     }
 
     public static void InitializeTurns()
@@ -42,9 +42,9 @@ public class TurnManager : MonoBehaviour
         Main.StartCoroutine(WaitForTurn());
     }
 
-    public static void ReportTurn(ITurnTaker actor)
+    public static void ReportTurn(ITurnTakingNonplayer actor)
     { turnTakers.Add(actor); }
-    public static void UnreportTurn(ITurnTaker actor)
+    public static void RemoveFromTurnOrder(ITurnTakingNonplayer actor)
     { turnTakers.Remove(actor); }
 
     static bool PlayerHasWon()
@@ -84,7 +84,7 @@ public class TurnManager : MonoBehaviour
         }
     }
 
-    public static IEnumerator FinalizeTurn(BattleUnit owner = null)
+    public static IEnumerator EndTurn(BattleUnit owner = null)
     {
         if(owner != null)
         {
@@ -92,7 +92,7 @@ public class TurnManager : MonoBehaviour
             yield return owner.StartCoroutine(owner.buffTracker.DurationProc());
         }
         Main.StartCoroutine(WaitForTurn());
-        deathPhase?.Invoke();
+        globalDeathCheck?.Invoke();
     }
 
     private static IEnumerator WaitForTurn()
@@ -108,12 +108,16 @@ public class TurnManager : MonoBehaviour
         //low speed for units means delayed always goes first~~~~
         if (turnTakers.Count == 0 || turnTakers[0].BeatCount < turnTakers[0].TurnThreshold)
         {
-            playerUnit.StartCoroutine(playerUnit.turnIndicator.ShowTurnExclamation());
-            PlayerUnit.playerState = PlayerBattleState.IDLE;
-            playerUnit.TakeTurn();
+            PlayerGetsTurn();
             return;
         }
         turnTakers[0].TakeTurn();
     }
 
+    private static void PlayerGetsTurn()
+    {
+        playerUnit.StartCoroutine(playerUnit.turnIndicator.ShowTurnExclamation());
+        PlayerUnit.playerState = PlayerBattleState.IDLE;
+        playerUnit.TakeTurn();
+    }
 }

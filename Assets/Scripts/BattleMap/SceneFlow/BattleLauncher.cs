@@ -27,6 +27,7 @@ public class BattleLauncher : MapLauncher
 
     IEnumerator StartBattle()
     {
+        PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
         corruptionManager.CorruptScene();
 
         //place units onto the map

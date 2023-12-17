@@ -9,19 +9,18 @@ public class BreakWorldTiles : CorruptionElement
 
     [SerializeField] WorldMapRenderer worldMapRenderer;
     [SerializeField] RunData runData;
-
-    [Range(1, 100)][SerializeField] int budget;
-    public override void Activate(int budget)
+    public override void Activate(int percentChance)
     {
         Dictionary<Vector2Int, GameObject>  activeMap = MapTools.tileMap.forward;
         int select = Random.Range(0, 100);
-        if (select > budget) return;
+        if (select > percentChance) return;
         List<GameObject> availableTiles = new();
         foreach (var position in activeMap.Keys)
         {
             float tileDistance = (position.MapToVector(0) - WorldPlayerControl.player.transform.position).magnitude;
             //Debug.Log(tileDistance);
             if (tileDistance < minDistance || tileDistance > maxDistance) continue;
+            if (runData.eventMap.ContainsKey(position)) continue;
             availableTiles.Add(activeMap[position]);
         }
 

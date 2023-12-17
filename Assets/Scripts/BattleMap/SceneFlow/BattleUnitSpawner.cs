@@ -52,7 +52,6 @@ public class BattleUnitSpawner
     {
         int placementIndex = Random.Range(0, validSpots.Count);
         playerSpawnTile = validSpots[placementIndex];
-        Vector3 tilePosition = playerSpawnTile.unitPosition;
         validSpots.RemoveAt(placementIndex);
     }
 
@@ -85,7 +84,7 @@ public class BattleUnitSpawner
             yield return null;
         }
         player.transform.position = playerSpawnTile.unitPosition;
-        MapTools.ReportPositionChange(player.GetComponent<BattleUnit>(), playerSpawnTile);
+        MapTools.ReportPositionChange(player.GetComponent<PlayerUnit>(), playerSpawnTile);
         VFXMachine.PlayAtLocation("RoundGust", player.transform.position);
         SoundManager.PlaySound(SoundType.SLIMESTEP);
     }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface ITurnTaker 
+public interface ITurnTakingNonplayer 
 {
     public void ReceiveBeatsFromPlayer(int beats, PlayerUnit player);
     public void TakeTurn();

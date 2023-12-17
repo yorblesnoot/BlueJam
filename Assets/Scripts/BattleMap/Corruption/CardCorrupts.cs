@@ -13,7 +13,7 @@ public class CardCorrupts : CorruptionElement
     public override void Activate(int budget)
     {
         this.budget = budget;
-        TurnManager.distributeCorruptCards.AddListener(DistributeCorruptionCards);
+        TurnManager.secondaryInitializationActivities.AddListener(DistributeCorruptionCards);
     }
 
     void DistributeCorruptionCards()

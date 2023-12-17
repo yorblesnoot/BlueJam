@@ -25,7 +25,7 @@ MonoBehaviour:
     m_FamilyName: Dongle
     m_StyleName: Regular
     m_PointSize: 116
-    m_Scale: 1
+    m_Scale: 2
     m_UnitsPerEM: 1000
     m_LineHeight: 100
     m_AscentLine: 25

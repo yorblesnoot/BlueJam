@@ -19,7 +19,7 @@ public class EffectSummon : CardEffectPlus
     }
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
-        Vector3 location = new();
+        BattleTileController location = targetCell;
         if (aoe.GetLength(0) > 1)
         {
             List<GameObject> cells = CellTargeting.ConvertMapRuleToTiles(aoe, targetCell.ToMap());
@@ -29,15 +29,14 @@ public class EffectSummon : CardEffectPlus
                 BattleTileController cell = cells[cellIndex].GetComponent<BattleTileController>();
                 if (CellTargeting.TileIsValidTarget(cell, actor.Allegiance, CardClass.SUMMON))
                 {
-                    location = cell.GetComponent<BattleTileController>().unitPosition;
+                    location = cell.GetComponent<BattleTileController>();
                     break;
                 }
                 cells.RemoveAt(cellIndex);
             }
         }
-        else location = targetCell.unitPosition;
-        GameObject summoned = Instantiate(entityToSummon, location, Quaternion.identity);
-        MapTools.ReportPositionChange(summoned.GetComponent<BattleUnit>(), targetCell);
+        GameObject summoned = Instantiate(entityToSummon, location.unitPosition, Quaternion.identity);
+        MapTools.ReportPositionChange(summoned.GetComponent<BattleUnit>(), location);
         summoned.transform.LookAt(new Vector3(actor.transform.position.x, summoned.transform.position.y ,actor.transform.position.z));
         ModifyStats(actor, summoned.GetComponent<NonplayerUnit>());
         NonplayerHandPlus hand = summoned.GetComponent<NonplayerHandPlus>();

@@ -54,6 +54,7 @@ public class WorldLauncher : MapLauncher
         SoundManager.PlayMusic(SoundType.MUSICWORLD);
         
         EventManager.playerAtWorldLocation.AddListener(CorruptScene);
+        corruptionManager.CorruptScene();
     }
 
     void CorruptScene(Vector2Int _)

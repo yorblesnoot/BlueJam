@@ -39,7 +39,7 @@ public class HandPlus : MonoBehaviour
             StartCoroutine(DiscardCard(handCards[0], false));
         }
         thisUnit.SpendBeats(2);
-        TurnManager.Main.StartCoroutine(TurnManager.FinalizeTurn(thisUnit));
+        TurnManager.Main.StartCoroutine(TurnManager.EndTurn(thisUnit));
     }
     public virtual IEnumerator RecycleDeck()
     {

@@ -47,7 +47,7 @@ public class BattleUnit : Unit
     public virtual void Initialize()
     {
         LoadStats();
-        TurnManager.deathPhase.AddListener(CheckForDeath);
+        TurnManager.globalDeathCheck.AddListener(CheckForDeath);
         myUI = GetComponentInChildren<EntityUI>();
     }
 

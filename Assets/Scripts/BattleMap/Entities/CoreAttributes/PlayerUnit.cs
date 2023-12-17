@@ -50,7 +50,7 @@ public class PlayerUnit : BattleUnit
         base.Die();
         //gameover
         isDead = true;
-        TurnManager.deathPhase.RemoveListener(CheckForDeath);
+        TurnManager.globalDeathCheck.RemoveListener(CheckForDeath);
         StartCoroutine(ender.DefeatSequence());
     }
 
@@ -67,6 +67,6 @@ public class PlayerUnit : BattleUnit
             yield return StartCoroutine(gameObject.LerpTo(tileController.unitPosition, moveDuration));
         }
 
-        TurnManager.Main.StartCoroutine(TurnManager.FinalizeTurn(this));
+        TurnManager.Main.StartCoroutine(TurnManager.EndTurn(this));
     }
 }

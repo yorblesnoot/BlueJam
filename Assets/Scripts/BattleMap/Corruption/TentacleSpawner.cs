@@ -17,7 +17,7 @@ public class TentacleSpawner : CorruptionElement
     {
         baseAmount = amount;
         InitialTentacles(amount);
-        TurnManager.deathPhase.AddListener(ResummonDeadTentacles);
+        TurnManager.globalDeathCheck.AddListener(ResummonDeadTentacles);
     }
 
     public void InitialTentacles(int amount)
@@ -46,7 +46,7 @@ public class TentacleSpawner : CorruptionElement
 
     void ResummonDeadTentacles()
     {
-        List<ITurnTaker> tentacles = TurnManager.turnTakers.Where(x => x.Allegiance == AllegianceType.VOID).ToList();
+        List<ITurnTakingNonplayer> tentacles = TurnManager.turnTakers.Where(x => x.Allegiance == AllegianceType.VOID).ToList();
         Debug.Log(tentacles.Count);
         if (tentacles.Count >= baseAmount) return;
 
