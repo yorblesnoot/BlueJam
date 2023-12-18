@@ -49,7 +49,7 @@ public class EffectPushPull : CardEffectPlus
             Vector2 possibleDestination = destination + direction;
             Vector2Int closestRealTile = possibleDestination.RoundToInt();
             GameObject cellObj = closestRealTile.TileAtMapPosition();
-            if (cellObj != null)
+            if (cellObj != null && !cellObj.GetComponent<BattleTileController>().IsRift)
             {
                 if (cellObj.OccupyingUnit() == null)
                 {

@@ -273,7 +273,7 @@ class CardSlot
         SoundManager.PlaySound(SoundType.CARDDEALT);
         Vector3 startPosition = reference.transform.localPosition;
         Vector3 startScale = reference.transform.localScale;
-        Quaternion startRotation = reference.transform.rotation;
+        Quaternion startRotation = reference.transform.localRotation;
 
         float timeElapsed = 0;
         while(timeElapsed < cardDrawDiscardTime)

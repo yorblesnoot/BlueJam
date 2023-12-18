@@ -32,7 +32,7 @@ public class EffectApproach : EffectMove
     public override IEnumerator ActivateEffect(BattleUnit actor, BattleTileController targetCell, bool[,] aoe = null, List<BattleUnit> targets = null)
     {
         List<BattleTileController> possibleTiles = CellTargeting.ConvertMapRuleToTiles(aoe, targetCell.ToMap())
-            .Select(x => x.GetComponent<BattleTileController>()).Where(x => x.OccupyingUnit() == null).ToList();
+            .Select(x => x.GetComponent<BattleTileController>()).Where(x => x.OccupyingUnit() == null && !x.IsRift).ToList();
         if (possibleTiles.Count == 0) yield break;
         possibleTiles = possibleTiles.OrderBy(x => Vector3.Distance(x.transform.position, actor.transform.position)).ToList();
         BattleTileController finalTile = approachType switch

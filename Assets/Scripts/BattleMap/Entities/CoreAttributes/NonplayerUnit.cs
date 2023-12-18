@@ -96,7 +96,7 @@ public class NonplayerUnit : BattleUnit, ITurnTakingNonplayer
     IEnumerator SlowDeath()
     {
         yield return new WaitForSeconds(deathPause);
-        VFXMachine.PlayAtLocation("Explosion", transform.position);
+        VFXMachine.PlayAtLocation("DeathHaze", transform.position);
         gameObject.SetActive(false);
     }
 
