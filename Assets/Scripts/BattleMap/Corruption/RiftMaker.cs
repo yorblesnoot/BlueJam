@@ -15,6 +15,7 @@ public class RiftMaker : CorruptionElement
     {
         
         riftedCells = new();
+        loadedTypes = loadedTypes.Where(x => x.Cost <= budget).ToList();
         Dictionary<Vector2Int, GameObject> availableMap = new(MapTools.tileMap.forward);
         while (budget > 0)
         {

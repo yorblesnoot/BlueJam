@@ -4,6 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
+public enum CardType
+{
+    NORMAL,
+    CURSE,
+    CORRUPTION
+}
+
 [CreateAssetMenu(fileName = "Card", menuName = "ScriptableObjects/Card")]
 public class CardPlus : SOWithGUID
 {
@@ -18,7 +25,7 @@ public class CardPlus : SOWithGUID
     [SerializeField] int targetGap;
     [HideInInspector] public bool[,] targetRules;
     public bool needsPath;
-    public bool isCurse;
+    public CardType cardType;
 
     [HideInInspector] public bool[,] aoePoint;
     [HideInInspector] public bool[,] aoeSelf;

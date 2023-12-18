@@ -20,10 +20,11 @@ MonoBehaviour:
   targetSize: 0
   targetGap: 0
   needsPath: 0
-  isCurse: 0
+  cardType: 0
   consumed: 1
   animType: 9
   delayBeforeEffects: 0
   effects:
   - {fileID: 11400000, guid: da5abfcd1ee22ea49a95929434421b4b, type: 2}
   - {fileID: 11400000, guid: 207f31648643a0e4dbe27fc58198e80d, type: 2}
+  - {fileID: 11400000, guid: 20388f65135e10d44babca26b27e54e1, type: 2}

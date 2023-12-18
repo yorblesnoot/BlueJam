@@ -27,8 +27,8 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay //, IPointerEnterHandl
     [SerializeField] ColoredSprite heal;
     [SerializeField] ColoredSprite summon;
     [SerializeField] ColoredSprite move;
-    [SerializeField] ColoredSprite mixed;
     [SerializeField] ColoredSprite curse;
+    [SerializeField] ColoredSprite corrupt;
 
     //fill the details of a blank card
     public void PopulateCard(CardPlus card, Unit owner, bool limited = false)
@@ -36,7 +36,12 @@ public class NPCCardDisplay : MonoBehaviour, ICardDisplay //, IPointerEnterHandl
         List<CardClass> cardClass = card.effects.Select(x => x.effectClass).ToList();
         thisCard = card;
         forceConsume = thisCard.consumed;
-        if (card.isCurse)
+        if(card.cardType == CardType.CORRUPTION)
+        {
+            image.sprite = corrupt.sprite;
+            image.color = corrupt.color;
+        }
+        else if (card.cardType == CardType.CURSE)
         {
             image.sprite = curse.sprite;
             image.color = curse.color;
