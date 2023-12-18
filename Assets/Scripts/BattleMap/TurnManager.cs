@@ -76,7 +76,6 @@ public class TurnManager : MonoBehaviour
     public static void PlayerSpendBeats(int beats)
     {
         PlayerUnit.playerState = PlayerBattleState.AWAITING_TURN;
-        Tutorial.CompleteStage(TutorialFor.BATTLEDAMAGE, 1, true);
         //distribute beats to all units based on their individual speeds when the player acts
         foreach (var turnTaker in turnTakers)
         {

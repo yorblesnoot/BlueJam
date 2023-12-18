@@ -30002,24 +30002,33 @@ MonoBehaviour:
   - tierThreshold: 2
     corruptionElement: {fileID: 1793556257}
     corruptionBudget: 0
-  - tierThreshold: 5
+  - tierThreshold: 4
+    corruptionElement: {fileID: 1793556255}
+    corruptionBudget: 5
+  - tierThreshold: 8
     corruptionElement: {fileID: 1793556255}
     corruptionBudget: 10
-  - tierThreshold: 10
+  - tierThreshold: 12
     corruptionElement: {fileID: 1793556255}
     corruptionBudget: 20
-  - tierThreshold: 12
-    corruptionElement: {fileID: 1793556259}
-    corruptionBudget: 1
-  - tierThreshold: 13
-    corruptionElement: {fileID: 1793556259}
-    corruptionBudget: 2
   - tierThreshold: 14
     corruptionElement: {fileID: 1793556259}
+    corruptionBudget: 1
+  - tierThreshold: 16
+    corruptionElement: {fileID: 1793556259}
+    corruptionBudget: 2
+  - tierThreshold: 18
+    corruptionElement: {fileID: 1793556255}
+    corruptionBudget: 40
+  - tierThreshold: 20
+    corruptionElement: {fileID: 1793556259}
     corruptionBudget: 3
-  - tierThreshold: 15
+  - tierThreshold: 22
     corruptionElement: {fileID: 1793556259}
     corruptionBudget: 4
+  - tierThreshold: 25
+    corruptionElement: {fileID: 1793556259}
+    corruptionBudget: 5
   runData: {fileID: 11400000, guid: dc1a3fc3ec23d2b4ebdefb04a6354aa9, type: 2}
 --- !u!114 &1793556259
 MonoBehaviour:

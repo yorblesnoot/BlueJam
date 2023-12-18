@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: TendrilStats
   m_EditorClassIdentifier: 
   unitName: Tendril
-  unitDescription: An intruder from another realm, hostile to all.
+  unitDescription: An intruder from another realm. Fragile, but respawns elsewhere
+    when killed.
   maxHealth: 5
   handSize: 2
   startBeats: 1

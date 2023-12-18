@@ -38,7 +38,7 @@ public class WorldEventHandler : MonoBehaviour
             { 
                 redGlow.SetActive(true);
                 Tutorial.Initiate(TutorialFor.WORLDBATTLE, TutorialFor.WORLDPICKUPS);
-                Tutorial.EnterStage(TutorialFor.WORLDBATTLE, 1, "Red energy over a tile means an <color=red>enemy</color> is there! If I walk over that tile, I'll enter <color=red>battle</color>!");
+                Tutorial.EnterStage(TutorialFor.WORLDBATTLE, 1, "Walking onto a glowing red tile will start a <color=red>battle</color>!");
                 return;
             }
         }

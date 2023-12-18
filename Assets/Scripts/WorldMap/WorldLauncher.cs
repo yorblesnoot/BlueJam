@@ -76,10 +76,10 @@ public class WorldLauncher : MapLauncher
     private void RunTutorials()
     {
         Tutorial.Initiate(TutorialFor.WORLDMOVE, TutorialFor.MAIN);
-        Tutorial.EnterStage(TutorialFor.WORLDMOVE, 1, $"Welcome to <b>{"Slime Alchemist".GenerateRainbowText()}</b>! This is the world map. My objective is the boss, towards the red arrow. Click a tile to move to it.");
+        Tutorial.EnterStage(TutorialFor.WORLDMOVE, 1, $"<b>{"Welcome, Alchemist".GenerateRainbowText()}</b>! This is the world map. Your objective is the boss, towards the red arrow. Click a tile to move to it.");
         Tutorial.Initiate(TutorialFor.WORLDCRAFTING, TutorialFor.WORLDBATTLE);
         Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 1, "Well done! Defeating enemies granted me their <color=blue>essences</color>, which you can use to <color=blue>add their cards to my deck</color>. Click the anvil in the top right or press C to craft essences.");
-        Tutorial.EnterStage(TutorialFor.WORLDBOSS, 2, "You did it! Now you can craft a boss card for my deck... but a new, stronger foe has arisen! Looks like you've got the basics down; let's see how far you can go!");
+        Tutorial.EnterStage(TutorialFor.WORLDBOSS, 2, "Defeating a boss awards its essence, which you can craft to obtain a powerful card. Defeat two more bosses to claim victory!");
 
         if (runData.essenceInventory.Count > 10)
         {

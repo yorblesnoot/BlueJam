@@ -11,12 +11,13 @@ public class RiftMaker : CorruptionElement
     {
         loadedTypes = new(types);
     }
-    public override void Activate(int budget)
+    public override void Activate(int percent)
     {
-        
+        float ratio = percent / 100f;
         riftedCells = new();
-        loadedTypes = loadedTypes.Where(x => x.Cost <= budget).ToList();
         Dictionary<Vector2Int, GameObject> availableMap = new(MapTools.tileMap.forward);
+        int budget = Mathf.RoundToInt(ratio * availableMap.Count);
+        loadedTypes = loadedTypes.Where(x => x.Cost <= budget).ToList();
         while (budget > 0)
         {
             if (loadedTypes.Count == 0) { Debug.LogWarning("Ran out of rift space."); break; }

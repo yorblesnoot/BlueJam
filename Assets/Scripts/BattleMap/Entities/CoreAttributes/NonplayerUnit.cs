@@ -92,11 +92,11 @@ public class NonplayerUnit : BattleUnit, ITurnTakingNonplayer
         StartCoroutine(SlowDeath());
     }
 
-    static readonly float deathPause = .5f;
+    static readonly float deathPause = 1f;
     IEnumerator SlowDeath()
     {
-        yield return new WaitForSeconds(deathPause);
         VFXMachine.PlayAtLocation("DeathHaze", transform.position);
+        yield return new WaitForSeconds(deathPause);
         gameObject.SetActive(false);
     }
 

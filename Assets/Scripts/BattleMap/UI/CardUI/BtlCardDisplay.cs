@@ -70,9 +70,11 @@ public class BtlCardDisplay : PlayerCardDisplay, IPointerEnterHandler, IPointerE
         {
             Tutorial.CompleteStage(TutorialFor.BATTLEBARRIER, 1, true);
             Tutorial.CompleteStage(TutorialFor.BATTLEDODAMAGE, 1, true);
-            Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 6, true);
+            Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 7, true);
+            Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 6);
             Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 5);
             Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 4);
+            Tutorial.CompleteStage(TutorialFor.BATTLECORRUPTION, 1, true);
 
             PlayerUnit.playerState = PlayerBattleState.PERFORMING_ACTION;
             EventManager.clearActivation?.Invoke();
