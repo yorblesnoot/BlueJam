@@ -18,6 +18,7 @@ public class RiftStorm : CorruptionElement
         if (tutorialCount > 4) Tutorial.CompleteStage(TutorialFor.WORLDSTORM, 1, true);
         stormFX.SetActive(true);
         runData.currentHealth -= budget;
+        Mathf.Clamp(runData.currentHealth, 1, runData.playerStats.maxHealth);
         EventManager.updateWorldHealth.Invoke();
         StartCoroutine(stateFeedback.DamageFlash());
         stateFeedback.QueuePopup(budget, Color.red);

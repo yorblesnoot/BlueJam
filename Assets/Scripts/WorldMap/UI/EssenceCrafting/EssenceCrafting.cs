@@ -123,7 +123,7 @@ public class EssenceCrafting : MonoBehaviour
     {
         Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 2);
         Tutorial.EnterStage(TutorialFor.WORLDCRAFTING, 3,
-            "You can see the cards available from an essence in the bottom right. <color=blue>For each essence</color> you add to the craft, you'll be <color=green>offered an additional option</color> to choose from. Press the hammer button to craft.");
+            "Hit the hammer button to be offered a card from the bottom right <color=blue>per essence</color> in the lower slot.");
         if (operation) craftingSlotContents.Add(item);
         else craftingSlotContents.Remove(item);
 

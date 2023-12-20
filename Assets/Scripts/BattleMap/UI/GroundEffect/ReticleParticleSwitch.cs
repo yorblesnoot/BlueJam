@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class ReticleParticleSwitch : MonoBehaviour
 {
-    [SerializeField] Color32 friendly;
-    [SerializeField] Color32 enemy;
-    [SerializeField] ParticleSystem particle;
+    [ColorUsage(true,true)] [SerializeField] Color32 friendly;
+    [ColorUsage(true, true)] [SerializeField] Color32 enemy;
+    [SerializeField] Renderer ren;
     public void SetAllegiance(AllegianceType type)
     {
         Color32 chosen;
         if(type == AllegianceType.SLIME) chosen = enemy; else chosen = friendly;
-        ParticleSystem.MainModule mainMod = particle.main;
-        mainMod.startColor = new ParticleSystem.MinMaxGradient(chosen, chosen);
+        ren.material.SetColor(Shader.PropertyToID("_GlowColor"), chosen);
     }
 
 }

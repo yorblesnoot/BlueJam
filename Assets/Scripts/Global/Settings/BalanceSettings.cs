@@ -8,12 +8,12 @@ public enum BalanceParameter
 {
     BossDistance,
     CorruptionRate,
-    StartingThreat,
+    StartingCorruption,
     BaseEncounterSize,
     ThreatPerEncounterSizeUp,
-    EnemyStatsPerThreat,
-    EnemyHealthPerThreat,
-    EnemySpeedPerThreat,
+    EnemyStatScaling,
+    EnemyHealthScaling,
+    EnemySpeedScaling,
     MinimumDeckSize,
     HesitationCurses
 }
@@ -87,7 +87,7 @@ public class BalanceSettings : ScriptableObject
         foreach (var parameter in parameters)
         {
             float difference = parameter.Value;
-            output += Environment.NewLine + (difference > 0 ? "<color=green>+</color>" : "<color=red>-</color>") +
+            output += Environment.NewLine + "<color=red>+</color>" +
             $" {parameter.Parameter.ToString().SplitCamelCase()}";
             
         }

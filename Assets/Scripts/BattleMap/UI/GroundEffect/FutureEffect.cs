@@ -54,15 +54,17 @@ public class FutureEffect : MonoBehaviour, ITurnTakingNonplayer
         bool[,] combinedArea = CellTargeting.CombineAOEIndicators(effects.Select(x => x.aoe).ToList());
         List<GameObject> checkCells = CellTargeting.ConvertMapRuleToTiles(combinedArea, targetCell.ToMap());
         Dictionary<Vector2Int, GameObject> nodes = checkCells.ToDictionary( x => x.ToMap(), x => x );
-        foreach(var node in nodes.Keys )
+        foreach(var mapPosition in nodes.Keys )
         {
-            List<Vector2Int> adjacents = node.GetAdjacentCoordinates();
+            List<Vector2Int> adjacents = mapPosition.GetAdjacentCoordinates();
             foreach(var adjacent in adjacents)
             {
                 if (nodes.ContainsKey(new Vector2Int(adjacent.x, adjacent.y))) continue;
+                Vector3 nodePosition = nodes[mapPosition].transform.position;
+                nodePosition.y += spawnHeight;
                 GameObject spawned = Instantiate(reticleBar, transform);
-                spawned.transform.position = new Vector3((adjacent.x - node.x) * cellSize, spawnHeight, (adjacent.y - node.y) * cellSize) + nodes[node].transform.position;
-                spawned.transform.LookAt(nodes[node].transform.position);
+                spawned.transform.position = new Vector3((adjacent.x - mapPosition.x) * cellSize, 0, (adjacent.y - mapPosition.y) * cellSize) + nodePosition;
+                spawned.transform.LookAt(nodePosition);
                 spawned.GetComponent<ReticleParticleSwitch>().SetAllegiance(Allegiance);
             }
         }

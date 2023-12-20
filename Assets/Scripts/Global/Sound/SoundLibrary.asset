@@ -52,9 +52,11 @@ MonoBehaviour:
   - soundType: 13
     clip: {fileID: 8300000, guid: 9405c01c1cba7ef47b85792fea65af91, type: 3}
   - soundType: 19
-    clip: {fileID: 8300000, guid: 9405c01c1cba7ef47b85792fea65af91, type: 3}
+    clip: {fileID: 8300000, guid: 98b3ee1cb421c8749bc358fcb7a9c485, type: 3}
   - soundType: 21
-    clip: {fileID: 8300000, guid: 9405c01c1cba7ef47b85792fea65af91, type: 3}
+    clip: {fileID: 8300000, guid: a22e52f07a4ed644aa6b68b0b4e7d56f, type: 3}
+  - soundType: 23
+    clip: {fileID: 8300000, guid: 660b938d6f68546439a1f2d140776f57, type: 3}
   assignedEffectClips:
   - soundType: 1
     clip: {fileID: 8300000, guid: feaeda98a89077747b64f4797d646c54, type: 3}

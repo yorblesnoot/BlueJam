@@ -61,7 +61,7 @@ public class WorldEventHandler : MonoBehaviour
         sceneRelay.bossEncounter = false;
         if (cellEnemy != null && cellEnemy.GetType() == typeof(WorldBoss))
         {
-            Tutorial.CompleteStage(TutorialFor.WORLDBOSS, 1, true);
+            Tutorial.CompleteStage(TutorialFor.WORLDBOSS, 1);
             sceneRelay.bossEncounter = true;
             yield return StartCoroutine(LaunchCombat(cellEnemy));
             yield break;

@@ -22,11 +22,11 @@ public class NonplayerUnit : BattleUnit, ITurnTakingNonplayer
     }
     public void ScaleWithDifficulty(int difficultyFactor)
     {
-        loadedStats[StatType.MAXHEALTH] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemyHealthPerThreat];
-        loadedStats[StatType.DAMAGE] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemyStatsPerThreat];
-        loadedStats[StatType.BARRIER] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemyStatsPerThreat];
-        loadedStats[StatType.HEAL] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemyStatsPerThreat];
-        loadedStats[StatType.SPEED] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemySpeedPerThreat];
+        loadedStats[StatType.MAXHEALTH] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemyHealthScaling];
+        loadedStats[StatType.DAMAGE] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemyStatScaling];
+        loadedStats[StatType.BARRIER] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemyStatScaling];
+        loadedStats[StatType.HEAL] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemyStatScaling];
+        loadedStats[StatType.SPEED] *= 1 + difficultyFactor * Settings.Balance[BalanceParameter.EnemySpeedScaling];
     }
 
     public override void TakeTurn()
@@ -95,7 +95,7 @@ public class NonplayerUnit : BattleUnit, ITurnTakingNonplayer
     static readonly float deathPause = 1f;
     IEnumerator SlowDeath()
     {
-        VFXMachine.PlayAtLocation("DeathHaze", transform.position);
+        if(!isSummoned && (Allegiance == AllegianceType.SLIME || Allegiance == AllegianceType.SLIME)) VFXMachine.PlayAtLocation("DeathHaze", transform.position);
         yield return new WaitForSeconds(deathPause);
         gameObject.SetActive(false);
     }

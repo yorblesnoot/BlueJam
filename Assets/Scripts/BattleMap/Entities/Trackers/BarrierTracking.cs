@@ -23,7 +23,7 @@ public class BarrierTracker
         {
             Tutorial.Initiate(TutorialFor.BATTLEBARRIER, TutorialFor.BATTLEACTIONS);
             Tutorial.EnterStage(TutorialFor.BATTLEBARRIER, 1, 
-                "I've gained a barrier, which absorbs damage before it can reduce my health! <color=blue>Block</color> lasts for two turns, and <color=grey>shield</color> lasts indefinitely. You can see my barriers in the bottom left.");
+                "I've gained a barrier, which absorbs damage! <color=blue>Block</color> lasts for two turns, and <color=grey>shield</color> lasts indefinitely. You can see my barriers in the bottom left.");
         }
         deflectInstances.Add(amount);
         deflectDurations.Add(deflectLength);

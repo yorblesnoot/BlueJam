@@ -15,7 +15,7 @@ public class CardCorrupts : CorruptionElement
         this.budget = budget;
         TurnManager.secondaryInitializationActivities.AddListener(DistributeCorruptionCards);
         Tutorial.Initiate(TutorialFor.BATTLECORRUPTION, TutorialFor.WORLDBATTLE);
-        Tutorial.EnterStage(TutorialFor.BATTLECORRUPTION, 1, "Did you see that? That enemy is bursting with corrupted energy, granting it special cards.");
+        Tutorial.EnterStage(TutorialFor.BATTLECORRUPTION, 1, "Did you see that? That enemy is bursting with corrupted energy, granting it <color=purple>special cards</color>.");
     }
 
     void DistributeCorruptionCards()

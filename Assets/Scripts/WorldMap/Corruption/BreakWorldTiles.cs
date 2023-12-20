@@ -20,7 +20,7 @@ public class BreakWorldTiles : CorruptionElement
             float tileDistance = (position.MapToVector(0) - WorldPlayerControl.player.transform.position).magnitude;
             //Debug.Log(tileDistance);
             if (tileDistance < minDistance || tileDistance > maxDistance) continue;
-            if (runData.eventMap.ContainsKey(position)) continue;
+            if (runData.eventMap.ContainsKey(position + WorldMapRenderer.spotlightGlobalOffset)) continue;
             availableTiles.Add(activeMap[position]);
         }
 
@@ -35,6 +35,7 @@ public class BreakWorldTiles : CorruptionElement
         tileAni.Play("Vibrate");
         yield return new WaitForSeconds(.5f);
         VFXMachine.PlayAtLocation("VoidUnderburst", tile.transform.position);
+        SoundManager.PlaySound(SoundTypeEffect.ATTACKEXPLOSIVE);
         Vector2Int targetPos = tile.transform.position.VectorToMap();
         Vector2Int globalPos = targetPos + WorldMapRenderer.spotlightGlobalOffset;
         

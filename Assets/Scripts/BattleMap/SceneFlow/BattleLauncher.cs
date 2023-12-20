@@ -56,8 +56,5 @@ public class BattleLauncher : MapLauncher
 
         //initialize combat
         TurnManager.InitializeTurns();
-        if(sceneRelay.bossEncounter == true)
-            SoundManager.PlayMusic(SoundType.MUSICBOSS);
-        else SoundManager.PlayMusic(SoundType.MUSICBATTLE);
     }
 }

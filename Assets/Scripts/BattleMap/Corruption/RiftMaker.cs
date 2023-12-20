@@ -9,12 +9,13 @@ public class RiftMaker : CorruptionElement
     List<RiftType> loadedTypes;
     private void Awake()
     {
+        riftedCells = new();
         loadedTypes = new(types);
     }
     public override void Activate(int percent)
     {
         float ratio = percent / 100f;
-        riftedCells = new();
+        
         Dictionary<Vector2Int, GameObject> availableMap = new(MapTools.tileMap.forward);
         int budget = Mathf.RoundToInt(ratio * availableMap.Count);
         loadedTypes = loadedTypes.Where(x => x.Cost <= budget).ToList();

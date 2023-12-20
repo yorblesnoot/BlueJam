@@ -13,6 +13,6 @@ public class DifficultyCounter : MonoBehaviour
 
     public void UpdateCounter()
     {
-        counter.text = $"Threat: {runData.ThreatLevel - Mathf.RoundToInt(Settings.Balance[BalanceParameter.StartingThreat])}";
+        counter.text = $"Threat: {runData.ThreatLevel - Mathf.RoundToInt(Settings.Balance[BalanceParameter.StartingCorruption])}";
     }
 }

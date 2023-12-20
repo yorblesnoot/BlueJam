@@ -30,7 +30,9 @@ public enum SoundType
     MUSICBATTLE3,
 
     MUSICWORLD2,
-    MUSICWORLD3
+    MUSICWORLD3,
+
+    MUSICBOSS2
 
 }
 

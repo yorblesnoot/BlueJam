@@ -20,7 +20,7 @@ MonoBehaviour:
   targetSize: 5
   targetGap: 2
   needsPath: 0
-  isCurse: 0
+  cardType: 2
   consumed: 0
   animType: 9
   delayBeforeEffects: 0

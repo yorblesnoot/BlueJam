@@ -54,7 +54,7 @@ public class WorldMovementController : MonoBehaviour
         Tutorial.CompleteStage(TutorialFor.WORLDPICKUPS, 1, true);
         Tutorial.CompleteStage(TutorialFor.WORLDMOVE, 1, true);
         Tutorial.Initiate(TutorialFor.WORLDPICKUPS, TutorialFor.WORLDMOVE);
-        Tutorial.EnterStage(TutorialFor.WORLDPICKUPS, 1, "To prepare, I should explore the map, gather <color=blue>pickups</color>, and defeat <color=red>enemies</color>. You'll need to hurry, though. Take too long to get there and <color=purple>the world will end.</color>");
+        Tutorial.EnterStage(TutorialFor.WORLDPICKUPS, 1, "To prepare, you should explore the map, gather <color=blue>pickups</color>, and defeat <color=red>enemies</color>. You'll need to hurry, though. Take too long and <color=purple>the world will end.</color>");
 
         Tutorial.CompleteStage(TutorialFor.WORLDCRAFTING, 4, true);
         Tutorial.CompleteStage(TutorialFor.WORLDBOSS, 2, true);

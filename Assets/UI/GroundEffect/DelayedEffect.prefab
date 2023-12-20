@@ -66,7 +66,7 @@ MonoBehaviour:
     rgba: 2449473535
   reticleBar: {fileID: 3874178907362131053, guid: 979ec6a3115c82b47a8302d081092166, type: 3}
   cellSize: 0.5
-  spawnHeight: 0.6
+  spawnHeight: 0.3
   colorDelay: 0.2
 --- !u!1 &7041260999966261743
 GameObject:

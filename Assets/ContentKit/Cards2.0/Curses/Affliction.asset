@@ -16,15 +16,13 @@ MonoBehaviour:
   displayName: Affliction
   art: {fileID: 21300000, guid: 8a94ca56fa5d0485ab678593da84d890, type: 3}
   cost: 3
-  description: 'Pay <color=red>15</color> life. '
-  keywords: 'Range: 0-0 <color=blue>O</color>. <color=red>Consumed.</color>'
   targetShape: 0
   targetSize: 0
   targetGap: 0
   needsPath: 0
-  isCurse: 1
-  cardClass: 02000000
+  cardType: 1
   consumed: 1
   animType: 0
+  delayBeforeEffects: 0
   effects:
   - {fileID: 11400000, guid: 4a90f222882288d4e949d658b643bd82, type: 2}
