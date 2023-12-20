@@ -18,6 +18,6 @@ MonoBehaviour:
   handSize: 2
   startBeats: 1
   damageScaling: 6
-  barrierScaling: 0
+  barrierScaling: 8
   healScaling: 0
   turnSpeed: 0.5
