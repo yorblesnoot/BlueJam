@@ -30,7 +30,7 @@ public class HistoryMiniCardDisplay : MonoBehaviour, IPointerEnterHandler, IPoin
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        CardProjector.ProjectCardFromCanvas(thisCard, owner, transform.TransformPoint(cardPosition.localPosition));
+        CardProjector.ProjectCardInPlace(thisCard, owner);
     }
 
     public void OnPointerExit(PointerEventData eventData)

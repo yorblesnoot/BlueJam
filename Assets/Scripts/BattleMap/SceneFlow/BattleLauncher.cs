@@ -16,6 +16,7 @@ public class BattleLauncher : MapLauncher
 
     private void Start()
     {
+        if (sceneRelay.noSeed) Random.InitState(System.Environment.TickCount);
         //instantiate a prefab map
         Instantiate(dispenser[sceneRelay.battleMap], new Vector3(0, 0, 0), Quaternion.identity);
 

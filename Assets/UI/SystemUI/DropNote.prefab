@@ -66,7 +66,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '* DROP x 1'
+  m_text: '*DROPx 1'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bc588e1f976a879479f47964b006f8de, type: 2}
   m_sharedMaterial: {fileID: 9161561521178941900, guid: bc588e1f976a879479f47964b006f8de, type: 2}
@@ -94,10 +94,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
+  m_fontSize: 48.35
   m_fontSizeBase: 40
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

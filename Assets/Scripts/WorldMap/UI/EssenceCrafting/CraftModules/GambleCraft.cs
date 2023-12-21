@@ -6,10 +6,11 @@ using UnityEngine;
 public class GambleCraft : CraftModule
 {
     [SerializeField] LoadLibrary loadLibrary;
+    int maxFuel = 5;
     public override bool ExecuteCraft(List<DraggableItem> craftingSlotContents, DraggableItem essenceSlotContents, RunData runData)
     {
         if (essenceSlotContents == null) return false;
-        int poolChoice = Random.Range(0, 5 - craftingSlotContents.Count);
+        int poolChoice = Random.Range(0, maxFuel - craftingSlotContents.Count);
         List<Deck> finalPool = new();
         if(poolChoice == 0) finalPool = loadLibrary.decksPool.Where(x => x.deckContents.Count >= 5 && x.deckContents.Count <= 6).ToList();
         else finalPool = loadLibrary.decksPool.Where(x => !x.uncollectible && x.deckContents.Count <= 4).ToList();

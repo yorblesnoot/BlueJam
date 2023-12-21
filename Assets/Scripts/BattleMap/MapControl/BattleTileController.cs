@@ -61,6 +61,7 @@ public class BattleTileController : MonoBehaviour
 
     private void OnMouseEnter()
     {
+        //Debug.Log($"rift: {isRift} player state {PlayerUnit.playerState}");
         if(!isRift && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
         {
             Pathfinder pather = new();

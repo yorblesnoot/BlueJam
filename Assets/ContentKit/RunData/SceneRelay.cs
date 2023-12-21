@@ -15,4 +15,6 @@ public class SceneRelay : ScriptableObject
 
     public Vector3 cameraPosition;
 
+    public bool noSeed;
+
 }

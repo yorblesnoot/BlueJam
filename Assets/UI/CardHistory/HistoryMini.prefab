@@ -169,7 +169,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60.35
+  m_fontSize: 31.7
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -219,8 +219,40 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 558650708982788378, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
+      propertyPath: m_text
+      value: Card Name
+      objectReference: {fileID: 0}
+    - target: {fileID: 558650708982788378, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
       propertyPath: m_fontSize
-      value: 55.8
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 558650708982788378, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
+      propertyPath: m_margin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 558650708982788378, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
+      propertyPath: m_margin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 558650708982788378, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 31
+      objectReference: {fileID: 0}
+    - target: {fileID: 558650708982788378, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
+      propertyPath: m_overflowMode
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 558650708982788378, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
+      propertyPath: m_charWidthMaxAdj
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 558650708982788378, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
+      propertyPath: checkPaddingRequired
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 558650708982788378, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
+      propertyPath: m_enableExtraPadding
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1068469945577873798, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
       propertyPath: m_Name
@@ -308,6 +340,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1068469945577873801, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469885991073772023, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469885991073772023, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469885991073772023, guid: dda80c1f8408ea1429239677526fe9b9, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

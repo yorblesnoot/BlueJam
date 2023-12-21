@@ -14,12 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: 0693ae95-75b7-40b1-9447-577095d1a2f7
   deckContents:
-  - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
-  - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
-  - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
-  - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
-  - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
-  - {fileID: 11400000, guid: 4fcb154f2b39b9e489430665f77d7f0f, type: 2}
+  - {fileID: 11400000, guid: b5fa50316aaf4d043bc2bd9f3c315bb2, type: 2}
+  - {fileID: 11400000, guid: a35b6cf053a0d7c4c9fea1fbc468b924, type: 2}
+  - {fileID: 11400000, guid: a13393aaa5bbcfd4abcd1fc101cedcca, type: 2}
+  - {fileID: 11400000, guid: b875d571767eaf54aa69b0fbd6ca7ef2, type: 2}
+  - {fileID: 11400000, guid: de13f3fce6f073541a81272e8e6edeb8, type: 2}
+  - {fileID: 11400000, guid: 9d457d6919e78d54781e2efbe44a097b, type: 2}
+  - {fileID: 11400000, guid: 5e4107459127c2541995f457ef82abcb, type: 2}
+  - {fileID: 11400000, guid: c72676dc4b4860d48bbdaa1f2f7e9dc6, type: 2}
+  - {fileID: 11400000, guid: c3edf573b4df0154eaa3b71762d6c73c, type: 2}
+  - {fileID: 11400000, guid: a2a9ad8d03e74d7418f3fd0c56b3e75d, type: 2}
   hat: {fileID: 7861371688408044556, guid: 3e6bf70ee875fba4d99acdd7fea73422, type: 3}
   uncollectible: 1
   unitName: Player

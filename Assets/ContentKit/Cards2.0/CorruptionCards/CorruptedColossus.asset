@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: 9f687da5-2273-4adc-a12d-db6a3461b09c
   displayName: Corrupted Gravitas
   art: {fileID: 21300000, guid: 9bc94ac83fc474d129af7e1942f50fe5, type: 3}
-  cost: 4
+  cost: 2
   targetShape: 0
   targetSize: 0
   targetGap: 0

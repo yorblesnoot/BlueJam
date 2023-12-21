@@ -6,7 +6,7 @@ public class CloneCraft : CraftModule
 {
     public override bool ExecuteCraft(List<DraggableItem> craftingSlotContents, DraggableItem essenceSlotContents, RunData runData) 
     {
-        if (essenceSlotContents == null || craftingSlotContents.Count < 2) return false;
+        if (!ClonePossible(essenceSlotContents)) return false;
         for (int i = 0; i < 2; i++)
         {
             runData.essenceInventory.Add(essenceSlotContents.essence);
@@ -17,7 +17,12 @@ public class CloneCraft : CraftModule
 
     public override string GetCraftStatus(DraggableItem essenceSlotContents, List<DraggableItem> craftingSlotContents)
     {
-        if (craftingSlotContents.Count < 2 || essenceSlotContents == null) return "Insufficient materials!";
+        if (!ClonePossible(essenceSlotContents)) return "Insufficient materials!";
         else return $"<color=#FF4E2B>Essence of {essenceSlotContents.essence.unitName} </color> will duplicate!";
+    }
+
+    bool ClonePossible(DraggableItem essenceSlotContents)
+    {
+        return (essenceSlotContents != null);
     }
 }

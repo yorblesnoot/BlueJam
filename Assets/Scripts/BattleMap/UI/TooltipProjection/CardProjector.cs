@@ -24,9 +24,14 @@ public class CardProjector : MonoBehaviour
 
     public static void ProjectCardFromCanvas(CardPlus card, BattleUnit owner, Vector3 canvasPosition)
     {
+        ProjectCardInPlace(card, owner);
+        projectedCard.transform.position = canvasPosition;
+    }
+
+    public static void ProjectCardInPlace(CardPlus card, BattleUnit owner)
+    {
         projectedCard.gameObject.SetActive(true);
         projectedCard.PopulateCard(card, owner);
-        projectedCard.transform.position = canvasPosition;
     }
 
     public static void HideProjectedCard()

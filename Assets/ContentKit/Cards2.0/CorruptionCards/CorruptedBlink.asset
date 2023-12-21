@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: 2bd4c7e2-e904-452e-baa2-2c89b422fdbb
   displayName: Corrupted Warp
   art: {fileID: 21300000, guid: 9bc94ac83fc474d129af7e1942f50fe5, type: 3}
-  cost: 3
+  cost: 2
   targetShape: 0
   targetSize: 5
   targetGap: 2
