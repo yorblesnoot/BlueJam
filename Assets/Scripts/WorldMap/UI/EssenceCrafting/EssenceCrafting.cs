@@ -63,7 +63,7 @@ public class EssenceCrafting : MonoBehaviour
         slots.AddRange(modules[craftType].craftingSlots);
         slots.Add(modules[craftType].essenceSlot);
 
-        foreach (var slot in slots) slot.essenceCrafting = this;
+        if(slots.Count > 0) foreach (var slot in slots) slot.essenceCrafting = this;
         foreach (var card in miniCards) card.bigCard = bigCardDisplay;
 
         runData.essenceInventory = runData.essenceInventory.OrderBy(x => x.name).ToList();

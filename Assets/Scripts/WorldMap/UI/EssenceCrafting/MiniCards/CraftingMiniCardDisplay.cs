@@ -4,9 +4,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class CraftingMiniCardDisplay : MonoBehaviour, ICardDisplay, IPointerEnterHandler, IPointerExitHandler
+public class CraftingMiniCardDisplay : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    public BattleUnit owner { get; set; }
+    public Unit owner { get; set; }
     public CardPlus thisCard { get; set; }
 
     [SerializeField] TMP_Text nameText;
@@ -17,6 +17,7 @@ public class CraftingMiniCardDisplay : MonoBehaviour, ICardDisplay, IPointerEnte
 
     public void PopulateCard(CardPlus card, Unit owner, bool limited = false)
     {
+        this.owner = owner;
         thisCard = card;
         nameText.text = card.displayName;
     }
@@ -31,6 +32,7 @@ public class CraftingMiniCardDisplay : MonoBehaviour, ICardDisplay, IPointerEnte
         bigCard.gameObject.SetActive(true);
         thisCard.InitializeEffects();
         bigCard.PopulateCard(thisCard, owner);
+        Debug.Log(thisCard.name);
     }
 
     public void OnPointerExit(PointerEventData eventData)

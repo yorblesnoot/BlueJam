@@ -51,6 +51,8 @@ public class BattleTileController : MonoBehaviour
             && PlayerUnit.playerState == PlayerBattleState.IDLE && !EventSystem.current.IsPointerOverGameObject())
         {
             Tutorial.CompleteStage(TutorialFor.BATTLEACTIONS, 1);
+
+
             StartCoroutine(TurnManager.playerUnit.ChainPath(myPath));
         }
         else

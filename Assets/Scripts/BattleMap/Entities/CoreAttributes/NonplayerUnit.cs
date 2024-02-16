@@ -58,6 +58,7 @@ public class NonplayerUnit : BattleUnit, ITurnTakingNonplayer
 
     public override void SpendBeats(int beats)
     {
+        turnShow.SetActive(false);
         TurnManager.NPCSpendBeats(this, beats);
     }
 

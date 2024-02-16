@@ -37083,9 +37083,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b64568b6f6613e94a8e7a8d4508c0ecd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  craftingSlots:
-  - {fileID: 0}
-  - {fileID: 0}
+  craftingSlots: []
   essenceSlot: {fileID: 470117782837236159}
   craftStatus: {fileID: 1692624992}
   essenceName: {fileID: 9022351021753235072}

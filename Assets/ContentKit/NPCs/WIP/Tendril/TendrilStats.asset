@@ -17,7 +17,7 @@ MonoBehaviour:
     when killed.
   maxHealth: 5
   handSize: 2
-  startBeats: 1
+  startBeats: -1
   damageScaling: 10
   barrierScaling: 10
   healScaling: 10

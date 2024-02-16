@@ -1,18 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-604833210873233953
-MonoBehaviour:
-  m_ObjectHideFlags: 11
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
 --- !u!21 &2100000
 Material:
   serializedVersion: 8
@@ -20,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PieceShield
-  m_Shader: {fileID: -6465566751694194690, guid: 98bde9a926f4399468c2460382232c03, type: 3}
+  m_Name: PulsePurple
+  m_Shader: {fileID: -6465566751694194690, guid: e1f357aacda62cb45982062ecaa8433f, type: 3}
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -47,14 +34,24 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.674
-    - _DismantleLevel: 0.08
-    - _GlowPower: 0.77
-    - _GradientTransitionLevel: 0.7
+    - _HolePower: 16.77
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _VoronoiDensity: 3
+    - _VoronoiPower: 1.14
     m_Colors:
-    - _ColorEnd: {r: 11.976742, g: 0.25482428, b: 0, a: 0}
-    - _ColorStart: {r: 5.071593, g: 1.2397227, b: 21.526094, a: 0}
-    - _GlowColor: {r: 0.04073512, g: 0.6087465, b: 3.8901966, a: 1}
+    - _MainColor: {r: 0.99076474, g: 0.17831029, b: 3.096115, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &249809332507482839
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 5

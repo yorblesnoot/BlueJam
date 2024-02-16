@@ -48,7 +48,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Alpha: 0.674
-    - _DismantleLevel: 0.08
+    - _DismantleLevel: 0.17
     - _GlowPower: 0.77
     - _GradientTransitionLevel: 0.7
     - _QueueControl: 0

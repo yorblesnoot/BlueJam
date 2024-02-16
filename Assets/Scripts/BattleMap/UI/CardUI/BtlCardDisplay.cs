@@ -8,6 +8,7 @@ public class BtlCardDisplay : PlayerCardDisplay, IPointerEnterHandler, IPointerE
 {
     [SerializeField] GameObject outline;
     bool activated = false;
+    [SerializeField] GameObject trashFade;
     void Awake()
     {
         EventManager.clearActivation.AddListener(ClearActive);
@@ -16,7 +17,16 @@ public class BtlCardDisplay : PlayerCardDisplay, IPointerEnterHandler, IPointerE
     public void OnPointerClick(PointerEventData eventData)
     {
         // activate targeting
-        ActivateCard();
+        if (activated) TrashCard();
+        else ActivateCard();   
+    }
+
+    void TrashCard()
+    {
+        EventManager.clearActivation.Invoke();
+        StartCoroutine(owner.myHand.DiscardCard(this, false));
+        owner.SpendBeats(1);
+        StartCoroutine(TurnManager.EndTurn(owner));
     }
 
     public void ActivateCard()
@@ -50,6 +60,7 @@ public class BtlCardDisplay : PlayerCardDisplay, IPointerEnterHandler, IPointerE
             activated = true;
             EventManager.endEmphasis.Invoke();
             outline.SetActive(true);
+            trashFade.SetActive(true);
         }
     }
 
@@ -58,6 +69,7 @@ public class BtlCardDisplay : PlayerCardDisplay, IPointerEnterHandler, IPointerE
         activated = false;
         emphasize.readyEmphasis = true;
         outline.SetActive(false);
+        trashFade.SetActive(false);
         EventManager.showAOE.Invoke(null);
         EventManager.clearAOE?.Invoke();
         EventManager.targetConfirmed.RemoveListener(ProxyPlayCard);

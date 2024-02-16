@@ -2529,19 +2529,19 @@ MonoBehaviour:
     corruptionBudget: 2
   - tierThreshold: 12
     corruptionElement: {fileID: 347414618}
-    corruptionBudget: 25
+    corruptionBudget: 20
   - tierThreshold: 13
     corruptionElement: {fileID: 347414619}
     corruptionBudget: 2
   - tierThreshold: 15
     corruptionElement: {fileID: 347414618}
-    corruptionBudget: 35
+    corruptionBudget: 25
   - tierThreshold: 16
     corruptionElement: {fileID: 347414617}
     corruptionBudget: 3
   - tierThreshold: 18
     corruptionElement: {fileID: 347414618}
-    corruptionBudget: 50
+    corruptionBudget: 35
   - tierThreshold: 19
     corruptionElement: {fileID: 347414619}
     corruptionBudget: 3
@@ -8219,6 +8219,7 @@ MonoBehaviour:
   emphasize: {fileID: 1065164715324267672}
   cardBack: {fileID: 1248603686}
   outline: {fileID: 6152559505679746514}
+  trashFade: {fileID: 0}
 --- !u!114 &2407207546317215190
 MonoBehaviour:
   m_ObjectHideFlags: 0

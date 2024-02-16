@@ -111,6 +111,7 @@ public class WorldEventHandler : MonoBehaviour
         Vector2Int worldPosition = transform.position.VectorToMap() + WorldMapRenderer.spotlightGlobalOffset;
         sceneRelay.battleMap = runData.worldMap[worldPosition.x, worldPosition.y];
         sceneRelay.enemyBudget = Mathf.RoundToInt(Settings.Balance[BalanceParameter.BaseEncounterSize]) + runData.ThreatLevel / Mathf.RoundToInt(Settings.Balance[BalanceParameter.ThreatPerEncounterSizeUp]);
+        sceneRelay.noSeed = false;
         EventManager.prepareForBattle.Invoke();
         EventManager.loadSceneWithScreen.Invoke(2);
         EventManager.loadSceneWithScreen.Invoke(-1);
